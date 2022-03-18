@@ -15,3 +15,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+import {
+  getDatabase,
+  ref,
+  set,
+  child,
+  get,
+} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+const dataBase = getDataBase();
