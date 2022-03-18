@@ -5,23 +5,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAWnIJrGD7XNBEIDmno0Gda2LpElXmIU68",
-  authDomain: "grrrl-talk.firebaseapp.com",
-  projectId: "grrrl-talk",
-  storageBucket: "grrrl-talk.appspot.com",
-  messagingSenderId: "219826851050",
-  appId: "1:219826851050:web:6bdf78b8a8b72d0117db93",
+  apiKey: "AIzaSyDYuZfFIZPCxXmDcw9j3_dlkuyM-57OKWA",
+  authDomain: "girl-talk-app.firebaseapp.com",
+  projectId: "girl-talk-app",
+  storageBucket: "girl-talk-app.appspot.com",
+  messagingSenderId: "994363584873",
+  appId: "1:994363584873:web:6cf262fb179661b8b00df8",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import {
-  getDatabase,
-  ref,
-  set,
-  child,
-  get,
-} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
 
-const dataBase = getDataBase();
+
