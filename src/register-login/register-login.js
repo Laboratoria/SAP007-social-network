@@ -14,36 +14,36 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-// Set up our register function
+// Config funcao register 
 function register() {
-  // Get all our input fields
+  // Pegar todos os campos input
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const username = document.getElementById('username').value;
 
-  // Validate input fields
+  // Validar campos input
 
   if (validadeEmail(email) === false || validatePassword(password) === false) {
     alert('Email ou Password vazios!');
     return;
-    // Don't continue running the code
+    
   }
   if (validateField(username) === false) {
     alert('Um ou dois campos estão vazios!');
     return;
   }
 
-  // Move on with Auth
+  // Continuacao com o authentication
   auth
     .createUserWithEmailAndPassword(email, password)
     .then(function (){
-      // Declare user variable
+      // Declarar user variavel
       let user = auth.currentUser;
 
-      // Add this user to Firebase Database
+      // Add esse user ao Firebase Database
       let databaseRef = database.ref();
 
-      // Create User data
+      // Criar dados do User 
       let userData = {
         email: email,
         username: username,
@@ -51,14 +51,14 @@ function register() {
         last_login: Date.now(),
       };
 
-      // Push to Firebase Database
+      // Enviar para Firebase Database
       databaseRef.child('users/' + user.uid).set(userData);
 
-      // DOne
+     
       alert('Usuária criada!');
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
+      // Firebase usará aqui para acusar erros
       var errorCode = error.code;
       var errorMessage = error.message;
 
@@ -66,41 +66,41 @@ function register() {
     });
 }
 
-// Set up our login function
+// Config funcao login 
 function login() {
-  // Get all our input fields
+  // Pegar os campos input 
   email = document.getElementById('email').value;
   password = document.getElementById('password').value;
 
-  // Validate input fields
+  // Validar campos input 
   if (validadeEmail(email) == false || validatePassword(password) == false) {
     alert('Email ou Password vazios!');
     return;
-    // Don't continue running the code
+    
   }
 
   auth
     .signInWithEmailAndPassword(email, password)
     .then(function () {
-      // Declare user variable
+      // Declarar user variaveis
       var user = auth.currentUser;
 
-      // Add this user to Firebase Database
+      // Add esse user ao Firebase Database
       var databaseRef = database.ref();
 
-      // Create User data
+      // Criar dados do user
       var userData = {
         last_login: Date.now(),
       };
 
-      // Push to Firebase Database
+      // Enviar para Firebase Database
       databaseRef.child('users/' + user.uid).update(userData);
 
-      // DOne
+      
       alert('Usuária logada!');
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
+      // Firebase usará aqui para acusar erros
       var errorCode = error.code;
       var errorMessage = error.message;
 
@@ -108,11 +108,11 @@ function login() {
     });
 }
 
-// Validate Functions
+// Validar Funcoes
 function validadeEmail(email) {
   const expression = /^[^@]+@\w+(\.\w+)+\w$/;
   if (expression.test(email) == true) {
-    // Email is good
+    
     return true;
   } else {
       return false;
@@ -120,7 +120,7 @@ function validadeEmail(email) {
 }
 
 function validatePassword(password) {
-  // Firebase only accepts lengths greater than 6
+  // Firebase manda msg automatica que só aceita acima de 6 caracteres
   if (password < 6) {
     return false;
   }
