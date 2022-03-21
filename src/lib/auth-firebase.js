@@ -1,4 +1,3 @@
-import firebaseApp from "./config-firebase.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,35 +9,36 @@ const auth = getAuth();
 
 export function userCreate(email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
+    .then((userCredential) => {
+      const user = userCredential.user;
       return user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
       return errorCode, errorMessage;
-  });
+    });
 }
 
 export function userLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
+    .then((userCredential) => {
+      const user = userCredential.user;
       return user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
       return errorCode, errorMessage;
-  });
+    });
 }
 
-// const auth = getAuth();
-signOut(auth)
-  .then(() => {
-    // Sign-out successful.
-  })
-  .catch((error) => {
-    // An error happened.
-  });
+export function userLogout() {
+  return signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch((error) => {
+      return error;
+    });
+}

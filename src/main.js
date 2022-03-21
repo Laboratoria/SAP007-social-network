@@ -1,5 +1,6 @@
 import "./lib/config-firebase.js";
 import { userCreate, userLogout } from "./lib/auth-firebase.js";
+
 const buttonSubmit = document.getElementById("buttonSubmit");
 
 buttonSubmit.addEventListener("click", async (e) => {
@@ -9,4 +10,9 @@ buttonSubmit.addEventListener("click", async (e) => {
   console.log(tryingLogin);
 });
 
-myFunction();
+const logout = document.getElementById("logout");
+
+logout.addEventListener("click", async (e) => {
+  const tryingLogout = await userLogout();
+  console.log(tryingLogout);
+});
