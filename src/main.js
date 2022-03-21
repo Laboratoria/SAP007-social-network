@@ -1,6 +1,21 @@
-// Este es el punto de entrada de tu aplicacion
+import './lib/config-firebase.js';
+import {createUser, signIn} from './lib/config-auth.js';
+// myFunction();
 
-import { myFunction } from './lib/index.js';
 
+const btnSignIn = document.getElementById('btnSignIn');
 
-myFunction();
+btnSignIn.addEventListener('click', async (e) => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const createSignIn = await createUser (email,password);
+    console.log(createSignIn);
+})
+
+btnSignIn.addEventListener('click', async (e) => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const tryingSignIn = await signIn (email,password);
+    // console.log(tryingSignIn);
+})
+
