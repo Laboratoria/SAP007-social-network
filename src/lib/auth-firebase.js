@@ -36,7 +36,7 @@ export function userLogin(email, password) {
 export function userLogout() {
   return signOut(auth)
     .then(() => {
-      return "Logout!";
+      return "Logout";
     })
     .catch((error) => {
       return error;
