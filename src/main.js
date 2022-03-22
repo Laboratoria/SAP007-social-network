@@ -1,5 +1,9 @@
-// Este es el punto de entrada de tu aplicacion
-import "./lib/firebase.js"
-import { myFunction } from './lib/index.js';
+import home from "./Pages/home.js";
+import "./lib/firebase.js";
 
-myFunction();
+const main = document.querySelector("#root");
+
+window.addEventListener("load", () =>{
+    main.appendChild(home());
+})
+

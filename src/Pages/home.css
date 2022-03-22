@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50%;
+    left: 18%;
+}
+.input-email,
+.input-password {
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2%;
+    height: 30px;
+    font-size: 19px;
+    background-color: #F2F2F2;
+    border: black;
+    align-self: center;
+}
+.enter {
+    background-color: #F26E22;
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 8px;
+    height: 25px;
+    font-size: 16px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+}
+.register {
+    margin: auto;
+}
+.register a {
+    color: black;
+}
