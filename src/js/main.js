@@ -1,5 +1,5 @@
-import "./lib/config-firebase.js";
-import { userCreate, userLogout } from "./lib/auth-firebase.js";
+import "../lib/config-firebase.js";
+import { userCreate, userLogout } from "../lib/auth-firebase.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 const buttonSubmit = document.getElementById("buttonSubmit");
