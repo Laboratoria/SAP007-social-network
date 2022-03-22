@@ -1,0 +1,5 @@
+:root {
+  --main-bg-color: rgb(42, 42, 139);
+}
+
+/* background-color: var(--main-bg-color); como chamar a variável nos arquivos de css*/
