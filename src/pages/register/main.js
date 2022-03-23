@@ -1,9 +1,9 @@
 export const createLogin = () => {
-    const main = document.getElementById('root');
-    main.innerHTML = '';
-    const createLogin = document.createElement('div');
-    createLogin.setAttribute('class', 'box-form-create-login');
-    createLogin.innerHTML = `
+  const main = document.getElementById('root');
+  main.innerHTML = '';
+  const createLoginStr = document.createElement('div');
+  createLoginStr.setAttribute('class', 'box-form-create-login');
+  createLoginStr.innerHTML = `
   <link rel="stylesheet" href="./pages/register/create-login.css"/>      
   <figure class="box-slogan">
    <img src="../img/logo.png" alt="Logotype" class="logo-icon">
@@ -21,5 +21,5 @@ export const createLogin = () => {
     <button class="btn btn-area" id="btn-confirm">Confirmar</button>
   </section>
   `;
-    main.appendChild(createLogin);
+  main.appendChild(createLoginStr);
 };

@@ -2,11 +2,11 @@
 import './configurafirebase/configfirebase.js';
 import { createLogin } from './pages/register/main.js';
 
-//import { myFunction } from './pages/login/main.js';
+// import { myFunction } from './pages/login/main.js';
 
 createLogin();
 
-//myFunction();
+// myFunction();
 // console.log('antes');
 // firebase.app.auth().signInWithEmailAndPassword('any@email.com', '123456').then((response) => {
 //   console.log('success', response);

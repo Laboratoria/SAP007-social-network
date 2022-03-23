@@ -1,11 +1,13 @@
 // aqui exportaras las funciones que necesites
 
 export const myFunction = () => {
-    const main = document.getElementById('root');
-    main.innerHTML = '';
-    const login = document.createElement('div');
-    login.setAttribute('class', 'box-form-login');
-    login.innerHTML = `
+  const main = document.getElementById('root');
+  main.innerHTML = '';
+  const login = document.createElement('div');
+  login.setAttribute('class', 'box-form-login');
+  login.innerHTML = `
+  <link rel="stylesheet" href="./pages/login/login.css"/>
+  
   <div class="box-slogan">
    <h1>K-FANDOM</h1>
    <img src=" " alt="Logotype" class="logo-icon">
@@ -17,23 +19,16 @@ export const myFunction = () => {
      <input type="password" placeholder="Senha" id="password-area" name="password-area" class="login-area">
    </form>
    <div class="inerror-message" id="error-login"></div>
-   <button class="btn btn-area" id="btn-sign-In">Entrar</button>
+   <button class="btn btn-area" id="btn-sign-in">Entrar</button>
    <p>ou</p>
    <button class="btn btn-area" id="btn-google">Acesse com Google</button>
   </div>
   `;
-    const inputEmail = login.querySelector('#email-area');
-    console.log(inputEmail);
-    main.appendChild(login);
+  const inputEmail = login.getElementById('email-area');
+  const inputPassword = login.getElementById('password-area');
+  console.log(inputEmail.value, inputPassword.value);
 
-
-    // console.log('antes');
-    // firebase.auth().signInWithEmailAndPassword('any@email.com', '123456').then((response) => {
-    //   console.log('success', response);
-    // }).catch((error) => {
-    //   console.log('error', error);
-    // });
-    // console.log('depois');
+  main.appendChild(login);
 };
 
 // const buttonLogin = document.getElementById('btn-sign-In');
