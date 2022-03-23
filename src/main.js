@@ -1,5 +1,17 @@
-// Este es el punto de entrada de tu aplicacion
-import './lib/dependencies/config-firebase.js';
-import { myFunction } from './lib/index.js';
+import { db } from './config-firebase.js';
+import { collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
-myFunction();
+async function getDoBanco() {
+  const collectionPost = collection(db, 'posts');
+  const postSnapshot = await getDocs(collectionPost);
+  const listagemPost = postSnapshot.docs.map(doc => doc.data());
+  //console.log(listagemPost)
+  return listagemPost;
+}
+
+getDoBanco()
+
+addDoc(collection(db, "users"), {
+  name: "Cássia",
+  email: "cassia@hotmail.com"
+});
