@@ -17,9 +17,16 @@ export const createLogin = () => {
      <input type="password" placeholder="Senha" id="password-area" name="password-area" class="create-area">
      <section class="inerror-message" id="error-password"></section>
      </form>
-    <button class="btn btn-area" id="btn-back">Voltar</button>
-    <button class="btn btn-area" id="btn-confirm">Confirmar</button>
+    <button class="btn-back btn-area" id="btn-back">Voltar</button>
+    <button class="btn-confirm btn-area" id="btn-confirm">Confirmar</button>
   </section>
   `;
     main.appendChild(createLogin);
+
+    const btnConfirm = createLogin.querySelector('#btn-confirm');
+    btnConfirm.addEventListener('click', () => {
+        console.log("oi");
+    });
+
+
 };

@@ -1,30 +1,42 @@
 // aqui exportaras las funciones que necesites
 
-export const myFunction = () => {
+import { createLogin } from "../register/page-register.js";
+
+export const pageLogin = () => {
     const main = document.getElementById('root');
     main.innerHTML = '';
     const login = document.createElement('div');
     login.setAttribute('class', 'box-form-login');
     login.innerHTML = `
-  <div class="box-slogan">
-   <h1>K-FANDOM</h1>
-   <img src=" " alt="Logotype" class="logo-icon">
+    <link rel="stylesheet" href="./pages/login/login.css"/> 
+  <section class="box-slogan">
+  <figure class="box-slogan">
+  <img src="../img/logo.png" alt="Logotype" class="logo-icon">
+ </figure>
    <h3 class="slogan">A rede social da comunidade Fandom</h3>
-  </div>
-  <div class="box-form-login">
+  </section>
+  <section class="box-form-login">
    <form method="post">
      <input type="email" placeholder="E-mail" id="email-area" name="email-area" class="login-area">
      <input type="password" placeholder="Senha" id="password-area" name="password-area" class="login-area">
-   </form>
-   <div class="inerror-message" id="error-login"></div>
-   <button class="btn btn-area" id="btn-sign-In">Entrar</button>
+   </section>
+   <section class="inerror-message" id="error-login"></div>
+   <button class="btn-sign-in btn-area" id="btn-sign-in">Entrar</button>
    <p>ou</p>
-   <button class="btn btn-area" id="btn-google">Acesse com Google</button>
-  </div>
+   <button class="btn-google btn-area" id="btn-google">Acesse com Google</button>
+   <button class="btn-register btn-area" id="btn-register">Cadastre-se</button>
+  </section>
   `;
     const inputEmail = login.querySelector('#email-area');
     console.log(inputEmail);
     main.appendChild(login);
+
+
+    const btnRegister = login.querySelector('#btn-register');
+    btnRegister.addEventListener('click', () => {
+        createLogin();
+    });
+
 
 
     // console.log('antes');

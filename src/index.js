@@ -1,10 +1,11 @@
 // Este es el punto de entrada de tu aplicacion
 import './configurafirebase/configfirebase.js';
-import { createLogin } from './pages/register/main.js';
+import { pageLogin } from './pages/login/login.js';
+//import { createLogin } from './pages/register/page-register.js';
 
-//import { myFunction } from './pages/login/main.js';
+pageLogin();
 
-createLogin();
+//createLogin();
 
 //myFunction();
 // console.log('antes');

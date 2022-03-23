@@ -1,1 +1,0 @@
-import './configurafirebase/configfirebase.js';
