@@ -1,5 +1,6 @@
-// Este es el punto de entrada de tu aplicacion
+import { myFunction } from "./lib/index.js";
+import "./js/config-firebase.js";
 
-import { myFunction } from './lib/index.js';
+const app = initializeApp(firebaseConfig);
 
 myFunction();
