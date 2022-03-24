@@ -10,9 +10,8 @@ return createUserWithEmailAndPassword(auth, email, password)
     return user;
   })
   .catch((error) => {
-    const errorCode = error.code;
     const errorMessage = error.message;
-    return (errorMessage, errorCode);
+    return errorMessage, errorCode;
   });
 }
 
@@ -24,7 +23,6 @@ return signInWithEmailAndPassword(auth, email, password)
     return user;
   })
   .catch((error) => {
-    // const errorCode = error.code;
     const errorMessage = error.message;
     return errorMessage;
   });
