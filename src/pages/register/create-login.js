@@ -1,1 +1,1 @@
-import './configurafirebase/configfirebase.js';
+console.log('oi');
