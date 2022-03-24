@@ -14,6 +14,8 @@
 
 - [1. INTRODUÇÃO](#1-introdução)
 - [2. HISTÓRIAS DE USUÁRIOS](#2-histórias-de-usuários)
+  - [2.1. Critérios de Aceitação](#21-critérios-de-aceitação)
+  - [2.2. Definição de Pronto](#22-definição-de-pronto)
 - [3. PROTÓTIPOS](#3-protótipos)
   - [3.1. UX (Experiência do Usuário) e UI (Design de Interface)](#31-ux-experiência-do-usuário-e-ui-design-de-interface)
   - [3.2. Protótipo de Baixa Fidelidade](#32-protótipo-de-baixa-fidelidade)
@@ -24,17 +26,36 @@
    
 ## 1. INTRODUÇÃO
    
-LabFriends é uma rede social interna destinada para ex-alunas, alunas e futuras alunas do bootcamp da _*[Laboratoria](https://www.laboratoria.la/br)*_, com objetivo de mantê-las conectadas, mesmo após o término do bootcamp, além de ampliar a sua rede de contato profissional. 
+LabFriends é uma rede social interna destinada para todas alunas do bootcamp da _*[Laboratoria](https://www.laboratoria.la/br)*_ do primeiro semestre de 2022, com objetivo de mantê-las conectadas, mesmo após o término do bootcamp, além de ampliar a sua rede de contato profissional. 
 
 Todas as usuárias terão um perfil editável, com informações pessoais relacionados a área de programação e também poderão criar, editar e excluir suas postagens visualizadas em sua linha do tempo (timeline), além de comentar e curtir posts das demais usuárias. Por fim, a LabFriends contará com uma área específica, onde trará uma lista contendo: o seu nome social, a sua foto e uma breve descrição de sua vida pessoal e profissional, podendo encontrar uma usuária específica por meio da pesquisa com seu nome.
 
-O diferencial dessa rede social é que todas as mulheres que se cadastrarem, serão automaticamente conectadas com as demais existentes na LabFriends, não havendo necessidade de encontrar usuárias individualmente para solicitar a sua amizade online. Assim, todas as usuárias poderão se conectar com maior número de alunas, ex-alunas e futuras alunas da Laboratoria, para buscar informações pertinentes enquanto as mesmas estão cursando o bootcamp e até mesmo para dúvidas profissionais após o seu término.
+O diferencial dessa rede social é que todas as mulheres que se cadastrarem, serão automaticamente conectadas com as demais existentes na LabFriends, não havendo necessidade de encontrar usuárias individualmente para solicitar a sua amizade online. Assim, todas as usuárias poderão se conectar com maior número de alunas,  para buscar informações pertinentes enquanto as mesmas estão cursando o bootcamp e até mesmo para dúvidas profissionais após o seu término.
 
 ## 2. HISTÓRIAS DE USUÁRIOS
 
+> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notegbook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
+
 > "Eu, como aluna da Lab (Laboratoria), desejo manter contato com as minhas colegas de bootcamp e também as demais de outras turmas formadas anteriormente, para tirar dúvidas sobre a carreira de programação e também de assuntos do próprio bootcamp. Também quero para ter momentos de entretenimento com as minhas colegas fora do horário do bootcamp."
 
-> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notegbook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
+### 2.1. Critérios de Aceitação
+
+   - Permitir que somentes as estudantes façam parte da LabFriends.
+   - Ter todos os dados salvado no site.
+   - Permitir que o perfil de cada usuária seja editável.
+   - Poder postar, editar, apaga e comentar postagens pessoais e de terceiros.
+
+### 2.2. Definição de Pronto 
+
+   - Referente aos aspectos técnicos apontados no README da Laboratoria.
+
+      - Ser uma SPA.
+      - Ser responsivo.
+      - Receber code review de pelo menos uma parceira de outra equipe.
+      - Fazer tests unitários.
+      - Fazer testes manuais buscando erros e imperfeições simples.
+      - Fazer testes de usabilidade e incorporar o feedback dos usuários como melhorias.
+      - Fazer deploy do aplicativo e marcar a versão (git tag).
    
 ## 3. PROTÓTIPOS
 
