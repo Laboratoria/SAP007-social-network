@@ -6,10 +6,37 @@
 **Status do Projeto:** _Em Andamento_
   
 **Deploy:** 
-  
+</div>
+
 ---
 
-## 5. Autoras
+## ÍNDICE
+
+- [1. INTRODUÇÃO](#1-introdução)
+- [2. HISTÓRIAS DE USUÁRIOS](#2-histórias-de-usuários)
+- [3. PROTÓTIPOS](#3-protótipos)
+- [4. TESTES DE USABILIDADE](#4-testes-de-usabilidade)
+- [5. AUTORAS](#5-autoras)
+
+---
+   
+## 1. INTRODUÇÃO
+   
+LabFriends é uma rede social interna destinada para ex-alunas, alunas e futuras alunas do bootcamp da _*[Laboratoria](https://www.laboratoria.la/br)*_, com objetivo de mantê-las conectadas, mesmo após o término do bootcamp, além de ampliar a sua rede de contato profissional. 
+
+Todas as usuárias terão um perfil editável, com informações pessoais relacionados a área de programação e também poderão criar, editar e excluir suas postagens visualizadas em sua linha de tempo, além de comentar e curtir posts das demais usuárias. Por fim, a LabFriends contará com uma área específica, onde trará uma lista contendo: o seu nome social, a sua foto e uma breve descrição de sua vida pessoa e profissional, podendo encontrar uma usuária específica por meio da pesquisa com seu nome.
+
+O diferencial dessa rede social é que todas as mulheres que se cadastrarem, serão automaticamente conectadas com as demais existentes na LabFriends, não havendo necessidade de encontrar usuárias individualmente para solicitar a sua amizade online. Isso também evita que usuárias esqueçam de aceitar as solicitações de amizades das demais colegas de turma.
+
+## 2. HISTÓRIAS DE USUÁRIOS
+
+
+   
+## 3. PROTÓTIPOS
+   
+## 4. TESTES DE USABILIDADE
+
+## 5. AUTORAS
 
 <table>
 <td>
