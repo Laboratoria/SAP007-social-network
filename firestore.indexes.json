@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+  "indexes": [],
+  "fieldOverrides": []
+}
+=======
   // Example:
   //
   // "indexes": [
@@ -24,3 +29,4 @@
   "indexes": [],
   "fieldOverrides": []
 }
+>>>>>>> fb7f2e85bf04099b08783bcd258dcf274d7587e6
