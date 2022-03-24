@@ -1,5 +1,5 @@
 import login from '../pages/login.js';
-// import feed from '../pages/feed.js';
+import feed from '../pages/feed.js';
 import singUp from '../pages/singup.js';
 
 const main = document.querySelector('#root');

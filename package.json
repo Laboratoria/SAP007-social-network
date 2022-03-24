@@ -38,7 +38,6 @@
   "dependencies": {
     "firebase": "^9.6.9",
     "firebase-admin": "^10.0.2",
-    "firebase-functions": "^3.19.0",
-    "firebaseui": "^6.0.1"
+    "firebase-functions": "^3.19.0"
   }
 }
