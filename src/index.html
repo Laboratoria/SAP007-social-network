@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/styles.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Welcome Girrl Talk</title>
-  </head>
-  <body>
-    <h2>Olá</h2>
-    <div id="root">
-      <nav id="main-nav" class="sidebar">
-        <a href="/home" onclick="route()">Home</a>
-        <a href="/register" onclick="route()">Cadastre-se</a>
-        <a href="/login" onclick="route()">Login</a>
-        <a href="/about" onclick="route()">Sobre</a>
-      </nav>
-      <div id="main-page"></div>
-    </div>
-
-    <script src="js/router.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>  -->
-    <script type="module" src="main.js"></script>
-    <script type="module" src="register-login/register-login.js"></script>
-  </body>
+    <title>SPA Grrl Talk</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a  href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#loginregister">Login ou Registro</a>
+                </li>
+                <li>
+                    <a href="#about">Sobre</a>
+                </li>
+                  
+            </ul>
+        </nav>
+    </header>
+    <main id="root"></main>
+    <footer>@lalaonde | @amandagusmao</footer>
+    <script src="main.js" type="module"></script>
+    
+</body>
 </html>
