@@ -1,5 +1,3 @@
-
-
 export default () => {
   const main = document.getElementById('root');
   main.innerHTML = '';

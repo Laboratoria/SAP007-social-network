@@ -1,5 +1,3 @@
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-
 export default () => {
   const areaSingUp = document.createElement('div');
   areaSingUp.innerHTML = `
@@ -27,28 +25,6 @@ export default () => {
         </div>
     </div>
 `;
-
-  const btnCadastro = areaSingUp.querySelector('#buttonRegister');
-  const email = areaSingUp.querySelector('#inputEmail');
-  const password = areaSingUp.querySelector('#inputPassword');
-
-  btnCadastro.addEventListener('click', (event) => {
-    event.preventDefault();
-    console.log('banana');
-    console.log(email.value);
-    console.log(password.value);
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email.value, password.value)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  });
 
   return areaSingUp;
 };
