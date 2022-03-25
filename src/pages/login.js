@@ -1,6 +1,6 @@
 export default () => {
   const areaLogin = document.createElement('div');
-  const formLogin = `
+  areaLogin.innerHTML = `
   <div class="main-login">
     <h2>Login</h2>
     <form method="post">
@@ -13,7 +13,7 @@ export default () => {
       </button>
     </form>
     <hr>
-    <button>Entrar com o Google</button>
+    <button id="google">Entrar com o Google</button>
     <button>Entrar com o Facebook</button>
     <button>Entrar com o GitHub</button>
     <hr>
@@ -22,6 +22,5 @@ export default () => {
     </button>
   </div>
 `;
-  areaLogin.innerHTML = formLogin;
   return areaLogin;
 };
