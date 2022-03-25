@@ -17,16 +17,13 @@ export function userCreate(email, password) {
 }
 
 export function userLogin(email, password) {
-  return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+  return signInWithEmailAndPassword(auth, email, password).then(
+    (userCredential) => {
       const user = userCredential.user;
+      console.log("entrou!");
       return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorCode, errorMessage;
-    });
+    }
+  );
 }
 
 export function userLogout() {

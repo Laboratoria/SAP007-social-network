@@ -1,20 +1,3 @@
-// const logout = document.getElementById("logout");
-
-// logout.addEventListener("click", async (e) => {
-//   const tryingLogout = await userLogout();
-//   console.log(tryingLogout);
-//   const auth = getAuth();
-//   const user = auth.currentUser;
-
-//   console.log(user);
-// });
-
-// const mainHTML = document.getElementById("root");
-
-// mainHTML.innerHTML = feed();
-// mainHTML.innerHTML = register();
-// mainHTML.innerHTML = signin();
-
 import signin from "./pages/signin.js";
 import register from "./pages/register.js";
 import timeLine from "./pages/feed.js";
