@@ -11,6 +11,7 @@ export default () => {
 
     <div id="form_content_container">
       <div id="form_content_inner_container">
+        <input type="username" id="username" placeholder="Username" />
         <input type="email" id="email" placeholder="Email" />
         <input type="password" id="password" placeholder="Password" />
         <div id="button_container">
