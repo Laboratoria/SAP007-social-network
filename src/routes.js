@@ -1,5 +1,5 @@
 import register from "./pages/register/index.js";
-import signIn from "./pages/signIn/index.js";
+import login from "./pages/signIn/index.js";
 import feed from "./pages/feed/index.js";
 
 const main = document.getElementById('root');
@@ -11,8 +11,8 @@ const init = () => {
             case '#register':
                 main.appendChild(register());
                 break;
-            case '#signIn':
-                main.appendChild(signIn());
+            case '#login':
+                main.appendChild(login());
                 break;
             case '#feed':
             main.appendChild(feed());
