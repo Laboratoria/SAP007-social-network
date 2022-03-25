@@ -1,0 +1,11 @@
+.username,
+.confirm-password {
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2%;
+    height: 30px;
+    font-size: 19px;
+    background-color: #F2F2F2;
+    border: black;
+    align-self: center;
+}

@@ -37,4 +37,7 @@
 }
 .register a {
     color: black;
+    float: inline-end;
+    position: relative;
+    top: 340px;
 }
