@@ -1,4 +1,7 @@
-export default function signIn (){
+import '../../lib/config-firebase.js';
+import {signIn} from '../../lib/config-auth.js';
+
+export default function login(){
         const container = document.createElement('div');
         const template = `
             <div>
@@ -9,17 +12,21 @@ export default function signIn (){
             </div>
         `;
          container.innerHTML = template;
-         return container
-         // console.log(template);
-    }
+        
+    const email = container.querySelector('#email');
+    const password = container.querySelector('#password');
+    const btnSignIn = container.querySelector('#btnSignIn');
     
-    // const btnSignIn = document.getElementById('btnSignIn');
-    
-    // btnSignIn.addEventListener("click", async (e) => {
-    //     e.preventDefault();
-    //     const email = document.getElementById('email').value;
-    //     const password = document.getElementById('password').value;
-    //     const tryingSignIn = await signIn (email,password);
-    //     console.log(tryingSignIn);
-    // })
-    
+    btnSignIn.addEventListener("click", (e) => {
+        e.preventDefault();
+        signIn (email.value,password.value)
+        .then (function () {
+            window.location.hash = '#feed';
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            return errorMessage;
+          });
+    });
+    return container
+}  
