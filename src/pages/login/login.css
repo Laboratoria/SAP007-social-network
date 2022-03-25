@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 @import url(./reset.css);
+=======
+body {
+    background: pink;
+}
+
+.logo-icon {
+    height: 100px;
+}
+>>>>>>> 0e0bf212cf7d0cd075c55c9a915f4df08611b202
