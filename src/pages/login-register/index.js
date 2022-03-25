@@ -1,3 +1,6 @@
+import { userCreate, userLogin } from '../../lib/auth.js';
+
+
 export default () => {
   const container = document.createElement("div");
   container.classList.add("container");
@@ -27,3 +30,6 @@ export default () => {
 
   return container;
 };
+
+//fazer o botão login e register disparar as funcoes do auth-firebase 
+// userCreate e userLogin 
