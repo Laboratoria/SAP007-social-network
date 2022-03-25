@@ -1,20 +1,29 @@
 import { myFunction } from './lib/index.js';
 import "./configs/start-firebase.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
-import login from "./pages/login/index.js"
+import login from "./pages/login/login.js"
+import newuser from "./pages/newuser/newuser.js"
 
 const main = document.querySelector("#root");
 
-/*const changePages = () => {
-fazer os switches aqui
-}*/
-
+const changePages = () => {
+  window.addEventListener("hashchange", () => {
+    main.innerHTML = "";
+    switch(window.location.hash){
+      case "#login":
+        main.appendChild(login());  
+        break; 
+      case "#register":
+        main.appendChild(newuser()); 
+        break;
+    }
+  })
+}
 
 window.addEventListener("load", () => {
-    main.appendChild(login());  
-    //changePages();    
-  })
-
+  main.appendChild(login()); 
+  changePages();     
+})
 
 myFunction();
 
