@@ -1,1 +1,6 @@
 @import url(../style/reset.css);
+
+.header-feed{
+    background: var(--header);
+    height: 70px;
+}
