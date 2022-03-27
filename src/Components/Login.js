@@ -24,7 +24,7 @@ export const Login = () => {
         <p id="registro-google">Ou</p><br>
         <p id="registro">Registre-se no Grrl Talk</p><br><br>
     </div>
-    <div class="div-img-login"><img src="images/wall.jpeg" class="img-login"/>
+    <div class="div-img-login"><img src="images/wall2.jpeg" class="img-login"/>
     </div>`;
 
   // Função para registo
