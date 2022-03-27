@@ -1,25 +1,26 @@
-import { Register } from '../Components/Register.js';
-import { Login } from '../Components/Login.js';
-import { Home } from '../Components/Home.js';
+import { Register } from "../Components/Register.js";
+import { Login } from "../Components/Login.js";
+import { Home } from "../Components/Home.js";
 
 export const routes = (hash) => {
-  const containerRoot = document.getElementById('root');
-  containerRoot.innerHTML = ''; // Reiniciando el Div a vacio;
+  const containerRoot = document.getElementById("root");
+  containerRoot.innerHTML = "";
   switch (hash) {
-    case '#/login':
+    case "#/login":
       Login();
       break;
 
-    case '#/register':
+    case "#/register":
       Register();
       break;
 
-    case '#/home':
+    case "#/home":
       Home();
       break;
 
-    // En caso que el url no sea correcto, nos redigire a la página de "No esta disponible".
+    // Caso a url nao seja correta, irá para a pág "nao esta disponíve".
+
     default:
-      containerRoot.innerHTML = 'Esta página no esta disponible';
+      containerRoot.innerHTML = "Esta página no esta disponible";
   }
 };
