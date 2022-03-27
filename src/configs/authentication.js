@@ -49,4 +49,3 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });
-
