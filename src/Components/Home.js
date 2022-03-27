@@ -1,10 +1,10 @@
-import { getCurrentUser } from '../lib/librariesfirebase.js';
+import { getCurrentUser } from "../lib/librariesfirebase.js";
 
 export const Home = () => {
   const user = getCurrentUser();
   const userName = user.displayName;
 
-  document.getElementById('root').innerHTML = `
+  document.getElementById("root").innerHTML = `
   <h1>Bem-vinda de volta, Grrl! ${userName}!</h1>`;
 };
 
