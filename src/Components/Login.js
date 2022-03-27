@@ -27,7 +27,7 @@ export const Login = () => {
     <div class="div-img-login"><img src="images/wall2.jpeg" class="img-login"/>
     </div>`;
 
-  // Função para registo
+  // Função para registro
   const getRegister = document.querySelector("#registro");
   const starting = document.querySelector("#iniciar");
   getRegister.addEventListener("click", () => {
@@ -35,7 +35,7 @@ export const Login = () => {
   });
 
   starting.addEventListener("click", () => {
-    // LLeva al home
+    // Leva para a página home (futuro feed)
     window.location.hash = "#/home";
   });
   const loginGoogle = document.getElementById("google");
