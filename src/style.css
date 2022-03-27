@@ -1,0 +1,198 @@
+* {
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* @media screen and (min-width: 380px) and (max-width: 899px) and (min-height:670px) { */
+
+/* página login */
+
+#div-login {
+  height: 843px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fecfd5;
+}
+
+#div-logo {
+  width: 100%;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 4vw;
+}
+.logo {
+}
+
+.subtitle {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 1vw;
+}
+
+.login-email {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4vw;
+}
+.icon-email {
+  position: absolute;
+  align-self: center;
+  pointer-events: none;
+  margin-left: 20px;
+  color: white;
+}
+.e-mail {
+  background-color: rgba(20, 20, 20, 0.178);
+  color: white;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+}
+::placeholder {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.568);
+}
+
+.write-password {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.password {
+  background-color: rgba(20, 20, 20, 0.178);
+  color: white;
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+}
+.icon-password {
+  position: absolute;
+  align-self: center;
+  pointer-events: none;
+  margin-left: 20px;
+  color: white;
+}
+
+#iniciar {
+  margin-top: 30px;
+  background-color: #340068;
+  color: #c5ebc3;
+  font-size: medium;
+  width: 50%;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+}
+
+#google {
+  mmargin-bottom: 0px;
+  margin-top: 0px;
+  background-color: rgb(223, 215, 215);
+  color: black;
+  width: 48%;
+  height: 35px;
+  border-radius: 20px;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#google > p {
+  font-size: 14px;
+}
+.imageGoogle {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+#o {
+  font-size: 18px;
+  color: white;
+}
+#registro-google {
+  color: #340068;
+}
+
+/* página registro */
+.div-username {
+  width: 70%;
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.register-input {
+  background-color: rgba(20, 20, 20, 0.178);
+  color: white;
+  width: 80%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+}
+.register-input::placeholder {
+  color: rgba(255, 255, 255, 0.568);
+}
+
+.register-btn {
+  margin-top: 30px;
+  background-color: #340068;
+  color: white;
+  font-size: medium;
+  width: 50%;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+}
+#register-icon-back {
+  color: rgba(255, 255, 255, 0.493);
+  font-size: 50px;
+  margin-top: 90px;
+}
+.img-login {
+  width: ;
+ 
+}
+
+.div-img-login {
+    width: 50%;
+}
+
+@media screen and (min-width: 900px) {
+  #div-login {
+    width: 50%;
+  }
+  .div-logo {
+    width: 50%;
+  }
+  .img-login {
+    display: block;
+    opacity: 0.95;
+    height: 100%;
+    width: 100%;
+  }
+}
