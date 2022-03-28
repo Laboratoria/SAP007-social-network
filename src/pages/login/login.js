@@ -52,7 +52,14 @@ export const pageLogin = () => {
         login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
             e.preventDefault();
             logar(form.email().value, form.password().value)
-            window.location.href = '#feed'
+                .then((response) => {
+                    console.log('success', response);
+                    window.location.hash = '#feed'
+                }).catch((error) => {
+
+                    console.log('error', error);
+                });
+
         })
     }
 

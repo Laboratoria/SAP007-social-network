@@ -5,11 +5,5 @@ const auth = getAuth();
 export function logar(email, senha) {
     console.log("logar")
 
-    return signInWithEmailAndPassword(auth, email, senha).then((response) => {
-        console.log('success', response);
-
-    }).catch((error) => {
-
-        console.log('error', error);
-    });
+    return signInWithEmailAndPassword(auth, email, senha)
 }

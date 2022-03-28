@@ -10,14 +10,14 @@ const main = document.getElementById('root');
 
 const init = () => {
     window.addEventListener('hashchange', () => {
+        console.log(window.location.hash)
         main.innerHTML = '';
         switch (window.location.hash) {
-            case '':
-                main.appendChild(pageLogin());
-                break;
             case '#feed':
                 main.appendChild(feed());
                 break;
+            default:
+                main.appendChild(pageLogin());
         }
     })
 }
