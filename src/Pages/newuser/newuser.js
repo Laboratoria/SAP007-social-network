@@ -1,3 +1,5 @@
+import {newUser} from '../../configs/authentication';
+
 export default () => {
   const container = document.createElement("div");
   container.classList.add("content-newuser")
@@ -20,7 +22,7 @@ export default () => {
     <section class="message-register">
       <p class="text-login">
         Já possui cadastro? 
-         <a href="#login" class="link-login">Login</a>
+        <a href="#login" class="link-login">Login</a>
       </p>
     </section>
   `;
@@ -29,5 +31,13 @@ export default () => {
   
   return container;
   }
+  const NewUserEmail = container.querySelector('#input-email')
+  const NewUserName = container.querySelector('#input-name')
+  const NewUserDate = container.querySelector('#birth-date')
+  const NewUserPassword = container.querySelector('#input-password')
+  const ButtonRegister = container.querySelector('#button-register')
 
-  
+ButtonRegister.addEventListener('click', (e) => {
+  e.preventDefault();
+  newUser(NewUserName.value, NewUserDate.value, NewUserEmail.value, NewUserPassword.value)
+}) 
