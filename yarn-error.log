@@ -1,0 +1,75 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Miria\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add eslint babel-eslint -D
+
+PATH: 
+  C:\Users\Miria\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Miria\bin;C:\Python39\Scripts;C:\Python39;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\Miria\AppData\Local\Microsoft\WindowsApps;C:\Users\Miria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Miria\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  14.18.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@firebase/firestore/-/firestore-3.3.1.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Users\Miria\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141510:19)
+      at Object.onceWrapper (events.js:519:28)
+      at ClientRequest.emit (events.js:400:28)
+      at TLSSocket.emitRequestTimeout (_http_client.js:790:9)
+      at Object.onceWrapper (events.js:519:28)
+      at TLSSocket.emit (events.js:412:35)
+      at TLSSocket.Socket._onTimeout (net.js:495:8)
+      at listOnTimeout (internal/timers.js:557:17)
+      at processTimers (internal/timers.js:500:7)
+
+npm manifest: 
+  {
+    "name": "social-network",
+    "version": "1.0.0",
+    "description": "Social Network @ Laboratoria",
+    "main": "src/index.html",
+    "keywords": [
+      "javascript",
+      "firebase",
+      "jest"
+    ],
+    "license": "MIT",
+    "scripts": {
+      "htmlhint": "htmlhint dist/*.html ",
+      "eslint": "eslint --ext .js src/ test/",
+      "stylelint": "stylelint --aei src/**/*.css",
+      "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
+      "test": "jest --coverage",
+      "start": "serve src/"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.11.4",
+      "@babel/preset-env": "^7.11.0",
+      "babel-jest": "^27.0.1",
+      "eslint": "^7.7.0",
+      "eslint-config-airbnb-base": "^14.2.0",
+      "eslint-plugin-import": "^2.18.2",
+      "eslint-plugin-jest": "^24.1.0",
+      "htmlhint": "^0.15.1",
+      "jest": "^27.0.1",
+      "regenerator-runtime": "^0.13.1",
+      "serve": "^12.0.0",
+      "stylelint": "^13.13.1",
+      "stylelint-config-recommended": "^5.0.0"
+    },
+    "engines": {
+      "node": ">=10"
+    },
+    "dependencies": {
+      "firebase": "^9.5.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
