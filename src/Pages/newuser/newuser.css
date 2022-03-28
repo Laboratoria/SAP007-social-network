@@ -1,21 +1,9 @@
-.content-newuser {
-	min-height: 100vh;
-	display: grid;
-	grid-template-columns: 50% 50%;
-	grid-template-rows: 25% 50% 25%;
-	font-family: 'Roboto', sans-serif;
-}
-
-.img-text {
-	align-self: start;
-	justify-self: center;
-	grid-row: 2;
-	width: 75%;
-}
-
 .text-register {
-  margin-left: 12%;
+  justify-self: center;
   font-weight: bold;
+  font-size: 1.4rem;
+  grid-row: 3;
+  margin-top: 13px;
 }
 
 .form-newuser,
@@ -31,6 +19,7 @@
 
 .message-register {
   grid-row: 3;
+  margin-top: 10px;
 }
 
 .link-login {
@@ -41,3 +30,18 @@
 .link-login:active {
   color: black;
 }
+
+/*celular*/
+@media screen and (min-width: 300px) and (max-width: 599px) {
+  .text-register {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+}  
+  
+/*tablet*/
+@media screen and (min-width: 600px) and (max-width: 699px) {
+  .text-register {
+    font-size: 1rem;
+  }
+}  

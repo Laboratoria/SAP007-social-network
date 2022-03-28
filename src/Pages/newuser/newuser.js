@@ -1,12 +1,10 @@
 export default () => {
   const container = document.createElement("div");
-  container.classList.add("content-newuser")
+  container.classList.add("content-login")
     
   const templateNewUser = `
-    <section class="img-text">
       <img class="logo-site" src="img/logo-eu-poesia-r.png">
       <p class="text-register">Registre-se para publicar suas poesias</p>
-    </section>  
 
     <form class="form-newuser">
       <input type="email" id="input-email" class="input-email" placeholder="E-mail">

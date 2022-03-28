@@ -27,7 +27,4 @@ window.addEventListener("load", () => {
   main.appendChild(login());  
   changePages();     
 })
-
-myFunction();
-
 //a lista de rotas (window.location) pode ser criada aqui (main) ou em um arquivo separado de rotas

@@ -1,3 +1,4 @@
+
 .content-login{
 	min-height: 100vh;
 	display: grid;
@@ -10,7 +11,7 @@
 	align-self: start;
 	justify-self: center;
 	grid-row: 2;
-	width: 75%;
+	width: 30rem;
 }
 
 .form-login{
@@ -34,8 +35,8 @@
 .input-email {
 	border: 0;
 	font-size: 1.1rem;
-	height: 50%;
-  width: 45%;
+	height: 2rem;
+  width: 20rem;
 	background: transparent;
   border-bottom-width: 2px;
   border-bottom-style: solid;
@@ -61,22 +62,19 @@
 	color:black;
 }
 
-
 .button-login{
 	border-radius: 5px;
 	border: 0;
-	font-size: 1.1rem;
 	background: #7A098C;
 	color: white;
-	height: 60%;
-	width: 45%;
 	font-weight: bold;
 	cursor: pointer;
+	width: 20rem;
+	font-size: 1.1rem;
 }
 
 .button-login:active {
   background-color: black;
-  background-size: 100%;
   transition: 0s;
 }
 
@@ -90,76 +88,86 @@
 
 /*celular*/
 @media screen and (min-width: 300px) and (max-width: 599px) {
+  .content-login {
+	  display: block;
+	  text-align: center;
+  }
 
-.content-login {
-	display: flex;
-	Flex-direction:column;
-	font-family: 'Roboto', sans-serif;
-	Align-items: center;
+  .logo-site{
+	  width: 17rem;
+  }	
+
+  .link-register{
+	  font-size: 1.2rem;
+	  margin-bottom: 5%;
+  }
+
+  .input-email {
+	  font-size: 0.9rem;
+		width: 13rem;
+	  margin-bottom: 15px;
+  }
+
+  .checkbox {
+	  font-size: 0.9rem;
+	  margin-left: 40px;
+	  margin-bottom: 10%;
+  }
+
+  .link-forgot-password{
+	  margin-left: 30px;
+		margin-right: 30px;
+  }
+
+  .button-login{
+	  height: 30px;
+	  width: 13rem;
+  }
+
+  .footer {
+		font-size: 0.9rem;
+		margin-top: 20px;
+  }
 }
-
-.logo-site{
-	width: 80%;
-	margin-left: 7%;
-}	
-
-.link-register{
-	font-size: 1.2rem;
-	margin-bottom: 5%;
-}
-
-.input-email {
-	font-size: 0.9rem;
-	width: 75%;
-	margin-bottom: 10%;
-}
-
-.checkbox {
-	font-size: 0.9rem;
-	margin-left: 10%;
-	margin-bottom: 10%;
-}
-
-.link-forgot-password{
-	margin-left: 30px;
-}
-
-.button-login{
-	height: 100%;
-	width: 75%;
-}
-
-.footer {
-	font-size: 0.9rem;
-	display: flex;
-}
-}
-
 
 /*tablet*/
 @media screen and (min-width: 600px) and (max-width: 699px) {
+  .logo-site{
+		width: 20rem;
+	}	
+
 	.link-register{
 		font-size: 1.1rem;
-		margin-bottom: 5%;
+		margin-bottom: 5px;
 	}
-  
+ 
   .input-email {
 		font-size: 0.9rem;
-		width: 70%;
-		margin-bottom: 5%;
+		width: 14rem;
+		margin-bottom: 10px;
 	}
   
 	.checkbox {
 		font-size: 0.9rem;
-		margin-left: 5%;
 	}	
   
 	.link-forgot-password{
 		margin-left: 20px;
+		margin-right: 10%;
 	}
 
+	.button-login{
+	  width: 14rem;
+  }
+  
+	.footer {
+	  font-size: 0.9rem;
+  }
 }	
 
 /*desktop*/
 @media screen and (min-width: 700px) and (max-width: 1399px) {
-}		
+	.input-email {
+    width: 20rem;
+  }
+}
