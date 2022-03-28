@@ -29,16 +29,8 @@ export const Router = () => {
         return $root.appendChild(components.login());
       }
       case '#/register': {
-        if (auth.currentUser) window.location.hash = '#/timeline';
+        if (auth.currentUser) window.location.hash = '#/register';
         return $root.appendChild(components.registro());
-      }
-      case '#/timeline': {
-        if (auth.currentUser) {
-          $root.classList.remove('main-container');
-          return $root.appendChild(components.timeline());
-        }
-        window.location.hash = '#/';
-        break;
       }
       case '#/editPost': {
         if (auth.currentUser) {
@@ -79,10 +71,6 @@ export const Router = () => {
       }
       default:
         // todo: Deberíamos crear una vista en caso que el usuario coloque una url no existente
-        if (auth.currentUser) {
-          // return $root.appendChild(components.login());
-          return $root.appendChild(components.timeline());
-        }
         return $root.appendChild(components.login());
       // return (window.location.hash = "#/");
 
