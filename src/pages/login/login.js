@@ -3,13 +3,14 @@
 import { createLogin } from '../register/page-register.js';
 
 export const pageLogin = () => {
-    const main = document.getElementById('root');
-    main.innerHTML = '';
-    const login = document.createElement('div');
-    login.setAttribute('class', 'box-form-login');
-    login.innerHTML = `
-   <link rel="stylesheet" href="./pages/login/login.css"/> 
-   <section class="box-slogan">
+  const main = document.getElementById('root');
+  main.innerHTML = '';
+  const login = document.createElement('div');
+  login.setAttribute('class', 'box-form-login');
+  login.innerHTML = `
+
+  <link rel="stylesheet" href="./pages/login/login.css"/> 
+  <section class="box-slogan">
       <figure class="box-slogan">
          <img src="../img/logo.png" alt="Logotype" class="logo-icon">
       </figure>
@@ -28,16 +29,14 @@ export const pageLogin = () => {
       <button class="btn-register btn-area" id="btn-register">Cadastre-se</button>
    </section>
   `;
-    const inputEmail = login.querySelector('#email-area');
-    const inputPassword = login.querySelector('#password-area');
-    console.log(inputEmail.value, inputPassword.value);
-
-    main.appendChild(login);
-
-    const btnRegister = login.querySelector('#btn-register');
-    btnRegister.addEventListener('click', () => {
-        createLogin();
-    });
+  const inputEmail = login.querySelector('#email-area');
+  const inputPassword = login.querySelector('#password-area');
+  console.log(inputEmail.value, inputPassword.value);
+  main.appendChild(login);
+  const btnRegister = login.querySelector('#btn-register');
+  btnRegister.addEventListener('click', () => {
+    createLogin();
+  });
 };
 
 // const buttonLogin = document.getElementById('btn-sign-In');

@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-@import url(./reset.css);
-=======
-body {
-    background: pink;
-}
+@import url(../style/reset.css);
 
-.logo-icon {
-    height: 100px;
+.header-feed{
+    background: var(--header);
+    height: 70px;
 }
->>>>>>> 0e0bf212cf7d0cd075c55c9a915f4df08611b202
