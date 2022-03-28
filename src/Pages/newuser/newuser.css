@@ -1,0 +1,43 @@
+.content-newuser {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 25% 50% 25%;
+	font-family: 'Roboto', sans-serif;
+}
+
+.img-text {
+	align-self: start;
+	justify-self: center;
+	grid-row: 2;
+	width: 75%;
+}
+
+.text-register {
+  margin-left: 12%;
+  font-weight: bold;
+}
+
+.form-newuser,
+.message-register {
+  grid-column: 2;
+	display: grid;
+	justify-items: center;  
+}
+
+.form-newuser {
+  grid-row: 2;
+}
+
+.message-register {
+  grid-row: 3;
+}
+
+.link-login {
+  font-size: 1.4rem;
+	text-decoration: none;
+}
+
+.link-login:active {
+  color: black;
+}
