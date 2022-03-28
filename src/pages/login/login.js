@@ -49,10 +49,10 @@ export const pageLogin = () => {
     }
 
     function loginAcess() {
-        login.querySelector("#btn-sign-in").addEventListener("click", (e) => {
+        login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
             e.preventDefault();
             logar(form.email().value, form.password().value)
-            window.location.hash = '#feed'
+            window.location.href = '#feed'
         })
     }
 

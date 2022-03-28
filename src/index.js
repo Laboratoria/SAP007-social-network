@@ -5,22 +5,28 @@ import { feed } from './pages/feed/feed.js';
 // import { createLogin } from './pages/register/page-register.js';
 
 const main = document.getElementById('root');
-main.innerHTML = '';
-main.appendChild(pageLogin());
+//main.innerHTML = '';
+//main.appendChild(pageLogin());
 
 const init = () => {
-        window.addEventListener('hashchange', () => {
-            switch (window.location.hash) {
-                case '':
-                    main.appendChild(login());
-                    break;
-                case '#feed':
-                    main.appendChild(feed());
-                    break;
-            }
-        })
-    }
-    //pageLogin();
+    window.addEventListener('hashchange', () => {
+        main.innerHTML = '';
+        switch (window.location.hash) {
+            case '':
+                main.appendChild(pageLogin());
+                break;
+            case '#feed':
+                main.appendChild(feed());
+                break;
+        }
+    })
+}
+window.addEventListener('load', () => {
+    main.appendChild(pageLogin());
+    init();
+})
+
+//pageLogin();
 
 // createLogin();
 
