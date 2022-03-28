@@ -1,7 +1,8 @@
-@import url(../style/reset.css);
+@import url(../../style/reset.css);
 
 .box-slogan {
     align-items: center;
+}
 
 .error {
     display: none;
