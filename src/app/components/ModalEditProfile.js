@@ -41,7 +41,7 @@ export const ModalEditProfile = () => {
 
   const titulo = document.createElement('h2');
   titulo.classList.add('modal-profile__title');
-  titulo.textContent = 'Edita tu perfil';
+  titulo.textContent = 'Editar perfil';
 
   const closeIcon = document.createElement('span');
   closeIcon.classList.add('icon-icon-close', 'modal-profile__closeIcon');
