@@ -1,6 +1,12 @@
-// aqui exportaras las funciones que necesites
+import login from "../pages/login/index.js"
 
-export const myFunction = () => {
-  // aqui tu codigo
-  console.log('Hola mundo!');
-};
+
+
+const main = document.querySelector("#root");
+
+
+window.addEventListener("load",() => {
+    console.log('load')
+    main.appendChild(login());
+
+});
