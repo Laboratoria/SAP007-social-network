@@ -85,11 +85,10 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 
    - Para utilizarmos no site, usaremos os seguintes intervalos de telas:
 
-      - _**De 300px a 600px de largura**_
-      - _**De 600px a 700px de largura**_
-      - _**De 700px a 1100px de largura**_
-      - _**De 1100px a 1500px de largura**_
-      - _**De 1500px a 2560px de largura**_
+      - _**De 300px a 600px de largura**_ (para Smartphone)
+      - _**De 600px a 1100px de largura**_ (para Tablet)
+      - _**De 1100px a 1500px de largura**_ (para Desktop)
+      - _**De 1500px a 2560px de largura**_ (para Desktop)
 
 - _**Tipografia e Hierarquia**_
 
