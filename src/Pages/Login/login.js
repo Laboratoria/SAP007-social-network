@@ -1,22 +1,26 @@
 export default () => {
   const container = document.createElement("div");
+  container.classList.add("content-login")
   
   const templateLogin = `
-    <img class="logo-site" src="img/logo-eu-poesia.jpeg">
-    <a href="#register">Registre-se</a>
+    <img class="logo-site" src="img/logo-eu-poesia-r.png">
 
-    <form>
-      <input type="email" id="input-email" class="input-email" placeholder="exemplo@gmail.com">
-      <input type="password" id="input-password" class="input-password" placeholder="Senha">
-      <input type="checkbox" id="remember-password" class="remember-password">
-      <label for="remember-password">Lembrar senha</label>
-      <a href="#forgot-password">Esqueci a senha</a>
-      <button type="button" id="button-login">Login</button>
+    <form class="form-login">
+      <a href="#register" class="link-register">Registre-se</a>
+      <input type="email" id="input-email" class="input-email" placeholder="E-mail">
+      <input type="password" id="input-password" class="input-email" placeholder="Senha">
+      <div class="checkbox">
+        <input type="checkbox" id="remember-password" class="remember-password" name="remember-password">
+        <label for="remember-password">Lembrar senha</label>
+        <a href="#forgot-password" class="link-forgot-password">Esqueci a senha</a>
+      </div>  
+      <span id="message-error" class="message-error"></span>
+      <button type="button" id="button-login" class="button-login">Login</button>
     </form>
 
-    <footer>
+    <footer class="footer">
       <p class="footer-text">
-        Desenvolvido por Beatriz de Sousa Carvalho, Maria Luiza Costa Santana e Raele Pereira
+        Desenvolvido por <br> Beatriz de Sousa Carvalho, Maria Luiza Costa Santana e Raele Pereira
       </p>
     </footer>
   `;

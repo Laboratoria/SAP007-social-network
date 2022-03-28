@@ -10,6 +10,9 @@ const changePages = () => {
   window.addEventListener("hashchange", () => {
     main.innerHTML = "";
     switch(window.location.hash){
+      case " ":
+        main.appendChild(login());  
+        break;
       case "#login":
         main.appendChild(login());  
         break; 
@@ -21,7 +24,7 @@ const changePages = () => {
 }
 
 window.addEventListener("load", () => {
-  main.appendChild(login()); 
+  main.appendChild(login());  
   changePages();     
 })
 
