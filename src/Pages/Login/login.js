@@ -18,6 +18,35 @@ export default () => {
   
   container.innerHTML = templateLogin;
 
+  const buttonEmail = container.querySelector('#input-email');
+  const buttonPassword = container.querySelector('#input-password');
+  const buttonLogin = container.querySelector('#button-login');
+  
+  buttonLogin.addEventListener('click', (event)=> {
+    event.preventDefault();
+  })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   return container;
   }
   

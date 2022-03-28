@@ -10,14 +10,37 @@ const auth = getAuth();
 /*Login de novos usuários -
 É necessário criar uma função que será exportada para main.js que receberá o email e senha de lá
 createUserWithEmailAndPassword será o retorno.*/
-export function newUser (email, password){
-  return createUserWithEmailAndPassword(auth, email, password)
+export const newUser = (email, password) => {
+  const msgError = document.querySelector('#message-error')
+  const msgUserConcluded = document.querySelector('#message-concluded')
+  if (!email) {
+    msgError.innerHTML = 'Insira um email'
+  }
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    const user = userCredential.user;
+    msgUserConcluded.innerHTML = 'Email Cadastrado'
+    window.location.hash='#login'
   })
   .catch((error) => {
     const errorCode = error.code;
+    console.log(errorCode)
     const errorMessage = error.message;
+    if (errorCode === 'auth/invalid-email'){
+      errorMessage = 'Insira um email válido'
+      errorMsg.innerHTML = errorMessage;
+    }
+    else if (errorCode === 'auth/weak-password'){
+      errorMessage = 'Crie uma senha'
+      msgError.innerHTML = errorMessage
+    }
+    else if (errorCode === 'auth/email-already-in-use'){
+      errorMessage = 'Email já cadastrado'
+      msgError.innerHTML = errorMessage
+    }
+    else{
+      errorMessage = 'Preencha todos os campos'
+      msgError.innerHTML = errorMessage
+    }
 });
 }
 
