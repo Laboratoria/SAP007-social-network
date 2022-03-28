@@ -1,0 +1,22 @@
+.header-container {
+  background-color: #034c8c;
+  height: 9vh;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.logo {
+  height: 8vh;
+  align-content: center;
+  padding: 0 0 0.2vh 2vw;
+}
+
+.title {
+  color: #ffff;
+  text-align: center;
+  align-content: center;
+  width: calc(100vw - 8vw);
+  font-size: 2.5vmax;
+}
