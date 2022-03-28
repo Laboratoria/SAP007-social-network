@@ -8,7 +8,7 @@ export const Header = () => {
   header.style.alignItems = 'center';
 
   const logo = document.createElement('p');
-  logo.textContent = 'Yami';
+  logo.textContent = 'Grrrl Talk';
 
   header.append(logo);
 
