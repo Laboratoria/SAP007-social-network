@@ -8,16 +8,31 @@ export const feed = () => {
     <header class="header-feed">    
       <img src="../img/logo.png" alt="Logotype" class="logo-icon">
       <section class="menu">
-        <input id="menu-toggle" type="checkbox" />
-        <label class="menu-btn" for="menu-toggle">
-        <span></span>
-        </label>
-        <ul class="menu-box">
-            <li><a class="menu-item" href="#">Logoff</a></li>
-        </ul>
+        <nav id="nav-options" class="nav-options" aria-expanded="false">
+          <button id="btn-mobile" class="btn-mobile">
+          </button>
+          <ul id="menu" class="menu">
+            <li><a href="#" class="link" target="_blank"/></a></li>
+          </ul>
+        </nav>
       </section>
-    </header>    
+    </header>
+    <main class="main-header">
+      <form action="" method="post">
+        <input type="text" id="inputPost" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
+        <button>Enviar</button>
+      </form>
+    </main>   
       `;
 
   main.appendChild(timeline);
+
+  const btnMobile = document.getElementById('btn-mobile');
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-options');
+    nav.classList.toggle('active');
+  }
+
+  btnMobile.addEventListener('click', toggleMenu);
 };
