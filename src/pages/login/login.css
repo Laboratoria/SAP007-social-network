@@ -1,10 +1,7 @@
+@import url(../style/reset.css);
+
 .box-slogan {
     align-items: center;
-}
-
-.logo-icon {
-    height: 30vh;
-}
 
 .error {
     display: none;
