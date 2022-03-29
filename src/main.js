@@ -2,6 +2,7 @@ import "./configs/start-firebase.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import login from "./pages/login/login.js"
 import newuser from "./pages/newuser/newuser.js"
+import recover from "./pages/login/recover.js"
 
 const main = document.querySelector("#root");
 
@@ -17,6 +18,9 @@ const changePages = () => {
         break; 
       case "#register":
         main.appendChild(newuser()); 
+        break;
+      case "#forgot-password":
+        main.appendChild(recover()); 
         break;
     }
   })
