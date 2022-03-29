@@ -16,18 +16,21 @@ export const newUser = (email, password) => {
   if (!email) {
     msgError.innerHTML = 'Insira um email'
   }
+  console.log(email)
+  console.log(password)
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     msgUserConcluded.innerHTML = 'Email Cadastrado'
     window.location.hash='#login'
   })
   .catch((error) => {
-    const errorCode = error.code;
+    let errorCode = error.code;
     console.log(errorCode)
-    const errorMessage = error.message;
+    let errorMessage = error.message;
+    console.log(errorMessage) 
     if (errorCode === 'auth/invalid-email'){
       errorMessage = 'Insira um email válido'
-      errorMsg.innerHTML = errorMessage;
+      msgError.innerHTML = errorMessage;
     }
     else if (errorCode === 'auth/weak-password'){
       errorMessage = 'Crie uma senha'

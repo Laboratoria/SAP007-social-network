@@ -37,7 +37,8 @@ console.log(NewUserEmail.value);
 
 ButtonRegister.addEventListener('click', (e) => {
 e.preventDefault();
-newUser(NewUserName.value, NewUserDate.value, NewUserEmail.value, NewUserPassword.value)
+newUser(NewUserEmail.value, NewUserPassword.value)
+
 })
 
 return container;
