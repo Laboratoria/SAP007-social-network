@@ -1,3 +1,91 @@
 @import "../reset.css";
 @import "../variables.css";
 @import "../components/header.css";
+
+section{
+  background: #E5E5E5;
+}
+.text-form {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+.container{
+  display: flex;
+  justify-content: center;
+}
+.form-container{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 263px;
+  height: 349px;
+  background: #FFFFFF;
+  border: 2px solid #F2D194;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.label-email{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 19px;
+  padding: 0.5rem 0 0.5rem 0;
+}
+#email {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+.label-password{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 19px;
+  padding: 0.5rem 0 0.5rem 0;
+}
+#password{
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+#buttonSubmit{
+  margin-top: 25px;
+  background: #79C4F2;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0.3rem;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center
+}
+.text-p{
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  padding: 0.7rem;
+}
+.text{
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center
+}
+#buttonGoogle{
+  margin-top: 15px;
+  display: flex;
+  background: #F2D194;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0.3rem;
+  font-size: 15px;
+  line-height: 19px;
+  align-items: center;
+}
+
+
