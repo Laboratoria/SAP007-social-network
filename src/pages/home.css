@@ -1,14 +1,14 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: roboto;
+    font-family: Roboto;
 }
 .container {
     display: flex;
     flex-direction: column;
     position: absolute;
     bottom: 50%;
-    left: 18%;
+    left: 15%;
 }
 .input-email,
 .input-password {
@@ -31,6 +31,30 @@
     font-size: 16px;
     box-shadow: 7px 6px 5px grey;
     border: black;
+}
+.container p {
+    margin: auto;
+    position: relative;
+    top: 50px;
+}
+.google-button {
+    width: 60%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: #F2AA80;
+    font-family: Roboto;
+    font-size: 16px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+    border-radius: 8px;
+    color: black;
+    position: relative;
+    top: 100px;
+}
+.google-logo {
+    width: 20%;
 }
 .register {
     margin: auto;
