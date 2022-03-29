@@ -1,5 +1,11 @@
-// Este es el punto de entrada de tu aplicacion
+import "./config.firebase.js"
 
-import { myFunction } from './lib/index.js';
+import login from "../pages/login/index.js"
 
-myFunction();
+const main = document.querySelector("#root");
+
+window.addEventListener("load",() => {
+    console.log('load')
+    main.appendChild(login());
+
+});
