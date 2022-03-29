@@ -5,7 +5,7 @@ export default () => {
   <div class="main-login">
     <img src="../img/logo.png" alt="Logo Laboriam" class="logo">
     <h2>Login</h2>
-    <form method="post">
+    <form method="post" class="formLogin">
       <input type="email" placeholder="E-mail">
       <input type="password" placeholder="Senha">
       <button type="submit" id="btnEntrar" class="btnEntrar">
@@ -25,7 +25,7 @@ export default () => {
         <img src="../img/icon-github.png" alt="" class="iconGithub">
       </button>
     </div>
-    <p class="criarConta">Não tem uma conta? <a href="/#singUp">Criar conta</a></p>
+    <p class="criarConta">Não tem uma conta? <a href="/#signUp">Criar conta</a></p>
     <div class="devs">
       <p><img src="../img/copyright.png" alt="" class="copyright"> Desenvolvido por:</p>
       <p>Cássia Costa, Dayane Rodrigues e Viviane Soares</p>
