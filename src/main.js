@@ -1,4 +1,3 @@
-import { myFunction } from './lib/index.js';
 import "./configs/start-firebase.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import login from "./pages/login/login.js"
