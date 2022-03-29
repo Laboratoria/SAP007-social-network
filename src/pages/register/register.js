@@ -1,42 +1,46 @@
-// importar da .LIB a função de autenticação do firebase
+import { userCreate } from '../../lib/authentication.js;';
 
-export default () =>{
-    const container = document.createElement ('div');
-    const template =`
-    <section class="container-main-login">
-    <div class="login-container">
+export default () => {
+  const createRegister = document.createElement('div');
+  const registerForm = `
+    <section class="register-container">
+    <div class="register-form">
       <form class="">
-        <label for="" class="">Nome</label>
-        <input class="text-input" type="text" name="" id="">
+        <label class="">Nome</label>
+        <input class="text-input" type="text" id="user-name">
         <br>
-        <label for="" class="">Senha</label>
-        <input class="text-input" type="password" name="" id="">
+        <label class="">E-mail</label>
+        <input class="email-input" type="email" id="register-email">
         <br>
-        <button class="btn-login" type="submit" id="">Registrar</button>
+        <label class="">Senha</label>
+        <input class="text-input" type="password" id="register-password">
+        <br>
+        <button class="btn-register" id="register-button">Cadastrar</button>
       </form>
     </div>
   </section>
     `;
-    container.innerHTML=template;
-    // após criar o template, cria variaveis pra pegar os valores dos inputs e do botao
+  createRegister.innerHTML = registerForm;
+  // após criar o registerForm, cria variaveis pra pegar os valores dos inputs e do botao
 
-  const email = container.querySelector("#email");
-  const password = container.querySelector("#password");
-  const buttonSubmit = container.querySelector("#buttonSubmit");
+  const registerEmail = createRegister.querySelector('#register-email');
+  const registerPassword = createRegister.querySelector('#register-password');
+  const buttonRegister = createRegister.querySelector('#register-button');
 
-  // ai coloca um addeventlistener pra ouvir o CLICK do botao 
-  buttonSubmit.addEventListener("click", (e) => {
+  // ai coloca um addeventlistener pra ouvir o CLICK do botao
+  buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
-    userLogin(email.value, password.value)
-      .then(function () {
-        window.location.hash = "#timeLine";
+    userCreate(registerEmail.value, registerPassword.value)
+      .then(() => {
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert("Deu ruim!");
+        // eslint-disable-next-line no-alert
+        alert('Deu ruim!');
         return errorMessage;
       });
   });
 
-    return container;
-  }
+  return createRegister;
+};

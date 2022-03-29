@@ -1,7 +1,7 @@
-// importar da .LIB a função de autenticação do firebase
+import { userLogin } from '../../lib/authentication.js;';
 
 export default function login() {
-  const container = document.createElement("div");
+  const container = document.createElement('div');
   const template = `
   <section class="container-main-login">
   <div class="login-container">
@@ -12,35 +12,34 @@ export default function login() {
       <label for="" class="">Senha</label>
       <input class="text-input" type="password" name="" id="password-login-input">
       <br>
-      <button class="btn-login" type="submit" id="btn-submit-login">Entrar</button>
+      <a href="/#feed"><<button class="btn-login" type="submit" id="btn-submit-login">Entrar</button></a>
       <p>OU</p>
-      <button class="btn-login-google" type="submit" id="">Entrar com google</button>
-      <button class="btn-register" type="submit" id="">Não possui uma conta?cadastra-se</button>
+      <a herf=" "><button class="btn-login-google" type="submit" id="google-login">Entrar com google</button></a>
+      <a herf="/#feed"><button class="btn-register" type="submit" id="register">Não possui uma conta?cadastra-se</button></a>
     </form>
   </div>
 </section>
     `;
   container.innerHTML = template;
-      // após criar o template, cria variaveis pra pegar os valores dos inputs e do botao
 
-  const email = container.querySelector("#email-login-input");
-  const password = container.querySelector("#password-login-input");
-  const btnSubmit = container.querySelector("#btn-submit-login");
+  // após criar o template, cria variaveis pra pegar os valores dos inputs e do botao
 
-    // ai coloca um addeventlistener pra ouvir o CLICK do botao 
-  btnSubmit.addEventListener("click", (e) => {
+  const email = container.querySelector('#email-login-input');
+  const password = container.querySelector('#password-login-input');
+  const btnSubmit = container.querySelector('#btn-submit-login');
+  // ai coloca um addeventlistener pra ouvir o CLICK do botao
+  btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
-  //nao faço ideia pra que serve essas linhas debaixo SOS :(
-    userCreate(email.value, password.value)
-      .then(function () {
-        window.location.hash = "#timeLine";
+    userLogin(email.value, password.value)
+      .then(() => {
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert("Deu errado!");
+        alert('Deu errado!');
         return errorMessage;
       });
   });
-  
+
   return container;
 }
