@@ -10,6 +10,10 @@ body{
 .name{
     color: #F26E22;
 }
+.name a{
+    color: #F26E22;
+    text-decoration: none;
+}
 .logo-title{
     display: flex;
     justify-content: space-evenly;

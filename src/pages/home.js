@@ -1,33 +1,34 @@
+import "../lib/firebase.js";
+import { userLogin } from "../lib/authentication.js";
+
 export default () => {
   const container = document.createElement("form");
   container.setAttribute("class", "container");
 
   const template = `
-        <input class= "input-email" placeholder= "e-mail" type= "email" required></input>
+        <input class="input-email" placeholder="e-mail" type="email" required></input>
         <span class="error"></span>
-        <input class= "input-password" placeholder= "senha" minlength= "6" type= "password" required></input>
-        <button class= "enter" type= "submit">Entrar</button>
-        <div class= "register"><a href="#register">Cadastre-se</a></div>
+        <input class="input-password" placeholder="senha" minlength="6" type="password" required></input>
+        <button class="enter" type="submit">Entrar</button>
+        <div class="register"><a href="#register">Cadastre-se</a></div>
     `;
 
   container.innerHTML = template;
 
-  function validator(e) {
-      e.preventDefault()
-      const email = container.querySelector(".input-email");
-    // const password = formuser.password.value;
-    const error = container.querySelector(".error");
+  const email = container.querySelector(".input-email");
+  const password = container.querySelector(".input-password");
 
-    if (email == "") {
-      error.innerHTML = "Preencha o campo e-mail";
-      email.focus();
-      return false;
-    }
-  }
-
-  const enter = container.querySelector(".enter");
-
-  enter.addEventListener("click",validator)
+  container.addEventListener("submit", (e) => {
+    e.preventDefault();
+    userLogin(email.value, password.value)
+      .then(function () {
+        window.location.hash = "#timeline";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        return errorMessage;
+      });
+  });
 
   return container;
 };
