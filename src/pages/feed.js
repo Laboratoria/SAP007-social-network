@@ -1,27 +1,15 @@
 export default () => {
-    const feedArea = document.createElement('div');
-    const toBePostArea = `
-    <div class="toBePost">
-      <h2>Login</h2>
-      <form method="post">
-        <input type="email" placeholder="E-mail">
-        <br>
-        <input type="password" placeholder="Senha">
-        <br>
-        <button type="submit" id="btnEntrar">
-          <a href="/#feed">Entrar</a>
-        </button>
+  const main = document.getElementById('root');
+  main.innerHTML = '';
+  const feed = document.createElement('div');
+  const container = `
+  <form class="form-area" id="post-container">
+        <textarea type="text" class="post-area" placeholder=" Conte para nós sua experiência" name="mensagem"
+          id="mensagem"></textarea>
+        <button type="submit" class="post-btn" id="btn-postar">Postar</button>
       </form>
-      <hr>
-      <button>Entrar com o Google</button>
-      <button>Entrar com o Facebook</button>
-      <button>Entrar com o GitHub</button>
-      <hr>
-      <button>
-        <a href="/#singUp">Criar conta</a>
-      </button>
-    </div>
-  `;
-    feedArea.innerHTML = toBePostArea;
-    return feedArea;
-  };
+      `;
+
+  feed.innerHTML = container;
+  return feed
+}
