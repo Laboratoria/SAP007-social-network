@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+body {
+  background-color: #FEFAEF;
+}
+
+.banner {
+  width: 353px;
+  height:253px;
+}
+
+p, a, footer {
+  text-align: center;
+  font-size:18px;
+}
+.inputs {
+  background-color: #F5EFEF;
+  border:none;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 0.5em;
+  width: 264px;
+  height:42px;  
+}
+
+.btnEnter {
+  background-color: #48D9B0;
+  border-radius: 7px;
+  border: none;
+  width:140px;
+  height:40px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.link {
+  color:#03A688;
+}
