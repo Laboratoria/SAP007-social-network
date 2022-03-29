@@ -1,39 +1,32 @@
 // importar da .LIB a função de autenticação do firebase
 
 export default function signin() {
-    const container = document.createElement("section");
-  
-    const template = `
-    <form class="main-content">
-      <p>Signin!</p>
-      <input type="email" id="email" autocomplete="on" />
-      <input type="password" id="password" />
-      <button id="buttonSubmit">Enviar</button>
-      <button id="logout">Logout</button>
-    </form>
+  const createFeed = document.createElement('section');
+
+  const feedTemplate = `
+    <section class="main-content">
+   <p> FEED!!<p>
+    </section>
     `;
-    container.appendChild(header());
-  
-    container.innerHTML += template;
-  
-    container.appendChild(footer());
-  
-    const email = container.querySelector("#email");
-    const password = container.querySelector("#password");
-    const buttonSubmit = container.querySelector("#buttonSubmit");
-  
-    buttonSubmit.addEventListener("click", (e) => {
-      e.preventDefault();
-      userLogin(email.value, password.value)
-        .then(function () {
-          window.location.hash = "#timeLine";
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          alert("Deu ruim!");
-          return errorMessage;
-        });
-    });
-  
-    return container;
-  }
+
+  createFeed.innerHTML += feedTemplate;
+
+  const email = createFeed.querySelector('#email');
+  const password = createFeed.querySelector('#password');
+  const buttonSubmit = createFeed.querySelector('#buttonSubmit');
+
+  buttonSubmit.addEventListener('click', (e) => {
+    e.preventDefault();
+    userLogin(email.value, password.value)
+      .then(() => {
+        window.location.hash = '#feed';
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert('Deu ruim!');
+        return errorMessage;
+      });
+  });
+
+  return createFeed;
+}
