@@ -6,9 +6,9 @@ export default () => {
   container.setAttribute("class", "container");
 
   const template = `
-    <input class="input-email" placeholder="e-mail" type="email"></input>
+    <input class="input-email" placeholder="e-mail" type="email" required></input>
     <span class="error"></span>
-    <input class="input-password" placeholder="senha" minlength="6" type="password"></input>
+    <input class="input-password" placeholder="senha" minlength="6" type="password" required></input>
     <button class="enter" type="submit">Entrar</button>
     <p>ou</p>
     <button class="google-button" type="submit"><img class="google-logo" src="./images/google.png" alt="google-icon"/>Login com o Google</button>
@@ -36,9 +36,8 @@ export default () => {
   googleButton.addEventListener("click", (e) => {
     e.preventDefault();
     googleLogin()
-    .then(() => {
-      alert("google com sucesso");
-      // window.location.hash = "#timeline";
+    .then(() => {      
+       window.location.hash = "#timeline";
     })
     .catch((error) => {
       const errorMessage = error.message;
