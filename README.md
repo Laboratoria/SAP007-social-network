@@ -34,13 +34,13 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 
 ## 2. HISTÓRIAS DE USUÁRIOS
 
-> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notegbook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
+> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notebook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
 
 > "Eu, como aluna da Lab (Laboratoria), desejo manter contato com as minhas colegas de bootcamp e também as demais de outras turmas formadas anteriormente, para tirar dúvidas sobre a carreira de programação e também de assuntos do próprio bootcamp. Também quero para ter momentos de entretenimento com as minhas colegas fora do horário do bootcamp."
 
 ### 2.1. Critérios de Aceitação
 
-   - Permitir que somentes as estudantes façam parte da LabFriends.
+   - Permitir que somente as estudantes façam parte da LabFriends.
    - Ter todos os dados salvado no site.
    - Permitir que o perfil de cada usuária seja editável.
    - Poder postar, editar, apaga e comentar postagens pessoais e de terceiros.
@@ -52,7 +52,7 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
       - Ser uma SPA.
       - Ser responsivo.
       - Receber code review de pelo menos uma parceira de outra equipe.
-      - Fazer tests unitários.
+      - Fazer testEs unitários.
       - Fazer testes manuais buscando erros e imperfeições simples.
       - Fazer testes de usabilidade e incorporar o feedback dos usuários como melhorias.
       - Fazer deploy do aplicativo e marcar a versão (git tag).
@@ -85,10 +85,10 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 
    - Para utilizarmos no site, usaremos os seguintes intervalos de telas:
 
-      - _**De 300px a 600px de largura**_ (para Smartphone)
-      - _**De 600px a 1100px de largura**_ (para Tablet)
-      - _**De 1100px a 1600px de largura**_ (para Desktop)
-      - _**De 1600px a 2560px de largura**_ (para Desktop)
+      - _**De 300px a 550px de largura**_ (para Smartphone)
+      - _**De 550px a 1000px de largura**_ (para Tablet)
+      - _**De 1000px a 1500px de largura**_ (para Desktop)
+      - _**De 1500px a 2600px de largura**_ (para Desktop)
 
 - _**Tipografia e Hierarquia**_
 
