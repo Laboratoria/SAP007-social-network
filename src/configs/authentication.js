@@ -14,9 +14,9 @@ export const newUser = (email, password) => {
   const msgError = document.querySelector('#message-error')
   const msgUserConcluded = document.querySelector('#message-concluded')
   if (!email) {
-    return msgError.innerHTML = 'Insira um email'
+    msgError.innerHTML = 'Insira um email'
   }
-  return createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     msgUserConcluded.innerHTML = 'Email Cadastrado'
     window.location.hash='#login'
