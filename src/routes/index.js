@@ -1,6 +1,6 @@
 import login from '../pages/login.js';
 import feed from '../pages/feed.js';
-import singUp from '../pages/singup.js';
+import signUp from '../pages/signup.js';
 
 const main = document.querySelector('#root');
 const init = () => {
@@ -13,8 +13,8 @@ const init = () => {
       case '#feed':
         main.appendChild(feed());
         break;
-      case '#singUp':
-        main.appendChild(singUp());
+      case '#signUp':
+        main.appendChild(signUp());
         break;
       default:
         main.appendChild(login()); //criar error

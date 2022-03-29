@@ -44,14 +44,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-form {
-    width: 70%;
-    margin-bottom: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
 input {
     height: 2rem;
     border-style: none;
@@ -69,6 +61,14 @@ input::placeholder {
 
 input:focus {
     border-color: var(--yellow-font);
+}
+
+.formLogin {
+    width: 70%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .btnEntrar {

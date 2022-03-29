@@ -1,0 +1,82 @@
+:root {
+    --gray-default: gray;
+    --purple-border-body: #6a2b7b;
+    --purple-gradient: rgb(103, 41, 125);
+    --purple-hover: rgb(102, 32, 126);
+    --yellow-border-body: #fbc41c;
+    --yellow-gradient: #fac31c;
+    --yellow-hover: rgb(212, 166, 28);
+    --yellow-font: #ecb200;
+}
+
+.signUp {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logotipo {
+    width: 80%;
+    margin-top: 2.25rem;
+    display: flex;
+}
+
+.main-signUp {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formSigner {
+    width: 70%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttonRegister {
+    height: 2rem;
+    width: 100%;
+    border-style: none;
+    border-radius: .125rem;
+    background-image: linear-gradient(to right, var(--purple-gradient), var(--yellow-gradient));
+    margin-top: 0.5rem;
+}
+
+.buttonRegister a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.buttonRegister:hover {
+    background-image: linear-gradient(to right, var(--purple-hover), var(--yellow-hover));
+}
+
+.irParaAConta {
+    color: var(--yellow-font);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.irParaAConta a {
+    text-decoration: none;
+    color: var(--purple-gradient);
+    font-weight: bold;
+}
+
+.copyright {
+    height: 0.7rem;
+}
+
+.devs {
+    color: var(--gray-default);
+    font-size: 0.8rem;
+    margin-top: 1.9rem;
+    text-align: center;
+}
+
+@media screen and (min-width: 346px) {
+}
