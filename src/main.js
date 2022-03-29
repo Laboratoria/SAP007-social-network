@@ -1,6 +1,6 @@
 // rotas, suitch
 // import { myFunction } from "./lib/index.js";
-import "./js/config-firebase.js";
+import "./produtosFirebase/config-firebase.js";
 
 
 
