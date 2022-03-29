@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    font-family: 'Epilogue', sans-serif;
 }
 body{
 background-image: url("background.png");
@@ -8,7 +9,7 @@ background-image: url("background.png");
     width: 20vw;
     height: 40vh;
 }
-.main-header{
+.main-header,.main-footer{
     display: flex;
     justify-content: center;
 }
@@ -29,41 +30,43 @@ background-image: url("background.png");
     width: 40vw;
     padding: 60px 5px;
 }
-.main-footer{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 200px;
-    background-color:#FCD09C;
-}
-
-.btn-login{
-    width: 5vw;
-    height: 6vh;
-    background-color: #FDAF51;
-    border-radius: 5px;
-    border: none;
-}
 
 .text-input{
     width: 16vw;
     height: 4vh;
     border: none;
     background-color:#dee4e3;
-    padding: 5px;
+    padding: 0px 15px;
+}
+
+.main-footer{
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+    background-color:#FCD09C;
+    height: 6vh;
+}
+
+.btn-login{
+    width: 5vw;
+    height: 6vh;
+    background-color: #FDAF51;
+    
 }
 .btn-login-google{
     width: 7vw;
     height: 6vh;
     background-color: #ec6951;
-    border-radius: 5px;
-    border: none;
 }
 
 .btn-register{
     width: 7vw;
     height: 6vh;
     background-color: #FDAF51;
+    
+}
+
+.btn-login, .btn-login-google, .btn-register{
     border-radius: 5px;
     border: none;
 }
