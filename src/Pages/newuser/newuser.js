@@ -1,4 +1,4 @@
-import {newUser} from "/src/configs/authentication.js";
+import {newUser} from "../../configs/authentication.js";
 
 export default () => {
   const container = document.createElement("div");
@@ -24,22 +24,21 @@ export default () => {
       </p>
     </section>
   `;
-    
-  container.innerHTML = templateNewUser;
+   
+container.innerHTML = templateNewUser; 
 
-  const NewUserEmail = container.querySelector('#input-email')
-  const NewUserName = container.querySelector('#input-name')
-  const NewUserDate = container.querySelector('#birth-date')
-  const NewUserPassword = container.querySelector('#input-password')
-  const ButtonRegister = container.querySelector('#button-register')
+const NewUserEmail = container.querySelector('#input-email')
+const NewUserName = container.querySelector('#input-name')
+const NewUserDate = container.querySelector('#birth-date')
+const NewUserPassword = container.querySelector('#input-password')
+const ButtonRegister = container.querySelector('#button-register')
 
-  console.log(NewUserEmail.value);
+console.log(NewUserEmail.value);
 
 ButtonRegister.addEventListener('click', (e) => {
-  e.preventDefault();
-  newUser(NewUserName.value, NewUserDate.value, NewUserEmail.value, NewUserPassword.value)
+e.preventDefault();
+newUser(NewUserName.value, NewUserDate.value, NewUserEmail.value, NewUserPassword.value)
 })
 
-  return container;
+return container;
 }  
-  
