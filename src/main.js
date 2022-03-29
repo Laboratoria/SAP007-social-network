@@ -1,6 +1,8 @@
 // rotas, suitch
 // import { myFunction } from "./lib/index.js";
 import "./produtosFirebase/config-firebase.js";
+import {templateLogin } from "./pages/newLogin/newLogin.js"
+
 
 
 
@@ -23,3 +25,4 @@ createUserWithEmailAndPassword(auth, email, senha)
     console.log("deu errado");
     // ..
   });
+console.log(templateLogin );
