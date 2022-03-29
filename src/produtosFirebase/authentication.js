@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 const auth = getAuth();
 
+
 // Login de usuários novos
 export function newUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
