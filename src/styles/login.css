@@ -1,4 +1,6 @@
 :root {
+    --color-error: red;
+    --font-color-button: white;
     --gray-default: gray;
     --purple-border-body: #6a2b7b;
     --purple-gradient: rgb(103, 41, 125);
@@ -31,36 +33,18 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo {
     width: 80%;
-    /* margin-top: -6rem; */
+    margin-top: 1rem;
 }
 
 h2 {
     color: var(--yellow-font);
     margin-bottom: 1rem;
-}
-
-input {
-    height: 2rem;
-    border-style: none;
-    border: 0.1rem solid var(--gray-default);
-    border-radius: .125rem;
-    padding-left: .625rem;
-    margin-bottom: 1rem;
-    outline: none;
-}
-
-input::placeholder {
-    color: var(--gray-default);
-    opacity: 0.8;
-}
-
-input:focus {
-    border-color: var(--yellow-font);
 }
 
 .formLogin {
@@ -71,18 +55,42 @@ input:focus {
     justify-content: space-around;
 }
 
+input {
+    height: 2rem;
+    border-style: none;
+    border: 0.1rem solid var(--gray-default);
+    border-radius: .125rem;
+    padding-left: .625rem;
+    margin-bottom: 0.2rem;
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--gray-default);
+    opacity: 0.7;
+}
+
+input:focus {
+    border-color: var(--yellow-font);
+}
+
+.mensagemErro {
+    color: var(--color-error);
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
 .btnEntrar {
     height: 2rem;
     width: 100%;
     border-style: none;
     border-radius: .125rem;
     background-image: linear-gradient(to right, var(--purple-gradient), var(--yellow-gradient));
-    margin-top: 0.5rem;
 }
 
 .btnEntrar a {
     text-decoration: none;
-    color: white;
+    color: var(--font-color-button);
     font-weight: bold;
 }
 
@@ -91,6 +99,7 @@ input:focus {
 }
 
 .recoverPassword {
+    text-decoration: none;
     color: var(--yellow-font);
     font-size: 0.8rem;
     margin-bottom: 1.5rem;
@@ -144,9 +153,5 @@ input:focus {
 .devs {
     color: var(--gray-default);
     font-size: 0.8rem;
-    margin-top: 1.9rem;
     text-align: center;
-}
-
-@media screen and (min-width: 346px) {
 }

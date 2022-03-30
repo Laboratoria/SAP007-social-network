@@ -7,12 +7,14 @@ export default () => {
     <h2>Login</h2>
     <form method="post" class="formLogin">
       <input type="email" placeholder="E-mail">
+      <p class="mensagemErro">Email inválido!</p>
       <input type="password" placeholder="Senha">
+      <p class="mensagemErro">Senha inválida!</p>
       <button type="submit" id="btnEntrar" class="btnEntrar">
         <a href="/#feed">Entrar</a>
       </button>
     </form>
-    <p class="recoverPassword">Esqueceu a senha?</p>
+    <a href="" class="recoverPassword">Esqueceu a senha?</a>
     <div class="buttons">
       <p>Ou entre com:</p>
       <button class="google" id="google">
