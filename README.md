@@ -18,9 +18,11 @@
   - [2.2. Definição de Pronto](#22-definição-de-pronto)
 - [3. PROTÓTIPOS](#3-protótipos)
   - [3.1. UX (Experiência do Usuário) e UI (Design de Interface)](#31-ux-experiência-do-usuário-e-ui-design-de-interface)
-  - [3.2. Protótipo de Baixa Fidelidade](#32-protótipo-de-baixa-fidelidade)
-- [4. TESTES DE USABILIDADE](#4-testes-de-usabilidade)
-- [5. AUTORAS](#5-autoras)
+- [4. PROTÓTIPOS](#4-protótipos)
+  - [4.1. Protótipo de Baixa Fidelidade](#41-protótipo-de-baixa-fidelidade)
+  - [4.2. Protótipos de Alta Fidelidade](#42-protótipos-de-alta-fidelidade)
+- [5. TESTES DE USABILIDADE](#5-testes-de-usabilidade)
+- [6. AUTORAS](#6-autoras)
 
 ---
    
@@ -103,34 +105,40 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
      <div>
         <img alt="Cartela de cores do site" src="./src/img/to-readme/color-site.png">
      </div>
-   
-### 3.2. Protótipo de Baixa Fidelidade   
+
+## 4. PROTÓTIPOS
+
+- Para o desenvolvimento do protótipo de alta fidelidade, foi usado uma ferramenta digital para protótipo. A ferramenta utilizada foi o Figma, que é um editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web.
+
+### 4.1. Protótipo de Baixa Fidelidade
 
 <div>
   <img alt="Protótipo de baixa fidelidade" src="/src/img/to-readme/paper-prototype.gif">
 </div>
 
-### 3.3. Protótipo de Alta Fidelidade
+### 4.2. Protótipos de Alta Fidelidade
+
+#### 4.2.1 Protótipo para telas com largura entre 300 pixels a 550 pixels
 
 <div>
   <img alt="Protótipo para telas de 300px a 550px" src="/src/img/to-readme/prototype-smartphone.gif">
 </div>
 
-<br><br>
+#### 4.2.2. Protótipo para telas com largura entre 550 pixels a 1.000 pixels
 
 <div>
   <img alt="Protótipo para telas de 550px a 1.000px" height=800 src="/src/img/to-readme/prototype-tablet.gif">
 </div>
 
-<br><br>
+#### 4.2.3. Protótipo para telas com largura acima de 1.000 pixels
 
 <div>
-  <img alt="Protótipo para telas de 1.000px a 2.600px" src="/src/img/to-readme/prototype-desktop.gif">
+  <img alt="Protótipo para telas acima de 1.000px" src="/src/img/to-readme/prototype-desktop.gif">
 </div>
 
-## 4. TESTES DE USABILIDADE
+## 5. TESTES DE USABILIDADE
 
-## 5. AUTORAS
+## 6. AUTORAS
 
 <table>
 <td>
