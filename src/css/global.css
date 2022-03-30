@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: "Alice", sans-serif;
+    background-color: #1f171a;
+    color: #f9f9f9;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .nav-logo {
+    margin-top: 2em;
+    width: 7em;
+  }
+
+  .button {
+    color: #f9f9f9;
+    background-color: #da4871;
+    padding: 4px 33px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .button:hover{
+      background-color: #f43e89;
+      color: #1f171a;
+  }
+
+  .text-participate {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+  }

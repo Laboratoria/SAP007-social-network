@@ -1,2 +1,1 @@
-// aqui exportaras las funciones que necesites
-
+// Funções do Firebase

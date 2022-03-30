@@ -2,7 +2,7 @@ export const home = () => {
   const homeCreate = document.createElement('div');
   const templateHome = `
     <main class="home-container">
-      <section class="home-buttons">
+      <section class="home-buttons nav-menu">
         <a href="#login" class="button">Entrar</a>
         <a href="#register" class="button">Cadastrar</a>
       </section>
@@ -13,7 +13,7 @@ export const home = () => {
       </section>
   
       <div class="button-container">
-        <a href="" class="button">Participar</a>
+        <a href="#register" class="button">Participar</a>
       </div>
   
       <div class="container-image">

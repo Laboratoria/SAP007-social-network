@@ -35,11 +35,3 @@ export const login = () => {
   loginCreate.innerHTML = templateLogin;
   return loginCreate;
 };
-
-
-/*
- Mensagem de erro 
- <spam class="displayNone" id="loginEmailInvalido">Este email não esta registrado</spam>
-<spam class="displayNone" id="loginEmailNull">Entre com email válido</spam>
- <spam class="displayNone" id="loginSenhaInvalida">Senha inválida</spam>
- */
