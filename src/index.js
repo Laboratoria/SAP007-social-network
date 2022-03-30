@@ -1,4 +1,4 @@
-import home from "./Pages/home.js";
+import home from "./pages/home.js";
 
 const mainHome = document.querySelector("#root");
 window.addEventListener("load", () => {

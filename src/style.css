@@ -1,7 +1,16 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
 body {
   background-color: #FEFAEF;
+}
+@media (min-width: 365px) and ( max-width: 667px){
+
+.main.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
 }
 
 .banner {
@@ -13,6 +22,11 @@ p, a, footer {
   text-align: center;
   font-size:18px;
 }
+
+.sign-in-form{
+  margin-left: 12%;
+}
+
 .inputs {
   background-color: #F5EFEF;
   border:none;
@@ -32,8 +46,20 @@ p, a, footer {
   color: white;
   font-weight: bold;
   font-size: 14px;
+  justify-content: space-around;
+  margin-left: 25%;
+  margin-top: 15px;
+}
+
+.logoGoogle{
+  width: 10%;
+  margin-left: 42%;
 }
 
 .link {
-  color:#03A688;
+  display: flex;
+  color: #03A688;
+  flex-direction: column;
+}
+
 }
