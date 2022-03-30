@@ -5,11 +5,11 @@ export default function signin() {
 
   const feedTemplate = `
     <section class="main-content">
-   <p> FEED!! <p>
+   <p> FEED!! WE DID IT!!! WE ARE THE CHAMPIONS, MY FRIEND!!<p>
     </section>
     `;
 
-  createFeed.innerHTML += feedTemplate;
+  createFeed.innerHTML = feedTemplate;
 
   /* const email = createFeed.querySelector('#email');
   const password = createFeed.querySelector('#password');
@@ -23,7 +23,7 @@ export default function signin() {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert('Deu ruim!');
+        alert('Algo deu errado!');
         return errorMessage;
       });
   }); */

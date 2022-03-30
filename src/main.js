@@ -12,11 +12,11 @@ const init = () => {
       case '':
         mainContent.appendChild(login());
         break;
-      case '#register':
-        mainContent.appendChild(register());
-        break;
       case '#feed':
         mainContent.appendChild(feed());
+        break;
+      case '#register':
+        mainContent.appendChild(register());
         break;
       default:
         mainContent.appendChild(login());

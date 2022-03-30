@@ -1,4 +1,5 @@
-/* import {
+/* eslint-disable no-console */
+import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -10,6 +11,7 @@ export function userCreate(email, password) {
   return createUserWithEmailAndPassword(auth, email, password).then(
     (userCredential) => {
       const user = userCredential.user;
+      console.log('usuário cadastrado');
       return user;
     },
   );
@@ -23,4 +25,4 @@ export function userLogin(email, password) {
       return user;
     },
   );
-} */
+}

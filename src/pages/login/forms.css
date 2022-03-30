@@ -14,7 +14,7 @@ background-image: url("background.png");
     justify-content: center;
 }
 
-.login-container{
+.form-container{
     margin:0 auto;
     background-color: #FFF4F4;
     border-radius: 3px;
@@ -24,7 +24,7 @@ background-image: url("background.png");
     line-height: 4em;
     
 }
-.container-main-login{
+.green-container{
     margin:0 auto;
     background-color: #C8E8A2;
     width: 40vw;
