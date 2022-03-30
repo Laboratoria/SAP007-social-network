@@ -1,6 +1,28 @@
+// rotas, suitch
 // import { myFunction } from "./lib/index.js";
-import "./js/config-firebase.js";
+import "./produtosFirebase/config-firebase.js";
+import {templateLogin } from "./pages/newLogin/newLogin.js"
 
 
 
-myFunction();
+
+// myFunction();
+const email = "teste3@teste.com"
+const senha = "1234567" 
+
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, senha)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    console.log("deu certo");
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log("deu errado");
+    // ..
+  });
+console.log(templateLogin );

@@ -8,4 +8,4 @@ const firebaseConfig = {
   appId: "1:1048862460473:web:7a932ebb5a4a76eccc9be8",
 };
 
-initializeApp(firebaseConfig);
+initializeApp(firebaseConfig); // não se usa essa variável em outro lugar
