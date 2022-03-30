@@ -18,9 +18,11 @@
   - [2.2. Definição de Pronto](#22-definição-de-pronto)
 - [3. PROTÓTIPOS](#3-protótipos)
   - [3.1. UX (Experiência do Usuário) e UI (Design de Interface)](#31-ux-experiência-do-usuário-e-ui-design-de-interface)
-  - [3.2. Protótipo de Baixa Fidelidade](#32-protótipo-de-baixa-fidelidade)
-- [4. TESTES DE USABILIDADE](#4-testes-de-usabilidade)
-- [5. AUTORAS](#5-autoras)
+- [4. PROTÓTIPOS](#4-protótipos)
+  - [4.1. Protótipo de Baixa Fidelidade](#41-protótipo-de-baixa-fidelidade)
+  - [4.2. Protótipos de Alta Fidelidade](#42-protótipos-de-alta-fidelidade)
+- [5. TESTES DE USABILIDADE](#5-testes-de-usabilidade)
+- [6. AUTORAS](#6-autoras)
 
 ---
    
@@ -34,13 +36,13 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 
 ## 2. HISTÓRIAS DE USUÁRIOS
 
-> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notegbook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
+> "Como amante de rede social e aluna da Laboratoria quero uma rede social para que eu possa conectar com as minhas colegas da Lab, fora do horário do bootcamp. Desejo ter mais momentos de [happy hour](https://pt.wikipedia.org/wiki/Happy_hour) com elas e também poder tirar dúvidas sobre programação ou ajudar as minhas colegas. Quero uma aplicação que eu possa acessar em qualquer dispositivo, desde celular, tablet e notebook e que eu possa clicar em qualquer parte do site para criar as minhas postagens."
 
 > "Eu, como aluna da Lab (Laboratoria), desejo manter contato com as minhas colegas de bootcamp e também as demais de outras turmas formadas anteriormente, para tirar dúvidas sobre a carreira de programação e também de assuntos do próprio bootcamp. Também quero para ter momentos de entretenimento com as minhas colegas fora do horário do bootcamp."
 
 ### 2.1. Critérios de Aceitação
 
-   - Permitir que somentes as estudantes façam parte da LabFriends.
+   - Permitir que somente as estudantes façam parte da LabFriends.
    - Ter todos os dados salvado no site.
    - Permitir que o perfil de cada usuária seja editável.
    - Poder postar, editar, apaga e comentar postagens pessoais e de terceiros.
@@ -52,7 +54,7 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
       - Ser uma SPA.
       - Ser responsivo.
       - Receber code review de pelo menos uma parceira de outra equipe.
-      - Fazer tests unitários.
+      - Fazer testEs unitários.
       - Fazer testes manuais buscando erros e imperfeições simples.
       - Fazer testes de usabilidade e incorporar o feedback dos usuários como melhorias.
       - Fazer deploy do aplicativo e marcar a versão (git tag).
@@ -70,7 +72,7 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
   - A estrutura do site seguirá usando o conceito de SPA [(Single Page Application)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica), obedecendo a seguinte estrutura do site:
 
      <div>
-        <img alt="Cartela de cores do site" src="./src/img/to-readme/map-site.png">
+        <img alt="Cartela de cores do site" height=300 src="./src/img/to-readme/map-site.png">
      </div>
 
 - _**Responsividade**_
@@ -85,10 +87,10 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 
    - Para utilizarmos no site, usaremos os seguintes intervalos de telas:
 
-      - _**De 300px a 600px de largura**_ (para Smartphone)
-      - _**De 600px a 1100px de largura**_ (para Tablet)
-      - _**De 1100px a 1600px de largura**_ (para Desktop)
-      - _**De 1600px a 2560px de largura**_ (para Desktop)
+      - _**De 300px a 550px de largura**_ (para Smartphone)
+      - _**De 550px a 1000px de largura**_ (para Tablet)
+      - _**De 1000px a 1800px de largura**_ (para Desktop)
+      - _**De 1800px a 2600px de largura**_ (para Desktop)
 
 - _**Tipografia e Hierarquia**_
 
@@ -103,12 +105,40 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
      <div>
         <img alt="Cartela de cores do site" src="./src/img/to-readme/color-site.png">
      </div>
-   
-### 3.2. Protótipo de Baixa Fidelidade   
 
-## 4. TESTES DE USABILIDADE
+## 4. PROTÓTIPOS
 
-## 5. AUTORAS
+- Para o desenvolvimento do protótipo de alta fidelidade, foi usado uma ferramenta digital para protótipo. A ferramenta utilizada foi o Figma, que é um editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web.
+
+### 4.1. Protótipo de Baixa Fidelidade
+
+<div>
+  <img alt="Protótipo de baixa fidelidade" src="/src/img/to-readme/paper-prototype.gif">
+</div>
+
+### 4.2. Protótipos de Alta Fidelidade
+
+#### 4.2.1 Protótipo para telas com largura entre 300 pixels a 550 pixels
+
+<div>
+  <img alt="Protótipo para telas de 300px a 550px" src="/src/img/to-readme/prototype-smartphone.gif">
+</div>
+
+#### 4.2.2. Protótipo para telas com largura entre 550 pixels a 1.000 pixels
+
+<div>
+  <img alt="Protótipo para telas de 550px a 1.000px" height=800 src="/src/img/to-readme/prototype-tablet.gif">
+</div>
+
+#### 4.2.3. Protótipo para telas com largura acima de 1.000 pixels
+
+<div>
+  <img alt="Protótipo para telas acima de 1.000px" src="/src/img/to-readme/prototype-desktop.gif">
+</div>
+
+## 5. TESTES DE USABILIDADE
+
+## 6. AUTORAS
 
 <table>
 <td>
