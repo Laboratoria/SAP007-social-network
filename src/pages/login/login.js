@@ -1,4 +1,4 @@
-import { userLogin } from '../../lib/authentication.js;';
+// import { userLogin } from './authentication.js';
 
 export default function login() {
   const container = document.createElement('div');
@@ -24,10 +24,10 @@ export default function login() {
 
   // após criar o template, cria variaveis pra pegar os valores dos inputs e do botao
 
-  const email = container.querySelector('#email-login-input');
+  /* const email = container.querySelector('#email-login-input');
   const password = container.querySelector('#password-login-input');
   const btnSubmit = container.querySelector('#btn-submit-login');
-  // ai coloca um addeventlistener pra ouvir o CLICK do botao
+  ai coloca um addeventlistener pra ouvir o CLICK do botao
   btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
     userLogin(email.value, password.value)
@@ -39,7 +39,7 @@ export default function login() {
         alert('Deu errado!');
         return errorMessage;
       });
-  });
+  }); */
 
   return container;
 }

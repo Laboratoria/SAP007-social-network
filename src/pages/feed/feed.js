@@ -1,17 +1,17 @@
-// importar da .LIB a função de autenticação do firebase
+// import { userLogin } from '../login/authentication';
 
 export default function signin() {
   const createFeed = document.createElement('section');
 
   const feedTemplate = `
     <section class="main-content">
-   <p> FEED!!<p>
+   <p> FEED!! <p>
     </section>
     `;
 
   createFeed.innerHTML += feedTemplate;
 
-  const email = createFeed.querySelector('#email');
+  /* const email = createFeed.querySelector('#email');
   const password = createFeed.querySelector('#password');
   const buttonSubmit = createFeed.querySelector('#buttonSubmit');
 
@@ -26,7 +26,7 @@ export default function signin() {
         alert('Deu ruim!');
         return errorMessage;
       });
-  });
+  }); */
 
   return createFeed;
 }

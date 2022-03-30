@@ -1,4 +1,4 @@
-import { userCreate } from '../../lib/authentication.js;';
+// import { userCreate } from '../login/authentication.js;';
 
 export default () => {
   const createRegister = document.createElement('div');
@@ -15,7 +15,7 @@ export default () => {
         <label class="">Senha</label>
         <input class="text-input" type="password" id="register-password">
         <br>
-        <button class="btn-register" id="register-button">Cadastrar</button>
+       <button class="btn-register" id="register-button">Cadastrar</button>
       </form>
     </div>
   </section>
@@ -23,7 +23,7 @@ export default () => {
   createRegister.innerHTML = registerForm;
   // após criar o registerForm, cria variaveis pra pegar os valores dos inputs e do botao
 
-  const registerEmail = createRegister.querySelector('#register-email');
+  /* const registerEmail = createRegister.querySelector('#register-email');
   const registerPassword = createRegister.querySelector('#register-password');
   const buttonRegister = createRegister.querySelector('#register-button');
 
@@ -40,7 +40,7 @@ export default () => {
         alert('Deu ruim!');
         return errorMessage;
       });
-  });
+  }); */
 
   return createRegister;
 };

@@ -1,4 +1,4 @@
-import {
+/* import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -23,5 +23,4 @@ export function userLogin(email, password) {
       return user;
     },
   );
-}
-
+} */
