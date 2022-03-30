@@ -31,12 +31,32 @@
   color: black;
 }
 
+.button-register{
+  height: 52px;
+}  
+
+.message {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 /*celular*/
 @media screen and (min-width: 300px) and (max-width: 599px) {
   .text-register {
     font-size: 1rem;
     margin-bottom: 10px;
   }
+
+  .button-register{
+    height: 30px;
+    width: 13rem;
+  }  
+
+  .message {
+    margin-bottom: 15px;
+  }
+  
+
 }  
   
 /*tablet*/

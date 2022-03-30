@@ -63,7 +63,8 @@
 	color:black;
 }
 
-.button-login{
+.button-login,
+.button-register{
 	border-radius: 5px;
 	border: 0;
 	background: #7A098C;
@@ -90,12 +91,12 @@
 /*recover.js*/
 .text-recover {
   width: 20rem;
-	text-align: center;
-	margin: 20px 0 20px 0;
+  text-align: center;
+  margin: 20px 0 20px 0;
 }
 
 .msg-recover {
-	height: 60px;
+  height: 60px;
 }
 
 
@@ -117,7 +118,7 @@
 
   .input-email {
 	  font-size: 0.9rem;
-		width: 13rem;
+	  width: 13rem;
 	  margin-bottom: 15px;
   }
 
@@ -132,7 +133,7 @@
 		margin-right: 30px;
   }
 
-  .button-login{
+  .button-login {
 	  height: 30px;
 	  width: 13rem;
   }
@@ -141,6 +142,13 @@
 		font-size: 0.9rem;
 		margin-top: 20px;
   }
+
+  .text-recover {
+    width: 15rem;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    font-size: 1rem;
+  }  
 }
 
 /*tablet*/
@@ -169,7 +177,8 @@
 		margin-right: 10%;
 	}
 
-	.button-login{
+	.button-login
+	.button-register{
 	  width: 14rem;
   }
   

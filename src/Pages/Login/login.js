@@ -3,7 +3,7 @@ export default () => {
   container.classList.add("content-login")
   
   const templateLogin = `
-    <img class="logo-site" src="img/logo-eu-poesia-r.png">
+    <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
     <form class="form-login">
       <a href="#register" class="link-register">Registre-se</a>
       <input type="email" id="input-email" class="input-email" placeholder="E-mail">
