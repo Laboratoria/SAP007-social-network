@@ -106,11 +106,20 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
    
 ### 3.2. Protótipo de Baixa Fidelidade   
 
+<div>
+  <img alt="Protótipo de baixa fidelidade" src="/src/img/to-readme/paper-prototype.gif">
+</div>
 
 ### 3.3. Protótipo de Alta Fidelidade
 
 <div>
-  <img alt="Protótipo para telas de 300px a 1.000px" src="/src/img/to-readme/prototype-smartphone.gif">
+  <img alt="Protótipo para telas de 300px a 550px" src="/src/img/to-readme/prototype-smartphone.gif">
+</div>
+
+<br><br>
+
+<div>
+  <img alt="Protótipo para telas de 550px a 1.000px" height=800 src="/src/img/to-readme/prototype-tablet.gif">
 </div>
 
 <br><br>
