@@ -3,6 +3,7 @@ import './config-firebase.js';
 
 import { home } from './pages/home/home.js';
 import { login } from './pages/login/login.js';
+import { register } from './pages/register/register.js';
 
 const content = document.querySelector('#root');
 
@@ -17,6 +18,9 @@ const contentChange = () => {
     case '#login':
       content.appendChild(login());
       break;
+    case '#register':
+      content.appendChild(register());
+      break;
     case '#home':
       content.appendChild(home());
       break;
@@ -25,4 +29,5 @@ const contentChange = () => {
 };
 
 window.addEventListener('load', initialContent);
+window.addEventListener('reload', initialContent);
 window.addEventListener('hashchange', contentChange);

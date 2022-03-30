@@ -5,11 +5,11 @@
 }
 
 .text-content {
-  margin: 3em 1em 2em;
+  margin: 2em 1em 2em;
 }
 
 p > span {
-  color: #da4871;
+  color: var(--pink);
 }
 
 .button-container {
