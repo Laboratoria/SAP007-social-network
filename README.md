@@ -70,7 +70,7 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
   - A estrutura do site seguirá usando o conceito de SPA [(Single Page Application)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica), obedecendo a seguinte estrutura do site:
 
      <div>
-        <img alt="Cartela de cores do site" src="./src/img/to-readme/map-site.png">
+        <img alt="Cartela de cores do site" height=300 src="./src/img/to-readme/map-site.png">
      </div>
 
 - _**Responsividade**_
@@ -105,6 +105,19 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
      </div>
    
 ### 3.2. Protótipo de Baixa Fidelidade   
+
+
+### 3.3. Protótipo de Alta Fidelidade
+
+<div>
+  <img alt="Protótipo para telas de 300px a 1.000px" src="/src/img/to-readme/prototype-smartphone.gif">
+</div>
+
+<br><br>
+
+<div>
+  <img alt="Protótipo para telas de 1.000px a 2.600px" src="/src/img/to-readme/prototype-desktop.gif">
+</div>
 
 ## 4. TESTES DE USABILIDADE
 
