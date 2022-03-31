@@ -14,15 +14,21 @@ html {
   --border-input: 2px solid var(--color-medium-gray);
 
   --border-radius-little: 5px;
-  --boder-radius-great: 20px;
+  --boder-radius-medium-container: 20px;
+  --boder-radius-great-container: 25px;
 
   --font-pattern: "Segoe UI", Helvetica, Arial, Verdana;
   --font-emphasis: Georgia, "Times New Roman", Times, serif;
   --font-bold: 600;
 
   --spacing-medium-top-bottom: 15px 0;
-  --spacing-great-top-bottom: 15px 0 30px 0;
+
+  --spacing-little-logo: 10px 0 20px 0;
+  --spacing-medium-logo: 15px 0 30px 0;
+  --spacing-great-logo: 18px 0 35px 0;
+
   --spacing-little-bottom: 5px;
   --spacing-medium-bottom: 15px;
+
   --spacing-little-line: 5x 0;
 }
