@@ -1,5 +1,5 @@
 const auth = getAuth();
-const criarUser = () => {
+export const criarUser = () => {
   return createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in
