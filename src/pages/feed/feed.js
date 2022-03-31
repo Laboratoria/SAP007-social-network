@@ -40,11 +40,9 @@ export const feed = () => {
       // uid: () => ,
       // name: () => ,
     };
-    try {
-      createPost(post.text(), post.date());
-    } catch (e) {
-      console.error('Error adding document: ', e);
-    }
+    createPost(post.text(), post.date()).then((response) => {
+      console.log(response);
+    }).catch((e) => console.error('Error adding document', e));
   });
 
   // controlPost().forEach((changes) => {
