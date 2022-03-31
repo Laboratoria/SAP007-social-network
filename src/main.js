@@ -1,16 +1,21 @@
-import './configs/config.firebase.js';
-import login from '../pages/login/login.js';
-import register from '../pages/register/register.js';
-import feed from '../pages/feed/feed.js';
+import login from './pages/login.js';
+import register from './pages/register.js';
+import feed from './pages/feed.js';
 
 const mainContent = document.querySelector('#root');
-// essa função é onde permite a mudança da rota
+
 const init = () => {
   window.addEventListener('hashchange', () => {
     mainContent.innerHTML = '';
     switch (window.location.hash) {
       case '':
+        main.appendChild(login());
+        break;
+      case '#login':
         mainContent.appendChild(login());
+        break;
+      case '#cadastro':
+        mainContent.appendChild(register());
         break;
       case '#feed':
         mainContent.appendChild(feed());
@@ -28,3 +33,18 @@ window.addEventListener('load', () => {
   mainContent.appendChild(login());
   init();
 });
+
+// export const renderPage = () => {
+//   const mainContent = document.getElementById('root');
+//   const routes = {
+//     '/': login,
+//     "/login": login,
+//     '/feed': feed,
+//     '/cadastro': register,
+//   };
+//   mainContent.innerHTML = '';
+//   mainContent.appendChild(routes[window.location.pathname]());
+
+//   window.addEventListener("popstate", renderPage);
+//   window.addEventListener('load', renderPage);
+// };
