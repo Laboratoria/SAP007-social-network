@@ -1,5 +1,5 @@
 @import url("variables.css");
-@import url("./pages/login/style.css");
+@import url("page-login.css");
 
 * {
   font-size: 16px;
@@ -8,7 +8,7 @@
   font-family: var(--font-pattern);
 }
 body {
-  background-image: url("./img/background-pink.gif");
+  background-image: url("../img/background-pink.gif");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
