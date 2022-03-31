@@ -1,3 +1,5 @@
+import {userWithLogin} from "../../configs/authentication.js";
+
 export default () => {
   const container = document.createElement("div");
   container.classList.add("content-login")
@@ -13,7 +15,7 @@ export default () => {
         <label for="remember-password">Lembrar senha</label>
         <a href="#forgot-password" class="link-forgot-password">Esqueci a senha</a>
       </div>  
-      <span id="message-error" class="message-error"></span>
+      <span id="message" class="message"></span>
       <button type="button" id="button-login" class="button-login">Login</button>
     </form>
     <footer class="footer">
@@ -28,9 +30,38 @@ export default () => {
   const buttonEmail = container.querySelector('#input-email');
   const buttonPassword = container.querySelector('#input-password');
   const buttonLogin = container.querySelector('#button-login');
+  const msgAlert = container.querySelector('#message');
   
   buttonLogin.addEventListener('click', (event) => {
     event.preventDefault();
+    userWithLogin(buttonEmail.value, buttonPassword.value)
+      .then(function () {
+        window.location.hash='#feed'
+      })
+      .catch((error) => {
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        
+        switch(errorCode) {
+          case 'auth/wrong-password':
+            errorMessage = 'Senha errada.'
+            msgAlert.innerHTML = errorMessage;
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Insira um email válido.'
+            msgAlert.innerHTML = errorMessage;
+            break; 
+          case 'auth/user-not-found':
+            errorMessage = 'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".'
+            msgAlert.innerHTML = errorMessage;
+            break; 
+          case 'auth/internal-error':
+            errorMessage = 'Insira a senha.'
+            msgAlert.innerHTML = errorMessage;
+            break; 
+        }
+      });
+
   })
   return container;
 }

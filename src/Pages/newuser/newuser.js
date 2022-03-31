@@ -35,8 +35,8 @@ buttonRegister.addEventListener('click', (e) => {
   registerUser(newUserEmail.value, newUserPassword.value)
     .then(function () {
       msgAlert.innerHTML = 'Email Cadastrado'
-      window.location.hash='#login'
-      })
+      window.location.hash='#feed'
+    })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
@@ -62,29 +62,6 @@ buttonRegister.addEventListener('click', (e) => {
           errorMessage = 'Preencha todos os campos'
           msgAlert.innerHTML = errorMessage;
         }
-
-
-      /*if (errorCode === 'auth/invalid-email'){
-        errorMessage = 'Insira um email válido.'
-        msgAlert.innerHTML = errorMessage;
-      }
-      else if (errorCode === 'auth/weak-password'){
-        errorMessage = 'A senha deve ter no mínimo seis caracteres.'
-        msgAlert.innerHTML = errorMessage;
-      }
-      else if (errorCode === 'auth/email-already-in-use'){
-        errorMessage = 'Email já cadastrado.'
-        msgAlert.innerHTML = errorMessage;
-      }
-      else if (errorCode === 'auth/missing-email'){
-        errorMessage = 'Insira um email.'
-        msgAlert.innerHTML = errorMessage
-      }
-      else{
-        errorMessage = 'Preencha todos os campos'
-        msgAlert.innerHTML = errorMessage;
-      }
-*/
     });    
   });
 

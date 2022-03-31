@@ -1,6 +1,7 @@
 @import url("reset.css");
 @import url("./pages/login/login.css");
 @import url("./pages/newuser/newuser.css");
+@import url("./pages/feed/feed.css");
 
 
 .all-content {
