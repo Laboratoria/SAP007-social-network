@@ -1,157 +1,186 @@
 :root {
-    --color-error: red;
-    --font-color-button: white;
-    --gray-default: gray;
-    --purple-border-body: #6a2b7b;
-    --purple-gradient: rgb(103, 41, 125);
-    --purple-hover: rgb(102, 32, 126);
-    --yellow-border-body: #fbc41c;
-    --yellow-gradient: #fac31c;
-    --yellow-hover: rgb(212, 166, 28);
-    --yellow-font: #ecb200;
+  --color-error: red;
+  --font-color-button: white;
+  --gray-default: gray;
+  --purple-border-body: #6a2b7b;
+  --purple-gradient: rgb(103, 41, 125);
+  --purple-hover: rgb(102, 32, 126);
+  --yellow-border-body: #fbc41c;
+  --yellow-gradient: #fac31c;
+  --yellow-hover: rgb(212, 166, 28);
+  --yellow-font: #ecb200;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 .root {
-    height: 100vh;
-    border-left: solid 0.3rem var(--yellow-border-body);
-    border-right: solid 0.3rem var(--purple-border-body);
+  height: 100vh;
+  border-left: solid 0.3rem var(--yellow-border-body);
+  border-right: solid 0.3rem var(--purple-border-body);
 }
 
 .login {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+}
+
+.content {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-login {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .logo {
-    width: 80%;
-    margin-top: 1rem;
+  width: 80%;
 }
 
 h2 {
-    color: var(--yellow-font);
-    margin-bottom: 1rem;
+  color: var(--yellow-font);
+  margin-top: -2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .formLogin {
-    width: 70%;
-    margin-bottom: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  width: 70%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgPhones {
+  display: none;
 }
 
 input {
-    height: 2rem;
-    border-style: none;
-    border: 0.1rem solid var(--gray-default);
-    border-radius: .125rem;
-    padding-left: .625rem;
-    margin-bottom: 0.2rem;
-    outline: none;
+  height: 2rem;
+  border-style: none;
+  border: 0.1rem solid var(--gray-default);
+  border-radius: 0.125rem;
+  padding-left: 0.625rem;
+  margin-bottom: 0.5rem;
+  outline: none;
 }
 
 input::placeholder {
-    color: var(--gray-default);
-    opacity: 0.7;
+  color: var(--gray-default);
+  opacity: 0.7;
 }
 
 input:focus {
-    border-color: var(--yellow-font);
+  border-color: var(--yellow-font);
 }
 
 .mensagemErro {
-    color: var(--color-error);
-    font-size: 0.8rem;
-    margin-bottom: 0.2rem;
+  color: var(--color-error);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  display: none;
 }
 
 .btnEntrar {
-    height: 2rem;
-    width: 100%;
-    border-style: none;
-    border-radius: .125rem;
-    background-image: linear-gradient(to right, var(--purple-gradient), var(--yellow-gradient));
+  height: 2rem;
+  width: 100%;
+  border-style: none;
+  border-radius: 0.125rem;
+  background-image: linear-gradient(to right, var(--purple-gradient), var(--yellow-gradient));
 }
 
 .btnEntrar a {
-    text-decoration: none;
-    color: var(--font-color-button);
-    font-weight: bold;
+  text-decoration: none;
+  color: var(--font-color-button);
+  font-weight: bold;
 }
 
 .btnEntrar:hover {
-    background-image: linear-gradient(to right, var(--purple-hover), var(--yellow-hover));
+  background-image: linear-gradient(to right, var(--purple-hover), var(--yellow-hover));
 }
 
 .recoverPassword {
-    text-decoration: none;
-    color: var(--yellow-font);
-    font-size: 0.8rem;
-    margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: var(--yellow-font);
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
 }
 
 .buttons {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .buttons p {
-    color: var(--yellow-font);
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.7rem;
-    text-align: center;
+  color: var(--yellow-font);
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  text-align: center;
 }
 
 .google,
 .facebook,
 .github {
-    height: 2rem;
-    width: 2.5rem;
-    border: none;
-    border-radius: 50%;
-    background: none;
+  height: 2rem;
+  width: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: none;
 }
 
 .iconGoogle,
 .iconFacebook,
 .iconGithub {
-    height: 2rem;
-    background: none;
+  height: 2rem;
 }
 
 .criarConta {
-    color: var(--yellow-font);
-    font-size: 0.8rem;
-    font-weight: bold;
+  color: var(--yellow-font);
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .criarConta a {
-    text-decoration: none;
-    color: var(--purple-gradient);
-    font-weight: bold;
+  text-decoration: none;
+  color: var(--purple-gradient);
+  font-weight: bold;
 }
 
 .copyright {
-    height: 0.7rem;
+  height: 0.7rem;
 }
 
 .devs {
-    color: var(--gray-default);
-    font-size: 0.8rem;
-    text-align: center;
+  color: var(--gray-default);
+  font-size: 0.8rem;
+  text-align: center;
+  height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+@media screen and (min-width: 1024px) {
+  .main-login {
+    margin-top: -4rem;
+  }
+  .logo {
+    margin-top: 2rem;
+  }
+  .imgPhones {
+    margin-right: 2rem;
+    display: block;
+    height: 90%;
+  }
 }
