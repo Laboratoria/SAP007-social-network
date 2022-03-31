@@ -7,8 +7,8 @@ import {templateLogin } from "./pages/newLogin/newLogin.js"
 
 
 // myFunction();
-const email = "teste3@teste.com"
-const senha = "1234567" 
+const email = "dayanne33@teste.com"
+const senha = "12345678" 
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 const auth = getAuth();

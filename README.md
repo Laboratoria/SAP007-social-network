@@ -43,9 +43,9 @@ O diferencial dessa rede social é que todas as mulheres que se cadastrarem, ser
 ### 2.1. Critérios de Aceitação
 
    - Permitir que somente as estudantes façam parte da LabFriends.
-   - Ter todos os dados salvado no site.
+   - Ter todos os dados salvos no site.
    - Permitir que o perfil de cada usuária seja editável.
-   - Poder postar, editar, apaga e comentar postagens pessoais e de terceiros.
+   - Poder postar, editar, apagar e comentar postagens pessoais e de terceiros.
 
 ### 2.2. Definição de Pronto 
 
