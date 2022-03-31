@@ -1,25 +1,26 @@
 export default () => {
-  const areaSingUp = document.createElement("div");
-  areaSingUp.classList.add('signUp');
-  areaSingUp.innerHTML = `
+  const areaSignUp = document.createElement("div");
+  areaSignUp.classList.add('signup');
+  areaSignUp.innerHTML = `
   <div class="content">
     <div id="main-signUp" class="main-signUp">
-      <img src="../img/logo.png" alt="Logo Laboriam" class="logotipo">
-      <form class="formSigner">
+      <img src="../img/logo.png" alt="Logo Laboriam" class="logo">
+      <form>
         <h2>Cadastro</h2>
         <input type="email" placeholder="Endereço de e-mail" id="inputEmail">
         <input type="text" placeholder="Nome completo" id="inputName">
-        <input type="text" placeholder="Nome de usuário" id="inputLastName">
         <input type="password" placeholder="Senha" id="inputPassword">
         <p id="mensagemErro"></p>
         <button type="submit" id="buttonRegister" class="buttonRegister">   
           <a href="/#feed"> Cadastre-se </a> 
         </button>
       </form>
-      <div class="buttons">
+      <div class="alternativaLogin">
         <div></div>
         <p>OU</p>
         <div></div>
+      </div>
+      <div class="buttons">
         <button class="google" id="google">
           <img src="../img/icon-google.png" alt="" class="iconGoogle">
         </button>
@@ -34,17 +35,17 @@ export default () => {
     </div>
     <img src="../img/laboriam-phone.png" alt="Logo Laboriam" class="imgPhones">
   </div>
-  <div class="devs">
-    <p><img src="../img/copyright.png" alt="" class="copyright"> Desenvolvido por:</p>
+  <footer class="devs">
+    <p>Copyright &copy Desenvolvido por:</p>
     <p>Cássia Costa, Dayane Rodrigues e Viviane Soares</p>
-  </div>
+  </footer>
 `;
 
-  const btnCadastro = areaSingUp.querySelector("#buttonRegister");
-  const email = areaSingUp.querySelector("#inputEmail");
-  const password = areaSingUp.querySelector("#inputPassword");
-  const completeName = areaSingUp.querySelector("#inputName");
-  const userName = areaSingUp.querySelector("#inputLastName");
+  const btnCadastro = areaSignUp.querySelector("#buttonRegister");
+  const email = areaSignUp.querySelector("#inputEmail");
+  const password = areaSignUp.querySelector("#inputPassword");
+  const completeName = areaSignUp.querySelector("#inputName");
+  const userName = areaSignUp.querySelector("#inputLastName");
 
-  return areaSingUp;
+  return areaSignUp;
 };
