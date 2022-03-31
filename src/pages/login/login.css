@@ -1,9 +1,9 @@
-@import url(../style/reset.css);
+@import url(../../style/reset.css);
 
-body {
-    background: pink;
+.box-slogan {
+    align-items: center;
 }
 
-.logo-icon {
-    height: 100px;
+.error {
+    display: none;
 }

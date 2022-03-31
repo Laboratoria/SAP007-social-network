@@ -1,18 +1,32 @@
 // Este es el punto de entrada de tu aplicacion
 import './configurafirebase/configfirebase.js';
 import { pageLogin } from './pages/login/login.js';
-
+import { feed } from './pages/feed/feed.js';
 // import { createLogin } from './pages/register/page-register.js';
 
-pageLogin();
+const main = document.getElementById('root');
 
-// createLogin();
+// main.innerHTML = '';
+// main.appendChild(pageLogin());
 
-// myFunction();
-// console.log('antes');
-// firebase.app.auth().signInWithEmailAndPassword('any@email.com', '123456').then((response) => {
-//   console.log('success', response);
-// }).catch((error) => {
-//   console.log('error', error);
-// });
-// console.log('depois');
+const init = () => {
+  window.addEventListener('hashchange', () => {
+    console.log(window.location.hash);
+    main.innerHTML = '';
+    switch (window.location.hash) {
+      case '':
+        main.appendChild(pageLogin());
+        break;
+      case '#feed':
+        main.appendChild(feed());
+        break;
+      default:
+        main.appendChild(pageLogin());
+    }
+  });
+};
+
+window.addEventListener('load', () => {
+  main.appendChild(pageLogin());
+  init();
+});

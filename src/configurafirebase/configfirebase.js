@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
-// eslint-disable-next-line
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA8csr-WYkUBdLGljUfS7ZQ4CUeo7rxANo',
@@ -14,4 +12,3 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const bd = getFirestore();
