@@ -63,7 +63,8 @@
 	color:black;
 }
 
-.button-login{
+.button-login,
+.button-register{
 	border-radius: 5px;
 	border: 0;
 	background: #7A098C;
@@ -95,7 +96,7 @@
 }
 
 .msg-recover {
-	height: 60px;
+  height: 60px;
 }
 
 
@@ -141,6 +142,13 @@
 		font-size: 0.9rem;
 		margin-top: 20px;
 	}
+
+	.text-recover {
+    	width: 15rem;
+    	text-align: center;
+    	margin: 20px 0 20px 0;
+    	font-size: 1rem;
+	}  
 }
 
 /*tablet*/
@@ -169,9 +177,10 @@
 		margin-right: 10%;
 	}
 
-	.button-login{
+	.button-login,
+	.button-register{
 		width: 14rem;
-	}
+	}	
 
 	.footer {
 		font-size: 0.9rem;
