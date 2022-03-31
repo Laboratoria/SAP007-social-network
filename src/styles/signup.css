@@ -17,7 +17,7 @@
 
 .logotipo {
     width: 80%;
-    margin-top: 2.25rem;
+    /* margin-top: 2.25rem; */
     display: flex;
 }
 
@@ -71,12 +71,12 @@
     height: 0.7rem;
 }
 
-.devs {
+/* .devs {
     color: var(--gray-default);
     font-size: 0.8rem;
     margin-top: 1.9rem;
     text-align: center;
-}
+} */
 
 @media screen and (min-width: 346px) {
 }
