@@ -1,3 +1,5 @@
+import { createPost } from './controll.js';
+
 export const feed = () => {
   const main = document.getElementById('root');
   main.innerHTML = '';
@@ -35,4 +37,17 @@ export const feed = () => {
   }
 
   btnMobile.addEventListener('click', toggleMenu);
+
+  const post = {
+    text: () => document.querySelector('#input-post'),
+    date: () => new Date(),
+  };
+
+  try {
+    createPost(post.text, post.date);
+  } catch (e) {
+    console.error('Error adding document: ', e);
+  }
+
+  return timeline;
 };
