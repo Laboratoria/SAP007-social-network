@@ -23,9 +23,15 @@ const init = () => {
   });
 };
 
+const eventHash = () => {
+  window.addEventListener('hashchange', () => {
+    console.log(window.location.hash);
+    main.innerHTML = '';
+    init();
+  });
+};
+
 window.addEventListener('load', () => {
-  main.appendChild(pageLogin());
+  eventHash();
   init();
 });
-
-console.log('antes');
