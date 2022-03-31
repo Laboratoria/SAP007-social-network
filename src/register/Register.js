@@ -1,22 +1,5 @@
-
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"
-import app from "./firebase/firebaseConfig.js"
-const authentication = getAuth()
-const app = app
-
-
-
-
-
-const botao = document.querySelector("#botão")
-botao.addEventListener("click", Event => {
-
-    Event.preventDefault()
-
-    const form = document.querySelector("#form-test")
-    const email = form[0].value
-    const senha = form[1].value
-
-
-    createUserWithEmailAndPassword(authentication, email, senha)
-})
+export const pages = {
+  login: '<h1>a</h1>',
+  register: '<h1>iai2</h1>',
+  Feed: '<h1>iai</h1>',
+};
