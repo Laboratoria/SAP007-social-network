@@ -20,6 +20,9 @@ const init = () => {
       case '#feed':
         mainContent.appendChild(feed());
         break;
+      case '#register':
+        mainContent.appendChild(register());
+        break;
       default:
         mainContent.appendChild(login());
     }
