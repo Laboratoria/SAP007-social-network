@@ -14,6 +14,9 @@ const init = () => {
     console.log(window.location.hash);
     main.innerHTML = '';
     switch (window.location.hash) {
+      case '':
+        main.appendChild(pageLogin());
+        break;
       case '#feed':
         main.appendChild(feed());
         break;
@@ -27,5 +30,3 @@ window.addEventListener('load', () => {
   main.appendChild(pageLogin());
   init();
 });
-
-console.log('antes');

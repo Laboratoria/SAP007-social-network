@@ -9,7 +9,7 @@ export const pageLogin = () => {
   login.innerHTML = `
     <link rel="stylesheet" href="./pages/login/login.css"/>      
     <figure class="box-slogan">
-      <img src="../img/logo.png" alt="Logotype" class="logo-icon">
+      <img src="#" alt="Logotype" class="logo-icon">
     </figure>
     <h3 class="slogan">A rede social da comunidade Fandom</h3>    
     <section class="box-form-login">
@@ -34,10 +34,8 @@ export const pageLogin = () => {
   const inputPassword = login.querySelector('#password-area');
   console.log(inputEmail.value, inputPassword.value);
 
-  // main.appendChild(login);
   // const btnRegister = login.querySelector('#btn-register');
   // btnRegister.addEventListener('click', () => {
-  //      createLogin();
   //  });
 
   const form = {
