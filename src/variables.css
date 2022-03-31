@@ -1,0 +1,28 @@
+html {
+  --color-dark-pink: #ff009e;
+  --color-light-pink: #ffb8e1;
+  --color-dark-green: #56f894;
+  --color-light-green: #a6ffd2;
+  --color-dark-yellow: #ffe521;
+  --color-light-yellow: #fff4a5;
+  --color-white: #f5f5f5;
+  --color-dark-gray: #1d1d1d;
+  --color-medium-gray: #3a3a3a;
+  --color-light-gray: #dfdfdf;
+  --color-black: #000000;
+
+  --border-input: 2px solid var(--color-medium-gray);
+
+  --border-radius-little: 5px;
+  --boder-radius-great: 20px;
+
+  --font-pattern: "Segoe UI", Helvetica, Arial, Verdana;
+  --font-emphasis: Georgia, "Times New Roman", Times, serif;
+  --font-bold: 600;
+
+  --spacing-medium-top-bottom: 15px 0;
+  --spacing-great-top-bottom: 15px 0 30px 0;
+  --spacing-little-bottom: 5px;
+  --spacing-medium-bottom: 15px;
+  --spacing-little-line: 5x 0;
+}
