@@ -48,3 +48,12 @@ export default () => {
   return container;
 };
 
+// firebase.auth().onAuthStateChanged(function(user){
+//   if(user){
+//     const uid = user.uid;
+//     uid != null
+//     window.location.hash = "#timeline";
+//   }else{
+//     alert("Offline");
+//   }
+// });

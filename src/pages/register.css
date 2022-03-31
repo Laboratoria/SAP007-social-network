@@ -1,3 +1,10 @@
+.template {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 40%;
+    left: 18%;
+}
 .username,
 .confirm-password {
     border-radius: 8px;
@@ -7,5 +14,14 @@
     font-size: 19px;
     background-color: #F2F2F2;
     border: black;
-    align-self: center;
+    align-self: center;    
+}
+.user-register {
+    margin: auto;
+}
+.user-register a {
+    color: black;
+    float: inline-end;
+    position: relative;
+    top: 240px;
 }
