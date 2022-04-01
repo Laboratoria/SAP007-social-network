@@ -2,7 +2,7 @@
 import './configurafirebase/configfirebase.js';
 import { pageLogin } from './pages/login/login.js';
 import { feed } from './pages/feed/feed.js';
-// import { createLogin } from './pages/register/page-register.js';
+import { createLogin } from './pages/register/page-register.js';
 
 const main = document.getElementById('root');
 
@@ -11,6 +11,9 @@ const main = document.getElementById('root');
 
 const init = () => {
   switch (window.location.hash) {
+    case '#createLogin':
+      main.appendChild(createLogin());
+      break;
     case '#feed':
       main.appendChild(feed());
       break;
