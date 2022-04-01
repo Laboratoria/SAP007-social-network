@@ -1,5 +1,6 @@
 import login from "./pages/login/index.js";
 import register from "./pages/register/index.js";
+import resetPassword from "./pages/reset-password/index.js";
 
 const section = document.getElementById("container");
 
@@ -9,6 +10,9 @@ function initPages() {
     console.log(window.location.hash);
     switch (window.location.hash) {
       case " ":
+        section.appendChild(login.createLogin());
+        break;
+      case "login":
         section.appendChild(login.createLogin());
         break;
       case "#register":

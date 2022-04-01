@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LabFriends</title>
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/style.css" />
 </head>
 
 <body id="root">
@@ -18,24 +17,27 @@
       <input type="email" name="user-email" id="user-email" class="user-input" placeholder="Digite seu email" required>
       <label for="user-password" class="user-label">Senha</label>
       <input type="password" name="user-password" id="user-password" class="user-input" placeholder="Digite sua senha" required>
-      <a href="#reset-password" class="small-text-right">Esqueceu a senha?</a>
-      <button type="submit" id="login-labfriends" class="user-button button-pink">
-        ENTRAR
-      </button>
+      <a href="#register" class="small-text-right" data-modal="open-modal">Esqueceu a senha?</a>
+      <input type="button" value="ENTRAR" id="login-labfriends" class="user-button button-pink">
       <div class="line">
         <span class="text-line">ou</span>
       </div>
-      <button type="button" id="login-google" class="user-button button-green">
-        ENTRAR COM GOOGLE
-      </button>
+      <input type="button" value="ENTRAR COM GOOGLE" id="login-google" class="user-button button-green">
       <p class="new-account">
         Não tem conta? <a href="/#register" class="emphasis-pink">Crie uma conta agora!</a>
       </p>
     </form>
   </section>
 
+  <section class="container-modal" data-modal="container-modal">
+    <div class="modal">
+      <button class="close" data-modal="close-modal">X</button>
+      <label for="user-email" class="user-label">Informe o seu email</label>
+      <input type="email" name="user-email" id="user-email" class="user-input" placeholder="Digite seu email" required>
+      
+    </div>
+  </section>
 
-  <script type="module" src="main.js"></script>
 </body>
 
 </html>

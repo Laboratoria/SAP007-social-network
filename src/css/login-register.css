@@ -27,6 +27,10 @@
 .small-text-right {
   align-self: flex-end;
 }
+#logo,
+.new-account {
+  align-self: center;
+}
 a,
 .user-input::placeholder {
   text-decoration: none;
@@ -53,13 +57,9 @@ a,
   background-color: var(--color-dark-yellow);
   text-align: center;
   position: absolute;
-  top: -12px;
   left: 0;
   right: 0;
   margin: 0 auto;
-}
-.new-account {
-  margin: 0;
 }
 .emphasis-pink {
   color: var(--color-dark-pink);
@@ -73,6 +73,47 @@ a,
   #logo {
     height: 30px;
     margin: var(--spacing-little-logo);
+  }
+  .user-label {
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-little-bottom);
+  }
+  .user-input {
+    width: 270px;
+    height: 36px;
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-medium-bottom);
+  }
+  .user-input::placeholder {
+    font-size: 0.75rem;
+  }
+  .small-text-right {
+    font-size: 0.625rem;
+  }
+  .user-button {
+    width: 284px;
+    height: 40px;
+    font-size: 0.875rem;
+    font-weight: var(--font-bold);
+    margin: var(--spacing-medium-top-bottom);
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+  }
+  .line {
+    height: 2px;
+    width: 284px;
+    margin: var(--spacing-little-line);
+  }
+  .text-line {
+    width: 30px;
+    font-size: 0.875rem;
+    top: -8px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 0.75rem;
   }
 }
 
@@ -101,10 +142,13 @@ a,
   .user-input::placeholder {
     font-size: 1.125rem;
   }
+  .small-text-right {
+    font-size: 1rem;
+  }
   .user-button {
     width: 350px;
     height: 50px;
-    font-size: 1.32rem;
+    font-size: 1.3125rem;
     font-weight: var(--font-bold);
     margin: var(--spacing-medium-top-bottom);
     border: var(--border-input);
@@ -118,20 +162,63 @@ a,
   .text-line {
     width: 50px;
     font-size: 1.125rem;
+    top: -12px;
   }
-  .new-account {
-    font-size: 1.125rem;
+  .new-account,
+  .emphasis-pink {
+    font-size: 1rem;
   }
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
   #container {
-    width: 500px;
-    height: 570px;
+    width: 625px;
+    height: 753px;
     border-radius: var(--boder-radius-great-container);
   }
   #logo {
     height: 50px;
     margin: var(--spacing-great-logo);
+  }
+  .user-label {
+    font-size: 1.3125rem;
+    margin-bottom: var(--spacing-medium-bottom);
+  }
+  .user-input {
+    width: 424px;
+    height: 51px;
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-great-bottom);
+  }
+  .user-input::placeholder {
+    font-size: 1.3125rem;
+  }
+  .small-text-right {
+    font-size: 1rem;
+  }
+  .user-button {
+    width: 438px;
+    height: 55px;
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    margin: var(--spacing-great-top-bottom);
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+  }
+  .line {
+    height: 3px;
+    width: 438px;
+    margin: var(--spacing-little-line);
+  }
+  .text-line {
+    width: 50px;
+    font-size: 1.3125rem;
+    top: -12px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 1.125rem;
   }
 }

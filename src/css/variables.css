@@ -21,6 +21,7 @@ html {
   --font-bold: 600;
 
   --spacing-medium-top-bottom: 15px 0;
+  --spacing-great-top-bottom: 25px 0;
 
   --spacing-little-logo: 10px 0 20px 0;
   --spacing-medium-logo: 15px 0 30px 0;
@@ -28,6 +29,7 @@ html {
 
   --spacing-little-bottom: 5px;
   --spacing-medium-bottom: 15px;
+  --spacing-great-bottom: 20px;
 
   --spacing-little-line: 5x 0;
 }
