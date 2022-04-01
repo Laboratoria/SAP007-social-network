@@ -7,13 +7,7 @@ import { register } from './pages/register/register.js';
 
 const content = document.querySelector('#root');
 
-const initialContent = () => {
-  content.appendChild(home());
-};
-
 const contentChange = () => {
-  content.innerHTML = '';
-
   switch (window.location.hash) {
     case '#login':
       content.appendChild(login());
@@ -21,13 +15,25 @@ const contentChange = () => {
     case '#register':
       content.appendChild(register());
       break;
+    case '#timeline':
+      content.appendChild(timeline());
+      break;
     case '#home':
       content.appendChild(home());
       break;
     default:
+      content.appendChild(home());
   }
 };
 
-window.addEventListener('load', initialContent);
-window.addEventListener('reload', initialContent);
-window.addEventListener('hashchange', contentChange);
+const initialContent = () => {
+  window.addEventListener('hashchange', () => {
+    content.innerHTML = '';
+    contentChange();
+  });
+};
+
+window.addEventListener('load', () => {
+  contentChange();
+  initialContent();
+});

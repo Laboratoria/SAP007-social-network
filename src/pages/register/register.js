@@ -1,9 +1,9 @@
 export const register = () => {
   const registerCreate = document.createElement('div');
   const templateRegister = `
-  <main class="home-container">
-  <form id="registerForm" class="registerForm">
+  <main class="home-container registerContainer">
     <h2 class="subtitle">Cadastrar</h2>
+    <form id="registerForm" class="registerForm">
     <input
     class="inputNames"
     type="text"
@@ -48,3 +48,24 @@ export const register = () => {
   registerCreate.innerHTML = templateRegister;
   return registerCreate;
 };
+
+/* 
+import { userCreate } from '../../lib/index.js';
+
+const email = registerContainer.querySelector('#registerEmail');
+const password = registerContainer.querySelector('#registerPassword');
+const buttonRegister = registerContainer.querySelector('#buttonSubmit');
+
+buttonRegister.addEventListener('click', (e) => {
+  e.preventDefault();
+  userCreate(email.value, password.value)
+    .then(() => {
+      window.location.hash = '#timeline';
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      alert('Erro ao cadastrar!');
+      return errorMessage;
+    });
+});
+*/
