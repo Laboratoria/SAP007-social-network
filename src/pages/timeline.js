@@ -2,30 +2,34 @@ import "../lib/firebase.js";
 
 export default () => {
     const container = document.createElement("section");
-    container.setAttribute("class", "nav-section");
+    container.setAttribute("class", "section");
   
     const template = `
-          <nav>
-          <div><a href="#timeline">Linha do Tempo</a></div>
-          <div><a></a href="profile">Perfil</div>
-          </nav>
+        <nav class="nav-section">
+          <ul>
+            <li><a href="#timeline">Linha do Tempo</a></li>
+            <li><a href="#profile">Perfil</a></li>
+          </ul>
           <hr>
-      `;
+        </nav>
+    `;
   
     container.innerHTML = template;
 
-    const feed= document.createElement("section");
+    const feed = document.createElement("section");
     feed.setAttribute("class", "feed-section");
 
     const mold = `
         <div>
-        <input placeholder="Título"></input>
-        <input placeholder="Texto"></input>
+            <input class="title" type="text" placeholder="Título"></input>
+            <input class="text" type="text" placeholder="Texto publicado"></input>
         </div>
         
-    `
+    `;
+
     feed.innerHTML = mold;
     
     container.appendChild(feed);
 
-    return container;}
+    return container;
+};

@@ -1,0 +1,25 @@
+.nav-section ul {
+    margin-left: 80px;
+}
+.nav-section ul li {
+    display: inline;
+}
+.feed-section {
+    margin-top: 15%;
+    margin-left: 60px;
+}
+.title,
+.text {
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2%;
+    height: 30px;
+    font-size: 19px;
+    background-color: #F2F2F2;
+    border: black;
+    align-self: center;
+}
+.text {
+    margin: auto;
+    padding-bottom: 40%;
+}
