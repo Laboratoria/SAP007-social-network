@@ -10,22 +10,24 @@ const main = document.getElementById('root');
 // main.appendChild(pageLogin());
 
 const init = () => {
+  switch (window.location.hash) {
+    case '#feed':
+      main.appendChild(feed());
+      break;
+    default:
+      main.appendChild(pageLogin());
+  }
+};
+
+const eventHash = () => {
   window.addEventListener('hashchange', () => {
     console.log(window.location.hash);
     main.innerHTML = '';
-    switch (window.location.hash) {
-      case '#feed':
-        main.appendChild(feed());
-        break;
-      default:
-        main.appendChild(pageLogin());
-    }
+    init();
   });
 };
 
 window.addEventListener('load', () => {
-  main.appendChild(pageLogin());
   init();
+  eventHash();
 });
-
-console.log('antes');

@@ -6,8 +6,7 @@ import { logar } from './authentication.js';
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
-  login.innerHTML = `
-    <link rel="stylesheet" href="./pages/login/login.css"/>      
+  login.innerHTML = `    
     <figure class="box-slogan">
       <img src="#" alt="Logotype" class="logo-icon">
     </figure>

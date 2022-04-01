@@ -4,7 +4,6 @@ export const feed = () => {
   const timeline = document.createElement('div');
   timeline.setAttribute('class', 'box-feed');
   timeline.innerHTML = `
-    <link rel="stylesheet" href="./pages/feed/feed.css"/> 
     <header class="header-feed">    
       <section class="menu">
         <nav id="nav-options" class="nav-options" aria-expanded="false">
