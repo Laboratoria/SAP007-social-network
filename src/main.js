@@ -1,18 +1,21 @@
 import login from "./pages/login/index.js";
 import register from "./pages/register/index.js";
-import resetPassword from "./pages/reset-password/index.js";
 
-const section = document.getElementById("container");
+const section = document.getElementById("container-general");
+
+window.addEventListener("load", () => {
+  section.appendChild(login.createLogin());
+  initPages();
+});
 
 function initPages() {
   window.addEventListener("hashchange", () => {
     section.innerHTML = "";
-    console.log(window.location.hash);
     switch (window.location.hash) {
       case " ":
         section.appendChild(login.createLogin());
         break;
-      case "login":
+      case "#login":
         section.appendChild(login.createLogin());
         break;
       case "#register":
@@ -23,8 +26,3 @@ function initPages() {
     }
   });
 }
-
-window.addEventListener("load", () => {
-  section.appendChild(login.createLogin());
-  initPages();
-});

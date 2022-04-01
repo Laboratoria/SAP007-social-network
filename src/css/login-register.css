@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-#container {
+#container-general {
   background-color: var(--color-dark-yellow);
   display: flex;
   flex-direction: column;
@@ -65,8 +65,61 @@ a,
   color: var(--color-dark-pink);
 }
 
-@media screen and (min-width: 300px) and (max-width: 549px) {
-  #container {
+.container-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.container-modal.ativo {
+  display: flex;
+}
+.modal {
+  width: 50%;
+  height: auto;
+  background: #cfcfcf;
+  padding: 30px;
+  border: 3px solid #00455e;
+  box-shadow: 0 0 0 10px #cfcfcf;
+  text-align: center;
+  position: relative;
+}
+.close {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 3px solid #00455e;
+  top: -30px;
+  right: -30px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  color: #cfcfcf;
+  cursor: pointer;
+}
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.active .modal {
+  animation: modal 0.3s forwards;
+}
+
+@media screen and (min-width: 0px) and (max-width: 549px) {
+  #container-general {
     width: 100vw;
     height: 100vh;
   }
@@ -118,7 +171,7 @@ a,
 }
 
 @media screen and (min-width: 550px) and (max-width: 1799px) {
-  #container {
+  #container-general {
     width: 500px;
     height: 570px;
     border-radius: var(--boder-radius-medium-container);
@@ -171,7 +224,7 @@ a,
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
-  #container {
+  #container-general {
     width: 625px;
     height: 753px;
     border-radius: var(--boder-radius-great-container);
