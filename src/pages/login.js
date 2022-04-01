@@ -33,7 +33,7 @@ export default () => {
     <img src="../img/laboriam-phone.png" alt="Logo Laboriam" class="imgPhones">
   </div>
   <footer class="devs">
-    <p><img src="../img/copyright.png" alt="" class="copyright"> Desenvolvido por:</p>
+    <p>Copyright &copy Desenvolvido por:</p>
     <p>Cássia Costa, Dayane Rodrigues e Viviane Soares</p>
   </footer>
 `;
