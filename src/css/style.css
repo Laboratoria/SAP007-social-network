@@ -7,55 +7,10 @@
   padding: 0;
   font-family: var(--font-pattern);
 }
-body {
-  background-image: url("../img/background-pink-light.gif");
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
+#root {
   height: 100vh;
+  background-color: var(--color-dark-gray);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#container {
-  background-color: var(--color-dark-yellow);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (min-width: 300px) and (max-width: 549px) {
-  #container {
-    width: 100vw;
-    height: 100vh;
-  }
-  #logo {
-    height: 30px;
-    margin: var(--spacing-little-logo);
-  }
-}
-
-@media screen and (min-width: 550px) and (max-width: 1799px) {
-  #container {
-    width: 500px;
-    height: 570px;
-    border-radius: var(--boder-radius-medium-container);
-  }
-  #logo {
-    height: 40px;
-    margin: var(--spacing-medium-logo);
-  }
-}
-
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
-  #container {
-    width: 500px;
-    height: 570px;
-    border-radius: var(--boder-radius-great-container);
-  }
-  #logo {
-    height: 50px;
-    margin: var(--spacing-great-logo);
-  }
 }

@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LabFriends</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
-
-<body id="root">
-  <section id="container">
-    <img src="../img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
-    <form id="user-form">
+const login = {
+  createLogin: function () {
+    const container = document.createElement("form");
+    container.setAttribute("id", "user-form");
+    const template = `
+      <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
       <label for="user-email" class="user-label">Email</label>
       <input type="email" name="user-email" id="user-email" class="user-input" placeholder="Digite seu email" required>
       <label for="user-password" class="user-label">Senha</label>
       <input type="password" name="user-password" id="user-password" class="user-input" placeholder="Digite sua senha" required>
-      <a href="#register" class="small-text-right">Esqueceu a senha?</a>
+      <a href="/#new-account" class="small-text-right">Esqueceu a senha?</a>
       <input type="button" value="ENTRAR" id="login-labfriends" class="user-button button-pink">
       <div class="line">
         <span class="text-line">ou</span>
@@ -26,11 +17,10 @@
       <p class="new-account">
         Não tem conta? <a href="/#register" class="emphasis-pink">Crie uma conta agora!</a>
       </p>
-    </form>
-  </section>
+    `;
+    container.innerHTML = template;
+    return container;
+  },
+};
 
-
-  <script type="module" src="main.js"></script>
-</body>
-
-</html>
+export default login;

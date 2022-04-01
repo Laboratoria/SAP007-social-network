@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastrar na LabFriends</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
-
-<body id="root">
-  <section id="container">
-    <img src="../img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
-    <form id="user-form">
+const register = {
+  createUser: function () {
+    const container = document.createElement("form");
+    container.setAttribute("id", "user-form");
+    const template = `
+      <img src="../img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
       <label for="user-name" class="user-label">Nome Social</label>
       <input type="text" name="user-name" id="user-name" class="user-input" placeholder="Digite seu nome" required>
       <label for="user-email" class="user-label">Email</label>
@@ -22,8 +13,10 @@
       <label for="user-password-repeat" class="user-label">Repita a Senha</label>
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente" required>
       <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
-    </form>
-  </section>
-</body>
+    `;
+    container.innerHTML = template;
+    return container;
+  },
+};
 
-</html>
+export default register;
