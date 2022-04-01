@@ -29,33 +29,28 @@ export const pageLogin = () => {
       </section>
   `;
 
-  const inputEmail = login.querySelector('#email-area');
-  const inputPassword = login.querySelector('#password-area');
-  console.log(inputEmail.value, inputPassword.value);
-
   // const btnRegister = login.querySelector('#btn-register');
   // btnRegister.addEventListener('click', () => {
   //  });
 
-  const form = {
-    email: () => document.querySelector('#email-area'),
-    password: () => document.querySelector('#password-area'),
-  };
-
-  function loginAcess() {
-    login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
-      e.preventDefault();
-      logar(form.email().value, form.password().value)
-        .then((response) => {
-          console.log('success', response);
-          window.location.hash = '#feed';
-        }).catch((error) => {
-          console.log('error', error);
-        });
-    });
-  }
-
-  loginAcess();
+  login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
+    const inputEmail = login.querySelector('#email-area').value;
+    const inputPassword = login.querySelector('#password-area').value;
+    e.preventDefault();
+    logar(inputEmail, inputPassword).then((response) => {
+      console.log('success', response);
+      window.location.hash = '#feed';
+    }).catch((error) => {
+      switch (error.code) {
+        case 'auth/invalid-email':
+        emailError.innerHTML = "Campo obrigatorio";
+        emailError.style.display = "block";
+        break;
+        default
+      }
+      console.log('error', error.code);
+  });
+  });
   //  function validateEmail() {
   //      toggleButtonsDisable();
   //      toggleError();

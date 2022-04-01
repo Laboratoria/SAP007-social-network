@@ -33,13 +33,11 @@ export const feed = () => {
 
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
-    const post = {
-      text: () => document.querySelector('#input-post').value,
-      date: () => new Date(),
-      // uid: () => ,
-      // name: () => ,
-    };
-    createPost(post.text(), post.date()).then((response) => {
+    const text = document.querySelector('#input-post').value;
+    const date = new Date();
+    // uid: () => ,
+    // name: () => ,
+    createPost(text, date).then((response) => {
       console.log(response);
     }).catch((e) => console.error('Error adding document', e));
   });
