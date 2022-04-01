@@ -36,3 +36,36 @@ body{
     color: black;
     font-weight: bold;
 }
+@media (min-width: 600px) {
+    .logo-title {
+    justify-content: center;
+    margin-bottom: 2%;
+    }
+    .logo {
+    width: 10%;
+    height: 10%;
+    margin-right: 10%;
+    }
+    .footer {
+    font-size: 100%;
+    }
+    }
+    @media (min-width: 1000px) {
+    body {
+    width: 100%;
+    min-height: 80vh;
+    }
+    .slogan {
+    margin-bottom: 5%;
+    }
+    .logo {
+    width: 10%;
+    height: 10%;
+    }
+    .name a {
+    font-size: 80px;
+    }
+    .footer {
+    position: fixed;
+    }
+    }

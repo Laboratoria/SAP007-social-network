@@ -62,3 +62,54 @@
     position: relative;
     top: 340px;
 }
+@media (min-width: 600px) {
+    .input-email .input-password {
+    width: 50%;
+    }
+    
+    .enter,
+    .google-button {
+    width: 30%;
+    }
+    
+    .register {
+    font-size: 20px;
+    }
+    }
+    
+    @media (min-width: 1000px) {
+    .container {
+    bottom: 20%;
+    justify-content: center;
+    position: relative;
+    }
+    
+    .input-email,
+    .input-password {
+    width: 30%;
+    }
+    
+    .google-logo {
+    width: 18%;
+    }
+    
+    .enter,
+    .google-button {
+    margin-top: 2%;
+    width: 20%;
+    align-items: center;
+    }
+    
+    .container p {
+    top: 20px;
+    }
+    
+    .google-button {
+    top: 15px;
+    }
+    
+    .register a {
+    float: none;
+    top: 60px;
+    }
+    }
