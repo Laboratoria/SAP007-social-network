@@ -10,17 +10,13 @@ const main = document.getElementById('root');
 // main.appendChild(pageLogin());
 
 const init = () => {
-  window.addEventListener('hashchange', () => {
-    console.log(window.location.hash);
-    main.innerHTML = '';
-    switch (window.location.hash) {
-      case '#feed':
-        main.appendChild(feed());
-        break;
-      default:
-        main.appendChild(pageLogin());
-    }
-  });
+  switch (window.location.hash) {
+    case '#feed':
+      main.appendChild(feed());
+      break;
+    default:
+      main.appendChild(pageLogin());
+  }
 };
 
 const eventHash = () => {
@@ -32,6 +28,6 @@ const eventHash = () => {
 };
 
 window.addEventListener('load', () => {
-  eventHash();
   init();
+  eventHash();
 });
