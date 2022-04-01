@@ -8,7 +8,7 @@
   font-family: var(--font-pattern);
 }
 body {
-  background-image: url("../img/background-pink.gif");
+  background-image: url("../img/background-pink-light.gif");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;

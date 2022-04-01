@@ -1,15 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timeline da LabFriends</title>
 </head>
+
 <body>
-  <main id="container">
-    
-  </main>
+  <section id="container">
+    <header>
+      <img src="../img/icons/icon-logo.png" alt="Ícone do logo da LabFriends">
+      <nav>
+        <ul>
+          <li>
+            <a href="/#">
+              <img src="../img/icons/icon-frinds-list.png" alt="Ícone de lista de amigas">
+              <p>Amigas</p>
+            </a>
+          </li>
+          <li>
+            <a href="/#">
+              <img src="../img/icons/icon-timeline.png" alt="Ícone de início">
+              <p>Início</p>
+            </a>
+          </li>
+          <li>
+            <a href="/#">
+              <img src="../img/icons/icon-add.png" alt="Ícone de nova mensagem">
+              <p>Nova Mensagem</p>
+            </a>
+          </li>
+          <li>
+            <a href="/#">
+              <img src="../img/icons/icon-perfil.png" alt="Ícone do meu perfil">
+              <p>Meu Perfil</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <section>
+          <header>
+            <a href="">
+              <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
+              <p>Nome do Usuário</p>
+              <time>Data</time>
+            </a>
+          </header>
+          <main>
+            <p>Linha um</p>
+            <p>Quando o usuário der enter, criará um novo parágrafo</p>
+          </main>
+          <footer>
+            <button>
+              <img src="../img/icons/icon-like.png" alt="Ícone de curtir">
+            </button>
+            <a href="/#">
+              <img src="../img/icons/icon-comment.png" alt="Ícone de comentários">
+              <p>3</p>
+              <p>comentários</p>
+            </a>
+          </footer>
+        </section>
+        <section id="modal-comments">
+          <input type="text" id="user-comment" class="user-input-post" placeholder="Escreva um comentário...">
+          <section>
+            <header>
+              <a href="">
+                <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
+                <p>Nome do Usuário</p>
+              </a>
+            </header>
+            <main>
+              <p>Comentário do primeiro usuário</p>
+            </main>
+          </section>
+          <section>
+            <header>
+              <a href="">
+                <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
+                <p>Nome do Usuário</p>
+              </a>
+            </header>
+            <main>
+              <p>Comentário do primeiro usuário</p>
+            </main>
+          </section>
+        </section>
+      </article>
+    </main>
+
+  </section>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>
