@@ -1,8 +1,6 @@
 #header {
-  min-width: 285px;
-  max-width: 285px;
-  height: 40px;
-  padding: 20px 0;
+  width: 285px;
+  padding-top: 20px;
   position: fixed;
   top: 0;
   right: 0;
@@ -12,8 +10,8 @@
   grid-template-areas: "logo icons";
   align-items: center;
 }
-#logo {
-  height: 19px;
+#logo-timeline {
+  width: 50px;
   grid-area: logo;
 }
 a {

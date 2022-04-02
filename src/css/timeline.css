@@ -1,7 +1,6 @@
-@import url("variables.css");
-@import url("menu-footer.css");
-@import url("post.css");
-@import url("comment.css");
+@import url(./timeline/menu-footer.css);
+@import url(./timeline/post.css);
+@import url(./timeline/comment.css);
 
 * {
   font-size: 16px;
@@ -20,6 +19,7 @@
   height: 100vh;
   padding: 0 15px;
 }
+
 #main-container {
   position: relative;
   top: 80px;
