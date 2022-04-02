@@ -2,33 +2,43 @@
   height: 3px;
   width: 260px;
   background-color: var(--color-dark-green);
-  margin-bottom: 10px;
 }
 .container-comments {
   margin: 0 10px;
 }
 .comment-input {
+  width: 242px;
+  height: 15px;
   font-size: 0.75rem;
-  height: 28px;
-  width: 248px;
+  padding: 8px;
   background-color: var(--color-light-gray);
-  border-radius: 5px;
-  border: var(--border-input-post);
-  padding-left: 10px;
   color: var(--color-black);
-  margin-bottom: 10px;
+  border: var(--border-input-post);
+  border-radius: 5px;
+  margin: 12px 0;
 }
 .comment-input::placeholder {
   font-size: 0.75rem;
 }
 .user-comment {
   display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
+  justify-content: flex-start;
+}
+.group-comment {
+  display: flex;
+  flex-direction: column;
+}
+.user-photo-comment {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: var(--color-dark-yellow);
+  border-radius: 3px;
+  align-self: flex-start;
 }
 .group-text-comment {
   width: 220px;
-  height: 20px;
+  min-height: 20px;
   margin: 5px 0;
   background-color: var(--color-light-gray);
   border-radius: 5px;

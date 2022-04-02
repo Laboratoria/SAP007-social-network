@@ -1,4 +1,4 @@
-@import url(./timeline/menu-footer.css);
+@import url(./timeline/menu.css);
 @import url(./timeline/post.css);
 @import url(./timeline/comment.css);
 
@@ -8,22 +8,18 @@
   padding: 0;
   font-family: var(--font-pattern);
 }
-#root {
-  height: 100vh;
-  background-color: var(--color-dark-gray);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 #container {
   height: 100vh;
-  padding: 0 15px;
+  width: 100vw;
 }
-
 #main-container {
   position: relative;
   top: 80px;
-  bottom: 35px;
+  bottom: -20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 .user-post {
   width: 285px;

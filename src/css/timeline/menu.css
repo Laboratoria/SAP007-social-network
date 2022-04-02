@@ -1,6 +1,6 @@
 #header {
-  width: 285px;
-  padding-top: 20px;
+  width: 287px;
+  padding: 20px 0;
   position: fixed;
   top: 0;
   right: 0;
@@ -9,6 +9,8 @@
   display: grid;
   grid-template-areas: "logo icons";
   align-items: center;
+  background-color: var(--color-dark-gray);
+  z-index: 2000;
 }
 #logo-timeline {
   width: 50px;
@@ -40,20 +42,4 @@ a {
 }
 .menu-text {
   display: none;
-}
-#footer {
-  padding: 5px 0;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  background-color: var(--color-dark-gray);
-}
-.medium-text {
-  font-weight: var(--font-bold);
-  text-align: center;
-  line-height: 1.4;
-  font-size: 0.5625rem;
-  color: var(--color-dark-green);
 }
