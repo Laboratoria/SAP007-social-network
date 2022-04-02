@@ -1,4 +1,5 @@
-import  { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyDRDtG0KOp9htjlzbsm3Zrc1S65IOmLdzM",
   authDomain: "go-trip-1874c.firebaseapp.com",
@@ -10,3 +11,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+
