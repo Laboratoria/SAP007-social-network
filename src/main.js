@@ -32,7 +32,7 @@ const changePages = () => {
 }
 
 window.addEventListener("load", () => {
-  main.appendChild(login());  
+  main.appendChild(feed());  
   changePages();     
 })
 //a lista de rotas (window.location) pode ser criada aqui (main) ou em um arquivo separado de rotas
