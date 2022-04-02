@@ -1,8 +1,9 @@
 import '../firebase/FireBaseConfig.js';
-import {creatNewUser } from '../firebase/authentication.js'
-export default() => {
-  const containerRegister = document.creatElement("div");
-  const templateRegister =`
+import { creatNewUser } from '../firebase/authentication.js';
+
+export default () => {
+  const containerRegister = document.creatElement('div');
+  const templateRegister = `
   <section class="register">
   <h3>Cadastro</h3>
   <form action="#" class="input-register">
@@ -24,43 +25,38 @@ export default() => {
   containerRegister.innerHTML = templateRegister;
   const email = containerRegister.querySelector('#email-input');
   const password = containerRegister.querySelector('#password-input');
-  containerRegister.addEventListener("submit", (e) => {
+  containerRegister.addEventListener('submit', (e) => {
     e.preventDefault();
-      creatNewUser(email.value, password.value)
+    creatNewUser(email.value, password.value)
       .then(() => {
-        window.location.hash = "#about";
+        window.location.hash = '#about';
       })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage, errorCode);
-  });
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage, errorCode);
       });
- return containerRegister
+  });
+  return containerRegister;
 };
 
-
-
-
-
-
 // eslint-disable-next-line
-/*import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import '../firebase/FireBaseConfig.js';
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+// } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+// import '../firebase/FireBaseConfig.js';
 
-const authentication = getAuth();
+// const authentication = getAuth();
 
-const botao = document.querySelector('#botão');
+// const botao = document.querySelector('#botão');
 
-botao.addEventListener('click', (e) => {
-  e.preventDefault();
+// botao.addEventListener('click', (e) => {
+//   e.preventDefault();
 
-  const form = document.querySelector('#form-test');
-  const email = form[0].value;
-  const senha = form[1].value;
+//   const form = document.querySelector('#form-test');
+//   const email = form[0].value;
+//   const senha = form[1].value;
 
-  createUserWithEmailAndPassword(authentication, email, senha);
-});
+//   createUserWithEmailAndPassword(authentication, email, senha);
+// });
