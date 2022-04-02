@@ -1,5 +1,6 @@
-@import url("variables.css");
-@import url("login-register.css");
+@import url("./css/variables.css");
+@import url("./css/login-register.css");
+@import url("./css/timeline.css");
 
 * {
   font-size: 16px;

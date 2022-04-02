@@ -10,14 +10,15 @@ html {
   --color-medium-gray: #3a3a3a;
   --color-light-gray: #dfdfdf;
   --color-black: #000000;
-  --border-input: 2px solid var(--color-medium-gray);
 
+  --border-input: 2px solid var(--color-medium-gray);
+  --border-input-post: 1px solid var(--color-medium-gray);
   --border-radius-little: 5px;
   --boder-radius-medium-container: 20px;
   --boder-radius-great-container: 25px;
 
   --font-pattern: "Segoe UI", Helvetica, Arial, Verdana;
-  --font-emphasis: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  --font-emphasis: "Bitter", serif, "Helvetica Neue", Arial;
   --font-bold: 600;
 
   --spacing-litle-top-bottom: 10px 0;

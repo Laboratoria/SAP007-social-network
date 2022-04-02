@@ -48,65 +48,56 @@
     <main id="main-container">
 
       <article class="user-post">
-        <header class="post-header">
-          <a href="" class="user-link-photo">
-            <img src="../img/icons/icon-perfil.png " class="user-photo-post" alt="Foto do perfil">
-          </a>
-          <div>
-            <a href="">
-              <p class="user-name">Nome do Usuário</p>
+        <section class="post-timeline">
+          <header class="post-header">
+            <a href="" class="user-link-photo">
+              <img src="../img/icons/icon-perfil.png " class="user-photo-post" alt="Foto do perfil">
             </a>
-            <time class="post-date">01 de abril de 2022</time>
-          </div>
-        </header>
-        <main class="post-main">
-          <p class="post-text">Linha um</p>
-          <p class="post-text">Quando o usuário der enter, criará um novo p.</p>
-        </main>
-        <footer class="post-footer">
-          <button class="button-post">
-            <img src="../img/icons/icon-unlike.png" class="post-icon icon-unlike" alt="Ícone de curtir">
-            <p class="post-icon-text post-number-like">2</p>
-            <p class="post-icon-text">curtidas</p>
-          </button>
-          <button class="button-post">
-            <img src="../img/icons/icon-comment.png" class="post-icon" alt="Ícone de comentários">
-            <p class="post-icon-text post-number-comment">3</p>
-            <p class="post-icon-text">comentários</p>
-          </button>
-        </footer>
-      </article>
+            <div>
+              <a href="">
+                <p class="user-name">Nome do Usuário</p>
+              </a>
+              <time class="post-date">01 de abril de 2022</time>
+            </div>
+          </header>
+          <main class="group-text">
+            <p class="paragraph">Linha um</p>
+            <p class="paragraph">Quando o usuário der enter, criará um novo p.</p>
+          </main>
+          <footer class="post-footer">
+            <button class="button-post">
+              <img src="../img/icons/icon-unlike.png" class="post-icon icon-unlike" alt="Ícone de curtir">
+              <p class="post-icon-text post-number-like">2</p>
+              <p class="post-icon-text">curtidas</p>
+            </button>
+            <button class="button-post">
+              <img src="../img/icons/icon-comment.png" class="post-icon" alt="Ícone de comentários">
+              <p class="post-icon-text post-number-comment">3</p>
+              <p class="post-icon-text">comentários</p>
+            </button>
+          </footer>
+        </section>
 
+        <section class="container-comments">
+          <div class="line-post"></div>
+          <input type="text" class="comment-input" placeholder="Escreva um comentário...">
+          <article class="user-comment">
+            <a href="" class="user-link-photo">
+              <img src="../img/icons/icon-perfil.png" class="user-photo-post" alt="Foto do perfil">
+            </a>
+            <div>
+              <a href="">
+                <p class="user-name-comment">Nome do Usuário</p>
+              </a>
+              <div class="group-text-comment">
+                <p class="paragraph">Comentário do primeiro usuário</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </article>
     </main>
 
-    <!--
-
-        <section id="modal-comments">
-          <input type="text" id="user-comment" class="user-input-post" placeholder="Escreva um comentário...">
-          <section>
-            <header>
-              <a href="">
-                <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-                <p>Nome do Usuário</p>
-              </a>
-            </header>
-            <main>
-              <p>Comentário do primeiro usuário</p>
-            </main>
-          </section>
-          <section>
-            <header>
-              <a href="">
-                <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-                <p>Nome do Usuário</p>
-              </a>
-            </header>
-            <main>
-              <p>Comentário do primeiro usuário</p>
-            </main>
-          </section>
-        </section>
-  -->
     <footer id="footer">
       <p class="medium-text">Equipe de Desenvolvido:<br>
         Adriana Watanabe || Dayanne Maryssol || Raynara Pimenta</p>
