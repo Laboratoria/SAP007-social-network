@@ -177,7 +177,7 @@ a,
     border-radius: var(--boder-radius-medium-container);
   }
   #logo {
-    height: 40px;
+    height: 35px;
     margin: var(--spacing-medium-logo);
   }
   .user-label {

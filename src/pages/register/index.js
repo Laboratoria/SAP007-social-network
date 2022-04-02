@@ -2,7 +2,7 @@ const register = {
   createUser: function () {
     const container = document.createElement("form");
     container.setAttribute("id", "user-form");
-    const template = `
+    container.innerHTML = `
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
       <label for="user-name" class="user-label">
         Nome Social
@@ -25,7 +25,6 @@ const register = {
         < Voltar para o Login
       </a>
     `;
-    container.innerHTML = template;
     return container;
   },
 };

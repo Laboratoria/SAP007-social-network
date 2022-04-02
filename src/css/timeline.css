@@ -1,0 +1,102 @@
+@import url("variables.css");
+@import url("menu-footer.css");
+
+* {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-pattern);
+}
+#root {
+  height: 100vh;
+  background-color: var(--color-dark-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  height: 100vh;
+  padding: 0 15px;
+}
+
+#main-container {
+  position: relative;
+  top: 80px;
+  bottom: 35px;
+}
+.user-post {
+  width: 285px;
+  background-color: var(--color-white);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.post-header {
+  width: 260px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-main {
+  background-color: var(--color-light-gray);
+  border-radius: 5px;
+  width: 260px;
+  margin: 5px 10px;
+  padding: 10px 0;
+}
+.post-footer {
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
+}
+
+.user-photo-post {
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  background-color: var(--color-dark-yellow);
+  border-radius: 3px;
+}
+.user-link-photo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  display: flex;
+  column-gap: 20px;
+}
+.user-name {
+  font-size: 1rem;
+  font-family: var(--font-emphasis);
+  font-weight: var(--font-bold);
+  color: var(--color-black);
+}
+.post-date {
+  font-size: 0.625rem;
+}
+.post-text {
+  font-size: 0.75rem;
+  padding: 1px 10px;
+}
+.post-icon {
+  height: 16px;
+  margin-right: 5px;
+}
+.post-icon-text {
+  font-size: 0.75rem;
+  color: var(--color-black);
+}
+.button-post {
+  display: flex;
+  background-color: var(--color-white);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.post-number-like,
+.post-number-comment {
+  margin-right: 3px;
+}

@@ -17,9 +17,10 @@ html {
   --boder-radius-great-container: 25px;
 
   --font-pattern: "Segoe UI", Helvetica, Arial, Verdana;
-  --font-emphasis: Georgia, "Times New Roman", Times, serif;
+  --font-emphasis: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   --font-bold: 600;
 
+  --spacing-litle-top-bottom: 10px 0;
   --spacing-medium-top-bottom: 15px 0;
   --spacing-great-top-bottom: 25px 0;
 
@@ -28,8 +29,8 @@ html {
   --spacing-great-logo: 18px 0 35px 0;
 
   --spacing-little-bottom: 5px;
-  --spacing-medium-bottom: 15px;
+  --spacing-medium-bottom: 10px;
   --spacing-great-bottom: 20px;
 
-  --spacing-little-line: 5x 0;
+  --spacing-little-line: 5px 0;
 }

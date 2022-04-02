@@ -1,7 +1,7 @@
 const login = {
   createLogin: function () {
     const container = document.createElement("div");
-    const template = `
+    container.innerHTML = `
     <form id="user-form">
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
       <label for="user-email" class="user-label">
@@ -12,7 +12,7 @@ const login = {
         Senha
       </label>
       <input type="password" name="user-password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha" required>
-      <a href="#reset-password" data-modal="open-modal" class="small-text-right">
+      <a href="#" type="button" data-modal="open-modal" class="small-text-right">
         Esqueceu a senha?
       </a>
       <button id="login-labfriends" class="user-button button-pink">
@@ -37,9 +37,9 @@ const login = {
       </div>
     </section>
     `;
-    container.innerHTML = template;
     return container;
   },
+
   initModal: function () {
     const openModal = document.querySelector('[data-modal="open-modal"]');
     const closeModal = document.querySelector('[data-modal="close-modal"]');

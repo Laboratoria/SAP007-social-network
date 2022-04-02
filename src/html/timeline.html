@@ -6,67 +6,81 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timeline da LabFriends</title>
+  <link rel="stylesheet" href="../css/timeline.css" />
 </head>
 
 <body id="root">
   <section id="container">
-    <header>
-      <img src="../img/icons/icon-logo.png" alt="Ícone do logo da LabFriends">
-      <nav>
+    <header id="header">
+      <a href="#login">
+        <img src="../img/icons/icon-logo.png" id="logo" alt="Ícone do logo da LabFriends">
+      </a>
+      <nav id="menu">
         <ul>
-          <li>
-            <a href="/#">
-              <img src="../img/icons/icon-frinds-list.png" alt="Ícone de lista de amigas">
-              <p>Amigas</p>
+          <li class="menu-list">
+            <a href="#">
+              <img src="../img/icons/icon-frinds-list.png" class="menu-icon" alt="Ícone de lista de amigas">
+              <p class="menu-text">Amigas</p>
             </a>
           </li>
-          <li>
+          <li class="menu-list">
             <a href="/#">
-              <img src="../img/icons/icon-timeline.png" alt="Ícone de início">
-              <p>Início</p>
+              <img src="../img/icons/icon-timeline.png" class="menu-icon" alt="Ícone de início">
+              <p class="menu-text" Início</p>
             </a>
           </li>
-          <li>
+          <li class="menu-list">
             <a href="/#">
-              <img src="../img/icons/icon-add.png" alt="Ícone de nova mensagem">
-              <p>Nova Mensagem</p>
+              <img src="../img/icons/icon-add.png" class="menu-icon" alt="Ícone de nova mensagem">
+              <p class="menu-text">Nova Mensagem</p>
             </a>
           </li>
-          <li>
+          <li class="menu-list">
             <a href="/#">
-              <img src="../img/icons/icon-perfil.png" alt="Ícone do meu perfil">
-              <p>Meu Perfil</p>
+              <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
+              <p class="menu-text">Meu Perfil</p>
             </a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <article>
-        <section>
-          <header>
+    <main id="main-container">
+
+      <article class="user-post">
+        <header class="post-header">
+          <a href="" class="user-link-photo">
+            <img src="../img/icons/icon-perfil.png " class="user-photo-post" alt="Foto do perfil">
+          </a>
+          <div>
             <a href="">
-              <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-              <p>Nome do Usuário</p>
-              <time>Data</time>
+              <p class="user-name">Nome do Usuário</p>
             </a>
-          </header>
-          <main>
-            <p>Linha um</p>
-            <p>Quando o usuário der enter, criará um novo parágrafo</p>
-          </main>
-          <footer>
-            <button>
-              <img src="../img/icons/icon-like.png" alt="Ícone de curtir">
-            </button>
-            <a href="/#">
-              <img src="../img/icons/icon-comment.png" alt="Ícone de comentários">
-              <p>3</p>
-              <p>comentários</p>
-            </a>
-          </footer>
-        </section>
+            <time class="post-date">01 de abril de 2022</time>
+          </div>
+        </header>
+        <main class="post-main">
+          <p class="post-text">Linha um</p>
+          <p class="post-text">Quando o usuário der enter, criará um novo p.</p>
+        </main>
+        <footer class="post-footer">
+          <button class="button-post">
+            <img src="../img/icons/icon-unlike.png" class="post-icon icon-unlike" alt="Ícone de curtir">
+            <p class="post-icon-text post-number-like">2</p>
+            <p class="post-icon-text">curtidas</p>
+          </button>
+          <button class="button-post">
+            <img src="../img/icons/icon-comment.png" class="post-icon" alt="Ícone de comentários">
+            <p class="post-icon-text post-number-comment">3</p>
+            <p class="post-icon-text">comentários</p>
+          </button>
+        </footer>
+      </article>
+
+    </main>
+
+    <!--
+
         <section id="modal-comments">
           <input type="text" id="user-comment" class="user-input-post" placeholder="Escreva um comentário...">
           <section>
@@ -92,10 +106,12 @@
             </main>
           </section>
         </section>
-      </article>
-    </main>
+  -->
+    <footer id="footer">
+      <p class="medium-text">Equipe de Desenvolvido:<br>
+        Adriana Watanabe || Dayanne Maryssol || Raynara Pimenta</p>
+    </footer>
   </section>
-  <script type="module" src="main.js"></script>
 </body>
 
 </html>

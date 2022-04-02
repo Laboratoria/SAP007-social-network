@@ -3,11 +3,6 @@ import register from "./pages/register/index.js";
 
 const section = document.getElementById("container-general");
 
-window.addEventListener("load", () => {
-  section.appendChild(login.createLogin());
-  initPages();
-});
-
 function initPages() {
   window.addEventListener("hashchange", () => {
     section.innerHTML = "";
@@ -26,3 +21,8 @@ function initPages() {
     }
   });
 }
+
+window.addEventListener("load", () => {
+  section.appendChild(login.createLogin());
+  initPages();
+});
