@@ -51,6 +51,8 @@ export const pageLogin = () => {
       console.log('error', error.code);
   });
   });
+
+
   //  function validateEmail() {
   //      toggleButtonsDisable();
   //      toggleError();
