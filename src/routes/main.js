@@ -1,5 +1,5 @@
 import '../firebase/FireBaseConfig.js';
-import { register } from '../register/RegisterFunctions.js';
+import { register } from '../register/Register';
 import { home } from '../home/home.js';
 import { about } from '../about/about.js';
 
