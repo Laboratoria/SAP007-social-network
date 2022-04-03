@@ -14,7 +14,14 @@
 
   text-align: center;
 }
-
+#root {
+  display: block;
+}
+.banner {
+  background-image: url('./img/banner1.jpg');
+  background-position: center center;
+  background-size: cover;
+}
 body {
   background-color: #fefaef;
   min-height: 100vh;
@@ -30,7 +37,6 @@ form {
 }
 
 .main-container {
-  min-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,7 +75,8 @@ footer {
   font-size: 10px;
 }
 
-.sign-in-form {}
+.sign-in-form {
+}
 
 .inputs {
   background-color: #f5efef;
@@ -108,7 +115,6 @@ footer {
 }
 
 .container-fluid {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,11 +127,39 @@ footer {
     font-size: 35px;
     line-height: 44px;
   }
+  .center {
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    margin-right: 150px;
+    flex-direction: row;
+  }
+
+  .center .banner {
+    margin-top: 15px;
+  }
+
+  .containerA {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 25px;
+  }
+
+  .banner {
+    width: 580px;
+    height: 500px;
+    background-image: url('./img/banner1.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
 
   .main-container {
     min-height: 90vh;
-
     padding: 0;
+
     flex-direction: row;
   }
 
@@ -143,7 +177,4 @@ footer {
     margin-top: 15px;
     margin-bottom: 15px;
   }
-
-
-
 }
