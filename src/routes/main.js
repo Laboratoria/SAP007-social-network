@@ -1,37 +1,28 @@
 import '../firebase/FireBaseConfig.js';
-import { register } from '../register/Register';
-import { home } from '../home/home.js';
-import { about } from '../about/about.js';
+import Home from '../home/Home.js';
+import register from '../register/register.js';
+import feed from '../feed/Feed.js';
 
 const main = document.querySelector('#root');
 const renderizar = () => {
   window.addEventListener('hashchange', () => {
     main.innerHTML = '';
     switch (window.location.hash) {
-      case '':
-        main.appendChild(about());
-        break;
-      case '#about':
-        main.appendChild(about());
-        break;
-      case '#signUp':
+      case '#register':
         main.appendChild(register());
         break;
-      // case '#feed':
-      //   main.appendChild(feed());
-      //   break;
-      // case '#login':
-      //   main.appendChild(login());
-      //   break;
+      case '#feed':
+        main.appendChild(feed());
+        break;
       default:
-        main.appendChild(home());
+        main.appendChild(Home());
         break;
     }
   });
 };
 
 window.addEventListener('load', () => {
-  main.appendChild('home'());
+  main.appendChild(Home());
   renderizar();
 });
 

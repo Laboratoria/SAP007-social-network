@@ -36,7 +36,14 @@ export default () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage, errorCode);
-
+      });
+    });
+        google.addEventListener('click', (e) => {
+          e.preventDefault();
+          signinWithGoogle().then(() => {
+            window.location.hash = '#feed';
+          });
+        });
 
       };
 

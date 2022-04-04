@@ -3,38 +3,29 @@ import { creatNewUser } from '../firebase/authentication.js';
 
 export default () => {
   const containerRegister = document.creatElement('div');
+  containerRegister.setAttribute('class', 'container');
   const templateRegister = `
   <section class="register">
   <h3>Cadastro</h3>
-  <form action="#" class="input-register">
-    <input
-      type="email"
-      name="email"
-      id="email-input"
-      placeholder="Insera e-mail"
-      autocomplet
-      required
-    />
-    <input type="password" name="password" class="input-register
-    id="password-input" placeholder="Insera uma senha" requerid />
+  <input type="email" name="email" class="email-input" placeholder="Insera e-mail"
+    autocomplet required/>
+    <input type="password" name="password" class="input-password placeholder="Insera uma senha" requerid />
     <button type="submit" id="btn-register">Cadastrar</button>
-  </form>
-  <a href="#"> Já possui conta?</a>
+   <a href="#"> Já possui conta?</a>
 </section>
  `;
   containerRegister.innerHTML = templateRegister;
-  const email = containerRegister.querySelector('#email-input');
-  const password = containerRegister.querySelector('#password-input');
+  const email = containerRegister.querySelector('.email-input');
+  const password = containerRegister.querySelector('.password-input');
   containerRegister.addEventListener('submit', (e) => {
     e.preventDefault();
     creatNewUser(email.value, password.value)
       .then(() => {
-        window.location.hash = '#about';
+        window.location.hash = '#feed';
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage, errorCode);
+        return errorMessage;
       });
   });
   return containerRegister;
