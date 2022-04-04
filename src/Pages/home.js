@@ -1,11 +1,14 @@
 import "../firebase/config-firebase.js";
 import { signIn, signGoogle } from '../firebase/authetication.js';
+
 export default () => {
   const container = document.createElement('div');
+  container.classList.add('containerA');
+
   const templateHome = `
   
   <div class=banner> 
-    <img src="./img/banner1.jpg">
+    
   </div>
   <div class= main-container>
        <div class="container-fluid">
@@ -20,7 +23,7 @@ export default () => {
        <img  class="logoGoogle" src="./img/google.png" alt="logo Google">
      </a>
        <p class="welcome"> Ainda não tem cadastro?> </p>
-       <a href="#" id='sign-up-google'class="link">Registre-se</a></p>  
+       <a href="#register" id='sign-up-google'class="link">Registre-se</a></p>  
      </div>  
   </div>
   `;
@@ -36,6 +39,7 @@ export default () => {
     const password = document.getElementById('password').value;
     signIn(email, password);
   });
+  
   return container;
 
   const googleButton = container.querySelector('.logoGoogle');
@@ -50,6 +54,7 @@ export default () => {
         return errorMessage;
       });
   });
+
 
   return container;
 };
