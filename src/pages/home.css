@@ -1,12 +1,12 @@
 * {
     margin: 0;
-    padding: 0;}
+    padding: 0;
+}
 .container {
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 50%;
-  
+    bottom: 50%;  
 }
 .input-email,
 .input-password {
@@ -62,7 +62,7 @@
     position: relative;
     top: 340px;
 }
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 999px){
     .input-email .input-password {
     width: 50%;
     }

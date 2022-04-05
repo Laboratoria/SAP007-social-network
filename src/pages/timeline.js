@@ -1,5 +1,5 @@
 import "../lib/firebase.js";
-
+// import { loggedIn} from "../lib/authentication.js";
 export default () => {
     const container = document.createElement("section");
     container.setAttribute("class", "section");
@@ -20,16 +20,27 @@ export default () => {
     feed.setAttribute("class", "feed-section");
 
     const mold = `
-        <div>
+        <div class="post">
             <input class="title" type="text" placeholder="Título"></input>
-            <input class="text" type="text" placeholder="Texto publicado"></input>
+            <input class="text" type="text" placeholder="Texto"></input>
         </div>
+        <div class="feed"><div>
         
     `;
 
     feed.innerHTML = mold;
     
     container.appendChild(feed);
+
+    // firebase.auth().onAuthStateChanged(function(user){
+    //   if(user){
+    //     const uid = user.uid;
+    //     uid != null
+    //     window.location.hash = "#timeline";
+    //   }else{
+    //     alert("Offline");
+    //   }
+    // });
 
     return container;
 };
