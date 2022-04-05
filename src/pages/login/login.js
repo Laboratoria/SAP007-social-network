@@ -41,17 +41,16 @@ export const pageLogin = () => {
       console.log('success', response);
       window.location.hash = '#feed';
     }).catch((error) => {
-      switch (error.code) {
-        case 'auth/invalid-email':
-        emailError.innerHTML = "Campo obrigatorio";
-        emailError.style.display = "block";
-        break;
-        default
-      }
+      // switch (error.code) {
+      // case 'auth/invalid-email':
+      // emailError.innerHTML = "Campo obrigatorio";
+      // emailError.style.display = "block";
+      // break;
+      // default
       console.log('error', error.code);
+      // };
+    });
   });
-  });
-
 
   //  function validateEmail() {
   //      toggleButtonsDisable();

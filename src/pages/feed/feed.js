@@ -1,4 +1,4 @@
-import { createPost } from './controll.js';
+import { createPost, controlPost } from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
@@ -15,11 +15,14 @@ export const feed = () => {
         </nav>
       </section>
     </header>
-    <main class="main-header">
+    <main class="main-post">
+      <section class="section-feed" id="section-feed">
+      </section>
       <form action="" method="post">
         <input type="text" id="input-post" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
         <button id="btn-post">Enviar</button>
       </form>
+
     </main>   
       `;
   const btnMobile = timeline.querySelector('#btn-mobile');
@@ -35,18 +38,17 @@ export const feed = () => {
     event.preventDefault();
     const text = document.querySelector('#input-post').value;
     const date = new Date();
-    // uid: () => ,
-    // name: () => ,
+    // const uidUser =
+    // const nameProfile =
+    // const imgProfile =
     createPost(text, date).then((response) => {
       console.log(response);
     }).catch((e) => console.error('Error adding document', e));
   });
 
-  // controlPost().forEach((changes) => {
-  //   if (changes.type === 'added') {
-  //     console.log(changes.doc);
-  //   }
-  // });
+  const posts = timeline.querySelector('#section-feed');
+
+  controlPost(posts);
 
   return timeline;
 };
