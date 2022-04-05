@@ -50,6 +50,6 @@ export const googleLogin = () => {
 
 }
 
-// export const onAuthStateChanged = (auth, user)=> {
+// export const loggedIn = onAuthStateChanged = (auth, user)=> {
 //   return onAuthStateChanged(auth, user)
 // };

@@ -7,8 +7,9 @@ export default () => {
 
   const template = `
     <input class="input-email" placeholder="e-mail" type="email" required></input>
-    <span class="error"></span>
+    <span class="error-email"></span>
     <input class="input-password" placeholder="senha" minlength="6" type="password" required></input>
+    <span class="error-password"></span>
     <button class="enter" type="submit">Entrar</button>
     <p>ou</p>
     <button class="google-button" type="submit"><img class="google-logo" src="./images/google.png" alt="google-icon"/>Login com o Google</button>
@@ -20,6 +21,8 @@ export default () => {
   const email = container.querySelector(".input-email");
   const password = container.querySelector(".input-password");
   const googleButton = container.querySelector(".google-button");
+  const messageEmail = container.querySelector(".error-email");
+  const messagePassword = container.querySelector(".error-password");
 
   container.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -29,7 +32,13 @@ export default () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        if(error.code == "auth/user-not-found"){
+          messageEmail.innerHTML = "E-mail não cadastrado"
+        }else if (error.code == "auth/wrong-password"){
+          messagePassword.innerHTML = "Senha inválida"
+        }
         return errorMessage;
+
       });
   });
 
@@ -37,7 +46,7 @@ export default () => {
     e.preventDefault();
     googleLogin()
     .then(() => {      
-       window.location.hash = "#timeline";
+     window.location.hash = "#timeline";
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -48,12 +57,3 @@ export default () => {
   return container;
 };
 
-// firebase.auth().onAuthStateChanged(function(user){
-//   if(user){
-//     const uid = user.uid;
-//     uid != null
-//     window.location.hash = "#timeline";
-//   }else{
-//     alert("Offline");
-//   }
-// });

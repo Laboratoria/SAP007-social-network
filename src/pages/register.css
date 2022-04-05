@@ -5,8 +5,7 @@
     bottom: 40%;
     left: 18%;
 }
-.username,
-.confirm-password {
+.gap{
     border-radius: 8px;
     text-align: center;
     margin-bottom: 2%;
@@ -16,6 +15,17 @@
     border: black;
     align-self: center;    
 }
+.button-enter{
+    width: 70%;
+    background-color: #F26E22;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 8px;
+    height: 25px;
+    font-size: 16px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+}
 .user-register {
     margin: auto;
 }
@@ -24,4 +34,24 @@
     float: inline-end;
     position: relative;
     top: 240px;
+}
+@media (min-width: 600px) and (max-width: 999px){
+    .template{
+        left:35%;
+        bottom: 25%;
+    }
+}
+
+@media (min-width: 1000px){
+    .template{
+        left: 40%;
+        bottom: 30%;      
+    }
+    .gap{
+        width: 150%;
+    }
+    .user-register a{
+        float: none;
+        top: 60px;
+    }
 }
