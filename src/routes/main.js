@@ -1,6 +1,6 @@
 import '../firebase/FireBaseConfig.js';
-import Home from '../home/Home.js';
-import register from '../register/register.js';
+import Home from '../home/home.js';
+import Register from '../register/Register.js';
 import feed from '../feed/Feed.js';
 
 const main = document.querySelector('#root');
@@ -8,14 +8,14 @@ const renderizar = () => {
   window.addEventListener('hashchange', () => {
     main.innerHTML = '';
     switch (window.location.hash) {
-      case '#register':
-        main.appendChild(register());
+      case '#Register':
+        main.appendChild(Register());
         break;
       case '#feed':
         main.appendChild(feed());
         break;
       default:
-        main.appendChild(Home());
+        main.appendChild(feed());
         break;
     }
   });
