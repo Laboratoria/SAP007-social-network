@@ -33,17 +33,18 @@ Eu como viajante gostaria de interagir em uma rede social destinada para tal fin
 A interface do projeto foi desenhada para atender uma SPA(Single Page Application), que contém ao todo 3 páginas, sendo elas de login, cadastro e timeline.
 
 A paleta de cores foi extraida da imagem principal da aplicação.
-![paleta](./readme-img/palette.png)
+![paleta](./src/img/readme-img/palette.png)
 
 ### Protótipos
 
 **Baixa Fidelidade**
+![paper-prototype](./src/img/readme-img/paper-mobile-prototype.png)
 
 **Alta Fidelidade**
 
 O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, onde foram desenvolvidas as páginas que mostram o layout das 3 interface criadas em telas mobile, tablet e desktop.
 
-![mobile](./readme-img/mobile-teste.png)
+![mobile](./src/img/readme-img/mobile-gif.gif)
 
 ## 4. Objetivos de Aprendizagem
 
@@ -57,6 +58,39 @@ O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, o
 - Google Forms
 
 ### Densenvolvido por:
-- Camia Aguiar 
-- Érika Moreno 
-- Fernanda Leandra
+
+<table>
+<td>
+  <div align= "center">
+    <img alt="Camila Aguiar" height="150" src="https://avatars.githubusercontent.com/u/97450471?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/Cahaguiar">Camila Aguiar</a></h3>
+  <div align="center">
+    <a href = "mailto:" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+    <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  </div>
+</td>
+
+<td>
+  <div align= "center">
+    <img alt="Érika Moreno" height="150" src="https://avatars.githubusercontent.com/u/60948460?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/erikakrause">Érika Moreno</a></h3>
+  <div align="center">
+    <a href = "mailto:erika.kmoreno@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+    <a href="https://www.linkedin.com/in/erika-gkmoreno/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  </div>
+</td>
+<br>
+<td>
+  <div align= "center">
+    <img alt="Fernanda Leandra" height="150" src="https://avatars.githubusercontent.com/u/92606913?v=4"> 
+  </div>
+  <h3 align="center"><a href="https://github.com/Fernanda741">Fernanda Leandra</a></h3>
+  <div align="center">
+    <a href = "mailto:mailto:fernanda2pc@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+     <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  </div>
+</td>
+</table>
+<table>
