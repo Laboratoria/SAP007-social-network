@@ -13,7 +13,7 @@ export default () => {
     <form action="#" id="sign-in-form" class="sign-in-form">
       <input class= "inputs" type="text" placeholder="Nome" id="name"/>
       <input class= "inputs" type="email" placeholder="Email" id="email"/>
-      <input class= "inputs" type="password" placeholder="Senha" id="password"/>      
+      <input class= "inputs" type="password" placeholder="Senha (6 dígitos)" id="password"/>      
       <input class="btnEnter" type="submit" value="register" id="Cadastrar"/>
     </form>
     <p class="wellcome"> Já tem cadastro ? <a href="">Faça o Login</a></p>
