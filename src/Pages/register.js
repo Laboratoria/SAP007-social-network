@@ -2,14 +2,11 @@ export default () => {
   const register = document.createElement('div');
   register.classList.add('containerA');
   const templateRegister = `
-
-
   <div class="center">
-  <div class=banner> 
-    
+  <div class="banner"> 
   </div>
   <div class="container-fluid">
-    <p class="wellcome"> Cadastro</p>
+    <p class="welcome">Cadastro</p>
     <form action="#" id="sign-in-form" class="sign-in-form">
       <input class= "inputs" type="text" placeholder="Nome" id="name"/>
       <input class= "inputs" type="email" placeholder="Email" id="email"/>
@@ -20,7 +17,7 @@ export default () => {
   </div>
   </div>
   `;
-
+  
   register.innerHTML = templateRegister;
   return register;
 };

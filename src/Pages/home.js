@@ -5,14 +5,12 @@ export default () => {
   const container = document.createElement('div');
   container.classList.add('containerA');
 
-  const templateHome = `
-  
+  const templateHome = `  
   <div class=banner> 
-    
   </div>
   <div class= main-container>
        <div class="container-fluid">
-      <p class="wellcome"> Bem vindo(a) viajante!! </p>
+      <p class="welcome"> Bem vindo(a) viajante!! </p>
       <form action="#" id="sign-in-form" class="sign-in-form">
         <input class= "inputs" type="email" placeholder="Email" id="email" />
         <input class= "inputs" type="password" placeholder="Senha" id="password"/>
