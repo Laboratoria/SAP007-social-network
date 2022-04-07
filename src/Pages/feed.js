@@ -1,17 +1,22 @@
 export default () => {
-  const register = document.createElement('div');
-  const templateRegister = `
- <div class="container-feed">
-    <h3>Feed</h3>
-    <button id="btnLogout" class="btn-logout">Logout</button>
- </div>
- <div class="container-post">
-    <textarea id="editPost" class="inputs"></textarea>
-    <button id="btnPost" class="inputs">Postar</button>
-    <button id="editButton" class="inputs">Editar</button>
-    <button id="deleteButton" class="inputs">Excluir</button>
- </div>`;
+  const feed = document.createElement('div');
+  const templateFeed = `
+  <section class="top-nav">
+  <div>
+    <h1>Logo</h1>
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+  <ul class="menu">
+    <li>PERFIL</li>
+    <li>PuBLICAR</li>
+    <li>CURTIDAS</li>
+    <li>SAIR</li>
+  </ul>
+</section>`;
 
-  register.innerHTML = templateRegister;
-  return register;
+  feed.innerHTML = templateFeed;
+  return feed;
 };
