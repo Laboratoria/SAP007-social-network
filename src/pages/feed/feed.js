@@ -2,27 +2,32 @@ import { createPost, controlPost } from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
-  timeline.setAttribute('class', 'box-feed');
+  timeline.setAttribute('class', 'box-feed flex');
   timeline.innerHTML = `
-    <header class="header-feed">    
-      <section class="menu">
+    <header class="header-feed flex"> 
+      <div>
+        <img src="#" class="user-perfil-img-feed" alt="user">
+      </div>  
+      <div>
+        <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
+      </div>   
+      <div class="menu flex">
         <nav id="nav-options" class="nav-options" aria-expanded="false">
           <button id="btn-mobile" class="btn-mobile">
           </button>
-          <ul id="menu" class="menu">
+          <ul id="menu-list" class="menu-list ">
             <li><a href="#" class="link" target="_blank"/></a></li>
           </ul>
         </nav>
-      </section>
+      </div>
     </header>
-    <main class="main-post">
-      <section class="section-feed" id="section-feed">
+    <main class="main-post flex">
+      <section class="section-feed flex" id="section-feed">
       </section>
       <form action="" method="post">
         <input type="text" id="input-post" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
         <button id="btn-post">Enviar</button>
       </form>
-
     </main>   
       `;
   const btnMobile = timeline.querySelector('#btn-mobile');

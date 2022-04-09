@@ -28,26 +28,45 @@ export function controlPost(posts) {
         const post = change.doc.data();
         const date = new Date(post.day.seconds * 1000);
         const timeline = document.createElement('div');
-        timeline.setAttribute('class', 'box-post');
+        timeline.setAttribute('class', 'box-post flex');
         timeline.innerHTML = `
-        <div class="informations-user">
-          <figure><img src="" alt=""></figure>
-          <h1 class="name"></h1>
-          <p class="modified"></p>
+        <div class="informations-user flex">
+          <div class="photo-name-post flex">
+            <figure class="post-img-user" ><img src="" alt=""></figure>
+            <div class="name-modifie-status flex">
+              <p class="post-name-user">User</p>
+              <div class="message-modified-post">
+                <p class="post-modified"></p>
+              </div>
+            </div>
+          </div>
+          <div class="menu-config-posts flex">
+          <button>Config
+            <nav class="nav-remove-modifie flex">
+              <button class="remove"></button>
+              <button class="modifie"></button>
+            </nav>
+          </button>
         </div>
-        <div class="menu-config-posts">
-          <nav class="nav-remove-modifie">
-            <button class="remove"></button>
-            <button class="modifie"></button>
-          </nav>
         </div>
-        <div class="post-text-id" data-postid="${change.doc.id}">
-          <p class="date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}</p>
-          <p class="p-text">${post.message}</p>
+        <div class="menu-config-posts flex">
+          <button>
+            <nav class="nav-remove-modifie flex">
+              <button class="remove"></button>
+              <button class="modifie"></button>
+            </nav>
+          </button>
         </div>
-        <div class="like-comment">
-          <button><img src="" alt=""></button>
-          <button><img src="" alt=""></button>
+        <div class="post-text-id flex" data-postid="${change.doc.id}">
+          <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
+          <p class="post-text">${post.message}</p>
+          <div class="message-modified-post">
+            <p class="post-modified"></p>
+          </div>
+        </div>
+        <div class="like-comment flex">
+          <button class="post-like"><img src="" alt="">Gostei</button>
+          <button class="post-comment"><img src="" alt="">Comentar</button>
         </div>`;
         console.log(change.doc.data(), timeline);
         posts.prepend(timeline);
@@ -55,12 +74,34 @@ export function controlPost(posts) {
       if (change.type === 'modified') {
         console.log(change.doc.data());
         const post = change.doc.data();
+        const date = new Date(post.day.seconds * 1000);
         const timeline = document.createElement('div');
-        timeline.setAttribute('class', 'box-post');
+        timeline.setAttribute('class', 'box-post flex');
         timeline.innerHTML = `
-          < p class="date" > ${post.day}</p >
-            <p class="p-text">${post.message}</p>
-        `;
+        <div class="informations-user flex">
+          <figure class="post-img-user" ><img src="" alt=""></figure>
+          <h1 class="post-name-user"></h1>
+         
+        </div>
+        <div class="menu-config-posts flex">
+          <button>
+            <nav class="nav-remove-modifie flex">
+              <button class="remove"></button>
+              <button class="modifie"></button>
+            </nav>
+          </button>
+        </div>
+        <div class="post-text-id flex" data-postid="${change.doc.id}">
+          <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}</p>
+          <p class="post-text">${post.message}</p> 
+          <div class="message-modified-post">
+            <p class="post-modified">Editado</p>
+          </div>
+        </div>
+        <div class="like-comment flex">
+          <button class="post-like"><img src="" alt="">Gostei</button>
+          <button class="post-comment"><img src="" alt="">Comentar</button>
+        </div>`;
         posts.prepend(timeline);
       }
       if (change.type === 'removed') {
