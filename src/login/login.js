@@ -1,18 +1,22 @@
+import '../firebase/firebase.js';
+import { userLogin, googleLogin } from '../firebase/auth-firebase.js';
+
 export const login = () => {
   const loginCreate = document.createElement('div');
+  loginCreate.setAttribute('class', 'container');
   const templateLogin = `
     <main class="home-container">
     <form id="loginForm" class="loginForm">
       <h2 class="subtitle">Login</h2>
       <input
-        class="inputNames"
+        class="loginEmail inputNames"
         type="text"
         id="loginEmail"
         placeholder="Digite seu e-mail" autocomplet
         required
       />
       <input
-        class="inputNames"
+        class="loginPassword inputNames"
         type="password"
         id="loginPassword"
         placeholder="Digite uma senha"
@@ -30,7 +34,7 @@ export const login = () => {
       <div class="social-media">
       <p>Ou entrar com o Google</p>
       <button class="buttonGoogle" type="button" id="buttonGoogle">
-      <img class="buttonGoogleImg" src="img/icone-google.png" alt="Imagen logo de Google" />
+      <img class="buttonGoogleImg" src="img/icone-google.png" alt="Logo de Google" />
       </button>
       </div>
       </div>
@@ -47,5 +51,33 @@ export const login = () => {
   `;
 
   loginCreate.innerHTML = templateLogin;
+
+  const email = loginCreate.querySelector('.loginEmail');
+  const password = loginCreate.querySelector('.loginPassword');
+  const googleButton = loginCreate.querySelector('.buttonGoogle');
+
+  loginCreate.addEventListener('submit', (e) => {
+    e.preventDefault();
+    userLogin(email.value, password.value)
+      .then(() => {
+        window.location.hash = '#timeline';
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        return errorMessage;
+      });
+  });
+
+  googleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleLogin()
+      .then(() => {
+        window.location.hash = '#timeline';
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        return errorMessage;
+      });
+  });
   return loginCreate;
 };

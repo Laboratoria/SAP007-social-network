@@ -1,9 +1,10 @@
-// EVENTOS DOM
-import './config-firebase.js';
+// EVENTOS DOM - ROTAS
+import './firebase/firebase.js';
 
-import { home } from './pages/home/home.js';
-import { login } from './pages/login/login.js';
-import { register } from './pages/register/register.js';
+import { home } from './home/home.js';
+import { login } from './login/login.js';
+import { register } from './register/register.js';
+import { timeline } from './timeline/timeline.js';
 
 const content = document.querySelector('#root');
 
