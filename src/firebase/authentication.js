@@ -28,7 +28,7 @@ export function signinPassword(email, password) {
   );
 }
 // entrar com o Google
-export const signinWithGoogle = () => {
+export const googleLogin = () => {
   signInWithPopup(authentication, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);

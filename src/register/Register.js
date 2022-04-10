@@ -1,61 +1,33 @@
-import '../firebase/FireBaseConfig.js';
+import '../firebase/firebaseconfig.js';
 import { creatNewUser } from '../firebase/authentication.js';
 
-export default () => {
-  const containerRegister = document.creatElement('div');
+export const register = () => {
+  const containerRegister = document.createElement('div');
   containerRegister.setAttribute('class', 'container');
   const templateRegister = `
-  <section class="register">
-  <h3>Cadastro</h3>
+  <h1>Cadastro</h1>
+  <form class"form-login">
   <input type="email" name="email" class="email" placeholder="Insera e-mail"
     autocomplet required/>
     <input type="password" name="password" class="password" placeholder="Insera uma senha" requerid />
     <button type="submit" id="btn-register">Cadastrar</button>
    <a href="#login"> Já possui conta?</a>
-</section>
+   </form>
  `;
   containerRegister.innerHTML = templateRegister;
-  const email = containerRegister.querySelector('.input-email');
-  const password = containerRegister.querySelector('.input-password');
-  const somethingWrong = containerRegister.querySelector('.error');
+  const email = containerRegister.querySelector('.email');
+  const password = containerRegister.querySelector('.password');
   containerRegister.addEventListener('submit', (e) => {
+    console.log('agora vai');
     e.preventDefault();
     creatNewUser(email.value, password.value)
       .then(() => {
-        window.location.hash = '#feed';
+        window.location.hash = '#timeline';
       })
       .catch((error) => {
-        const errorMessage = error.somethingWrong;
-        if (error.code === 'auth/email-already-exists') {
-          somethingWrong.innerHTML = 'O e-mail fornecido já está em uso por outro usuário';
-        } else if (error.code === 'auth/invalid-email') {
-          somethingWrong.innerHTML = 'Não é válido, digite um e-mail válido';
-        } else if (error.code === 'auth/invalid-password') {
-          somethingWrong.innerHTML = 'Senha inválida, digite uma senha de pelo menos 6 caracteres';
-        }
-        return errorMessage;
+        const errorMessage = error.message;
+        console.log(errorMessage, 'erro');
       });
   });
   return containerRegister;
 };
-
-// eslint-disable-next-line
-// import {
-//   getAuth,
-//   createUserWithEmailAndPassword,
-// } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-// import '../firebase/FireBaseConfig.js';
-
-// const authentication = getAuth();
-
-// const botao = document.querySelector('#botão');
-
-// botao.addEventListener('click', (e) => {
-//   e.preventDefault();
-
-//   const form = document.querySelector('#form-test');
-//   const email = form[0].value;
-//   const senha = form[1].value;
-
-//   createUserWithEmailAndPassword(authentication, email, senha);
-// });

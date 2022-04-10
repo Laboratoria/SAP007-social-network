@@ -1,79 +1,50 @@
-import '../firebase/FireBaseConfig.js';
-import {
-  signinPassword, signinWithGoogle
-} from '../firebase/authentication.js'
+import '../firebase/firebaseconfig.js';
+import { signinPassword, googleLogin } from '../firebase/authentication.js';
 
-
-export default () => {
-  const containerLogin = document.creatElement("div");
+export const login = () => {
+  const containerLogin = document.createElement('div');
+  containerLogin.setAttribute('class', 'container');
   const templateLogin = `
-  <section id="login" class="box-login">
-  <h3>login</h3>
   <form class="input-login">
-    <input type="email" name="email" id="email-input" placeholder="Insera e-mail" required />
-    <input type="password" name="password" id="password-input" placeholder="Insera uma senha" requerid />
-    <a href=""> Esqueceu a sua senha?</a>
-    <button type="submit" id="btn-login">Entrar</button>
-    <p>Ou</p>
-    <button type="submit" id="btn-google">Entrar com o Google</button>
-  </form>
-  </section>
-    <p>Não tem conta?</p>
-    <a href="btn-register" href="/#"> Cadastre-se</a>
-  </section>
+  <p>Login</p>
+  <input type="email" name="email" class="email-input" placeholder="Insera e-mail" required />
+  <input type="password" name="password" class="password-input" placeholder="Insera uma senha" requerid />
+  <a href=""> Esqueceu a sua senha?</a><br>
+  <br><button type="submit">Entrar<button><br>
+
+  <button class="btn-google"><img src="img/google.png" alt="botão Google">Entrar com o Google
+  </button>
+</form>
+</section>
+  <p>Não tem conta?</p>
+  <a href="btn-register" href="/#register"> Cadastre-se</a>
+
+  
 
   `;
   containerLogin.innerHTML = templateLogin;
-  const getEmail = document.querySelector('#email-input');
-  const getPassword = document.querySelector('#password-input');
-  const form = containerLogin.getElementById("")
-  containerLogin.addEventListener("submit", (e) => {
+  const email = containerLogin.querySelector('.email-input');
+  const password = containerLogin.querySelector('.password-input');
+  const google = containerLogin.querySelector('.btn-google');
+
+  containerLogin.addEventListener('submit', (e) => {
     e.preventDefault();
-    signinPassword(getEmail.value, getPassword.value)
-      .then((userCredential) => {
+    signinPassword(email.value, password.value)
+      .then(() => {
+        window.location.hash = '#timeline';
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage, errorCode);
       });
+  });
+
+  google.addEventListener('click', (e) => {
+    e.preventDefault();
+    googleLogin().then(() => {
+      window.location.hash = '#timeline';
     });
-        google.addEventListener('click', (e) => {
-          e.preventDefault();
-          signinWithGoogle().then(() => {
-            window.location.hash = '#feed';
-          });
-        });
-
-      };
-
-
-
-
-
-/*import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
-import '../firebase/FireBaseConfig.js';
-
-const loginAuth = getAuth();
-const btnLogin = document.querySelector('#submit-form');
-btnLogin.addEventListener('click', (e) => {
-  e.preventDefault();
-  const getEmail = document.querySelector('#email');
-  const getPassword = document.querySelector('#password');
-  signInWithEmailAndPassword(loginAuth, getEmail, getPassword)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user, 'entrou');
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage, errorCode);
-    });
-
-  console.log('entrou');
-});
+  });
+  return containerLogin;
+};
