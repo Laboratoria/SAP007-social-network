@@ -29,19 +29,42 @@ export default () => {
         <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
         <button class="btn-publicar" id="btn-publish" type="submit"> Publicar </button>
         </div>
-        <div class="publicacoes" id="publications">
-            poemas postados aqui...
-        </div>
+
+        <section class="new-post" id="new-post">
+        </section>
+        <section class="publicacoes" id="publications">
+            Últimos poemas:
+        </section>
     </main> 
     `;
-    
-  container.innerHTML = templateFeed;
 
+  container.innerHTML = templateFeed;
+    
+  //template do card do post
+  function createCardPost (addNewPost, date) {
+    const containerPost = document.createElement("div");
+    const templateCardPost = `
+      <div class="card">
+        <p class="date-card">Postado em:${date}</p}
+        <section class="post-infos">
+          <p class="write-message">${addNewPost}</p>    
+          <p class="author">${addNewPost}</p>
+          <button class="button-heart" id="button-heart">
+            <img class="heart-img" src="img/icone-coração.png">
+            <span class="button-heart-text">Gostei</span>
+          </button>  
+        </section>
+      </div>    
+    `;
+    containerPost.innerHTML = templateCardPost;
+    return containerPost;
+  }
+
+  const showNewPost = container.querySelector('#new-post');
   const addNewPost = container.querySelector('#textarea');
   const showPosts = container.querySelector('#publications');
   const buttonPublic = container.querySelector('#btn-publish');
   const logoutButton = container.querySelector('#btn-exit');
-
 
   //função para sair do seu login
   logoutButton.addEventListener("click", (e) => {
@@ -50,35 +73,41 @@ export default () => {
       .then(function () {
         window.location.hash='#login';
       })
-  })  
+  })
+
+  function formatDate (date) {
+    return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} às 
+      ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  }    
     
+  //publicar novo post
   buttonPublic.addEventListener("click", (e) => {
     e.preventDefault();
     newPost(addNewPost.value)
-      then(function () {
-        const templateCardPost = `
-          <div class="card">
-            <p class="write-message">${addNewPost.value}</p>    
-           </div>    
-        `;  
-
-        showPosts.innerHTML = templateCardPost;
-      });
+    .then(function () {
+      let date = new Date();
+      showNewPost.appendChild(createCardPost(addNewPost.value, formatDate(date)));
+    }); 
   })
+  
+  //aparecer todos os posts
+  const showAllPosts = async () => {
+    const timeline = await allPosts();
+    timeline.map((posts) => {
+      let transformToDate = new Date(posts.date*1000); 
+      console.log(posts.date)
+      console.log(transformToDate)
       
+      const postElement = createCardPost(posts.message, formatDate(transformToDate));
+      showPosts.appendChild(postElement)
+    });
+  }
+
+
+
+
+  showAllPosts();    
+
   return container;
 }
 
-
-
-
-/*const templateCardPost = `
-        <div class="card">
-          <p class="date-card">${posts.date}</p}
-          <section class="post-infos">
-            <p class="write-message">${posts.message}</p>    
-            <p class="author">${auth}</p>
-            <img class="pokedex-open" src="img/pokedex-open.png" class="heart-button" id="heart-button">
-          </section>
-        </div>    
-        `;*/

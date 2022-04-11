@@ -22,11 +22,12 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //catch define um bloco de código para lidar com qualquer erro.
 
 //codigo para criar uma nova coleção e documento
-export async function newPost(messageTest){
+export async function newPost(message){
   try {
-    console.log(messageTest)
+    console.log(message)
     const docRef = await addDoc(collection(db, "posts"), {
-      message: messageTest,
+      message: message,
+      date: new Date(),
     });
     console.log("Document written with ID: ", docRef.id);
   } 
@@ -35,16 +36,14 @@ export async function newPost(messageTest){
   } 
 }
 
-//É possível usar o método "get" para recuperar toda a coleção.
-export async function allPosts(posts){
+export const allPosts = async () => {
   const querySnapshot = await getDocs(collection(db, "posts"));
+  let arrayOfPosts = [];
   querySnapshot.forEach((doc) => {
-    posts = doc.data().message;
-    console.log(posts);
-    console.log(`${doc.id} => ${doc.data()}`);
-    return posts;
-    
+    const posts = doc.data();
+    arrayOfPosts.push(posts);
   });
+  return arrayOfPosts;
 }
 
 //Editar post
