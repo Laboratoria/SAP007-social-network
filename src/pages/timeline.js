@@ -19,15 +19,16 @@ export default () => {
     feed.setAttribute("class", "feed-section");
 
     const mold = `
-        <div class="post">
-            <input class="title" type="text" placeholder="Título"></input>
-            <input class="text" type="text" placeholder="Texto"></input>
-        </div>
-        <div>
-          <button class="btn-post" type="submit">Postar</button>
-          </div>
-        <div class="feed"><div>    
-    `;
+    <div class="post">
+        <input class="title" type="text" placeholder="Título"></input>
+        <input class="text" type="text" placeholder="Texto"></input>
+    </div>
+    <div>
+      <button class="btn-post" type="submit">Postar</button>
+      <img class="like" src="./images/like.png" alt="Ìcone de joinha">
+      </div>
+    <div class="feed"><div>    
+`;
 
     feed.innerHTML = mold;
     

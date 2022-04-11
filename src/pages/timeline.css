@@ -31,6 +31,11 @@ hr{
     padding-bottom: 20%;
     margin-top: 2%;
 }
+.like {
+    width: 18px;
+    position: relative;
+    margin-left: -10%;
+}
 .btn-post{
     background-color: #F26E22;
     width: 20%;
@@ -42,6 +47,5 @@ hr{
     border: black;
     font-weight: bold;
     position: relative;
-    top: 37%;
     left: 70%;
 }
