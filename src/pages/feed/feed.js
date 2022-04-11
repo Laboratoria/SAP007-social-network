@@ -11,15 +11,14 @@ export const feed = () => {
       <div>
         <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
       </div>   
-      <div class="menu flex">
-        <nav id="nav-options" class="nav-options" aria-expanded="false">
-          <button id="btn-mobile" class="btn-mobile">
-          </button>
-          <ul id="menu-list" class="menu-list ">
-            <li><a href="#" class="link" target="_blank"/></a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav id="nav-options" class="nav-options" aria-expanded="false">
+        <button id="btn-mobile" class="btn-mobile flex">
+          <span id="hamburguer" class="hamburguer"></span>
+        </button>
+        <ul id="menu" class="menu ">
+          <li><a href="#" class="link" target="_blank"/></a></li>
+        </ul>
+      </nav>
     </header>
     <main class="main-post flex">
       <section class="section-feed flex" id="section-feed">
