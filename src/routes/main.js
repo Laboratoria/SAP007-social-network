@@ -1,87 +1,38 @@
-import '../firebase/FireBaseConfig.js';
-import {about} from '../about/about.js'
+import '../firebase/firebaseconfig.js';
+import home from '../home/home.js';
+import { register } from '../register/register.js';
+import { login } from '../login/login.js';
+import { timeline } from '../feed/feed.js';
 
-const main = document.querySelector('#root');
+const main = document.querySelector('#root'); // pega a div do HTML para colocar o conteúdo da página
 const renderizar = () => {
-  window.addEventListener('hashchange', () => {
-    main.innerHTML = "";
-    switch (window.location.hash) {
-      case "":
-        main.appendChild(home());
-        break;
-      case "#about":
-        main.appendChild(about());
-        break;
-      case "#signUp":
-        main.appendChild(register());
-        break;
-      case "#feed":
-        main.appendChild(feed());
-        break;
-      case "#login":
-        main.appendChild(login());
-        break;
-      default:
-        main.appendChild(home());
-        break;
-    }
-  });
-};
-
-window.addEventListener("load", () => {
-  main.appendChild("home"());
-  renderizar();
-});
-
-
-
-
-
-
-
-
-
-/*import HtlmHome from '../Home/Home.js'
-import HtlmLogin from '../Home/Home.js'
-const routes = {
-  404: '<h1>Pagina não encontrada</h1>',
-  '#': pages.login,
-  '#about': pages.register,
-  '#Home': HtlmHome.Home,
-  '#services': pages.services,
-};
-
-const handleLocation = () => {
-  let path = window.location.hash;
-
-  /* O link de home passa uma # apenas e quando usamos window.location.hash, ele pega o que vem a # e o que vem apos, caso tenha apenas a # ela vem uma string vazia, essa condição é para caso o window.location.hash nos traga uma string vazia, ela ser alterada pra '#', para conseguir buscar dentro do objeto routes */
-
- /* if (path === '') {
-    path = '#';
+  switch (window.location.hash) {
+    case '#home':
+      main.appendChild(home());
+      break;
+    case '#register':
+      main.appendChild(register());
+      break;
+    case '#login':
+      main.appendChild(login());
+      break;
+    case '#timeline':
+      main.appendChild(timeline());
+      break;
+    default:
+      main.appendChild(home());
+      break;
   }
-
-  const rota = routes[path] || routes[404];
-
-  console.log(path);
-  document.getElementById('root').innerHTML = rota;
 };
-
-const route = (e) => {
-  // eslint-disable-next-line no-param-reassign
-  e = e || window.event;
-  e.preventDefault();
-  window.history.pushState({}, '', e.target.href);
-
-  handleLocation();
-};
-
-const botoes = document.querySelectorAll('.header_nav-item');
-botoes.forEach((botao) => {
-  botao.addEventListener('click', () => {
-    route();
+// limpa o texto atual da página e trás o conteúdo do novo #hash
+const clear = () => {
+  window.addEventListener('hashchange', () => {
+    main.innerHTML = '';
+    renderizar();
   });
+};
+// toda vez que a pessoa der o load na página executam as funcões
+window.addEventListener('load', () => {
+  renderizar();
+  clear();
 });
-
-window.onpopstate = handleLocation;
-
-handleLocation();
