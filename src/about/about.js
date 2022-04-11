@@ -15,7 +15,7 @@ export default () => {
     <p><img src="https://drive.google.com/file/d/17FvUyl7WZ0Hx8-XFmPIE-XNyXE9vcCCT/view?usp=sharing" width="200"/></p>
     <p>🍀 Marione Pereira - 27 anos - Web Developer</p>
     <a href="https://github.com/Marione-Tainara" target="_blank">
-    <a href ='#' class ="return-home">Home</a>
+    <a href ='#home' class ="return-home">Home</a>
     </div>
        
     `;
