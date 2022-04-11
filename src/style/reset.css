@@ -1,19 +1,22 @@
-*{
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
-:root{
-    --colorOne: #C087B0;
-    --header: #FFFDDE;
-    --details: #9EB5DF;
-    --link: #1E6DF6;
-    --font: #404040;
-    --orange: #F8BD0F;
-    --lilac: #D9A3D5;
-    --fontTwo: white;
+:root {
+  --colorOne: #C087B0;
+  --header: #FFFCAB;
+  --details: #9EB5DF;
+  --link: #1E6DF6;
+  --font: #404040;
+  --orange: #F8BD0F;
+  --lilac: #D9A3D5;
+  --fontTwo: white;
+  --black: black;
+  --shadow: #bdb8b8;
+  --shadowheader: #f8f8bfa6;
 }

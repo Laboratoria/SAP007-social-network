@@ -1,4 +1,4 @@
-import {register} from './create-login.js';
+import { register } from './create-login.js';
 
 export const createLogin = () => {
   const main = document.getElementById('root');
@@ -24,7 +24,6 @@ export const createLogin = () => {
   </section>
   `;
 
-
   const inputName = createLoginStr.querySelector('#name-area');
   // const inputNickName = createLoginStr.querySelector('#nick-name-area');
   // const inputBirth = createLoginStr.querySelector('#birth-area');
@@ -47,5 +46,5 @@ export const createLogin = () => {
     return register(inputName.value, inputEmail.value, inputPassword.value);
   };
   newRegister.addEventListener('click', newUser);
-  return createLoginStr
+  return createLoginStr;
 };

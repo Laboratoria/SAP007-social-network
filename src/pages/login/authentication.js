@@ -4,14 +4,11 @@ import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedi
 const auth = getAuth();
 
 export function logar(email, password) {
-
-    return signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(auth, email, password);
 }
 
-
 export function logarGmail() {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-    getRedirectResult(auth)
-
+  const provider = new GoogleAuthProvider();
+  signInWithRedirect(auth, provider);
+  getRedirectResult(auth);
 }
