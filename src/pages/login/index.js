@@ -1,6 +1,13 @@
+import {
+  newUserWithEmailAndPassword,
+  nerwUserWithGoogle,
+} from "../../produtosFirebase/authentication.js";
+import { auth, provider } from "../../produtosFirebase/config-firebase.js";
+
 const login = {
   createLogin: function () {
     const container = document.createElement("div");
+    container.setAttribute("id", "container-general");
     container.innerHTML = `
     <form id="user-form">
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
@@ -37,30 +44,24 @@ const login = {
       </div>
     </section>
     `;
-    return container;
-  },
 
-  initModal: function () {
-    const openModal = document.querySelector('[data-modal="open-modal"]');
-    const closeModal = document.querySelector('[data-modal="close-modal"]');
-    const containerModal = document.querySelector(
-      '[data-modal="container-modal"]'
-    );
-    if (openModal && closeModal && containerModal) {
-      let toogle = function (event) {
-        event.preventDefault();
-        containerModal.classList.toggle("active");
-      };
-      let outside = function (event) {
-        if (event.target === this) {
-          event.preventDefault();
-          containerModal.classList.toggle("active");
-        }
-      };
-      openModal.addEventListener("click", toogle);
-      closeModal.addEventListener("click", toogle);
-      containerModal.addEventListener("click", outside);
-    }
+    const form = document.getElementById("user-form");
+    form.addEventListener("submit", (e) => {
+      // e = comportamento padrão daquele evento ou o evento que eu estabelecer como padrão
+      e.preventDefault(); // previnir que o comportamento padrão
+      const email = form.querySelector("#user-email").value;
+      const password = form.querySelector("#user-password").value;
+      newUserWithEmailAndPassword(email, password).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        //...
+      });
+    });
+    form.querySelector("#google-register").addEventListener("click", () => {
+      nerwUserWithGoogle(auth, provider);
+    });
+
+    return container;
   },
 };
 
