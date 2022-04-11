@@ -8,21 +8,18 @@ function initPages() {
     section.innerHTML = "";
     switch (window.location.hash) {
       case " ":
-        section.appendChild(login.createLogin());
+        section.appendChild(login);
         break;
       case "#login":
-        section.appendChild(login.createLogin());
-        break;
-      case "#register":
-        section.appendChild(register.createUser());
+        section.appendChild(login);
         break;
       default:
-        section.appendChild(login.createLogin());
+        section.appendChild(login);
     }
   });
 }
 
 window.addEventListener("load", () => {
-  section.appendChild(login.createLogin());
+  section.appendChild(login);
   initPages();
 });
