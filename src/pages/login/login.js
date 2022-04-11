@@ -8,7 +8,7 @@ export default () => {
     <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
     <form class="form-login">
       <a href="#register" class="link-register">Registre-se</a>
-      <input type="email" id="input-email" class="input-email" placeholder="E-mail">
+      <input type="email" id="input-email" class="input-email" placeholder="E-mail" autocomplete="on">
       <input type="password" id="input-password" class="input-email" placeholder="Senha">
       <div class="checkbox">
         <input type="checkbox" id="remember-password" class="remember-password" name="remember-password">

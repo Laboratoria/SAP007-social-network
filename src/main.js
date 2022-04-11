@@ -8,31 +8,36 @@ import feed from "./pages/feed/feed.js"
 
 const main = document.querySelector("#root");
 
+function redirect () {
+  switch(window.location.hash){
+    case "":
+      main.appendChild(login());  
+      break;
+    case "#login":
+      main.appendChild(login());  
+      break; 
+    case "#register":
+      main.appendChild(newuser()); 
+      break;
+    case "#forgot-password":
+      main.appendChild(recover()); 
+      break;
+    case "#feed":
+      main.appendChild(feed()); 
+      break;  
+  }
+
+}
 const changePages = () => {
   window.addEventListener("hashchange", () => {
     main.innerHTML = "";
-    switch(window.location.hash){
-      case "":
-        main.appendChild(login());  
-        break;
-      case "#login":
-        main.appendChild(login());  
-        break; 
-      case "#register":
-        main.appendChild(newuser()); 
-        break;
-      case "#forgot-password":
-        main.appendChild(recover()); 
-        break;
-      case "#feed":
-        main.appendChild(feed()); 
-        break;  
-    }
-  })
+    redirect();
+  })    
 }
 
 window.addEventListener("load", () => {
-  main.appendChild(feed());  
+  main.appendChild(feed())
+  //redirect(); 
   changePages();     
 })
 //a lista de rotas (window.location) pode ser criada aqui (main) ou em um arquivo separado de rotas
