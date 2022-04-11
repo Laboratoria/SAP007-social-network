@@ -31,8 +31,8 @@ export const register = () => {
     placeholder="Digite uma senha"
     required
   />
-  <div class="button-container loginEnter">
-      <button id="registerEnter" class="button registerButton" type="submit">
+  <div class="button-container login-container">
+      <button id="registerEnter" class="button registerButton loginEnter" type="submit">
         Cadastrar
       </button>
       </div>
@@ -58,7 +58,6 @@ export const register = () => {
   const email = registerCreate.querySelector('.registerEmail');
   const password = registerCreate.querySelector('.registerPassword');
   const googleButton = registerCreate.querySelector('.buttonGoogle');
-  const message = registerCreate.querySelector('.error-message');
 
   registerCreate.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -67,12 +66,8 @@ export const register = () => {
         window.location.hash = '#timeline';
       })
       .catch((error) => {
-        if (error.code === 'auth/invalid-email') {
-          message.innerHTML = 'Digite um e-mail válido';
-        } else if (error.code === 'auth/email-already-in-use') {
-          message.innerHTML = 'Esse e-mail já está sendo utilizado';
-        }
-        return message;
+        const errorMessage = error.message;
+        return errorMessage;
       });
   });
 

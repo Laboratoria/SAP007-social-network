@@ -9,11 +9,11 @@ export const home = () => {
   
       <section class="text-content">
         <p>Converse, <span>descubra</span> e <span>compartilhe</span> seus filmes e séries favoritos</p>
-        <p class="text-participate">Crie sua conta para ter acesso a comunidade</p>
+        <p class="text-participate participate">Crie sua conta para ter acesso a comunidade</p>
       </section>
   
       <div class="button-container">
-        <a href="#register" class="button">Participar</a>
+        <a href="#register" class="button button-register">Participar</a>
       </div>
   
       <div class="container-image">

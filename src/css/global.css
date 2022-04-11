@@ -95,6 +95,7 @@ body {
 
 .backHome {
   color: var(--white);
+  padding: 20px;
 }
 
 .registerButton > p, .registerButton > button{

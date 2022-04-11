@@ -22,16 +22,16 @@ export const login = () => {
         placeholder="Digite uma senha"
         required
       />
-      <div class="button-container loginEnter">
-      <button id="loginEnter" class="button" type="submit" role="link">
+      <div class="button-container  serão">
+      <button id="loginEnter" class="button loginEnter" type="submit" role="link">
         Entrar
       </button>
       </div>
       <div class="text-content">
       <p class="textForgot">
-      Esqueci a <a class="links" href="">Senha</a>
+      Esqueci a <button class="recover-password links">Senha</button>
       </p>
-      <div class="social-media">
+      <div class="social-media google-container">
       <p>Ou entrar com o Google</p>
       <button class="buttonGoogle" type="button" id="buttonGoogle">
       <img class="buttonGoogleImg" src="img/icone-google.png" alt="Logo de Google" />
@@ -55,6 +55,7 @@ export const login = () => {
   const email = loginCreate.querySelector('.loginEmail');
   const password = loginCreate.querySelector('.loginPassword');
   const googleButton = loginCreate.querySelector('.buttonGoogle');
+  const recoverPassword = loginCreate.querySelector('.recover-password');
 
   loginCreate.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -78,6 +79,14 @@ export const login = () => {
         const errorMessage = error.message;
         return errorMessage;
       });
+  });
+  recoverPassword.addEventListener('click', (e) => {
+    e.preventDefault();
+    firebase.auth().sendPasswordResetEmail(templateLogin.email().value).then(() => {
+      alert('Email enviado com sucesso');
+    }).catch((error) => {
+      alert(getErrorMessage(error));
+    });
   });
   return loginCreate;
 };
