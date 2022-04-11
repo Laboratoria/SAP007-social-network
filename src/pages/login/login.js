@@ -7,27 +7,25 @@ export const pageLogin = () => {
     const login = document.createElement('div');
     login.setAttribute('class', 'box-form-login');
     login.innerHTML = `    
-    <figure class="box-slogan-page-login">
-      <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
-    </figure>      
-    <section class="box-form-login">
-      <form action="" method="post">
-        <input type="email" placeholder="seu@email.com" class="login-area" id="email-area" name="email-area">
-        <input type="password" placeholder="Senha" class="login-area" id="password-area" name="password-area">
-        <p class = "error" id = "user-error"></p>
-        <button class="btn-sign-in btn-area" id="btn-sign-in" >Entrar</button>
-        </section>
-      </form>
-      <section>
-         <p class = "or">ou</p>
-         <button class="btn-google btn-area" id="btn-google">Acesse com Google</button>
-         <button class="btn-register btn-area" id="btn-register">Cadastre-se</button>
-      </section>
+    
+      <figure class="box-slogan-page-login">
+        <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
+      </figure>      
+      
+        <form action="" method="post" class = "form-login">
+          <input type="email" placeholder="seu@email.com" class="login-area" id="email-area" name="email-area" requered>
+          <input type="password" placeholder="Senha" class="login-area" id="password-area" name="password-area" requered>
+          <button class="btn-sign-in btn-area" id="btn-sign-in" >Entrar</button>
+          <p class="error" id = "user-error"></p>
+        </form>
+    
+      <p class="text-center" >-ou-</p>
+      <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">  Sign in with Google</button>
+      <p class="text-create-login text-center">
+        Ainda não tem conta? <a href="#createLogin" class="click-register" id="click-register">Cadastre-se</a>
+      </p>
+ 
   `;
-
-    // const btnRegister = login.querySelector('#btn-register');
-    // btnRegister.addEventListener('click', () => {
-    //  });
 
     login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
         const inputEmail = login.querySelector('#email-area').value;
@@ -37,7 +35,7 @@ export const pageLogin = () => {
         e.preventDefault();
 
         if (!inputEmail || !inputPassword) {
-            userError.innerHTML = "*Campo obrigatórios";
+            userError.innerHTML = "*Campos obrigatórios";
             userError.style.display = "block";
 
         } else if (!invalidFormat) {
@@ -55,7 +53,7 @@ export const pageLogin = () => {
 
                 switch (error.code) {
                     case 'auth/invalid-email':
-                        userError.innerHTML = "*Campo obrigatórios";
+                        userError.innerHTML = "*Campos obrigatórios";
                         userError.style.display = "block";
                         break;
                     case 'auth/internal-error':
