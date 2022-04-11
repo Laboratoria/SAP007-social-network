@@ -29,7 +29,7 @@ export const login = () => {
       </div>
       <div class="text-content">
       <p class="textForgot">
-      Esqueci a <button class="recover-password links">Senha</button>
+      Esqueci a <a class="links" href="#reset">Senha</a>
       </p>
       <div class="social-media google-container">
       <p>Ou entrar com o Google</p>
@@ -55,7 +55,6 @@ export const login = () => {
   const email = loginCreate.querySelector('.loginEmail');
   const password = loginCreate.querySelector('.loginPassword');
   const googleButton = loginCreate.querySelector('.buttonGoogle');
-  const recoverPassword = loginCreate.querySelector('.recover-password');
 
   loginCreate.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -79,14 +78,6 @@ export const login = () => {
         const errorMessage = error.message;
         return errorMessage;
       });
-  });
-  recoverPassword.addEventListener('click', (e) => {
-    e.preventDefault();
-    firebase.auth().sendPasswordResetEmail(templateLogin.email().value).then(() => {
-      alert('Email enviado com sucesso');
-    }).catch((error) => {
-      alert(getErrorMessage(error));
-    });
   });
   return loginCreate;
 };

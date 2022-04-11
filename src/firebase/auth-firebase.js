@@ -40,3 +40,9 @@ export const googleLogin = () => signInWithPopup(auth, provider)
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+
+export const resetPassword = (email) => {
+  getAuth
+    .credential()
+    .sendPasswordResetEmail(email);
+};

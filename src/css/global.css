@@ -66,6 +66,7 @@ body {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid var(--white);
+  color: var(--white);
 }
 
 .loginEnter{
@@ -104,4 +105,14 @@ body {
 
 .error-message{
   margin-top: 2em;
+}
+
+.reset-text{
+  margin: auto 1em 1em;
+}
+
+.container-btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
 }
