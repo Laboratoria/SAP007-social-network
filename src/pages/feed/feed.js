@@ -1,21 +1,28 @@
-import { createPost } from './controll.js';
+import { createPost, controlPost } from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
-  timeline.setAttribute('class', 'box-feed');
+  timeline.setAttribute('class', 'box-feed flex');
   timeline.innerHTML = `
-    <header class="header-feed">    
-      <section class="menu">
-        <nav id="nav-options" class="nav-options" aria-expanded="false">
-          <button id="btn-mobile" class="btn-mobile">
-          </button>
-          <ul id="menu" class="menu">
-            <li><a href="#" class="link" target="_blank"/></a></li>
-          </ul>
-        </nav>
-      </section>
+    <header class="header-feed flex"> 
+      <div>
+        <img src="#" class="user-perfil-img-feed" alt="user">
+      </div>  
+      <div>
+        <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
+      </div>   
+      <nav id="nav-options" class="nav-options" aria-expanded="false">
+        <button id="btn-mobile" class="btn-mobile flex">
+          <span id="hamburguer" class="hamburguer"></span>
+        </button>
+        <ul id="menu" class="menu ">
+          <li><a href="#" class="link" target="_blank"/></a></li>
+        </ul>
+      </nav>
     </header>
-    <main class="main-header">
+    <main class="main-post flex">
+      <section class="section-feed flex" id="section-feed">
+      </section>
       <form action="" method="post">
         <input type="text" id="input-post" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
         <button id="btn-post">Enviar</button>
@@ -35,18 +42,17 @@ export const feed = () => {
     event.preventDefault();
     const text = document.querySelector('#input-post').value;
     const date = new Date();
-    // uid: () => ,
-    // name: () => ,
+    // const uidUser =
+    // const nameProfile =
+    // const imgProfile =
     createPost(text, date).then((response) => {
       console.log(response);
     }).catch((e) => console.error('Error adding document', e));
   });
 
-  // controlPost().forEach((changes) => {
-  //   if (changes.type === 'added') {
-  //     console.log(changes.doc);
-  //   }
-  // });
+  const posts = timeline.querySelector('#section-feed');
+
+  controlPost(posts);
 
   return timeline;
 };

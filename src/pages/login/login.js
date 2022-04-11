@@ -4,6 +4,7 @@
 import { logar, logarGmail } from './authentication.js';
 
 export const pageLogin = () => {
+
     const login = document.createElement('div');
     login.setAttribute('class', 'box-form-login');
     login.innerHTML = `    
@@ -75,15 +76,19 @@ export const pageLogin = () => {
                 console.log('error', error.code);
             });
         }
-    });
+        console.log('error', error.code);
+      });
+    }
+  });
 
-    login.querySelector('#btn-google').addEventListener('click', (e) => {
-        e.preventDefault();
-        logarGmail().then((response) => {
-            console.log('sucess', response);
-            window.location.hash = '#feed';
-        })
+  login.querySelector('#btn-google').addEventListener('click', (e) => {
+    e.preventDefault();
+    logarGmail().then((response) => {
+      console.log('sucess', response);
+      window.location.hash = '#feed';
     });
+  });
 
-    return login;
+  return login;
 };
+
