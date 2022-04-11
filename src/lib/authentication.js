@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  // onAuthStateChanged 
+  onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 
 const provider = new GoogleAuthProvider();
@@ -50,6 +50,15 @@ export const googleLogin = () => {
 
 }
 
-// export const loggedIn = onAuthStateChanged = (auth, user)=> {
-//   return onAuthStateChanged(auth, user)
-// };
+export function loggedIn(auth, user) {
+  return onAuthStateChanged(auth, user);
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+};

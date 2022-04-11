@@ -3,8 +3,8 @@
 }
 .nav-section ul li{
     display: inline;
-    font-size: 28px;
-    margin-right: 5%;
+    font-size: 20px;
+    margin-left: 5%;
     color: black;
 }
 hr{
@@ -12,14 +12,14 @@ hr{
 }
 .feed-section {
     margin-top: 5%;
-    margin-left: 60px;
+    margin-left: 20px;
 }
 .title,
 .text {
     display: flex;
     border-radius: 8px;
     text-align: center;
-    width: 60%;
+    width: 80%;
     height: 30px;
     font-size: 19px;
     background-color: #F2F2F2;
@@ -30,4 +30,18 @@ hr{
 .text {    
     padding-bottom: 20%;
     margin-top: 2%;
+}
+.btn-post{
+    background-color: #F26E22;
+    width: 20%;
+    margin-top: 3%;
+    border-radius: 8px;
+    height: 20px;
+    font-size: 16px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+    font-weight: bold;
+    position: relative;
+    top: 37%;
+    left: 70%;
 }

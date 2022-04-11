@@ -1,5 +1,4 @@
 import "../lib/firebase.js";
-// import { loggedIn} from "../lib/authentication.js";
 export default () => {
     const container = document.createElement("section");
     container.setAttribute("class", "section");
@@ -24,14 +23,25 @@ export default () => {
             <input class="title" type="text" placeholder="Título"></input>
             <input class="text" type="text" placeholder="Texto"></input>
         </div>
-        <div class="feed"><div>
-        
+        <div>
+          <button class="btn-post" type="submit">Postar</button>
+          </div>
+        <div class="feed"><div>    
     `;
 
     feed.innerHTML = mold;
     
     container.appendChild(feed);
 
+    const post = container.querySelector(".feed");
+    const buttonPost = container.querySelector(".btn-post");
+    const valueTitle = container.querySelector(".title");
+    const valueText = container.querySelector(".text");
+
+    buttonPost.addEventListener("click", (e) => {
+      e.preventDefault ();
+      post.innerHTML += valueTitle.value + valueText.value; 
+    })
     // firebase.auth().onAuthStateChanged(function(user){
     //   if(user){
     //     const uid = user.uid;
@@ -44,3 +54,4 @@ export default () => {
 
     return container;
 };
+
