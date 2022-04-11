@@ -19,10 +19,10 @@ export const pageLogin = () => {
           <p class="error" id = "user-error"></p>
         </form>
     
-      <p class="text-center" >-ou-</p>
-      <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">  Sign in with Google</button>
+      <p class="text-center" >- ou -</p>
+      <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">Sign in with Google</button>
       <p class="text-create-login text-center">
-        Ainda não tem conta? <a href="#createLogin" class="click-register" id="click-register">Cadastre-se</a>
+        Ainda não tem conta? <a href="#createLogin" id="click-register">Cadastre-se</a>
       </p>
  
   `;
@@ -84,7 +84,6 @@ export const pageLogin = () => {
             window.location.hash = '#feed';
         })
     });
-
 
     return login;
 };

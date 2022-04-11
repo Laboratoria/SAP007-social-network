@@ -1,54 +1,90 @@
-                                                    @media screen and (min-width: 320px) {
-                                                    .box-slogan-page-login {
-                                                        display: flex;
-                                                        justify-content: center;
-                                                    }
-                                                    .logo-icon-page-login {
-                                                        height: 20vh;
-                                                        margin-bottom: 5%
-                                                    }
-                                                    .form-login {
-                                                        background-color: #D9A3D5;
-                                                        border-radius: 10px;
-                                                        height: 40vh;
-                                                        width: 70vw;
-                                                        margin: 0 auto;
-                                                        text-align: center;
-                                                    }
-                                                    .login-area,
-                                                    .btn-sign-in {
-                                                        background-color: #F7F7F7;
-                                                        border-radius: 10px;
-                                                        height: 8vh;
-                                                        width: 60vw;
-                                                        font-size: 15px;
-                                                        margin-top: 18px;
-                                                    }
-                                                    .error {
-                                                        display: none;
-                                                        font-size: 15px;
-                                                        color: #FF1818;
-                                                    }
-                                                    .btn-sign-in {
-                                                        width: 60vw;
-                                                    }
-                                                    .text-center {
-                                                        text-align: center;
-                                                        margin: 3% auto;
-                                                        display: block;
-                                                    }
-                                                    .btn-google {
-                                                        background: #F8BD0F;
-                                                        border-radius: 10px;
-                                                        height: 8vh;
-                                                        width: 70vw;
-                                                        display: flex;
-                                                        align-items: center;
-                                                        justify-content: center;
-                                                    }
-                                                    .img-btn-google {
-                                                        height: 4vh;
-                                                    }
-                                                    a:link {
-                                                        color: #C400FF;
-                                                    }
+.box-slogan-page-login {
+    display: flex;
+    justify-content: center;
+}
+
+.form-login {
+    background-color: #D9A3D5;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-area,
+.btn-sign-in {
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.error {
+    display: none;
+    font-size: 15px;
+    color: #FF1818;
+}
+
+.text-center {
+    text-align: center;
+    margin: 3% auto;
+    display: block;
+}
+
+.btn-google {
+    background: #F8BD0F;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a:link {
+    color: #C400FF;
+}
+
+@media screen and (min-width: 320px) {
+    .logo-icon-page-login {
+        height: 25vh;
+        margin-bottom: 5%
+    }
+    .form-login,
+    .btn-google {
+        height: 40vh;
+        width: 70vw;
+    }
+    .login-area,
+    .btn-sign-in {
+        height: 8vh;
+        width: 60vw;
+        margin-top: 18px;
+    }
+    .btn-google {
+        height: 8vh;
+    }
+    .img-btn-google {
+        height: 4vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .logo-icon-page-login {
+        height: 30vh;
+        margin-bottom: 8%
+    }
+    .form-login,
+    .btn-google {
+        height: 40vh;
+        width: 60vw;
+    }
+    .login-area,
+    .btn-sign-in {
+        height: 7vh;
+        width: 40vw;
+        margin-top: 25px;
+    }
+    .btn-google {
+        height: 8vh;
+    }
+    .img-btn-google {
+        height: 4vh;
+    }
+}
