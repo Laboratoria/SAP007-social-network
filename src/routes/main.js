@@ -4,7 +4,7 @@ import { register } from '../register/register.js';
 import { login } from '../login/login.js';
 import { timeline } from '../feed/feed.js';
 
-const main = document.querySelector('#root');
+const main = document.querySelector('#root'); // pega a div do HTML para colocar o conteúdo da página
 const renderizar = () => {
   switch (window.location.hash) {
     case '#home':
@@ -24,13 +24,14 @@ const renderizar = () => {
       break;
   }
 };
+// limpa o texto atual da página e trás o conteúdo do novo #hash
 const clear = () => {
   window.addEventListener('hashchange', () => {
     main.innerHTML = '';
     renderizar();
   });
 };
-
+// toda vez que a pessoa der o load na página executam as funcões
 window.addEventListener('load', () => {
   renderizar();
   clear();

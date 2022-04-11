@@ -1,7 +1,7 @@
-export default() => {
-    const container = document.createElement('div')
+export default () => {
+  const container = document.createElement('div');
 
-    const template = `
+  const template = `
     <h2>Sobre a plataforma:</h2>
     <div class="text-about">
     <p>Esta plataforma foi criada em prol do meio ambiente e ecossistema. Este é um espaço para melhorar a visibilidade e alcance das ONGs de proteção ao meio ambiente espalhadas por todo o território brasileiro. Também é um ambiente onde as empresas eco-friendly e outras com iniciativas de preservação ao meio ambiente podem compartilhar e divulgar seus produtos a uma comunidade composta exclusivamente por adotantes do veganismo/vegetarianismo, estilo de vida sustentável e simpatizantes da causa.</p>
@@ -18,12 +18,13 @@ export default() => {
     <a href ='#' class ="return-home">Home</a>
     </div>
        
-    `; container.innerHTML = template;
-      const textAbout = container.getElementById('text-about');
-      textAbout.addEventListener('click',(e) => {
-          e.preventDefault();
-         const home = document.querySelector('.return-home');
-      })
+    `;
+  container.innerHTML = template;
+  const textAbout = container.getElementById('text-about');
+  textAbout.addEventListener('click', (e) => {
+    e.preventDefault();
+    const home = document.querySelector('.return-home');
+  });
 
   return container;
-}
+};

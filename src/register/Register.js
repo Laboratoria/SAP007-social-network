@@ -2,8 +2,8 @@ import '../firebase/firebaseconfig.js';
 import { creatNewUser } from '../firebase/authentication.js';
 
 export const register = () => {
-  const containerRegister = document.createElement('div');
-  containerRegister.setAttribute('class', 'container');
+  const containerRegister = document.createElement('div'); // criando uma div para inserir o conteúdo na tela
+  containerRegister.setAttribute('class', 'container'); // para pegar pela class
   const templateRegister = `
   <h1>Cadastro</h1>
   <form class"form-login">
@@ -15,18 +15,18 @@ export const register = () => {
    </form>
  `;
   containerRegister.innerHTML = templateRegister;
-  const email = containerRegister.querySelector('.email');
-  const password = containerRegister.querySelector('.password');
+  const email = containerRegister.querySelector('.email'); // pegando valor do e-mail
+  const password = containerRegister.querySelector('.password'); // pegando valor do password
   containerRegister.addEventListener('submit', (e) => {
     console.log('agora vai');
     e.preventDefault();
     creatNewUser(email.value, password.value)
       .then(() => {
-        window.location.hash = '#timeline';
+        window.location.hash = '#timeline'; // caso de certo vai pra hash
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage, 'erro');
+        console.log(errorMessage, 'erro');// caso contrario erro
       });
   });
   return containerRegister;

@@ -2,12 +2,12 @@ import '../firebase/firebaseconfig.js';
 
 export default () => {
   const containerHome = document.createElement('div');
-  containerHome.setAttribute('class', 'containerHome');
   const templateHome = `
   
-  <h3 class="login-title">home page</h3>
-    <a href="#register">Não Possui conta?</a>
-    <a href="#login">Já Possui conta?</a>
+  <h1 class='home-title'>home page</h1>
+    <a href="#login" class='link-pages'>Login</a><br>
+    <a href="#register" class='link-pages'>Cadastro</a><br>
+    <a href="#about" class='link-pages'>Sobre</a><br>
 
   </p>
  
