@@ -1,12 +1,11 @@
-import {auth} from "../configs/config.firebase.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
-//import {initFirebaseAuth} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
-
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { auth } from '../configs/config.firebase.js';
+// import {initFirebaseAuth} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 
 const provider = new GoogleAuthProvider();
 
@@ -14,24 +13,24 @@ const provider = new GoogleAuthProvider();
 
 export function signinGoogle() {
   return signInWithPopup(auth, provider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    return user;
-  });
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      return user;
+    });
 }
 
-//Usuários existentes ↓
+// Usuários existentes ↓
 // export const signIn= (email, password)=>{
-  export function signIn (email, password) {
+export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    //console.log("Conseguiu entrar!");
-    alert("Deu tudo certo!");
-    return user;
-  });
+    .then((userCredential) => {
+      const user = userCredential.user;
+      // console.log("Conseguiu entrar!");
+      alert('Deu tudo certo!');
+      return user;
+    });
   // .catch((error) => {
   //   const errorCode = error.code;
   //   const errorMessage = errorCode.message;
@@ -40,21 +39,17 @@ export function signinGoogle() {
   // });
 }
 // Criar novos usuários ↓
-export const createUser= (email, password)=> {
-  return createUserWithEmailAndPassword(auth, email, password)
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
     return user;
-  })
-}
+  });
 
-
-
-
-//Verificar se o usuário está conectado ou desconectado ↓
+// Verificar se o usuário está conectado ou desconectado ↓
 
 // function initFirebaseAuth() {
 //   onAuthStateChanged(getAuth(), authStateObserver);
 // }
 
+// eslint-disable-next-line max-len
 // authStateObserver é um observador do estado de autenticação: será acionado sempre que o usuário entrar ou sair;
