@@ -21,13 +21,13 @@ export const pageLogin = () => {
     <p class="text-create-login text-center">
       Ainda não tem conta? <a href="#createLogin" class="click-register" id="click-register">Cadastre-se</a>
     </p>`;
+
   login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
     const inputEmail = login.querySelector('#email-area').value;
     const inputPassword = login.querySelector('#password-area').value;
     const invalidFormat = /\S+@\S+\.\S+/.test(inputEmail);
     const userError = login.querySelector('#user-error');
     e.preventDefault();
-
     if (!inputEmail || !inputPassword) {
       userError.innerHTML = '*Campos obrigatórios';
       userError.style.display = 'block';
@@ -58,17 +58,13 @@ export const pageLogin = () => {
             break;
           default:
         }
-        console.log('error', error.code);
       });
     }
   });
 
   login.querySelector('#btn-google').addEventListener('click', (e) => {
     e.preventDefault();
-    logarGmail().then((response) => {
-      console.log('sucess', response);
-      window.location.hash = '#feed';
-    });
+    logarGmail();
   });
 
   return login;
