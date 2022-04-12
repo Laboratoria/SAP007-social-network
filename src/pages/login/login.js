@@ -4,6 +4,7 @@
 import { logar, logarGmail } from './authentication.js';
 
 export const pageLogin = () => {
+
     const login = document.createElement('div');
     login.setAttribute('class', 'box-form-login');
     login.innerHTML = `    
@@ -27,19 +28,32 @@ export const pageLogin = () => {
  
   `;
 
-    login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
-        const inputEmail = login.querySelector('#email-area').value;
-        const inputPassword = login.querySelector('#password-area').value;
-        const invalidFormat = /\S+@\S+\.\S+/.test(inputEmail);
-        const userError = login.querySelector('#user-error');
-        e.preventDefault();
-
-        if (!inputEmail || !inputPassword) {
+  login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
+    const inputEmail = login.querySelector('#email-area').value;
+    const inputPassword = login.querySelector('#password-area').value;
+    const invalidFormat = /\S+@\S+\.\S+/.test(inputEmail);
+    const userError = login.querySelector('#user-error');
+    e.preventDefault();
+    if (!inputEmail || !inputPassword) {
+      userError.innerHTML = '*Campos obrigatórios';
+      userError.style.display = 'block';
+    } else if (!invalidFormat) {
+      userError.innerHTML = '*Preencha o campo de email corretamente';
+      userError.style.display = 'block';
+    } else if (inputEmail && inputPassword && invalidFormat) {
+      logar(inputEmail, inputPassword).then((response) => {
+        console.log('success', response);
+        window.location.hash = '#feed';
+      }).catch((error) => {
+        switch (error.code) {
+          case 'auth/invalid-email':
             userError.innerHTML = '*Campos obrigatórios';
             userError.style.display = 'block';
-        } else if (!invalidFormat) {
-            userError.innerHTML = '*Preencha o campo de email corretamente';
+            break;
+          case 'auth/internal-error':
+            userError.innerHTML = '*Campos obrigatórios';
             userError.style.display = 'block';
+
         } else if (inputEmail && inputPassword && invalidFormat) {
             logar(inputEmail, inputPassword).then(() => {
                 window.location.hash = '#feed';
@@ -86,5 +100,5 @@ export const pageLogin = () => {
         });
     });
 
-    return login;
+  return login;
 };
