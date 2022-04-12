@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
+
+.main{
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(19, 20, 21, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Cinzel Decorative';
+    letter-spacing: 1px;
+}
+
+.containerMain{
+    display: grid;
+    height: 100%;
+}
+
+.main h1 {
+    font-size: 110%;
+    margin: 5% 0% 15% 0%;
+}
+
+.containerAbout{
+    display: inline-flex;
+    margin: 0% 2% 0% 2%;
+}
+
+.containerAbout p {
+    width: 50%;
+    text-align: left;
+    font-size: 90%;
+    padding: 0% 5%;
+    font-family:'Alice'
+}
+
+.carrosel{
+    width: 170px;
+    height: 250px;
+    outline: solid white 1px;
+    box-shadow: 5px 5px 15px gray;
+    border-radius: 5px;
+    overflow:hidden;
+}
+
+.carrosel ul {
+    display: flex;
+    list-style: none;
+    width: 850px;
+    height: 250px;
+}
+
+.carrosel li {
+    position: relative;
+    animation: slide 10s infinite ease-in-out;
+}
+
+@keyframes slide{
+    0% {left:0px}
+    15%{left: 0px}
+    20%{left: -170px}
+    35%{left: -170px}
+    40%{left: -340px}
+    55%{left: -340px}
+    60%{left: -510px}
+    75%{left: -510px}
+    80%{left: -680px}
+    95%{left: -680px}
+    100%{left: 0px}
+}
+
+.carrosel img{
+    width: 170px;
+    height: 250px;
+}
+
+.enter{
+    align-self: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.enter button {
+    width: 50%;
+    height: 50px;
+    background-color: #CC2B26;
+    font-family: 'Alice' ;
+    font-size: 100%;
+    color: white;
+    text-shadow: -1px 1px 0 #000,
+                  1px 1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px -1px 0 #000;
+    border-radius: 20px;
+    margin-bottom: 3%;
+}
+
+@media(max-device-width:380px){
+    .containerAbout{
+        margin-bottom: 8%;
+    }
+}
+
+
+@media (min-device-width: 550px) {
+    .main h1 {
+        font-size: 170%;
+    }
+
+    .containerAbout p {
+        font-size: 120%;
+    }
+    
+    .carrosel{
+        width: 250px;
+        height: 330px;
+    }
+
+    .carrosel ul{
+        width: 1250px;
+        height: 330px;
+    }
+
+    @keyframes slide{
+        0% {left:0px}
+        15%{left: 0px}
+        20%{left: -250px}
+        35%{left: -250px}
+        40%{left: -500px}
+        55%{left: -500px}
+        60%{left: -750px}
+        75%{left: -750px}
+        80%{left: -1000px}
+        95%{left: -1000px}
+        100%{left: 0px}
+    }
+
+    .carrosel img{
+        width: 250px;
+        height: 330px;
+    }
+
+    .enter button{
+        font-size: 120%;
+        height: 55px;
+        width: 40%;
+    }
+}
+
+@media(min-device-width:769px){
+    .containerMain h1{
+        margin-bottom: 6%;
+    }
+
+    .carrosel{
+        height: 600px;
+        width: 450px;
+        margin: auto;
+    }
+
+    .carrosel ul{
+        width: 2250px;
+        height: 600px;
+    }
+
+    @keyframes slide{
+        0% {left:0px}
+        15%{left: 0px}
+        20%{left: -450px}
+        35%{left: -450px}
+        40%{left: -900px}
+        55%{left: -900px}
+        60%{left: -1350px}
+        75%{left: -1350px}
+        80%{left: -1800px}
+        95%{left: -1800px}
+        100%{left: 0px}
+    }
+
+    .carrosel img{
+        width: 450px;
+        height: 600px;
+    }
+}
+    
