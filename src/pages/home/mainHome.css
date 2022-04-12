@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+
 .main{
     width: 100%; 
     height: 100%;
@@ -17,22 +13,26 @@
     letter-spacing: 1px;
 }
 
+.containerMain{
+    display: grid;
+    height: 100%;
+}
+
 .main h1 {
     font-size: 110%;
     margin: 5% 0% 15% 0%;
-     ;
 }
 
 .containerAbout{
     display: inline-flex;
-    margin: 0% 2% 15% 2%;
+    margin: 0% 2% 0% 2%;
 }
 
 .containerAbout p {
     width: 50%;
     text-align: left;
     font-size: 90%;
-    padding-right: 2%;
+    padding: 0% 5%;
     font-family:'Alice'
 }
 
@@ -77,17 +77,21 @@
 }
 
 .enter{
+    align-self: center;
+    display: flex;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .enter button {
     width: 50%;
-    height: 45px;
+    height: 50px;
     background-color: #CC2B26;
-    font-family: 'Cinzel Decorative' ;
+    font-family: 'Alice' ;
     font-size: 100%;
     color: white;
     text-shadow: -1px 1px 0 #000,
@@ -95,7 +99,13 @@
                   1px -1px 0 #000,
                  -1px -1px 0 #000;
     border-radius: 20px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+}
+
+@media(max-device-width:380px){
+    .containerAbout{
+        margin-bottom: 8%;
+    }
 }
 
 
@@ -144,40 +154,12 @@
     }
 }
 
-@media(min-device-width: 769px){
-    .containerMain{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 25% 25% 25% 25% ;
-        justify-content: center;
-        align-content: center;
-    }
-
+@media(min-device-width:769px){
     .containerMain h1{
-        grid-column: span 2;
-        font-size: 40px;
-        margin: 5% 0% 5% 0%;
-    }
-
-    .containerAbout{
-        grid-column: 1/2;
-        grid-rows:span 4;
-        display: grid;
-        width: 100vw;
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 100%;
-    }
-
-    .containerAbout p {
-        grid-column: 2/3;
-        grid-rows: span 2 ;
-        font-size: 25px;
-        width: 80%;
+        margin-bottom: 6%;
     }
 
     .carrosel{
-        grid-column: 1/2;
-        grid-row: 1/3;
         height: 600px;
         width: 450px;
         margin: auto;
@@ -206,18 +188,5 @@
         width: 450px;
         height: 600px;
     }
-
-    .enter{
-        grid-column: 2/3;
-        grid-row: 3/5;
-        align-self: center;
-    }
-
-    .enter button{
-        width: 60%;
-        font-size: 20px;
-        max-width: 300px;
-    }
-
-    
 }
+    
