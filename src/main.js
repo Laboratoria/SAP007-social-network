@@ -9,7 +9,7 @@ const init = () => {
     mainContent.innerHTML = '';
     switch (window.location.hash) {
       case '':
-        main.appendChild(login());
+        mainContent.appendChild(login());
         break;
       case '#login':
         mainContent.appendChild(login());
