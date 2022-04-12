@@ -4,12 +4,13 @@ export default () => {
   const containerHome = document.createElement('div');
   const templateHome = `
   
-  <h1 class='home-title'>home page</h1>
+  <h1 class='home-title'>Bem-Vindo ao Eco Work Planet</h1>
+     <video src=""></video><br>
     <a href="#login" class='link-pages'>Login</a><br>
     <a href="#register" class='link-pages'>Cadastro</a><br>
     <a href="#about" class='link-pages'>Sobre</a><br>
 
-  </p>
+
  
   `;
   containerHome.innerHTML = templateHome;

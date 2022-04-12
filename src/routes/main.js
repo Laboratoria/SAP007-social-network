@@ -1,4 +1,5 @@
 import '../firebase/firebaseconfig.js';
+import about from '../about/about.js';
 import home from '../home/home.js';
 import { register } from '../register/register.js';
 import { login } from '../login/login.js';
@@ -9,6 +10,9 @@ const renderizar = () => {
   switch (window.location.hash) {
     case '#home':
       main.appendChild(home());
+      break;
+    case '#about':
+      main.appendChild(about());
       break;
     case '#register':
       main.appendChild(register());

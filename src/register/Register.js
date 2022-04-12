@@ -9,9 +9,9 @@ export const register = () => {
   <form class"form-login">
   <input type="email" name="email" class="email" placeholder="Insera e-mail"
     autocomplet required/>
-    <input type="password" name="password" class="password" placeholder="Insera uma senha" requerid />
-    <button type="submit" id="btn-register">Cadastrar</button>
-   <a href="#login"> Já possui conta?</a>
+    <input type="password" name="password" class="password" placeholder="Insera uma senha" requerid /><br>
+    <button type="submit" id="btn-register">Cadastrar</button><br>
+   <a href="#login"> Já possui conta?</a><br>
    </form>
  `;
   containerRegister.innerHTML = templateRegister;
@@ -26,7 +26,7 @@ export const register = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage, 'erro');// caso contrario erro
+        console.log(errorMessage, 'erro'); // caso contrario erro
       });
   });
   return containerRegister;
