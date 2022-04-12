@@ -4,7 +4,6 @@
 import { logar, logarGmail } from './authentication.js';
 
 export const pageLogin = () => {
-
     const login = document.createElement('div');
     login.setAttribute('class', 'box-form-login');
     login.innerHTML = `    
@@ -36,59 +35,44 @@ export const pageLogin = () => {
         e.preventDefault();
 
         if (!inputEmail || !inputPassword) {
-            userError.innerHTML = "*Campos obrigatórios";
-            userError.style.display = "block";
-
+            userError.innerHTML = '*Campos obrigatórios';
+            userError.style.display = 'block';
         } else if (!invalidFormat) {
-            userError.innerHTML = "*Preencha o campo de email corretamente";
-            userError.style.display = "block";
-
+            userError.innerHTML = '*Preencha o campo de email corretamente';
+            userError.style.display = 'block';
         } else if (inputEmail && inputPassword && invalidFormat) {
             logar(inputEmail, inputPassword).then((response) => {
                 console.log('success', response);
                 window.location.hash = '#feed';
-
-
             }).catch((error) => {
-
-
                 switch (error.code) {
                     case 'auth/invalid-email':
-                        userError.innerHTML = "*Campos obrigatórios";
-                        userError.style.display = "block";
+                        userError.innerHTML = '*Campos obrigatórios';
+                        userError.style.display = 'block';
                         break;
                     case 'auth/internal-error':
-                        userError.innerHTML = "*Campos obrigatórios";
-                        userError.style.display = "block";
+                        userError.innerHTML = '*Campos obrigatórios';
+                        userError.style.display = 'block';
                         break;
                     case 'auth/wrong-password':
-                        userError.innerHTML = "*Email ou senhas estão errados";
-                        userError.style.display = "block";
+                        userError.innerHTML = '*Email ou senhas estão errados';
+                        userError.style.display = 'block';
                         break;
                     case 'auth/user-not-found':
-                        userError.innerHTML = "*Usuário não cadastrado, registre-se!";
-                        userError.style.display = "block";
+                        userError.innerHTML = '*Usuário não cadastrado, registre-se!';
+                        userError.style.display = 'block';
                         break;
 
                     default:
-
                 }
-                console.log('error', error.code);
             });
         }
-        console.log('error', error.code);
-      });
-    }
-  });
-
-  login.querySelector('#btn-google').addEventListener('click', (e) => {
-    e.preventDefault();
-    logarGmail().then((response) => {
-      console.log('sucess', response);
-      window.location.hash = '#feed';
     });
-  });
 
-  return login;
+    login.querySelector('#btn-google').addEventListener('click', (e) => {
+        e.preventDefault();
+        logarGmail()
+    });
+
+    return login;
 };
-
