@@ -2,29 +2,29 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   GoogleAuthProvider,
+  onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
+  signInWithRedirect,
+  getRedirectResult,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import "./start-firebase.js";
 
 export const auth = getAuth();
-export const provider = new GoogleAuthProvider();
-export const errorCode = "";
-export const errorMessage = "";
-export const errorEmail = "";
-export const errorCredential = "";
 
 // Novos usuários
 export const registerNewUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      const uid = user.uid;
+      return user && uid;
     })
     .catch((error) => {
-      errorCode = error.code;
-      errorMessage = error.message;
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      return errorCode && errorMessage;
     });
 };
 
@@ -33,28 +33,21 @@ export function authUserLabFriends(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      return user;
+      const uid = user.uid;
+      return user && uid;
     })
     .catch((error) => {
-      errorCode = error.code;
-      errorMessage = error.message;
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      return errorCode && errorMessage;
     });
 }
 
 // Autenticação do Google
-export function authUserWithGoogle(auth, provider) {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-    })
-    .catch((error) => {
-      errorCode = error.code;
-      errorMessage = error.message;
-      errorEmail = error.email;
-      errorCredential = GoogleAuthProvider.credentialFromError(error);
-    });
+export function authUserWithGoogle() {
+  const provider = new GoogleAuthProvider();
+  signInWithRedirect(auth, provider);
+  getRedirectResult(auth);
 }
 
 /* Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda. */
@@ -62,6 +55,7 @@ export function authChange(auth) {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
+      //callback (uid !== null)
     } else {
     }
   });
@@ -70,8 +64,12 @@ export function authChange(auth) {
 // Desconectando usuário
 export function authOut(auth) {
   return signOut(auth)
-    .then(() => {})
-    .catch((error) => {});
+    .then(() => {
+      return logout;
+    })
+    .catch((error) => {
+      return error;
+    });
 }
 
 //Para enviar o email de redefinição

@@ -3,6 +3,10 @@
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #container-general {
   background-color: var(--color-dark-yellow);
@@ -63,6 +67,26 @@ a,
 }
 .emphasis-pink {
   color: var(--color-dark-pink);
+}
+.icon-button {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+#login-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#error {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-dark-pink);
+  text-align: center;
+  width: 348px;
+  margin-top: 15px;
+  display: none;
 }
 
 .container-modal {

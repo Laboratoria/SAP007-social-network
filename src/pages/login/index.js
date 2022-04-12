@@ -1,10 +1,6 @@
 import {
   authUserLabFriends,
   authUserWithGoogle,
-  errorCode,
-  errorMessage,
-  errorEmail,
-  errorCredential,
 } from "../../connection-firebase/authentication.js";
 
 const login = {
@@ -21,18 +17,16 @@ const login = {
       <a href="#" type="button" data-modal="open-modal" class="small-text-right">
         Esqueceu a senha?
       </a>
-      <ul id="error">
-        <li class="errorMessage"></li>
-      </ul>
+      <span id="error">Erro ao acessar a sua conta! Verifique o seu email e senha!</span>
       <button type="submit" id="login-labfriends" class="user-button button-pink">
         ENTRAR
       </button>
       <div class="line">
         <span class="text-line">ou</span>
       </div>
-      <button id="login-google" class="user-button  button-green">   
+      <button id="login-google" class="user-button  button-green"> 
+        <img class="icon-button" src="./img/icons/icon-logo-google.ico">  
         Entre com Google 
-        <img class="icon-button" src="./img/icons/icon-logo-google.ico">
       </button>
       <p class="new-account" >
         Não tem conta? <a href="#register" class="emphasis-pink">Crie uma conta agora!</a>
@@ -60,17 +54,15 @@ const login = {
       .addEventListener("click", (event) => {
         event.preventDefault();
         authUserLabFriends(email.value, password.value)
-          .then(() => {
+          .then(function () {
             //window.location.hash = "#timeline";
             console.log("Entrou na conta!");
           })
-          .cath(() => {
+          .cath((error) => {
             //arrumar ao usar login
             console.log(errorCode);
             console.log(errorMessage);
-            console.log(errorCredential);
-            console.log(errorEmail);
-
+            /*
             switch (errorCode) {
               case "auth/wrong-password":
                 errorMessage = "Senha errada.";
@@ -89,13 +81,16 @@ const login = {
                 errorMessage = "Insira a senha.";
                 msgAlert.innerHTML = errorMessage;
                 break;
-            }
+            }*/
           });
       });
 
-    container.querySelector("#login-google").addEventListener("click", () => {
-      authUserWithGoogle(auth, provider);
-    });
+    container
+      .querySelector("#login-google")
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        authUserWithGoogle();
+      });
 
     return container;
   },
