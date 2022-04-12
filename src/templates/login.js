@@ -1,4 +1,37 @@
-import {registerPage} from './register.js';
+export default () => {
+  const container = document.createElement("div");
+
+  const template = `
+  <h1>Faça seu login<h1>
+  <label>e-mail</label>
+  <input type="email" id="email" class="email">
+  <label>senha</label>
+  <input type="password" id="password" class="password">
+  
+  <button  class="btn-login" id="btn-login">Entrar</button>
+
+  <p><a href="#register">Cadastre-se aqui</a></p>
+
+  `;
+
+  container.innerHTML = template;
+
+  return container
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import {registerPage} from './register.js';
 
 export const loginPage = () => {
     const containerRoot = document.getElementById('root');
@@ -24,3 +57,4 @@ export const loginPage = () => {
         </div>
       </div>
       `
+}*/

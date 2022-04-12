@@ -1,4 +1,39 @@
-export const registerPage = () => {
+export default () => {
+  const container = document.createElement("div");
+
+  const template = `
+  <h1>Faça seu cadastro<h1>
+  <label>Nome e sobrenome</label>
+  <input type="text" id="name" class="name">
+  <label>Usuário</label>
+  <input type="text" id="user" class="user">
+  <label>e-mail</label>
+  <input type="email" id="email" class="email">
+  <label>Crie uma senha</label>
+  <input type="password" id="password" class="password">
+  
+  <button  class="btn-register" id="btn-register">Enviar</button>
+
+  `;
+
+  container.innerHTML = template;
+
+  return container
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*export const registerPage = () => {
   const containerRoot = document.getElementById('root');
   const resgisterSection = document.createElement('section');
   resgisterSection.className = 'registerSection';
@@ -28,4 +63,4 @@ export const registerPage = () => {
     createUser(newEmail, newPass, newName);
   });
   return registerSection;
-};
+};*/
