@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 
-const auth = getAuth();
+export const auth = getAuth();
 
 /*Login de novos usuários -
 É necessário criar uma função que será exportada para main.js que receberá o email e senha de lá
@@ -16,11 +16,12 @@ export const registerUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    return user;
+    const uid = user.uid;
+    return user && uid;
   });
 }
 
-//Login de usuários existentes - mesma coisa, signInWithEmailAndPassword é o retorno
+//Login de usuários existentes
 export function userWithLogin (email, password){
   return signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -30,19 +31,13 @@ export function userWithLogin (email, password){
 }
 
 //Definir um observador do estado de autenticação e coletar dados dos usuários
-export function dataCollector (email, password){
-return onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+export function isLoggedIn (callback){
+  onAuthStateChanged(auth, (user) => {
+    callback (user !== null)
+  });
 }
+
+
 //Para receber informações de perfil de um usuário
 /*const user = auth.currentUser;
 if (user !== null) {

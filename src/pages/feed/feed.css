@@ -8,7 +8,7 @@
   }
     
 
-.cabecalho {
+.header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,7 +16,7 @@
   padding: 24px;
 }
 
-.cabecalho-menu {
+.header-menu {
   display: flex;
   gap: 32px;
 }
@@ -27,7 +27,7 @@
   padding: 10px;
 }
 
-.cabecalho-menu-item {
+.header-menu-item {
   font-family: 'Sarala', sans-serif;
   color: #020202;
   font-weight: 400;
@@ -36,17 +36,17 @@
 
 }
 
-.conteudo {
+.main {
   margin-bottom: 40px;
   border-top: 0.3px solid #FFF2E7;
 }
 
-.conteudo-principal {
+.main-form {
   display: flex;
     
     }
 
-.escreverPost {
+.write-post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,12 +55,13 @@
     
 }
 
-h1 {
+.welcome-title {
   font-size: 30px;
 }
 
 
 .input-text {
+  align-self:center; 
   height: 150px;
   width: 300px;
   border-radius: 4px;
@@ -69,7 +70,7 @@ h1 {
   text-transform: capitalize;
   }
 
-.btn-publicar {
+.btn-publish {
   display: flex;
   height: 30px;
   width: 100px;
@@ -81,7 +82,8 @@ h1 {
   margin-top: 15px;
 }
 
-.publicacoes {
+.publications,
+.new-post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

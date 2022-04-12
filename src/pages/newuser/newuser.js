@@ -1,4 +1,5 @@
 import {registerUser} from "../../configs/authentication.js";
+import {collectUsers} from "../../configs/firestore.js"
 
 export default () => {
   const container = document.createElement("div");
@@ -9,6 +10,7 @@ export default () => {
       <p class="text-register">Registre-se para publicar suas poesias</p>
 
     <form class="form-newuser">
+      <input type="text" id="input-name" class="input-email" placeholder="Nome de usuário">
       <input type="email" id="input-email" class="input-email" placeholder="E-mail">
       <input type="password" id="input-password" class="input-email" placeholder="Senha">
       <span id="message" class="message"></span>
@@ -25,6 +27,7 @@ export default () => {
    
 container.innerHTML = templateNewUser; 
 
+const newUserName = container.querySelector('#input-name')
 const newUserEmail = container.querySelector('#input-email')
 const newUserPassword = container.querySelector('#input-password')
 const buttonRegister = container.querySelector('#button-register')
@@ -34,8 +37,9 @@ buttonRegister.addEventListener('click', (e) => {
   e.preventDefault();
   registerUser(newUserEmail.value, newUserPassword.value)
     .then(function () {
-      msgAlert.innerHTML = 'Email Cadastrado'
+      collectUsers(newUserEmail.value, newUserName.value)
       window.location.hash='#feed'
+      alert('Email Cadastrado')
     })
     .catch((error) => {
       let errorCode = error.code;

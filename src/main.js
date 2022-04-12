@@ -4,6 +4,7 @@ import login from "./pages/login/login.js"
 import newuser from "./pages/newuser/newuser.js"
 import recover from "./pages/login/recover.js"
 import feed from "./pages/feed/feed.js"
+import { isLoggedIn } from "./configs/authentication.js"
 
 
 const main = document.querySelector("#root");
@@ -28,16 +29,19 @@ function redirect () {
   }
 
 }
-const changePages = () => {
-  window.addEventListener("hashchange", () => {
-    main.innerHTML = "";
-    redirect();
-  })    
-}
+
+window.addEventListener("hashchange", () => {
+  main.innerHTML = "";
+  redirect();
+})    
+
 
 window.addEventListener("load", () => {
-  main.appendChild(feed())
-  //redirect(); 
-  changePages();     
+  redirect(); 
+  isLoggedIn(function (logged) {
+    if (logged) {
+      window.location.hash = "#feed"
+    }
+  })   
 })
 //a lista de rotas (window.location) pode ser criada aqui (main) ou em um arquivo separado de rotas
