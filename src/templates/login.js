@@ -1,4 +1,4 @@
-import { registerPage } from './register.js';
+import {registerPage} from './register.js';
 
 export const loginPage = () => {
     const containerRoot = document.getElementById('root');
@@ -9,8 +9,8 @@ export const loginPage = () => {
       <div class= "sectionLogin">
         <div class= "loginForm">
           <input type="email" id="loginEmail" class="loginEmail" placeholder="E-mail">
-          <input type="password" id="loginPassword" class="loginPassword" placeholder="Contraseña">
-          <button  class="btnLogin" id="btnLogin"> Iniciar sesión</button>
+          <input type="password" id="loginPassword" class="loginPassword" placeholder="Senha">
+          <button  class="btnLogin" id="btnLogin"> Iniciar sessão</button>
         </div>
         <div class="loginOption">
           <p>Iniciar sessão com</p>
@@ -18,9 +18,9 @@ export const loginPage = () => {
           <div class="userReg">
           Não tem conta?  
            <label for="btn-moda" class="lbl-moda">
-           <strong>Registrate</strong>  
+           <strong>Registre-se!</strong>  
            </label>
            </div>
         </div>
       </div>
-      `;
+      `
