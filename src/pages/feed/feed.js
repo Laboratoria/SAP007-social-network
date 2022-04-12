@@ -1,4 +1,4 @@
-import { createPost, controlPost } from './controll.js';
+import { createPost, getAllPosts } from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
@@ -50,9 +50,46 @@ export const feed = () => {
     }).catch((e) => console.error('Error adding document', e));
   });
 
-  const posts = timeline.querySelector('#section-feed');
+  const postsElement = timeline.querySelector('#section-feed');
 
-  controlPost(posts);
+  getAllPosts().then((posts) => posts.docs.forEach((onePost) => {
+    console.log(onePost.id);
+    const post = onePost.data();
+    console.log(post.day);
+    const date = new Date(post.day.seconds * 1000);
+    const timelinePost = document.createElement('div');
+    timelinePost.setAttribute('class', 'box-post flex');
+    timelinePost.innerHTML = `
+        <div class="informations-user flex">
+          <div class="photo-name-post flex">
+            <figure class="post-img-user" ><img src="" alt=""></figure>
+            <div class="name-modifie-status flex">
+              <p class="post-name-user">User</p>
+              <div class="message-modified-post">
+                <p class="post-modified"></p>
+              </div>
+            </div>
+          </div> 
+          <nav class="nav-remove-modifie flex">
+            <button class="btn-config-post">
+              <span id="balls" class="balls"></span>
+            </button>
+            <ul class="configs-post">
+              <li><button data-postid="${onePost.id}" class="remove btn-config"></button></li>
+              <li><button data-postid="${onePost.id}" class="modifie btn-config"></button></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="post-text-id flex" data-postid="${onePost.id}">
+          <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
+          <p class="post-text">${post.message}</p>
+        </div>
+        <div class="like-comment flex">
+          <button class="post-like"><img src="" alt="">Gostei</button>
+          <button class="post-comment"><img src="" alt="">Comentar</button>
+        </div>`;
+    postsElement.prepend(timelinePost);
+  })).catch((error) => console.log(error));
 
   return timeline;
 };
