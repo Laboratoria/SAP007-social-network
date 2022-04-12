@@ -9,7 +9,7 @@ import login from './pages/home.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
 
-const mainHome = document.querySelector('#root');
+const mainHome = document.querySelector('#root'); 
 
 window.addEventListener('popstate', (e) => {
   e.preventDefault();

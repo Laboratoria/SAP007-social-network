@@ -1,5 +1,6 @@
 import "../firebase/config-firebase.js";
-import { signIn, signGoogle } from '../firebase/authetication.js';
+import { signIn, signInWithGoogle } from '../firebase/authetication.js';
+import { auth, provider} from '../firebase/config-firebase.js'
 
 export default () => {
   const container = document.createElement('div');
@@ -29,6 +30,8 @@ export default () => {
 
   container.innerHTML = templateHome;
 
+  
+
   const form = container.querySelector('.sign-in-form');
   form.addEventListener('submit', (e) => {
     // e - comportamento padrão daquele evento
@@ -37,22 +40,11 @@ export default () => {
     const password = document.getElementById('password').value;
     signIn(email, password);
   });
-  
-  return container;
 
-  const googleButton = container.querySelector('.logoGoogle');
-  googleButton.addEventListener('click', (e) => {
+  const btnGoogle = container.querySelector('.logoGoogle');
+  btnGoogle.addEventListener("click", (e) => {  
     e.preventDefault();
-    signGoogle()
-      .then(() => {
-        window.location.hash = '#timeline';
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        return errorMessage;
-      });
+    signInWithGoogle(auth, provider);
   });
-
-
   return container;
 };
