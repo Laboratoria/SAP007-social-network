@@ -7,8 +7,6 @@ export default function signin() {
     <p> FEED!!<p>
     </section>
     `;
-
-
   const email = feed.querySelector('#email');
   const password = feed.querySelector('#password');
   const buttonSubmit = feed.querySelector('#buttonSubmit');

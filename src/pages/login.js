@@ -1,4 +1,4 @@
-// importar funções de autenticação do Firebase a partir da parta 'services'
+import { signIn, signinGoogle } from "../lib/auth.js";
 
 export default function login() {
   // eslint-disable-next-line no-shadow
@@ -27,18 +27,35 @@ export default function login() {
   const email = login.querySelector('#email-login-input');
   const password = login.querySelector('#password-login-input');
   const btnSubmit = login.querySelector('#btn-submit-login');
+  const btnGoogle = login.querySelector("#google-login");
 
   btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
-    // userLogin(email.value, password.value)
-    // .then(() => {
-    window.location.hash = '#feed';
-    // })
-    //  .catch((error) => {
-    //   const errorMessage = error.message;
-    //   alert('Deu errado!');
-    //  return errorMessage;
-    //   });
+    signIn(email.value, password.value)
+      .then(function() {
+        window.location.hash = '#feed';
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = errorCode.message;
+        const errorMessage = error.message;
+        alert('Deu errado!');
+          return errorMessage;
+      });
+  });
+
+  btnGoogle.addEventListener("click", (e) => {
+    e.preventDefault();
+    signinGoogle()
+      .then(function () {
+        window.location.hash = "#feed";
+        alert("Deu tudo certo!");
+      })
+      .catch((error) => {
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        alert("Deu ruim! :( ");
+        return credential;
+      });
   });
 
   return login;
