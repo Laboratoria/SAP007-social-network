@@ -1,4 +1,7 @@
 import "../lib/firebase.js";
+import {userLogout} from "../lib/authentication.js"
+import { collection, getDocs } from "../lib/firestore.js";
+
 export default () => {
     const container = document.createElement("section");
     container.setAttribute("class", "section");
@@ -19,16 +22,20 @@ export default () => {
     feed.setAttribute("class", "feed-section");
 
     const mold = `
+    <div>
+      <button class="logout">Sair</button>
+    </div>
     <div class="post">
         <input class="title" type="text" placeholder="Título"></input>
         <input class="text" type="text" placeholder="Texto"></input>
     </div>
-    <div>
+    <div> 
       <button class="btn-post" type="submit">Postar</button>
-      <img class="like" src="./images/like.png" alt="Ìcone de joinha">
       </div>
-    <div class="feed"><div>    
-`;
+    <div class="feed"><div>
+    `;
+// <img class="like" src="./images/like.png" alt="Ìcone de joinha">
+
 
     feed.innerHTML = mold;
     
@@ -38,10 +45,13 @@ export default () => {
     const buttonPost = container.querySelector(".btn-post");
     const valueTitle = container.querySelector(".title");
     const valueText = container.querySelector(".text");
+    const logout = container.querySelector(".logout");
 
     buttonPost.addEventListener("click", (e) => {
       e.preventDefault ();
-      post.innerHTML += valueTitle.value + valueText.value; 
+      post.innerHTML += `<div class="publicated">${valueTitle.value}<br>${valueText.value}</div>`;
+      valueTitle.value = "";
+      valueText.value = "";
     })
     // firebase.auth().onAuthStateChanged(function(user){
     //   if(user){
@@ -53,6 +63,21 @@ export default () => {
     //   }
     // });
 
+ logout.addEventListener("click", (e) => {
+   e.preventDefault();
+   userLogout().then(function () {
+     window.location.hash = "";
+   });
+ });
+
+
+ async function getPosts(db) {
+  const postsCol = collection(db, "posts");
+  const postsSnapshot = await getDocs(postsCol);
+  const postsList = postsSnapshot.docs.map(doc => doc.data());
+  console.log(postsList);
+  return postsList;
+}
+
     return container;
 };
-

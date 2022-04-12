@@ -10,6 +10,18 @@
 hr{
     border-color: black;
 }
+.logout {
+    background-color: #F26E22;
+    width: 20%;
+    height: 20px;
+    margin-bottom: 10%;
+    border-radius: 8px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
 .feed-section {
     margin-top: 5%;
     margin-left: 20px;
