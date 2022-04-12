@@ -16,7 +16,7 @@ export const feed = () => {
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li><a href="#" class="link" target="_blank"/></a></li>
+          <li><button class="link btn-log-out"</button></li>
         </ul>
       </nav>
     </header>
