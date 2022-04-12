@@ -1,6 +1,7 @@
 // importar funções de autenticação do Firebase a partir da parta 'services'
 
 export default function login() {
+  // eslint-disable-next-line no-shadow
   const login = document.createElement('div');
   login.innerHTML = `
   <div class="login-container">
@@ -15,9 +16,9 @@ export default function login() {
     
       <div class="container-btn-login">
       <p class="login-text">Faça login através do Google:</p>
-      <button class="btn-login-google" type="submit" id="google-login"><a herf=" ">Entrar com google</a></button>
+      <button class="btn-login-google" type="submit" id="google-login"><a herf=" ">Entrar com Google</a></button>
       
-      <p>Ainda não possui uma conta? <a href="#cadastro">Cadastre-se</a></p>
+      <p class="login-text">Ainda não possui uma conta? <a href="#cadastro">Cadastre-se</a></p>
     </div>
   </form>
   </div>
@@ -29,15 +30,15 @@ export default function login() {
 
   btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
-    //userLogin(email.value, password.value)
-      //.then(() => {
-        window.location.hash = '#feed';
-     // })
+    // userLogin(email.value, password.value)
+    // .then(() => {
+    window.location.hash = '#feed';
+    // })
     //  .catch((error) => {
-     //   const errorMessage = error.message;
-     //   alert('Deu errado!');
-      //  return errorMessage;
-   //   });
+    //   const errorMessage = error.message;
+    //   alert('Deu errado!');
+    //  return errorMessage;
+    //   });
   });
 
   return login;
