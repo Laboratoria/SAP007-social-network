@@ -7,8 +7,6 @@ import {
   getDocs,
   //updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
-//import { TestWatcher } from "jest"; imports adicionados depois do npm install firebase@9.4.1 --save
-//import { async } from "regenerator-runtime";
 
 const db = getFirestore();
 
@@ -22,12 +20,28 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //catch define um bloco de código para lidar com qualquer erro.
 
 //codigo para criar uma nova coleção e documento
-export async function newPost(message){
+export async function newPost(message, user){
   try {
-    console.log(message)
-    const docRef = await addDoc(collection(db, "posts"), {
+    const post = {
       message: message,
+      displayName: user.displayName,
       date: new Date(),
+    }
+    const docRef = await addDoc(collection(db, "posts"),post)
+
+    console.log("Document written with ID: ", docRef.id);
+    return post
+  } 
+  catch (e) {
+    console.log("Error adding document: ", e);
+  } 
+}
+
+export async function collectUsers(email, displayName){
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+      userEmail: email,
+      displayName: displayName
     });
     console.log("Document written with ID: ", docRef.id);
   } 
@@ -41,10 +55,12 @@ export const allPosts = async () => {
   let arrayOfPosts = [];
   querySnapshot.forEach((doc) => {
     const posts = doc.data();
+    console.log(posts)
     arrayOfPosts.push(posts);
   });
   return arrayOfPosts;
 }
+
 
 //Editar post
 /*const washingtonRef = doc(db, "cities", "DC");
