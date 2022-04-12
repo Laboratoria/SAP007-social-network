@@ -1,4 +1,7 @@
-html {
+@import url("login-register.css");
+@import url("timeline.css");
+
+:root {
   --color-dark-pink: #ff009e;
   --color-light-pink: #ffb8e1;
   --color-dark-green: #56f894;
