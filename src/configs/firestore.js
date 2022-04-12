@@ -8,11 +8,12 @@ import {
   //updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
+import { auth } from "./authentication.js";
+
 const db = getFirestore();
 
 /*os dados são armazenados nos Documentos, que são armazenados nas coleções - ao criar os dados,
 o Cloud Firestore já cria coleções e documentos de modo implícito na primeira vez.*/
-
 
 //o async faz a função retornar uma promise
 //o await faz a função esperar uma promise
@@ -22,15 +23,15 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //codigo para criar uma nova coleção e documento
 export async function newPost(message, user){
   try {
+    user = auth.currentUser;
     const post = {
       message: message,
       displayName: user.displayName,
       date: new Date(),
-    }
+    }  
     const docRef = await addDoc(collection(db, "posts"),post)
-
     console.log("Document written with ID: ", docRef.id);
-    return post
+    return post;
   } 
   catch (e) {
     console.log("Error adding document: ", e);
@@ -39,11 +40,13 @@ export async function newPost(message, user){
 
 export async function collectUsers(email, displayName){
   try {
-    const docRef = await addDoc(collection(db, "users"), {
+    const user = {
       userEmail: email,
       displayName: displayName
-    });
+    };
+    const docRef = await addDoc(collection(db, "users"),user)
     console.log("Document written with ID: ", docRef.id);
+    return user;
   } 
   catch (e) {
     console.log("Error adding document: ", e);
@@ -55,7 +58,6 @@ export const allPosts = async () => {
   let arrayOfPosts = [];
   querySnapshot.forEach((doc) => {
     const posts = doc.data();
-    console.log(posts)
     arrayOfPosts.push(posts);
   });
   return arrayOfPosts;

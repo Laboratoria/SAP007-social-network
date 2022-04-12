@@ -37,6 +37,13 @@ export function isLoggedIn (callback){
   });
 }
 
+export function receiveUser(user){
+  user = auth.currentUser;
+  if (user !== null){
+    console.log(user)
+    return user.displayName;
+  }
+};
 
 //Para receber informações de perfil de um usuário
 /*const user = auth.currentUser;
