@@ -1,5 +1,7 @@
-// Este es el punto de entrada de tu aplicacion
+import home from "./pages/home/mainHome.js"
 
-import { myFunction } from './lib/index.js';
+const main = document.querySelector("#main")
 
-myFunction();
+window.addEventListener("load", () =>{
+    main.appendChild(home())
+})
