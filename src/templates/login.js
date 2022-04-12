@@ -1,5 +1,6 @@
 export default () => {
   const container = document.createElement("div");
+  container.classList.add("login-page")
 
   const template = `
   <h1>Faça seu login<h1>
