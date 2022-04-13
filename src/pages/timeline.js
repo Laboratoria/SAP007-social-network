@@ -1,6 +1,6 @@
 import "../lib/firebase.js";
 import {userLogout} from "../lib/authentication.js"
-import { collection, getDocs } from "../lib/firestore.js";
+//import { collection, getDocs } from "../lib/firestore.js";
 
 export default () => {
     const container = document.createElement("section");
@@ -46,13 +46,28 @@ export default () => {
     const valueTitle = container.querySelector(".title");
     const valueText = container.querySelector(".text");
     const logout = container.querySelector(".logout");
-
+    const data = new Date();
+   
+    function order(a, b){
+      return a.data - b.data;
+    }
+   
     buttonPost.addEventListener("click", (e) => {
       e.preventDefault ();
-      post.innerHTML += `<div class="publicated">${valueTitle.value}<br>${valueText.value}</div>`;
+      post.innerHTML += `<div class="publicated">${valueTitle.value.toUpperCase()}<br>${valueText.value}</div>`;
+      let arrPost = []
+      arrPost = valueTitle.value + valueText.value + data;
+      console.log(arrPost);
+      arrPost.sort(order());
       valueTitle.value = "";
       valueText.value = "";
     })
+
+
+
+  
+
+
     // firebase.auth().onAuthStateChanged(function(user){
     //   if(user){
     //     const uid = user.uid;
@@ -70,14 +85,13 @@ export default () => {
    });
  });
 
-
- async function getPosts(db) {
-  const postsCol = collection(db, "posts");
-  const postsSnapshot = await getDocs(postsCol);
-  const postsList = postsSnapshot.docs.map(doc => doc.data());
-  console.log(postsList);
-  return postsList;
-}
+//  async function getPosts(db) {
+//   const postsCol = collection(db, "posts");
+//   const postsSnapshot = await getDocs(postsCol);
+//   const postsList = postsSnapshot.docs.map(doc => doc.data());
+//   console.log(postsList);
+//   return postsList;
+// }
 
     return container;
 };
