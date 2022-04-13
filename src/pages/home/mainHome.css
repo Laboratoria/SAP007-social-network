@@ -76,6 +76,10 @@
     height: 250px;
 }
 
+.btn{
+    width: 100%;
+}
+
 .enter{
     align-self: center;
     display: flex;
@@ -87,7 +91,10 @@
     justify-content: center;
 }
 
-.enter button {
+.enter button,
+.button-register,
+.button-login,
+.botaoLogIn {
     width: 50%;
     height: 50px;
     background-color: #CC2B26;

@@ -1,7 +1,6 @@
 export default () => {
-
-  const container = document.createElement('div')
-  container.classList.add('containerMain')
+  const container = document.createElement('div');
+  container.classList.add('containerMain');
 
   const template = `
   <h1 class="titleHome">Comente seus filmes favoritos</h1>
@@ -29,11 +28,15 @@ export default () => {
   </div>
   </div>
   <div id="enter" class="enter">
-    <button>Log-in</button>
-    <button>Cadastre-se</button>
+    <a href="/#login" class="btn">
+    <button class="botaoLogIn" id="botaoLogIn" href="/#login">Log-in</button>
+    </a>
+    <a href="/#cadastro" class="btn">
+    <button class="botaoCadastro" id="botaoCadastro">Cadastre-se</button>
+    </a>
   </div>
   `;
 
-  container.innerHTML = template
-  return container
-}
+  container.innerHTML = template;
+  return container;
+};
