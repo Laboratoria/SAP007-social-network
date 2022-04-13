@@ -27,19 +27,19 @@ window.addEventListener("load", () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const loadEl = document.querySelector('#root');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const loadEl = document.querySelector('#root');
 
-  try {
-    firebase.app();
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        window.location.hash = 'timeline';
-      }
-    });
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    // console.error(e);
-    // loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-  }
-});
+//   try {
+//     firebase.app();
+//     firebase.auth().onAuthStateChanged((user) => {
+//       if (user) {
+//         window.location.hash = 'timeline';
+//       }
+//     });
+//   } catch (e) {
+//     // eslint-disable-next-line no-console
+//     // console.error(e);
+//     // loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+//   }
+// });
