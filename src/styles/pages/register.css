@@ -1,3 +1,69 @@
-.register-page {
-    background-color: green;
+/*This applies from 0px to 767px*/
+*{
+    margin: 0;
 }
+
+.title-register {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 22px;
+}
+
+.label-name, .label-user, .label-email, .label-password, .label-confirm {
+    font-size: 14px;
+    margin-top: 7px;
+}
+
+.label-name {
+    margin-left: -35px;
+}
+
+.label-user {
+    margin-left: -103px;
+}
+
+.label-email, .label-password {
+    margin-left: -110px;
+}
+
+.label-confirm {
+    margin-left: -51px;
+}
+
+.myForm {
+    display: flex;
+    justify-content: center;
+    border-radius: 45px;
+    background: #e0e0e0;
+    box-shadow:  29px 29px 58px #bababa, -29px -29px 58px #ffffff;
+    margin-top: 42px;
+    margin-left: 27px;
+    margin-right: 27px;
+}
+
+.information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-register {
+    padding: 6px 12px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    font-size: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+/*This applies from 768px to 1023px
+@media screen and (min-width: 768px) and (max-width: 1023px) {}
+*/
+
+/*This applies to 1024px
+@media screen and (min-width: 1024px) {}
+*/

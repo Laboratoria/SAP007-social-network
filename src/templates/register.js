@@ -1,22 +1,31 @@
+//import { createUserWithEmailAndPassword } from "./lib/auth-firebase.js"
+
 export default () => {
   const container = document.createElement("div");
-  //container.classList.add("register-page")
-
-  container.className = "register-page"
+  container.className = "title-register"
 
   const template = `
-  <h1>Faça seu cadastro<h1>
-  <label>Nome e sobrenome</label>
-  <input type="text" id="name" class="name">
-  <label>Usuário</label>
-  <input type="text" id="user" class="user">
-  <label>e-mail</label>
-  <input type="email" id="email" class="email">
-  <label>Crie uma senha</label>
-  <input type="password" id="password" class="password">
-  
-  <button  class="btn-register" id="btn-register">Enviar</button>
+    <h1 class="title-register">Faça seu cadastro</h1>
+      <form class="myForm">
+        <div class="information">
+          <label class="label-name">Nome e sobrenome</label>
+          <input type="text" id="name">
 
+          <label class="label-user">Usuário</label>
+          <input type="text" id="user">
+
+          <label class="label-email">e-mail</label>
+          <input type="email" id="email">
+
+          <label class="label-password">Senha</label>
+          <input type="password" id="password">
+
+          <label class="label-confirm">Confirme a senha</label>
+          <input type="password" id="password">
+        
+          <button id="btn-register" class="btn-register">Enviar</button>
+        </div>
+      </form>
   `;
 
   container.innerHTML = template;
