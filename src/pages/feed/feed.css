@@ -31,6 +31,7 @@
   border-radius: 4px;
   height: 30px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .header-menu-item {
@@ -64,7 +65,7 @@
 }
 
 .welcome-title {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 
@@ -89,12 +90,20 @@
   margin-top: 15px;
 }
 
+h1 {
+    font-size: 25px;
+    font-style: bold;
+    padding-bottom: 50px;
+}
+
 .publications {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items:center; 
   padding-top: 50px;
+  font-family: 'Sarala', sans-serif;
+  font-size: 16px;
 }
 
 .heart-img {

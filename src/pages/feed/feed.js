@@ -40,7 +40,7 @@ export default () => {
         <section class="new-post" id="new-post">
         </section>
         <section class="publications" id="publications">
-            Últimos poemas:
+            <h1>Últimos poemas:</h1>
         </section>
     </main> 
     `;
