@@ -13,7 +13,7 @@ body {
 
 #root {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 }
 
 img.logo {
@@ -61,6 +61,7 @@ img.logo {
 }
 
 .name-page {
+  font-size: 2rem;
   text-align: center;
   color: #ffffff;
   width: 100%;
@@ -87,20 +88,52 @@ a {
   text-decoration: none;
   color: #ffffff;
 }
+@media  (max-width:600px){
+.name-page{
+  font-size: 1.5rem;
+}
+  
+}
 @media  (min-width:500px) and (max-width:600px){
  .footer{
   margin: 45% 7% 8% 5%;
-  font-size: 1.2rem;
  }
 }
 @media (min-width:601px) and (max-width:768px){
   .footer{
     font-size: 1.5rem;
-    margin:24% 9% 10% 7%;
+    margin:50% 9% 10% 7%;
     text-align: center;
-  }.name-page{
-    font-size: 3rem;
   }.home-title {
-   font-size: 1.5rem;
+   font-size: 1.7rem;
    }
  }
+
+ @media (min-width:769px) and (max-width:1000px){
+  .footer{
+    font-size: 1.5rem;
+    margin: 56% 9% 9% 5%;
+  }video{
+    width: 75%;
+    margin: 8rem;
+}.home-title {
+  line-height: 5rem;
+ }
+  }
+ 
+  @media (min-width:1024px) and (max-width:1920px){
+    .home-main{  
+      width: 35%;
+      height: 130rem;
+
+  }.footer {
+    font-size: 2rem;
+    margin: 15% 2% 16% 8%;
+}#root{
+  height: 90vh;
+}video{
+  margin: 0% 0% 100% 0%;
+  /* top left bottom right*/
+
+}
+}
