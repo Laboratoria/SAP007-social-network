@@ -58,10 +58,10 @@ const login = {
             //window.location.hash = "#timeline";
             console.log("Entrou na conta!");
           })
-          .cath((error) => {
+          .catch((error) => {
             //arrumar ao usar login
-            console.log(errorCode);
-            console.log(errorMessage);
+            console.log(error);
+            // console.log(errorMessage);
             /*
             switch (errorCode) {
               case "auth/wrong-password":
