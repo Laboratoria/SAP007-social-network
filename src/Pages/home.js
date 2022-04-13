@@ -33,8 +33,8 @@ export default () => {
   container.innerHTML = templateHome;
 
 
-  const messageEmail = container.querySelector(".email-error");
-  const messagePassword = container.querySelector(".password-error");
+  //const messageEmail = container.querySelector(".email-error");
+  //const messagePassword = container.querySelector(".password-error");
   const form = container.querySelector('.sign-in-form');
   form.addEventListener('submit', (e) => {
     // e - comportamento padrão daquele evento
@@ -47,6 +47,8 @@ export default () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        const messageEmail = container.querySelector(".email-error");
+        const messagePassword = container.querySelector(".password-error");
         if (error.code == "auth/user-not-found") {
           messageEmail.innerHTML = "Email inválido"
         } else if (error.code == "auth/wrong-password") {
