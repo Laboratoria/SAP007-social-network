@@ -11,7 +11,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import "./start-firebase.js";
 
-export const auth = getAuth();
+const auth = getAuth();
+
 
 // Novos usuários
 export const registerNewUser = (email, password) => {
@@ -33,13 +34,11 @@ export function authUserLabFriends(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      const uid = user.uid;
-      return user && uid;
+      const uid = userCredential.uid;
+
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return errorCode && errorMessage;
+       error.code && error.message;
     });
 }
 
