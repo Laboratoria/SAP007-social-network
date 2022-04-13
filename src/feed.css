@@ -1,10 +1,11 @@
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
 
 * {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   box-sizing: border-box;
 }
 
@@ -15,7 +16,7 @@ html, body {
   justify-content: space-between;
   background: white;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #FFF;
+  color: #fff;
   height: 50px;
   padding: 1em;
 }
@@ -33,7 +34,7 @@ html, body {
 }
 
 .menu-button-container {
-  display: none;
+  display: flex;
   height: 100%;
   width: 30px;
   cursor: pointer;
@@ -50,7 +51,7 @@ html, body {
 .menu-button::before,
 .menu-button::after {
   display: block;
-  background-color: #03A688;
+  background-color: #03a688;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -76,6 +77,9 @@ html, body {
 #menu-toggle:checked + .menu-button-container .menu-button::after {
   margin-top: 0px;
   transform: rotate(-405deg);
+}
+footer {
+  display: none;
 }
 
 @media (max-width: 700px) {
@@ -112,7 +116,7 @@ html, body {
     padding: 0.5em 0;
     width: 100%;
     color: white;
-    background-color: #03A688;
+    background-color: #03a688;
   }
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;

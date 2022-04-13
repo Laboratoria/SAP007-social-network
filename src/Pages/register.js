@@ -17,7 +17,7 @@ export default () => {
   </div>
   </div>
   `;
-  
+    
   register.innerHTML = templateRegister;
   return register;
 };
