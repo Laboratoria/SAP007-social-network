@@ -17,7 +17,8 @@ export default () => {
           <label class="login-text">Confirmar senha</label>
           <input class="text-input" type="password" id="register-password" required>
           
-          <button class="btn-login" type="submit" id="register-button"><a href="#feed">Cadastre</a></button>
+          <button class="btn-login" type="submit" id="register-button"><a href="#feed">Cadastrar</a></button>
+          <p class="login-text">Já tem uma conta?<a href="#login"> Faça login</a></p>
       </form>
     </div>
     `;

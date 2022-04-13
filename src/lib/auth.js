@@ -27,7 +27,6 @@ export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      // console.log("Conseguiu entrar!");
       alert('Deu tudo certo!');
       return user;
     });
@@ -51,5 +50,4 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
 //   onAuthStateChanged(getAuth(), authStateObserver);
 // }
 
-// eslint-disable-next-line max-len
 // authStateObserver é um observador do estado de autenticação: será acionado sempre que o usuário entrar ou sair;
