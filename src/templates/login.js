@@ -3,7 +3,8 @@ export default () => {
   container.classList.add("login-page")
 
   const template = `
-  <h1>Faça seu login<h1>
+  <section>
+  <h1 class="title">Faça seu login<h1>
   <label>e-mail</label>
   <input type="email" id="email" class="email">
   <label>senha</label>
@@ -12,7 +13,7 @@ export default () => {
   <button  class="btn-login" id="btn-login">Entrar</button>
 
   <p><a href="#register">Cadastre-se aqui</a></p>
-
+ </section>
   `;
 
   container.innerHTML = template;
