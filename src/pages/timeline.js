@@ -27,7 +27,7 @@ export default () => {
     </div>
     <div class="post">
         <input class="title" type="text" placeholder="Título"></input>
-        <input class="text" type="text" placeholder="Texto"></input>
+        <input class="text" type="text" placeholder="Texto" wrap="hard"></input>
     </div>
     <div> 
       <button class="btn-post" type="submit">Postar</button>
@@ -48,9 +48,9 @@ export default () => {
     const logout = container.querySelector(".logout");
     const data = new Date();
    
-    function order(a, b){
-      return a.data - b.data;
-    }
+    // function order(a, b){
+    //   return a.data - b.data;
+    // }
    
     buttonPost.addEventListener("click", (e) => {
       e.preventDefault ();
@@ -58,7 +58,7 @@ export default () => {
       let arrPost = []
       arrPost = valueTitle.value + valueText.value + data;
       console.log(arrPost);
-      arrPost.sort(order());
+      // arrPost.sort(order());
       valueTitle.value = "";
       valueText.value = "";
     })

@@ -1,31 +1,38 @@
 import home from "./pages/home.js";
 import register from "./pages/register.js";
 import timeline from "./pages/timeline.js";
+import { loggedIn } from "./lib/authentication.js";
 
 const main = document.querySelector("#root");
+
+function redirect () {
+  switch (window.location.hash) {
+    case "#register":
+      main.appendChild(register());
+      break;
+    case "#timeline":
+      loggedIn((logged) => {
+        if (logged) {
+          main.appendChild(timeline());
+        } else window.location.hash = "#home";
+      });
+      break;
+    default:
+      main.appendChild(home());
+  }
+}
 
 const init = () => {
   window.addEventListener("hashchange", () => {
     main.innerHTML = "";
-    switch (window.location.hash) {
-      case "#register":
-        main.appendChild(register());
-        break;
-        case "#timeline":
-        main.appendChild(timeline());
-        break;
-      default:
-        main.appendChild(home());
-    }
+    redirect()
   });
 };
 
 window.addEventListener("load", () => {
-  main.appendChild(home());
-  location.hash = "#";
-  init();
+  redirect()
+  init()
 });
-
 
 // document.addEventListener('DOMContentLoaded', () => {
 //   const loadEl = document.querySelector('#root');

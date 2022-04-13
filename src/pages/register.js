@@ -7,10 +7,10 @@ export default () => {
 
   const template = `
     <div class="template">
-    <input class="gap" placeholder="nome de usuário" required></input>
-    <input class="gap" placeholder="e-mail" type="email" required></input>
+    <input class="username" placeholder="nome de usuário" required></input>
+    <input class="email-register" placeholder="e-mail" type="email" required></input>
     <span class="error"></span>
-    <input class="gap" placeholder="senha" minlength="6" type="password" required></input>
+    <input class="password-register" placeholder="senha" minlength="6" type="password" required></input>
     <button class="button-enter" type="submit">Cadastrar</button>
     <div class="user-register"><a href="#">Já tenho um cadastro</a></div>
     </div>
@@ -18,8 +18,8 @@ export default () => {
 
   container.innerHTML = template;
 
-  const email = container.querySelector(".input-email");
-  const password = container.querySelector(".input-password");
+  const email = container.querySelector(".email-register");
+  const password = container.querySelector(".password-register");
   const message = container.querySelector(".error");
   //const user = container.querySelector(".username");
 

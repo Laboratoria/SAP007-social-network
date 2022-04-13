@@ -1,15 +1,22 @@
-.nav-section ul {
-    margin-left: 40%;
-}
-.nav-section ul li{
-    display: inline;
+.nav-section ul{
+    display: flex;
     font-size: 20px;
-    margin-left: 5%;
+    justify-content: space-evenly;
+    list-style: none;
+    margin-top: 6%;
+}
+.nav-section a {
+    text-decoration: none;
     color: black;
 }
-hr{
-    border-color: black;
+.nav-section a:hover {
+    text-decoration: none;
+    color: #F26E22;
 }
+hr {
+    border-color: rgb(100, 100, 100);
+}
+
 .logout {
     background-color: #F26E22;
     width: 20%;
@@ -24,7 +31,6 @@ hr{
 }
 .feed-section {
     margin-top: 5%;
-    margin-left: 20px;
 }
 
 .title,
@@ -32,7 +38,7 @@ hr{
     display: flex;
     border-radius: 8px;
     text-align: center;
-    width: 80%;
+    width: 60%;
     height: 30px;
     font-size: 19px;
     background-color: #F2F2F2;
@@ -40,6 +46,7 @@ hr{
     align-self: center;
     margin: auto;
 }
+
 .text {    
     padding-bottom: 20%;
     margin-top: 2%;
