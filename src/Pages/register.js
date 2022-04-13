@@ -21,6 +21,7 @@ export default () => {
   </div>
   </div>
   `;
+
   register.innerHTML = templateRegister;
 
   const email = register.querySelector('#email');

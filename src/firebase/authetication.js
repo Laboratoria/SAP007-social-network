@@ -29,6 +29,7 @@ export function signInWithGoogle(auth, provider) {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      console.log("googlei")
     })
     .catch((error) => {
       const errorCode = error.code;

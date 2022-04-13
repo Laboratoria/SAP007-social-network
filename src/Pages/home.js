@@ -45,6 +45,7 @@ export default () => {
   btnGoogle.addEventListener("click", (e) => {  
     e.preventDefault();
     signInWithGoogle(auth, provider);
+    window.location.hash = "#feed"
   });
   return container;
 };
