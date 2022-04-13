@@ -1,6 +1,6 @@
 import "../firebase/config-firebase.js";
 import { signIn, signInWithGoogle } from '../firebase/authetication.js';
-import { auth, provider} from '../firebase/config-firebase.js'
+import { auth, provider } from '../firebase/config-firebase.js'
 
 export default () => {
   const container = document.createElement('div');
@@ -14,7 +14,9 @@ export default () => {
       <p class="welcome"> Bem vindo(a) viajante!! </p>
       <form action="#" id="sign-in-form" class="sign-in-form">
         <input class= "inputs" type="email" placeholder="Email" id="email" />
+        <span class="email-error"></span>
         <input class= "inputs" type="password" placeholder="Senha" id="password"/>
+        <span class="password-error"></span>
         <input class="btnEnter" type="submit" value="Entrar" id="Entrar"/>
       </form>
       <p class="enterByGoogle">Ou entre com o Google</p>
@@ -30,19 +32,34 @@ export default () => {
 
   container.innerHTML = templateHome;
 
-  
 
+  const messageEmail = container.querySelector(".email-error");
+  const messagePassword = container.querySelector(".password-error");
   const form = container.querySelector('.sign-in-form');
   form.addEventListener('submit', (e) => {
     // e - comportamento padrão daquele evento
     e.preventDefault(); //prevenir comportamento padrão
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    signIn(email, password);
+    signIn(email, password)
+      .then(function () {
+        window.location.hash = "#feed";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        if (error.code == "auth/user-not-found") {
+          messageEmail.innerHTML = "Email inválido"
+        } else if (error.code == "auth/wrong-password") {
+          messagePassword.innerHTML = "Senha inválida"
+        }
+        return errorMessage;
+
+      });
+
   });
 
   const btnGoogle = container.querySelector('.logoGoogle');
-  btnGoogle.addEventListener("click", (e) => {  
+  btnGoogle.addEventListener("click", (e) => {
     e.preventDefault();
     signInWithGoogle(auth, provider);
     window.location.hash = "#feed"
