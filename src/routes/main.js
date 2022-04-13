@@ -1,6 +1,6 @@
 import '../firebase/firebaseconfig.js';
 import about from '../about/about.js';
-import home from '../home/home.js';
+import home from '../Home/home.js';
 import { register } from '../register/register.js';
 import { login } from '../login/login.js';
 import { timeline } from '../feed/feed.js';

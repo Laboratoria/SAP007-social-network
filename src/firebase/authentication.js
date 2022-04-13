@@ -28,8 +28,8 @@ export function signinPassword(email, password) {
   );
 }
 // entrar com o Google
-export const googleLogin = () => {
-  signInWithPopup(authentication, provider)
+export function googleLogin() {
+  return signInWithPopup(authentication, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
@@ -41,4 +41,4 @@ export const googleLogin = () => {
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-};
+}
