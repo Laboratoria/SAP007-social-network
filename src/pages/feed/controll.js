@@ -2,6 +2,15 @@
 // eslint-disable-next-line
 import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 import { bd } from '../../configurafirebase/configfirestore.js';
+// eslint-disable-next-line
+import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
+
+const auth = getAuth();
+export const user = auth.currentUser;
+
+export function authLogOut() {
+  return signOut(auth);
+}
 
 export function createPost(text, date) {
   // user, uid) {

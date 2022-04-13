@@ -1,4 +1,6 @@
-import { createPost, getAllPosts } from './controll.js';
+import {
+  createPost, getAllPosts, authLogOut, user,
+} from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
@@ -16,7 +18,7 @@ export const feed = () => {
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li><button class="link btn-log-out"</button></li>
+          <li><button class="link btn-log-out" id="btn-log-out"</button></li>
         </ul>
       </nav>
     </header>
@@ -31,6 +33,7 @@ export const feed = () => {
       `;
   const btnMobile = timeline.querySelector('#btn-mobile');
   const btnPost = timeline.querySelector('#btn-post');
+  const btnLogOut = timeline.querySelector('#btn-log-out');
 
   function toggleMenu() {
     const nav = document.getElementById('nav-options');
@@ -38,16 +41,31 @@ export const feed = () => {
   }
   btnMobile.addEventListener('click', toggleMenu);
 
+  btnLogOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    authLogOut().then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      console.log(error);
+      // An error happened.
+    });
+  });
+
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
     const text = document.querySelector('#input-post').value;
     const date = new Date();
-    // const uidUser =
+    const edit = '';
+    // const uidUser = user.uid
     // const nameProfile =
     // const imgProfile =
-    createPost(text, date).then((response) => {
-      console.log(response);
-    }).catch((e) => console.error('Error adding document', e));
+    if (text.length !== 0) {
+      createPost(text, date, edit).then((response) => {
+        console.log(response);
+      }).catch((e) => console.error('Error adding document', e));
+    } else {
+      // innerHTML = 'Digite algo para compartilhar!';
+    }
   });
 
   const postsElement = timeline.querySelector('#section-feed');
@@ -91,5 +109,13 @@ export const feed = () => {
     postsElement.prepend(timelinePost);
   })).catch((error) => console.log(error));
 
-  return timeline;
+  if (user) {
+    return timeline;
+  }
+  const messageWithoutLogin = document.createElement('div');
+  messageWithoutLogin.setAttribute('class', 'message-without-user');
+  messageWithoutLogin.innerHTML = `
+    <p class="without-user">Tente fazer o login para ver o feed!</p>
+    `;
+  return messageWithoutLogin;
 };
