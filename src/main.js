@@ -1,6 +1,7 @@
 import login from './pages/login.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
+import {checkLogin} from './lib/auth.js';
 
 const mainContent = document.querySelector('#root');
 
@@ -34,17 +35,13 @@ window.addEventListener('load', () => {
   init();
 });
 
-// export const renderPage = () => {
-//   const mainContent = document.getElementById('root');
-//   const routes = {
-//     '/': login,
-//     "/login": login,
-//     '/feed': feed,
-//     '/cadastro': register,
-//   };
-//   mainContent.innerHTML = '';
-//   mainContent.appendChild(routes[window.location.pathname]());
-
-//   window.addEventListener("popstate", renderPage);
-//   window.addEventListener('load', renderPage);
-// };
+window.addEventListener('load', () => {
+  checkLogin((logged) => {
+    if (logged) {
+      window.location.hash = '#feed';
+    }
+    else {
+      window.location.hash = '#login';
+    }
+  });
+});

@@ -1,7 +1,6 @@
 import { signIn, signinGoogle } from "../lib/auth.js";
 
 export default function login() {
-  // eslint-disable-next-line no-shadow
   const login = document.createElement('div');
   login.innerHTML = `
   <div class="login-container">
@@ -13,9 +12,9 @@ export default function login() {
       <input class="text-input" type="password" name="" id="password-login-input" required>
 
       <button class="btn-login" type="submit" id="btn-submit-login"><a href="#feed">Entrar</a></button>
-    
+      
       <div class="container-btn-login">
-      <p class="login-text">Faça login através do Google:</p>
+      
       <button class="btn-login-google" type="submit" id="google-login"><a herf=" ">Entrar com Google</a></button>
       
       <p class="login-text">Ainda não possui uma conta? <a href="#cadastro">Cadastre-se</a></p>
@@ -36,8 +35,6 @@ export default function login() {
         window.location.hash = '#feed';
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = errorCode.message;
         const errorMessage = error.message;
         alert('Deu errado!');
           return errorMessage;
