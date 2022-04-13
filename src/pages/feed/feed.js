@@ -3,7 +3,6 @@ import {
   allPosts
 } from "../../configs/firestore.js";
 import {
-  receiveUser,
   logout,
   auth,
 } from "../../configs/authentication.js";
@@ -30,7 +29,7 @@ export default () => {
     
     <main class="main">
         <form class="write-post main-form" id="write-post">
-          <input class="header-menu-item input-search" type="search" id="input-search "placeholder="Pesquisar poemas...">
+          <input class="header-menu-item input-search" type="search" id="input-search" placeholder="Pesquisar poemas...">
           <h1 class="welcome-title">Bem-vindo(a), poeta!</h1>
           <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
           <p id="alert-notification"></p>
@@ -46,16 +45,16 @@ export default () => {
     `;
 
   container.innerHTML = templateFeed;
-    
+
   //template do card do post
-  function createCardPost (addNewPost, auth, date) {
+  function createCardPost (text, displayName, date) {
     const containerPost = document.createElement("div");
     const templateCardPost = `
       <div class="card">
         <p class="date-card">Postado em:${date}</p}
         <section class="post-infos">
-          <p class="write-message">${addNewPost}</p>    
-          <p class="author">${auth}</p>
+          <p class="write-message">${text[0].toUpperCase() + text.substr(1)}</p>    
+          <p class="author">${displayName}</p>
           <button class="button-heart" id="button-heart">
             <img class="heart-img" src="img/icone-coração.png">
             <span class="button-heart-text">Gostei</span>
@@ -67,14 +66,13 @@ export default () => {
     return containerPost;
   }
 
-  console.log(auth.currentUser);
-
   const showNewPost = container.querySelector('#new-post');
   const addNewPost = container.querySelector('#textarea');
   const showPosts = container.querySelector('#publications');
   const buttonPublic = container.querySelector('#btn-publish');
   const logoutButton = container.querySelector('#btn-exit');
-  let msgAlert = container.querySelector('#alert-notification')
+  const inputSearch = container.querySelector('#input-search');
+  let msgAlert = container.querySelector('#alert-notification');
 
   //função para sair do seu login
   logoutButton.addEventListener("click", (e) => {
@@ -85,11 +83,11 @@ export default () => {
       })
   })
 
-  function formatDate (date) {
+  function formatDateStyle (date) {
     return `${date.toLocaleDateString()} às 
       ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
   } 
-  
+
   //publicar novo post
   buttonPublic.addEventListener("click", (e) => {
     e.preventDefault();
@@ -97,10 +95,11 @@ export default () => {
       msgAlert.innerHTML = "Escreva uma poesia"
     } 
     else {
-      newPost(addNewPost.value, auth.currentUser)
-      .then(function (post) {
-        console.log(auth.currentUser)
-        showNewPost.appendChild(createCardPost(addNewPost.value, post.auth, formatDate(post.date)));
+      newPost(addNewPost.value, auth.currentUser.displayName)
+      .then(function () {
+        let date = new Date()
+        showNewPost.appendChild(createCardPost(addNewPost.value,auth.currentUser.displayName, formatDateStyle(date)));
+        addNewPost.value = "";
       })
     }
   })
@@ -109,7 +108,7 @@ export default () => {
   const showAllPosts = async () => {
     const timeline = await allPosts();
     timeline.forEach((post) => {
-      const postElement = createCardPost(post.message, post.user, formatDate(post.date.toDate()));
+      const postElement = createCardPost(post.message, post.displayName, formatDateStyle(post.date.toDate()));
       showPosts.appendChild(postElement)
     });
   }

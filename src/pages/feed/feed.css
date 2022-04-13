@@ -89,7 +89,8 @@
   margin-top: 15px;
 }
 
-.publications {
+.publications,
+.new-post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

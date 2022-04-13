@@ -2,7 +2,6 @@ import {
   getFirestore,
   collection, 
   addDoc,
-  doc,
   deleteDoc,
   getDocs,
   //updateDoc
@@ -20,13 +19,13 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //try define um bloco de código para ser executado (para tentar).
 //catch define um bloco de código para lidar com qualquer erro.
 
-//codigo para criar uma nova coleção e documento
-export async function newPost(message, user){
+//cria uma nova coleção - cada post é um documento
+export async function newPost(message, displayName){
+  displayName = auth.currentUser.displayName
   try {
-    user = auth.currentUser;
     const post = {
       message: message,
-      displayName: user.displayName,
+      displayName: displayName,
       date: new Date(),
     }  
     const docRef = await addDoc(collection(db, "posts"),post)
@@ -38,6 +37,7 @@ export async function newPost(message, user){
   } 
 }
 
+//cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName){
   try {
     const user = {
@@ -53,6 +53,7 @@ export async function collectUsers(email, displayName){
   } 
 }
 
+//para ver todos os documentos de "posts"
 export const allPosts = async () => {
   const querySnapshot = await getDocs(collection(db, "posts"));
   let arrayOfPosts = [];
@@ -62,7 +63,6 @@ export const allPosts = async () => {
   });
   return arrayOfPosts;
 }
-
 
 //Editar post
 /*const washingtonRef = doc(db, "cities", "DC");

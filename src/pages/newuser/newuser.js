@@ -35,7 +35,7 @@ let msgAlert = container.querySelector('#message')
 
 buttonRegister.addEventListener('click', (e) => {
   e.preventDefault();
-  registerUser(newUserEmail.value, newUserPassword.value)
+  registerUser(newUserName.value, newUserEmail.value, newUserPassword.value)
     .then(function () {
       collectUsers(newUserEmail.value, newUserName.value)
       window.location.hash='#feed'
