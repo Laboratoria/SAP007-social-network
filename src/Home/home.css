@@ -1,0 +1,66 @@
+*{
+  padding: 0;
+  margin: 0;
+ font-family: 'Sawarabi Gothic';
+ font-style:  normal;
+}
+body{
+  background: #293340;
+}
+img.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+
+}
+.home-main {
+  width: 85%;
+  height: 70%;
+  margin: auto;
+  margin-top: 1.5rem;
+  background: #2F3A4B;
+  border-radius: 0.6rem;
+}
+
+.link-pages{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 0.6rem;
+  background-color: #3C4A5F;
+  color:#ffffff ;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 25%);
+  
+}
+.home-title{
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 2rem;
+  color: #ffffff ;
+}
+.name-page{
+  text-align: center;
+  color: #ffffff ;
+  width: 20rem;
+  height: 4.3rem;
+  font-family: Sawarabi Gothic;
+  font-style: normal;
+  
+}
+
+video{
+  align-items: center;
+  height: 10rem;
+}
+ 
+.footer{
+ text-align: center;
+ color: #ffffff ;
+ margin-top: 1rem;
+}
