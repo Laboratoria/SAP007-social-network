@@ -63,16 +63,18 @@ const login = {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (email && password && newEmail) {
         authUserLabFriends(newEmail, password)
-          .then((window.location.hash = "#timeline"))
+          .then((window.location.hash = "#timeline")) //Está dando erro
           .cath(console.log("Erro ao logar na LabFriends"));
         //Como verificar o erro?
+        //Como capturar o erro na autenticação e trazer para esse arquivo?
+        //Como descobrir qual erro está acontecendo? -> Senha errada, email não confere e usuário não cadastrado
       }
     });
 
+    //Está dando erro
     buttonLoginGoogle.addEventListener("click", (event) => {
       event.preventDefault();
-      const confirm = authUserWithGoogle();
-      if (confirm == true) window.location.hash = "#timeline";
+      authUserWithGoogle().then((window.location.hash = "#timeline"));
     });
 
     return container;

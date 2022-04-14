@@ -30,19 +30,3 @@ window.addEventListener("load", () => {
   section.appendChild(login.createLogin());
   initPages();
 });
-
-/* INDEX LOGIN
-Precisa fazer para adicionar novos usuários
-Como capturar o erro na autenticação e trazer para esse arquivo?
-Como descobrir qual erro está acontecendo? -> Senha errada, email não confere e usuário não cadastrado
-Precisa enviar e-mail quando o usuário não lembrar a senha
-
-* modal
-*/
-
-/*
-AUTHENTICATION
-
-COMO DESCOBRIR QUE O USUÁRIO ESTÁ LOGADO?
-COMO DESCONECTAR? E COMO SEI QUE A ROTA SERÁ CHAMADA CORRETAMENTE?
-*/

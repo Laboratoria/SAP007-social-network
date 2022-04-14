@@ -48,7 +48,20 @@ export function authUserWithGoogle() {
   });
 }
 
-/* Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda. */
+// Desconectando usuário
+export function authOut(auth) {
+  return signOut(auth)
+    .then(() => {
+      console.log("Usuário deslogou!");
+    })
+    .catch(console.log("Usuário não deslogou!"));
+}
+
+//Como desconectar?
+//Como descobrir que o usuário está logado?
+//Como permanecer logado?
+
+// Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
 export function authChange(auth) {
   return onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -57,15 +70,6 @@ export function authChange(auth) {
     } else {
     }
   });
-}
-
-// Desconectando usuário
-export function authOut(auth) {
-  return signOut(auth)
-    .then(() => {
-      console.log("Usuário deslogou!");
-    })
-    .catch(console.log("Usuário não deslogou!"));
 }
 
 //Para enviar o email de redefinição
