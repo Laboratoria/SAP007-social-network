@@ -1,23 +1,22 @@
-import "../firebase/config-firebase.js";
+import '../firebase/config-firebase.js';
 import { signIn, signInWithGoogle } from '../firebase/authetication.js';
-import { auth, provider } from '../firebase/config-firebase.js'
+import { auth, provider } from '../firebase/config-firebase.js';
 
 export default () => {
   const container = document.createElement('div');
   container.classList.add('containerA');
-
   const templateHome = `  
-  <div class=banner> 
+  <div class="center">
+  <div class="banner"> 
   </div>
-  <div class= main-container>
+  <div class= "main-container">
        <div class="container-fluid">
-      <p class="welcome"> Bem vindo(a) viajante!! </p>
+      <p class="welcome"> Bem vindo(a) viajante! </p>
       <form action="#" id="sign-in-form" class="sign-in-form">
-        <input class= "inputs" type="email" placeholder="Email" id="email" />
-        <span class="email-error"></span>
+        <input class= "inputs" type="email" placeholder="E-mail" id="email" />
         <input class= "inputs" type="password" placeholder="Senha" id="password"/>
-        <span class="password-error"></span>
-        <input class="btnEnter" type="submit" value="Entrar" id="Entrar"/>
+        <span class="error" id ="error"></span>
+        <button class="btnEnter" type="submit" value="Entrar" id="btnEnter">Entrar</button>
       </form>
       <p class="enterByGoogle">Ou entre com o Google</p>
      <a href="/" class="google-link">
@@ -28,41 +27,37 @@ export default () => {
      </div>  
   </div>
   `;
-
-
   container.innerHTML = templateHome;
 
+  const email = container.querySelector('#email');
+  const password = container.querySelector('#password');
+  const btnEnter = container.querySelector('#btnEnter');
+  const message = container.querySelector('#error');
 
-  const messageEmail = container.querySelector(".email-error");
-  const messagePassword = container.querySelector(".password-error");
-  const form = container.querySelector('.sign-in-form');
-  form.addEventListener('submit', (e) => {
+  btnEnter.addEventListener('click', (e) => {
+    console.log('clicou');
     // e - comportamento padrão daquele evento
     e.preventDefault(); //prevenir comportamento padrão
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    signIn(email, password)
-      .then(function () {
-        window.location.hash = "#feed";
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        if (error.code == "auth/user-not-found") {
-          messageEmail.innerHTML = "Email inválido"
-        } else if (error.code == "auth/wrong-password") {
-          messagePassword.innerHTML = "Senha inválida"
-        }
-        return errorMessage;
-
-      });
-
+    signIn(email.value, password.value)
+    .then((response) => {
+      console.log('entrou', response.code)
+      if (response.code == 'auth/invalid-email') {
+        message.innerHTML = 'Digite um e-mail válido';
+      } else if (response.code == 'auth/internal-error') {
+        message.innerHTML = 'Senha inválida';
+      }
+      window.location.hash = "#feed"
+    })
+    .catch((response) => {
+     
+    })
   });
 
   const btnGoogle = container.querySelector('.logoGoogle');
-  btnGoogle.addEventListener("click", (e) => {
+  btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     signInWithGoogle(auth, provider);
-    window.location.hash = "#feed"
+    window.location.hash = '#feed';
   });
   return container;
 };
