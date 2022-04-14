@@ -1,0 +1,57 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #1C232E;
+  font-family: Sawarabi Gothic;
+  font-style: normal;
+  color: #dadada;
+}
+a{
+  color: #dadada;
+}
+.container-login{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+}
+.input-login{
+  width: 90%;
+  height: 89%;
+  margin: auto;
+  margin-top: 1.5rem;
+  background: #2F3A4B;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input{
+width: 14rem;
+text-align: center;
+ height: 2rem;
+}
+.btn-google{
+  width: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  height: 3rem;
+}
+ img{
+   width: 2rem;
+   margin-right: 3rem;
+ }
+.btn{
+  height: 3rem;
+  width: 8rem;
+}
+
