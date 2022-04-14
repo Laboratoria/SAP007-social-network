@@ -35,30 +35,30 @@ export default () => {
   buttonLogin.addEventListener('click', (event) => {
     event.preventDefault();
     userWithLogin(buttonEmail.value, buttonPassword.value)
-      .then(function () {
-        window.location.hash='#feed'
-      })
-      .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
+    .then(function () {
+      window.location.hash='#feed'
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
         
-        switch(errorCode) {
-          case 'auth/wrong-password':
-            errorMessage = 'Senha errada.'
-            msgAlert.innerHTML = errorMessage;
-            break;
-          case 'auth/invalid-email':
-            errorMessage = 'Insira um email válido.'
-            msgAlert.innerHTML = errorMessage;
-            break; 
-          case 'auth/user-not-found':
-            errorMessage = 'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".'
-            msgAlert.innerHTML = errorMessage;
-            break; 
-          case 'auth/internal-error':
-            errorMessage = 'Insira a senha.'
-            msgAlert.innerHTML = errorMessage;
-            break; 
+      switch(errorCode) {
+        case 'auth/wrong-password':
+          errorMessage = 'Senha errada.'
+          msgAlert.innerHTML = errorMessage;
+          break;
+        case 'auth/invalid-email':
+          errorMessage = 'Insira um email válido.'
+          msgAlert.innerHTML = errorMessage;
+          break; 
+        case 'auth/user-not-found':
+          errorMessage = 'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".'
+          msgAlert.innerHTML = errorMessage;
+          break; 
+        case 'auth/internal-error':
+          errorMessage = 'Insira a senha.'
+          msgAlert.innerHTML = errorMessage;
+          break; 
         }
       });
   })

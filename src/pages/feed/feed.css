@@ -31,6 +31,7 @@
   border-radius: 4px;
   height: 30px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .header-menu-item {
@@ -38,9 +39,9 @@
   padding: .5rem;
   font-family: 'Sarala', sans-serif;
   color: #020202;
-  font-weight: 400;
+  font-weight: 400px;
   font-style: bold;
-  font-size: 19px
+  font-size: 19px;
 
 }
 
@@ -64,7 +65,7 @@
 }
 
 .welcome-title {
-  font-size: 30px;
+  font-size: 35px;
 }
 
 
@@ -87,6 +88,12 @@
   border-radius: 5px;
   padding-left: 16px;
   margin-top: 15px;
+}
+
+h1 {
+  font-size: 25px;
+  font-style: bold;
+  padding-bottom: 50px;
 }
 
 .publications,

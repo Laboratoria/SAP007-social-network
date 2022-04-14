@@ -1,6 +1,7 @@
 import {
   newPost,
-  allPosts
+  allPosts,
+  //sortPosts
 } from "../../configs/firestore.js";
 import {
   logout,
@@ -55,7 +56,7 @@ export default () => {
         <section class="post-infos">
           <p class="write-message">${text[0].toUpperCase() + text.substr(1)}</p>    
           <p class="author">${displayName}</p>
-          <button class="button-heart" id="button-heart">
+          <button class="button-heart">
             <img class="heart-img" src="img/icone-coração.png">
             <span class="button-heart-text">Gostei</span>
           </button>  
@@ -73,6 +74,10 @@ export default () => {
   const logoutButton = container.querySelector('#btn-exit');
   const inputSearch = container.querySelector('#input-search');
   let msgAlert = container.querySelector('#alert-notification');
+
+  //const likeButton = container.querySelector('#button-heart')
+
+ 
 
   //função para sair do seu login
   logoutButton.addEventListener("click", (e) => {
@@ -110,6 +115,15 @@ export default () => {
     timeline.forEach((post) => {
       const postElement = createCardPost(post.message, post.displayName, formatDateStyle(post.date.toDate()));
       showPosts.appendChild(postElement)
+
+      //a função do like precisará ser chamda aqui
+      const likeButton = container.querySelector('.button-heart')
+      likeButton.setAttribute('id', post.id)
+  
+      likeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(likeButton.getAttribute('id'))
+      })
     });
   }
 
