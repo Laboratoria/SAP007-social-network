@@ -49,7 +49,7 @@ export const reset = () => {
   //       .catch((error) => {
   //           if (error.code === 'auth/wrong-password') {
   //             msgErro.innerHTML = 'Email enviado';
-  btnLinkRecover.addEventListener('click', (e) => {
+   btnLinkRecover.addEventListener('click', (e) => {
     e.preventDefault();
     const email = inputEmail.value;
     console.log(email)
@@ -61,21 +61,25 @@ export const reset = () => {
         // navigateTo('/');
       })
 
-    .catch((erro) => {
-      const errorCode = erro.code;
+    .catch((error) => {
+      const errorCode = error.code;
       switch (errorCode) {
         case 'auth/invalid-email':
-          feedback.innerHTML('Email inválido');
+          feedback.innerHTML='Email inválido';
+
           break;
         case 'auth/user-not-found':
-          feedback.innerHTML('Não será possível recuperar sua senha.');
+          feedback.innerHTML='Não será possível recuperar sua senha.';
           break;
         default:
-          feedback.innerHTML('Não será possível recuperar sua senha.');
+          feedback.innerHTML='Não será possível recuperar sua senha.';
       }
     });
+    const errorMessage = error.message;
+    return errorMessage;
   });
-
-
   return resetCreate;
+
+
+  
 };
