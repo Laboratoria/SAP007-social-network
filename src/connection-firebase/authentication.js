@@ -28,24 +28,41 @@ export const registerNewUser = (email, password) => {
 
 // Usuários existentes
 export function authUserLabFriends(email, password) {
+  console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log("Usuário Logou!");
       const user = userCredential.user;
       const uid = userCredential.uid;
     })
-    .catch(console.log("Erro ao logar!"));
+    .catch((error) => {
+      console.log(error, error.code, error.message);
+    });
 }
 
 // Autenticação do Google
 export function authUserWithGoogle() {
   const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider).then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    return credential && token && user;
-  });
+  return signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+      console.log(errorCode, errorMessage);
+    });
 }
 
 // Desconectando usuário
