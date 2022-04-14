@@ -166,15 +166,16 @@ Dayanne Maryssol de Andrade Almeida" height="150" src="https://avatars.githubuse
 </td>
 
 <td>
-  <div align= "center">
-    <img alt="
-Raynara Pimenta" height="150" src="https://avatars.githubusercontent.com/u/97410639?v=4"> 
+    <div align= "center">
+    <img alt="RaynaraPimenta" height="150" src="https://avatars.githubusercontent.com/u/97410639?v=4"> 
   </div>
   <h3 align="center"><a href="https://github.com/RaynaraPimenta">Raynara Pimenta</a></h3>
   <h4 align="center">Projeto do Bootcamp da <em><a href="https://hub.laboratoria.la/br">Laboratoria</a></em></h4>
   <div align="center">
     <a href = "mailto:raynarapimenta@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+    <a href="https://www.linkedin.com/in/raynara-pimenta/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   </div>
+   
 </td>
 
 </table>
