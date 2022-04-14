@@ -40,7 +40,7 @@ export default () => {
         <section class="new-post" id="new-post">
         </section>
         <section class="publications" id="publications">
-            Últimos poemas:
+            <h1 class="ultimosPoemas">Últimos poemas:</h1>
         </section>
     </main> 
     `;
@@ -148,6 +148,18 @@ export default () => {
   btnMobile.addEventListener("click", toggleMenu);
   btnMobile.addEventListener("touchstart", toggleMenu);
 
+//botão de like
+
+let buttonHeart1 = document.getElementById("button-heart");
+
+function Toggle1(){
+  if (buttonHeart1.style.color == "red") {
+    buttonHeart1.style.color = "grey"
+}
+else {
+  buttonHeart1.style.color = "red"
+}
+}
 
   showAllPosts();    
 
