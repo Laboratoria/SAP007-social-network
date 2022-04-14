@@ -1,24 +1,28 @@
-export default () => {
-  const container = document.createElement("div");
-  container.classList.add("login-page")
+export default function login() {
+  const teste = document.createElement("div");
+  teste.classList.add("login-page")
 
-  const template = `
+  teste.innerHTML = `
   <section>
   <h1 class="title">Faça seu login<h1>
   <label>e-mail</label>
-  <input type="email" id="email" class="email">
+  <input type="email" id="emailLogin" class="email">
   <label>senha</label>
-  <input type="password" id="password" class="password">
+  <input type="password" id="passwordLogin" class="password">
   
   <button  class="btn-login" id="btn-login">Entrar</button>
 
-  <p><a href="#register">Cadastre-se aqui</a></p>
+  <button id="register">Cadastre-se aqui</button>
  </section>
   `;
 
-  container.innerHTML = template;
+  const registerButton = teste.querySelector("#register");
+  registerButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.hash = "register";
+  });
 
-  return container
+  return teste;
 }
 
 

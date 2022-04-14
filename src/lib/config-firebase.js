@@ -1,5 +1,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
-import { loginUser } from '../lib/config-firebase.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+
+//import { loginUser } from '../lib/config-firebase.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEcRw-VST-DiVqt4Tjbjhdq5gjzcK1bqw",
@@ -11,9 +13,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
 //login
-export const loginUser = (email, password) => {
+/*export const loginUser = (email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -25,4 +28,4 @@ export const loginUser = (email, password) => {
       alert('Coloque seus dados corretamente');
       window.location.hash = '#/login';
     });
-};
+};*/
