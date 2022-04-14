@@ -5,7 +5,7 @@ import { loggedIn } from "./lib/authentication.js";
 
 const main = document.querySelector("#root");
 
-function redirect () {
+function redirect() {
   switch (window.location.hash) {
     case "#register":
       main.appendChild(register());
@@ -25,28 +25,11 @@ function redirect () {
 const init = () => {
   window.addEventListener("hashchange", () => {
     main.innerHTML = "";
-    redirect()
+    redirect();
   });
 };
 
 window.addEventListener("load", () => {
-  redirect()
-  init()
+  redirect();
+  init();
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const loadEl = document.querySelector('#root');
-
-//   try {
-//     firebase.app();
-//     firebase.auth().onAuthStateChanged((user) => {
-//       if (user) {
-//         window.location.hash = 'timeline';
-//       }
-//     });
-//   } catch (e) {
-//     // eslint-disable-next-line no-console
-//     // console.error(e);
-//     // loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-//   }
-// });

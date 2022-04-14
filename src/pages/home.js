@@ -32,28 +32,26 @@ export default () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if(error.code == "auth/user-not-found"){
-          messageEmail.innerHTML = "E-mail não cadastrado"
-        }else if (error.code == "auth/wrong-password"){
-          messagePassword.innerHTML = "Senha inválida"
+        if (error.code == "auth/user-not-found") {
+          messageEmail.innerHTML = "E-mail não cadastrado";
+        } else if (error.code == "auth/wrong-password") {
+          messagePassword.innerHTML = "Senha inválida";
         }
         return errorMessage;
-
       });
   });
 
   googleButton.addEventListener("click", (e) => {
     e.preventDefault();
     googleLogin()
-    .then(() => {      
-     window.location.hash = "#timeline";
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      return errorMessage;
-    });
+      .then(() => {
+        window.location.hash = "#timeline";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        return errorMessage;
+      });
   });
 
   return container;
 };
-

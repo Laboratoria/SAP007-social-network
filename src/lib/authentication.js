@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 
 const provider = new GoogleAuthProvider();
@@ -30,18 +30,18 @@ export function userLogin(email, password) {
 }
 
 export const googleLogin = () => {
-   return signInWithPopup(auth, provider).then((result) => {
+  return signInWithPopup(auth, provider).then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
     return user;
   });
-}
+};
 
 export function loggedIn(cb) {
-  onAuthStateChanged(auth, (user) =>{
-    cb(user != null)
-  })
+  onAuthStateChanged(auth, (user) => {
+    cb(user != null);
+  });
 }
 
 export function userLogout() {

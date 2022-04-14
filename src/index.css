@@ -1,74 +1,74 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
-body{
-    background-color:#BFBFBF;
-    min-height: 100vh;
+body {
+  background-color: #bfbfbf;
+  min-height: 100vh;
 }
-.name a{
-    color: #F26E22;
-    text-decoration: none;
-    font-size: 40px;
+.name a {
+  color: #f26e22;
+  text-decoration: none;
+  font-size: 40px;
 }
-.logo-title{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.logo-title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.logo{
-    width: 18%;
-    height: 18%;
-    margin-top: 2%;
+.logo {
+  width: 18%;
+  height: 18%;
+  margin-top: 2%;
 }
-.slogan{
-    text-align: center;
+.slogan {
+  text-align: center;
 }
-.footer{
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-size: 80%;
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 80%;
 }
-.footer a{
-    color: black;
-    font-weight: bold;
+.footer a {
+  color: black;
+  font-weight: bold;
 }
 .footer p {
-    bottom: 0;
+  bottom: 0;
 }
-@media (min-width: 600px) and (max-width: 999px){
-    .logo-title {
+@media (min-width: 600px) and (max-width: 999px) {
+  .logo-title {
     justify-content: center;
     margin-bottom: 2%;
-    }
-    .logo {
+  }
+  .logo {
     width: 10%;
     height: 10%;
     margin-right: 10%;
-    }
-    .footer {
+  }
+  .footer {
     font-size: 100%;
-    }
-    }
-    @media (min-width: 1000px) {
-    body {
+  }
+}
+@media (min-width: 1000px) {
+  body {
     width: 100%;
     min-height: 80vh;
-    }
-    .slogan {
+  }
+  .slogan {
     margin-bottom: 5%;
-    }
-    .logo {
+  }
+  .logo {
     width: 10%;
     height: 10%;
-    }
-    .name a {
+  }
+  .name a {
     font-size: 80px;
-    }
-    .footer {
+  }
+  .footer {
     position: fixed;
-    }
-    }
+  }
+}
