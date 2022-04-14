@@ -22,7 +22,8 @@ export const home = () => {
   
     </main>
     `;
-
+   
   homeCreate.innerHTML = templateHome;
+  console.log("olá")
   return homeCreate;
 };

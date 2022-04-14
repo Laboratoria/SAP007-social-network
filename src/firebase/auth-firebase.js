@@ -1,5 +1,6 @@
 // eslint-disable-next-line
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,sendPasswordResetEmail
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
@@ -42,7 +43,16 @@ export const googleLogin = () => signInWithPopup(auth, provider)
   });
 
 export const resetPassword = (email) => {
-  getAuth
-    .credential()
-    .sendPasswordResetEmail(email);
+  sendPasswordResetEmail
+sendPasswordResetEmail(auth, email)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+    
 };
