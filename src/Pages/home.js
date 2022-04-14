@@ -40,16 +40,15 @@ export default () => {
     e.preventDefault(); //prevenir comportamento padrão
     signIn(email.value, password.value)
     .then((response) => {
+        window.location.hash = "#feed"
       console.log('entrou', response.code)
+    })
+    .catch((response) => {
       if (response.code == 'auth/invalid-email') {
         message.innerHTML = 'Digite um e-mail válido';
       } else if (response.code == 'auth/internal-error') {
         message.innerHTML = 'Senha inválida';
       }
-      window.location.hash = "#feed"
-    })
-    .catch((response) => {
-     
     })
   });
 
