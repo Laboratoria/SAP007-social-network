@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bebas+Neue&family=Cinzel&family=Cinzel+Decorative&family=Press+Start+2P&family=Special+Elite&family=Staatliches&display=swap');
+
 *{
     margin:0;
     padding: 0;
@@ -12,6 +13,7 @@ body{
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 15% 75% 10%;
+    background-color: #000000;
 }
 
 header {
@@ -52,14 +54,8 @@ a{
   justify-content: space-around;
   align-items: center;
   background-color: #313131;
-  color: white;
-  font-weight: bold;
   text-align: center;
   box-shadow: none;
-}
-
-.footer, a :link{
-    color: white
 }
 
 .footer, a :visited{
