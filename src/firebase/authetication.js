@@ -14,18 +14,10 @@ export function signIn(email, password) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log('entrou', userCredential);
-      return userCredential;
-      
+      return user;
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log('errou', errorMessage);
-      return error;
-      
-    });
-}
+
+};
 
 export function signInWithGoogle(auth, provider) {
   return signInWithPopup(auth, provider)
