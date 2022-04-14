@@ -6,13 +6,13 @@ export default () => {
   container.setAttribute("class", "container");
 
   const template = `
-    <input class="input-email" placeholder="e-mail" type="email" required></input>
+    <div class="teste"><input class="input-email" placeholder="e-mail" type="email" required></input>
     <span class="error-email"></span>
     <input class="input-password" placeholder="senha" minlength="6" type="password" required></input>
     <span class="error-password"></span>
     <button class="enter" type="submit">Entrar</button>
     <p>ou</p>
-    <button class="google-button" type="submit"><img class="google-logo" src="./images/google.png" alt="google-icon"/>Login com o Google</button>
+    <button class="google-button" type="submit"><img class="google-logo" src="./images/google.png" alt="google-icon"/>Login com o Google</button></div>
     <div class="register"><a href="#register">Cadastre-se</a></div>
     `;
 

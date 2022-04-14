@@ -1,115 +1,118 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 .container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 50%;  
+  display: flex;
+  flex-direction: column;
+  /* bottom: 50%;   */
+}
+.teste {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30%;
 }
 .input-email,
 .input-password {
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 2%;
-    height: 30px;
-    font-size: 19px;
-    background-color: #F2F2F2;
-    border: black;
-    align-self: center;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 2%;
+  height: 30px;
+  font-size: 19px;
+  background-color: #f2f2f2;
+  border: black;
+  align-self: center;
 }
 .enter {
-    background-color: #F26E22;
-    width: 50%;
-    margin: auto;
-    margin-top: 10%;
-    border-radius: 8px;
-    height: 25px;
-    font-size: 16px;
-    box-shadow: 7px 6px 5px grey;
-    border: black;
+  background-color: #f26e22;
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+  border-radius: 8px;
+  height: 25px;
+  font-size: 16px;
+  box-shadow: 7px 6px 5px grey;
+  border: black;
 }
 .container p {
-    margin: auto;
-    position: relative;
-    top: 50px;
+  margin: auto;
+  position: relative;
+  top: 35px;
 }
 .google-button {
-    width: 60%;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    background-color: #F2AA80;
-    font-size: 16px;
-    box-shadow: 7px 6px 5px grey;
-    border: black;
-    border-radius: 8px;
-    color: black;
-    position: relative;
-    top: 100px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background-color: #f2aa80;
+  font-size: 16px;
+  box-shadow: 7px 6px 5px grey;
+  border: black;
+  border-radius: 8px;
+  color: black;
+  position: relative;
+  top: 75px;
 }
 .google-logo {
-    width: 20%;
+  width: 20%;
 }
 .register {
-    margin: auto;
+  margin: auto;
 }
 .register a {
-    color: black;
-    float: inline-end;
-    position: relative;
-    top: 340px;
+  color: black;
+  position: relative;
+  top: 180px;
 }
-@media (min-width: 600px) and (max-width: 999px){
-    .input-email .input-password {
+@media (min-width: 600px) and (max-width: 999px) {
+  .input-email .input-password {
     width: 50%;
-    }
-    
-    .enter,
-    .google-button {
+  }
+  .enter,
+  .google-button {
     width: 30%;
-    }
-    
-    .register {
+  }
+
+  .register {
     font-size: 20px;
-    }
-    }
-    
-    @media (min-width: 1000px) {
-    .container {
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
     bottom: 20%;
     justify-content: center;
     position: relative;
-    }
-    
-    .input-email,
-    .input-password {
+  }
+  .teste {
+    margin-top: 0;
+  }
+  .input-email,
+  .input-password {
     width: 30%;
-    }
-    
-    .google-logo {
+  }
+
+  .google-logo {
     width: 18%;
-    }
-    
-    .enter,
-    .google-button {
+  }
+
+  .enter,
+  .google-button {
     margin-top: 2%;
     width: 20%;
     align-items: center;
-    }
-    
-    .container p {
+  }
+
+  .container p {
     top: 20px;
-    }
-    
-    .google-button {
+  }
+
+  .google-button {
     top: 15px;
-    }
-    
-    .register a {
+  }
+
+  .register a {
     float: none;
     top: 60px;
-    }
-    }
+  }
+}
