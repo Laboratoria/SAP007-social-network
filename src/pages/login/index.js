@@ -63,19 +63,17 @@ const login = {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (email && password && newEmail) {
         authUserLabFriends(newEmail, password)
-          .then(() => {
-            window.location.hash = "#timeline";
-          })
-          .cath(() => {
-
-            
-          });
+          .then((window.location.hash = "#timeline"))
+          .cath(console.log("Erro ao logar na LabFriends"));
+        //Como verificar o erro?
       }
     });
 
     buttonLoginGoogle.addEventListener("click", (e) => {
       e.preventDefault();
-      authUserWithGoogle();
+      const confirmLogin = authUserWithGoogle();
+      if (confirmLogin) window.location.hash = "#timeline";
+      else console.log("Erro ao logar na LabFriends");
     });
 
     return container;
@@ -83,3 +81,20 @@ const login = {
 };
 
 export default login;
+
+/*
+switch (errorCode) {
+  case "auth/invalid-email":
+    errorMessage = "Insira um email válido.";
+    msgAlert.innerHTML = errorMessage;
+    break;
+  case "auth/user-not-found":
+    errorMessage =
+      'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
+    msgAlert.innerHTML = errorMessage;
+    break;
+  case "auth/internal-error":
+    errorMessage = "Insira a senha.";
+    msgAlert.innerHTML = errorMessage;
+    break;
+}*/

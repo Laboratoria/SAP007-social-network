@@ -3,16 +3,14 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  signInWithPopup,
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  signInWithRedirect,
-  getRedirectResult,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import "./start-firebase.js";
 
 const auth = getAuth();
-
 
 // Novos usuários
 export const registerNewUser = (email, password) => {
@@ -20,33 +18,37 @@ export const registerNewUser = (email, password) => {
     .then((userCredential) => {
       const user = userCredential.user;
       const uid = user.uid;
-      return user && uid;
+      console.log("Cadastrou novo usuário!");
+      //O que fazer?
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      return errorCode && errorMessage;
+      console.log("Não cadastrou novo usuário!");
+      //O que fazer?
     });
 };
 
 // Usuários existentes
 export function authUserLabFriends(email, password) {
-  return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      const uid = userCredential.uid;
-
+  return signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
     })
     .catch((error) => {
-       error.code && error.message;
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
     });
 }
 
 // Autenticação do Google
 export function authUserWithGoogle() {
   const provider = new GoogleAuthProvider();
-  signInWithRedirect(auth, provider);
-  getRedirectResult(auth);
+  return signInWithPopup(auth, provider);
 }
 
 /* Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda. */
@@ -64,16 +66,16 @@ export function authChange(auth) {
 export function authOut(auth) {
   return signOut(auth)
     .then(() => {
-      return logout;
+      console.log("Usuário deslogou!");
     })
     .catch((error) => {
-      return error;
+      console.log("Usuário não deslogou!");
     });
 }
 
 //Para enviar o email de redefinição
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email).then(() => {
-    console.log("ola");
+    console.log("Enviou senha por email!");
   });
 }
