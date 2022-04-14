@@ -31,14 +31,11 @@ const contentChange = () => {
   }
 };
 
-const initialContent = () => {
-  window.addEventListener('hashchange', () => {
-    content.innerHTML = '';
-    contentChange();
-  });
-};
+window.addEventListener('hashchange', () => {
+  content.innerHTML = '';
+  contentChange();
+});
 
 window.addEventListener('load', () => {
   contentChange();
-  initialContent();
 });

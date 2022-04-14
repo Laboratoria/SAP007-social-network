@@ -1,4 +1,5 @@
-import { resetPassword } from '../firebase/auth-firebase.js';
+import '../firebase/firebase.js';
+// import { resetPassword } from '../firebase/auth-firebase.js';
 
 export const reset = () => {
   const resetCreate = document.createElement('div');
@@ -17,12 +18,7 @@ export const reset = () => {
 
   resetCreate.innerHTML = container;
 
-  const btnReset = resetCreate.querySelector('#btn-reset');
-
-  btnReset.addEventListener('click', () => {
-    const email = resetCreate.querySelector('#email');
-    resetPassword(email.value);
-  });
-
+// const btnReset = resetCreate.querySelector('#btn-reset');
+// const email = resetCreate.querySelector('#email').value;
   return resetCreate;
 };
