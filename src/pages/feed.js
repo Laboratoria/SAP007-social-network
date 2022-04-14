@@ -34,32 +34,22 @@ export default function signin() {
 
   //   searchRecipe.addEventListener('keyup', function(){
 
-  //   }
-
-  //   )
+  //   })
 
   //   logOut.addEventListener('click', function(){
 
-  //   }
-
-  //   )
+  //   })
   //   writePost.addEventListener('click', function(){
 
-  //   }
-
-  //   )
+  //   })
 
   //   cookie.addEventListener('click', function(){
 
-  //   }
-
-  //   )
+  //   })
 
   //   editPost.addEventListener('click', function(){
 
-  //   }
-
-  //   )
+  //   })
 
   //   deletePost.addEventListener('click', function()
 

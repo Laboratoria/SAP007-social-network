@@ -50,7 +50,13 @@ body {
     padding: 5px 10px;
 }
 
-.register-text, .login-text {
+.error-message {
+    color: red;
+    display: none;
+}
+
+.register-text,
+.login-text {
     margin-top: 20px;
 }
 
@@ -141,7 +147,8 @@ body {
 
     }
 
-    .btn-login, .btn-login-google {
+    .btn-login,
+    .btn-login-google {
         width: 38vw;
         height: 5vh;
         margin-top: 15px;
