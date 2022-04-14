@@ -43,9 +43,10 @@ export const googleLogin = () => signInWithPopup(auth, provider)
   });
 
 export const resetPassword = (email) => {
-  sendPasswordResetEmail
-sendPasswordResetEmail(auth, email)
+return sendPasswordResetEmail(auth, email)
   .then(() => {
+    console.log("E-mail para redefinição de senha enviado")
+
     // Password reset email sent!
     // ..
   })
