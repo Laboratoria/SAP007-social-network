@@ -14,14 +14,17 @@
 
   text-align: center;
 }
+
 #root {
   display: block;
 }
+
 .banner {
   background-image: url('./src/readme-img/img/banner1.jpg');
   background-position: center center;
   background-size: cover;
 }
+
 body {
   background-color: #fefaef;
   min-height: 100vh;
@@ -66,7 +69,7 @@ a {
 header {
   display: flex;
   align-items: center;
-  height:70px;
+  height: 70px;
   padding: 1rem;
   box-sizing: border-box;
   justify-content: space-between;
@@ -138,18 +141,23 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: #d7d9b029;
+  border-radius: 20px;
+  margin-left: 20px;
 }
 
 ul {
   margin: 0;
   padding: 0;
 }
+
 @media (min-width: 900px) {
   * {
     font-weight: 400;
     font-size: 35px;
     line-height: 44px;
   }
+
   .center {
     height: 100vh;
     width: 100vw;
