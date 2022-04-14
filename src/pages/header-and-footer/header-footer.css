@@ -5,10 +5,11 @@
     margin:0;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
 }
 
 body{
-    width: fit-content;
+    width: 100vw;
     min-height: 100vh ;
     display: grid;
     grid-template-columns: 100%;
@@ -60,4 +61,18 @@ a{
 
 .footer, a :visited{
     color: white
+}
+
+@media (min-device-width: 819px) {
+    body{
+        grid-template-rows: 15% 80% 5%;
+    }
+
+    .link-header{
+        font-size: 50px ;
+    }
+
+    footer{
+        font-size: 20px;
+    }
 }
