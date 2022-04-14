@@ -31,6 +31,7 @@ export const register = () => {
     placeholder="Digite uma senha"
     required
   />
+  
   <div class="button-container login-container">
       <button id="registerEnter" class="button registerButton loginEnter" type="submit">
         Cadastrar

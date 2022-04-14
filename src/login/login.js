@@ -27,6 +27,7 @@ export const login = () => {
         Entrar
       </button>
       </div>
+      <span class= "error"></span>
       <div class="text-content">
       <p class="textForgot">
       Esqueci a <a class="links" href="#reset">Senha</a>
@@ -52,20 +53,32 @@ export const login = () => {
 
   loginCreate.innerHTML = templateLogin;
 
+
   const email = loginCreate.querySelector('.loginEmail');
   const password = loginCreate.querySelector('.loginPassword');
   const googleButton = loginCreate.querySelector('.buttonGoogle');
-
+  const msgErro = loginCreate.querySelector('.error');
   loginCreate.addEventListener('submit', (e) => {
     e.preventDefault();
-    userLogin(email.value, password.value)
-      .then(() => {
-        window.location.hash = '#timeline';
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        return errorMessage;
-      });
+    if (email.value && password.value) {
+      userLogin(email.value, password.value)
+        .then(() => {
+          window.location.hash = '#timeline';
+        })
+        .catch((error) => {
+            if (error.code === 'auth/wrong-password') {
+              msgErro.innerHTML = 'Senha incorreta';
+            } else if (error.code === 'auth/invalid-email') {
+              msgErro.innerHTML = 'E-mail incorreto';
+            } else if (error.code === 'auth/user-not-found') {
+              msgErro.innerHTML = 'Usuário não encontrado';
+            } else {
+              msgErro.innerHTML = 'Opsss!ocorreu um erro Tente novamente.';
+            }
+          const errorMessage = error.message;
+          return errorMessage;
+        });
+    }
   });
 
   googleButton.addEventListener('click', (e) => {
@@ -79,5 +92,11 @@ export const login = () => {
         return errorMessage;
       });
   });
+
+
+
+
+
+
   return loginCreate;
 };
