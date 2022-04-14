@@ -25,8 +25,8 @@ export default function login() {
       `;
   const email = login.querySelector('#email-login-input');
   const password = login.querySelector('#password-login-input');
-  const emailValue = login.getElementById('email-login-input').value;
-  const passwordValue = login.getElementById('password-login-input').value;
+  const emailValue = email.value;
+  const passwordValue = password.value;
   const errorEmptyEmail = login.getElementById('email-required-error');
   const errorInvalidEmail = login.getElementById('email-invalid-error');
   const errorEmptyPassword = login.getElementById('password-required-error');
