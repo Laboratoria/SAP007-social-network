@@ -1,4 +1,4 @@
-import {auth} from "../configs/config.firebase.js";
+import { auth } from '../configs/config.firebase.js';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -6,7 +6,8 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+
 
 
 // O usuário deve: 
@@ -23,31 +24,33 @@ const provider = new GoogleAuthProvider();
 
 export function signinGoogle() {
   return signInWithPopup(auth, provider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    return user;
-  });
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      return user;
+    });
 }
 
-  export function signIn (email, password) {
+export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      alert('Deu tudo certo!');
+      return user;
+    });
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = errorCode.message;
+  //   alert('Deu errado!');
+  //     return errorMessage;
+  // });
+}
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    alert("Deu tudo certo!");
     return user;
   });
-
-}
-
-export function createUser (email, password) {
-  return createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    return user;
-  })
-}
 
 export function userLogout() {
 
@@ -56,15 +59,14 @@ export function userLogout() {
 
 // export function sendPasswordResetEmail(email,password){
 //   return (auth, email, password)
-//   .then(() => {
-    
+//   .then(() => { 
   
 //   })
 // }
-
 
 export function checkLogin (cb){
   onAuthStateChanged(auth, (user) => {
     cb(user !=  null)
   })
 }
+

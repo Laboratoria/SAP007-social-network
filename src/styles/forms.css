@@ -50,14 +50,19 @@ body {
     padding: 5px 10px;
 }
 
+.error-message {
+    color: red;
+    display: none;
+}
+
+.register-text,
 .login-text {
-    margin: 0 auto;
     margin-top: 20px;
 }
 
 .btn-login,
 .btn-login-google {
-    width: 7vw;
+    width: 15vw;
     height: 6vh;
     border-radius: 5px;
     border: none;
@@ -113,7 +118,7 @@ body {
 
     .btn-login,
     .btn-login-google {
-        width: 18vw;
+        width: 34vw;
     }
 
     .btn-login-google {
@@ -142,12 +147,7 @@ body {
 
     }
 
-    .btn-login {
-        width: 25vw;
-        height: 4vh;
-        font-size: 15px;
-    }
-
+    .btn-login,
     .btn-login-google {
         width: 38vw;
         height: 5vh;
