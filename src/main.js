@@ -5,12 +5,8 @@ import home from "./pages/home/mainHome.js"
 const main = document.querySelector("#main")
 
 const init = () => {
-    window.addEventListener("hashchange", () => {
         main.innerHTML="";
         switch (window.location.hash) {
-            case " ":
-                main.appendChild(home());
-                break;
             case "#login":
                 main.appendChild(login());
                 break;
@@ -20,10 +16,15 @@ const init = () => {
             default:
                 main.appendChild(home());
         }
-    })
+    
+
 }
 
 window.addEventListener("load", () => {
-    main.appendChild(home())
+    // main.appendChild(home())
+    init()
+})
+
+window.addEventListener("hashchange", () => {
     init()
 })
