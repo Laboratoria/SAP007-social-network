@@ -36,6 +36,9 @@ body{
     color: black;
     font-weight: bold;
 }
+.footer p {
+    bottom: 0;
+}
 @media (min-width: 600px) and (max-width: 999px){
     .logo-title {
     justify-content: center;
