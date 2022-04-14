@@ -69,11 +69,10 @@ const login = {
       }
     });
 
-    buttonLoginGoogle.addEventListener("click", (e) => {
-      e.preventDefault();
-      const confirmLogin = authUserWithGoogle();
-      if (confirmLogin) window.location.hash = "#timeline";
-      else console.log("Erro ao logar na LabFriends");
+    buttonLoginGoogle.addEventListener("click", (event) => {
+      event.preventDefault();
+      const confirm = authUserWithGoogle();
+      if (confirm == true) window.location.hash = "#timeline";
     });
 
     return container;

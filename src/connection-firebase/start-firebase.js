@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 
-//Inicialização do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCNu5tg68pS65UVJ6vaUjYgYonYzfYvR7w",
   authDomain: "laboratoriafriends.firebaseapp.com",
@@ -11,3 +11,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);

@@ -1,5 +1,4 @@
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -8,16 +7,14 @@ import {
   signOut,
   sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
-import "./start-firebase.js";
-
-const auth = getAuth();
+import { auth } from "./start-firebase.js";
 
 // Novos usuários
 export const registerNewUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      const uid = user.uid;
+      const uid = userCredential.uid;
       console.log("Cadastrou novo usuário!");
       //O que fazer?
     })
@@ -31,24 +28,24 @@ export const registerNewUser = (email, password) => {
 
 // Usuários existentes
 export function authUserLabFriends(email, password) {
-  return signInWithPopup(auth, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log("Usuário Logou!");
+      const user = userCredential.user;
+      const uid = userCredential.uid;
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-    });
+    .catch(console.log("Erro ao logar!"));
 }
 
 // Autenticação do Google
 export function authUserWithGoogle() {
   const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider);
+  return signInWithPopup(auth, provider).then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    return credential && token && user;
+  });
 }
 
 /* Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda. */
@@ -68,9 +65,7 @@ export function authOut(auth) {
     .then(() => {
       console.log("Usuário deslogou!");
     })
-    .catch((error) => {
-      console.log("Usuário não deslogou!");
-    });
+    .catch(console.log("Usuário não deslogou!"));
 }
 
 //Para enviar o email de redefinição
