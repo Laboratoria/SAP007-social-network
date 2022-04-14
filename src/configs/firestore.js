@@ -2,10 +2,10 @@ import {
   getFirestore,
   collection, 
   addDoc,
-  doc,
+  orderBy,
   deleteDoc,
   getDocs,
-  //updateDoc
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
 import { auth } from "./authentication.js";
@@ -20,24 +20,33 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //try define um bloco de código para ser executado (para tentar).
 //catch define um bloco de código para lidar com qualquer erro.
 
-//codigo para criar uma nova coleção e documento
-export async function newPost(message, user){
+//cria uma nova coleção - cada post é um documento
+export async function newPost(message, displayName){
+  displayName = auth.currentUser.displayName;
   try {
-    user = auth.currentUser;
     const post = {
       message: message,
-      displayName: user.displayName,
-      date: new Date(),
+      displayName: displayName,
+      likes: new Array(),
+      date: new Date()
     }  
     const docRef = await addDoc(collection(db, "posts"),post)
-    console.log("Document written with ID: ", docRef.id);
+    console.log("Document written with ID: ", docRef.id); 
     return post;
   } 
   catch (e) {
     console.log("Error adding document: ", e);
   } 
 }
+  
+/*export const getLikesPost = async () => {
+  const getAllPosts = await getDocs(collection(db, "posts"));
+  getAllPosts.forEach((doc) => {
+    await updateDoc()
+  });
+}*/
 
+//cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName){
   try {
     const user = {
@@ -53,16 +62,23 @@ export async function collectUsers(email, displayName){
   } 
 }
 
+/*export const sortPosts = async () => {
+const sort = query(getDocs(collection(db, "posts")), orderBy("date","desc"));
+return sort
+}*/
+
+//para ver todos os documentos de "posts"
 export const allPosts = async () => {
   const querySnapshot = await getDocs(collection(db, "posts"));
   let arrayOfPosts = [];
   querySnapshot.forEach((doc) => {
     const posts = doc.data();
+    const postId = doc.id;
+    posts['id'] = postId;
     arrayOfPosts.push(posts);
   });
-  return arrayOfPosts;
+  return arrayOfPosts
 }
-
 
 //Editar post
 /*const washingtonRef = doc(db, "cities", "DC");

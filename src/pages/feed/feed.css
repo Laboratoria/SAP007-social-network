@@ -39,9 +39,9 @@
   padding: .5rem;
   font-family: 'Sarala', sans-serif;
   color: #020202;
-  font-weight: 400;
+  font-weight: 400px;
   font-style: bold;
-  font-size: 19px
+  font-size: 19px;
 
 }
 
@@ -89,13 +89,15 @@
   margin-top: 15px;
 }
 
+
 .welcome-title h1 {
     font-size: 28px;
     font-style: bold;
     padding-bottom: 50px;
 }
 
-.publications {
+.publications,
+.new-post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

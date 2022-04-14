@@ -4,22 +4,26 @@ import {
   signInWithEmailAndPassword, 
   onAuthStateChanged,
   signOut,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 
 export const auth = getAuth();
 
-/*Login de novos usuários -
-É necessário criar uma função que será exportada para main.js que receberá o email e senha de lá
-createUserWithEmailAndPassword será o retorno.*/
-export const registerUser = (email, password) => {
+//criação de novos usuários
+export const registerUser = (displayName, email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
-    const user = userCredential.user;
-    const uid = user.uid;
-    return user && uid;
+    updateProfile(auth.currentUser, {
+      displayName: displayName
+    }).then(() => {
+      const user = userCredential.user;
+    return user;
+    }).catch((error) => {
+      console.log(error)
+    });
   });
-}
+};
 
 //Login de usuários existentes
 export function userWithLogin (email, password){
@@ -27,7 +31,7 @@ export function userWithLogin (email, password){
   .then((userCredential) => {
     const user = userCredential.user;
     return user;
-    })
+  })
 }
 
 //Definir um observador do estado de autenticação e coletar dados dos usuários
@@ -37,22 +41,20 @@ export function isLoggedIn (callback){
   });
 }
 
-export function receiveUser(user){
-  user = auth.currentUser;
-  if (user !== null){
-    console.log(user)
-    return user.displayName;
+/*export function receiveUser(displayName){
+  const user = auth.currentUser;
+  if (user){
+    displayName = user.displayName;
+    console.log(displayName)
+    return displayName;
+    //const email = user.email;
+    //const photoURL = user.photoURL;
+    //const emailVerified = user.emailVerified;
   }
-};
-
-//Para receber informações de perfil de um usuário
-/*const user = auth.currentUser;
-if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-  const userName = user.userName;
-  const email = user.email;
-  const uid = user.uid;
-}*/
+  else {
+    console.log('Not Logged In');
+  }
+};*/
 
 export function logout() {
   return signOut(auth)
