@@ -1,4 +1,4 @@
-// importar funções de autenticação do Firebase a partir da parta 'services'
+//import{header} from "../components/header.js";
 
 export default function signin() {
   const feed = document.createElement('section');

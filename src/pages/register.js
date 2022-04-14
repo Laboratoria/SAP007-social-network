@@ -1,4 +1,4 @@
-// importar funções de autenticação do Firebase a partir da parta 'services'
+import { createUser } from "../lib/auth.js";
 
 export default () => {
   const register = document.createElement('div');
@@ -27,20 +27,17 @@ export default () => {
   const registerPassword = register.querySelector('#register-password');
   const buttonRegister = register.querySelector('#register-button');
 
-
-  // buttonRegister.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   userCreate(registerEmail.value, registerPassword.value)
-  //     .then(() => {
-  //       window.location.hash = '#feed';
-  //     })
-  //     .catch((error) => {
-  //       const errorMessage = error.message;
-  //       // eslint-disable-next-line no-alert
-  //       alert('Deu ruim!');
-  //       return errorMessage;
-  //     });
-  // });
-
+  buttonRegister.addEventListener("click", (e) => {
+    e.preventDefault();
+    createUser(registerEmail.value, registerPassword.value)
+      .then(function () {
+        window.location.hash = "#feed";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert("iihhhhh não funcionou mané! Tenta de novo!");
+        return errorMessage;
+      });
+  });
   return register;
 };
