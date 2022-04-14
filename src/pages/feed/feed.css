@@ -68,7 +68,6 @@
   font-size: 35px;
 }
 
-
 .input-text {
   height: 150px;
   width: 300px;
@@ -90,8 +89,8 @@
   margin-top: 15px;
 }
 
-h1 {
-    font-size: 25px;
+.welcome-title h1 {
+    font-size: 28px;
     font-style: bold;
     padding-bottom: 50px;
 }
@@ -102,8 +101,40 @@ h1 {
   justify-content: space-between;
   align-items:center; 
   padding-top: 50px;
-  font-family: 'Sarala', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.ultimosPoemas {
+  font-style: bold;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.card {
+  border: 2px solid black;
+  padding: 5px;
+  margin: 15px;
+}
+
+.card p {
+  margin: 10px;
+}
+
+.post-infos {
+margin: 10px;
+}
+
+.date-card {
+font-style:oblique;
+}
+
+.write-message {
+font-family:"Merriweather", serif;
+font-size: 20px;
+}
+
+.author{
+  font-style:italic;
 }
 
 .heart-img {
@@ -111,11 +142,20 @@ h1 {
   height: 30px;
 }
 
+.button-heart {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  color: grey;
+  cursor: pointer;
+}
+
 .btn-mobile {
   display: none;
 }
 
-@media screen and (min-width: 300px) and (max-width: 599px) {
+@media screen and (min-width: 300px) and (max-width: 667px) {
 
 .header {
   background: #e7e7e7;
@@ -185,4 +225,77 @@ h1 {
   transform: rotate(-135deg);
   top: -7px;
 }
+
+.content-feed {
+  display: block;
+  text-align: center;
 }
+
+  .header-image {
+    width: 17rem;
+  }
+  
+}
+
+
+/*tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+.content-feed {
+  display: block;
+  text-align: center;
+}
+
+  .header-image {
+    width: 14rem;
+  }
+
+  .header-menu-item {
+  font-size: 18px;
+  }
+
+.input-search {
+  border-radius: 4px;
+  height: 35px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.input-text {
+  height: 180px;
+  width: 400px;
+}
+
+  .btn-publish {
+    height: 50px;
+    width: 130px;
+    font-size: 25px;
+  }
+
+  .publications {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center; 
+    padding-top: 50px;
+    font-size: 20px;
+  }
+
+  .ultimosPoemas {
+    font-style: bold;
+    font-size: 35px;
+  }
+
+  .date-card {
+    font-size: 18px;
+    }
+    
+    .write-message {
+    font-family:"Merriweather", serif;
+    font-size: 20px;
+    }
+    
+    .author{
+      font-style:italic;
+    }
+  }

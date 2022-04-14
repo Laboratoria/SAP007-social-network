@@ -40,7 +40,7 @@ export default () => {
         <section class="new-post" id="new-post">
         </section>
         <section class="publications" id="publications">
-            <h1>Últimos poemas:</h1>
+            <h1 class="ultimosPoemas">Últimos poemas:</h1>
         </section>
     </main> 
     `;
@@ -56,9 +56,8 @@ export default () => {
         <section class="post-infos">
           <p class="write-message">${addNewPost}</p>    
           <p class="author">${auth}</p>
-          <button class="button-heart" id="button-heart">
-            <img class="heart-img" src="img/icone-coração.png">
-            <span class="button-heart-text">Gostei</span>
+          <button onclick="Toggle1()" id="button-heart" class="button-heart"> <i class="far fa-heart"></i>
+          <img class="heart-img" src="img/icone-coração.png">
           </button>  
         </section>
       </div>    
@@ -135,6 +134,18 @@ export default () => {
   btnMobile.addEventListener("click", toggleMenu);
   btnMobile.addEventListener("touchstart", toggleMenu);
 
+//botão de like
+
+let buttonHeart1 = document.getElementById("button-heart");
+
+function Toggle1(){
+  if (buttonHeart1.style.color == "red") {
+    buttonHeart1.style.color = "grey"
+}
+else {
+  buttonHeart1.style.color = "red"
+}
+}
 
   showAllPosts();    
 
