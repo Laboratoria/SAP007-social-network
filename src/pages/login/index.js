@@ -17,7 +17,7 @@ const login = {
       <a href="#" type="button" data-modal="open-modal" class="small-text-right">
         Esqueceu a senha?
       </a>
-      <span id="error">Erro ao acessar a sua conta! Verifique o seu email e senha!</span>
+      <span id="message"></span>
       <button type="submit" id="login-labfriends" class="user-button button-pink">
         ENTRAR
       </button>
@@ -26,7 +26,7 @@ const login = {
       </div>
       <button id="login-google" class="user-button  button-green"> 
         <img class="icon-button" src="./img/icons/icon-logo-google.ico">  
-        Entre com Google 
+        Entrar com Google 
       </button>
       <p class="new-account" >
         Não tem conta? <a href="#register" class="emphasis-pink">Crie uma conta agora!</a>
@@ -45,56 +45,55 @@ const login = {
     </section>
     `;
 
-    const email = container.querySelector("#user-email-labfriends");
-    const password = container.querySelector("#user-password-labfriends");
-    const msgAlert = container.querySelector("#erroMessage");
+    const buttonLoginLabfriends = container.querySelector("#login-labfriends");
+    const buttonLoginGoogle = container.querySelector("#login-google");
+    const message = container.querySelector("#message");
 
-    container
-      .querySelector("#login-labfriends")
-      .addEventListener("click", (event) => {
-        event.preventDefault();
-        authUserLabFriends(email.value, password.value)
-          .then(function () {
-            //window.location.hash = "#timeline";
-            console.log("Entrou na conta!");
-          })
-          .catch((error) => {
-            //arrumar ao usar login
-            console.log(error);
-            // console.log(errorMessage);
-            /*
-            switch (errorCode) {
-              case "auth/wrong-password":
-                errorMessage = "Senha errada.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/invalid-email":
-                errorMessage = "Insira um email válido.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/user-not-found":
-                errorMessage =
-                  'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/internal-error":
-                errorMessage = "Insira a senha.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-            }*/
-          });
-      });
+    buttonLoginLabfriends.addEventListener("click", (e) => {
+      const email = container.querySelector("#user-email-labfriends").value;
+      const password = container.querySelector(
+        "#user-password-labfriends"
+      ).value;
+      e.preventDefault();
 
-    container
-      .querySelector("#login-google")
-      .addEventListener("click", (event) => {
-        event.preventDefault();
-        authUserWithGoogle();
-      });
+      let newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+      if (!email || !password) {
+        message.innerHTML = "Preencha todos os campos!";
+      } else if (!newEmail) {
+        message.innerHTML = "Preencha o campo de email corretamente!";
+      } else if (email && password && newEmail) {
+        authUserLabFriends(newEmail, password)
+          .then((window.location.hash = "#timeline"))
+          .cath(console.log("Erro ao logar na LabFriends"));
+        //Como verificar o erro?
+      }
+    });
+
+    buttonLoginGoogle.addEventListener("click", (event) => {
+      event.preventDefault();
+      const confirm = authUserWithGoogle();
+      if (confirm == true) window.location.hash = "#timeline";
+    });
 
     return container;
   },
 };
 
 export default login;
-/*Mostrar erro */
+
+/*
+switch (errorCode) {
+  case "auth/invalid-email":
+    errorMessage = "Insira um email válido.";
+    msgAlert.innerHTML = errorMessage;
+    break;
+  case "auth/user-not-found":
+    errorMessage =
+      'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
+    msgAlert.innerHTML = errorMessage;
+    break;
+  case "auth/internal-error":
+    errorMessage = "Insira a senha.";
+    msgAlert.innerHTML = errorMessage;
+    break;
+}*/
