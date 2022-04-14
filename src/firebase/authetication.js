@@ -14,12 +14,16 @@ export function signIn(email, password) {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log('entrou', user);
+      console.log('entrou', userCredential);
+      return userCredential;
+      
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log('errou', errorMessage);
+      return error;
+      
     });
 }
 

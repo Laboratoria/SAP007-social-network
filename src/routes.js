@@ -15,18 +15,15 @@ window.addEventListener('popstate', (e) => {
       mainHome.innerHTML = '';
       mainHome.appendChild(login());
       break;
-    case '#registre-se':
-      mainHome.innerHTML = '';
-      mainHome.appendChild(register());
-      break;
+      case '#register':
+        mainHome.innerHTML = '';
+        mainHome.appendChild(register());
+        break;
     case '#feed':
       mainHome.innerHTML = '';
       mainHome.appendChild(feed());
       break;
-    case '#register':
-      mainHome.innerHTML = '';
-      mainHome.appendChild(register());
-      break;
+ 
     default:
       mainHome.innerHTML = '';
       mainHome.appendChild(login());

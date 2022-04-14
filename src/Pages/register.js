@@ -17,7 +17,7 @@ export default () => {
       <input class= "inputs" type="password" placeholder="Senha (6 dígitos)" id="password"/>      
       <button class="btnEnter" type="submit"  id="register">Cadastrar</button>
     </form>
-    <p class="wellcome"> Já tem cadastro ? <a href="">Faça o Login</a></p>
+    <p class="welcome"> Já tem cadastro ? <a href="">Faça o Login</a></p>
   </div>
   </div>
   `;
@@ -34,7 +34,7 @@ export default () => {
     e.preventDefault();
     userCreate(email.value, password.value)
       .then(function () {
-        window.location.hash = '#feed';
+        window.location.hash = '#home';
       })
       .catch((error) => {
         const errorMessage = error.message;
