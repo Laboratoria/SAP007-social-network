@@ -3,13 +3,12 @@ import { userCreate, googleLogin } from '../firebase/auth-firebase.js';
 
 export const register = () => {
   const registerCreate = document.createElement('div');
-  registerCreate.setAttribute('class', 'container');
   const templateRegister = `
   <main class="home-container registerContainer">
     <h2 class="subtitle">Cadastrar</h2>
     <form id="registerForm" class="registerForm">
     <input
-    class="inputNames"
+    class="userName inputNames"
     type="text"
     id="registerName"
     placeholder="Digite seu nome. Ex:'Laura Silva' " autocomplet
@@ -37,7 +36,7 @@ export const register = () => {
         Cadastrar
       </button>
       </div>
-      <span class="error-message"></span>
+      <span class= "error"></span>
       <div class="social-media registerButton">
       <p>Ou cadastre-se com o Google</p>
       <button class="buttonGoogle" type="button" id="buttonGoogle">
@@ -59,6 +58,8 @@ export const register = () => {
   const email = registerCreate.querySelector('.registerEmail');
   const password = registerCreate.querySelector('.registerPassword');
   const googleButton = registerCreate.querySelector('.buttonGoogle');
+  const msgErro = registerCreate.querySelector('.error');
+  // const user = registerCreate.querySelector('.userName');
 
   registerCreate.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -67,6 +68,11 @@ export const register = () => {
         window.location.hash = '#timeline';
       })
       .catch((error) => {
+        if (error.code === 'auth/invalid-email') {
+          msgErro.innerHTML = 'Digite um e-mail válido';
+        } else if (error.code === 'auth/email-already-in-use') {
+          msgErro.innerHTML = 'Esse e-mail já está sendo utilizado';
+        }
         const errorMessage = error.message;
         return errorMessage;
       });
@@ -85,23 +91,3 @@ export const register = () => {
   });
   return registerCreate;
 };
-
-/*
-
-   <div class="">
-  <h2 class="subtitle">Cadastrar</h2>
-
-  <input class="inputNames" placeholder="Digite seu nome. Ex:'Laura Silva'" required>
-
-  <input class="inputNames" placeholder="Digite um e-mail" type="email" required>
-
-  <span class="error"></span>
-
-  <input class="inputNames" placeholder="Digite uma senha" minlength="6" type="password" required>
-
-  <button class="button-enter" type="submit">Cadastrar</button>
-
-  <div class="user-register"><a href="#">Já tenho um cadastro</a></div>
-  </div>
-
-*/

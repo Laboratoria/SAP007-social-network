@@ -116,3 +116,10 @@ body {
   justify-content: center;
   margin-top: 1em;
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  color: red;
+}

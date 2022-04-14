@@ -1,5 +1,12 @@
 // eslint-disable-next-line
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,sendPasswordResetEmail
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const auth = getAuth();
@@ -23,36 +30,35 @@ export function userLogin(email, password) {
   );
 }
 
-export const googleLogin = () => signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.30
-    const user = result.user;
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+export const googleLogin = () => signInWithPopup(auth, provider).then((result) => {
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  const user = result.user;
+  return user;
+});
+
+export function loggedIn(cb) {
+  onAuthStateChanged(auth, (user) => {
+    cb(user != null);
   });
+}
+
+export function userLogout() {
+  return signOut(auth)
+    .then(() => 'Logout')
+    .catch((error) => error);
+}
 
 export const resetPassword = (email) => {
-  sendPasswordResetEmail
-sendPasswordResetEmail(auth, email)
-  .then(() => {
+  sendPasswordResetEmail;
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
     // Password reset email sent!
     // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
     // ..
-  });
-    
+    });
 };

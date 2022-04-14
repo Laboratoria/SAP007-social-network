@@ -1,3 +1,5 @@
+import '../firebase/firebase.js';
+
 export const home = () => {
   const homeCreate = document.createElement('div');
   const templateHome = `
@@ -22,8 +24,7 @@ export const home = () => {
   
     </main>
     `;
-   
+
   homeCreate.innerHTML = templateHome;
-  console.log("olá")
   return homeCreate;
 };
