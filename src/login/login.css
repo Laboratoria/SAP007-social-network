@@ -36,6 +36,7 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+ 
 }
 .input-users{
   width: 12rem;
@@ -109,7 +110,9 @@ a{
     width: 50vw;
     height: 112vh;
 }.form-login {
-  width: 127%;
+  width: 100%;
+  margin-left: 7rem;
+  padding: 40px;
   }.container-login {
     width: 84%;
     height: 84%;
