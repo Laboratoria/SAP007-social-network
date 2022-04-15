@@ -31,7 +31,7 @@ export const register = () => {
 
   containerRegister.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.dir(e);
+   
     if (e.target.checkbox.checked) {
       creatNewUser(email.value, password.value)
         .then(() => {
