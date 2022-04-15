@@ -8,15 +8,18 @@
 }
 
 :root {
-  --colorOne: #C087B0;
-  --header: #FFFCAB;
-  --details: #9EB5DF;
-  --link: #1E6DF6;
-  --font: #404040;
-  --orange: #F8BD0F;
-  --lilac: #D9A3D5;
-  --fontTwo: white;
+ 
+  --mustard: #F8BD0F;
+  --yellow: #FFF338;
+  --light-yellow: #FFFCAB;
+  --lilac: #A275E3;
+  --purple: #C400FF;
+  --light-pink: #FA86BE;
+  --pink: #FF67E7;
+  --light-blue: #9AEBED;
+  --tiffany-blue: #0CECDD; 
   --black: black;
-  --shadow: #bdb8b8;
-  --shadowheader: #f8f8bfa6;
+  --white: white;
+  --off-white: #F7F7F7;
+  --red-error: #B20C0C;
 }
