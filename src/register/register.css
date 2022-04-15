@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;  
+}
+body{
+    background-color:#1C232E ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#root{
+  background-color:#2F3A4B ;
+  border-radius: 10px;
+  width: 80vw;
+  height: 80vh;
+}
+#root form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 20px;
+}
+#root .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+a{
+  text-decoration: none;
+  color:#FFFFFF;
+}
+
+form input{
+  background: rgba(74, 90, 116, 0.5);
+  color: #FFFFFF;
+  border-color: #1C232E;
+  width: 60vw;
+  height: 4vh;
+  border-radius: 5px;
+  padding-left: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+form button{
+  background: #3C4A5F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  width: 40vw;
+  height: 5vh;
+}
+#termsUse {
+  background: #3C4A5F;
+  width: 60vw;
+  height: 34vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1px;
+  text-align: center;
+  border-radius: 5px;
+}
+#termsUse #paragraph{
+  background: #697B95;
+  width: 50vw;
+  height: 34vh;
+  font-size: 0.9rem;
+  overflow-y: scroll;   
+}
+#termsUse h1{
+ font-size: 1.4rem;
+}
+
+#paragraph label{
+  font-size: 0.9rem;
+}
