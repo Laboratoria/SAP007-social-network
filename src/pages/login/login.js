@@ -6,21 +6,23 @@ import { logar, logarGmail } from './authentication.js';
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
-  login.innerHTML = `    
-    <figure class="box-slogan-page-login">
-      <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
-    </figure>      
-      <form action="" method="post" class = "form-login">
-        <input type="email" placeholder="seu@email.com" class="login-area" id="email-area" name="email-area" requered>
-        <input type="password" placeholder="Senha" class="login-area" id="password-area" name="password-area" requered>
-        <button class="btn-sign-in btn-area" id="btn-sign-in" >Entrar</button>
-        <p class="error" id = "user-error"></p>
-      </form>
-    <p class="text-center" >-ou-</p>
-    <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">  Sign in with Google</button>
-    <p class="text-create-login text-center">
-      Ainda não tem conta? <a href="#createLogin" class="click-register" id="click-register">Cadastre-se</a>
-    </p>`;
+  login.innerHTML = `
+      <figure class="box-slogan-page-login">
+        <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
+      </figure>    
+        <form action="" method="post" class = "form-login">
+          <input type="email" placeholder="seu@email.com" class="login-area" id="email-area" name="email-area" requered>
+          <input type="password" placeholder="Senha" class="login-area" id="password-area" name="password-area" requered>
+          <button class="btn-sign-in btn-area" id="btn-sign-in" >Entrar</button>
+          <p class="error" id = "user-error"></p>
+        </form>
+      <p class="error" id = "user-error-gmail"></p>
+      <p class="text-center" >- ou -</p>
+      <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">Sign in with Google</button>
+      <p class="text-create-login text-center">
+        Ainda não tem conta? <a href="#createLogin" id="click-register">Cadastre-se</a>
+      </p>
+  `;
 
   login.querySelector('#btn-sign-in').addEventListener('click', (e) => {
     const inputEmail = login.querySelector('#email-area').value;
@@ -56,6 +58,7 @@ export const pageLogin = () => {
             userError.innerHTML = '*Usuário não cadastrado, registre-se!';
             userError.style.display = 'block';
             break;
+
           default:
         }
       });
@@ -64,8 +67,19 @@ export const pageLogin = () => {
 
   login.querySelector('#btn-google').addEventListener('click', (e) => {
     e.preventDefault();
-    logarGmail();
-  });
+    const userErrorGmail = login.querySelector('#user-error-gmail');
+    logarGmail().then(() => {
+      window.location.hash = '#feed';
+    }).catch((error) => {
+      switch (error.code) {
+        case 'auth/user-disabled':
+          userErrorGmail.innerHTML = '*Não foi possivel logar com sua conta Google, por favor verifique seu login';
 
+          break;
+
+        default:
+      }
+    });
+  });
   return login;
 };

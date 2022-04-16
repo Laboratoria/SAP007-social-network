@@ -1,29 +1,29 @@
 import {
-  createPost, getAllPosts, authLogOut, user,
+  createPost, getAllPosts, authLogOut,
 } from './controll.js';
 
 export const feed = () => {
   const timeline = document.createElement('div');
-  timeline.setAttribute('class', 'box-feed flex');
+  timeline.setAttribute('class', 'box-feed flex column');
   timeline.innerHTML = `
     <header class="header-feed flex"> 
-      <div>
+      <picture>
         <img src="#" class="user-perfil-img-feed" alt="user">
-      </div>  
-      <div>
+      </picture>  
+      <picture>
         <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
-      </div>   
+      </picture>   
       <nav id="nav-options" class="nav-options" aria-expanded="false">
         <button id="btn-mobile" class="btn-mobile flex">
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li><button class="link btn-log-out" id="btn-log-out"</button></li>
+          <li><button class="link btn-log-out" id="btn-log-out"</button>Sair</li>
         </ul>
       </nav>
     </header>
-    <main class="main-post flex">
-      <section class="section-feed flex" id="section-feed">
+    <main class="main-post flex column">
+      <section class="section-feed flex column" id="section-feed">
       </section>
       <form action="" method="post">
         <input type="text" id="input-post" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
@@ -76,12 +76,12 @@ export const feed = () => {
     console.log(post.day);
     const date = new Date(post.day.seconds * 1000);
     const timelinePost = document.createElement('div');
-    timelinePost.setAttribute('class', 'box-post flex');
+    timelinePost.setAttribute('class', 'box-post flex column');
     timelinePost.innerHTML = `
         <div class="informations-user flex">
           <div class="photo-name-post flex">
             <figure class="post-img-user" ><img src="" alt=""></figure>
-            <div class="name-modifie-status flex">
+            <div class="name-modifie-status flex column">
               <p class="post-name-user">User</p>
               <div class="message-modified-post">
                 <p class="post-modified"></p>
@@ -98,7 +98,7 @@ export const feed = () => {
             </ul>
           </nav>
         </div>
-        <div class="post-text-id flex" data-postid="${onePost.id}">
+        <div class="post-text-id flex column" data-postid="${onePost.id}">
           <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
           <p class="post-text">${post.message}</p>
         </div>
@@ -109,13 +109,18 @@ export const feed = () => {
     postsElement.prepend(timelinePost);
   })).catch((error) => console.log(error));
 
-  if (user) {
-    return timeline;
-  }
-  const messageWithoutLogin = document.createElement('div');
-  messageWithoutLogin.setAttribute('class', 'message-without-user');
-  messageWithoutLogin.innerHTML = `
-    <p class="without-user">Tente fazer o login para ver o feed!</p>
-    `;
-  return messageWithoutLogin;
+  // if (user) {
+  return timeline;
+  // }
+  // const messageWithoutLogin = document.createElement('div');
+  // messageWithoutLogin.setAttribute('class', 'message-without-user flex column');
+  // messageWithoutLogin.innerHTML = `
+  //   <picture>
+  //     <img class="logo-img-feed-user-message" src="../../img/kfandomKF.svg" alt="Logo">
+  //   </picture>
+  //   <p class="without-user">Tente fazer o login para ver o feed!</p>
+  //   <p class="without-user">
+  //     <a class="link-login" href="#login" />Me redirecione para o login!</a></p>
+  //   `;
+  // return messageWithoutLogin;
 };

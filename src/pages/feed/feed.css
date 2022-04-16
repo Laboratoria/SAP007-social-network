@@ -1,10 +1,18 @@
+.body {
+  width: 100%;
+  height: 100%;
+}
+
 .flex {
   display: flex;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .box-feed {
   width: 100%;
-  flex-direction: column;
 }
 
 .header-feed {
@@ -117,6 +125,11 @@
   margin-top: 5px;
 }
 
+.logo-img-feed-user-message {
+  width: 200px;
+  height: 200px;
+}
+
 /* screen and (min-width: 320px) { */
 
 .nav-options {}
@@ -125,22 +138,20 @@
 
 .menu-list {}
 
-.link {}
-
-.main-post {
-  flex-direction: column;
+.btn-log-out {
+  width: 100px;
 }
+
+.main-post {}
 
 .section-feed {
   margin-top: 80px;
   width: 100%;
-  flex-direction: column;
   justify-content: center;
 }
 
 .box-post {
   width: 100%;
-  flex-direction: column;
 }
 
 .informations-user {
@@ -162,7 +173,6 @@
 }
 
 .name-modifie-status {
-  flex-direction: column;
   margin: 4px 0px 4px 5px;
 }
 
@@ -185,9 +195,7 @@
 
 .modifie {}
 
-.post-text-id {
-  flex-direction: column;
-}
+.post-text-id {}
 
 .post-date {
   text-align: center;
@@ -210,5 +218,17 @@
 .post-like {}
 
 .post-comment {}
+
+.message-without-user {
+  margin-top: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.without-user {
+  font-size: 20px;
+
+}
 
 /* } */
