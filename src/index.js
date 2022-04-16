@@ -6,9 +6,6 @@ import { createLogin } from './pages/register/page-register.js';
 
 const main = document.getElementById('root');
 
-// main.innerHTML = '';
-// main.appendChild(pageLogin());
-
 const init = () => {
   switch (window.location.hash) {
     case '#createLogin':
@@ -24,7 +21,6 @@ const init = () => {
 
 const eventHash = () => {
   window.addEventListener('hashchange', () => {
-    console.log(window.location.hash);
     main.innerHTML = '';
     init();
   });

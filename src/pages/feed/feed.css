@@ -1,23 +1,33 @@
+.body {
+  width: 100%;
+  height: 100%;
+}
+
 .flex {
   display: flex;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .box-feed {
   width: 100%;
-  flex-direction: column;
 }
 
 .header-feed {
   flex-direction: row;
   justify-content: space-between;
-  background: var(--header);
+  background: var(--light-yellow);
   height: 70px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
   border-bottom: 1px solid;
-  border-color: var(--orange);
+  border-color: var(--mustard);
 }
 
 .menu .configs-post {
@@ -31,7 +41,7 @@
 }
 
 .link:hover .btn-configs:hover {
-  background: var(--orange);
+  background: var(--mustard);
 }
 
 .link .btn-config {
@@ -44,14 +54,14 @@
   width: 50%;
   top: 68px;
   right: 0;
-  background: var(--header);
+  background: var(--light-yellow);
   box-shadow: -1rem 0rem 3rem var(--shadowheader);
   transition: .6s;
   height: 0px;
   z-index: 1000;
   visibility: hidden;
   overflow-y: hidden;
-  border: 0px 1px 1px 1px solid var(--orange);
+  border: 0px 1px 1px 1px solid var(--mustard);
 
 }
 
@@ -108,13 +118,21 @@
 }
 
 .user-perfil-img-feed {
-  margin-top: 25px;
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 .logo-img-feed {
   width: 50px;
   height: 50px;
   margin-top: 5px;
+}
+
+.logo-img-feed-user-message {
+  width: 200px;
+  height: 200px;
 }
 
 /* screen and (min-width: 320px) { */
@@ -125,22 +143,20 @@
 
 .menu-list {}
 
-.link {}
-
-.main-post {
-  flex-direction: column;
+.btn-log-out {
+  width: 100px;
 }
+
+.main-post {}
 
 .section-feed {
   margin-top: 80px;
   width: 100%;
-  flex-direction: column;
   justify-content: center;
 }
 
 .box-post {
   width: 100%;
-  flex-direction: column;
 }
 
 .informations-user {
@@ -158,11 +174,9 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background: red;
 }
 
 .name-modifie-status {
-  flex-direction: column;
   margin: 4px 0px 4px 5px;
 }
 
@@ -185,9 +199,7 @@
 
 .modifie {}
 
-.post-text-id {
-  flex-direction: column;
-}
+.post-text-id {}
 
 .post-date {
   text-align: center;
@@ -202,7 +214,7 @@
   width: 100%;
   height: 30px;
   border-bottom: 1px solid;
-  border-color: var(--orange);
+  border-color: var(--mustard);
   padding: 4%;
 }
 
@@ -210,5 +222,17 @@
 .post-like {}
 
 .post-comment {}
+
+.message-without-user {
+  margin-top: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.without-user {
+  font-size: 20px;
+
+}
 
 /* } */
