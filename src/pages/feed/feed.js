@@ -1,14 +1,22 @@
 import {
-  createPost, getAllPosts, authLogOut,
+  createPost, getAllPosts, authLogOut, getUser, generateIdPost,
 } from './controll.js';
 
 export const feed = () => {
-  const timeline = document.createElement('div');
-  timeline.setAttribute('class', 'box-feed flex column');
-  timeline.innerHTML = `
+  const user = getUser();
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-options');
+    nav.classList.toggle('active');
+  }
+
+  if (user) {
+    const timeline = document.createElement('div');
+    timeline.setAttribute('class', 'box-feed flex column');
+    timeline.innerHTML = `
     <header class="header-feed flex"> 
       <picture>
-        <img src="#" class="user-perfil-img-feed" alt="user">
+        <img src="${user.photoURL}" class="user-perfil-img-feed" alt="user">
       </picture>  
       <picture>
         <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
@@ -31,60 +39,57 @@ export const feed = () => {
       </form>
     </main>   
       `;
-  const btnMobile = timeline.querySelector('#btn-mobile');
-  const btnPost = timeline.querySelector('#btn-post');
-  const btnLogOut = timeline.querySelector('#btn-log-out');
+    const btnMobile = timeline.querySelector('#btn-mobile');
+    const btnPost = timeline.querySelector('#btn-post');
+    const btnLogOut = timeline.querySelector('#btn-log-out');
 
-  function toggleMenu() {
-    const nav = document.getElementById('nav-options');
-    nav.classList.toggle('active');
-  }
-  btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('click', toggleMenu);
 
-  btnLogOut.addEventListener('click', (e) => {
-    e.preventDefault();
-    authLogOut().then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      console.log(error);
-      // An error happened.
+    btnLogOut.addEventListener('click', (e) => {
+      console.log('entrei');
+      e.preventDefault();
+      authLogOut().then(() => {
+        window.location.hash = '#login';
+      }).catch((error) => {
+        console.log(error);
+        // An error happened.
+      });
     });
-  });
 
-  btnPost.addEventListener('click', (event) => {
-    event.preventDefault();
-    const text = document.querySelector('#input-post').value;
-    const date = new Date();
-    const edit = '';
-    // const uidUser = user.uid
-    // const nameProfile =
-    // const imgProfile =
-    if (text.length !== 0) {
-      createPost(text, date, edit).then((response) => {
-        console.log(response);
-      }).catch((e) => console.error('Error adding document', e));
-    } else {
-      // innerHTML = 'Digite algo para compartilhar!';
-    }
-  });
+    btnPost.addEventListener('click', (event) => {
+      event.preventDefault();
+      const text = document.querySelector('#input-post').value;
+      const date = new Date();
+      const edited = '';
+      const uidUser = user.uid;
+      const nameProfile = user.displayName;
+      const imgProfile = user.photoURL;
+      if (text.length !== 0) {
+        createPost(text, date, edited, uidUser, nameProfile, imgProfile).then((response) => {
+          generateIdPost(response.id)
+            .then(() => console.log('Deu certo'))
+            .catch((error) => console.error(error));
+        }).catch((e) => console.error('Error adding document', e));
+      } else {
+        // innerHTML = 'Digite algo para compartilhar!';
+      }
+    });
 
-  const postsElement = timeline.querySelector('#section-feed');
+    const postsElement = timeline.querySelector('#section-feed');
 
-  getAllPosts().then((posts) => posts.docs.forEach((onePost) => {
-    console.log(onePost.id);
-    const post = onePost.data();
-    console.log(post.day);
-    const date = new Date(post.day.seconds * 1000);
-    const timelinePost = document.createElement('div');
-    timelinePost.setAttribute('class', 'box-post flex column');
-    timelinePost.innerHTML = `
+    getAllPosts().then((posts) => posts.docs.forEach((onePost) => {
+      const post = onePost.data();
+      const date = new Date(post.day.seconds * 1000);
+      const timelinePost = document.createElement('div');
+      timelinePost.setAttribute('class', 'box-post flex column');
+      timelinePost.innerHTML = `
         <div class="informations-user flex">
           <div class="photo-name-post flex">
-            <figure class="post-img-user" ><img src="" alt=""></figure>
+            <figure class="post-img-user" ><img class="post-img-user" src="${post.imgProfile}" alt="user"></figure>
             <div class="name-modifie-status flex column">
-              <p class="post-name-user">User</p>
+              <p class="post-name-user">${post.name}</p>
               <div class="message-modified-post">
-                <p class="post-modified"></p>
+                <p class="post-modified">${post.edit}</p>
               </div>
             </div>
           </div> 
@@ -93,12 +98,12 @@ export const feed = () => {
               <span id="balls" class="balls"></span>
             </button>
             <ul class="configs-post">
-              <li><button data-postid="${onePost.id}" class="remove btn-config"></button></li>
-              <li><button data-postid="${onePost.id}" class="modifie btn-config"></button></li>
+              <li><button data-id="${post.idPost}" class="remove btn-config" id="remove">Remover</button></li>
+              <li><button data-id="${post.idPost}" class="modifie btn-config" id="modifie">Editar</button></li>
             </ul>
           </nav>
         </div>
-        <div class="post-text-id flex column" data-postid="${onePost.id}">
+        <div class="post-text-id flex column">
           <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
           <p class="post-text">${post.message}</p>
         </div>
@@ -106,21 +111,26 @@ export const feed = () => {
           <button class="post-like"><img src="" alt="">Gostei</button>
           <button class="post-comment"><img src="" alt="">Comentar</button>
         </div>`;
-    postsElement.prepend(timelinePost);
-  })).catch((error) => console.log(error));
+      postsElement.prepend(timelinePost);
+    })).catch((error) => console.log(error));
 
-  // if (user) {
-  return timeline;
-  // }
-  // const messageWithoutLogin = document.createElement('div');
-  // messageWithoutLogin.setAttribute('class', 'message-without-user flex column');
-  // messageWithoutLogin.innerHTML = `
-  //   <picture>
-  //     <img class="logo-img-feed-user-message" src="../../img/kfandomKF.svg" alt="Logo">
-  //   </picture>
-  //   <p class="without-user">Tente fazer o login para ver o feed!</p>
-  //   <p class="without-user">
-  //     <a class="link-login" href="#login" />Me redirecione para o login!</a></p>
-  //   `;
-  // return messageWithoutLogin;
+    // const removeButton = timeline.querySelector('#remove');
+    // const modifieButton = timeline.querySelector('#modifie');
+
+    // removeButton.addEventListener('click',)
+
+    return timeline;
+  }
+  const messageWithoutLogin = document.createElement('div');
+  messageWithoutLogin.setAttribute('class', 'message-without-user flex column');
+  messageWithoutLogin.innerHTML = `
+    <picture>
+      <img class="logo-img-feed-user-message" src="../../img/kfandomKF.svg" alt="Logo">
+    </picture>
+    <p class="without-user">Tente fazer o login para ver o feed!</p>
+    <p class="without-user">
+      <a class="link-login" href="#login" />Me redirecione para o login!</a></p>
+    `;
+  console.log(user);
+  return messageWithoutLogin;
 };

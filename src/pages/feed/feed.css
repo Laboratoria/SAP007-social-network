@@ -18,14 +18,16 @@
 .header-feed {
   flex-direction: row;
   justify-content: space-between;
-  background: var(--header);
+  background: var(--light-yellow);
   height: 70px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
   border-bottom: 1px solid;
-  border-color: var(--orange);
+  border-color: var(--mustard);
 }
 
 .menu .configs-post {
@@ -39,7 +41,7 @@
 }
 
 .link:hover .btn-configs:hover {
-  background: var(--orange);
+  background: var(--mustard);
 }
 
 .link .btn-config {
@@ -52,14 +54,14 @@
   width: 50%;
   top: 68px;
   right: 0;
-  background: var(--header);
+  background: var(--light-yellow);
   box-shadow: -1rem 0rem 3rem var(--shadowheader);
   transition: .6s;
   height: 0px;
   z-index: 1000;
   visibility: hidden;
   overflow-y: hidden;
-  border: 0px 1px 1px 1px solid var(--orange);
+  border: 0px 1px 1px 1px solid var(--mustard);
 
 }
 
@@ -116,7 +118,10 @@
 }
 
 .user-perfil-img-feed {
-  margin-top: 25px;
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 .logo-img-feed {
@@ -169,7 +174,6 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background: red;
 }
 
 .name-modifie-status {
@@ -210,7 +214,7 @@
   width: 100%;
   height: 30px;
   border-bottom: 1px solid;
-  border-color: var(--orange);
+  border-color: var(--mustard);
   padding: 4%;
 }
 

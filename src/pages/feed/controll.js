@@ -6,21 +6,25 @@ import { bd } from '../../configurafirebase/configfirestore.js';
 import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 const auth = getAuth();
-export const user = auth.currentUser;
+
+export function getUser() {
+  const user = auth.currentUser;
+  return user;
+}
 
 export function authLogOut() {
   return signOut(auth);
 }
 
-export function createPost(text, date, userId, nameProfile) {
-  // user, uid) {
+export function createPost(text, date, edited, userId, nameProfile, imgProfile) {
   const post = addDoc(collection(bd, 'post'), {
     message: text,
     day: date,
-    edit: '',
-    id: 'att',
+    edit: edited,
+    idPost: 'att',
     userUid: userId,
     name: nameProfile,
+    imgProfile,
   });
   console.log('Document written with ID: ', post.text);
   return post;

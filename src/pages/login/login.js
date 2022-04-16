@@ -6,7 +6,7 @@ import { logar, logarGmail } from './authentication.js';
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
-  login.innerHTML = `
+  login.innerHTML = `    
       <figure class="box-slogan-page-login">
         <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
       </figure>    
@@ -14,8 +14,9 @@ export const pageLogin = () => {
           <input type="email" placeholder="seu@email.com" class="login-area" id="email-area" name="email-area" requered>
           <input type="password" placeholder="Senha" class="login-area" id="password-area" name="password-area" requered>
           <button class="btn-sign-in btn-area" id="btn-sign-in" >Entrar</button>
-          <p class="error" id = "user-error"></p>
+          
         </form>
+      <p class="error" id="user-error"></p> 
       <p class="error" id = "user-error-gmail"></p>
       <p class="text-center" >- ou -</p>
       <button class="btn-google text-center" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">Sign in with Google</button>

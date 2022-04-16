@@ -4,7 +4,7 @@
 }
 
 .form-login {
-    background-color: #D9A3D5;
+    background-color: var(--lilac);
     border-radius: 10px;
     margin: 0 auto;
     text-align: center;
@@ -12,7 +12,7 @@
 
 .login-area,
 .btn-sign-in {
-    background-color: #F7F7F7;
+    background-color: var(--off-white);
     border-radius: 10px;
     font-size: 15px;
 }
@@ -20,7 +20,7 @@
 .error {
     display: none;
     font-size: 15px;
-    color: #FF1818;
+    color: var(--red-error);
 }
 
 .text-center {
