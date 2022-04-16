@@ -3,17 +3,26 @@ export default () => {
   container.classList.add("login-page")
 
   const template = `
-  <section>
-  <h1 class="title">Faça seu login<h1>
-  <label>e-mail</label>
-  <input type="email" id="email" class="email">
-  <label>senha</label>
-  <input type="password" id="password" class="password">
-  
-  <button  class="btn-login" id="btn-login">Entrar</button>
-
-  <p><a href="#register">Cadastre-se aqui</a></p>
- </section>
+    <div class="main">
+        <div class="left">
+            <h1>nome da rede<br>A primeira rede social brasileira para colecionadores de HQ's!</h1>
+            <img src="images/bookreading.svg" alt="menina lendo um livro">
+        </div>
+        <div class="right">
+            <div class="card-login">
+                <h2>LOGIN</h2>
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" placeholder="Usuário">
+                </div>  
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" placeholder="Senha">
+                </div>     
+                <button class="botaologin">ENTRAR</button>             
+            </div>
+        </div>     
+    </div>
   `;
 
   container.innerHTML = template;
