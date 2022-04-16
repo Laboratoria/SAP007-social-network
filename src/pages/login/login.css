@@ -14,12 +14,12 @@
 .btn-sign-in {
     background-color: var(--off-white);
     border-radius: 10px;
-    font-size: 15px;
+    box-shadow: var(--black) 10px 10px 15px -8px;
 }
 
 .error {
     display: none;
-    font-size: 15px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
     color: var(--red-error);
 }
 
@@ -41,50 +41,89 @@ a:link {
     color: #C400FF;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 576px){
     .logo-icon-page-login {
         height: 25vh;
-        margin-bottom: 5%
+        margin: 3% 0;
     }
-    .form-login,
-    .btn-google {
+    .form-login {
         height: 40vh;
-        width: 70vw;
+        width: 50vw;
     }
     .login-area,
-    .btn-sign-in {
-        height: 8vh;
-        width: 60vw;
-        margin-top: 18px;
-    }
+    .btn-sign-in,
     .btn-google {
         height: 8vh;
+        width: 40vw;
+        margin-top: 7%;
+        font-size: 15px;
     }
+    .btn-google{
+      width: 50vw;
+      margin-top: 3%
+    }
+    
     .img-btn-google {
         height: 4vh;
+    }
+    .font-size{
+      font-size: 15px;
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) and (max-width: 768px) {
     .logo-icon-page-login {
-        height: 30vh;
-        margin-bottom: 8%
+        height: 35vh;
+      
     }
-    .form-login,
-    .btn-google {
-        height: 40vh;
-        width: 60vw;
+    .form-login {
+        height: 45vh;
+        width: 50vw;
     }
     .login-area,
-    .btn-sign-in {
-        height: 7vh;
+    .btn-sign-in,
+    .btn-google {
+        height: 8vh;
         width: 40vw;
         margin-top: 25px;
     }
-    .btn-google {
-        height: 8vh;
+    .btn-google{
+      width: 50vw;
+      margin-top: 3%
     }
+ 
     .img-btn-google {
         height: 4vh;
     }
+    .font-size{
+      font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .logo-icon-page-login {
+    height: 35vh;  
+}
+  .form-login {
+      height: 45vh;
+      width: 50vw;
+  }
+  .login-area,
+  .btn-sign-in,
+  .btn-google {
+      height: 8vh;
+      width: 40vw;
+      margin-top: 25px;
+  }
+  .btn-google{
+    width: 50vw;
+    margin-top: 3%
+  }
+
+  .img-btn-google {
+      height: 4vh;
+  }
+  .font-size{
+    font-size: 18px;
+  }
 }
