@@ -30,30 +30,11 @@ export const googleLogin = () => signInWithPopup(auth, provider)
     const token = credential.accessToken;
     // The signed-in user info.30
     const user = result.user;
-    // ...
   }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
-    // The email of the user's account used.
     const email = error.email;
-    // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
   });
 
-export const resetPassword = (email) => {
-return sendPasswordResetEmail(auth, email)
-  .then(() => {
-    console.log("E-mail para redefinição de senha enviado")
-
-    // Password reset email sent!
-    // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-    
-};
+export const resetPassword = (email) => sendPasswordResetEmail(auth, email);

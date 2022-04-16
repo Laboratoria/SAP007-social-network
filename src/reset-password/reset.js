@@ -1,7 +1,6 @@
 import '../firebase/firebase.js';
 import { resetPassword } from '../firebase/auth-firebase.js';
 
-
 export const reset = () => {
   const resetCreate = document.createElement('div');
   const container = `
@@ -13,19 +12,17 @@ export const reset = () => {
     </div>
     <div class="campo-form">
     <label for="emailUsuario">Email:</label>
-      <div class="reset-input">
-        <input type="email" id="email" class="reset-input-layout inputNames" placeholder="Digite  o seu email">
+      <form class="reset-input">
+        <input type="email" id="email" class="reset-input-layout inputNames" placeholder="Digite  o seu email" required>
       </div>
       <div id="botao-recuperar">
       <div class="container-btn">
         <button id="btn-reset" class="button-reset button">Enviar</button>
-      </div>
+      </form>
       </div>
       <p id="feedback"></p>
     </section>
     `;
-
-
 
   resetCreate.innerHTML = container;
   // const registerEmail = resetCreate.querySelector('#btn-recover');
@@ -49,37 +46,26 @@ export const reset = () => {
   //       .catch((error) => {
   //           if (error.code === 'auth/wrong-password') {
   //             msgErro.innerHTML = 'Email enviado';
-   btnLinkRecover.addEventListener('click', (e) => {
+  btnLinkRecover.addEventListener('click', (e) => {
     e.preventDefault();
     const email = inputEmail.value;
-    console.log(email)
+    console.log(email);
     resetPassword(email)
       .then(() => {
-        console.log("E-mail para redefinição de senha enviado")
-        feedback.innerHTML="E-mail para redefinição de senha enviado"
-        // error('E-mail para redefinição de senha enviado');
-        // navigateTo('/');
-      })
-
-    .catch((error) => {
-      const errorCode = error.code;
-      switch (errorCode) {
-        case 'auth/invalid-email':
-          feedback.innerHTML='Email inválido';
-
-          break;
-        case 'auth/user-not-found':
-          feedback.innerHTML='Não será possível recuperar sua senha.';
-          break;
-        default:
-          feedback.innerHTML='Não será possível recuperar sua senha.';
-      }
-    });
-    const errorMessage = error.message;
-    return errorMessage;
+        feedback.innerHTML = 'E-mail para redefinição de senha enviado';
+      }).catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+          case 'auth/invalid-email':
+            feedback.innerHTML = 'Email inválido';
+            break;
+          case 'auth/user-not-found':
+            feedback.innerHTML = 'Não será possível recuperar sua senha.';
+            break;
+          default:
+            feedback.innerHTML = 'Não será possível recuperar sua senha.';
+        }
+      });
   });
   return resetCreate;
-
-
-  
 };

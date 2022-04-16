@@ -39,3 +39,10 @@ p > span {
   width: 2em;
   clip-path: circle(50%);
 }
+.feedback{
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  color: red;
+  background-color: #f9f9f9;
+}
