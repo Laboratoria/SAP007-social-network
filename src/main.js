@@ -9,8 +9,6 @@ function initPages() {
     section.innerHTML = "";
     switch (window.location.hash) {
       case " ":
-        section.appendChild(login.createLogin());
-        break;
       case "#login":
         section.appendChild(login.createLogin());
         break;

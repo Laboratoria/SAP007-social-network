@@ -1,7 +1,7 @@
 const header = {
   createHeader: function () {
-    const container = document.getElementById("container-general");
-    container.innerHTML = `
+
+    const header = `
     <header id="header">
       <a href="#login">
         <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
@@ -36,7 +36,7 @@ const header = {
       </nav>
     </header>
     `;
-    return container;
+    return header;
   },
 };
 
