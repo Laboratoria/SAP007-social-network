@@ -6,6 +6,10 @@ O objetivo desse projeto era desenvolver um SPA (Single Page Application - Aplic
 Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
 invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
 viver sem elas.
+
+![Redes Sociais](thumb.png)
+
+
 Há redes sociais de todo tipo para todos os tipos de interesse, pensando nisso criamos o Mírame uma rede social para todos os apaixonados por filmes e séries, uma comunidade feita para compartilhar resenhas/reviews, dicas e comentar sobre os últimos lançamentos. O principal objetivo é promover comunicação e interações entre os usuários. Utilizando as experiências de outros usuários para ajudar você a escolher o que assistir a seguir. 
 
 ## 3. Pesquisa
@@ -53,7 +57,7 @@ Com base na pesquisa fizemos nossas histórias de usuário, ao todo temos 3.
 Novos usuários podem se cadastrar na rede através do cadastro do próprio site ou pelo login do Google; Usuários já cadastrados podem acessar a plataforma através de email e senha ou pelo login do Google; No feed de postagens é possível visualizar todas as postagens, tanto do usuário logado quanto de outros usuários, ordenadas das mais recentes às mais antigas. O usuário pode publicar texto, e também podem deletar seus posts após publicado; Os usuários podem dar like ou desfazê-lo.
 
 ## 6 Protótipos
-O protótipo foi feito utilizando o Figma, você pode acessa-lo clicando aqui
+O protótipo foi feito utilizando o Figma, você pode acessa-lo clicando <a href="https://www.figma.com/file/1qKqJVctzn43g0VXAty1fi/Mirame---Social-Network?node-id=0%3A1">AQUI</a>
 
 ### Página inicial
 ![Protótipo 01](src/img-readme/Home%20-%20Mobile.png)
