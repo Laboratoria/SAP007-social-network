@@ -40,6 +40,7 @@ export const reset = () => {
     console.log(email);
     resetPassword(email)
       .then(() => {
+        feedback.classList.add('feedback-send');
         feedback.innerHTML = 'E-mail para redefinição de senha enviado';
       }).catch((error) => {
         const errorCode = error.code;

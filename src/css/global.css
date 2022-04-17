@@ -123,3 +123,7 @@ body {
   margin-top: 2em;
   color: red;
 }
+
+#feedback.feedback-send{
+  color: green;
+}
