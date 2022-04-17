@@ -1,0 +1,21 @@
+@media (min-width: 600px) and (max-width: 800px) {
+  .nav-logo {
+    width: 8em;
+  }
+  .button {
+    padding: 8px 40px;
+    font-size: 15px;
+  }
+  .text-content {
+    margin: 3em 2em 2em;
+  }
+  .text-content p {
+    font-size: large;
+    margin: 2em 3em;
+  }
+
+  .inputNames {
+    padding: 15px 5px;
+    margin: 0.5em 5em;
+  }
+}

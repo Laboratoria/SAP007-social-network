@@ -1,0 +1,41 @@
+.home-buttons {
+  justify-content: space-evenly;
+  margin-top: 2em;
+  flex-direction: row;
+}
+
+.text-content {
+  margin: 2em 1em 2em;
+}
+
+p > span {
+  color: var(--pink);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.home-image {
+  width: 13em;
+  margin: 2em auto;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 0.5em;
+}
+
+.image-github {
+  width: 2em;
+  clip-path: circle(50%);
+}
