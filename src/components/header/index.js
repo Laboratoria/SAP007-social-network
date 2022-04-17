@@ -27,7 +27,7 @@ const header = {
             </a>
           </li>
           <li class="menu-list">
-            <a href="/#">
+            <a href="/#profile">
               <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
               <p class="menu-text">Meu Perfil</p>
             </a>
