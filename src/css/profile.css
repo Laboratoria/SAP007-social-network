@@ -9,16 +9,22 @@
 
 .foto-perfil {
     margin: 0 auto;
-    height: 100px;
-    width: 100px;
+    height: 160px;
+    width: 160px;
+    border-radius: 5px;
     background-color: var(--color-dark-yellow);
 }
 
 .linha, .linha label, .linha input {
     width: 100%;
     display: block;
+    border: none;
 }
 
 .linha label {
     text-align: left;
+}
+
+.linha input {
+    background-color: var(--color-dark-yellow)
 }
