@@ -1,6 +1,6 @@
-export default () => {
-  const template = document.createElement("div");
-  template.classList.add("login-page")
+export default function login() {
+  const container = document.createElement("div");
+  container.classList.add("login-page")
 
   template.innerHTML = `
     <div class="main">
@@ -21,10 +21,18 @@ export default () => {
                 </div>     
                 <button class="botaologin">ENTRAR</button>             
             </div>
+            <button id="register">Cadastre-se aqui</button>
         </div>     
     </div>
   `;
-  return template
+
+  const registerButton = teste.querySelector("#register");
+  registerButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.hash = "register";
+  });
+
+  return template;
 }
 
 
