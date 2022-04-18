@@ -1,8 +1,8 @@
 export default () => {
-  const container = document.createElement("div");
-  container.classList.add("login-page")
+  const template = document.createElement("div");
+  template.classList.add("login-page")
 
-  const template = `
+  template.innerHTML = `
     <div class="main">
         <div class="left">
             <h1>nome da rede<br>A primeira rede social brasileira para colecionadores de HQ's!</h1>
@@ -24,14 +24,8 @@ export default () => {
         </div>     
     </div>
   `;
-
-  container.innerHTML = template;
-
-  return container
+  return template
 }
-
-
-
 
 
 
