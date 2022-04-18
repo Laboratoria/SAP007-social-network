@@ -29,6 +29,7 @@ function initPages() {
 }
 
 window.addEventListener("load", () => {
-  section.appendChild(login.createLogin());
+  section.appendChild(profile.createProfile());
+  // section.appendChild(login.createLogin());
   initPages();
 });

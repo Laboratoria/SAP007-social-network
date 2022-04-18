@@ -5,8 +5,7 @@ import {
 
 const login = {
   createLogin: function () {
-    const container = document.createElement("div");
-    container.setAttribute("id", "container-general");
+    const container = document.createElement("login");
     container.innerHTML = `
     <form id="user-form">
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">

@@ -3,7 +3,7 @@ const header = {
 
     const header = `
     <header id="header">
-      <a href="#login">
+      <a href="#timeline">
         <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
       </a>
       <nav id="menu">
@@ -35,6 +35,7 @@ const header = {
         </ul>
       </nav>
     </header>
+    <div style="height: 80px"></div>
     `;
     return header;
   },
