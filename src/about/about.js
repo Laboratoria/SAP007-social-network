@@ -1,6 +1,7 @@
 export default () => {
   const container = document.createElement('div');
-
+  const link = document.getElementById('stylePages');
+  link.href = 'about/about.css';
   const template = `
     <div class="text-about">
     <p class="text-about">Sobre a plataforma:</p>

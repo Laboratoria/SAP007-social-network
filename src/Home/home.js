@@ -3,7 +3,7 @@ import '../firebase/firebaseconfig.js';
 export default () => {
   const containerHome = document.createElement('div');
   const link = document.getElementById('stylePages');
-  link.href = 'home/home.Css';
+  link.href = 'Home/home.css';
   const templateHome = `
   
   <h1 class='home-title'>Bem-Vindo ao Eco Work Planet</h1>
