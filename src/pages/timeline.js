@@ -1,6 +1,7 @@
 import "../lib/firebase.js";
 import { userLogout } from "../lib/authentication.js";
-import { publicatedPost } from "../lib/firestore.js";
+import { publicatedPost, getPost, db } from "../lib/firestore.js";
+import card  from "../components/card.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -41,21 +42,14 @@ export default () => {
   const valueText = container.querySelector(".text");
   const logout = container.querySelector(".logout");
   const data = new Date();
-  // function order(a, b){
-  // return a.data - b.data;
-  // }
   buttonPost.addEventListener("click", async (e) => {
     e.preventDefault();
     post.innerHTML += `<div class="publicated">${valueTitle.value.toUpperCase()}<br>${
       valueText.value
     }</div>`;
-    let arrPost = [];
-    arrPost = valueTitle.value + valueText.value + data;
     const title = valueTitle.value;
     const text = valueText.value;
     const id = await publicatedPost(title, text);
-    console.log(id);
-    // arrPost.sort(order());
     valueTitle.value = "";
     valueText.value = "";
   });
@@ -66,12 +60,26 @@ export default () => {
       window.location.hash = "";
     });
   });
-
-  // getPosts()
-  // .then((snapshot) => {
-  // const posts = snapshot.docs.map((doc) => doc.data());
-  // addPostsTpScreen(posts);
-  // });
+  
+    // function showAllPosts(){
+    //   db
+    //   .collection("posts")
+    //   .get()
+    //   .then(snapshot => {
+    //     console.log(snapshot);
+    //   })
+    // }
+  const showAllPosts = async () => {
+    const allPosts = await getPost();
+    console.log(allPosts);
+    allPosts.map(item => {
+      console.log(item);
+        const postElement = card(item);
+        console.log(postElement);
+        post.prepend(postElement);
+    })
+  }
+showAllPosts();
 
   return container;
 };

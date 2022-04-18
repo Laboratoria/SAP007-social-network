@@ -7,7 +7,7 @@ import {
 
 import { app } from "./firebase.js";
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export const publicatedPost = async (valueTitle, valueText, data) => {
   try {
@@ -22,4 +22,15 @@ export const publicatedPost = async (valueTitle, valueText, data) => {
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+};
+
+export const getPost = async () => {
+  const arrPost = [];
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  querySnapshot.forEach((doc) => {
+    const timeline = doc.data();
+    // console.log(`${doc.id} => ${doc.data()}`);
+    arrPost.push(timeline);
+  });
+  return arrPost;
 };
