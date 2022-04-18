@@ -15,7 +15,7 @@ export default function formRegister() {
           <input type="text" id="user" class="form-fields"/>
 
           <label class="label-email">E-mail</label>
-          <input type="email" id="email" class="form-fields"/>
+          <input type="email" id="email" class="form-fields" required/>
 
           <label class="label-password">Senha</label>
           <input type="password" id="password-register" class="form-fields" autocomplete="on" required/>
@@ -33,7 +33,7 @@ export default function formRegister() {
     e.preventDefault();
     registerUser(email.value, password.value)
       .then(() => {
-          //aqui vai a função de salvar o que foi registrado
+          alert("Usuário cadastrado com sucesso")
         }).catch((error) => {
           //coloca as mensagens de erro
         });   

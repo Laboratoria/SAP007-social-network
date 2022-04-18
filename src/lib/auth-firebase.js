@@ -4,8 +4,6 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import { auth } from "./config-firebase.js";
-//Criar uma conta
-
 
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
