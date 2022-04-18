@@ -2,7 +2,7 @@ export default function login() {
   const container = document.createElement("div");
   container.classList.add("login-page")
 
-  template.innerHTML = `
+  container.innerHTML = `
     <div class="main">
         <div class="left">
             <h1>nome da rede<br>A primeira rede social brasileira para colecionadores de HQ's!</h1>
@@ -26,13 +26,13 @@ export default function login() {
     </div>
   `;
 
-  const registerButton = teste.querySelector("#register");
+  const registerButton = container.querySelector("#register");
   registerButton.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.hash = "register";
   });
 
-  return template;
+  return container;
 }
 
 

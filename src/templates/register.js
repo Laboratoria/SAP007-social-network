@@ -1,10 +1,10 @@
 import { registerUser } from "/lib/auth-firebase.js"
 
 export default function formRegister() {
-  const container = document.createElement("div");
-  container.className = "title-register"
+  const registerPage = document.createElement("div");
+  registerPage.classList.add("title-register")
 
-  container.innerHTML = `
+  registerPage.innerHTML = `
     <h1 class="title-register">Faça seu cadastro</h1>
       <form class="myForm">
         <div class="information">
@@ -25,20 +25,26 @@ export default function formRegister() {
       </form>
   `;
 
-  const email = container.querySelector("#email");
-  const password = container.querySelector("#password-register");
-  const submitButton = container.querySelector("#btn-register");
+  const email = registerPage.querySelector("#email");
+  const password = registerPage.querySelector("#password-register");
+  const submitButton = registerPage.querySelector("#btn-register");
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     registerUser(email.value, password.value)
       .then(() => {
-          alert("Usuário cadastrado com sucesso")
-        }).catch((error) => {
-          //coloca as mensagens de erro
-        });   
+        window.location.hash = "home";
+      }).catch((error) => {
+        if (error.code === "auth/email-already-exists") {
+          alert("E-mail já cadastrado");
+        } else if (error.code == "auth/invalid-email") {
+          alert('Digite um e-mail válido');
+        } else if (error.code === "auth/invalid-password") {
+          alert("A Senha precisa ter no minimo 6 caracteres");
+        }
+      });
   });
 
-  return container;
+  return registerPage;
 
 }
