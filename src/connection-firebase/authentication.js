@@ -14,8 +14,8 @@ export const registerNewUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      const uid = userCredential.uid;
       console.log("Cadastrou novo usuário!");
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -31,6 +31,7 @@ export function authUserLabFriends(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
       const uid = userCredential.uid;
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -73,7 +74,6 @@ export function forgotPassword(email) {
       console.log(errorCode, errorMessage);
     });
 }
-
 
 // Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
 export function authChange(auth) {
