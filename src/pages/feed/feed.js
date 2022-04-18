@@ -1,6 +1,10 @@
 import {
-  createPost, getAllPosts, authLogOut, getUser, generateIdPost,
+  createPost, getAllPosts, authLogOut, getUser, generateIdPost, // consultDB,
 } from './controll.js';
+
+import {
+  postElement,
+} from '../../components/timelinepost.js';
 
 export const feed = () => {
   const user = getUser();
@@ -11,6 +15,7 @@ export const feed = () => {
   }
 
   if (user) {
+    console.log(user);
     const timeline = document.createElement('div');
     timeline.setAttribute('class', 'box-feed flex column');
     timeline.innerHTML = `
@@ -50,11 +55,13 @@ export const feed = () => {
       e.preventDefault();
       authLogOut().then(() => {
         window.location.hash = '#login';
+        document.location.reload(true);
       }).catch((error) => {
         console.log(error);
-        // An error happened.
       });
     });
+
+    const postsElement = timeline.querySelector('#section-feed');
 
     btnPost.addEventListener('click', (event) => {
       event.preventDefault();
@@ -64,10 +71,26 @@ export const feed = () => {
       const uidUser = user.uid;
       const nameProfile = user.displayName;
       const imgProfile = user.photoURL;
-      if (text.length !== 0) {
+      if (text.length !== 0 && text !== ' ') {
         createPost(text, date, edited, uidUser, nameProfile, imgProfile).then((response) => {
+          console.log(response);
+          const objeto = {
+            message: text,
+            day: {
+              seconds: date.getTime() / 1000,
+            },
+            edit: edited,
+            idPost: response.id,
+            userUid: uidUser,
+            name: nameProfile,
+            imgProfile,
+          };
+          const newPostElement = postElement(objeto);
+          postsElement.prepend(newPostElement);
           generateIdPost(response.id)
-            .then(() => console.log('Deu certo'))
+            .then(() => {
+              console.log('Deu certo');
+            })
             .catch((error) => console.error(error));
         }).catch((e) => console.error('Error adding document', e));
       } else {
@@ -75,49 +98,31 @@ export const feed = () => {
       }
     });
 
-    const postsElement = timeline.querySelector('#section-feed');
+    getAllPosts().then((posts) => {
+      let post;
+      posts.docs.forEach((onePost) => {
+        post = onePost.data();
+        const timelinePost = postElement(post);
+        postsElement.prepend(timelinePost);
+      });
+    }).catch((error) => console.log(error));
 
-    getAllPosts().then((posts) => posts.docs.forEach((onePost) => {
-      const post = onePost.data();
-      const date = new Date(post.day.seconds * 1000);
-      const timelinePost = document.createElement('div');
-      timelinePost.setAttribute('class', 'box-post flex column');
-      timelinePost.innerHTML = `
-        <div class="informations-user flex">
-          <div class="photo-name-post flex">
-            <figure class="post-img-user" ><img class="post-img-user" src="${post.imgProfile}" alt="user"></figure>
-            <div class="name-modifie-status flex column">
-              <p class="post-name-user">${post.name}</p>
-              <div class="message-modified-post">
-                <p class="post-modified">${post.edit}</p>
-              </div>
-            </div>
-          </div> 
-          <nav class="nav-remove-modifie flex">
-            <button class="btn-config-post">
-              <span id="balls" class="balls"></span>
-            </button>
-            <ul class="configs-post">
-              <li><button data-id="${post.idPost}" class="remove btn-config" id="remove">Remover</button></li>
-              <li><button data-id="${post.idPost}" class="modifie btn-config" id="modifie">Editar</button></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="post-text-id flex column">
-          <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
-          <p class="post-text">${post.message}</p>
-        </div>
-        <div class="like-comment flex">
-          <button class="post-like"><img src="" alt="">Gostei</button>
-          <button class="post-comment"><img src="" alt="">Comentar</button>
-        </div>`;
-      postsElement.prepend(timelinePost);
-    })).catch((error) => console.log(error));
+    // const buttonsPostConfig = {
+    //   removeButton() { timeline.querySelector('.remove'); },
+    //   modifieButton() { timeline.querySelector('.modifie'); },
+    // };
 
-    // const removeButton = timeline.querySelector('#remove');
-    // const modifieButton = timeline.querySelector('#modifie');
+    // modifieButton.addEventListener('click', (e) => {
+    //   const { target } = e;
+    //   const dataId = target.dataset.id;
 
-    // removeButton.addEventListener('click',)
+    // })
+
+    // removeButton.addEventListener('click', (e) => {
+    //   const { target } = e;
+    //   const dataId = target.dataset.id;
+    //   removePost(dataId).then((a) => console.log(a)).catch((error) => console.log(error));
+    // });
 
     return timeline;
   }

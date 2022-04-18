@@ -9,7 +9,7 @@ export function logar(email, password) {
 }
 
 export function logarGmail() {
-  return setPersistence(auth, inMemoryPersistence)
+  return setPersistence(auth, browserSessionPersistence)
     .then(() => {
       const provider = new GoogleAuthProvider();
       return signInWithPopup(auth, provider);

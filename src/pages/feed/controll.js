@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line
-import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 import { bd } from '../../configurafirebase/configfirestore.js';
 // eslint-disable-next-line
 import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
@@ -51,8 +51,19 @@ export function editPost(idPost, newContent) {
   return editedPost;
 }
 
+export function removePost(idPost) {
+  const deletePost = deleteDoc(doc(bd, 'post', idPost));
+  return deletePost;
+}
+
 export function getAllPosts() {
   const orderFirestore = query(collection(bd, 'post'), orderBy('day'));
   const postsFirestore = getDocs(orderFirestore);
   return postsFirestore;
 }
+
+// export function consultDB(idPost) {
+//   const docRef = doc(bd, 'post', idPost);
+//   const docSnap = getDoc(docRef);
+//   return docSnap;
+// }
