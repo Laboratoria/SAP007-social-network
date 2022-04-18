@@ -1,19 +1,29 @@
 export default function login() {
-  const teste = document.createElement("div");
-  teste.classList.add("login-page")
+  const container = document.createElement("div");
+  container.classList.add("login-page")
 
-  teste.innerHTML = `
-  <section>
-  <h1 class="title">Faça seu login<h1>
-  <label>e-mail</label>
-  <input type="email" id="emailLogin" class="email">
-  <label>senha</label>
-  <input type="password" id="passwordLogin" class="password">
-  
-  <button  class="btn-login" id="btn-login">Entrar</button>
-
-  <button id="register">Cadastre-se aqui</button>
- </section>
+  const template = `
+    <div class="main">
+        <div class="left">
+            <h1>nome da rede<br>A primeira rede social brasileira para colecionadores de HQ's!</h1>
+            <img src="images/bookreading.svg" alt="menina lendo um livro">
+        </div>
+        <div class="right">
+            <div class="card-login">
+                <h2>LOGIN</h2>
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" placeholder="Usuário">
+                </div>  
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" placeholder="Senha">
+                </div>     
+                <button class="botaologin">ENTRAR</button>             
+            </div>
+            <button id="register">Cadastre-se aqui</button>
+        </div>     
+    </div>
   `;
 
   const registerButton = teste.querySelector("#register");
@@ -22,7 +32,7 @@ export default function login() {
     window.location.hash = "register";
   });
 
-  return teste;
+  return template;
 }
 
 
