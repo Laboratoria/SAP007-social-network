@@ -1,7 +1,8 @@
 // aqui exportaras las funciones que necesites
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
   export function userLogin(email, password) {
     return signInWithEmailAndPassword(auth, email, password).then(
@@ -13,6 +14,14 @@ const auth = getAuth();
   };
 
 
+  export function userGoogle () {
+    return signInWithPopup(auth, provider)
+    .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    return user
+  })}
 
 
 

@@ -5,15 +5,18 @@ import feed from "./pages/feed.js"
 
 const main = document.querySelector("#root")
 
-const init = () =>{ window.addEventListener("hashchange", () =>{
-  switch (window.location.hash) {
+const init = () =>{
+    window.addEventListener("hashchange", () =>{
+    switch (window.location.hash) {
     case "": main.appendChild(login());
       break;
-    case "#feed": main.appendChild(feed());
+    case "#login": main.appendChild(login());
       break;
+      case "#feed": main.appendChild(feed());
+      break;
+
       default: main.appendChild(login());
   }
-
 
 })}
 
