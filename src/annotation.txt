@@ -1,0 +1,7 @@
+
+- Criar modal para senha
+- Firebase na página register
+- arrumar header, fazer modal para perfil (sair e visualizar perfil)
+- ver como fazer componentes (isa)
+
+

@@ -3,9 +3,11 @@ const header = {
     const container = document.getElementById("container-general");
     container.innerHTML = `
     <header id="header">
-      <a href="#login">
-        <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
-      </a>
+      <h1>
+        <a href="#login">
+          <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
+        </a>
+      </h1
       <nav id="menu">
         <ul>
           <li class="menu-list">

@@ -1,10 +1,13 @@
+import { logout } from "../connection-firebase/authentication.js";
 
 const timeline = {
   createTimeline: function () {
-   
     const container = document.createElement("main");
     container.setAttribute("id", "main-container");
     container.innerHTML = `
+<button type="button" id="button-logout">
+  SAIR
+</button>
 <article class="user-post">
   <section class="post-timeline">
     <header class="post-header">
@@ -115,6 +118,16 @@ const timeline = {
   </section>
 </article>
   `;
+
+    //mudar essa função para o header
+    const buttonLogout = container.querySelector("#button-logout");
+    buttonLogout.addEventListener("click", (e) => {
+      e.preventDefault();
+      logout().then(() => {
+        window.location.hash = "#login";
+      });
+    });
+
     return container;
   },
 };
