@@ -4,6 +4,8 @@ import { signinPassword, googleLogin } from '../firebase/authentication.js';
 export const login = () => {
   const containerLogin = document.createElement('div');
   containerLogin.setAttribute('class', 'container');
+  const link = document.getElementById('stylePages');
+  link.href = 'login/login.css';
   const templateLogin = `
   <form class="input-login">
   <p>Login</p>
