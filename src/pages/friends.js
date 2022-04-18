@@ -1,0 +1,2 @@
+//função: createFriendsList()
+

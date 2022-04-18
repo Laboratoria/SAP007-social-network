@@ -16,13 +16,11 @@ export const registerNewUser = (email, password) => {
       const user = userCredential.user;
       const uid = userCredential.uid;
       console.log("Cadastrou novo usuário!");
-      //O que fazer?
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log("Não cadastrou novo usuário!");
-      //O que fazer?
     });
 };
 
@@ -31,12 +29,12 @@ export function authUserLabFriends(email, password) {
   console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("Usuário Logou!");
       const user = userCredential.user;
       const uid = userCredential.uid;
     })
     .catch((error) => {
-      console.log(error, error.code, error.message);
+      const errorCode = error.code;
+      const errorMessage = error.message;
     });
 }
 
@@ -45,38 +43,37 @@ export function authUserWithGoogle() {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user;
-      // ...
     })
     .catch((error) => {
-      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
       const email = error.email;
-      // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
       console.log(errorCode, errorMessage);
     });
 }
 
 // Desconectando usuário
-export function authOut(auth) {
-  return signOut(auth)
-    .then(() => {
-      console.log("Usuário deslogou!");
-    })
-    .catch(console.log("Usuário não deslogou!"));
+export function logout() {
+  return signOut(auth);
 }
 
-//Como desconectar?
-//Como descobrir que o usuário está logado?
-//Como permanecer logado?
+//Para enviar o email de redefinição
+export function forgotPassword(email) {
+  return sendPasswordResetEmail(auth, email)
+    .then(() => {
+      console.log("consegui");
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+    });
+}
+
 
 // Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
 export function authChange(auth) {
@@ -86,12 +83,5 @@ export function authChange(auth) {
       //callback (uid !== null)
     } else {
     }
-  });
-}
-
-//Para enviar o email de redefinição
-export function forgotPassword(email) {
-  return sendPasswordResetEmail(auth, email).then(() => {
-    console.log("Enviou senha por email!");
   });
 }

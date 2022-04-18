@@ -1,0 +1,16 @@
+
+
+- Verificar os erros
+
+
+- arrumar header, fazer modal para perfil (sair e visualizar perfil)
+- ver como fazer componentes (isa)
+
+
+//Como descobrir que o usuário está logado?
+//Como permanecer logado?
+
+
+
+//criar uma função para validação
+//criar uma função para modal
