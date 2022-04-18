@@ -39,17 +39,16 @@ export default () => {
     // e - comportamento padrão daquele evento
     e.preventDefault(); //prevenir comportamento padrão
     signIn(email.value, password.value)
-      .then(function () {
+      .then((response) => {
         window.location.hash = "#feed"
+        console.log('entrou', response.code)
       })
-      .catch((error) => {
-        const errorMessage = error.message;
-        if (error.code == 'auth/invalid-email') {
+      .catch((response) => {
+        if (response.code == 'auth/invalid-email') {
           message.innerHTML = 'Digite um e-mail válido';
-        } else if (error.code == 'auth/internal-error') {
+        } else if (response.code == 'auth/internal-error') {
           message.innerHTML = 'Senha inválida';
         }
-        return errorMessage;
       })
   });
   const btnGoogle = container.querySelector('.logoGoogle');
