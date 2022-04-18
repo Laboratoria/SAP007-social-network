@@ -1,7 +1,8 @@
 #header {
-  width: 287px;
-  padding: 20px 0;
-  position: fixed;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
   top: 0;
   right: 0;
   left: 0;
@@ -10,7 +11,7 @@
   grid-template-areas: "logo icons";
   align-items: center;
   background-color: var(--color-dark-gray);
-  z-index: 2000;
+  z-index: 1;
 }
 #logo-timeline {
   width: 50px;

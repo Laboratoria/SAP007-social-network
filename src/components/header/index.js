@@ -1,13 +1,11 @@
 const header = {
   createHeader: function () {
-    const container = document.getElementById("container-general");
-    container.innerHTML = `
+
+    const header = `
     <header id="header">
-      <h1>
-        <a href="#login">
-          <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
-        </a>
-      </h1
+      <a href="#timeline">
+        <img src="../img/icons/icon-logo.png" id="logo-timeline" alt="Ícone do logo da LabFriends">
+      </a>
       <nav id="menu">
         <ul>
           <li class="menu-list">
@@ -29,7 +27,7 @@ const header = {
             </a>
           </li>
           <li class="menu-list">
-            <a href="/#">
+            <a href="/#profile">
               <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
               <p class="menu-text">Meu Perfil</p>
             </a>
@@ -37,8 +35,9 @@ const header = {
         </ul>
       </nav>
     </header>
+    <div style="height: 80px"></div>
     `;
-    return container;
+    return header;
   },
 };
 

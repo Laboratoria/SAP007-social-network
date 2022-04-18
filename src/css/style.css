@@ -1,5 +1,6 @@
 @import url("login-register.css");
 @import url("timeline.css");
+@import url("profile.css");
 
 :root {
   --color-dark-pink: #ff009e;

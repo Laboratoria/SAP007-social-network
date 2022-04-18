@@ -1,5 +1,7 @@
 .background {
-  background-image: url("../img/background-pink-light.gif");
+  /* background-image: url("../img/background-pink-light.gif"); */
+  min-height: 100vh;
+  background-color: gray;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,6 +10,7 @@
   justify-content: center;
   align-items: center;
 }
+
 #container-general {
   background-color: var(--color-dark-yellow);
   display: flex;
@@ -21,6 +24,8 @@
   justify-content: center;
   align-items: flex-start;
 }
+
+label,
 .user-label,
 .user-button,
 .text-line,
@@ -28,6 +33,7 @@
 .small-text-right {
   font-weight: var(--font-bold);
 }
+
 .small-text-right {
   align-self: flex-end;
 }
@@ -151,11 +157,11 @@ a,
     height: 30px;
     margin: var(--spacing-little-logo);
   }
-  .user-label {
+  .user-label, label {
     font-size: 0.75rem;
     margin-bottom: var(--spacing-little-bottom);
   }
-  .user-input {
+  .user-input, input {
     width: 270px;
     height: 36px;
     border: var(--border-input);
@@ -163,7 +169,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-medium-bottom);
   }
-  .user-input::placeholder {
+  .user-input::placeholder, input::placeholder {
     font-size: 0.75rem;
   }
   .small-text-right {
@@ -204,11 +210,11 @@ a,
     height: 35px;
     margin: var(--spacing-medium-logo);
   }
-  .user-label {
+  .user-label, label {
     font-size: 1.125rem;
     margin-bottom: var(--spacing-little-bottom);
   }
-  .user-input {
+  .user-input, input {
     width: 334px;
     height: 46px;
     border: var(--border-input);
@@ -216,7 +222,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-medium-bottom);
   }
-  .user-input::placeholder {
+  .user-input::placeholder, input::placeholder {
     font-size: 1.125rem;
   }
   .small-text-right {
@@ -257,11 +263,11 @@ a,
     height: 50px;
     margin: var(--spacing-great-logo);
   }
-  .user-label {
+  .user-label, label {
     font-size: 1.3125rem;
     margin-bottom: var(--spacing-medium-bottom);
   }
-  .user-input {
+  .user-input, input {
     width: 424px;
     height: 51px;
     border: var(--border-input);
@@ -269,7 +275,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-great-bottom);
   }
-  .user-input::placeholder {
+  .user-input::placeholder, input::placeholder {
     font-size: 1.3125rem;
   }
   .small-text-right {
