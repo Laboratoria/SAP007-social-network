@@ -9,7 +9,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import { auth } from "./start-firebase.js";
 
-// Novos usuários
 export const registerNewUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -24,7 +23,6 @@ export const registerNewUser = (email, password) => {
     });
 };
 
-// Usuários existentes
 export function authUserLabFriends(email, password) {
   console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
@@ -39,7 +37,6 @@ export function authUserLabFriends(email, password) {
     });
 }
 
-// Autenticação do Google
 export function authUserWithGoogle() {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider)
@@ -57,12 +54,10 @@ export function authUserWithGoogle() {
     });
 }
 
-// Desconectando usuário
 export function logout() {
   return signOut(auth);
 }
 
-//Para enviar o email de redefinição
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email)
     .then(() => {
@@ -75,13 +70,8 @@ export function forgotPassword(email) {
     });
 }
 
-// Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
-export function authChange(auth) {
+export function authChange(cb) {
   return onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      //callback (uid !== null)
-    } else {
-    }
+    cb(user !== null);
   });
 }

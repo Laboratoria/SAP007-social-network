@@ -1,8 +1,9 @@
 import login from "./pages/login.js";
 import register from "./pages/register.js";
 import timeline from "./pages/timeline.js";
-//import friends from "./pages/friends.js";
-//import perfil from "./pages/perfil.js";
+import friends from "./pages/friends.js";
+import perfil from "./pages/perfil.js";
+import { authChange } from "../config/authentication.js";
 
 const container = document.getElementById("container-general");
 
@@ -20,9 +21,7 @@ const initPages = () => {
 
 function redirectPages() {
   switch (window.location.hash) {
-    case " ":
-      container.appendChild(login.createLogin());
-      break;
+    default:
     case "#login":
       container.appendChild(login.createLogin());
       break;
@@ -30,15 +29,25 @@ function redirectPages() {
       container.appendChild(register.createRegister());
       break;
     case "#timeline":
-      container.appendChild(timeline.createTimeline());
+      authChange((logged) => {
+        if (logged) {
+          container.appendChild(timeline.createTimeline());
+        } else window.location.hash = "#home";
+      });
       break;
     case "#friends":
-    //container.appendChild(friends.createFriendsList());
-    //break;
+      authChange((logged) => {
+        if (logged) {
+          container.appendChild(friends.createFriendsList());
+        } else window.location.hash = "#home";
+      });
+      break;
     case "#perfil":
-    //container.appendChild(perfil.createPerfil());
-    //break;
-    default:
-      container.appendChild(login.createLogin());
+      authChange((logged) => {
+        if (logged) {
+          container.appendChild(perfil.createPerfil());
+        } else window.location.hash = "#home";
+      });
+      break;
   }
 }

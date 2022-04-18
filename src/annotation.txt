@@ -1,16 +1,6 @@
 
-
-- Verificar os erros
-
-
-- arrumar header, fazer modal para perfil (sair e visualizar perfil)
-- ver como fazer componentes (isa)
-
-
-//Como descobrir que o usuário está logado?
-//Como permanecer logado?
-
-
-
-//criar uma função para validação
-//criar uma função para modal
+CSS Login e Register
+Contar valor mínimo para quantidade de senha
+Verificar erros do firebase e mostrar para o usuário
+Como permanecer logado?
+Fazer testes

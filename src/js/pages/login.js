@@ -2,7 +2,7 @@ import {
   authUserLabFriends,
   authUserWithGoogle,
   forgotPassword,
-} from "../connection-firebase/authentication.js";
+} from "../../config/authentication.js";
 
 const login = {
   createLogin: function () {

@@ -1,4 +1,4 @@
-import { registerNewUser } from "../connection-firebase/authentication.js";
+import { registerNewUser } from "../../config/authentication.js";
 
 const register = {
   createRegister: function () {

@@ -1,6 +1,4 @@
-import { logout } from "../connection-firebase/authentication.js";
-
-import header from "./../../components/header/index.js";
+import { logout } from "../../config/authentication.js";
 
 const timeline = {
   createTimeline: function () {
