@@ -60,21 +60,36 @@ const login = {
 
     buttonLoginLabfriends.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = container.querySelector("#user-email-labfriends").value;
-      const password = container.querySelector(
-        "#user-password-labfriends"
-      ).value;
-      const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+      const email = container.querySelector("#user-email-labfriends");
+      const password = container.querySelector("#user-password-labfriends");
+      const emailValue = email.value;
+      const newEmail = emailValue.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
 
-      if (!email || !password) {
+      if (!email.value || !password.value) {
         message.innerHTML = "Preencha todos os campos!";
       } else if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
-      } else if (email && password && newEmail) {
-        authUserLabFriends(email, password)
+      } else if (email.value && password.value && newEmail) {
+        authUserLabFriends(email.value, password.value)
           .then((window.location.hash = "#timeline")) //Está dando erro
-          .catch(() => {
-            console.log("erro");
+          .catch((error) => {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            switch (errorCode) {
+              case "auth/invalid-email":
+                errorMessage = "Insira um email válido.";
+                msgAlert.innerHTML = errorMessage;
+                break;
+              case "auth/user-not-found":
+                errorMessage =
+                  'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
+                msgAlert.innerHTML = errorMessage;
+                break;
+              case "auth/internal-error":
+                errorMessage = "Insira a senha.";
+                msgAlert.innerHTML = errorMessage;
+                break;
+            }
           });
       }
     });
@@ -86,41 +101,19 @@ const login = {
       });
     });
 
-    if (modalOpen && modalClose && modalContainer) {
-      const emailResetPassword = container.querySelector("#user-email-reset");
-      const toogle = function (e) {
-        e.preventDefault();
-        emailResetPassword.value = "";
-        messageReset.innerHTML = "";
-        modalContainer.classList.toggle("active");
-      };
-      const outside = function (e) {
-        if (e.target === this) {
-          e.preventDefault();
-          emailResetPassword.value = "";
-          messageReset.innerHTML = "";
-          modalContainer.classList.toggle("active");
-        }
-      };
-      modalOpen.addEventListener("click", toogle);
-      modalClose.addEventListener("click", toogle);
-      modalContainer.addEventListener("click", outside);
-    }
-
     buttonResetPassword.addEventListener("click", (e) => {
       e.preventDefault();
-      const emailResetPassword =
-        container.querySelector("#user-email-reset").value;
-      const newEmailReset = emailResetPassword.match(
+      const emailResetPassword = container.querySelector("#user-email-reset");
+      const newEmailReset = emailResetPassword.value.match(
         /[\w.\-+]+@[\w-]+\.[\w-.]+/gi
       );
 
-      if (!emailResetPassword) {
+      if (!emailResetPassword.value) {
         messageReset.innerHTML = "Preencha o campo de email!";
       } else if (!newEmailReset) {
         messageReset.innerHTML = "Preencha o campo de email corretamente!";
       } else {
-        forgotPassword(emailResetPassword)
+        forgotPassword(emailResetPassword.value)
           .then(() => {
             messageReset.innerHTML = "Email enviado.";
           })
@@ -146,26 +139,29 @@ const login = {
       }
     });
 
+    if (modalOpen && modalClose && modalContainer) {
+      const emailResetPassword = container.querySelector("#user-email-reset");
+      const toogle = function (e) {
+        e.preventDefault();
+        emailResetPassword.value = "";
+        messageReset.innerHTML = "";
+        modalContainer.classList.toggle("active");
+      };
+      const outside = function (e) {
+        if (e.target === this) {
+          e.preventDefault();
+          emailResetPassword.value = "";
+          messageReset.innerHTML = "";
+          modalContainer.classList.toggle("active");
+        }
+      };
+      modalOpen.addEventListener("click", toogle);
+      modalClose.addEventListener("click", toogle);
+      modalContainer.addEventListener("click", outside);
+    }
+
     return container;
   },
 };
 
 export default login;
-
-/*
-switch (errorCode) {
-  case "auth/invalid-email":
-    errorMessage = "Insira um email válido.";
-    msgAlert.innerHTML = errorMessage;
-    break;
-  case "auth/user-not-found":
-    errorMessage =
-      'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
-    msgAlert.innerHTML = errorMessage;
-    break;
-  case "auth/internal-error":
-    errorMessage = "Insira a senha.";
-    msgAlert.innerHTML = errorMessage;
-    break;
-}
-*/

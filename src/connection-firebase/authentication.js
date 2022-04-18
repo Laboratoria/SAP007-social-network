@@ -16,13 +16,11 @@ export const registerNewUser = (email, password) => {
       const user = userCredential.user;
       const uid = userCredential.uid;
       console.log("Cadastrou novo usuário!");
-      //O que fazer?
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log("Não cadastrou novo usuário!");
-      //O que fazer?
     });
 };
 
@@ -31,12 +29,12 @@ export function authUserLabFriends(email, password) {
   console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log("Usuário Logou!");
       const user = userCredential.user;
       const uid = userCredential.uid;
     })
     .catch((error) => {
-      console.log(error, error.code, error.message);
+      const errorCode = error.code;
+      const errorMessage = error.message;
     });
 }
 
@@ -63,21 +61,6 @@ export function logout() {
   return signOut(auth);
 }
 
-//Como desconectar?
-//Como descobrir que o usuário está logado?
-//Como permanecer logado?
-
-// Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
-export function authChange(auth) {
-  return onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      //callback (uid !== null)
-    } else {
-    }
-  });
-}
-
 //Para enviar o email de redefinição
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email)
@@ -89,4 +72,16 @@ export function forgotPassword(email) {
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
     });
+}
+
+
+// Observador de objetos - Para cada página do seu app que precisa de informações sobre o usuário conectado, anexe um observador ao objeto de autenticação global. Este observador é chamado sempre que o estado de login do usuário muda.
+export function authChange(auth) {
+  return onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      //callback (uid !== null)
+    } else {
+    }
+  });
 }
