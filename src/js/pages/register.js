@@ -1,4 +1,4 @@
-import { registerNewUser } from "../connection-firebase/authentication.js";
+import { registerNewUser } from "../../config/authentication.js";
 
 const register = {
   createRegister: function () {
@@ -10,19 +10,19 @@ const register = {
       <label for="user-name" class="user-label">
         Nome Social
       </label>
-      <input type="text" name="user-name" id="user-name" class="user-input" placeholder="Digite seu nome" required>
+      <input type="text" name="user-name" id="user-name" class="user-input" placeholder="Digite seu nome">
       <label for="user-email" class="user-label">
         Email
       </label>
-      <input type="email" name="user-email" id="user-email" class="user-input" placeholder="Digite seu email" required>
+      <input type="email" name="user-email" id="user-email" class="user-input" placeholder="Digite seu email">
       <label for="user-password" class="user-label">
         Senha
       </label>
-      <input type="password" name="user-password" id="user-password" class="user-input" placeholder="Digite sua senha" required>
+      <input type="password" name="user-password" id="user-password" class="user-input" placeholder="Digite sua senha">
       <label for="user-password-repeat" class="user-label">
         Repita a Senha
       </label>
-      <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente" required>
+      <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
       <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <span id="message"></span>
       <a href="#login" class="small-text-right">
@@ -33,23 +33,25 @@ const register = {
 
     container.querySelector("#new-login").addEventListener("click", (e) => {
       e.preventDefault();
-      const name = container.querySelector("#user-name");
-      const email = container.querySelector("#user-email-labfriends");
-      const password = container.querySelector("#user-password-labfriends");
-      const passwordRepeat = container.querySelector("#user-password-repeat");
-      const emailValue = email.value;
+      const name = container.querySelector("#user-name").value;
+      const email = container.querySelector("#user-email").value;
+      const password = container.querySelector("#user-password").value;
+      const passwordRepeat = container.querySelector(
+        "#user-password-repeat"
+      ).value;
       const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
       const message = container.querySelector("#message");
 
-      if (password.value != passwordRepeat.value) {
+      if (password !== passwordRepeat) {
         message.innerHTML = "Digite a senha novamente!";
+        ///contar numero de senha mínimo
       } else {
-        if (!name.value || !email.value || !password.value) {
+        if (!name || !email || !password || !passwordRepeat) {
           message.innerHTML = "Preencha todos os campos!";
         } else if (!newEmail) {
           message.innerHTML = "Preencha o campo de email corretamente!";
-        } else if (name.value && email.value && password.value && newEmail) {
-          registerNewUser(name.value, email.value, password.value)
+        } else if (name && email && password && passwordRepeat && newEmail) {
+          registerNewUser(email, password)
             .then(function () {
               window.location.hash = "#home";
               alert("Email Cadastrado");

@@ -2,7 +2,7 @@ import {
   authUserLabFriends,
   authUserWithGoogle,
   forgotPassword,
-} from "../connection-firebase/authentication.js";
+} from "../../config/authentication.js";
 
 const login = {
   createLogin: function () {
@@ -12,9 +12,9 @@ const login = {
       <form id="user-form">
         <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
         <label for="user-email" class="user-label">Email</label>
-        <input type="email" name="user-email" id="user-email-labfriends" class="user-input" placeholder="Digite seu email">
+        <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
-        <input type="password" name="user-password" id="user-password-labfriends" class="user-input input-password-spacing" placeholder="Digite sua senha">
+        <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
         <a href="#" type="button" class="small-text-right modal-open">
           Esqueceu a senha?
         </a>
@@ -60,18 +60,20 @@ const login = {
 
     buttonLoginLabfriends.addEventListener("click", (e) => {
       e.preventDefault();
-      const email = container.querySelector("#user-email-labfriends");
-      const password = container.querySelector("#user-password-labfriends");
-      const emailValue = email.value;
-      const newEmail = emailValue.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+      const email = container.querySelector("#user-email").value;
+      const password = container.querySelector("#user-password").value;
+      const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
 
-      if (!email.value || !password.value) {
+      if (!email || !password) {
         message.innerHTML = "Preencha todos os campos!";
       } else if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
-      } else if (email.value && password.value && newEmail) {
-        authUserLabFriends(email.value, password.value)
-          .then((window.location.hash = "#timeline")) //Está dando erro
+      } else if (email && password && newEmail) {
+        authUserLabFriends(email, password)
+          .then(() => {
+            console.log("Entrou");
+            window.location.hash = "#timeline";
+          })
           .catch((error) => {
             let errorCode = error.code;
             let errorMessage = error.message;
