@@ -9,7 +9,7 @@ const init = () =>{ window.addEventListener("hashchange", () =>{
   switch (window.location.hash) {
     case "": main.appendChild(login());
       break;
-    case "#feed": main.appendChild(login());
+    case "#feed": main.appendChild(feed());
       break;
       default: main.appendChild(login());
   }
@@ -25,6 +25,5 @@ window.addEventListener("load", () =>{
 })
 
 
-myFunction();
 
 console.log('ola');

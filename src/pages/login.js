@@ -1,8 +1,8 @@
 
-import "../lib/firebase.js";
-import {userLogin} from "../lib/authentication.js";
+import "../lib/config-firebase.js";
+import { userLogin } from "../lib/authentication.js";
 
-export default  () =>{
+export default () => {
   const container = document.createElement("form");
   const templateLoging = `
   <input class="email" placeholder ="e-mail" type="email" required></input>
@@ -15,7 +15,7 @@ export default  () =>{
   <div class="register"><a href="/#register">Cadastre-se</a></div>
   `;
 
-  container.innerHTML= templateLoging;
+  container.innerHTML = templateLoging;
 
 
 
