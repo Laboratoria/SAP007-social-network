@@ -25,16 +25,26 @@ const profile = {
      </div>
 
      <div class="linha">
-      <label>Nome Social</label>
+      <label>Breve descrição sobre você</label>
       <input type="text">
      </div>
 
      <div class="linha">
-      <label>Nome Social</label>
+      <label>Assuntos que você domina</label>
       <input type="text">
      </div>
 
-     </form>
+     <div class="linha">
+      <label>Área de atuação</label>
+      <input type="text">
+     </div>
+
+    </form>
+    
+    <div>
+      <input class="btn-atualizar" type="submit" value="ATUALIZAR PERFIL">
+
+    </div>
     `;
     return container;
   },

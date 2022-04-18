@@ -13,6 +13,7 @@
     width: 160px;
     border-radius: 5px;
     background-color: var(--color-dark-yellow);
+    border: var(--color-light-pink) 1px solid;
 }
 
 .linha, .linha label, .linha input {
@@ -23,8 +24,15 @@
 
 .linha label {
     text-align: left;
+    font-size: 16px;
 }
 
 .linha input {
-    background-color: var(--color-dark-yellow)
+    background-color: var(--color-dark-yellow);
+}
+
+.btn-atualizar {
+    background-color: var(--color-dark-green);
+    border: var(--color-black) 1px solid;
+    margin: 40px;
 }

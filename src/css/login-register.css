@@ -42,7 +42,7 @@ label,
   align-self: center;
 }
 a,
-.user-input::placeholder {
+.user-input::placeholder input {
   text-decoration: none;
   color: var(--color-black);
 }
@@ -169,7 +169,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-medium-bottom);
   }
-  .user-input::placeholder, input::placeholder {
+  .user-input::placeholder, input::placeholder input {
     font-size: 0.75rem;
   }
   .small-text-right {
@@ -222,7 +222,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-medium-bottom);
   }
-  .user-input::placeholder, input::placeholder {
+  .user-input::placeholder, input::placeholder input {
     font-size: 1.125rem;
   }
   .small-text-right {
@@ -275,7 +275,7 @@ a,
     padding-left: 10px;
     margin-bottom: var(--spacing-great-bottom);
   }
-  .user-input::placeholder, input::placeholder {
+  .user-input::placeholder, input::placeholder input {
     font-size: 1.3125rem;
   }
   .small-text-right {
