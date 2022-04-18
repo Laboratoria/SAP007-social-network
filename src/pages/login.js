@@ -87,13 +87,18 @@ const login = {
     });
 
     if (modalOpen && modalClose && modalContainer) {
+      const emailResetPassword = container.querySelector("#user-email-reset");
       const toogle = function (e) {
         e.preventDefault();
+        emailResetPassword.value = "";
+        messageReset.innerHTML = "";
         modalContainer.classList.toggle("active");
       };
       const outside = function (e) {
         if (e.target === this) {
           e.preventDefault();
+          emailResetPassword.value = "";
+          messageReset.innerHTML = "";
           modalContainer.classList.toggle("active");
         }
       };
