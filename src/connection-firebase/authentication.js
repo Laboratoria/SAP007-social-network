@@ -80,7 +80,14 @@ export function authChange(auth) {
 
 //Para enviar o email de redefinição
 export function forgotPassword(email) {
-  return sendPasswordResetEmail(auth, email).then(() => {
-    console.log("Enviou senha por email!");
-  });
+  return sendPasswordResetEmail(auth, email)
+    .then(() => {
+      console.log("consegui");
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      console.log(errorCode, errorMessage);
+    });
 }
