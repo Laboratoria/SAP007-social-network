@@ -1,6 +1,7 @@
+import "./firebase/config-firebase.js";
 import login from "./pages/home/login.js";
-import cadastro from "./pages/home/cadastro.js"
-import home from "./pages/home/mainHome.js"
+import cadastro from "./pages/home/cadastro.js";
+import home from "./pages/home/mainHome.js";
 
 const main = document.querySelector("#main")
 
@@ -21,7 +22,6 @@ const init = () => {
 }
 
 window.addEventListener("load", () => {
-    // main.appendChild(home())
     init()
 })
 
