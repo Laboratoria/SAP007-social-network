@@ -2,7 +2,7 @@ import login from "./pages/login.js";
 import register from "./pages/register.js";
 import timeline from "./pages/timeline.js";
 import friends from "./pages/friends.js";
-import perfil from "./pages/perfil.js";
+import profile from "./pages/profile.js";
 import { authChange } from "../config/authentication.js";
 
 const container = document.getElementById("container-general");
@@ -42,10 +42,10 @@ function redirectPages() {
         } else window.location.hash = "#home";
       });
       break;
-    case "#perfil":
+    case "#profile":
       authChange((logged) => {
         if (logged) {
-          container.appendChild(perfil.createPerfil());
+          container.appendChild(profile.createProfile());
         } else window.location.hash = "#home";
       });
       break;

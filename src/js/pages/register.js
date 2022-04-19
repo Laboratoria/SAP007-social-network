@@ -23,8 +23,8 @@ const register = {
         Repita a Senha
       </label>
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
-      <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <span id="message"></span>
+      <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <a href="#login" class="small-text-right">
         < Voltar para o Login
       </a>
@@ -44,7 +44,8 @@ const register = {
 
       if (password !== passwordRepeat) {
         message.innerHTML = "Digite a senha novamente!";
-        ///contar numero de senha mínimo
+      } else if (password.length <= 6) {
+        message.innerHTML = "Sua senha deve ter no mínimo 6 dígitos!";
       } else {
         if (!name || !email || !password || !passwordRepeat) {
           message.innerHTML = "Preencha todos os campos!";

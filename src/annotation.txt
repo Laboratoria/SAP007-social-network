@@ -1,6 +1,9 @@
 
-CSS Login e Register
-Contar valor mínimo para quantidade de senha
+Corrigir classes de português para inglês
+
 Verificar erros do firebase e mostrar para o usuário
 Como permanecer logado?
+
+Iniciar o firestore
+
 Fazer testes

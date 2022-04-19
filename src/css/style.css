@@ -1,9 +1,13 @@
 @charset "UTF-8";
-@import url("button.css");
-@import url("modal.css");
-@import url("login-register.css");
-@import url("timeline.css");
-@import url("profile.css");
+@import url("./components/variables.css");
+@import url("./components/menu.css");
+@import url("./components/button.css");
+@import url("./components/modal.css");
+@import url("./components/post.css");
+@import url("./components/comment.css");
+@import url("./pages/login-register.css");
+@import url("./pages/timeline.css");
+@import url("./pages/profile.css");
 
 * {
   margin: 0;
@@ -11,37 +15,4 @@
   font-family: "Segoe UI", Helvetica, Arial, Verdana;
   text-decoration: none;
   box-sizing: border-box;
-}
-
-:root {
-  --font-emphasis: "Bitter", serif, "Helvetica Neue", Arial;
-
-  --color-dark-pink: #ff009e;
-  --color-light-pink: #ffb8e1;
-  --color-dark-green: #56f894;
-  --color-light-green: #a6ffd2;
-  --color-dark-yellow: #ffe521;
-  --color-light-yellow: #fff4a5;
-  --color-white: #f5f5f5;
-  --color-dark-gray: #1d1d1d;
-  --color-medium-gray: #3a3a3a;
-  --color-light-gray: #dfdfdf;
-  --color-black: #000000;
-
-  --border-input-post: 1px solid var(--color-medium-gray);
-  --border-input: 2px solid var(--color-medium-gray);
-
-  --transparent: rgba(0, 0, 0, 0.8);
-  --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
-  --shadown-big: 0 0 10px 0 var(--color-medium-gray);
-
-  --spacing-small: 5px;
-  --spacing-medium: 10px;
-  --spacing-small-line: 5px 0;
-  --spacing-small-login-logo: 10px 0 20px 0;
-  --spacing-medium-login-logo: 15px 0 30px 0;
-  --spacing-big-login-logo: 18px 0 35px 0;
-  --spacing-medium-top-bottom: 15px 0;
-  --spacing-big-top-bottom: 20px 0;
-  --spacing-input-modal: 15px 0 5px 0;
 }

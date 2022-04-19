@@ -1,6 +1,6 @@
 const header = {
   createHeader: function () {
-
+    
     const header = `
     <header id="header">
       <a href="#timeline">

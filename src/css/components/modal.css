@@ -76,6 +76,17 @@
   display: block;
 }
 
+@media screen and (min-width: 550px) and (max-width: 1099px) {
+  .modal {
+    max-width: 60%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .modal {
+    max-width: 40%;
+  }
+}
+
 @media screen and (min-width: 550px) and (max-width: 1799px) {
   .title-modal {
     font-size: 1.5rem;

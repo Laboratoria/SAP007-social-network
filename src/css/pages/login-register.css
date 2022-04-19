@@ -97,20 +97,19 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
-#error {
-  font-size: 0.75rem;
+#message {
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.5;
   color: var(--color-dark-pink);
   text-align: center;
-  width: 348px;
-  margin-top: 0.875rem;
-  display: none;
+  width: 100%;
+  margin: var(--spacing-error);
 }
 
 @media screen and (min-width: 550px) {
   .background {
-    background-image: url("../img/background.gif");
+    background-image: url("../../img/background.gif");
     height: 100vh;
     background-position: top center;
     background-repeat: no-repeat;

@@ -1,10 +1,12 @@
 import { logout } from "../../config/authentication.js";
+import header from "../components/header.js";
 
 const timeline = {
   createTimeline: function () {
     const container = document.createElement("main");
     container.setAttribute("class", "main-container");
-    container.innerHTML = `
+    container.innerHTML = header.createHeader();
+    container.innerHTML += `
 <button type="button" id="button-logout">
   SAIR
 </button>
