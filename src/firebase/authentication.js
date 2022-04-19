@@ -4,11 +4,15 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  // sendEmailVerification,
+  sendPasswordResetEmail,
+  onAuthStateChanged,
+  signOut,
   // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const provider = new GoogleAuthProvider();
-const authentication = getAuth();
+export const authentication = getAuth();
 // criar um novo usuários
 export function creatNewUser(email, password) {
   return createUserWithEmailAndPassword(authentication, email, password).then(
@@ -18,8 +22,13 @@ export function creatNewUser(email, password) {
     }
   );
 }
+export function resetaPassword(email) {
+  return sendPasswordResetEmail(authentication, email);
+}
+
 // entrar com email e senha
 export function signinPassword(email, password) {
+  // sendEmailVerification(auth.currentUser);
   return signInWithEmailAndPassword(authentication, email, password).then(
     (userCredential) => {
       const user = userCredential.user;
@@ -28,8 +37,8 @@ export function signinPassword(email, password) {
   );
 }
 // entrar com o Google
-export const googleLogin = () => {
-  signInWithPopup(authentication, provider)
+export function googleLogin() {
+  return signInWithPopup(authentication, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
@@ -41,4 +50,14 @@ export const googleLogin = () => {
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
-};
+}
+export function stateVerification(cb) {
+  onAuthStateChanged(authentication, (user) => {
+    cb(user != null);
+  });
+}
+export function sair() {
+  return signOut(auth)
+    .then(() => 'sair')
+    .catch((error) => error);
+}
