@@ -85,7 +85,7 @@ export const feed = () => {
             name: nameProfile,
             imgProfile,
           };
-          const newPostElement = postElement(objeto);
+          const newPostElement = postElement(objeto, uidUser);
           postsElement.prepend(newPostElement);
           generateIdPost(response.id)
             .then(() => {
@@ -99,10 +99,9 @@ export const feed = () => {
     });
 
     getAllPosts().then((posts) => {
-      let post;
       posts.docs.forEach((onePost) => {
-        post = onePost.data();
-        const timelinePost = postElement(post);
+        const post = onePost.data();
+        const timelinePost = postElement(post, user.uid);
         postsElement.prepend(timelinePost);
       });
     }).catch((error) => console.log(error));
