@@ -12,12 +12,12 @@ const provider = new GoogleAuthProvider();
 export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
-      return user;
-    })
+      console.log('entrou', userCredential);
+      return userCredential;
 
-};
+    })
+}
 
 export function signInWithGoogle(auth, provider) {
   return signInWithPopup(auth, provider)

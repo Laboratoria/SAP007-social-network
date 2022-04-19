@@ -17,6 +17,12 @@
   display: block;
 }
 
+.banner {
+  background-image: url('./src/readme-img/img/banner1.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
 body {
   background-color: #fefaef;
   min-height: 100vh;
@@ -26,7 +32,7 @@ body {
 header {
   display: flex;
   align-items: center;
-  height:70px;
+  height: 70px;
   padding: 1rem;
   box-sizing: border-box;
   justify-content: space-between;
@@ -50,8 +56,8 @@ header {
 }
 
 .container-fluid {
-  box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
-  background-color: white;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 62%);
+  background-color: #fef9ef;
   margin: 10px;
   flex-direction: column;
   align-items: center;
@@ -85,6 +91,12 @@ a {
   padding-left: 6px;
 }
 
+.error {
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+}
+
 .btnEnter {
   background-color: #48d9b0;
   border-radius: 5px;
@@ -110,16 +122,18 @@ a {
 }
 
 footer {
-  max-width: 100vw;
-  background-color: #48d9b0;
-  width: 100%;
-  position: fixed;
   bottom: 0;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
+  width: 100%;
+  background-color: #acf2be;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.text-footer {
+  font-weight: lighter;
+  text-align: center;
+  font-size: 15px;
+  margin: 0;
 }
 
 @media (min-width: 900px) {
@@ -128,6 +142,7 @@ footer {
     font-size: 35px;
     line-height: 44px;
   }
+
   .center {
     height: 100vh;
     width: 100vw;
