@@ -7,7 +7,7 @@ export default () => {
   container.classList.add('containerA');
   const templateHome = `  
     <div class="center">
-      <div class="banner"> </div>
+      <div class="banner"></div>
       <div class= "main-container">
         <div class="container-fluid">
           <p class="welcome"> Bem vindo(a) viajante! </p>
