@@ -7,12 +7,11 @@ const main = document.querySelector("#root")
 
 const init = () =>{
     window.addEventListener("hashchange", () =>{
+      main.innerHTML="";
     switch (window.location.hash) {
     case "": main.appendChild(login());
       break;
-    case "#login": main.appendChild(login());
-      break;
-      case "#feed": main.appendChild(feed());
+    case "#feed": main.appendChild(feed());
       break;
 
       default: main.appendChild(login());

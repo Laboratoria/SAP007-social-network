@@ -13,7 +13,6 @@ const provider = new GoogleAuthProvider();
     );
   };
 
-
   export function userGoogle () {
     return signInWithPopup(auth, provider)
     .then((result) => {
