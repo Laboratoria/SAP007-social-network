@@ -4,11 +4,17 @@
   --gray-default: gray;
   --purple-border-body: #6a2b7b;
   --purple-gradient: rgb(103, 41, 125);
-  --purple-hover: rgb(102, 32, 126);
+  --purple-hover: rgb(76, 24, 94);
   --yellow-border-body: #fbc41c;
   --yellow-gradient: #fac31c;
   --yellow-hover: rgb(212, 166, 28);
   --yellow-font: #ecb200;
+}
+
+.nav-bar button,
+.menu-icons {
+  background: none;
+  border: none;
 }
 
 * {
@@ -25,7 +31,7 @@
 
 .login,
 .signup {
-    height: 99%;
+  height: 99%;
 }
 
 .content {
@@ -52,14 +58,15 @@
 h2 {
   color: var(--yellow-font);
   margin-top: -2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   text-align: center;
 }
 
 form {
   width: 70%;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
@@ -91,7 +98,6 @@ input:focus {
   color: var(--color-error);
   font-size: 0.8rem;
   margin-bottom: 0.4rem;
-  display: none;
 }
 
 .btnEntrar,
@@ -121,13 +127,12 @@ input:focus {
   display: flex;
   align-items: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .alternativaLogin div {
   background-color: var(--yellow-font);
   height: 0.05rem;
-  width: 5.2rem;
+  width: 60%;
 }
 
 .alternativaLogin p {
@@ -140,11 +145,15 @@ input:focus {
   text-decoration: none;
   color: var(--yellow-font);
   font-size: 0.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .buttons {
   margin-bottom: 1rem;
+}
+
+.buttonsSignup {
+  margin-top: 1rem;
 }
 
 .buttons p {
@@ -193,16 +202,10 @@ input:focus {
   color: var(--gray-default);
   font-size: 0.8rem;
   text-align: center;
-  height: 3.5rem;
+  height: 3.4rem;
   display: flex;
   flex-direction: column;
   justify-content: end;
-}
-
-@media screen and (min-width: 768px) {
-  .alternativaLogin div {
-    width: 9rem;
-  }
 }
 
 @media screen and (min-width: 1024px) {
