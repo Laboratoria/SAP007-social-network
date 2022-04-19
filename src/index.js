@@ -13,6 +13,7 @@ const init = () => {
       main.appendChild(pageAbout());
       break;
     case '#createLogin':
+      // tentar por o user aqui. parametro
       main.appendChild(createLogin());
       break;
     case '#feed':

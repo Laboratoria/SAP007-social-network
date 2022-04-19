@@ -28,7 +28,7 @@ export function postElement(post, uid) {
     </div>`;
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modifie');
-  // pesquisar como pegar user do session
+  // /\ aqui será o menu de configurações que só aparece pro usuário dono do post
   if (uid === post.userUid) {
     navRemoveModifie.innerHTML = `
       <button class="btn-config-post">

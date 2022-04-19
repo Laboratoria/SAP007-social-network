@@ -22,6 +22,7 @@ export const feed = () => {
     <header class="header-feed flex"> 
       <picture>
         <img src="${user.photoURL}" class="user-perfil-img-feed" alt="user">
+        <p>${user.name}</p>
       </picture>  
       <picture>
         <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
