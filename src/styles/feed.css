@@ -1,0 +1,94 @@
+.feedHome {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    height: 4rem;
+    width: 100%;
+    border-bottom: 0.1rem solid gray;
+}
+
+header img {
+    height: 4rem;
+    width: 10rem;
+}
+
+.content-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20rem;
+    border: 0.1rem solid gray;
+    position: relative;
+    top: -2.6rem;
+    z-index: -1;
+}
+
+.header-post {
+    height: 3rem;
+    align-items: center;
+    width: 100%;
+    /* background-color: brown; */
+    display: inline-flex;
+    border-bottom: 0.1rem solid gray;
+}
+
+.photoUser {
+    height: 2.5rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+.nameUser {
+    font-size: 1rem;
+}
+
+.postDate {
+    font-size: 0.6rem;
+}
+
+.post {
+    /* background-color: blueviolet; */
+    height: 75%;
+}
+
+.text-post {
+    padding: 0.5rem;
+}
+
+.footer-post {
+    /* background-color: brown; */
+    height: 2rem;
+    border-top: 0.1rem solid gray;
+    display: flex;
+}
+
+.footer-post button {
+    background: transparent;
+    border: none;
+    margin: 0.2rem;
+}
+
+.menu {
+    height: 3.5rem;
+    border-top: 0.1rem solid gray;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu-icons {
+    height: 2.7rem;
+}
+
+.nav-bar {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
