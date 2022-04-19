@@ -21,8 +21,8 @@ export default () => {
           <a href="/" class="google-link">
             <img  class="logoGoogle" src="./img/google.png" alt="logo Google">
           </a>
-          <p class="welcome"> Ainda não tem cadastro?</p>
-          <a href="#register" id='sign-up-google'class="link">Registre-se</a></p>  
+          <p class="text"> Ainda não tem cadastro?</p>
+          <a href="#register" id='sign-up-google'class="link">Registre-se</a>  
         </div>  
       </div>
     </div>

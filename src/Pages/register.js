@@ -18,7 +18,7 @@ export default () => {
             <input class= "inputs" type="password" placeholder="Senha (6 dígitos)" id="password"/>      
             <button class="btnEnter" type="submit"  id="register">Cadastrar</button>
           </form>
-          <p class="welcome"> Já tem cadastro ? <a href="">Faça o Login</a></p>
+          <p class="text"> Já tem cadastro ? <a href="#home" class= "link">Faça o Login</a></p>
         </div>
       </div>
     </div>
