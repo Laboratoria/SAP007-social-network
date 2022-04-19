@@ -8,19 +8,15 @@ import {
   onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
-
-
 // O usuário deve: 
-// Fazer login
-// Fazer login com o Google
-// Fazer cadastro
+// Fazer login (X)
+// Fazer login com o Google (X)
+// Fazer cadastro (X)
 // Fazer validação de Cadastro
 // Fazer Logout
-// Recuperar Senha
 // Continuar Logado após fazer login
 
 const provider = new GoogleAuthProvider();
-
 
 export function signinGoogle() {
   return signInWithPopup(auth, provider)
@@ -52,21 +48,16 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
     return user;
   });
 
-export function userLogout() {
+  export function userLogout() {
+    return signOut(auth)
+      .then(() => "Logout")
+      .catch((error) => error);
+  }
 
-  return signOut(auth)
-}
 
-// export function sendPasswordResetEmail(email,password){
-//   return (auth, email, password)
-//   .then(() => { 
-  
-//   })
-// }
-
-export function checkLogin (cb){
-  onAuthStateChanged(auth, (user) => {
-    cb(user !=  null)
-  })
+// 
+export function checkLogin (){
+  const user= auth.currentUser;
+  return user;
 }
 

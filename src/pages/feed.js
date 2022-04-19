@@ -1,59 +1,34 @@
+//import { getPost } from '../lib/firestore.js';
+//import {postComponent} from '../components/post.js';
+import printNav from '../components/navbar.js';
 //import{header} from "../components/header.js";
+//import writePost from "../pages/writePost.js";
 
-export default function signin() {
-  const feed = document.createElement('section');
-  feed.innerHTML += `
-  <section class="main-content">
-    <nav class="filter-menu"> 
-      <img src="assets/lupas.png" alt="ícone-lupa"><input type="text" class="recipe-search" placeholder="Buscar receita"/>
-      <button class="logout-btn">Sair</button>
-    </nav>
-    <div class="new-post-container">
-      <textarea id="write-post" class="post-content" placeholder="Postar nova receita"></textarea>
-      <button class="post-btn">Postar</button>
-    </div>
-    <div class="older-posts-container">
-      <ol class="posts">
-        <li> <b>Bolo de cenoura</b>
-             <p>Receita por:</p>
-        </li>
-        <a class="cookie-btn"><img src="assets/cookie.png" alt="ícone-cookie" class="cookie-icon"></a>
-        <a class="pencil-btn"><img src="assets/pencil.png" alt="ícone-lápis" class="pencil-icon"></a>
-        <a class="trash-btn"><img src="assets/trash.png" alt="ícone-lixo" class="trash-icon"></a>
-      </ol>
-    </div>
+export default function feed() {
+  const feed = document.createElement("section");
+  feed.innerHTML = `
+  <section class="show-posts" id="showPosts">
+
   </section>
     `;
+  feed.appendChild(printNav());
 
-  // const searchRecipe = feed.querySelector('#recipe-search');
-  // const logOut = feed.querySelector('#logout-btn');
-  // const writePost = feed.querySelector('#post-btn');
-  // const cookie = feed.querySelector('#cookie-btn');
-  // const editPost = feed.querySelector('#pencil-btn');
-  // const deletePost = feed.querySelector('#trash-btn');
+  //const sectionPost = feed.querySelector("#showPosts");
+  // const newRecipe = feed.querySelector("#btn-new-recipe");
 
-  //   searchRecipe.addEventListener('keyup', function(){
+  // newRecipe.addEventListener("click", e);
+  // {
+  //   e.preventDefault();
+  //   window.location.hash = "#writePost";
+  // }
 
-  //   })
-
-  //   logOut.addEventListener('click', function(){
-
-  //   })
-  //   writePost.addEventListener('click', function(){
-
-  //   })
-
-  //   cookie.addEventListener('click', function(){
-
-  //   })
-
-  //   editPost.addEventListener('click', function(){
-
-  //   })
-
-  //   deletePost.addEventListener('click', function()
-
-  // })
-
+  // const showAllPosts = async () => {
+  //   const allPosts = await getPost();
+  //   allPosts.forEach((item) => {
+  //     const postElement = postComponent(item);
+  //     sectionPost.prepend(postElement);
+  //   });
+  // };
+  // showAllPosts();
   return feed;
 }
