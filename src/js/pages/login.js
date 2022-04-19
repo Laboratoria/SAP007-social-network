@@ -37,8 +37,8 @@ const login = {
       <section id="modal-container" class="modal-container">
         <div class="modal">
           <button id="modal-close" class="modal-close">X</button>
-          <label for="user-email-reset" class="title-modal user-label">Informe o seu email</label>
-          <input type="email" id="user-email-reset" class="user-input" placeholder="Digite seu email">
+          <label for="user-email-reset" class="title-modal">Informe o seu email</label>
+          <input type="email" id="user-email-reset" class="user-input-modal" placeholder="Digite seu email">
           <button type="submit" id="button-reset-password" class="user-button button-pink">
             ENVIAR POR EMAIL
           </button>

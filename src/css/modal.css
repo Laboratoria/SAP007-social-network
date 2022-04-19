@@ -1,5 +1,5 @@
 .modal-container {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--transparent);
   position: fixed;
   height: 100vh;
   width: 100%;
@@ -7,6 +7,7 @@
   left: 0px;
   z-index: 1;
   display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -17,8 +18,8 @@
   width: 90%;
   height: auto;
   background: var(--color-dark-green);
-  box-shadow: 0 0 10px 0 var(--color-medium-gray);
-  border-radius: 5px;
+  box-shadow: var(--shadow-big);
+  border-radius: var(--spacing-small);
   padding: var(--spacing-medium-top-bottom);
   text-align: center;
   position: relative;
@@ -33,8 +34,8 @@
   right: -12px;
   position: absolute;
   font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1.25rem;
+  box-shadow: var(--shadow);
   color: var(--color-dark-gray);
   cursor: pointer;
 }
@@ -51,19 +52,68 @@
 .active .modal {
   animation: modal 0.3s forwards;
 }
-
 .title-modal {
   font-size: 1.25rem;
+  font-weight: 600;
 }
-#user-email-reset,
-#button-reset-password {
+.user-input-modal {
   width: calc(100% * 0.9);
-}
-#user-email-reset {
+  height: 2.25rem;
   background-color: var(--color-light-green);
-  margin: 15px 0 5px 0;
+  border: var(--border-input);
+  border-radius: var(--spacing-small);
+  padding-left: 0.625rem;
+  margin: var(--spacing-input-modal);
+}
+.user-input-modal,
+.user-input-modal::placeholder {
+  color: var(--color-black);
+  font-size: 1rem;
 }
 #message-reset {
   font-size: 1rem;
   font-weight: 600;
+  display: block;
+}
+
+@media screen and (min-width: 550px) and (max-width: 1799px) {
+  .title-modal {
+    font-size: 1.5rem;
+  }
+  .user-input-modal {
+    height: 2.875rem;
+  }
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
+    font-size: 1.125rem;
+  }
+  .modal-close {
+    width: 3.125rem;
+    height: 3.125rem;
+    top: -20px;
+    right: -20px;
+    font-size: 1.375rem;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+  .title-modal {
+    font-size: 1.75rem;
+  }
+  .user-input-modal {
+    height: 3.125rem;
+  }
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
+    font-size: 1.25rem;
+  }
+  .modal-close {
+    width: 3.75rem;
+    height: 3.75rem;
+    top: -20px;
+    right: -20px;
+    font-size: 1.5rem;
+  }
 }
