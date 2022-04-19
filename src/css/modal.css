@@ -1,0 +1,69 @@
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container.active {
+  display: flex;
+}
+.modal {
+  width: 90%;
+  height: auto;
+  background: var(--color-dark-green);
+  box-shadow: 0 0 10px 0 var(--color-medium-gray);
+  border-radius: 5px;
+  padding: var(--spacing-medium-top-bottom);
+  text-align: center;
+  position: relative;
+}
+.modal-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--spacing-small);
+  border: var(--border-input);
+  background-color: var(--color-dark-yellow);
+  top: -12px;
+  right: -12px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  color: var(--color-dark-gray);
+  cursor: pointer;
+}
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.active .modal {
+  animation: modal 0.3s forwards;
+}
+
+.title-modal {
+  font-size: 1.25rem;
+}
+#user-email-reset,
+#button-reset-password {
+  width: calc(100% * 0.9);
+}
+#user-email-reset {
+  background-color: var(--color-light-green);
+  margin: 15px 0 5px 0;
+}
+#message-reset {
+  font-size: 1rem;
+  font-weight: 600;
+}

@@ -1,8 +1,19 @@
 @import url("login-register.css");
 @import url("timeline.css");
 @import url("profile.css");
+@import url("modal.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Helvetica, Arial, Verdana;
+  text-decoration: none;
+  box-sizing: border-box;
+}
 
 :root {
+  --font-emphasis: "Bitter", serif, "Helvetica Neue", Arial;
+
   --color-dark-pink: #ff009e;
   --color-light-pink: #ffb8e1;
   --color-dark-green: #56f894;
@@ -15,27 +26,13 @@
   --color-light-gray: #dfdfdf;
   --color-black: #000000;
 
-  --border-input: 2px solid var(--color-medium-gray);
   --border-input-post: 1px solid var(--color-medium-gray);
-  --border-radius-little: 5px;
-  --boder-radius-medium-container: 20px;
-  --boder-radius-great-container: 25px;
+  --border-input: 2px solid var(--color-medium-gray);
 
-  --font-pattern: "Segoe UI", Helvetica, Arial, Verdana;
-  --font-emphasis: "Bitter", serif, "Helvetica Neue", Arial;
-  --font-bold: 600;
-
-  --spacing-litle-top-bottom: 10px 0;
+  --spacing-small: 5px;
+  --spacing-small-line: 5px 0;
+  --spacing-small-login-logo: 10px 0 20px 0;
+  --spacing-medium-login-logo: 15px 0 30px 0;
+  --spacing-big-login-logo: 18px 0 35px 0;
   --spacing-medium-top-bottom: 15px 0;
-  --spacing-great-top-bottom: 25px 0;
-
-  --spacing-little-logo: 10px 0 20px 0;
-  --spacing-medium-logo: 15px 0 30px 0;
-  --spacing-great-logo: 18px 0 35px 0;
-
-  --spacing-little-bottom: 5px;
-  --spacing-medium-bottom: 10px;
-  --spacing-great-bottom: 20px;
-
-  --spacing-little-line: 5px 0;
 }

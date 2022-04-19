@@ -1,7 +1,7 @@
 const friends = {
   createFriendsList: function () {
     const container = document.createElement("div");
-    container.setAttribute("id", "container-general");
+    container.setAttribute("class", "container-secondary");
     container.innerHTML = `
     <main>
 

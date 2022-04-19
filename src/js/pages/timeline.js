@@ -3,7 +3,7 @@ import { logout } from "../../config/authentication.js";
 const timeline = {
   createTimeline: function () {
     const container = document.createElement("main");
-    container.setAttribute("id", "main-container");
+    container.setAttribute("class", "main-container");
     container.innerHTML = `
 <button type="button" id="button-logout">
   SAIR

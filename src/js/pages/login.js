@@ -7,9 +7,9 @@ import {
 const login = {
   createLogin: function () {
     const container = document.createElement("div");
-    container.setAttribute("id", "container-general");
+    container.setAttribute("class", "container-secondary");
     container.innerHTML = `
-      <form id="user-form">
+      <form class="user-form">
         <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
         <label for="user-email" class="user-label">Email</label>
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
@@ -27,19 +27,19 @@ const login = {
         </div>
         <button id="login-google" class="user-button  button-green"> 
           <img class="icon-button" src="./img/icons/icon-logo-google.ico">  
-          Entrar com Google 
+          ENTRAR COM GOOGLE
         </button>
         <p class="new-account" >
-          Não tem conta? <a href="#register" class="emphasis-pink">Crie uma conta agora!</a>
+          Não tem conta?<br> <a href="#register" class="emphasis-pink">Crie uma conta agora!</a>
         </p>
       </form>
 
       <section id="modal-container" class="modal-container">
         <div class="modal">
           <button id="modal-close" class="modal-close">X</button>
-          <label for="user-email" class="user-label">Informe o seu email</label>
-          <input type="email" name="user-email" id="user-email-reset" class="user-input" placeholder="Digite seu email">
-          <button type="submit" id="button-reset-password">
+          <label for="user-email-reset" class="title-modal user-label">Informe o seu email</label>
+          <input type="email" id="user-email-reset" class="user-input" placeholder="Digite seu email">
+          <button type="submit" id="button-reset-password" class="user-button button-pink">
             ENVIAR POR EMAIL
           </button>
           <span id="message-reset"></span>
