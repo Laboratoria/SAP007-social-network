@@ -1,3 +1,5 @@
+import { login, loginGoogle } from '../services/authentication.js';
+
 export default () => {
   const areaLogin = document.createElement('div');
   areaLogin.classList.add('login');
@@ -5,12 +7,11 @@ export default () => {
   <div class="content">
     <div class="main-login">
       <img src="../img/logo.png" alt="Logo Laboriam" class="logo">
-      <form method="post" class="formLogin">
+      <form method="post">
         <h2>Login</h2>
-        <input type="email" placeholder="E-mail">
-        <p class="mensagemErro">Email inválido!</p>
-        <input type="password" placeholder="Senha">
-        <p class="mensagemErro">Senha inválida!</p>
+        <input type="email" placeholder="E-mail" id="inputEmail">
+        <input type="password" placeholder="Senha" id="inputSenha">
+        <p id="mensagemErro" class="mensagemErro"></p>
         <button type="submit" id="btnEntrar" class="btnEntrar">
           <a href="/#feed">Entrar</a>
         </button>
@@ -37,5 +38,38 @@ export default () => {
     <p>Cássia Costa, Dayane Rodrigues e Viviane Soares</p>
   </footer>
 `;
+
+  const loginEmail = areaLogin.querySelector('#inputEmail');
+  const loginSenha = areaLogin.querySelector('#inputSenha');
+  const btnEntrar = areaLogin.querySelector('#btnEntrar');
+  const btnGoogle = areaLogin.querySelector('#google');
+  const mensagemErro = areaLogin.querySelector('#mensagemErro');
+
+  btnEntrar.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (loginEmail.value && loginSenha.value) {
+      login(loginEmail.value, loginSenha.value)
+        .then(() => {
+          window.location.hash = 'feed';
+        })
+        .catch((error) => {
+          if (error.code === 'auth/wrong-password') {
+            mensagemErro.innerHTML = ' Senha incorreta!';
+          } else if (error.code === 'auth/invalid-email') {
+            mensagemErro.innerHTML = ' E-mail incorreto!';
+          } else {
+            mensagemErro.innerHTML = 'E-mail incorreto ou não cadastrado';
+          }
+        });
+    } else if (loginEmail.valor === '' || loginSenha.value === '') {
+      mensagemErro.innerHTML = ' Preencher todos os campos!';
+    }
+  });
+
+  btnGoogle.addEventListener('click', (event) => {
+    event.preventDefault();
+    loginGoogle();
+  });
+
   return areaLogin;
 };
