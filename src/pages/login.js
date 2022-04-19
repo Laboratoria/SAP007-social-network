@@ -1,4 +1,4 @@
-import { login, loginGoogle } from '../services/authentication.js';
+import { login, loginGoogle, redefinirSenha } from '../services/authentication.js';
 
 export default () => {
   const areaLogin = document.createElement('div');
@@ -16,7 +16,7 @@ export default () => {
           <a href="/#feed">Entrar</a>
         </button>
       </form>
-      <a href="" class="recoverPassword">Esqueceu a senha?</a>
+      <a href="" id="recoverPassword" class="recoverPassword">Esqueceu a senha?</a>
       <div class="buttons">
         <p>Ou entre com:</p>
         <button class="google" id="google">
@@ -44,15 +44,16 @@ export default () => {
   const btnEntrar = areaLogin.querySelector('#btnEntrar');
   const btnGoogle = areaLogin.querySelector('#google');
   const mensagemErro = areaLogin.querySelector('#mensagemErro');
+  const btnRedefinirSenha = areaLogin.querySelector('#recoverPassword');
 
   btnEntrar.addEventListener('click', (event) => {
     event.preventDefault();
     if (loginEmail.value && loginSenha.value) {
       login(loginEmail.value, loginSenha.value)
-        .then(() => {
-          window.location.hash = 'feed';
-        })
-        .catch((error) => {
+      .then(() => {
+        window.location.hash = 'feed';
+      })
+      .catch((error) => {
           if (error.code === 'auth/wrong-password') {
             mensagemErro.innerHTML = ' Senha incorreta!';
           } else if (error.code === 'auth/invalid-email') {
@@ -70,6 +71,12 @@ export default () => {
     event.preventDefault();
     loginGoogle();
   });
+
+  btnRedefinirSenha.addEventListener('click', (e) => {
+    e.preventDefault();
+    redefinirSenha(loginEmail.value);
+    console.log('Entrou na função de redefinir');
+  })
 
   return areaLogin;
 };

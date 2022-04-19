@@ -1,4 +1,5 @@
-import { menu } from "./elements/menu.js";
+import { logout } from "../services/authentication.js";
+import { menu } from "./components/menu.js";
 
 export default () => {
   const feedHome = document.createElement('div');
@@ -32,6 +33,12 @@ export default () => {
 
   const menuNavigation = feedHome.querySelector('#menu');
   menuNavigation.innerHTML = menu;
+
+  const btnLogout = feedHome.querySelector('#signout');
+  btnLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout();
+  });
 
   return feedHome;
 };
