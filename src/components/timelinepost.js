@@ -1,6 +1,6 @@
-// import { removePost } from '../pages/feed/controll.js';
+import { removePost } from '../pages/feed/controll.js';
 
-export function postElement(post) {
+export function postElement(post, uid) {
   const date = new Date(post.day.seconds * 1000);
   const timelinePost = document.createElement('div');
   timelinePost.setAttribute('class', 'box-post flex column');
@@ -27,24 +27,24 @@ export function postElement(post) {
       <button class="post-comment"><img src="" alt="">Comentar</button>
     </div>`;
 
-  // const navRemoveModifie = timelinePost.querySelector('.nav-remove-modifie');
+  const navRemoveModifie = timelinePost.querySelector('.nav-remove-modifie');
   // pesquisar como pegar user do session
-  // if (user.uid === post.userUid) {
-  //   navRemoveModifie.innerHTML = `
-  //         <button class="btn-config-post">
-  //           <span id="balls" class="balls"></span>
-  //         </button>
-  //         <ul class="configs-post">
-  //           <li value="${post.idPost}">Remover</li>
-  //           <li><button data-id="${post.idPost}" class="modifie btn-config">Editar</button></li>
-  //         </ul>`;
-  //   const listNavRemoveModifie = timelinePost.querySelector('.configs-post');
-  //   listNavRemoveModifie.addEventListener('click', (e) => {
-  //     const { target } = e;
-  //     console.log('oi');
-  //     const dataId = target.dataset.id;
-  //     removePost(dataId).then((a) => console.log(a)).catch((error) => console.log(error));
-  //   });
-  // }
+  if (uid === post.userUid) {
+    navRemoveModifie.innerHTML = `
+      <button class="btn-config-post">
+        <span id="balls" class="balls"></span>
+      </button>
+      <ul class="configs-post">
+        <li><button value="remove" id="${post.idPost}" data-postremove="${post.idPost}" class="remove btn-config">Remover</button></li>
+        <li><button value="modifie" id="${post.idPost}" data-post="${post.idPost}" class="modifie btn-config">Editar</button></li>
+      </ul>`;
+    const btnRemove = timelinePost.querySelector('[data-postremove]');
+    btnRemove.addEventListener('click', (e) => {
+      const { target } = e;
+      // const target = e.target
+      const dataPost = target.dataset.postremove;
+      removePost(dataPost).then((a) => console.log(a)).catch((error) => console.log(error));
+    });
+  }
   return timelinePost;
 }
