@@ -1,0 +1,307 @@
+.background {
+  /* background-image: url("../img/background-pink-light.gif"); */
+  min-height: 100vh;
+  background-color: gray;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-general {
+  background-color: var(--color-dark-yellow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+label,
+.user-label,
+.user-button,
+.text-line,
+.new-account,
+.small-text-right {
+  font-weight: var(--font-bold);
+}
+
+.small-text-right {
+  align-self: flex-end;
+}
+#logo,
+.new-account {
+  align-self: center;
+}
+a,
+.user-input::placeholder input {
+  text-decoration: none;
+  color: var(--color-black);
+}
+.user-input {
+  background-color: var(--color-light-yellow);
+}
+.user-button:active {
+  transform: translateY(2px);
+}
+.button-pink {
+  background-color: var(--color-dark-pink);
+  color: var(--color-white);
+}
+.button-green {
+  background-color: var(--color-dark-green);
+}
+.line {
+  background-color: var(--color-black);
+  position: relative;
+}
+.text-line {
+  background-color: var(--color-dark-yellow);
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.emphasis-pink {
+  color: var(--color-dark-pink);
+}
+.icon-button {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+#login-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#error {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-dark-pink);
+  text-align: center;
+  width: 348px;
+  margin-top: 15px;
+  display: none;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container.active {
+  display: flex;
+}
+.modal {
+  width: 50%;
+  height: auto;
+  background: #cfcfcf;
+  padding: 30px;
+  border: 3px solid #00455e;
+  box-shadow: 0 0 0 10px #cfcfcf;
+  text-align: center;
+  position: relative;
+}
+.close-modal {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 3px solid #00455e;
+  top: -30px;
+  right: -30px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  color: #cfcfcf;
+  cursor: pointer;
+}
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.active .modal {
+  animation: modal 0.3s forwards;
+}
+
+@media screen and (min-width: 0px) and (max-width: 549px) {
+  #container-general {
+    width: 100vw;
+    height: 100vh;
+  }
+  #logo {
+    height: 30px;
+    margin: var(--spacing-little-logo);
+  }
+  .user-label, label {
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-little-bottom);
+  }
+  .user-input, input {
+    width: 270px;
+    height: 36px;
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-medium-bottom);
+  }
+  .user-input::placeholder, input::placeholder input {
+    font-size: 0.75rem;
+  }
+  .small-text-right {
+    font-size: 0.625rem;
+  }
+  .user-button {
+    width: 284px;
+    height: 40px;
+    font-size: 0.875rem;
+    font-weight: var(--font-bold);
+    margin: var(--spacing-medium-top-bottom);
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+  }
+  .line {
+    height: 2px;
+    width: 284px;
+    margin: var(--spacing-little-line);
+  }
+  .text-line {
+    width: 30px;
+    font-size: 0.875rem;
+    top: -8px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1799px) {
+  #container-general {
+    width: 500px;
+    height: 570px;
+    border-radius: var(--boder-radius-medium-container);
+  }
+  #logo {
+    height: 35px;
+    margin: var(--spacing-medium-logo);
+  }
+  .user-label, label {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-little-bottom);
+  }
+  .user-input, input {
+    width: 334px;
+    height: 46px;
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-medium-bottom);
+  }
+  .user-input::placeholder, input::placeholder input {
+    font-size: 1.125rem;
+  }
+  .small-text-right {
+    font-size: 1rem;
+  }
+  .user-button {
+    width: 350px;
+    height: 50px;
+    font-size: 1.3125rem;
+    font-weight: var(--font-bold);
+    margin: var(--spacing-medium-top-bottom);
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+  }
+  .line {
+    height: 2px;
+    width: 350px;
+    margin: var(--spacing-little-line);
+  }
+  .text-line {
+    width: 50px;
+    font-size: 1.125rem;
+    top: -12px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+  #container-general {
+    width: 625px;
+    height: 753px;
+    border-radius: var(--boder-radius-great-container);
+  }
+  #logo {
+    height: 50px;
+    margin: var(--spacing-great-logo);
+  }
+  .user-label, label {
+    font-size: 1.3125rem;
+    margin-bottom: var(--spacing-medium-bottom);
+  }
+  .user-input, input {
+    width: 424px;
+    height: 51px;
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+    padding-left: 10px;
+    margin-bottom: var(--spacing-great-bottom);
+  }
+  .user-input::placeholder, input::placeholder input {
+    font-size: 1.3125rem;
+  }
+  .small-text-right {
+    font-size: 1rem;
+  }
+  .user-button {
+    width: 438px;
+    height: 55px;
+    font-size: 1.5rem;
+    font-weight: var(--font-bold);
+    margin: var(--spacing-great-top-bottom);
+    border: var(--border-input);
+    border-radius: var(--border-radius-little);
+  }
+  .line {
+    height: 3px;
+    width: 438px;
+    margin: var(--spacing-little-line);
+  }
+  .text-line {
+    width: 50px;
+    font-size: 1.3125rem;
+    top: -12px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,46 @@
+#header {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "logo icons";
+  align-items: center;
+  background-color: var(--color-dark-gray);
+  z-index: 1;
+}
+#logo-timeline {
+  width: 50px;
+  grid-area: logo;
+}
+a {
+  text-decoration: none;
+}
+#menu ul {
+  grid-area: icons;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-list {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--color-dark-yellow);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-list:active {
+  background-color: var(--color-dark-green);
+}
+.menu-icon {
+  height: 25px;
+}
+.menu-text {
+  display: none;
+}

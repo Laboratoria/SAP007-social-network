@@ -1,0 +1,6 @@
+
+CSS Login e Register
+Contar valor mínimo para quantidade de senha
+Verificar erros do firebase e mostrar para o usuário
+Como permanecer logado?
+Fazer testes

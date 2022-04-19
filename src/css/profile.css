@@ -1,0 +1,38 @@
+#form-profile {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--color-light-gray);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.foto-perfil {
+    margin: 0 auto;
+    height: 160px;
+    width: 160px;
+    border-radius: 5px;
+    background-color: var(--color-dark-yellow);
+    border: var(--color-light-pink) 1px solid;
+}
+
+.linha, .linha label, .linha input {
+    width: 100%;
+    display: block;
+    border: none;
+}
+
+.linha label {
+    text-align: left;
+    font-size: 16px;
+}
+
+.linha input {
+    background-color: var(--color-dark-yellow);
+}
+
+.btn-atualizar {
+    background-color: var(--color-dark-green);
+    border: var(--color-black) 1px solid;
+    margin: 40px;
+}
