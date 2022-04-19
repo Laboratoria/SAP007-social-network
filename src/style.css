@@ -13,16 +13,6 @@
   text-align: center;
 }
 
-#root {
-  display: block;
-}
-
-.banner {
-  background-image: url('./src/readme-img/img/banner1.jpg');
-  background-position: center center;
-  background-size: cover;
-}
-
 body {
   background-color: #fefaef;
   min-height: 100vh;
@@ -38,8 +28,12 @@ header {
   justify-content: space-between;
 }
 
+#root {
+  display: block;
+}
+
 .banner {
-  background-image: url('./src/readme-img/img/banner1.jpg');
+  background-image: url('./src/img/banner1.jpg');
   background-position: center;
   background-size: cover;
   width: 353px;
@@ -158,10 +152,6 @@ footer {
     flex-direction: row;
   }
 
-  .center .banner {
-    margin-top: 15px;
-  }
-
   .containerA {
     display: flex;
     justify-content: space-around;
@@ -185,7 +175,7 @@ footer {
   }
 
   .container-fluid {
-    width: 63v;
+    width: 63vh;
     height: 73vh;
 
   }
