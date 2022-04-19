@@ -35,6 +35,7 @@ background-image: url("assets/background.png");
     border: none;
     background-color:#dee4e3;
     padding: 5px 10px;
+    font-size: 22px;
 }
 .login-text{
     margin: 0 auto;
