@@ -17,8 +17,8 @@ export const registerUser = (displayName, email, password) => {
     updateProfile(auth.currentUser, {
       displayName: displayName
     }).then(() => {
-      const user = userCredential.user;
-    return user;
+      const user = userCredential.user; 
+      return user
     }).catch((error) => {
       console.log(error)
     });
@@ -26,12 +26,12 @@ export const registerUser = (displayName, email, password) => {
 };
 
 //Login de usuários existentes
-export function userWithLogin (email, password){
+export const userWithLogin = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    return user;
-  })
+    return user
+  });
 }
 
 //Definir um observador do estado de autenticação e coletar dados dos usuários

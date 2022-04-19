@@ -3,9 +3,11 @@ import {
   collection, 
   addDoc,
   orderBy,
+  query,
   deleteDoc,
   getDocs,
-  updateDoc
+  updateDoc,
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
 import { auth } from "./authentication.js";
@@ -27,7 +29,7 @@ export async function newPost(message, displayName){
     const post = {
       message: message,
       displayName: displayName,
-      likes: new Array(),
+      likes: [],
       date: new Date()
     }  
     const docRef = await addDoc(collection(db, "posts"),post)
@@ -38,13 +40,35 @@ export async function newPost(message, displayName){
     console.log("Error adding document: ", e);
   } 
 }
+
+/*export const getLikesPost = (postId) => {
+  createUserWithEmailAndPassword(auth, email, password)*/
   
-/*export const getLikesPost = async () => {
-  const getAllPosts = await getDocs(collection(db, "posts"));
-  getAllPosts.forEach((doc) => {
-    await updateDoc()
-  });
-}*/
+export const getLikesPost = async (postId,likes) => {
+  try{  
+    const postLiked = doc(db, 'posts', postId)
+    const user = auth.currentUser.uid
+    console.log(likes) 
+    console.log(likes.includes(user))
+    if(likes.includes(user)) {
+      const indexOfUser = likes.indexOf(user);
+      likes.splice(indexOfUser, 1);
+      await updateDoc(postLiked, {
+        likes: likes
+      });
+      return likes
+    } else {
+      likes.push(user)
+      await updateDoc(postLiked, {
+        likes: likes
+      });
+      return likes
+    }
+  }  
+  catch (e) {
+    console.log("Error", e);
+  }
+}
 
 //cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName){
@@ -69,16 +93,20 @@ return sort
 
 //para ver todos os documentos de "posts"
 export const allPosts = async () => {
-  const querySnapshot = await getDocs(collection(db, "posts"));
   let arrayOfPosts = [];
+  const sortingPosts = query(collection(db, "posts"), orderBy("date", "desc"))
+  const querySnapshot = await getDocs(sortingPosts);
   querySnapshot.forEach((doc) => {
     const posts = doc.data();
     const postId = doc.id;
     posts['id'] = postId;
     arrayOfPosts.push(posts);
+    //console.log(posts.likes)
   });
-  return arrayOfPosts
+  return arrayOfPosts;
+  
 }
+
 
 //Editar post
 /*const washingtonRef = doc(db, "cities", "DC");

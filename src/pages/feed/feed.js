@@ -1,7 +1,7 @@
 import {
   newPost,
   allPosts,
-  //sortPosts
+  getLikesPost
 } from "../../configs/firestore.js";
 import {
   logout,
@@ -33,14 +33,14 @@ export default () => {
           <input class="header-menu-item input-search" type="search" id="input-search" placeholder="Pesquisar poemas...">
           <h1 class="welcome-title">Bem-vindo(a), poeta!</h1>
           <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
-          <p id="alert-notification"></p>
+          <p id="alert-notification" class="message"></p>
           <button class="btn-publish" id="btn-publish" type="submit"> Publicar </button>
         </form>
 
         <section class="new-post" id="new-post">
         </section>
         <section class="publications" id="publications">
-            <h1 class="ultimosPoemas">Últimos poemas:</h1>
+            <h1 class="last-poems">Últimos poemas:</h1>
         </section>
     </main> 
     `;
@@ -48,7 +48,7 @@ export default () => {
   container.innerHTML = templateFeed;
 
   //template do card do post
-  function createCardPost (text, displayName, date) {
+  function createCardPost (text, displayName, date, id = "", likes=[]) {
     const containerPost = document.createElement("div");
     const templateCardPost = `
       <div class="card">
@@ -57,8 +57,10 @@ export default () => {
           <p class="write-message">${text[0].toUpperCase() + text.substr(1)}</p>    
           <p class="author">${displayName}</p>
           <button class="button-heart">
+            <input type="hidden" id="post-id" value="${id}">
             <img class="heart-img" src="img/icone-coração.png">
-            <span class="button-heart-text">Gostei</span>
+            <span class="button-heart-text" id="number-of-likes">${likes.length}</span>
+            <input type="hidden" id="get-likes-value" value="${likes}">
           </button>  
         </section>
       </div>    
@@ -74,10 +76,6 @@ export default () => {
   const logoutButton = container.querySelector('#btn-exit');
   const inputSearch = container.querySelector('#input-search');
   let msgAlert = container.querySelector('#alert-notification');
-
-  //const likeButton = container.querySelector('#button-heart')
-
- 
 
   //função para sair do seu login
   logoutButton.addEventListener("click", (e) => {
@@ -103,7 +101,8 @@ export default () => {
       newPost(addNewPost.value, auth.currentUser.displayName)
       .then(function () {
         let date = new Date()
-        showNewPost.appendChild(createCardPost(addNewPost.value,auth.currentUser.displayName, formatDateStyle(date)));
+        showNewPost.appendChild(createCardPost(addNewPost.value,auth.currentUser.displayName,
+        formatDateStyle(date)));
         addNewPost.value = "";
       })
     }
@@ -111,20 +110,37 @@ export default () => {
   
   //aparecer todos os posts
   const showAllPosts = async () => {
-    const timeline = await allPosts();
+    const timeline = await allPosts();  
     timeline.forEach((post) => {
-      const postElement = createCardPost(post.message, post.displayName, formatDateStyle(post.date.toDate()));
+      const postElement = createCardPost(post.message, post.displayName,
+      formatDateStyle(post.date.toDate()), post.id, post.likes);
       showPosts.appendChild(postElement)
-
-      //a função do like precisará ser chamda aqui
-      const likeButton = container.querySelector('.button-heart')
-      likeButton.setAttribute('id', post.id)
-  
-      likeButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log(likeButton.getAttribute('id'))
-      })
     });
+      
+    const likeButtons = container.querySelectorAll('.button-heart')
+    for(let i = 0; i < likeButtons.length; i++) {
+      likeButtons[i].addEventListener("click", checkLikes)
+    } 
+  }
+
+  function checkLikes(e){
+    const postId = e.currentTarget.querySelector('[id=post-id]').value;
+    const showNumberOfLikes = e.currentTarget.querySelector('[id=number-of-likes]')
+    const getValueOfLikes = e.currentTarget.querySelector('[id=get-likes-value]').value;
+    const likes = getValueOfLikes.split(",")
+    if (likes.includes(auth.currentUser.uid)) {
+      getLikesPost(postId,likes)
+      .then(() => {
+        const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
+        showNumberOfLikes.innerHTML = reduceNumLikes;
+      })
+    } else{
+      getLikesPost(postId,likes)
+      .then(() => {
+        const sumNumLikes = Number(showNumberOfLikes.innerHTML) + 1;
+        showNumberOfLikes.innerHTML = sumNumLikes;
+      })
+    } 
   }
 
   //função botão menu hamburguer
@@ -150,7 +166,7 @@ export default () => {
 
 //botão de like
 
-let buttonHeart1 = document.getElementById("button-heart");
+let buttonHeart1 = container.querySelector(".button-heart");
 
 function Toggle1(){
   if (buttonHeart1.style.color == "red") {

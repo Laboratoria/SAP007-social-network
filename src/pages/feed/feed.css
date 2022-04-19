@@ -65,6 +65,7 @@
 }
 
 .welcome-title {
+  font-family: 'Sarala', sans-serif;
   font-size: 35px;
 }
 
@@ -81,19 +82,20 @@
   display: flex;
   height: 30px;
   width: 100px;
-  font-family: 'Sarala', sans-serif;
   font-size: 16px;
   background-color: #FFF2E7;
   border-radius: 5px;
-  padding-left: 16px;
+  padding-left: 18px;
   margin-top: 15px;
+  padding-top: 3px;
 }
 
 
 .welcome-title h1 {
-    font-size: 28px;
-    font-style: bold;
-    padding-bottom: 50px;
+  font-family: 'Sarala', sans-serif;
+  font-size: 28px;
+  font-style: bold;
+  padding-bottom: 50px;
 }
 
 .publications,
@@ -102,18 +104,19 @@
   flex-direction: column;
   justify-content: space-between;
   align-items:center; 
-  padding-top: 50px;
   font-size: 18px;
 }
 
-.ultimosPoemas {
+.last-poems {
+  font-family: 'Sarala', sans-serif;
   font-style: bold;
   font-size: 30px;
   padding: 20px;
 }
 
 .card {
-  border: 2px solid black;
+  border: 2px solid rgb(67, 66, 66, 0.7);
+  background-color: rgba(231, 207, 177, 0.8);
   padding: 5px;
   margin: 15px;
 }
@@ -131,7 +134,7 @@ font-style:oblique;
 }
 
 .write-message {
-font-family:"Merriweather", serif;
+font-family:"Merriweather", sans-serif;
 font-size: 20px;
 }
 
@@ -157,8 +160,14 @@ font-size: 20px;
   display: none;
 }
 
-@media screen and (min-width: 300px) and (max-width: 667px) {
+.message{
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: 'Sarala', sans-serif;
+  background-color: rgba(192, 188, 184, 0.3);
+}
 
+@media screen and (min-width: 300px) and (max-width: 667px) {
 .header {
   background: #e7e7e7;
 }
