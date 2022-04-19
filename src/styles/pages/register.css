@@ -15,7 +15,7 @@
 
 }
 
-.btn-google {
+.button-google {
     background-color: transparent;
     border: none;
 }
@@ -86,7 +86,7 @@
     margin-bottom: 31px;
 }
 
-.btn-register {
+.button-register {
     padding: 0.375rem 0.75rem;
     border: none;
     text-transform: uppercase;

@@ -1,4 +1,5 @@
-import { registerUser } from "/lib/auth-firebase.js"
+import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
+//import { registerUser } from "/lib/auth-firebase.js"
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
@@ -7,7 +8,7 @@ export default function formRegister() {
   registerPage.innerHTML = `
     <h1 class="title-register">Crie uma conta</h1>
     <h2 class="subtitle-register">Inscreva-se com sua conta do google ou endereço de e-mail</h2>
-      <button class="btn-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
+      <button id="button-google" class="button-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
       <form class="myForm">
         <div class="information">
           <label class="label-name">Nome completo</label>
@@ -22,7 +23,7 @@ export default function formRegister() {
           <label class="label-password">Senha</label>
           <input type="password" id="password-register" class="form-fields" placeholder="Senha" autocomplete="on" required/>
 
-          <button type="button" id="btn-register" class="btn-register">Enviar</button>
+          <button type="button" id="button-register" class="button-register">Enviar</button>
           <p id="error-message" class="alert"></p>
         </div>
       </form>
@@ -31,7 +32,7 @@ export default function formRegister() {
   const msgError = registerPage.querySelector("#error-message");
   const email = registerPage.querySelector("#email");
   const password = registerPage.querySelector("#password-register");
-  const submitButton = registerPage.querySelector("#btn-register");
+  const submitButton = registerPage.querySelector("#button-register");
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -40,14 +41,30 @@ export default function formRegister() {
         window.location.hash = "home";
       }).catch((error) => {
         if (error.code === "auth/email-already-exists") {
-          msgError.textContent = "E-mail já cadastrado"
+          msgError.textContent = "E-mail já cadastrado.";
         } else if (error.code == "auth/invalid-email") {
-          msgError.textContent = "Digite um e-mail válido";
+          msgError.textContent = "Digite um e-mail válido.";
         } else if (error.code === "auth/invalid-password") {
-          msgError.textContent = "A Senha precisa ter no minimo 6 caracteres"
+          msgError.textContent = "A Senha precisa ter no mínimo 6 caracteres";
         }
       });
   });
+
+  const googleButton = registerPage.querySelector("#button-google");
+  googleButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    registerGoogle()
+    .then(() => {
+      window.location.hash = "home";
+    })
+    .catch((error) => {
+      if (error.code === "auth/account-exists-with-different-credential") {
+        alert("Já existi uma conta com esse endereço de e-mail.");
+      } else if (error.code === "auth/popup-blocked") {
+        alert("O pop-up foi bloqueado pelo navegador.");
+      }
+    });
+  })
 
   return registerPage;
 
