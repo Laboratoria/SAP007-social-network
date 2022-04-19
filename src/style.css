@@ -71,6 +71,10 @@ form {
   margin-top: 15px;
 }
 
+.text {
+  margin-bottom: auto;
+}
+
 p,
 a {
   text-align: center;
@@ -131,7 +135,7 @@ footer {
 .text-footer {
   font-weight: lighter;
   text-align: center;
-  font-size: 15px;
+  font-size: 10px;
   margin: 0;
 }
 
@@ -179,9 +183,21 @@ footer {
     height: 73vh;
 
   }
+
   footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #acf2be;
+    margin: 0;
+    padding: 15px 0;
+  }
+
+
+  .text-footer {
+    font-weight: lighter;
     text-align: center;
-    position: fixed;
+    font-size: 15px;
+    margin: 0;
   }
 
   form {
