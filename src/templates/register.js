@@ -5,26 +5,30 @@ export default function formRegister() {
   registerPage.classList.add("title-register")
 
   registerPage.innerHTML = `
-    <h1 class="title-register">Faça seu cadastro</h1>
+    <h1 class="title-register">Crie uma conta</h1>
+    <h2 class="subtitle-register">Inscreva-se com sua conta do google ou endereço de e-mail</h2>
+      <button class="btn-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
       <form class="myForm">
         <div class="information">
-          <label class="label-name">Nome e sobrenome</label>
-          <input type="text" id="name" class="form-fields"/>
+          <label class="label-name">Nome completo</label>
+          <input type="text" id="name" class="form-fields" placeholder="Nome completo"/>
 
           <label class="label-user">Usuário</label>
-          <input type="text" id="user" class="form-fields"/>
+          <input type="text" id="user" class="form-fields" placeholder="Usuário"/>
 
           <label class="label-email">E-mail</label>
-          <input type="email" id="email" class="form-fields" required/>
+          <input type="email" id="email" class="form-fields" placeholder="E-mail" required/>
 
           <label class="label-password">Senha</label>
-          <input type="password" id="password-register" class="form-fields" autocomplete="on" required/>
+          <input type="password" id="password-register" class="form-fields" placeholder="Senha" autocomplete="on" required/>
 
           <button type="button" id="btn-register" class="btn-register">Enviar</button>
+          <p id="error-message" class="alert"></p>
         </div>
       </form>
   `;
 
+  const msgError = registerPage.querySelector("#error-message");
   const email = registerPage.querySelector("#email");
   const password = registerPage.querySelector("#password-register");
   const submitButton = registerPage.querySelector("#btn-register");
@@ -36,11 +40,11 @@ export default function formRegister() {
         window.location.hash = "home";
       }).catch((error) => {
         if (error.code === "auth/email-already-exists") {
-          alert("E-mail já cadastrado");
+          msgError.textContent = "E-mail já cadastrado"
         } else if (error.code == "auth/invalid-email") {
-          alert('Digite um e-mail válido');
+          msgError.textContent = "Digite um e-mail válido";
         } else if (error.code === "auth/invalid-password") {
-          alert("A Senha precisa ter no minimo 6 caracteres");
+          msgError.textContent = "A Senha precisa ter no minimo 6 caracteres"
         }
       });
   });
