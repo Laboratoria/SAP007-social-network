@@ -2,7 +2,6 @@
 Corrigir classes de português para inglês
 
 Verificar erros do firebase e mostrar para o usuário
-Como permanecer logado?
 
 Iniciar o firestore
 
