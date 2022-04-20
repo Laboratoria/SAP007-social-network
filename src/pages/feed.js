@@ -1,17 +1,22 @@
 //import { getPost } from '../lib/firestore.js';
 //import {postComponent} from '../components/post.js';
-import printNav from '../components/navbar.js';
-//import{header} from "../components/header.js";
+import {printNav} from '../components/navbar.js';
 //import writePost from "../pages/writePost.js";
 
 export default function feed() {
   const feed = document.createElement("section");
-  feed.innerHTML = `
+  //const template 
+
+  feed.innerHTML= `
   <section class="show-posts" id="showPosts">
 
   </section>
     `;
+
   feed.appendChild(printNav());
+  //feed.innerHTML+= printNav();
+  
+  
 
   //const sectionPost = feed.querySelector("#showPosts");
   // const newRecipe = feed.querySelector("#btn-new-recipe");

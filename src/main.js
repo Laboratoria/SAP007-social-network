@@ -13,7 +13,7 @@ const init = () => {
     if (logado) {
       switch (window.location.hash) {
         case "#register":
-        main.appendChild(register());
+        mainContent.appendChild(register());
         break;
         case "#feed":
         mainContent.appendChild(feed());
