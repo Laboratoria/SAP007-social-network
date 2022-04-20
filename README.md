@@ -15,18 +15,25 @@
 As redes sociais invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem viver semelas.
 Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em uma rodada de financiamento com investidores, foi apresentada uma rede social para químicos onde os usuários podem publicar artigos a respeito de suas pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com determinadas tags ou popularidade, mais recente ou mais comentado.
 
-## 2. Histórias de usuários
+## 1.1 Produto
 
 O Go Trip é uma rede social direcionada a pessoas que tenham o desejo de compartilhar suas experiências e dar dicas de viagens ou para pessoas que está buscando a sua primeira aventura seja ela sozinho ou em grupo e buscar informações relevantes que enriqueça o seu planejamento de viagem. Para atender a necessidade do público, foram identificadas 3 histórias de usuários e a seguir foram extraidos os critérios de aceitação para desenvolver a nossa Single Page Application.
 
 Segundo o _Dev Média_: "Single Page Applications (SPA) são aplicações cuja funcionalidade está concentrada em uma única página. Ao invés de recarregar toda a página ou redirecionar o usuário para uma página nova, apenas o conteúdo principal é atualizado de forma assíncrona, mantendo toda a estrutura da página estática."
 
+## 2. Histórias de usuários
+
 ### História 1
-Eu como viajante gostaria de interagir em uma rede social destinada para tal finalidade onde possa me conectar com outras pessoas e para isso é necessário fazer login com email e senha válidos.
+> "Como viajante iniciante gostaria de interagir em uma rede social destinada para tal finalidade onde possa me conectar com outras pessoas para sanar minhas dúvidas referente ao tema da rede social e para isso é necessário fazer cadastro de usuário com email e senha válidos."
 ### História 2
-(Descrever)
+> "Eu como um viajante experiente gostaria de acessar a rede social com meu email e senha válidos e poder compartilhar através de publicações minhas experiências de viagens."
 ### História 3
-(Descrever)
+> "Desejo me conectar com outras pessoas e tirar minhas dúvidas e curtir/dar like em publicações que possuem relevância para mim."
+
+## 2.1 Personas 
+ <div>
+    <img alt="Proto persona" src="./src/img/readme-img/proto-personas.png">
+  </div>
 
 ## 3. Interface
 

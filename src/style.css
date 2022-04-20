@@ -50,7 +50,7 @@ header {
 }
 
 .container-fluid {
-  box-shadow: 0 2px 6px rgb(0 0 0 / 62%);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 50%);
   background-color: #fef9ef;
   margin: 10px;
   flex-direction: column;
@@ -85,7 +85,7 @@ a {
 
 .inputs {
   background-color: #f5efef;
-  border: none;
+  border: 1px solid lightgray;
   border-radius: 5px;
   display: flex;
   margin-top: 0.5em;
@@ -103,6 +103,7 @@ a {
 
 .btnEnter {
   background-color: #48d9b0;
+  cursor: pointer;
   border-radius: 5px;
   border: none;
   width: 264px;
@@ -174,13 +175,29 @@ footer {
   .main-container {
     min-height: 90vh;
     padding: 0;
-
     flex-direction: row;
   }
 
   .container-fluid {
     width: 63vh;
     height: 73vh;
+  }
+
+  form {
+    min-width: 50%;
+  }
+
+  .welcome {
+    font-size:22px; 
+  }
+
+  .inputs {
+    font-size: 18px;
+    margin: 15px 15px 2px 0;
+  }
+
+  .btnEnter {
+    margin-right:15px;
   }
 
   footer {
@@ -198,12 +215,4 @@ footer {
     margin: 0;
   }
 
-  form {
-    min-width: 50%;
-  }
-
-  .inputs {
-    font-size: 18px;
-    margin: 15px 15px 15px 0;
-  }
 }
