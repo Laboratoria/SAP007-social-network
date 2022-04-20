@@ -3,8 +3,6 @@ import register from "./pages/register.js";
 import timeline from "./pages/timeline.js";
 import friends from "./pages/friends.js";
 import profile from "./pages/profile.js";
-import header from "./components/header.js";
-import addPost from "./components/add-post.js";
 import { authChange } from "../config/authentication.js";
 
 const container = document.getElementById("root");
@@ -33,33 +31,28 @@ function redirectPages() {
     case "#timeline":
       authChange((logged) => {
         if (logged) {
-          internalRoute("timeline");
-        } else {
-          window.location.hash = "#home";
-        }
+          container.appendChild(timeline.createTimeline());
+        } else window.location.hash = "#home";
       });
       break;
     case "#friends":
       authChange((logged) => {
         if (logged) {
-          internalRoute("friends");
-        } else {
-          window.location.hash = "#home";
-        }
+          container.appendChild(friends.createFriendsList());
+        } else window.location.hash = "#home";
       });
       break;
     case "#profile":
       authChange((logged) => {
         if (logged) {
-          internalRoute("profile");
-        } else {
-          window.location.hash = "#home";
-        }
+          container.appendChild(profile.createProfile());
+        } else window.location.hash = "#home";
       });
       break;
   }
 }
 
+/*
 function internalRoute(page) {
   const background = document.querySelector(".background");
   background.style.backgroundImage = "none";
@@ -80,6 +73,16 @@ function internalRoute(page) {
       section.innerHTML += profile.createProfile();
       break;
   }
-
   container.appendChild(section);
+
+  //mudar essa função para o header
+  const buttonLogout = container.querySelector("#button-logout");
+  buttonLogout.addEventListener("click", (e) => {
+    e.preventDefault();
+    logout().then(() => {
+      window.location.hash = "#login";
+    });
+  });
+  //usar async
 }
+*/

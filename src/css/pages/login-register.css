@@ -45,6 +45,7 @@ input::placeholder {
 .small-text-right {
   align-self: flex-end;
   font-size: 0.875rem;
+  margin-bottom: 1rem;
 }
 .line {
   background-color: var(--color-black);

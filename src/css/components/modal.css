@@ -5,7 +5,6 @@
   width: 100%;
   top: 0px;
   left: 0px;
-  z-index: 1;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -71,9 +70,12 @@
   font-size: 1rem;
 }
 #message-reset {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  display: block;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  margin: var(--spacing-error);
 }
 
 @media screen and (min-width: 550px) and (max-width: 1099px) {

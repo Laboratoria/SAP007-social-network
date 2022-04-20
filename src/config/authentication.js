@@ -6,20 +6,35 @@ import {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
+  sendEmailVerification,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import { auth } from "./start-firebase.js";
+
+export const verificationEmail = () => {
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      return "true";
+    })
+    .catch(() => {
+      return "false";
+    });
+};
 
 export const registerNewUser = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log("Cadastrou novo usuário!");
-      return user;
+      message.innerHTML = "Cadastro realizado com sucesso!";
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log("Não cadastrou novo usuário!");
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          message.innerHTML = "Email já cadastrado! Escolha outro email.";
+          break;
+        case "auth/weak-password":
+          message.innerHTML = "Sua senha deve ter no mínimo 6 caracteres.";
+          break;
+      }
     });
 };
 
@@ -29,11 +44,18 @@ export function authUserLabFriends(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
       const uid = userCredential.uid;
-      return user;
+      window.location.hash = "#timeline";
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+      switch (error.code) {
+        case "auth/user-not-found":
+          message.innerHTML =
+            "Usuário não encontrado! Crie um cadastro na LabFriends!";
+          break;
+        case "auth/wrong-password":
+          message.innerHTML = "Senha errada! Digite novamente!";
+          break;
+      }
     });
 }
 
@@ -50,7 +72,6 @@ export function authUserWithGoogle() {
       const errorMessage = error.message;
       const email = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
-      console.log(errorCode, errorMessage);
     });
 }
 
@@ -58,20 +79,29 @@ export function logout() {
   return signOut(auth);
 }
 
-export function forgotPassword(email) {
-  return sendPasswordResetEmail(auth, email)
-    .then(() => {
-      console.log("consegui");
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    });
-}
-
 export function authChange(cb) {
   return onAuthStateChanged(auth, (user) => {
     cb(user !== null);
   });
+}
+
+//exibir mensagem de erro
+export function forgotPassword(email) {
+  return sendPasswordResetEmail(auth, email)
+    .then(() => {
+      messageReset.innerHTML = "Email enviado com sucesso!";
+    })
+    .catch((error) => {
+      console.log(error.code);
+      console.log(error.message);
+      switch (error.code) {
+        case "auth/missing-email":
+          messageReset.innerHTML = "Preencha o campo de email!";
+          break;
+        case "auth/user-not-found":
+          messageReset.innerHTML =
+            "Usuário não encontrado! Cadastre-se no LabFriends!";
+          break;
+      }
+    });
 }

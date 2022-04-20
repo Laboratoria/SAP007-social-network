@@ -1,5 +1,14 @@
+import { logout } from "../../config/authentication.js";
+import header from "../components/header.js";
+
 const timeline = {
   createTimeline: function () {
+    const background = document.querySelector(".background");
+    background.style.backgroundImage = "none";
+
+    const container = document.createElement("section");
+    container.setAttribute("class", "container-labfriends");
+    container.prepend(header.createHeader());
     const template = `
     <main class="main-container">
       <ul class="cards">
@@ -22,7 +31,9 @@ const timeline = {
     </main>
     `;
 
-    return template;
+    container.innerHTML += template;
+
+    return container;
   },
 };
 

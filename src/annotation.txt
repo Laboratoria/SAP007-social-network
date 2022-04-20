@@ -1,8 +1,8 @@
 
 
-OH
-- como verificar os erros e mostrar para o usuário
-- como cadastrar novo usuário com o nome, email e senha 
+VERIFICAR SE O EMAIL PARA O CADASTRO EXISTE
+RETORNE TRUE E ENVIA AS SOLICITAÇÕES PARA CADASTRAR USUÁRIO
+
 
 MENU
 criar modal para ir no perfil ou sair

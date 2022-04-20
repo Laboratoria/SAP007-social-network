@@ -1,7 +1,8 @@
 const header = {
   createHeader: function () {
-    const template = `
-      <header id="header">
+    const container = document.createElement("header");
+    container.setAttribute("id", "header");
+    container.innerHTML = `
         <section class="menu-header">
           <h1 class="container-logo">
             <a href="#timeline">
@@ -46,9 +47,19 @@ const header = {
           </nav>
         </section>
       </header>
+      <button type="button" id="button-logout">
+        SAIR
+      </button>
     `;
 
-    return template;
+    const buttonLogout = container.querySelector("#button-logout");
+    buttonLogout.addEventListener("click", () => {
+      logout().then(() => {
+        window.location.hash = "#login";
+      });
+    });
+
+    return container;
   },
 };
 

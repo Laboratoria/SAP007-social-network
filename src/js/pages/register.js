@@ -43,50 +43,14 @@ const register = {
       const message = container.querySelector("#message");
 
       if (password !== passwordRepeat) {
-        message.innerHTML = "Digite a senha novamente!";
-      } else if (password.length <= 6) {
-        message.innerHTML = "Sua senha deve ter no mínimo 6 dígitos!";
-      } else {
-        if (!name || !email || !password || !passwordRepeat) {
-          message.innerHTML = "Preencha todos os campos!";
-        } else if (!newEmail) {
-          message.innerHTML = "Preencha o campo de email corretamente!";
-        } else if (name && email && password && passwordRepeat && newEmail) {
-          registerNewUser(email, password)
-            .then(function () {
-              window.location.hash = "#home";
-              message.innerHTML = "Email Cadastrado!";
-            })
-            .catch((error) => {
-              let errorCode = error.code;
-              let errorMessage = error.message;
-
-              switch (errorCode) {
-                case "auth/invalid-email":
-                  errorMessage = "Insira um email válido.";
-                  message.innerHTML = errorMessage;
-                  break;
-                case "auth/weak-password":
-                  errorMessage = "A senha deve ter no mínimo seis caracteres.";
-                  message.innerHTML = errorMessage;
-                  break;
-                case "auth/email-already-in-use":
-                  errorMessage = "Email já cadastrado.";
-                  message.innerHTML = errorMessage;
-                  break;
-                case "auth/missing-email":
-                  errorMessage = "Insira um email.";
-                  message.innerHTML = errorMessage;
-                  break;
-                default:
-                  errorMessage = "Preencha todos os campos";
-                  message.innerHTML = errorMessage;
-              }
-            });
-        }
+        message.innerHTML = "As duas senhas não coincidem. Digite-as novamente!";
+      }
+      if (!newEmail) {
+        message.innerHTML = "Preencha o campo de email corretamente!";
+      } else if (name && email && password && passwordRepeat && newEmail) {
+        registerNewUser(email, password);
       }
     });
-
     return container;
   },
 };

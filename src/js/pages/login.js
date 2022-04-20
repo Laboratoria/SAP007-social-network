@@ -2,6 +2,7 @@ import {
   authUserLabFriends,
   authUserWithGoogle,
   forgotPassword,
+  verificationEmail,
 } from "../../config/authentication.js";
 
 const login = {
@@ -69,30 +70,13 @@ const login = {
       } else if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (email && password && newEmail) {
-        authUserLabFriends(email, password)
-          .then(() => {
-            console.log("Entrou");
-            window.location.hash = "#timeline";
-          })
-          .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            switch (errorCode) {
-              case "auth/invalid-email":
-                errorMessage = "Insira um email válido.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/user-not-found":
-                errorMessage =
-                  'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/internal-error":
-                errorMessage = "Insira a senha.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-            }
-          });
+        const emailValidation = verificationEmail();
+        console.log(emailValidation);
+        if (emailValidation === "true") {
+          authUserLabFriends(email, password);
+        } else {
+          message.innerHTML = "Email inexistente!";
+        }
       }
     });
 
@@ -105,47 +89,21 @@ const login = {
 
     buttonResetPassword.addEventListener("click", (e) => {
       e.preventDefault();
-      const emailResetPassword = container.querySelector("#user-email-reset");
-      const newEmailReset = emailResetPassword.value.match(
+      const emailResetPassword =
+        container.querySelector("#user-email-reset").value;
+      const newEmailReset = emailResetPassword.match(
         /[\w.\-+]+@[\w-]+\.[\w-.]+/gi
       );
-
-      if (!emailResetPassword.value) {
-        messageReset.innerHTML = "Preencha o campo de email!";
-      } else if (!newEmailReset) {
-        messageReset.innerHTML = "Preencha o campo de email corretamente!";
-      } else {
-        forgotPassword(emailResetPassword.value)
-          .then(() => {
-            messageReset.innerHTML = "Email enviado.";
-          })
-          .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-
-            switch (errorCode) {
-              case "auth/invalid-email":
-                errorMessage = "Email inválido.";
-                messageReset.innerHTML = errorMessage;
-                break;
-              case "auth/user-not-found":
-                errorMessage = "Usuário não encontrado.";
-                messageReset.innerHTML = errorMessage;
-                break;
-              case "auth/missing-email":
-                errorMessage = "Insira um email.";
-                messageReset.innerHTML = errorMessage;
-                break;
-            }
-          });
-      }
+      console.log(emailResetPassword);
+      forgotPassword(emailResetPassword);
     });
 
     if (modalOpen && modalClose && modalContainer) {
-      const emailResetPassword = container.querySelector("#user-email-reset");
+      const emailResetPassword =
+        container.querySelector("#user-email-reset").value;
       const toogle = function (e) {
         e.preventDefault();
-        emailResetPassword.value = "";
+        emailResetPassword = "";
         messageReset.innerHTML = "";
         modalContainer.classList.toggle("active");
       };
@@ -161,7 +119,6 @@ const login = {
       modalClose.addEventListener("click", toogle);
       modalContainer.addEventListener("click", outside);
     }
-
     return container;
   },
 };
