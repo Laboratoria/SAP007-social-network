@@ -1,4 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+//import {getFirestore} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyB1PM6Kq8qggIFKLEd8zqXex_WTnde7sCw",
@@ -12,18 +15,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-//Login de novos usuários
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
