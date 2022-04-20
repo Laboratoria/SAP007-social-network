@@ -5,6 +5,7 @@ import newuser from "./pages/newuser/newuser.js"
 import recover from "./pages/login/recover.js"
 import feed from "./pages/feed/feed.js"
 import { isLoggedIn } from "./configs/authentication.js"
+import about from "./pages/about/about.js"
 
 
 const main = document.querySelector("#root");
@@ -25,7 +26,12 @@ function redirect () {
       break;
     case "#feed":
       main.appendChild(feed()); 
-      break;  
+      break; 
+    case "#profile":
+      main.appendChild(userprofile()); 
+      break;
+    case "#about":
+      main.appendChild(about());       
   }
 
 }

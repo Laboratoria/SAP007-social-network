@@ -12,7 +12,7 @@ import {
 
 import { auth } from "./authentication.js";
 
-const db = getFirestore();
+export const db = getFirestore();
 
 /*os dados são armazenados nos Documentos, que são armazenados nas coleções - ao criar os dados,
 o Cloud Firestore já cria coleções e documentos de modo implícito na primeira vez.*/
@@ -22,15 +22,15 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 //try define um bloco de código para ser executado (para tentar).
 //catch define um bloco de código para lidar com qualquer erro.
 
-//cria uma nova coleção - cada post é um documento
-export async function newPost(message, displayName){
-  displayName = auth.currentUser.displayName;
+export async function newPost(message){
+  const displayName = auth.currentUser.displayName;
   try {
     const post = {
       message: message,
       displayName: displayName,
       likes: [],
-      date: new Date()
+      date: new Date(),
+      userId: auth.currentUser.uid
     }  
     const docRef = await addDoc(collection(db, "posts"),post)
     console.log("Document written with ID: ", docRef.id); 
@@ -86,11 +86,6 @@ export async function collectUsers(email, displayName){
   } 
 }
 
-/*export const sortPosts = async () => {
-const sort = query(getDocs(collection(db, "posts")), orderBy("date","desc"));
-return sort
-}*/
-
 //para ver todos os documentos de "posts"
 export const allPosts = async () => {
   let arrayOfPosts = [];
@@ -101,10 +96,15 @@ export const allPosts = async () => {
     const postId = doc.id;
     posts['id'] = postId;
     arrayOfPosts.push(posts);
-    //console.log(posts.likes)
   });
   return arrayOfPosts;
-  
+}
+
+export const getUserPosts = async (id) => {
+  const displayName = auth.currentUser.displayName;
+  const clause = where("displayName", "==", displayName)
+  const querySnapshot = await query(collection(db, "posts"),clause);
+  return querySnapshot
 }
 
 

@@ -1,33 +1,16 @@
 import {
   newPost,
   allPosts,
-  getLikesPost
+  getLikesPost,
 } from "../../configs/firestore.js";
-import {
-  logout,
-  auth,
-} from "../../configs/authentication.js";
+import { auth } from "../../configs/authentication.js";
+import header from "../components/header.js";
 
 export default () => {
   const container = document.createElement("div");
   container.classList.add("content-feed")
     
   const templateFeed = `
-    <header class="header">
-      <img class="header-image" src="./img/logo3.png" alt="logo">
-      <nav class="header-menu" id="nav">
-        <button id="btn-mobile" class="btn-mobile" aria-label="Open menu" aria-haspopup="true" aria-controls="menu" aria-expanded="false">Menu
-          <span id="hamburger"></span>
-        </button>
-
-        <ul id="menu" class="menu" role="menu"> 
-          <li><a class="header-menu-item" href="#about">Sobre nós</a></li>
-          <li><a class="header-menu-item" href="#perfil">Meu Perfil</a></li>
-          <li><a class="header-menu-item link-login" href="#login" id="btn-exit">Sair</a></li>
-        </ul>  
-      </nav>
-    </header>
-    
     <main class="main">
         <form class="write-post main-form" id="write-post">
           <input class="header-menu-item input-search" type="search" id="input-search" placeholder="Pesquisar poemas...">
@@ -45,7 +28,8 @@ export default () => {
     </main> 
     `;
 
-  container.innerHTML = templateFeed;
+  container.appendChild(header())
+  container.innerHTML += templateFeed;
 
   //template do card do post
   function createCardPost (text, displayName, date, id = "", likes=[]) {
@@ -57,10 +41,9 @@ export default () => {
           <p class="write-message">${text[0].toUpperCase() + text.substr(1)}</p>    
           <p class="author">${displayName}</p>
           <button class="button-heart">
+            <i class="fa fa-heart like-btn" id="like-button"></i>
             <input type="hidden" id="post-id" value="${id}">
-            <img class="heart-img" src="img/icone-coração.png">
-            <span class="button-heart-text" id="number-of-likes">${likes.length}</span>
-            <input type="hidden" id="get-likes-value" value="${likes}">
+            <span class="button-heart-text" id="number-of-likes" data-number="${likes}">${likes.length}</span>
           </button>  
         </section>
       </div>    
@@ -73,75 +56,8 @@ export default () => {
   const addNewPost = container.querySelector('#textarea');
   const showPosts = container.querySelector('#publications');
   const buttonPublic = container.querySelector('#btn-publish');
-  const logoutButton = container.querySelector('#btn-exit');
   const inputSearch = container.querySelector('#input-search');
   let msgAlert = container.querySelector('#alert-notification');
-
-  //função para sair do seu login
-  logoutButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    logout()
-      .then(function () {
-        window.location.hash='#login';
-      })
-  })
-
-  function formatDateStyle (date) {
-    return `${date.toLocaleDateString()} às 
-      ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-  } 
-
-  //publicar novo post
-  buttonPublic.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (addNewPost.value === ""){
-      msgAlert.innerHTML = "Escreva uma poesia"
-    } 
-    else {
-      newPost(addNewPost.value, auth.currentUser.displayName)
-      .then(function () {
-        let date = new Date()
-        showNewPost.appendChild(createCardPost(addNewPost.value,auth.currentUser.displayName,
-        formatDateStyle(date)));
-        addNewPost.value = "";
-      })
-    }
-  })
-  
-  //aparecer todos os posts
-  const showAllPosts = async () => {
-    const timeline = await allPosts();  
-    timeline.forEach((post) => {
-      const postElement = createCardPost(post.message, post.displayName,
-      formatDateStyle(post.date.toDate()), post.id, post.likes);
-      showPosts.appendChild(postElement)
-    });
-      
-    const likeButtons = container.querySelectorAll('.button-heart')
-    for(let i = 0; i < likeButtons.length; i++) {
-      likeButtons[i].addEventListener("click", checkLikes)
-    } 
-  }
-
-  function checkLikes(e){
-    const postId = e.currentTarget.querySelector('[id=post-id]').value;
-    const showNumberOfLikes = e.currentTarget.querySelector('[id=number-of-likes]')
-    const getValueOfLikes = e.currentTarget.querySelector('[id=get-likes-value]').value;
-    const likes = getValueOfLikes.split(",")
-    if (likes.includes(auth.currentUser.uid)) {
-      getLikesPost(postId,likes)
-      .then(() => {
-        const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
-        showNumberOfLikes.innerHTML = reduceNumLikes;
-      })
-    } else{
-      getLikesPost(postId,likes)
-      .then(() => {
-        const sumNumLikes = Number(showNumberOfLikes.innerHTML) + 1;
-        showNumberOfLikes.innerHTML = sumNumLikes;
-      })
-    } 
-  }
 
   //função botão menu hamburguer
   const btnMobile = container.querySelector("#btn-mobile");
@@ -155,30 +71,92 @@ export default () => {
     const navActive = nav.classList.contains("active");
     event.currentTarget.setAttribute("aria-expanded", navActive);
   if (navActive) {
-    event.currentTarget.setAttribute("aria-laberl", "Close Menu");
+    event.currentTarget.setAttribute("aria-label", "Close Menu");
   } else {
-    event.currentTarget.setAttribute("aria-laberl", "Open Menu");
+    event.currentTarget.setAttribute("aria-label", "Open Menu");
   }
   }
 
   btnMobile.addEventListener("click", toggleMenu);
   btnMobile.addEventListener("touchstart", toggleMenu);
 
-//botão de like
+  
 
-let buttonHeart1 = container.querySelector(".button-heart");
+  function formatDateStyle (date) {
+    return `${date.toLocaleDateString()} às 
+      ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  } 
 
-function Toggle1(){
-  if (buttonHeart1.style.color == "red") {
-    buttonHeart1.style.color = "grey"
-}
-else {
-  buttonHeart1.style.color = "red"
-}
-}
+  //publicar novo post
+  buttonPublic.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (addNewPost.value === ""){
+      msgAlert.innerHTML = "Escreva uma poesia"
+    } 
+    else {
+      newPost(addNewPost.value)
+      .then(function () {
+        let date = new Date()
+        console.log(auth.currentUser)
+        showNewPost.appendChild(createCardPost(addNewPost.value,auth.currentUser.displayName,
+        formatDateStyle(date)));
+        addNewPost.value = "";
+      })
+      checkLikes(e);
+    }
+  })
+  
+  //aparecer todos os posts
+  const showAllPosts = async () => {
+    const timeline = await allPosts();  
+    timeline.forEach((post) => {
+      const postElement = createCardPost(post.message, post.displayName,
+      formatDateStyle(post.date.toDate()), post.id, post.likes);
+      showPosts.appendChild(postElement)
 
-  showAllPosts();    
+      if ((post.likes.includes(auth.currentUser.uid))) {
+        const colorButton = container.querySelectorAll('.like-btn')
+        for(let i = 0; i < colorButton.length; i++) {
+          colorButton[i].classList.add("liked")
+        }
+      }  
+    });
+    
+    
 
+    const likeButtons = container.querySelectorAll('.button-heart')
+    for(let i = 0; i < likeButtons.length; i++) {
+      likeButtons[i].addEventListener("click", checkLikes)
+    } 
+  }
+
+  showAllPosts(); 
+
+  function checkLikes(e){
+    const postId = e.currentTarget.querySelector('[id=post-id]').value;
+    const showNumberOfLikes = e.currentTarget.querySelector('[id=number-of-likes]');
+    const getValueOfLikes = showNumberOfLikes.dataset.number;
+    const likes = getValueOfLikes.split(",");
+    const heartButton = e.currentTarget.querySelector('.like-btn');
+
+    if (likes.includes(auth.currentUser.uid)) {
+      getLikesPost(postId,likes)
+      .then(() => {
+        heartButton.classList.remove("liked")
+        const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
+        showNumberOfLikes.innerHTML = reduceNumLikes;
+      })
+    } else{
+      getLikesPost(postId,likes)
+      .then(() => {
+        heartButton.classList.add("liked")
+        //heartButton.style.color = "red";
+        const sumNumLikes = Number(showNumberOfLikes.innerHTML) + 1;
+        showNumberOfLikes.innerHTML = sumNumLikes;
+      })
+    }
+  }
+   
   return container;
 }
 

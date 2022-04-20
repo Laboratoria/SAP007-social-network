@@ -6,43 +6,11 @@
   text-decoration: none;
   }
     
-
-.header {
-  box-sizing: border-box;
-  height: 78px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
-.menu {
-  display: flex;
-  list-style: none;
-  gap: .4rem;
-}
-
-.menu a:hover {
-  background-color: #efe6cd;
-}
-
 .input-search {
   border-radius: 4px;
   height: 30px;
   padding: 10px;
   margin-bottom: 15px;
-}
-
-.header-menu-item {
-  display: block;
-  padding: .5rem;
-  font-family: 'Sarala', sans-serif;
-  color: #020202;
-  font-weight: 400px;
-  font-style: bold;
-  font-size: 19px;
-
 }
 
 .main {
@@ -64,38 +32,34 @@
     
 }
 
-.welcome-title {
-  font-family: 'Sarala', sans-serif;
-  font-size: 35px;
-}
-
 .input-text {
   height: 150px;
   width: 300px;
   border-radius: 4px;
-  padding-bottom: 100px;
   margin-top: 25px;
   text-transform: capitalize;
+  font-size: 15px;
   }
-
+  
 .btn-publish {
   display: flex;
   height: 30px;
   width: 100px;
-  font-size: 16px;
-  background-color: #FFF2E7;
+  background-color: rgba(122,	9,	140, 0.9);
   border-radius: 5px;
-  padding-left: 18px;
-  margin-top: 15px;
-  padding-top: 3px;
+	border: 0;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 1.1rem;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
-
-.welcome-title h1 {
-  font-family: 'Sarala', sans-serif;
-  font-size: 28px;
-  font-style: bold;
-  padding-bottom: 50px;
+.btn-publish:active {
+	background-color: black;
+	transition: 0s;
 }
 
 .publications,
@@ -107,7 +71,8 @@
   font-size: 18px;
 }
 
-.last-poems {
+.last-poems,
+.welcome-title {
   font-family: 'Sarala', sans-serif;
   font-style: bold;
   font-size: 30px;
@@ -115,7 +80,7 @@
 }
 
 .card {
-  border: 2px solid rgb(67, 66, 66, 0.7);
+  border: 2px solid rgba(45, 44, 44, 0.7);
   background-color: rgba(231, 207, 177, 0.8);
   padding: 5px;
   margin: 15px;
@@ -142,22 +107,32 @@ font-size: 20px;
   font-style:italic;
 }
 
-.heart-img {
-  width: 30px;
-  height: 30px;
-}
-
-.button-heart {
-  background: transparent;
+.button-heart-text{
+  background-color: transparent;
   border: none;
   font-size: 15px;
   outline: none;
-  color: grey;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+
+}
+
+.button-heart {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  outline: none;
   cursor: pointer;
 }
 
-.btn-mobile {
-  display: none;
+.like-btn {
+  font-size: 25px;
+  margin-left: 10px;
+  color: grey;
+}
+
+.like-btn.liked {
+  color: red;
 }
 
 .message{
@@ -168,102 +143,23 @@ font-size: 20px;
 }
 
 @media screen and (min-width: 300px) and (max-width: 667px) {
-.header {
-  background: #e7e7e7;
-}
-
-.menu {
-  display: block;
-  position: absolute;
-  width: 100%;
-  top: 70px;
-  right: 0px;
-  background: #e7e7e7;
-  height: 0;
-  transition: .6s;
-  z-index: 1000;
-  visibility: hidden;
-  overflow-y: hidden;
-}
-
-#nav.active .menu {
-  height: calc(100vh - 70px);
-  visibility: visible;
-}
-
-.menu a {
-  padding: 1rem 0;
-  margin: 0 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, .08);
-}
-
-.btn-mobile {
-  display: flex;
-  padding: .5rem 1rem; 
-  font-size: 1rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  gap: .5rem;
-}
-
-#hamburger {
-  display: block;
-  border-top: 2px solid black;
-  width: 20px;
-}
-
-#hamburger::after, #hamburger::before {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: currentColor;
-  margin-top: 5px;
-  transition: .3s;
-  position: relative;
-}
-
-#nav.active #hamburger {
-  border-top-color: transparent;
-}
-
-#nav.active #hamburger::before {
-  transform: rotate(135deg);
-}
-
-#nav.active #hamburger::after {
-  transform: rotate(-135deg);
-  top: -7px;
-}
-
-.content-feed {
-  display: block;
-  text-align: center;
-}
-
-  .header-image {
-    width: 17rem;
+  .content-feed {
+    display: block;
+    text-align: center;
   }
-  
+  .welcome-title,
+  .last-poems {
+    font-size: 25px;
+
+  }
 }
 
-
-/*tablet*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
 .content-feed {
   display: block;
   text-align: center;
 }
-
-  .header-image {
-    width: 14rem;
-  }
-
-  .header-menu-item {
-  font-size: 18px;
-  }
 
 .input-search {
   border-radius: 4px;
@@ -292,7 +188,7 @@ font-size: 20px;
     font-size: 20px;
   }
 
-  .ultimosPoemas {
+  .last-poems {
     font-style: bold;
     font-size: 35px;
   }
