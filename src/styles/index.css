@@ -89,7 +89,7 @@ body {
     box-sizing: border-box;
 }
 
-.botaologin {
+.botaologin, #register {
     width: 100%;
     padding: 16px 0;
     margin: 25px;
@@ -104,7 +104,7 @@ body {
     box-shadow: rgba(149, 42, 248, 0.829) 0px 10px 40px -12px;
 }
 
-.botaologin:hover {
+.botaologin:hover, #register {
     background-color: rgba(149, 42, 248, 0.829);
 }
 
@@ -146,3 +146,4 @@ body {
        font-size: 7vw;
     }
 }
+
