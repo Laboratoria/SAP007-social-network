@@ -1,8 +1,8 @@
-import "./config-firebase.js"
+import "/config-firebase.js";
+import { getAuth } from "/login-firebase.js";
 import { myFunction } from './lib/index.js';
 
 myFunction();
-
 
 const usernameData = document.getElementById("email");
 const passwordData = document.getElementById("password");
@@ -18,6 +18,9 @@ function createUser () {
     const auth = null;
     firebase.auth().createUserWithEmailAndPassword (usernameData,passwordData)
     .then(function(user){
-        alert("Cadastrado com sucesso!")
-    });
+        alert("Cadastrado com sucesso!");
+         auth = user;
+    }).catch(function(error) {
+        alert("Logado com sucesso")
+    })     
 }
