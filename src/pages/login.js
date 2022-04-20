@@ -16,7 +16,7 @@ export default function login() {
       <div class="container-btn-login">
       <button class="btn-login-google" type="submit" id="google-login"><a herf=" ">Entrar com Google</a></button>
       
-      <p class="register-text">Ainda não possui uma conta? <a href="#cadastro">Cadastre-se</a></p>
+      <p class="register-text">Ainda não possui uma conta? <a href="#register">Cadastre-se</a></p>
     </div>
   </form>
   </div>
