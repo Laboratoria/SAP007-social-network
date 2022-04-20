@@ -32,18 +32,21 @@ export default () => {
   const message = register.querySelector('.error');
 
   btnRegister.addEventListener('click', (e) => {
-    console.log("clicou")
     e.preventDefault();
     userCreate(email.value, password.value)
-      .then(function () {
+      .then(() => {
         window.location.hash = '#home';
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if (error.code == 'auth/invalid-email') {
-          message.innerHTML = 'Digite um e-mail válido';
-        } if (error.code == 'auth/email-already-in-use') {
-          message.innerHTML = 'Esse e-mail já está sendo utilizado';
+        if (error.code === 'auth/invalid-email') {
+          message.innerText = 'Digite um e-mail válido';
+        }
+        if (error.code === 'auth/internal-error') {
+          message.innerText = 'Digite um e-mail válido';
+        }
+        if (error.code === 'auth/email-already-in-use') {
+          message.innerText = 'Esse e-mail já está sendo utilizado';
         }
         return errorMessage;
       });
