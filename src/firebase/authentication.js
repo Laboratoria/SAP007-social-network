@@ -19,12 +19,12 @@ export function creatNewUser(email, password) {
     (userCredential) => {
       const user = userCredential.user;
       return user;
-    }
+    },
   );
 }
-export function resetaPassword(email) {
-  return sendPasswordResetEmail(authentication, email);
-}
+export const resetaPassword = (email) => {
+  sendPasswordResetEmail(authentication, email);
+};
 
 // entrar com email e senha
 export function signinPassword(email, password) {
@@ -33,31 +33,25 @@ export function signinPassword(email, password) {
     (userCredential) => {
       const user = userCredential.user;
       return user;
-    }
+    },
   );
 }
 // entrar com o Google
 export function googleLogin() {
-  return signInWithPopup(authentication, provider)
-    .then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
-    });
+  return signInWithPopup(authentication, provider).then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    //  const token = credential.accessToken;
+    // const user = result.user;
+    return credential;
+  });
 }
 export function stateVerification(cb) {
   onAuthStateChanged(authentication, (user) => {
-    cb(user != null);
+    cb(user != null); // function de sair veio do firebase
   });
 }
 export function sair() {
-  return signOut(auth)
+  return signOut(authentication)
     .then(() => 'sair')
     .catch((error) => error);
 }

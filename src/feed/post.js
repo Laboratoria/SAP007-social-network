@@ -1,17 +1,18 @@
-export function structuresPost(email, message, date) {
+export function structuresPost(item) {
   const containerPost = document.createElement('li');
-
+  // componente para pegar as informações de quem postou
   const templatePosts = `
-      <div class="div-post">
-        <div class="organization">
-          <p>${email}</p>
+      <div class='div-post'>
+        <div class='information-organization'>
+          <p>${item.userEmail}</p> 
         </div>
-        <div class="organization">
-          <p>${date}</p>
+        <div class='information-organization'>
+          <p>${item.date}</p>
         </div>
-        <p>${message}</p>
-        <div class="like-container">
-        <img class="like-icon" src="../img/amor-verde.png"/> 
+        <p>${item.message}</p>
+        <div class='like-container'>
+        <img class='like-icon' src='../src/img/amor-verde.png'/>
+        </div>
       </div>`;
 
   containerPost.innerHTML = templatePosts;

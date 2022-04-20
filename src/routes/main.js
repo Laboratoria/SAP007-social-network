@@ -4,6 +4,7 @@ import home from '../Home/home.js';
 import { register } from '../register/register.js';
 import { login } from '../login/login.js';
 import { timeline } from '../feed/feed.js';
+import { stateVerification } from '../firebase/authentication.js';
 
 const main = document.querySelector('#root'); // pega a div do HTML para colocar o conteúdo da página
 const renderizar = () => {
@@ -21,22 +22,23 @@ const renderizar = () => {
       main.appendChild(login());
       break;
     case '#timeline':
-      main.appendChild(timeline());
+      stateVerification((logado) => {
+        if (logado === true) {
+          main.appendChild(timeline());
+        } else window.location.hash = '#login';
+      });
       break;
     default:
       main.appendChild(home());
-      break;
   }
 };
 // limpa o texto atual da página e trás o conteúdo do novo #hash
-const clear = () => {
-  window.addEventListener('hashchange', () => {
-    main.innerHTML = '';
-    renderizar();
-  });
-};
+window.addEventListener('hashchange', () => {
+  main.innerHTML = '';
+  renderizar();
+});
+
 // toda vez que a pessoa der o load na página executam as funcões
 window.addEventListener('load', () => {
   renderizar();
-  clear();
 });
