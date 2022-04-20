@@ -1,5 +1,4 @@
 import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
-//import { registerUser } from "/lib/auth-firebase.js"
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
@@ -34,13 +33,17 @@ export default function formRegister() {
   const password = registerPage.querySelector("#password-register");
   const submitButton = registerPage.querySelector("#button-register");
 
+
+
+//Função para fazer o cadastro
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     registerUser(email.value, password.value)
       .then(() => {
         window.location.hash = "home";
       }).catch((error) => {
-        if (error.code === "auth/email-already-exists") {
+        console.log(error);
+        if (error.code === "auth/email-already-in-use") {
           msgError.textContent = "E-mail já cadastrado.";
         } else if (error.code == "auth/invalid-email") {
           msgError.textContent = "Digite um e-mail válido.";
@@ -50,6 +53,7 @@ export default function formRegister() {
       });
   });
 
+  //Função para cadastrar com o google
   const googleButton = registerPage.querySelector("#button-google");
   googleButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -58,6 +62,7 @@ export default function formRegister() {
       window.location.hash = "home";
     })
     .catch((error) => {
+      console.log(error);
       if (error.code === "auth/account-exists-with-different-credential") {
         alert("Já existi uma conta com esse endereço de e-mail.");
       } else if (error.code === "auth/popup-blocked") {
