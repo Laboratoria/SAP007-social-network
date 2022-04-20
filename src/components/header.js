@@ -1,5 +1,5 @@
 export function header() {
-  const header= document.createElement('div');
+  const header = document.createElement('div');
   header.innerHTML = `
     <header class="main-header">
         <img class="logo">
@@ -11,7 +11,5 @@ export function header() {
         <div class="line1"></div>
     </header>
     `;
-    return header;
-};
-
-
+  return header;
+}
