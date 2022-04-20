@@ -8,6 +8,7 @@ import {
   getDocs,
   updateDoc,
   doc,
+  where
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
 import { auth } from "./authentication.js";
@@ -24,13 +25,14 @@ o Cloud Firestore já cria coleções e documentos de modo implícito na primeir
 
 export async function newPost(message){
   const displayName = auth.currentUser.displayName;
+  const uid = auth.currentUser.uid
   try {
     const post = {
       message: message,
       displayName: displayName,
       likes: [],
-      date: new Date(),
-      userId: auth.currentUser.uid
+      date: new Date().toLocaleString("pt-br"),
+      userId: uid
     }  
     const docRef = await addDoc(collection(db, "posts"),post)
     console.log("Document written with ID: ", docRef.id); 
@@ -44,7 +46,7 @@ export async function newPost(message){
 /*export const getLikesPost = (postId) => {
   createUserWithEmailAndPassword(auth, email, password)*/
   
-export const getLikesPost = async (postId,likes) => {
+/*export const getLikesPost = async (postId,likes) => {
   try{  
     const postLiked = doc(db, 'posts', postId)
     const user = auth.currentUser.uid
@@ -68,7 +70,23 @@ export const getLikesPost = async (postId,likes) => {
   catch (e) {
     console.log("Error", e);
   }
+}*/
+
+export const getLikesPost = async (postId,likes) => {
+  try{  
+    const postLiked = doc(db, 'posts', postId)
+    await updateDoc(postLiked, {
+      likes: likes
+    });
+    console.log(likes)
+    return likes 
+  }  
+  catch (e) {
+    console.log("Error", e);
+  }
 }
+
+
 
 //cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName){
@@ -101,12 +119,12 @@ export const allPosts = async () => {
 }
 
 export const getUserPosts = async (id) => {
-  const displayName = auth.currentUser.displayName;
-  const clause = where("displayName", "==", displayName)
+  id = auth.currentUser.uid;
+  const clause = where("userId", "==", id)
   const querySnapshot = await query(collection(db, "posts"),clause);
+  console.log(querySnapshot)
   return querySnapshot
 }
-
 
 //Editar post
 /*const washingtonRef = doc(db, "cities", "DC");

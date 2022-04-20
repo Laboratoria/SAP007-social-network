@@ -13,7 +13,7 @@ export default () => {
 
         <ul id="menu" class="menu" role="menu"> 
           <li><a class="header-menu-item" href="#about">Sobre nós</a></li>
-          <li><a class="header-menu-item" href="#profile">Meu Perfil</a></li>
+          <li><a class="header-menu-item" href="#userprofile">Meu Perfil</a></li>
           <li><a class="header-menu-item" href="#feed">Feed</a></li>
           <li><a class="header-menu-item link-login" href="#login" id="btn-exit">Sair</a></li>
         </ul>  

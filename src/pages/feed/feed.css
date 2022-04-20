@@ -4,13 +4,6 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  }
-    
-.input-search {
-  border-radius: 4px;
-  height: 30px;
-  padding: 10px;
-  margin-bottom: 15px;
 }
 
 .main {
@@ -159,13 +152,6 @@ font-size: 20px;
 .content-feed {
   display: block;
   text-align: center;
-}
-
-.input-search {
-  border-radius: 4px;
-  height: 35px;
-  padding: 10px;
-  margin-bottom: 15px;
 }
 
 .input-text {

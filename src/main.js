@@ -1,11 +1,12 @@
 import "./configs/start-firebase.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+//import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 import login from "./pages/login/login.js"
 import newuser from "./pages/newuser/newuser.js"
 import recover from "./pages/login/recover.js"
 import feed from "./pages/feed/feed.js"
 import { isLoggedIn } from "./configs/authentication.js"
 import about from "./pages/about/about.js"
+import userprofile from "./pages/userprofile/userprofile.js"
 
 
 const main = document.querySelector("#root");
@@ -27,7 +28,7 @@ function redirect () {
     case "#feed":
       main.appendChild(feed()); 
       break; 
-    case "#profile":
+    case "#userprofile":
       main.appendChild(userprofile()); 
       break;
     case "#about":
@@ -50,4 +51,3 @@ window.addEventListener("load", () => {
     }
   })   
 })
-//a lista de rotas (window.location) pode ser criada aqui (main) ou em um arquivo separado de rotas

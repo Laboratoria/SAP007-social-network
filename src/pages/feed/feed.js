@@ -13,7 +13,6 @@ export default () => {
   const templateFeed = `
     <main class="main">
         <form class="write-post main-form" id="write-post">
-          <input class="header-menu-item input-search" type="search" id="input-search" placeholder="Pesquisar poemas...">
           <h1 class="welcome-title">Bem-vindo(a), poeta!</h1>
           <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
           <p id="alert-notification" class="message"></p>
@@ -56,7 +55,6 @@ export default () => {
   const addNewPost = container.querySelector('#textarea');
   const showPosts = container.querySelector('#publications');
   const buttonPublic = container.querySelector('#btn-publish');
-  const inputSearch = container.querySelector('#input-search');
   let msgAlert = container.querySelector('#alert-notification');
 
   //função botão menu hamburguer
@@ -70,17 +68,15 @@ export default () => {
     nav.classList.toggle("active");
     const navActive = nav.classList.contains("active");
     event.currentTarget.setAttribute("aria-expanded", navActive);
-  if (navActive) {
-    event.currentTarget.setAttribute("aria-label", "Close Menu");
-  } else {
+    if (navActive) {
+      event.currentTarget.setAttribute("aria-label", "Close Menu");
+    } else {
     event.currentTarget.setAttribute("aria-label", "Open Menu");
-  }
+    }
   }
 
   btnMobile.addEventListener("click", toggleMenu);
   btnMobile.addEventListener("touchstart", toggleMenu);
-
-  
 
   function formatDateStyle (date) {
     return `${date.toLocaleDateString()} às 
@@ -102,7 +98,6 @@ export default () => {
         formatDateStyle(date)));
         addNewPost.value = "";
       })
-      checkLikes(e);
     }
   })
   
@@ -111,7 +106,7 @@ export default () => {
     const timeline = await allPosts();  
     timeline.forEach((post) => {
       const postElement = createCardPost(post.message, post.displayName,
-      formatDateStyle(post.date.toDate()), post.id, post.likes);
+     post.date, post.id, post.likes);
       showPosts.appendChild(postElement)
 
       if ((post.likes.includes(auth.currentUser.uid))) {
@@ -122,8 +117,6 @@ export default () => {
       }  
     });
     
-    
-
     const likeButtons = container.querySelectorAll('.button-heart')
     for(let i = 0; i < likeButtons.length; i++) {
       likeButtons[i].addEventListener("click", checkLikes)
@@ -132,29 +125,27 @@ export default () => {
 
   showAllPosts(); 
 
-  function checkLikes(e){
+  async function checkLikes(e) {
     const postId = e.currentTarget.querySelector('[id=post-id]').value;
     const showNumberOfLikes = e.currentTarget.querySelector('[id=number-of-likes]');
     const getValueOfLikes = showNumberOfLikes.dataset.number;
     const likes = getValueOfLikes.split(",");
     const heartButton = e.currentTarget.querySelector('.like-btn');
+    const dataLikes = await getLikesPost(postId,likes)
 
-    if (likes.includes(auth.currentUser.uid)) {
-      getLikesPost(postId,likes)
-      .then(() => {
-        heartButton.classList.remove("liked")
-        const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
-        showNumberOfLikes.innerHTML = reduceNumLikes;
-      })
+    if (dataLikes.includes(auth.currentUser.uid)) {
+      heartButton.classList.remove("liked")
+      const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
+      showNumberOfLikes.innerHTML = reduceNumLikes;
+    
     } else{
-      getLikesPost(postId,likes)
-      .then(() => {
+        dataLikes.push(auth.currentUser.uid)
         heartButton.classList.add("liked")
         //heartButton.style.color = "red";
         const sumNumLikes = Number(showNumberOfLikes.innerHTML) + 1;
         showNumberOfLikes.innerHTML = sumNumLikes;
-      })
-    }
+      }
+    
   }
    
   return container;
