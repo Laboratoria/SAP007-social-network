@@ -34,7 +34,7 @@ input {
 .user-input {
   background-color: var(--color-light-yellow);
 }
-a,
+.link,
 .user-input::placeholder {
   color: var(--color-black);
 }

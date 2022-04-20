@@ -3,7 +3,6 @@ import register from "./pages/register.js";
 import timeline from "./pages/timeline.js";
 import friends from "./pages/friends.js";
 import profile from "./pages/profile.js";
-import error from "./pages/error.js";
 import header from "./components/header.js";
 import addPost from "./components/add-post.js";
 import { authChange } from "../config/authentication.js";
@@ -24,6 +23,7 @@ const initPages = () => {
 
 function redirectPages() {
   switch (window.location.hash) {
+    default:
     case "#login":
       container.appendChild(login.createLogin());
       break;
@@ -57,8 +57,6 @@ function redirectPages() {
         }
       });
       break;
-    default:
-      container.appendChild(error.createError());
   }
 }
 

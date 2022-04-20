@@ -15,7 +15,7 @@ const login = {
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
         <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="small-text-right modal-open">
+        <a href="#" type="button" class="link small-text-right modal-open">
           Esqueceu a senha?
         </a>
         <span id="message"></span>

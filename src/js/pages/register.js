@@ -25,7 +25,7 @@ const register = {
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
       <span id="message"></span>
       <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
-      <a href="#login" class="small-text-right">
+      <a href="#login" class="link small-text-right">
         < Voltar para o Login
       </a>
     </form>

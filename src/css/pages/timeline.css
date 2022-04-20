@@ -2,10 +2,6 @@
 @import url(./timeline/post.css);
 @import url(./timeline/comment.css);
 
-#container {
-  height: 100vh;
-  width: 100vw;
-}
 #main-container {
   position: relative;
   top: 80px;
