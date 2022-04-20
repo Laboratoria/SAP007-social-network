@@ -66,9 +66,7 @@ export default () => {
 		const id = auth.currentUser.uid
 		const myTimeline = await getUserPosts(id);
 		console.log(myTimeline)
-		myTimeline.filter((doc) => {
-			const post = doc.data();
-			console.log(post)
+		myTimeline.filter((post) => {
 			const postCard = myPostsCard(post.message, post.displayName,
 			post.date, post.id, post.likes);
 			myPost.appendChild(postCard)

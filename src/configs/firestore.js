@@ -120,10 +120,15 @@ export const allPosts = async () => {
 
 export const getUserPosts = async (id) => {
   id = auth.currentUser.uid;
+  let arrayOfMyPosts = [];
   const clause = where("userId", "==", id)
-  const querySnapshot = await query(collection(db, "posts"),clause);
-  console.log(querySnapshot)
-  return querySnapshot
+  const querySnapshot = query(collection(db, "posts"),clause);
+  const test = await getDocs(querySnapshot)
+  test.forEach((doc) => {
+    const post = doc.data();
+    arrayOfMyPosts.push(post)
+  })
+  return arrayOfMyPosts;
 }
 
 //Editar post
