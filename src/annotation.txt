@@ -1,8 +1,18 @@
 
+
+OH
+- como verificar os erros e mostrar para o usuário
+- como cadastrar novo usuário com o nome, email e senha 
+
+MENU
+criar modal para ir no perfil ou sair
+permanecer com o icone verde --> percorrer usando 
+
+TIMELINE
+a aplicação estará fixada na parte superior
+subtrair a altura visível da main do header
+se necessário colocar scroll
+arrumar o tamanho do textarea
+fazer a função da timeline que adiciona post e commentários - arquivo timeline.js
+
 Corrigir classes de português para inglês
-
-Verificar erros do firebase e mostrar para o usuário
-
-Iniciar o firestore
-
-Fazer testes

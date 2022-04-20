@@ -1,12 +1,8 @@
 const friends = {
   createFriendsList: function () {
-    const container = document.createElement("div");
-    container.setAttribute("class", "container-secondary");
-    container.innerHTML = `
+    const template = `
     <main>
-
       <input type="text" name="search-name" id="search-name" class="user-input" placeholder="Pesquise pelo nome" required>
-
       <div class="user-container">
         <section>
           <a href="">
@@ -17,10 +13,9 @@ const friends = {
           <p class="work">Desenvolvedora Front-End</p>
         </section>
       </div>
-
     </main>
     `;
-    return container;
+    return template;
   },
 };
 

@@ -2,8 +2,8 @@ import { registerNewUser } from "../../config/authentication.js";
 
 const register = {
   createRegister: function () {
-    const container = document.createElement("div");
-    container.setAttribute("class", "container-secondary");
+    const container = document.createElement("section");
+    container.classList.add("container-login");
     container.innerHTML = `
     <form class="user-form">
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
@@ -55,7 +55,7 @@ const register = {
           registerNewUser(email, password)
             .then(function () {
               window.location.hash = "#home";
-              alert("Email Cadastrado");
+              message.innerHTML = "Email Cadastrado!";
             })
             .catch((error) => {
               let errorCode = error.code;

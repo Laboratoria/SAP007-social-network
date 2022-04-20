@@ -8,7 +8,6 @@
 }
 .comment-input {
   width: 242px;
-  height: 15px;
   font-size: 0.75rem;
   padding: 8px;
   background-color: var(--color-light-gray);
