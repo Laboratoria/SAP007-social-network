@@ -15,7 +15,7 @@ export default () => {
   <label for="check-Senha">Confirmar senha:</label>
   <input type="password" id="checkSenha" class="inputs-log" placeholder="Digite novamente sua senha"></input>
   
-  <button class="botaoLogIn" id="botaoLogIn">Cadastrar</button>
+  <button class="botaoLogIn" id="botaoCadastro" disabled>Cadastrar</button>
   `;
 
   container.innerHTML = template;

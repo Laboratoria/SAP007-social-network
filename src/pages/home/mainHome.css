@@ -161,23 +161,47 @@
     }
 }
 
-@media(min-device-width:769px){
+@media (min-device-width:570px) {
+    .containerMain{
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 20% 50% 30%  ;
+    }
 
     .containerMain h1{
-        margin-bottom: 6%;
+        grid-column: span 3;
+        grid-row: 1/2;
+        margin-top: 2%;
+    }
+
+    .containerAbout{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 50%;
+        grid-column: span 3;
+        grid-row: 2/3;
+    }
+
+    .containerAbout p {
+        width: 100%;
+        grid-column: 2/3;
+        grid-row: 1/2;
         align-self: center;
-        font-size: 35px;
+        text-align: center;
+        font-size: 100%;
     }
 
     .carrosel{
-        height: 470px;
+        grid-column: 1/2;
+        grid-row: span 3;
+        align-self: flex-start;
+        height: 50vh;
         width: 320px;
         margin: auto;
     }
 
     .carrosel ul{
         width: 1600px;
-        height: 470px;
+        height: 50vh;
     }
 
     @keyframes slide{
@@ -196,54 +220,16 @@
 
     .carrosel img{
         width: 320px;
-        height: 470px;
-    }
-
-    .containerAbout p {
-         font-size: 25px; 
-         align-self: center;
-         letter-spacing: 1px;
-    }
-
-    .enter button{
-        font-size: 25px;
-    }
-}
-
-@media (min-device-width:1280px) {
-    .containerMain{
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 20% 50% 30%  ;
-    }
-
-    .containerMain h1{
-        grid-column: span 3;
-        grid-row: 1/2;
-    }
-
-    .containerAbout{
-        display: grid;
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 50% 50%;
-        grid-column: span 3;
-        grid-row: 2/3;
-    }
-
-    .containerAbout p {
-        grid-column: 2/3;
-        grid-row: 1/2;
-        align-self: flex-start;
-    }
-
-    .carrosel{
-        grid-column: 1/2;
-        grid-row: span 3;
-        align-self: flex-start;
+        height: 50vh;
     }
 
     .enter {
         grid-column: 2/3;
         grid-row: 3/4;
+    }
+
+    .enter button{
+        font-size: 100%;
     }
 }
     
