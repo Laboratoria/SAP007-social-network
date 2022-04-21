@@ -18,7 +18,7 @@ export default function feed() {
   
   
 
-  //const sectionPost = feed.querySelector("#showPosts");
+  // const sectionPost = feed.querySelector("#showPosts");
   // const newRecipe = feed.querySelector("#btn-new-recipe");
 
   // newRecipe.addEventListener("click", e);

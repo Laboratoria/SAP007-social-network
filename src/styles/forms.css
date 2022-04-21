@@ -5,9 +5,8 @@
 }
 
 body {
-    background-color: antiquewhite;
+    background-color: #faebd7;
 }
-
 .logo {
     width: 18vw;
     height: 30vh;
@@ -85,15 +84,22 @@ body {
 .main-footer {
     align-items: center;
     text-align: center;
-    margin-top: 200px;
     background-color: #FCD09C;
     height: 6vh;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+}
+.main-footer a {
+text-decoration:none;
+color:black;
 }
 
 @media (max-width:1279px) {
     .logo {
-        width: 30vw;
-        height: 22vh;
+        width: 28vw;
+        height: 28vh;
+        margin-top: 15px;
     }
 
     .text-input {
@@ -103,14 +109,16 @@ body {
     .btn-login,
     .btn-login-google {
         width: 15vw;
+        height: 8vh;
         font-size: 17px;
     }
 }
 
 @media (max-width:768px) {
     .logo {
-        width: 35vw;
-        height: 20vh;
+        width: 40vw;
+        height: 25vh;
+        margin-top: 15px;
     }
 
     .text-input {
@@ -129,7 +137,7 @@ body {
 
 @media (max-width:480px) {
     .logo {
-        width: 60vw;
+        width: 55vw;
         height: 28vh;
     }
 
@@ -151,15 +159,14 @@ body {
     .btn-login,
     .btn-login-google {
         width: 38vw;
-        height: 5vh;
+        height: 6vh;
         margin-top: 15px;
         padding: 2px;
         font-size: 15px;
     }
 
     .main-footer {
-        font-size: 13px;
-        height: 9vh;
+        font-size: 14px;
     }
 
     .login-text {
