@@ -15,3 +15,5 @@ export default () => {
   containerHome.innerHTML = templateHome;
   return containerHome;
 };
+const link = document.getElementById('stylePages'); // Criando o caminho para o Css
+link.href = 'Home/home.Css';
