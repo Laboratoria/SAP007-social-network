@@ -1,0 +1,52 @@
+:root {
+  --shadow: #2F3A4B;
+  --letter: #DADADA;
+  --menu: #3C4A5F;
+  --buttons: #546B8D;
+}
+a {
+  text-decoration: none;
+  color: var(--letter)
+}
+
+body {
+  background-color: var(--shadow);
+  color: var(--letter);
+}
+
+div {
+  width: fit-content;
+  border-width: medium;
+  border-color: transparent;
+  background-color: var(--menu);
+  margin: 50px;
+  justify-content: center;
+  border-radius: 5px;
+  display: flex;
+}
+.text-about {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.developers-img {
+  width: 100px;
+  border-radius: 50px 50px 50px 50px;
+  flex-wrap: wrap;
+  display: inline-block;
+  vertical-align: top;
+  /* colocar hr entre os textos */
+}
+.name {
+  display: inline-block;
+  vertical-align: top;
+  display: flex;
+}
+
+
+@media (min-width:500px) and (max-width:600px) {
+  body {}
+}
+
+@media (min-width: 601px) and (max-width:767px) {}
