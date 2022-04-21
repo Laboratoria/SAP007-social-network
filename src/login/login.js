@@ -21,7 +21,8 @@ export const login = () => {
   const email = containerLogin.querySelector('.email-input');
   const password = containerLogin.querySelector('.password-input');
   const google = containerLogin.querySelector('.btn-google');
-
+  const link = document.getElementById('stylePages'); // Criando o caminho para o Css
+  link.href = 'login/login.Css';
   containerLogin.addEventListener('submit', (e) => {
     e.preventDefault();
     signinPassword(email.value, password.value)
