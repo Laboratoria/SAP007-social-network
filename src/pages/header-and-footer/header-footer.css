@@ -9,7 +9,7 @@
 }
 
 body{
-    width: fit-content;
+    width: 100%;
     height: 100vh ;
     display: grid;
     grid-template-columns: 100%;
@@ -61,4 +61,18 @@ a{
 
 .footer, a :visited{
     color: white
+}
+
+@media (min-device-width: 819px) {
+    body{
+        grid-template-rows: 15% 80% 5%;
+    }
+
+    .link-header{
+        font-size: 50px ;
+    }
+
+    footer{
+        font-size: 20px;
+    }
 }

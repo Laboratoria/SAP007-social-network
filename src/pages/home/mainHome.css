@@ -162,38 +162,88 @@
 }
 
 @media(min-device-width:769px){
+
     .containerMain h1{
         margin-bottom: 6%;
+        align-self: center;
+        font-size: 35px;
     }
 
     .carrosel{
-        height: 600px;
-        width: 450px;
+        height: 470px;
+        width: 320px;
         margin: auto;
     }
 
     .carrosel ul{
-        width: 2250px;
-        height: 600px;
+        width: 1600px;
+        height: 470px;
     }
 
     @keyframes slide{
         0% {left:0px}
         15%{left: 0px}
-        20%{left: -450px}
-        35%{left: -450px}
-        40%{left: -900px}
-        55%{left: -900px}
-        60%{left: -1350px}
-        75%{left: -1350px}
-        80%{left: -1800px}
-        95%{left: -1800px}
+        20%{left: -320px}
+        35%{left: -320px}
+        40%{left: -640px}
+        55%{left: -640px}
+        60%{left: -960px}
+        75%{left: -960px}
+        80%{left: -1280px}
+        95%{left: -1280px}
         100%{left: 0px}
     }
 
     .carrosel img{
-        width: 450px;
-        height: 600px;
+        width: 320px;
+        height: 470px;
+    }
+
+    .containerAbout p {
+         font-size: 25px; 
+         align-self: center;
+         letter-spacing: 1px;
+    }
+
+    .enter button{
+        font-size: 25px;
+    }
+}
+
+@media (min-device-width:1280px) {
+    .containerMain{
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 20% 50% 30%  ;
+    }
+
+    .containerMain h1{
+        grid-column: span 3;
+        grid-row: 1/2;
+    }
+
+    .containerAbout{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 50% 50%;
+        grid-column: span 3;
+        grid-row: 2/3;
+    }
+
+    .containerAbout p {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        align-self: flex-start;
+    }
+
+    .carrosel{
+        grid-column: 1/2;
+        grid-row: span 3;
+        align-self: flex-start;
+    }
+
+    .enter {
+        grid-column: 2/3;
+        grid-row: 3/4;
     }
 }
     
