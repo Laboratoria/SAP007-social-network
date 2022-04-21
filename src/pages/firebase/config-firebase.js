@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCemQ-w-0HGmEOPIReFIFOhiwToyyzsd4A",
   authDomain: "pop-time-794d4.firebaseapp.com",
@@ -11,4 +12,4 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig); 
- 
+console.log('olá mundo')
