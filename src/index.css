@@ -27,7 +27,7 @@ body {
 }
 .footer {
   bottom: 0;
-  position: absolute;
+  position: relative;
   width: 100%;
   text-align: center;
   font-size: 80%;
