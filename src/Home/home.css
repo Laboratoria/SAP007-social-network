@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Sawarabi Gothic';
+  font-style: normal;
+}
+
+body {
+  background: #1C232E;
+  font-family: Sawarabi Gothic;
+  font-style: normal;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+img.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+
+}
+
+.home-main {
+  width: 90%;
+  height: 89%;
+  margin: auto;
+  margin-top: 1.5rem;
+  background: #2F3A4B;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-pages {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin: 2.5rem;
+  border-radius: 0.6rem;
+  background-color: #3C4A5F;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 25%);
+  width: 75%;
+
+}
+
+.home-title {
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2rem;
+  color: #ffffff;
+}
+
+.name-page {
+  font-size: 2rem;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+  height: 3.3rem;
+
+}
+
+video {
+  width: 90%;
+  margin: 1rem;
+
+}
+
+.footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 34% 7% 8% 5%;
+  /* top left bottom right*/
+
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@media (max-width:600px) {
+  .name-page {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media (min-width:500px) and (max-width:600px) {
+  .footer {
+    margin: 45% 7% 8% 5%;
+  }
+}
+
+@media (min-width:601px) and (max-width:768px) {
+  .footer {
+    font-size: 1.5rem;
+    margin: 50% 9% 10% 7%;
+    text-align: center;
+  }
+
+  .home-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width:769px) and (max-width:1000px) {
+  .footer {
+    font-size: 1.5rem;
+    margin: 56% 9% 9% 5%;
+  }
+
+  video {
+    width: 75%;
+    margin: 8rem;
+  }
+
+  .home-title {
+    line-height: 5rem;
+  }
+}
+
+@media (min-width:1024px) and (max-width:1920px) {
+  .home-main {
+    width: 68%;
+    height: 165rem;
+  }
+
+  .footer {
+    font-size: 3rem;
+    margin: 98% 0% 9% 0%;
+  }
+
+  #root {
+    height: 70rem;
+
+  }
+
+  video {
+    margin: 10% 0% 38% 0%;
+    height: 44rem;
+
+  }
+
+  /* top left bottom right*/
+
+.link-pages {
+  font-size: 2rem;
+  padding: 2.5rem;
+  margin: 0% 0% 5% 0%;
+  width: 70%;
+
+}.home-title {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+.name-page {
+  font-size: 8rem;
+  width: 100%;
+  height: 10.3rem;
+}img.logo {
+  margin-top: 16rem;
+  height: 12rem;
+}
+}

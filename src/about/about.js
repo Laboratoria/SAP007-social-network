@@ -19,8 +19,8 @@ export default () => {
     <a href="https://github.com/Marione-Tainara" target="_blank"><p class="name">🍀 Marione Pereira - 27 anos - Web Developer</p><a>
     
 
-    <a href ='#home' class ="return-home">Voltar a página home</a>
-    </div>
+              <a href='#home' class="return-home">Voltar a página home</a>
+</div>
        
     `;
   container.innerHTML = template;
