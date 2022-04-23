@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 *{
     margin: 0;
     padding: 0;
     border: 0;  
+    font-family: 'Poiret One', cursive;
 }
 body{
     background-color:#1C232E ;
@@ -10,11 +12,23 @@ body{
     align-items: center;
     flex-direction: column;
 }
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: -10px;
+}
 #root{
   background-color:#2F3A4B ;
   border-radius: 10px;
   width: 80vw;
   height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10%;
 }
 #root form{
   display: flex;
@@ -80,6 +94,8 @@ form button{
   font-size: 0.9rem;
 }
 #erro{
-  width: 20vw;
-  height: 5vh;
+  width: 40vw;
+  height: 3vh;
+  text-align: center;
+  color: red;
 }
