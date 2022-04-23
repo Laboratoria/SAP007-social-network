@@ -1,5 +1,35 @@
+.text-align{
+  text-align: justify;
+  margin: 0 5%;
+}
+.tittle-about{
+  color: var(--tiffany-blue);
+}
+.text-about{
+  font-size: 18px;
+}
+.tittle-devs-about{
+  text-align: center;
+  margin: 5%;
+  color: var(--purple);
+}
 .picture-dev{
-  height: 15vh ;
-  width: 20vw;
-  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%; 
+}
+.modal-devs{
+  position: fixed;
+  top: 1%;
+  left: 30%;
+  padding: 10px;
+  background: green;
+  opacity: 0;
+}
+.modal-devs:target{
+  opacity: 1;
+  pointer-events: auto;
+}
+.close{
+  text-decoration: none;
 }
