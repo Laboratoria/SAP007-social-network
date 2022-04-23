@@ -8,16 +8,17 @@
 }
 
 :root {
- 
+
   --mustard: #F8BD0F;
   --yellow: #FFF338;
   --light-yellow: #FFFCAB;
   --lilac: #A275E3;
   --purple: #C400FF;
   --light-pink: #FA86BE;
+  --light-pink-opacity: #fa86beee;
   --pink: #FF67E7;
   --light-blue: #9AEBED;
-  --tiffany-blue: #0CECDD; 
+  --tiffany-blue: #0CECDD;
   --black: black;
   --white: white;
   --off-white: #F7F7F7;

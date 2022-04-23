@@ -65,5 +65,5 @@ export const createLogin = () => {
     });
   };
   newRegister.addEventListener('click', newUser);
-  return createLoginStr
+  return createLoginStr;
 };
