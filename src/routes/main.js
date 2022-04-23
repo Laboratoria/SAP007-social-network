@@ -4,6 +4,7 @@ import home from '../Home/home.js';
 import { register } from '../register/register.js';
 import { login } from '../login/login.js';
 import { timeline } from '../feed/feed.js';
+import notfound from '../not-found/error404.js';
 import { stateVerification } from '../firebase/authentication.js';
 
 const main = document.querySelector('#root'); // pega a div do HTML para colocar o conteúdo da página
@@ -29,7 +30,7 @@ const renderizar = () => {
       });
       break;
     default:
-      main.appendChild(home());
+      main.appendChild(notfound());
   }
 };
 // limpa o texto atual da página e trás o conteúdo do novo #hash
