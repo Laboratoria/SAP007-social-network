@@ -23,7 +23,7 @@ export const feed = (user) => {
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li><button class="link btn-log-out" id="btn-log-out"</button>Sair</li>
+          <li class="link"><button class="btn-log-out" id="btn-log-out"</button>Sair</li>
         </ul>
       </nav>
     </header>
@@ -33,9 +33,9 @@ export const feed = (user) => {
       <section class="section-input-post" id="section-input-post">
         <button class="btn-post-input-apear" id="btn-post-input-apear">+
         </button>
-        <form action="" method="post" class="form-post-apear">
-          <input type="text" id="input-post" required placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
-          <button id="btn-post">Enviar</button>
+        <form action="" method="post" class="form-post-apear flex">
+          <textarea type="text" id="input-post" required placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/></textarea>
+          <button id="btn-post" class="btn-post">Postar</button>
         </form>
       </section>
     </main>   

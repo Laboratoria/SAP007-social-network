@@ -19,8 +19,11 @@
   --pink: #FF67E7;
   --light-blue: #9AEBED;
   --tiffany-blue: #0CECDD;
+  --blue-op: #5ccfad;
+  --blue-opacity: #e9f5f1;
   --black: black;
   --white: white;
+  --background-feed: (rgb(246, 237, 250));
   --off-white: #F7F7F7;
   --red-error: #B20C0C;
 }

@@ -29,12 +29,16 @@
 
 
 .btn-config-post {
+  cursor: pointer;
+  font-weight: bold;
   width: 5px;
   height: 5px;
   border-radius: 50%;
 }
 
-.config-btn-nav {}
+.config-btn-nav {
+  cursor: pointer;
+}
 
 .nav-remove-modify {}
 
@@ -42,14 +46,15 @@
 
 .modify {}
 
-.post-text-id {}
+.post-text-id {
+  margin: 2%;
+}
 
 .post-date {
   text-align: center;
 }
 
 .post-text {}
-
 
 .like-comment {
   flex-direction: row;
@@ -66,8 +71,42 @@
 
 .post-comment {}
 
-.modify-input-value {}
+.btn-config {
+  cursor: pointer;
+  background: transparent;
+  font-weight: bold;
+  margin: 2%;
+}
 
 .form-modify-post {
   display: none;
+  width: 100%;
+  border-bottom: 2px solid var(--blue-op);
+}
+
+.content-edit-post {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.modify-input-value {
+  background: var(--blue-opacity);
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 80px;
+  resize: none;
+  border-radius: 0 10px 10px 10px;
+  border: 2px solid var(--blue-op);
+}
+
+.btn-edit-style {
+  border-radius: 0 10px 10px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: var(--blue-op);
 }

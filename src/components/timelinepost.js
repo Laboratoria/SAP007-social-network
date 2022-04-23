@@ -33,9 +33,12 @@ export function postElement(post, uid) {
   const modifyForm = document.createElement('form');
   modifyForm.setAttribute('class', 'form-modify-post');
   modifyForm.innerHTML = `
-  <input class="modify-input-value" id="data-input-value">
-  <button class="confirm-modify" id="data-confirm-edit">Confirmar Editar</button>
-  <button class="close-modify" id="data-cancel-edit">Cancelar Editar</button>
+  <div class="content-edit-post flex">
+    <textarea class="modify-input-value" id="data-input-value">
+    </textarea>
+    <button class="confirm-modify btn-edit-style" id="data-confirm-edit">Confirmar Editar</button>
+    <button class="close-modify btn-edit-style" id="data-cancel-edit">Cancelar Editar</button>
+  </div>
   `;
   // /\ aqui será o menu de configurações que só aparece pro usuário dono do post
   if (uid === post.userUid) {
@@ -45,10 +48,10 @@ export function postElement(post, uid) {
         <span id="balls" class="balls"></span>
       </button>
       <ul class="configs-post">
-        <li><button value="remove"
+        <li class="btn-config"><button
         id="data-post-remove" 
-        class="remove btn-config">Remover</button></li>
-        <li><button value="modify" id="data-post-modify" class="modify
+        class="btn-config remove">Remover</button></li>
+        <li class="btn-config"><button id="data-post-modify" class="modify
         btn-config">Editar</button></li>
       </ul>`;
 
