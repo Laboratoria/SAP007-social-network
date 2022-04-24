@@ -1,13 +1,18 @@
-.box-slogan-page-login {
-    display: flex;
-    justify-content: center;
-}
-
 .form-login {
     background-color: var(--lilac);
     border-radius: 10px;
     margin: 0 auto;
     text-align: center;
+}
+.box-slogan-page-login {
+  display: flex;
+  justify-content: center;
+}
+.section-btn-about{
+  display: none;
+}
+.slogan-desktop{
+  display: none;
 }
 
 .login-area,
@@ -42,9 +47,14 @@ a:link {
 }
 
 @media screen and (max-width: 576px){
-    .logo-icon-page-login {
-        height: 25vh;
+  
+  .logo-page-login {
+        height: 20vh;
         margin: 3% 0;
+    }
+     
+    .box-slogan-desktop-page-login{
+      display: none;
     }
     .form-login {
         height: 40vh;
@@ -72,10 +82,14 @@ a:link {
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
-    .logo-icon-page-login {
-        height: 35vh;
-      
+
+  .logo-page-login {
+        height: 35vh;      
     }
+    .box-slogan-desktop-page-login{
+      display: none;
+    }
+  
     .form-login {
         height: 45vh;
         width: 50vw;
@@ -101,8 +115,23 @@ a:link {
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  .logo-icon-page-login {
-    height: 35vh;  
+  .box-slogan-page-login {
+    display: none;    
+  } 
+
+  .box-slogan-desktop-page-login{
+    height: 95%;
+    width: 40%;
+  } 
+  .logo-desktop{
+    width: 100%;
+  }
+  .slogan-desktop{
+    display: block;
+  }
+  .form-login {    
+    margin: 0 200px;
+    
 }
   .form-login {
       height: 45vh;
