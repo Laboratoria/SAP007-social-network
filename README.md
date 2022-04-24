@@ -21,6 +21,8 @@ O Go Trip é uma rede social direcionada a pessoas que tenham o desejo de compar
 
 Segundo o _Dev Média_: "Single Page Applications (SPA) são aplicações cuja funcionalidade está concentrada em uma única página. Ao invés de recarregar toda a página ou redirecionar o usuário para uma página nova, apenas o conteúdo principal é atualizado de forma assíncrona, mantendo toda a estrutura da página estática."
 
+OBS: Para testar a aplicação sem que seja necessário criar um usuário basta entrar com o seguinte email e senha: teste@teste.com / 123456
+
 ## 2. Histórias de usuários
 
 ### História 1
@@ -51,7 +53,7 @@ A paleta de cores foi extraida da imagem principal da aplicação.
 
 O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, onde foram desenvolvidas as páginas que mostram o layout das 3 interface criadas em telas mobile, tablet e desktop.
 
-![mobile](./src/img/readme-img/mobile-gif.gif)
+![mobile]
 
 ## 4. Objetivos de Aprendizagem
 
@@ -71,10 +73,10 @@ O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, o
   <div align= "center">
     <img alt="Camila Aguiar" height="150" src="https://avatars.githubusercontent.com/u/97450471?v=4"> 
   </div>
-  <h3 align="center"><a href="https://github.com/Cahaguiar">Camila Aguiar</a></h3>
+  <h3 align="center"><a href="https://github.com/Cahaguiar" target="_blank">Camila Aguiar</a></h3>
   <div align="center">
     <a href = "mailto:" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
-    <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+    <a href="https://www.linkedin.com/in/camila-aguiar-santiago/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
   </div>
 </td>
 
@@ -82,7 +84,7 @@ O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, o
   <div align= "center">
     <img alt="Érika Moreno" height="150" src="https://avatars.githubusercontent.com/u/60948460?v=4"> 
   </div>
-  <h3 align="center"><a href="https://github.com/erikakrause">Érika Moreno</a></h3>
+  <h3 align="center"><a href="https://github.com/erikakrause" target="_blank">Érika Moreno</a></h3>
   <div align="center">
     <a href = "mailto:erika.kmoreno@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
     <a href="https://www.linkedin.com/in/erika-gkmoreno/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
@@ -93,7 +95,7 @@ O protótipo de alta fidelidade foi desenvolvido atráves da ferramenta Figma, o
   <div align= "center">
     <img alt="Fernanda Leandra" height="150" src="https://avatars.githubusercontent.com/u/92606913?v=4"> 
   </div>
-  <h3 align="center"><a href="https://github.com/Fernanda741">Fernanda Leandra</a></h3>
+  <h3 align="center"><a href="https://github.com/Fernanda741" target="_blank">Fernanda Leandra</a></h3>
   <div align="center">
     <a href = "mailto:mailto:fernanda2pc@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
      <a href="" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
