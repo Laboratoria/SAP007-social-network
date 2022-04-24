@@ -5,7 +5,7 @@ body {
 }
 
 * {
-  font-family: 'Raleway';
+  font-family: 'Inder';
   box-sizing: border-box;
 }
 
@@ -14,8 +14,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: white;
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #fefaef;
   color: #fff;
   height: 50px;
   padding: 1em;
@@ -31,6 +30,7 @@ body {
 
 .menu>li {
   margin: 0 1rem;
+  cursor: pointer;
 }
 
 .menu-button-container {
@@ -79,7 +79,45 @@ body {
   transform: rotate(-405deg);
 }
 
-@media (max-width: 700px) {
+textarea {
+  resize: none;
+  width: 40%;
+  height: 60%;
+  margin-top:12px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 2px solid #48d9b0;
+}
+
+select, option {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color:#48d9b0;
+  width: 120px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+button {
+  background-color: #48d9b0;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  width: 120px;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+select, button {
+  display: inline-block;
+}
+
+@media (min-width: 900px) {
   .menu-button-container {
     display: flex;
   }
@@ -104,7 +142,7 @@ body {
   }
 
   #menu-toggle:checked~.menu li {
-    border: 1px solid white;
+    border: 1px solid #fefaef;
     height: 2.5em;
     padding: 0.5em;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -116,8 +154,9 @@ body {
     margin: 0;
     padding: 0.5em 0;
     width: 100%;
-    color: white;
+    color:#fefaef;
     background-color: #03a688;
+    font-size:24px;
   }
 
   .menu>li:not(:last-child) {
