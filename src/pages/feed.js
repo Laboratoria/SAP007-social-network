@@ -1,6 +1,4 @@
-
 import "../lib/config-firebase.js";
-
 export default () =>{
   const container = document.createElement("div");
   const templatetest = `

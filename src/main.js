@@ -24,15 +24,15 @@ const init = () => {
         main.appendChild(login());
     }
 
-  })
-}
+  });
+};
 
 
 window.addEventListener("load", () => {
   main.appendChild(login());
   init();
 
-})
+});
 
 
 

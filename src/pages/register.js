@@ -2,6 +2,8 @@ import "../lib/config-firebase.js";
 import {
   userRegister
 } from "../lib/authentication.js";
+//import { template } from "@babel/core";
+
 export default () => {
   const container = document.createElement("section");
 
@@ -20,7 +22,7 @@ export default () => {
   container.innerHTML = template;
   return container;
 };
-
+/*
 const registerName = container.querySelector(".name-register");
 const registerEmail = container.querySelector(".email-register");
 const registerPassword = container.querySelector(".password-register");
@@ -28,8 +30,16 @@ const buttonRegister = container.querySelector(".button-register");
 
 container.addEventListener("submit", (e) => {
   e.preventDefault();
-  userRegister(registerEmail.value, password.value)
-    .then(function () {
+  userRegister(registerEmail.value, registerPassword.value)
+    .then(() => {
       window.location.hash = "#feed";
     })
-})
+  catch ((error) => {
+    const errorMessage = error.message;
+    alert("Verifique seus dados");
+    return errorMessage
+  });
+});
+return container;
+}
+*/
