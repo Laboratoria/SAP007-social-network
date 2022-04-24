@@ -1,3 +1,4 @@
+
 .form-login {
     background-color: var(--lilac);
     border-radius: 10px;
@@ -7,6 +8,7 @@
 .box-slogan-page-login {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .section-btn-about{
   display: none;
@@ -20,7 +22,20 @@
     background-color: var(--off-white);
     border-radius: 10px;
     box-shadow: var(--black) 10px 10px 15px -8px;
+    margin-top: 12px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    font-size: 15px;
+    height: 8vh;
+    margin: 5px 10px;
+    padding-left: 10px;
+    width: 60vw;
+
 }
+
+.btn-sign-in {
+    cursor: pointer;
+}   
 
 .error {
     display: none;
@@ -40,11 +55,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    cursor: pointer;
 }
 
 a:link {
     color: #C400FF;
 }
+
+#click-register:hover{
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 576px){
   

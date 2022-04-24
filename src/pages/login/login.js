@@ -8,7 +8,6 @@ export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
   login.innerHTML = `    
-    
       <figure class="box-slogan-page-login">
         <img src="./img/kfandom.svg" alt="Logotype" class="logo-page-login">
       </figure>  
@@ -32,7 +31,7 @@ export const pageLogin = () => {
       <button class="btn-google text-center font-size" id="btn-google"><img src="./img/G.svg" alt="btn-google" class="img-btn-google">Sign in with Google</button>
       <p class="font-size text-center">
         Ainda não tem conta? <a href="#createLogin" id="click-register">Cadastre-se</a>
-      </p> 
+      </p>
   `;
   login.querySelector('#btn-about').addEventListener('click', (e) => {
     e.preventDefault();
@@ -73,6 +72,5 @@ export const pageLogin = () => {
       userErrorGmail.style.display = 'block';
     });
   });
-
   return login;
 };
