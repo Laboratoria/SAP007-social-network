@@ -3,12 +3,23 @@
 import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 import { bd } from '../../configurafirebase/configfirestore.js';
 // eslint-disable-next-line
-import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
+import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 const auth = getAuth();
+// console.log(sessionStorage);
+// export function getUser() {
+//   onAuthStateChanged(auth, (user) => {
+//     console.log(user);
+//     return user;
+//   });
+//   console.log('controll', getUserInfo);
+//   return getUserInfo;
+// }
 
-export function getUser() {
-  const user = auth.currentUser;
+export function getPersistedUser() {
+  const authUserKey = Object.keys(window.sessionStorage).find((item) => item.startsWith('firebase:authUser'));
+  let user = sessionStorage.getItem(authUserKey);
+  user = JSON.parse(user);
   return user;
 }
 
@@ -26,7 +37,6 @@ export function createPost(text, date, edited, userId, nameProfile, imgProfile) 
     name: nameProfile,
     imgProfile,
   });
-  console.log('Document written with ID: ', post.text);
   return post;
 }
 
@@ -44,10 +54,9 @@ export function editPost(idPost, newContent) {
   const docRef = doc(bd, 'post', idPost);
 
   const editedPost = updateDoc(docRef, {
-    edit: 'editado',
-    text: newContent,
+    edit: 'Editado',
+    message: newContent,
   });
-
   return editedPost;
 }
 
