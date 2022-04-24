@@ -140,6 +140,12 @@ footer {
   margin: 0;
 }
 
+.github {
+  font-size: 15px;
+  text-decoration:none;
+  color: black
+}
+
 @media (min-width: 900px) {
   * {
     font-weight: 400;
