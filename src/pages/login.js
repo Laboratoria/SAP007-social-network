@@ -43,7 +43,6 @@ export default () => {
   });
 
 
-
   loginGoogle.addEventListener("click", (e) => {
     e.preventDefault();
     userGoogle()
