@@ -3,6 +3,7 @@
     margin: 0.75rem;
     padding: 0.25rem;
     background-color: #283040;
+    font-family: Anton; 
 }
 .logo {
     display: flex;
@@ -14,42 +15,47 @@
 }
 .title {
     color: #fff;
-    font-family: Anton;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     align-items: center;
 }
 .email, .password, .enter, .google{
     display: grid;
-    background-color: aliceblue;
-    border : 1px solid;
-    border-radius: 9px;
-    justify-content: center;
+    background-color: #F2E8D5;
+    position: relative;
+    border : 0.063rem solid;
+    border-radius: 1.188rem;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     width: 15em;
     height: 1.25em;
+    
 }
 .google, p{
-    font-family: Anton; 
+    background-color: #283040;
+    border-color: #283040;
+    color: #fff;
     font-size: 0.75em;
-    text-decoration: #fff; 
     text-align: center;
-    margin-top: 10px;
+    margin: 1.5rem;
     width: 8em;
     height: 3em;
 }
 .enter{
     display: grid;
-    margin: 0.90rem;
+    margin: -0.1rem;
     padding: 0.75rem;
     width: 8em;
     height: 3em;
 }
-p {
+
+a {
+    margin: 2rem;
+    text-decoration: none;
     color: #fff;
-}
-.register{
-    color: #fff;
-}
+    justify-content: center;
+    text-align: center;
+   }
