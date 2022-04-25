@@ -20,81 +20,31 @@ body {
   padding: 1em;
 }
 
-.menu {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.logo {
+  width: 70px;
 }
 
-.menu>li {
-  margin: 0 1rem;
-  cursor: pointer;
+.line-header {
+  width: 300px border: 1px solid #;
 }
 
-.menu-button-container {
-  display: flex;
-  height: 100%;
-  width: 30px;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#menu-toggle {
-  display: none;
-}
-
-.menu-button,
-.menu-button::before,
-.menu-button::after {
-  display: block;
-  background-color: #03a688;
-  position: absolute;
-  height: 4px;
-  width: 30px;
-  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 2px;
-}
-
-.menu-button::before {
-  content: '';
-  margin-top: -8px;
-}
-
-.menu-button::after {
-  content: '';
-  margin-top: 8px;
-}
-
-#menu-toggle:checked+.menu-button-container .menu-button::before {
-  margin-top: 0px;
-  transform: rotate(405deg);
-}
-
-#menu-toggle:checked+.menu-button-container .menu-button::after {
-  margin-top: 0px;
-  transform: rotate(-405deg);
-}
-
-textarea {
+.textarea {
   resize: none;
   width: 40%;
   height: 60%;
-  margin-top:12px;
+  margin-top: 12px;
   font-size: 18px;
   border-radius: 5px;
   border: 2px solid #48d9b0;
 }
 
-select, option {
+select,
+option {
   font-size: 16px;
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  background-color:#48d9b0;
+  background-color: #48d9b0;
   width: 120px;
   height: 40px;
   border: none;
@@ -113,7 +63,8 @@ button {
   font-size: 16px;
 }
 
-select, button {
+select,
+button {
   display: inline-block;
 }
 
@@ -154,9 +105,9 @@ select, button {
     margin: 0;
     padding: 0.5em 0;
     width: 100%;
-    color:#fefaef;
+    color: #fefaef;
     background-color: #03a688;
-    font-size:24px;
+    font-size: 24px;
   }
 
   .menu>li:not(:last-child) {
