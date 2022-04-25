@@ -6,34 +6,32 @@ import register from "./pages/register.js"
 
 const main = document.querySelector("#root")
 
+const redirect = () => {
+  switch (window.location.hash) {
+    case "#login":
+      main.appendChild(login());
+      break;
+    case "#feed":
+      main.appendChild(feed());
+      break;
+    case "#register":
+      main.appendChild(register());
+      break;
+    default:
+      main.appendChild(login());
+  }
+
+};
+
 const init = () => {
   window.addEventListener("hashchange", () => {
     main.innerHTML = "";
-    switch (window.location.hash) {
-      case "":
-        main.appendChild(login());
-        break;
-      case "#feed":
-        main.appendChild(feed());
-        break;
-      case "#register":
-        main.appendChild(register());
-        break;
+    redirect();
+  })
 
-      default:
-        main.appendChild(login());
-    }
-
-  });
-};
-
+}
 
 window.addEventListener("load", () => {
-  main.appendChild(login());
+  redirect();
   init();
-
 });
-
-
-
-console.log('ola');
