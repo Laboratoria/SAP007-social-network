@@ -1,95 +1,125 @@
-import { createPost, getAllPosts } from './controll.js';
+import {
+  createPost, getAllPosts, authLogOut, generateIdPost, // consultDB,
+} from './firestore-functions.js';
 
-export const feed = () => {
+import {
+  postElement,
+} from '../../components/timelinepost.js';
+
+export const feed = (user) => {
+  console.log(user);
   const timeline = document.createElement('div');
-  timeline.setAttribute('class', 'box-feed flex');
+  timeline.setAttribute('class', 'box-feed flex column');
   timeline.innerHTML = `
     <header class="header-feed flex"> 
-      <div>
-        <img src="#" class="user-perfil-img-feed" alt="user">
-      </div>  
-      <div>
+      <picture>
+        <img src="${user.photoURL}" class="user-perfil-img-feed" alt="user">
+      </picture>  
+      <picture>
         <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
-      </div>   
+      </picture>   
       <nav id="nav-options" class="nav-options" aria-expanded="false">
         <button id="btn-mobile" class="btn-mobile flex">
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li><button class="link btn-log-out"</button></li>
+          <li class="link"><button class="btn-log-out" id="btn-log-out"</button>Sair</li>
         </ul>
       </nav>
     </header>
-    <main class="main-post flex">
-      <section class="section-feed flex" id="section-feed">
+    <main class="main-post flex column">
+      <section class="section-feed flex column" id="section-feed">
       </section>
-      <form action="" method="post">
-        <input type="text" id="input-post" placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/> 
-        <button id="btn-post">Enviar</button>
-      </form>
+      <section class="section-input-post" id="section-input-post">
+        <button class="btn-post-input-apear" id="btn-post-input-apear">+
+        </button>
+        <form action="" method="post" class="form-post-apear flex">
+          <textarea type="text" id="input-post" required placeholder="O que quero compartilhar?" maxlength="500" class="input-post"/></textarea>
+          <button id="btn-post" class="btn-post">Postar</button>
+        </form>
+      </section>
     </main>   
       `;
   const btnMobile = timeline.querySelector('#btn-mobile');
   const btnPost = timeline.querySelector('#btn-post');
+  const btnLogOut = timeline.querySelector('#btn-log-out');
+  const btnInputPost = timeline.querySelector('#btn-post-input-apear');
+  const sectionInput = timeline.querySelector('#section-input-post');
+  const nav = timeline.querySelector('#nav-options');
 
   function toggleMenu() {
-    const nav = document.getElementById('nav-options');
     nav.classList.toggle('active');
   }
+
   btnMobile.addEventListener('click', toggleMenu);
+
+  btnLogOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    authLogOut().then(() => {
+      window.location.hash = '#login';
+      document.location.reload(true);
+    }).catch((error) => {
+      console.log(error);
+    });
+  });
+
+  function toggleInput() {
+    sectionInput.classList.toggle('apear');
+    // const classes = sectionInput.className;
+    // if (classes.indexOf('active') !== -1) {
+    //   toggleMenu();
+    // }
+  }
+
+  btnInputPost.addEventListener('click', toggleInput);
+
+  const postsElement = timeline.querySelector('#section-feed');
 
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
     const text = document.querySelector('#input-post').value;
     const date = new Date();
-    // const uidUser =
-    // const nameProfile =
-    // const imgProfile =
-    createPost(text, date).then((response) => {
-      console.log(response);
-    }).catch((e) => console.error('Error adding document', e));
+    const edited = '';
+    const uidUser = user.uid;
+    const nameProfile = user.displayName;
+    const imgProfile = user.photoURL;
+    if (text.trim().length !== 0 && text !== ' ' && text !== null && text !== false) {
+      toggleInput();
+      createPost(text, date, edited, uidUser, nameProfile, imgProfile).then((response) => {
+        const objeto = {
+          message: text,
+          day: {
+            seconds: date.getTime() / 1000,
+          },
+          edit: edited,
+          idPost: response.id,
+          userUid: uidUser,
+          name: nameProfile,
+          imgProfile,
+        };
+        const newPostElement = postElement(objeto, uidUser);
+        postsElement.prepend(newPostElement);
+        generateIdPost(response.id)
+          .then(() => {
+            console.log('Deu certo');
+          })
+          .catch((error) => console.error(error));
+      }).catch((e) => console.error('Error adding document', e));
+      document.querySelector('#input-post').value = '';
+    } else {
+      // innerHTML = 'Digite algo para compartilhar!';
+    }
   });
 
-  const postsElement = timeline.querySelector('#section-feed');
+  getAllPosts().then((posts) => {
+    posts.docs.forEach((onePost) => {
+      const post = onePost.data();
+      const timelinePost = postElement(post, user.uid);
+      postsElement.prepend(timelinePost);
+    });
+  }).catch((error) => console.log(error));
 
-  getAllPosts().then((posts) => posts.docs.forEach((onePost) => {
-    console.log(onePost.id);
-    const post = onePost.data();
-    console.log(post.day);
-    const date = new Date(post.day.seconds * 1000);
-    const timelinePost = document.createElement('div');
-    timelinePost.setAttribute('class', 'box-post flex');
-    timelinePost.innerHTML = `
-        <div class="informations-user flex">
-          <div class="photo-name-post flex">
-            <figure class="post-img-user" ><img src="" alt=""></figure>
-            <div class="name-modifie-status flex">
-              <p class="post-name-user">User</p>
-              <div class="message-modified-post">
-                <p class="post-modified"></p>
-              </div>
-            </div>
-          </div> 
-          <nav class="nav-remove-modifie flex">
-            <button class="btn-config-post">
-              <span id="balls" class="balls"></span>
-            </button>
-            <ul class="configs-post">
-              <li><button data-postid="${onePost.id}" class="remove btn-config"></button></li>
-              <li><button data-postid="${onePost.id}" class="modifie btn-config"></button></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="post-text-id flex" data-postid="${onePost.id}">
-          <p class="post-date">${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
-          <p class="post-text">${post.message}</p>
-        </div>
-        <div class="like-comment flex">
-          <button class="post-like"><img src="" alt="">Gostei</button>
-          <button class="post-comment"><img src="" alt="">Comentar</button>
-        </div>`;
-    postsElement.prepend(timelinePost);
-  })).catch((error) => console.log(error));
+  // modifieButton.addEventListener('click', (e) => {
 
   return timeline;
 };
