@@ -1,17 +1,16 @@
-
 import "../lib/config-firebase.js";
 import { userLogin, userGoogle } from "../lib/authentication.js";
 
 export default () => {
   const container = document.createElement("form");
   const templateLoging = `
-  <input class="email" placeholder ="e-mail" type="email" required></input>
+  <input class="email" placeholder ="e-mail" type="email" required>
   <span class="email-error"></span>
-  <input class="password" placeholder="senha" minlength="6" type="password" required></input>
+  <input class="password" placeholder="senha" minlength="6" type="password" required>
   <span class="password-error"></span>
   <button class="enter" type="submit">Entrar</button>
   <p>ou</p>
-  <button class="google" type="subimit">Login com o Google</button>
+  <button class="google" type="submit">Login com o Google</button>
   <div class="register"><a href="/#register">Cadastre-se</a></div>
   `;
 

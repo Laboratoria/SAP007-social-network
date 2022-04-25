@@ -1,10 +1,16 @@
 @import url('http://fonts.googleapis.com/css?family=Anton');
 *{
-    margin: 0;
+    margin: 0.75rem;
+    padding: 0.25rem;
     background-color: #283040;
 }
-.logo{
-    align-items: center;
+.logo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 13em;
 }
 .title {
     color: #fff;
@@ -19,6 +25,31 @@
     display: grid;
     background-color: aliceblue;
     border : 1px solid;
-    border-radius: 5px;
+    border-radius: 9px;
+    justify-content: center;
+    text-align: center;
+    width: 15em;
+    height: 1.25em;
 }
-
+.google, p{
+    font-family: Anton; 
+    font-size: 0.75em;
+    text-decoration: #fff; 
+    text-align: center;
+    margin-top: 10px;
+    width: 8em;
+    height: 3em;
+}
+.enter{
+    display: grid;
+    margin: 0.90rem;
+    padding: 0.75rem;
+    width: 8em;
+    height: 3em;
+}
+p {
+    color: #fff;
+}
+.register{
+    color: #fff;
+}
