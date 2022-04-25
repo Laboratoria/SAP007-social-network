@@ -22,8 +22,8 @@ export default () => {
   container.innerHTML = template;
   return container;
 };
-/*
-const registerName = container.querySelector(".name-register");
+
+/* const registerName = container.querySelector(".name-register");
 const registerEmail = container.querySelector(".email-register");
 const registerPassword = container.querySelector(".password-register");
 const buttonRegister = container.querySelector(".button-register");
