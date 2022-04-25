@@ -1,0 +1,90 @@
+*{
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background:#daebdc;
+  }
+  h1{
+    margin-left: 80px;
+    font-size: 45px;
+    color:rgba(134, 192, 204, 0.644);
+    text-align:left;
+    text-shadow: 0.1em 0.1em  rgba(237, 241, 243, 0.788);
+  }
+   section{
+    background-color: rgba(255, 255, 255, 0.747); 
+    border-radius: 30px;
+    margin-left: 140vh;
+    margin-right: 80px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+  p{
+   text-align:center;
+   margin-right:50px;
+   background-color: rgba(249, 253, 253, 0.767);
+  }
+  input{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #8bc29d;
+    height:30px;
+    color:rgba(249, 253, 253, 0.767);
+    border:none;
+    border-radius:30px;
+    padding-left: 10px;
+  }
+  #entrarComGoogle{
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border-radius: 20px;
+    border-color:rgba(196, 223, 238, 0.637);
+    background-color: rgba(239, 245, 244, 0.479);
+    margin:20px 0 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding:0px 20px 10px 15px;
+  }
+  font{
+      background-color: rgba(249, 253, 253, 0.767);
+  }
+  i{
+      background-color: rgba(249, 253, 253, 0.767);
+  }
+  img{
+    background-color: rgba(249, 253, 253, 0.767);
+    max-width: 100%;
+  }
+  #registre-se{
+    text-align:center;
+    background-color: rgba(249, 253, 253, 0.767);
+  }
+  a{
+    background-color: rgba(249, 253, 253, 0.767);
+    text-decoration: none;
+    color: rgb(15, 94, 38);
+  }
+  a:hover{
+    text-decoration:underline;
+  }
+#icon-mail{
+margin-right: 10px;
+background-color: rgba(249, 253, 253, 0.767);
+}
+#icon-senha{
+  margin-right: 10px;
+  background-color: rgba(249, 253, 253, 0.767);
+}
+#image-icone{
+  background-color:transparent;
+  margin-right:10px;
+  margin-top: 4px;
+}
+
+
