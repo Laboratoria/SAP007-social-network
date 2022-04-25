@@ -1,15 +1,19 @@
 import {
   getUserPosts,
+  getFunctionDelet,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
 import header from '../components/header.js';
+
 
 export default () => {
   const container = document.createElement('div');
   const templateUserProfile = `
     <main>
       <div class="card-user">
-        <img class="icone-user" src="./img/icone-perfil.jpg" alt="Meu Perfil">
+        <div class="imgIcone">
+          <img class="icone-user" src="./img/profile-icone.png" alt="Meu Perfil">
+        </div>
         <p class="item-user" id="name-user"></p>
         <p class="item-user" id="email-user"></p>
       </div>
@@ -55,8 +59,33 @@ export default () => {
     containerMyPost.innerHTML = templateCardMyPost;
     return containerMyPost;
   }
-
+  const deleteBtn = container.querySelectorAll("#button-delete-post")
+  //const editBtn = container.querySelectorAll("#button-edit-post")
   const myPost = container.querySelector('#my-post');
+
+  const functionDelete = () => {
+    Array.from(myPost).forEach((myPost) => {
+      deleteBtn = myPost.querySelector('#button-delete-post')
+      deleteBtn.addEventListener('click',async()=>{
+        const confirmDeleted = window.confirm("Caro poeta, deseja mesmo deletar esse poema?")
+        if(!confirmDeleted){
+          return;
+        }
+        else{
+          const getIdPost = container.querySelector(myPost.id)
+          await getFunctionDelet(post.id)
+          getIdPost.parentElement.remove()
+          console.log(post.id)
+        }
+      })
+    })
+    //const myTimeline = await getUserPosts(id);
+    //myTimeline.forEach((posts) => {
+      //const getPostId = posts.id
+      //console.log(getPostId)
+   // })
+  }
+  functionDelete()
 
   const showMyPosts = async () => {
     const id = auth.currentUser.uid;

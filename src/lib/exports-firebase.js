@@ -11,6 +11,7 @@ import {
 import {
   getFirestore,
   collection,
+  deleteDoc,
   addDoc,
   orderBy,
   query,
@@ -36,7 +37,7 @@ export {
   addDoc,
   orderBy,
   query,
-  // deleteDoc,
+  deleteDoc,
   getDocs,
   updateDoc,
   doc,

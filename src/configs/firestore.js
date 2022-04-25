@@ -4,7 +4,7 @@ import {
   addDoc,
   orderBy,
   query,
-  // deleteDoc,
+  deleteDoc,
   getDocs,
   updateDoc,
   doc,
@@ -99,3 +99,7 @@ export const getUserPosts = async (id) => {
   });
   return arrayOfMyPosts;
 };
+
+export const getFunctionDelet = async (postId) => {
+  await deleteDoc(doc(db, "posts", postId))
+}
