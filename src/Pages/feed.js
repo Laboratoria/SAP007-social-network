@@ -6,18 +6,16 @@ export default () => {
   const feed = document.createElement('div');
   const templateFeed = `
   <nav class="top-nav">
-    <div>
-      <picture></picture>
-    </div>
-    <input id="menu-toggle" type="checkbox"/>
-      <label class='menu-button-container' for="menu-toggle">
-    <div class='menu-button'></div>
-      </label>
-    <ul class="menu">
-      <li id="profile">Perfil</li>
-      <li id="logout">Sair</li>
-    </ul>
+      <picture>
+          <img class="logo" src="./img/logo-sem fundo.png" alt="logo">
+      </picture>
+      <picture>
+        <a href="#home" id="logout">
+            <img  class="bottonBack" src="./img/botao-voltar.png" alt="bottonBack">
+        </a>
+      </picture>     
   </nav>
+  <div class= line-header> </div>  
   <section  class="publish "id="publish">
     <textarea class="post-area-text" placeholder="O que você quer compartilhar?"></textarea>
     <div id='selected-theme'>
@@ -43,8 +41,8 @@ export default () => {
     });
   });
   return feed;
-  }
-  
+}
+
 
 
 
