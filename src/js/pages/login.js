@@ -101,8 +101,6 @@ const login = {
     });
 
     if (modalOpen && modalClose && modalContainer) {
-      const emailResetPassword =
-        container.querySelector("#user-email-reset").value;
       const toogle = function (e) {
         e.preventDefault();
         messageReset.innerHTML = "";

@@ -7,6 +7,7 @@ import {
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
+  updateProfile,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import { auth } from "./start-firebase.js";
 
@@ -14,13 +15,19 @@ export function registerNewUser(email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      sendEmailVerification(auth.currentUser)
+      updateProfile(auth.currentUser, { displayName })
         .then(() => {
-          message.innerHTML = "Email de verificação enviado com sucesso!";
-          message.innerHTML = "Cadastro realizado com sucesso!";
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              message.innerHTML = "Email de verificação enviado com sucesso!";
+              message.innerHTML = "Cadastro realizado com sucesso!";
+            })
+            .catch(() => {
+              message.innerHTML = "Falha no envio de email de verificação!";
+            });
         })
-        .catch(() => {
-          message.innerHTML = "Falha no envio de email de verificação!";
+        .catch((error) => {
+          message.innerHTML = "Falha no envio do nome!";
         });
     })
     .catch((error) => {
@@ -82,5 +89,5 @@ export function authChange(cb) {
 }
 
 export function forgotPassword(email) {
-  return sendPasswordResetEmail(auth, email)
+  return sendPasswordResetEmail(auth, email);
 }

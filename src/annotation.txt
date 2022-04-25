@@ -1,4 +1,5 @@
 
+//Ao inserir as funções do firestore, adicionar o nome de cadastro no banco
 
 
 MENU
