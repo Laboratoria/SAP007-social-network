@@ -2,30 +2,36 @@
 //import "../lib/config-firebase.js"
 import login from "./pages/login.js"
 import feed from "./pages/feed.js"
+import register from "./pages/register.js"
 
 const main = document.querySelector("#root")
 
-const init = () =>{
-    window.addEventListener("hashchange", () =>{
-      main.innerHTML="";
-    switch (window.location.hash) {
-    case "": main.appendChild(login());
+const redirect = () => {
+  switch (window.location.hash) {
+    case "#login":
+      main.appendChild(login());
       break;
-    case "#feed": main.appendChild(feed());
+    case "#feed":
+      main.appendChild(feed());
       break;
-
-      default: main.appendChild(login());
+    case "#register":
+      main.appendChild(register());
+      break;
+    default:
+      main.appendChild(login());
   }
 
-})}
+};
 
+const init = () => {
+  window.addEventListener("hashchange", () => {
+    main.innerHTML = "";
+    redirect();
+  })
 
-window.addEventListener("load", () =>{
-  main.appendChild(login());
+}
+
+window.addEventListener("load", () => {
+  redirect();
   init();
-
-})
-
-
-
-console.log('ola');
+});

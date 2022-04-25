@@ -1,6 +1,8 @@
-
 import "../lib/config-firebase.js";
-import { userLogin, userGoogle } from "../lib/authentication.js";
+import {
+  userLogin,
+  userGoogle
+} from "../lib/authentication.js";
 
 export default () => {
   const container = document.createElement("form");
@@ -11,7 +13,7 @@ export default () => {
   <span class="password-error"></span>
   <button class="enter" type="submit">Entrar</button>
   <p>ou</p>
-  <button class="google" type="subimit">Login com o Google</button>
+  <button class="google" type="submit">Login com o Google</button>
   <div class="register"><a href="/#register">Cadastre-se</a></div>
   `;
 
@@ -45,18 +47,17 @@ export default () => {
 
 
 
-loginGoogle.addEventListener("click", (e) => {
-  e.preventDefault();
+  loginGoogle.addEventListener("click", (e) => {
+    e.preventDefault();
     userGoogle()
-    .then(() => {
-      window.location.hash = "#feed";
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      return errorMessage;
-    });
-});
+      .then(() => {
+        window.location.hash = "#feed";
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        return errorMessage;
+      });
+  });
 
-return container;
+  return container;
 };
-
