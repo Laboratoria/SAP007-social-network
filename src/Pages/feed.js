@@ -1,3 +1,7 @@
+import '../firebase/config-firebase.js';
+import { logout } from '../firebase/authetication.js';
+import { auth } from '../firebase/config-firebase.js';
+
 export default () => {
   const feed = document.createElement('div');
   const templateFeed = `
@@ -29,5 +33,19 @@ export default () => {
     </div>  
   </section>`;
   feed.innerHTML = templateFeed;
+
+  const logoutUser = feed.querySelector('#logout');
+  logoutUser.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout().then(() => {
+      window.location.hash = "#login"
+      console.log(logout)
+    });
+  });
   return feed;
-};
+  }
+  
+
+
+
+
