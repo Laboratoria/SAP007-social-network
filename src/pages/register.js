@@ -44,6 +44,6 @@ export default () => {
         }
         return messageError
       });
-    return container;
   })
+  return container;
 };

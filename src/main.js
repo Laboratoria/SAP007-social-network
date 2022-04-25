@@ -1,12 +1,13 @@
 // Este es el punto de entrada de tu aplicacion
 //import "../lib/config-firebase.js"
-import login from "./pages/login.js"
-import feed from "./pages/feed.js"
-import register from "./pages/register.js"
+import login from "./pages/login.js";
+import feed from "./pages/feed.js";
+import register from "./pages/register.js";
 
-const main = document.querySelector("#root")
+const main = document.querySelector("#root");
 
 const redirect = () => {
+  main.innerHTML = "";
   switch (window.location.hash) {
     case "#login":
       main.appendChild(login());
@@ -25,10 +26,8 @@ const redirect = () => {
 
 const init = () => {
   window.addEventListener("hashchange", () => {
-    main.innerHTML = "";
     redirect();
-  })
-
+  });
 }
 
 window.addEventListener("load", () => {
