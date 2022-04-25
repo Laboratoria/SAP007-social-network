@@ -6,8 +6,8 @@ import {
 
 const login = {
   createLogin: function () {
-    const container = document.createElement("div");
-    container.setAttribute("class", "container-secondary");
+    const container = document.createElement("section");
+    container.classList.add("container-login");
     container.innerHTML = `
       <form class="user-form">
         <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
@@ -15,7 +15,7 @@ const login = {
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
         <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="small-text-right modal-open">
+        <a href="#" type="button" class="link small-text-right modal-open">
           Esqueceu a senha?
         </a>
         <span id="message"></span>
@@ -69,90 +69,46 @@ const login = {
       } else if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (email && password && newEmail) {
-        authUserLabFriends(email, password)
-          .then(() => {
-            console.log("Entrou");
-            window.location.hash = "#timeline";
-          })
-          .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            switch (errorCode) {
-              case "auth/invalid-email":
-                errorMessage = "Insira um email válido.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/user-not-found":
-                errorMessage =
-                  'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
-                msgAlert.innerHTML = errorMessage;
-                break;
-              case "auth/internal-error":
-                errorMessage = "Insira a senha.";
-                msgAlert.innerHTML = errorMessage;
-                break;
-            }
-          });
+        authUserLabFriends(email, password);
       }
     });
 
     buttonLoginGoogle.addEventListener("click", (e) => {
       e.preventDefault();
-      authUserWithGoogle().then(() => {
-        window.location.hash = "#timeline";
-      });
+      authUserWithGoogle();
+      window.location.hash = "#timeline";
     });
 
     buttonResetPassword.addEventListener("click", (e) => {
       e.preventDefault();
-      const emailResetPassword = container.querySelector("#user-email-reset");
-      const newEmailReset = emailResetPassword.value.match(
-        /[\w.\-+]+@[\w-]+\.[\w-.]+/gi
-      );
-
-      if (!emailResetPassword.value) {
-        messageReset.innerHTML = "Preencha o campo de email!";
-      } else if (!newEmailReset) {
-        messageReset.innerHTML = "Preencha o campo de email corretamente!";
-      } else {
-        forgotPassword(emailResetPassword.value)
-          .then(() => {
-            messageReset.innerHTML = "Email enviado.";
-          })
-          .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-
-            switch (errorCode) {
-              case "auth/invalid-email":
-                errorMessage = "Email inválido.";
-                messageReset.innerHTML = errorMessage;
-                break;
-              case "auth/user-not-found":
-                errorMessage = "Usuário não encontrado.";
-                messageReset.innerHTML = errorMessage;
-                break;
-              case "auth/missing-email":
-                errorMessage = "Insira um email.";
-                messageReset.innerHTML = errorMessage;
-                break;
-            }
-          });
-      }
+      const emailResetPassword =
+        container.querySelector("#user-email-reset").value;
+      forgotPassword(emailResetPassword)
+        .then(() => {
+          messageReset.innerHTML = "Email enviado com sucesso!";
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case "auth/missing-email":
+              messageReset.innerHTML = "Preencha o campo de email!";
+              break;
+            case "auth/user-not-found":
+              messageReset.innerHTML =
+                "Usuário não encontrado! Cadastre-se no LabFriends!";
+              break;
+          }
+        });
     });
 
     if (modalOpen && modalClose && modalContainer) {
-      const emailResetPassword = container.querySelector("#user-email-reset");
       const toogle = function (e) {
         e.preventDefault();
-        emailResetPassword.value = "";
         messageReset.innerHTML = "";
         modalContainer.classList.toggle("active");
       };
       const outside = function (e) {
         if (e.target === this) {
           e.preventDefault();
-          emailResetPassword.value = "";
           messageReset.innerHTML = "";
           modalContainer.classList.toggle("active");
         }
@@ -161,7 +117,6 @@ const login = {
       modalClose.addEventListener("click", toogle);
       modalContainer.addEventListener("click", outside);
     }
-
     return container;
   },
 };

@@ -5,19 +5,15 @@ import friends from "./pages/friends.js";
 import profile from "./pages/profile.js";
 import { authChange } from "../config/authentication.js";
 
-const container = document.getElementById("container-general");
+const container = document.getElementById("root");
 
 window.addEventListener("load", () => {
   redirectPages();
-  initPages();
-});
-
-const initPages = () => {
   window.addEventListener("hashchange", () => {
     container.innerHTML = "";
     redirectPages();
   });
-};
+});
 
 function redirectPages() {
   switch (window.location.hash) {

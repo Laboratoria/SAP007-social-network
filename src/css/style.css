@@ -16,3 +16,54 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: var(--color-dark-gray);
+}
+.container-login {
+  background-color: var(--color-dark-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container-labfriends {
+  min-width: 300px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 550px) {
+  .background {
+    height: 100vh;
+    background-image: url("../../img/background.gif");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .container-login {
+    border-radius: calc(var(--spacing-small) * 4);
+    width: 75%;
+    padding: 8% 0;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1799px) {
+  .container-login {
+    max-width: 31.25rem;
+    max-height: 36rem;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+  .container-login {
+    max-width: 37.5rem;
+    max-height: 40.63rem;
+  }
+}
