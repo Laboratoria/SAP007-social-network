@@ -50,14 +50,31 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
     return user;
   });
 
+// export function userLogout() {
+//   return signOut(auth)
+//     .then(() => 'Logout')
+//     .catch((error) => error);
+// }
+
 export function userLogout() {
-  return signOut(auth)
-    .then(() => 'Logout')
-    .catch((error) => error);
+  signOut(auth).then(() => {
+    window.location.hash = '#login';
+  }).catch((error) => {
+    console.log('Error no logout')
+    return error
+  });
 }
 
 //
-export function checkLogin() {
-  const user = auth.currentUser;
-  return user;
-}
+// export function checkLogin() {
+//   const user = auth.currentUser;
+//   return user;
+// }
+
+const user = auth.currentUser;
+  export function checkLogin(callback) {
+    
+    onAuthStateChanged(auth, (user) => {
+      callback(user !== null)
+    });
+  }
