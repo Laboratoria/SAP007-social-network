@@ -43,12 +43,28 @@ const register = {
       const message = container.querySelector("#message");
 
       if (password !== passwordRepeat) {
-        message.innerHTML = "As duas senhas não coincidem. Digite-as novamente!";
+        message.innerHTML =
+          "As duas senhas não coincidem. Digite-as novamente!";
       }
       if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (name && email && password && passwordRepeat && newEmail) {
-        registerNewUser(email, password);
+        registerNewUser(email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            message.innerHTML = "Cadastro realizado com sucesso!";
+          })
+          .catch((error) => {
+            switch (error.code) {
+              case "auth/email-already-in-use":
+                message.innerHTML = "Email já cadastrado! Escolha outro email.";
+                break;
+              case "auth/weak-password":
+                message.innerHTML =
+                  "Sua senha deve ter no mínimo 6 caracteres.";
+                break;
+            }
+          });
       }
     });
     return container;

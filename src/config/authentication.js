@@ -10,21 +10,18 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 import { auth } from "./start-firebase.js";
 
-export const verificationEmail = () => {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-      return "true";
-    })
-    .catch(() => {
-      return "false";
-    });
-};
-
-export const registerNewUser = (email, password) => {
+export function registerNewUser(email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      message.innerHTML = "Cadastro realizado com sucesso!";
+      sendEmailVerification(auth.currentUser)
+        .then(() => {
+          message.innerHTML = "Email de verificação enviado com sucesso!";
+          message.innerHTML = "Cadastro realizado com sucesso!";
+        })
+        .catch(() => {
+          message.innerHTML = "Falha no envio de email de verificação!";
+        });
     })
     .catch((error) => {
       switch (error.code) {
@@ -36,10 +33,9 @@ export const registerNewUser = (email, password) => {
           break;
       }
     });
-};
+}
 
 export function authUserLabFriends(email, password) {
-  console.log(email);
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -85,23 +81,6 @@ export function authChange(cb) {
   });
 }
 
-//exibir mensagem de erro
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email)
-    .then(() => {
-      messageReset.innerHTML = "Email enviado com sucesso!";
-    })
-    .catch((error) => {
-      console.log(error.code);
-      console.log(error.message);
-      switch (error.code) {
-        case "auth/missing-email":
-          messageReset.innerHTML = "Preencha o campo de email!";
-          break;
-        case "auth/user-not-found":
-          messageReset.innerHTML =
-            "Usuário não encontrado! Cadastre-se no LabFriends!";
-          break;
-      }
-    });
 }

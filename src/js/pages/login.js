@@ -2,7 +2,6 @@ import {
   authUserLabFriends,
   authUserWithGoogle,
   forgotPassword,
-  verificationEmail,
 } from "../../config/authentication.js";
 
 const login = {
@@ -70,32 +69,35 @@ const login = {
       } else if (!newEmail) {
         message.innerHTML = "Preencha o campo de email corretamente!";
       } else if (email && password && newEmail) {
-        const emailValidation = verificationEmail();
-        console.log(emailValidation);
-        if (emailValidation === "true") {
-          authUserLabFriends(email, password);
-        } else {
-          message.innerHTML = "Email inexistente!";
-        }
+        authUserLabFriends(email, password);
       }
     });
 
     buttonLoginGoogle.addEventListener("click", (e) => {
       e.preventDefault();
-      authUserWithGoogle().then(() => {
-        window.location.hash = "#timeline";
-      });
+      authUserWithGoogle();
+      window.location.hash = "#timeline";
     });
 
     buttonResetPassword.addEventListener("click", (e) => {
       e.preventDefault();
       const emailResetPassword =
         container.querySelector("#user-email-reset").value;
-      const newEmailReset = emailResetPassword.match(
-        /[\w.\-+]+@[\w-]+\.[\w-.]+/gi
-      );
-      console.log(emailResetPassword);
-      forgotPassword(emailResetPassword);
+      forgotPassword(emailResetPassword)
+        .then(() => {
+          messageReset.innerHTML = "Email enviado com sucesso!";
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case "auth/missing-email":
+              messageReset.innerHTML = "Preencha o campo de email!";
+              break;
+            case "auth/user-not-found":
+              messageReset.innerHTML =
+                "Usuário não encontrado! Cadastre-se no LabFriends!";
+              break;
+          }
+        });
     });
 
     if (modalOpen && modalClose && modalContainer) {
@@ -103,14 +105,12 @@ const login = {
         container.querySelector("#user-email-reset").value;
       const toogle = function (e) {
         e.preventDefault();
-        emailResetPassword = "";
         messageReset.innerHTML = "";
         modalContainer.classList.toggle("active");
       };
       const outside = function (e) {
         if (e.target === this) {
           e.preventDefault();
-          emailResetPassword.value = "";
           messageReset.innerHTML = "";
           modalContainer.classList.toggle("active");
         }

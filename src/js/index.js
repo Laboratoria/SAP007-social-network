@@ -9,15 +9,11 @@ const container = document.getElementById("root");
 
 window.addEventListener("load", () => {
   redirectPages();
-  initPages();
-});
-
-const initPages = () => {
   window.addEventListener("hashchange", () => {
     container.innerHTML = "";
     redirectPages();
   });
-};
+});
 
 function redirectPages() {
   switch (window.location.hash) {
@@ -51,38 +47,3 @@ function redirectPages() {
       break;
   }
 }
-
-/*
-function internalRoute(page) {
-  const background = document.querySelector(".background");
-  background.style.backgroundImage = "none";
-
-  const section = document.createElement("section");
-  section.classList.add("container-labfriends");
-  section.innerHTML = header.createHeader();
-  section.innerHTML += addPost.createNewPost();
-
-  switch (page) {
-    case "timeline":
-      section.innerHTML += timeline.createTimeline();
-      break;
-    case "friends":
-      section.innerHTML += friends.createFriendsList();
-      break;
-    case "profile":
-      section.innerHTML += profile.createProfile();
-      break;
-  }
-  container.appendChild(section);
-
-  //mudar essa função para o header
-  const buttonLogout = container.querySelector("#button-logout");
-  buttonLogout.addEventListener("click", (e) => {
-    e.preventDefault();
-    logout().then(() => {
-      window.location.hash = "#login";
-    });
-  });
-  //usar async
-}
-*/
