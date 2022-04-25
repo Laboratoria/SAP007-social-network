@@ -1,5 +1,5 @@
-import login from "./pages/login.js";
-import register from "./pages/register.js";
+import { createLogin } from "./pages/login.js";
+import { createRegister } from "./pages/register.js";
 import timeline from "./pages/timeline.js";
 import friends from "./pages/friends.js";
 import profile from "./pages/profile.js";
@@ -19,10 +19,10 @@ function redirectPages() {
   switch (window.location.hash) {
     default:
     case "#login":
-      container.appendChild(login.createLogin());
+      container.appendChild(createLogin());
       break;
     case "#register":
-      container.appendChild(register.createRegister());
+      container.appendChild(createRegister());
       break;
     case "#timeline":
       authChange((logged) => {

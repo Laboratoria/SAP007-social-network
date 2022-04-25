@@ -4,11 +4,10 @@ import {
   forgotPassword,
 } from "../../config/authentication.js";
 
-const login = {
-  createLogin: function () {
-    const container = document.createElement("section");
-    container.classList.add("container-login");
-    container.innerHTML = `
+export function createLogin() {
+  const container = document.createElement("section");
+  container.classList.add("container-login");
+  container.innerHTML = `
       <form class="user-form">
         <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
         <label for="user-email" class="user-label">Email</label>
@@ -47,78 +46,78 @@ const login = {
       </section>
     `;
 
-    const buttonLoginLabfriends = container.querySelector("#login-labfriends");
-    const buttonLoginGoogle = container.querySelector("#login-google");
-    const buttonResetPassword = container.querySelector(
-      "#button-reset-password"
-    );
-    const modalOpen = container.querySelector(".modal-open");
-    const modalClose = container.querySelector(".modal-close");
-    const modalContainer = container.querySelector(".modal-container");
-    const message = container.querySelector("#message");
-    const messageReset = container.querySelector("#message-reset");
+  const buttonLoginLabfriends = container.querySelector("#login-labfriends");
+  const buttonLoginGoogle = container.querySelector("#login-google");
+  const buttonResetPassword = container.querySelector("#button-reset-password");
+  const modalOpen = container.querySelector(".modal-open");
+  const modalClose = container.querySelector(".modal-close");
+  const modalContainer = container.querySelector(".modal-container");
 
-    buttonLoginLabfriends.addEventListener("click", (e) => {
-      e.preventDefault();
-      const email = container.querySelector("#user-email").value;
-      const password = container.querySelector("#user-password").value;
-      const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  buttonLoginLabfriends.addEventListener("click", loginLabFriends);
+  buttonLoginGoogle.addEventListener("click", loginGoogle);
+  buttonResetPassword.addEventListener("click", resetPassword);
+  initModal(modalOpen, modalClose, modalContainer);
 
-      if (!email || !password) {
-        message.innerHTML = "Preencha todos os campos!";
-      } else if (!newEmail) {
-        message.innerHTML = "Preencha o campo de email corretamente!";
-      } else if (email && password && newEmail) {
-        authUserLabFriends(email, password);
+  return container;
+}
+
+function loginLabFriends(e) {
+  e.preventDefault();
+  const email = document.querySelector("#user-email").value;
+  const password = document.querySelector("#user-password").value;
+  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const message = document.querySelector("#message");
+
+  if (!email || !password) {
+    message.innerHTML = "Preencha todos os campos!";
+  } else if (!newEmail) {
+    message.innerHTML = "Preencha o campo de email corretamente!";
+  } else if (email && password && newEmail) {
+    authUserLabFriends(email, password);
+  }
+}
+
+function loginGoogle(e) {
+  e.preventDefault();
+  authUserWithGoogle();
+  window.location.hash = "#timeline";
+}
+
+function resetPassword(e) {
+  e.preventDefault();
+  const emailResetPassword = document.querySelector("#user-email-reset").value;
+  const messageReset = document.querySelector("#message-reset");
+  forgotPassword(emailResetPassword)
+    .then(() => {
+      messageReset.innerHTML = "Email enviado com sucesso!";
+    })
+    .catch((error) => {
+      switch (error.code) {
+        case "auth/missing-email":
+          messageReset.innerHTML = "Preencha o campo de email!";
+          break;
+        case "auth/user-not-found":
+          messageReset.innerHTML =
+            "Usuário não encontrado! Cadastre-se no LabFriends!";
+          break;
       }
     });
+}
 
-    buttonLoginGoogle.addEventListener("click", (e) => {
+function initModal(modalOpen, modalClose, modalContainer) {
+  if (modalOpen && modalClose && modalContainer) {
+    const toogle = function (e) {
       e.preventDefault();
-      authUserWithGoogle();
-      window.location.hash = "#timeline";
-    });
-
-    buttonResetPassword.addEventListener("click", (e) => {
-      e.preventDefault();
-      const emailResetPassword =
-        container.querySelector("#user-email-reset").value;
-      forgotPassword(emailResetPassword)
-        .then(() => {
-          messageReset.innerHTML = "Email enviado com sucesso!";
-        })
-        .catch((error) => {
-          switch (error.code) {
-            case "auth/missing-email":
-              messageReset.innerHTML = "Preencha o campo de email!";
-              break;
-            case "auth/user-not-found":
-              messageReset.innerHTML =
-                "Usuário não encontrado! Cadastre-se no LabFriends!";
-              break;
-          }
-        });
-    });
-
-    if (modalOpen && modalClose && modalContainer) {
-      const toogle = function (e) {
+      modalContainer.classList.toggle("active");
+    };
+    const outside = function (e) {
+      if (e.target === this) {
         e.preventDefault();
-        messageReset.innerHTML = "";
         modalContainer.classList.toggle("active");
-      };
-      const outside = function (e) {
-        if (e.target === this) {
-          e.preventDefault();
-          messageReset.innerHTML = "";
-          modalContainer.classList.toggle("active");
-        }
-      };
-      modalOpen.addEventListener("click", toogle);
-      modalClose.addEventListener("click", toogle);
-      modalContainer.addEventListener("click", outside);
-    }
-    return container;
-  },
-};
-
-export default login;
+      }
+    };
+    modalOpen.addEventListener("click", toogle);
+    modalClose.addEventListener("click", toogle);
+    modalContainer.addEventListener("click", outside);
+  }
+}
