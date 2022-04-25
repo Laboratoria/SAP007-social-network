@@ -31,6 +31,7 @@ export default () => {
   const btnRegister = register.querySelector('#register');
   const message = register.querySelector('.error');
 
+
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();
     userCreate(email.value, password.value)
@@ -42,8 +43,8 @@ export default () => {
         if (error.code === 'auth/invalid-email') {
           message.innerText = 'Digite um e-mail válido';
         }
-        if (error.code === 'auth/internal-error') {
-          message.innerText = 'Digite um e-mail válido';
+        if (error.code === 'auth/invalid-password') {
+          message.innerText = 'Digite uma senha válida';
         }
         if (error.code === 'auth/email-already-in-use') {
           message.innerText = 'Esse e-mail já está sendo utilizado';
