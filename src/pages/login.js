@@ -1,5 +1,5 @@
 import "../lib/config-firebase.js";
-//import { signinPassword, googleLogin } from '../lib/auth.js';
+//import "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
 export default () => {
   const containerLogin = document.createElement('div')
@@ -17,4 +17,5 @@ export default () => {
 containerLogin.innerHTML = templateLogin;
 
 return containerLogin;
-  }
+
+}
