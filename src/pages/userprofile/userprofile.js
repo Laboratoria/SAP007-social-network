@@ -1,14 +1,11 @@
-import { 
-	getUserPosts
+import {
+  getUserPosts,
+} from '../../configs/firestore.js';
+import { auth } from '../../configs/authentication.js';
+import header from '../components/header.js';
 
-  } from "../../configs/firestore.js";
-import { auth } from "../../configs/authentication.js";
-  
-import header from "../components/header.js";
-  
 export default () => {
-  //template dos dados do usuário
-  const container = document.createElement("div")
+  const container = document.createElement('div');
   const templateUserProfile = `
     <main>
       <div class="card-user">
@@ -22,21 +19,20 @@ export default () => {
     </main>
   `;
 
-	container.appendChild(header())
+  container.appendChild(header());
   container.innerHTML += templateUserProfile;
-  
-	const printDisplayName = container.querySelector("#name-user")
-	const printEmail = container.querySelector("#email-user")
-  
-  printDisplayName.innerHTML = auth.currentUser.displayName;
-	printEmail.innerHTML = auth.currentUser.email;
-  
 
-	//template do card do post
-	function myPostsCard (text, displayName, date, id = "", likes=[]) {
-    const containerMyPost = document.createElement("div");
+  const printDisplayName = container.querySelector('#name-user');
+  const printEmail = container.querySelector('#email-user');
+
+  printDisplayName.innerHTML = auth.currentUser.displayName;
+  printEmail.innerHTML = auth.currentUser.email;
+
+  // template do card do post
+  function myPostsCard(text, displayName, date, id = '', likes = []) {
+    const containerMyPost = document.createElement('div');
     const templateCardMyPost = `
-		  <div class="card">
+	  	<div class="card">
 		    <p class="date-card">Postado em:${date}</p}
 		    <section class="post-infos">
 			    <p class="write-message">${text}</p>    
@@ -46,12 +42,12 @@ export default () => {
 				    <input type="hidden" id="post-id" value="${id}">
 				    <span class="button-heart-text" id="number-of-likes" data-number="${likes}">${likes.length}</span>
 			    </button>  
-					<button class="button-edit-post" id="button-edit-post">
+				  <button class="button-edit-post" id="button-edit-post">
 					  <i class="fa fa-pencil"></i>
-					</button>
-					<button class="button-delete-post" id="button-delete-post">	
+				  </button>
+				  <button class="button-delete-post" id="button-delete-post">	
 					  <i class="fa fa-trash"></i>
-					</button>	
+				  </button>	
 		    </section>
 	    </div>    
     `;
@@ -60,25 +56,23 @@ export default () => {
     return containerMyPost;
   }
 
-	const myPost = container.querySelector("#my-post")
+  const myPost = container.querySelector('#my-post');
 
-	const showMyPosts = async () => {
-		const id = auth.currentUser.uid
-		const myTimeline = await getUserPosts(id);
-		console.log(myTimeline)
-		myTimeline.filter((post) => {
-			const postCard = myPostsCard(post.message, post.displayName,
-			post.date, post.id, post.likes);
-			myPost.appendChild(postCard)
-		});
-	} 
-	showMyPosts();
+  const showMyPosts = async () => {
+    const id = auth.currentUser.uid;
+    const myTimeline = await getUserPosts(id);
+    myTimeline.filter((post) => {
+      const postCard = myPostsCard(
+        post.message,
+        post.displayName,
+        post.date,
+        post.id,
+        post.likes,
+      );
+      return myPost.appendChild(postCard);
+    });
+  };
+  showMyPosts();
 
-	
-	return container;
-  }
-  
-    
-  
-  
-  
+  return container;
+};

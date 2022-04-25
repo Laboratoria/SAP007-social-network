@@ -1,9 +1,9 @@
-import {userWithLogin} from "../../configs/authentication.js";
+import { userWithLogin } from '../../configs/authentication.js';
 
 export default () => {
-  const container = document.createElement("div");
-  container.classList.add("content-login")
-  
+  const container = document.createElement('div');
+  container.classList.add('content-login');
+
   const templateLogin = `
     <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
     <form class="form-login">
@@ -31,43 +31,46 @@ export default () => {
   const buttonPassword = container.querySelector('#input-password');
   const buttonLogin = container.querySelector('#button-login');
   const msgAlert = container.querySelector('#message');
-  
+
   buttonLogin.addEventListener('click', (event) => {
     event.preventDefault();
     userWithLogin(buttonEmail.value, buttonPassword.value)
-    .then(function () {
-      window.location.hash='#feed'
-    })
-    .catch((error) => {
-      let errorCode = error.code;
-      let errorMessage = error.message;
-        
-      switch(errorCode) {
-        case 'auth/wrong-password':
-          errorMessage = 'Senha errada.'
-          msgAlert.innerHTML = errorMessage;
-          break;
-        case 'auth/invalid-email':
-          errorMessage = 'Insira um email válido.'
-          msgAlert.innerHTML = errorMessage;
-          break; 
-        case 'auth/user-not-found':
-          errorMessage = 'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".'
-          msgAlert.innerHTML = errorMessage;
-          break; 
-        case 'auth/internal-error':
-          errorMessage = 'Insira a senha.'
-          msgAlert.innerHTML = errorMessage;
-          break; 
+      .then(() => {
+        window.location.hash = '#feed';
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        let errorMessage = error.message;
+
+        switch (errorCode) {
+          case 'auth/wrong-password':
+            errorMessage = 'Senha errada.';
+            msgAlert.innerHTML = errorMessage;
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Insira um email válido.';
+            msgAlert.innerHTML = errorMessage;
+            break;
+          case 'auth/user-not-found':
+            errorMessage = 'Usuário não encontrado. Crie um cadastro clicando em "Registre-se".';
+            msgAlert.innerHTML = errorMessage;
+            break;
+          case 'auth/internal-error':
+            errorMessage = 'Insira a senha.';
+            msgAlert.innerHTML = errorMessage;
+            break;
+          default:
+            errorMessage = 'Erro desconhecido';
+            msgAlert.innerHTML = errorMessage;
         }
       });
-  })
+  });
   return container;
-}
-  
-/*entre form e footer
+};
+
+/* entre form e footer
 <section class="google">
   <p class="connect-google">Ou conecte-se com</p>
   <a href="#login-google">img botao google</a>
 </section>
-*/   
+*/

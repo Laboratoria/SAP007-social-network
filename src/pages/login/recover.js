@@ -1,9 +1,9 @@
-import {forgotPassword} from "../../configs/authentication.js";
+import { forgotPassword } from '../../configs/authentication.js';
 
 export default () => {
-  const container = document.createElement("div");
-  container.classList.add("content-login")
-  
+  const container = document.createElement('div');
+  container.classList.add('content-login');
+
   const templateRecoverPassword = `
     <img class="logo-site" src="img/logo-eu-poesia-r.png">
 
@@ -20,35 +20,37 @@ export default () => {
   container.innerHTML = templateRecoverPassword;
 
   const sendLinkButton = container.querySelector('#button-send');
-  const msgAlert =  container.querySelector('#msg-recover');
-  const userEmail = container.querySelector('#input-email'); 
+  const msgAlert = container.querySelector('#msg-recover');
+  const userEmail = container.querySelector('#input-email');
 
   sendLinkButton.addEventListener('click', (e) => {
     e.preventDefault();
     forgotPassword(userEmail.value)
       .then(() => {
-        msgAlert.innerHTML = "Email enviado.";
+        msgAlert.innerHTML = 'Email enviado.';
       })
       .catch((error) => {
-        let errorCode = error.code;
+        const errorCode = error.code;
         let errorMessage = error.message;
 
-        switch(errorCode) {
+        switch (errorCode) {
           case 'auth/invalid-email':
-            errorMessage = 'Email inválido.'
+            errorMessage = 'Email inválido.';
             msgAlert.innerHTML = errorMessage;
-            break; 
+            break;
           case 'auth/user-not-found':
-            errorMessage = 'Usuário não encontrado.'
+            errorMessage = 'Usuário não encontrado.';
             msgAlert.innerHTML = errorMessage;
-            break; 
+            break;
           case 'auth/missing-email':
-            errorMessage = 'Insira um email.'
+            errorMessage = 'Insira um email.';
             msgAlert.innerHTML = errorMessage;
-            break; 
-        } 
+            break;
+          default:
+            msgAlert.innerHTML = 'Erro Desconhecido';
+        }
       });
-  })
+  });
 
   return container;
-}  
+};

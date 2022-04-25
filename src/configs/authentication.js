@@ -1,47 +1,42 @@
-import { 
-  getAuth, 
+import {
+  getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  updateProfile
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+  updateProfile,
+} from '../lib/exports-firebase.js';
 
 export const auth = getAuth();
 
-//criação de novos usuários
-export const registerUser = (displayName, email, password) => {
+export function registerUser(displayName, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    updateProfile(auth.currentUser, {
-      displayName: displayName
-    }).then(() => {
-      const user = userCredential.user; 
-      return user
-    }).catch((error) => {
-      console.log(error)
+    .then((userCredential) => {
+      updateProfile(auth.currentUser, {
+        displayName,
+      }).then(() => {
+        const user = userCredential.user;
+        return user;
+      }).catch((error) => error);
     });
-  });
-};
+}
 
-//Login de usuários existentes
-export const userWithLogin = (email, password) => {
+export function userWithLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    return user
-  });
+    .then((userCredential) => {
+      const user = userCredential.user;
+      return user;
+    });
 }
 
-//Definir um observador do estado de autenticação e coletar dados dos usuários
-export function isLoggedIn (callback){
+export function isLoggedIn(callback) {
   onAuthStateChanged(auth, (user) => {
-    callback (user !== null)
+    callback(user !== null);
   });
 }
 
-/*export function receiveUser(displayName){
+/* export function receiveUser(displayName){
   const user = auth.currentUser;
   if (user){
     displayName = user.displayName;
@@ -54,21 +49,15 @@ export function isLoggedIn (callback){
   else {
     console.log('Not Logged In');
   }
-};*/
+}; */
 
 export function logout() {
   return signOut(auth)
-    .then(() => {
-      return logout;
-  }).catch((error) => {
-      return error;
-  });
+    .then(() => logout).catch((error) => error);
 }
 
-//Para enviar o email de redefinição
+// Para enviar o email de redefinição
 export function forgotPassword(email) {
-return sendPasswordResetEmail(auth, email)
-  .then(() => {
-    console.log('ola');
-  })
+  return sendPasswordResetEmail(auth, email)
+    .then(() => email);
 }

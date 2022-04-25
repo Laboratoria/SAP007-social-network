@@ -1,8 +1,8 @@
-import { logout } from "../../configs/authentication.js"
+import { logout } from '../../configs/authentication.js';
 
 export default () => {
-  const containerHeader = document.createElement("div")
-  containerHeader.classList.add("content-header")
+  const containerHeader = document.createElement('div');
+  containerHeader.classList.add('content-header');
   const templateHeader = `
     <header class="header">
       <img class="header-image" src="./img/logo3.png" alt="logo">
@@ -23,16 +23,16 @@ export default () => {
 
   containerHeader.innerHTML = templateHeader;
 
-  const logoutButton = containerHeader.querySelector("#btn-exit");
+  const logoutButton = containerHeader.querySelector('#btn-exit');
 
-  //função para sair do seu login
-  logoutButton.addEventListener("click", (e) => {
+  // função para sair do seu login
+  logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
     logout()
-    .then(function () {
-      window.location.hash='#login';
-    })
-  })
+      .then(() => {
+        window.location.hash = '#login';
+      });
+  });
 
   return containerHeader;
-}
+};

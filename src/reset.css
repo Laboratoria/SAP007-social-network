@@ -9,7 +9,7 @@ figure, figcaption, footer, nav, section{
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-size: inherit;
     vertical-align: baseline;
 }
 figcaption, figure, 
