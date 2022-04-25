@@ -15,7 +15,7 @@
 
 }
 
-.btn-google {
+.button-google {
     background-color: transparent;
     border: none;
 }
@@ -86,7 +86,13 @@
     margin-bottom: 31px;
 }
 
-.btn-register {
+.error {
+    font-size: 10px;
+    display: none;
+    color: rgb(200, 202, 204);
+}
+
+.button-register {
     padding: 0.375rem 0.75rem;
     border: none;
     text-transform: uppercase;
@@ -140,7 +146,7 @@
         margin-right: 9.375rem;
     }
 
-    .btn-register {
+    .button-register {
         padding: 0.58rem 0.75rem;
         font-size: 0.9rem;
         width: 16.563rem;
@@ -185,7 +191,7 @@
         margin-right: 17rem;
     }
 
-    .btn-register {
+    .button-register {
         padding: 0.65rem 0.75rem;
         font-size: 0.9rem;
         width: 17.563rem;
