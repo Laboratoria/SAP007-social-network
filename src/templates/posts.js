@@ -6,7 +6,7 @@ export default function posts() {
     container.innerHTML = `
       <h1>POST</h1>
       <form> 
-      <textarea placelholder="Escreva seu post">
+      <textarea placeholder="Escreva seu post">
       </form>
     `;
   

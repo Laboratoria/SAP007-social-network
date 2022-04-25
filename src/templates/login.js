@@ -22,7 +22,7 @@ export default function login() {
                 <button class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             
             </div>
-            
+            <a href="home.js">postar</a>
         </div>     
     </div>
   `;

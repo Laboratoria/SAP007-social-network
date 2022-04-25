@@ -5,7 +5,11 @@ export default function home() {
   
     container.innerHTML = `
       <h1>HOME</h1>
-      <button> Post </button>
+      <form> 
+      <textarea class='post' placeholder="Escreva seu post"></textarea>
+      </form>
+      <button>postar</button>
+      
     `;
   
     return container
