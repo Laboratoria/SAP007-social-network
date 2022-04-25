@@ -7,38 +7,102 @@ import writePost from './pages/writePost.js';
 const mainContent = document.querySelector('#root');
 
 const init = () => {
-  mainContent.innerHTML = '';
-  const logado = checkLogin();
-  // eslint-disable-next-line no-console
-  console.log(logado);
-    if (logado) {
-      switch (window.location.hash) {
-        case "#register":
-        mainContent.appendChild(register());
+  window.addEventListener('hashchange', () => {
+    mainContent.innerHTML = '';
+    switch (window.location.hash) {
+      case '':
+        checkLogin((logado) => {
+          if (logado) {
+            mainContent.appendChild(feed());
+          } else {
+            mainContent.appendChild(login());
+          }
+        })
+        break;
+      case '#login':
+        checkLogin((logado) => {
+          if (logado) {
+            mainContent.appendChild(feed());
+          } else {
+            mainContent.appendChild(login());
+          }
+        })
         break;
       case '#feed':
-        mainContent.appendChild(feed());
+        checkLogin((logado) => {
+          if (logado) {
+            mainContent.appendChild(feed());
+          } else {
+            mainContent.appendChild(login());
+          }
+        })
+        break;
+      case '#register':
+        checkLogin((logado) => {
+          if (logado) {
+            mainContent.appendChild(feed());
+          } else {
+            mainContent.appendChild(register());
+          }
+        })
         break;
       case '#writePost':
-        mainContent.appendChild(writePost());
+        checkLogin((logado) => {
+          if (logado) {
+            mainContent.appendChild(writePost());
+          } else {
+            mainContent.appendChild(login());
+          }
+        })
         break;
       default:
-        mainContent.appendChild(login());
+        mainContent.appendChild(login()); 
     }
-  } else {
-    window.location.hash = '';
-    mainContent.appendChild(login());
-  }
+  });
 };
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('load', () => {
+  checkLogin((logado) => {
+    if (logado) {
+      mainContent.appendChild(feed());
+    } else {
+      mainContent.appendChild(login());
+    }
+  })
   init();
 });
 
-window.addEventListener('load', () => {
-  // mainContent.appendChild(login());
-  init();
-});
+//   const logado = checkLogin();
+//   // eslint-disable-next-line no-console
+//   console.log(logado);
+//     if (logado) {
+//       switch (window.location.hash) {
+//         case "#register":
+//         mainContentContent.appendChild(register());
+//         break;
+//       case '#feed':
+//         mainContentContent.appendChild(feed());
+//         break;
+//       case '#writePost':
+//         mainContentContent.appendChild(writePost());
+//         break;
+//       default:
+//         mainContentContent.appendChild(login());
+//     }
+//   } else {
+//     window.location.hash = '';
+//     mainContentContent.appendChild(login());
+//   }
+// };
+
+// window.addEventListener('hashchange', () => {
+//   init();
+// });
+
+// window.addEventListener('load', () => {
+//   // mainContentContent.appendChild(login());
+//   init();
+// });
 
 // window.addEventListener("load", () => {
 //   checkLogin((logged) => {
@@ -51,17 +115,17 @@ window.addEventListener('load', () => {
 // });
 
 // case "#login":
-//   mainContent.appendChild(login());
+//   mainContentContent.appendChild(login());
 //   break;
 // case "#cadastro":
-//   mainContent.appendChild(register());
+//   mainContentContent.appendChild(register());
 //   break;
 
 // case "#register":
-//   mainContent.appendChild(register());
+//   mainContentContent.appendChild(register());
 //   break;
 // case "#writePost":
-//   mainContent.appendChild(writePost());
+//   mainContentContent.appendChild(writePost());
 //   break;
 
 // }
