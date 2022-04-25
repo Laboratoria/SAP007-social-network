@@ -1,4 +1,4 @@
-//import { ... } from '../lib/index.js';
+import { getPosts } from "../lib/firestore-firebase.js"
 
 export default function home() {
     const container = document.createElement("div");
@@ -11,7 +11,9 @@ export default function home() {
       <button>postar</button>
       
     `;
-  
+
+  getPosts()
+
     return container
   
   }
