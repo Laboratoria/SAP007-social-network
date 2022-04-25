@@ -5,6 +5,7 @@ export default function home() {
   
     container.innerHTML = `
       <h1>HOME</h1>
+      <button> Post </button>
     `;
   
     return container
