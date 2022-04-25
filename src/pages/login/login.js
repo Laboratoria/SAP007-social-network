@@ -2,7 +2,7 @@
 
 // import { createLogin } from '../register/page-register.js';
 import { logar, logarGmail } from './authentication.js';
-import { errorHandlingGeral } from './errorHandling.js';
+import { errorHandlingGeneral } from './errorHandling.js';
 
 export const pageLogin = () => {
   const login = document.createElement('div');
@@ -57,7 +57,7 @@ export const pageLogin = () => {
         window.location.hash = '#feed';
       }).catch((error) => {
         console.log(error.code);
-        userError.innerHTML = errorHandlingGeral(error);
+        userError.innerHTML = errorHandlingGeneral(error);
         userError.style.display = 'block';
       });
     }
@@ -69,7 +69,7 @@ export const pageLogin = () => {
     logarGmail().then(() => {
       window.location.hash = '#feed';
     }).catch((error) => {
-      userErrorGmail.innerHTML = errorHandlingGeral(error);
+      userErrorGmail.innerHTML = errorHandlingGeneral(error);
       userErrorGmail.style.display = 'block';
     });
   });
