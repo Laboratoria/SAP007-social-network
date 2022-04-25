@@ -14,18 +14,18 @@ export default function formRegister() {
       <form class="myForm" id="form-register">
         <div class="information">
             <label for="name" class="label-name">Nome completo</label>
-            <input type="text" id="name" class="form-fields" onchange="onChangeName()" placeholder="Nome completo"/>
+            <input type="text" id="name" class="form-fields" placeholder="Nome completo"/>
             
             <label for="user" class="label-user">Usuário</label>
-            <input type="text" id="user" class="form-fields" onchange="onChangeUser()" placeholder="Usuário"/>
+            <input type="text" id="user" class="form-fields" placeholder="Usuário"/>
             
             <label for="email" class="label-email">E-mail</label>
-            <input type="email" id="email" class="form-fields" onchange="onChangeEmail()" placeholder="E-mail"/>
+            <input type="email" id="email" class="form-fields" placeholder="E-mail"/>
                       
             <label for="password-register" class="label-password">Senha</label>
-            <input type="password" id="password-register" class="form-fields" onchange="onChangePassword()" placeholder="Senha" autocomplete="on"/>
+            <input type="password" id="password-register" class="form-fields" placeholder="Senha" autocomplete="on"/>
           
-          <button type="button" id="button-register" class="button-register" disabled="true" onclick="registerUser()">Enviar</button>
+          <button type="button" id="button-register" class="button-register" >Enviar</button>
           <p id="error-message" class="alert"></p>
         </div>
         <a href="home.js">postar</a>
