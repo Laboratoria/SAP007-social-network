@@ -2,17 +2,24 @@
 
 // import { createLogin } from '../register/page-register.js';
 import { logar, logarGmail } from './authentication.js';
+import { errorHandlingGeral } from './errorHandling.js';
 
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
   login.innerHTML = `    
       <figure class="box-slogan-page-login">
-        <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
+        <img src="./img/kfandom.svg" alt="Logotype" class="logo-page-login">
       </figure>  
       <figure class="section-btn-about" id="section-btn-about">
-      <button class="btn-about" id="btn-about"><img src="./img/interrogacao.png" alt="btn-about" class="img-btn-about"></button>
+        <button class="btn-about" id="btn-about"><img src="./img/" alt="btn-about" class="img-btn-about"></button>
       </figure>
+      <figure class="box-slogan-desktop-page-login">
+        <img src="./img/imgLogoDesktop.png" alt="Logotype" class="logo-desktop">
+      </figure>
+      <section class="slogan-desktop">
+        <h1>A rede da comunidade K-POP</h1>
+      </section>  
         <form method="post" class = "form-login">
           <input type="email" placeholder="seu@email.com" class="login-area font-size" id="email-area" name="email-area" requered>
           <input type="password" placeholder="Senha" class="login-area font-size" id="password-area" name="password-area" requered>
@@ -48,26 +55,9 @@ export const pageLogin = () => {
         console.log('success', response);
         window.location.hash = '#feed';
       }).catch((error) => {
-        switch (error.code) {
-          case 'auth/invalid-email':
-            userError.innerHTML = 'Campos obrigatórios';
-            userError.style.display = 'block';
-            break;
-          case 'auth/internal-error':
-            userError.innerHTML = 'Campos obrigatórios';
-            userError.style.display = 'block';
-            break;
-          case 'auth/wrong-password':
-            userError.innerHTML = 'Email ou senhas estão errados';
-            userError.style.display = 'block';
-            break;
-          case 'auth/user-not-found':
-            userError.innerHTML = 'Usuário não cadastrado, registre-se!';
-            userError.style.display = 'block';
-            break;
-
-          default:
-        }
+        console.log(error.code);
+        userError.innerHTML = errorHandlingGeral(error);
+        userError.style.display = 'block';
       });
     }
   });
@@ -78,14 +68,8 @@ export const pageLogin = () => {
     logarGmail().then(() => {
       window.location.hash = '#feed';
     }).catch((error) => {
-      switch (error.code) {
-        case 'auth/user-disabled':
-          userErrorGmail.innerHTML = 'Não foi possivel logar com sua conta Google';
-
-          break;
-
-        default:
-      }
+      userErrorGmail.innerHTML = errorHandlingGeral(error);
+      userErrorGmail.style.display = 'block';
     });
   });
   return login;
