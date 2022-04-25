@@ -19,9 +19,10 @@ export default function login() {
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" placeholder="Senha">
                 </div>     
-                <button class="botaologin">ENTRAR</button>             
+                <button class="botaologin">ENTRAR</button>
+                <button id="register">Faça seu cadastro</button>             
             </div>
-            <button id="register">Cadastre-se aqui</button>
+            
         </div>     
     </div>
   `;

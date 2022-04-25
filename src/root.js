@@ -6,29 +6,33 @@ const main = document.querySelector("#root");
 
 const redirect = () => {
     //window.addEventListener("hashchange", () => {
-        main.innerHTML = "";
-        switch (window.location.hash) {
-            case "":
-                main.appendChild(login());
-                break
-            case "#register":
-                main.appendChild(register());
-                break;
-            case "#home":
-                main.appendChild(home());
-            default:
-                main.appendChild(login());
-        }
+    main.innerHTML = "";
+    switch (window.location.hash) {
+        case "":
+            main.appendChild(login());
+            break
+        case "#register":
+            main.appendChild(register());
+            break;
+        case "#home":
+            main.appendChild(home());
+            break;
+        case "#posts":
+            main.appendChild(posts());
+            break;
+        default:
+            main.appendChild(login());
+    }
     //})
 
 }
 const init = () => {
     window.addEventListener('hashchange', () => {
-      redirect();
+        redirect();
     });
-  }
-  
-  window.addEventListener('load', () => {
+}
+
+window.addEventListener('load', () => {
     redirect();
     init();
-  });
+});

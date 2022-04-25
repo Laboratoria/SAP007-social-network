@@ -1,7 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-
-//import { loginUser } from '../lib/config-firebase.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEcRw-VST-DiVqt4Tjbjhdq5gjzcK1bqw",
@@ -14,18 +13,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-//login
-/*export const loginUser = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      window.location.hash = '#/nav';
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert('Coloque seus dados corretamente');
-      window.location.hash = '#/login';
-    });
-};*/
+export const db = getFirestore(app);
