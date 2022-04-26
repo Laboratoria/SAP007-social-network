@@ -1,6 +1,7 @@
 import { createLogin } from "./pages/login.js";
 import { createRegister } from "./pages/register.js";
 import { createHeader } from "./components/header.js";
+import { initDropdownMenu } from "./components/dropdown-menu.js";
 import { createFeed } from "./pages/feed.js";
 import { createFriends } from "./pages/friends.js";
 import { createProfile } from "./pages/profile.js";
@@ -55,7 +56,6 @@ function internalRoute(page) {
   const background = document.querySelector("#root");
   background.style.backgroundImage = "none";
 
-  //criar header
   const sectionGeneral = document.createElement("section");
   sectionGeneral.classList.add("container-labfriends");
 
@@ -79,16 +79,16 @@ function internalRoute(page) {
       break;
   }
 
-  //usar função de modal
-  //usar funçao logout
-
-  const modalOpen = document.querySelector(".modal-open");
-  const modalClose = document.querySelector(".modal-close");
-  const modalContainer = document.querySelector(".modal-container");
+  const modalOpen = document.querySelector('[data-modal="open"]');
+  const modalClose = document.querySelector('[data-modal="close"]');
+  const modalContainer = document.querySelector('[data-modal="container"]');
   initModal(modalOpen, modalClose, modalContainer);
 
-  const buttonLogout = document.querySelector(".button-logout");
-  buttonLogout.addEventListener("click", () => {
+  const menuOpen = document.querySelector('[data-menu="open"]');
+  const menuContainer = document.querySelector('[data-menu="container"]');
+  initDropdownMenu(menuOpen, menuContainer);
+
+  document.querySelector("#button-logout").addEventListener("click", () => {
     logout().then(() => {
       window.location.hash = "#login";
     });

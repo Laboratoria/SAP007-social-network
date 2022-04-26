@@ -15,7 +15,7 @@ export function createLogin() {
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
         <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="link small-text-right modal-open">
+        <a href="#" type="button" class="link small-text-right modal-open" data-modal="open">
           Esqueceu a senha?
         </a>
         <span id="message"></span>
@@ -34,9 +34,9 @@ export function createLogin() {
         </p>
       </form>
 
-      <section id="modal-container" class="modal-container">
+      <section class="modal-container" data-modal="container">
         <div class="modal">
-          <button id="modal-close" class="modal-close">X</button>
+          <button class="modal-close" data-modal="close">X</button>
           <label for="user-email-reset" class="title-modal">Informe o seu email</label>
           <input type="email" id="user-email-reset" class="user-input-modal" placeholder="Digite seu email">
           <button type="submit" id="button-reset-password" class="user-button button-pink">
@@ -50,9 +50,9 @@ export function createLogin() {
   const buttonLoginLabfriends = container.querySelector("#login-labfriends");
   const buttonLoginGoogle = container.querySelector("#login-google");
   const buttonResetPassword = container.querySelector("#button-reset-password");
-  const modalOpen = container.querySelector(".modal-open");
-  const modalClose = container.querySelector(".modal-close");
-  const modalContainer = container.querySelector(".modal-container");
+  const modalOpen = container.querySelector('[data-modal="open"');
+  const modalClose = container.querySelector('[data-modal="close"]');
+  const modalContainer = container.querySelector('[data-modal="container"]');
 
   buttonLoginLabfriends.addEventListener("click", loginLabFriends);
   buttonLoginGoogle.addEventListener("click", loginGoogle);

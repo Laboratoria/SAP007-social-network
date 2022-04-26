@@ -1,4 +1,4 @@
-export function initModal(open, close, container) {
+export function initDropdownMenu(open, container) {
   if (open && close && container) {
     const toogle = function (e) {
       e.preventDefault();
@@ -11,7 +11,6 @@ export function initModal(open, close, container) {
       }
     };
     open.addEventListener("click", toogle);
-    close.addEventListener("click", toogle);
     container.addEventListener("click", outside);
   }
 }
