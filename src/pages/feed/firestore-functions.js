@@ -36,6 +36,8 @@ export function createPost(text, date, edited, userId, nameProfile, imgProfile) 
     userUid: userId,
     name: nameProfile,
     imgProfile,
+    like: {},
+    comment: {},
   });
   return post;
 }
