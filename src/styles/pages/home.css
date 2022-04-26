@@ -1,0 +1,47 @@
+
+.section-search-icon-user {
+    background-color: #E0EEEE;
+    border: solid 2px #171329;
+    border-radius: 10px;
+    width: 248px;
+    height: 24px;
+    margin-left: 34px;
+    margin-top: 14px;
+    position: absolute;
+}
+
+.search-field {
+    float: left;
+    background-color: transparent;
+    padding-left: 5px;
+    font-size: 13px;
+    border: none;
+    height: 24px;
+    width: 178px;
+}
+
+.button-search {
+    border: none;
+    float: left;
+    height: 24px;
+    border-radius: 0 7px 7px 0;
+    width: 70px;
+    font-weight: bold;
+    background: #171329;
+    font-size: 13px;
+    color: rgb(200, 202, 204);
+}
+
+.profile-user {
+    width: 30px;
+    height: 30px;
+    display: inline;
+    margin-left: 304px;
+    margin-top: -4px;
+    position: relative;
+}
+
+.button-user {
+    background-color: transparent;
+    border: none;
+}
