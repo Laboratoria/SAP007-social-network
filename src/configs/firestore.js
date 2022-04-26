@@ -55,12 +55,11 @@ export const dislikePost = async (postId, user) => {
  
   const postLiked = doc(db, "posts", postId);
   try {
-    
     return await updateDoc(postLiked, {
       likes: arrayRemove(user),
     });
   } catch (e) {
-    return console.log("Não deu certo o like", e);
+    return e;
   }
 }
 
@@ -110,4 +109,12 @@ export const getUserPosts = async (id) => {
 export const getFunctionDelet = async (postId) => {
   console.log(postId)
   await deleteDoc(doc(db, "posts", postId))
+}
+
+export const editAPost = async (postId, editedMessage) => {
+  const postToEdit = doc(db, 'posts', postId)
+  return await updateDoc(postToEdit, {
+    message: editedMessage,
+  });
+
 }
