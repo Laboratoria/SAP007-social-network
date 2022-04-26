@@ -1,50 +1,54 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import {
   getFirestore,
+  // doc,
+  // setDoc,
   collection,
   addDoc,
   getDocs,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+import { app } from '../configs/config.firebase.js';
+// import writePostContainer from '../pages/writePost.js';
 
-const db = getFirestore();
+const db = getFirestore(app);
+
+// const postsDb = {
+//   title: titleContent,
+//   author: authorContent,
+//   recipe: recipeContet,
+//   date: new Date(),
+// };
+// export const asyncFunction = async () => {
+//   try {
+//     await setDoc(doc(db, 'posts',), postsDb);
+//   } catch (e) {
+//     alert('Algo deu errado');
+//   }
+// };
 
 export const createPost = async (textPost, userEmail) => {
   try {
-    const docRef = await addDoc(collection(db, 'post'), {
+    const docRef = await addDoc(collection(db, 'posts'), {
       textPost,
       userEmail,
       date: new Date(),
     });
-    console.log('Document written with ID: ', docRef.id);
+    console.log('Post escrito pelo ID: ', docRef.id);
   } catch (e) {
-    console.error('Error adding document: ', e);
+    console.error('Erro ao adicionar post: ', e);
   }
 };
 
-export const getPost = async () => {
+export async function getPosts() {
   const arrPost = [];
-  const querySnapshot = await getDocs(collection(db, 'post'));
+  const querySnapshot = await getDocs(collection(db, 'posts'));
   querySnapshot.forEach((doc) => {
-    const timeline = doc.data();
-    // console.log(`${doc.id} => ${doc.data()}`);
-    arrPost.push(timeline);
+    const postObj = doc.data();
+    postObj.id = doc.id;
+    console.log('Oie', postObj.date, postObj.title, postObj.author, postObj.recipe);
+    arrPost.push(postObj);
   });
   return arrPost;
-};
-
-// const createPost = async (e) => {
-//     e.preventDefault();
-//     const uid = auth.currentUser.uid;
-//     const ref = firestore.collection('users').doc(uid).collection('posts').doc(slug)
-
-//     export const createPost = async (textPost, userEmail) => {
-//         try {
-//             const docRef = await addDoc(collection(db, "post"), {
-//                 textPost: textPost,
-//                 userEmail: userEmail,
-//                 date: new Date(),
-//             });
-//             console.log("Document written with ID: ", docRef.id);
-//         } catch (e) {
-//             console.error("Error adding document: ", e);
-//         }
-//     }
+}
+// console.log(getPosts());

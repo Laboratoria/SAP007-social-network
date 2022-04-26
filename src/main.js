@@ -7,67 +7,57 @@ import writePost from './pages/writePost.js';
 const mainContent = document.querySelector('#root');
 
 const init = () => {
-  window.addEventListener('hashchange', () => {
-    mainContent.innerHTML = '';
+  mainContent.innerHTML = '';
+  const loggedUser = checkLogin();
+  // eslint-disable-next-line no-console
+  console.log(loggedUser);
+  if (loggedUser) {
     switch (window.location.hash) {
-      case '':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
-        break;
-      case '#login':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
+      case '#register':
+        mainContent.appendChild(register());
         break;
       case '#feed':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(feed());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
-        break;
-      case '#register':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(feed());
-          } else {
-            mainContent.appendChild(register());
-          }
-        })
+        mainContent.appendChild(feed());
         break;
       case '#writePost':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(writePost());
-          } else {
-            mainContent.appendChild(login());
-          }
-        })
+        mainContent.appendChild(writePost());
         break;
       default:
-        mainContent.appendChild(login()); 
+        mainContent.appendChild(login());
     }
-  });
+  } else {
+    window.location.hash = '';
+    mainContent.appendChild(login());
+  }
 };
 
-window.addEventListener('load', () => {
-  checkLogin((logado) => {
-    if (logado) {
-      mainContent.appendChild(feed());
-    } else {
-      mainContent.appendChild(login());
-    }
-  })
-  init();
-});
+window.addEventListener('hashchange', init);
+
+window.addEventListener('load', init);
+
+// window.addEventListener("load", () => {
+//   checkLogin((logged) => {
+//     if (logged) {
+//       window.location.hash = "#feed";
+//     } else {
+//       window.location.hash = "#login";
+//     }
+//   });
+// });
+
+// case "#login":
+//   mainContent.appendChild(login());
+//   break;
+// case "#cadastro":
+//   mainContent.appendChild(register());
+//   break;
+
+// case "#register":
+//   mainContent.appendChild(register());
+//   break;
+// case "#writePost":
+//   mainContent.appendChild(writePost());
+//   break;
+
+// }
+

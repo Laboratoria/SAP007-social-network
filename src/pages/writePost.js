@@ -2,9 +2,9 @@
 // import { createPost } from '../lib/firestore.js';
 
 export default function writePost() {
-    const writePost = document.createElement('section');
-    writePost.classList.add("new-post-writePost");
-    const postTemplate = `
+  const writePostContainer = document.createElement('section');
+  writePostContainer.classList.add('new-post-writePost');
+  const postTemplate = `
     <br>
     <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required	>
     </textarea>
@@ -12,15 +12,15 @@ export default function writePost() {
     <br>
     <button class="return-feed"><a href="#feed"> Voltar para o feed </a></button>
     `;
-  writePost.innerHTML += postTemplate;
+  writePostContainer.innerHTML += postTemplate;
 
-    // const postContent = writePost.querySelector('#write-post');
-    // const btnPost = writePost.querySelector('#post-btn');
-    
-    // btnPost.addEventListener("click", (e) => {
-    //     e.preventDefault();
-    //     createPost(postContent.value, auth.currentUser.email);
-    //     window.location.hash = '#feed';
-    // })
-    return writePost
+  // const postContent = writePost.querySelector('#write-post');
+  // const btnPost = writePost.querySelector('#post-btn');
+
+  // btnPost.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     createPost(postContent.value, auth.currentUser.email);
+  //     window.location.hash = '#feed';
+  // })
+  return writePostContainer;
 }
