@@ -4,7 +4,7 @@ import feed from './pages/feed.js';
 
 const mainHome = document.querySelector('#root');
 
-window.addEventListener('popstate', (e) => {
+window.addEventListener('hashchange', (e) => {
   e.preventDefault();
 
   switch (window.location.hash) {
