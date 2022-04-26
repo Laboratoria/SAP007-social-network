@@ -1,5 +1,5 @@
 //import { getPost } from '../lib/firestore.js';
-//import {postComponent} from '../components/post.js';
+import {postComponent} from '../components/post.js';
 import {printNav} from '../components/navbar.js';
 
 
@@ -9,7 +9,7 @@ export default function feed() {
   <section class="show-posts" id="showPosts">
   </section>
     `;
-
+    feed.appendChild(postComponent());
   feed.appendChild(printNav());
 
   return feed;
@@ -18,17 +18,3 @@ export default function feed() {
   // const sectionPost = feed.querySelector("#showPosts");
   // const newRecipe = feed.querySelector("#btn-new-recipe");
 
-  // newRecipe.addEventListener("click", e);
-  // {
-  //   e.preventDefault();
-  //   window.location.hash = "#writePost";
-  // }
-
-  // const showAllPosts = async () => {
-  //   const allPosts = await getPost();
-  //   allPosts.forEach((item) => {
-  //     const postElement = postComponent(item);
-  //     sectionPost.prepend(postElement);
-  //   });
-  // };
-  // showAllPosts();
