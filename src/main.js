@@ -8,12 +8,12 @@ const mainContent = document.querySelector('#root');
 
 const init = () => {
   mainContent.innerHTML = '';
-  const logado = checkLogin();
+  const loggedUser = checkLogin();
   // eslint-disable-next-line no-console
-  console.log(logado);
-    if (logado) {
-      switch (window.location.hash) {
-        case "#register":
+  console.log(loggedUser);
+  if (loggedUser) {
+    switch (window.location.hash) {
+      case '#register':
         mainContent.appendChild(register());
         break;
       case '#feed':
@@ -31,14 +31,9 @@ const init = () => {
   }
 };
 
-window.addEventListener('hashchange', () => {
-  init();
-});
+window.addEventListener('hashchange', init);
 
-window.addEventListener('load', () => {
-  // mainContent.appendChild(login());
-  init();
-});
+window.addEventListener('load', init);
 
 // window.addEventListener("load", () => {
 //   checkLogin((logged) => {
