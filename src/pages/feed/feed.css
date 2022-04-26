@@ -77,6 +77,8 @@
   background-color: rgba(231, 207, 177, 0.8);
   padding: 5px;
   margin: 15px;
+  width: 30rem;
+  align-items: center; 
 }
 
 .card p {

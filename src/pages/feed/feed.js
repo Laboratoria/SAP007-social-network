@@ -1,12 +1,12 @@
 import {
   newPost,
   allPosts,
-  getLikesPost,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
 import header from '../components/header.js';
+import { createCardPost } from '../components/post.js';
 
-export default () => {
+export default function feed() {
   const container = document.createElement('div');
   container.classList.add('content-feed');
 
@@ -29,27 +29,6 @@ export default () => {
 
   container.appendChild(header());
   container.innerHTML += templateFeed;
-
-  // template do card do post
-  function createCardPost(text, displayName, date, id = '', likes = []) {
-    const containerPost = document.createElement('div');
-    const templateCardPost = `
-      <div class="card">
-        <p class="date-card">Postado em:${date}</p}
-        <section class="post-infos">
-          <p class="write-message">${text[0].toUpperCase() + text.substr(1)}</p>    
-          <p class="author">${displayName}</p>
-          <button class="button-heart">
-            <i class="fa fa-heart like-btn" id="like-button"></i>
-            <input type="hidden" id="post-id" value="${id}">
-            <span class="button-heart-text" id="number-of-likes" data-number="${likes}">${likes.length}</span>
-          </button>  
-        </section>
-      </div>    
-    `;
-    containerPost.innerHTML = templateCardPost;
-    return containerPost;
-  }
 
   const showNewPost = container.querySelector('#new-post');
   const addNewPost = container.querySelector('#textarea');
@@ -78,11 +57,6 @@ export default () => {
   btnMobile.addEventListener('click', toggleMenu);
   btnMobile.addEventListener('touchstart', toggleMenu);
 
-  function formatDateStyle(date) {
-    return `${date.toLocaleDateString()} às 
-      ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-  }
-
   // publicar novo post
   buttonPublic.addEventListener('click', (e) => {
     e.preventDefault();
@@ -91,69 +65,36 @@ export default () => {
     } else {
       newPost(addNewPost.value)
         .then(() => {
-          const date = new Date();
-          showNewPost.appendChild(createCardPost(
-            addNewPost.value,
-            auth.currentUser.displayName,
-            formatDateStyle(date),
-          ));
+          const newDate = new Date().toLocaleString('pt-br');
+          const post = {
+            message: addNewPost.value,
+            displayName: auth.currentUser.displayName,
+            likes: [],
+            date: newDate,
+          };
+          showNewPost.appendChild(createCardPost(post));
           addNewPost.value = '';
         });
     }
   });
 
-  function checkLikes(e) {
-    const postId = e.currentTarget.querySelector('[id=post-id]').value;
-    const showNumberOfLikes = e.currentTarget.querySelector('[id=number-of-likes]');
-    const getValueOfLikes = showNumberOfLikes.dataset.number;
-    const likes = getValueOfLikes.split(',');
-    const heartButton = e.currentTarget.querySelector('.like-btn');
-
-    if (likes.includes(auth.currentUser.uid) && heartButton.classList.contains('liked')) {
-      getLikesPost(postId, likes)
-        .then(() => {
-          heartButton.classList.remove('liked');
-          const reduceNumLikes = Number(showNumberOfLikes.innerHTML) - 1;
-          showNumberOfLikes.innerHTML = reduceNumLikes;
-        });
-    } else {
-      getLikesPost(postId, likes)
-        .then(() => {
-          heartButton.classList.add('liked');
-          const sumNumLikes = Number(showNumberOfLikes.innerHTML) + 1;
-          showNumberOfLikes.innerHTML = sumNumLikes;
-        });
-    }
-  }
-
-  // aparecer todos os posts
   const showAllPosts = async () => {
     const timeline = await allPosts();
     timeline.forEach((post) => {
-      const postElement = createCardPost(
-        post.message,
-        post.displayName,
-        post.date,
-        post.id,
-        post.likes,
-      );
+      const postElement = createCardPost(post);
       showPosts.appendChild(postElement);
-
       const colorButton = container.querySelectorAll('.like-btn');
       for (let i = 0; i < colorButton.length; i++) {
         if (post.likes.includes(auth.currentUser.uid)) {
           colorButton[i].classList.add('liked');
-        }
-      }
+        } /*else {
+          colorButton[i].classList.remove('liked');
+        }*/
+      }  
     });
-
-    const likeButtons = container.querySelectorAll('.button-heart');
-    for (let i = 0; i < likeButtons.length; i++) {
-      likeButtons[i].addEventListener('click', checkLikes);
-    }
   };
 
   showAllPosts();
 
   return container;
-};
+}
