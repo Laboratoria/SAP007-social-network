@@ -1,5 +1,5 @@
 .menu-header {
-  min-width: 300px;
+  min-width: 285px;
   max-width: 999px;
   display: grid;
   grid-template-areas: "logo icons";
@@ -16,40 +16,31 @@
 #logo-header {
   display: none;
 }
-#menu {
+.menu {
   grid-area: icons;
 }
-#menu ul {
+.menu ul {
   list-style: none;
-  position: relative;
   display: flex;
   justify-content: space-between;
 }
-.menu-list,
-.btn-menu {
-  display: block;
+.menu-list {
   width: 40px;
   height: 40px;
   border-radius: 4px;
   background-color: var(--color-dark-yellow);
   border: none;
-}
-.menu-list {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.menu-list img {
+.menu-icon {
   display: block;
   width: 40px;
   height: 40px;
 }
 .submenu-list li {
   display: none;
-}
-.menu-list:active,
-.btn-menu::active {
-  background-color: var(--color-dark-green);
 }
 .menu-text {
   display: none;
@@ -71,7 +62,7 @@
     width: 55px;
     height: 55px;
   }
-  .menu-list img {
+  .menu-icon {
     width: 55px;
     height: 55px;
   }
@@ -99,7 +90,7 @@
     display: flex;
     align-items: center;
   }
-  .menu-list img {
+  .menu-icon {
     width: 55px;
     height: 55px;
   }

@@ -1,10 +1,10 @@
 export function createNewPost() {
   const container = document.createElement("section");
-  container.setAttribute("id", "modal-container");
+  container.setAttribute("data-modal", "container");
   container.setAttribute("class", "modal-container");
   container.innerHTML = `
     <div class="modal">
-      <button id="modal-close" class="modal-close">X</button>
+      <button class="modal-close" data-modal="close">X</button>
       <section>
         <label for="user-comment">
           <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">

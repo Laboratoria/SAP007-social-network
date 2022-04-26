@@ -1,5 +1,3 @@
-
-
 export function createHeader() {
   const container = document.createElement("section");
   container.setAttribute("class", "menu-header");
@@ -12,7 +10,7 @@ export function createHeader() {
               <img src="../img/log-labfriends-yellow.png" id="logo-header" alt="Ícone do logo da LabFriends">
             </a>
           <h1>
-          <nav id="menu">
+          <nav class="menu">
             <ul>
               <li class="menu-list">
                 <a href="#friends">
@@ -27,27 +25,39 @@ export function createHeader() {
                 </a>
               </li>
               <li class="menu-list">
-                <a href="/#" class="modal-open">
+                <a href="/#" class="modal-open" data-modal="open">
                   <img src="../img/icons/icon-add.png" class="menu-icon" alt="Ícone de nova mensagem">
                   <p class="menu-text">Novo Post</p>
                 </a>
               </li>
-              <li class="menu-list">
-                <a href="/#" class="modal-open">
+              <li id="dropdown-open" class="menu-list">
+                <a href="/#" data-menu="open">
                   <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
                 </a>
-                <ul class="submenu-list">
-                  <li>
-                    <a href="#profile">Visualizar Perfil</a>
-                  </li>
-                  <li>
-                    <button a href="/#" class="button-logout">SAIR</button>
-                  </li>
-                </ul>
               </li>
             </ul>
           </nav>
+
+          <section data-menu="container">
+            <button data-menu="close"></button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#profile" class="container-dropdown">
+                  <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
+                  <div class="drop-text">
+                    <p class="name-user">Nome do Usuário</p>
+                    <p class="text-small">Veja seu perfil</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <button id="button-logout" class="user-button button-pink">
+                  SAIR
+                </button>
+              </li>
+            </ul>
+          </section>
     `;
   return container;
 }

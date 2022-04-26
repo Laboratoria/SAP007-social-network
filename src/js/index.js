@@ -55,7 +55,6 @@ function internalRoute(page) {
   const background = document.querySelector("#root");
   background.style.backgroundImage = "none";
 
-  //criar header
   const sectionGeneral = document.createElement("section");
   sectionGeneral.classList.add("container-labfriends");
 
@@ -79,16 +78,17 @@ function internalRoute(page) {
       break;
   }
 
-  //usar função de modal
-  //usar funçao logout
-
-  const modalOpen = document.querySelector(".modal-open");
-  const modalClose = document.querySelector(".modal-close");
-  const modalContainer = document.querySelector(".modal-container");
+  const modalOpen = document.querySelector('[data-modal="open"]');
+  const modalClose = document.querySelector('[data-modal="close"]');
+  const modalContainer = document.querySelector('[data-modal="container"]');
   initModal(modalOpen, modalClose, modalContainer);
 
-  const buttonLogout = document.querySelector(".button-logout");
-  buttonLogout.addEventListener("click", () => {
+  const menuOpen = document.querySelector('[data-menu="open"]');
+  const menuClose = document.querySelector('[data-menu="close"]');
+  const menuContainer = document.querySelector('[data-menu="container"]');
+  initModal(menuOpen, menuClose, menuContainer);
+
+  document.querySelector("#button-logout").addEventListener("click", () => {
     logout().then(() => {
       window.location.hash = "#login";
     });
