@@ -22,95 +22,106 @@ body {
 
 .logo {
   width: 70px;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.button-logout {
+  width: 40px;
+  margin-top: 20px;
 }
 
 .line-header {
-  width: 300px border: 1px solid #;
+  margin-top: 15px;
+  width: 100%;
+  border: 1px solid #48d9b0;
 }
 
-.textarea {
+.publish {
+  width: 320px;  
+  border-radius: 8px;
+  background-color: #F5EFEF;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: absolute;
+}
+
+textarea {
+  border-radius: 5px;
+  border: none;
+  margin: 20px 12px;
   resize: none;
-  width: 40%;
-  height: 60%;
-  margin-top: 12px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: 2px solid #48d9b0;
+}
+
+textarea:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 select,
-option {
-  font-size: 16px;
+option,
+button {
+  font-size: 12px;
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  background-color: #48d9b0;
-  width: 120px;
-  height: 40px;
+  background-color: #466C8C;
+  width: 80px;
+  height: 25px;
   border: none;
   cursor: pointer;
 }
 
+select {
+  margin-left: 120px;
+}
 button {
-  background-color: #48d9b0;
-  cursor: pointer;
-  border-radius: 5px;
-  border: none;
-  width: 120px;
-  height: 40px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.buttons {
+  display: flex;
+  position: absolute;
 }
 
-select,
-button {
-  display: inline-block;
+footer {
+  display: none;
 }
 
 @media (min-width: 900px) {
-  .menu-button-container {
-    display: flex;
+  .logo {
+    width: 100px;
   }
 
-  .menu {
-    position: absolute;
-    top: 0;
+  .button-logout {
+    width: 60px;
+    margin-top: 40px;
+  }
+
+  .publish {
+    width: 580px;
     margin-top: 50px;
-    left: 0;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    margin-left: 400px;
+
   }
 
-  #menu-toggle~.menu li {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  textarea {
+    width:500px;
+    font-size:18px;
   }
 
-  #menu-toggle:checked~.menu li {
-    border: 1px solid #fefaef;
-    height: 2.5em;
-    padding: 0.5em;
-    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  select, button {
+    width:100px;
+    height:40px;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
-
-  .menu>li {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0.5em 0;
-    width: 100%;
-    color: #fefaef;
-    background-color: #03a688;
-    font-size: 24px;
+  
+  select {
+    margin-left: 280px;
   }
-
-  .menu>li:not(:last-child) {
-    border-bottom: 1px solid #444;
+  button {
+    margin-right: 35px;
   }
-}
+  }
