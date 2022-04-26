@@ -63,7 +63,9 @@ export function postElement(post, uid) {
 
     btnRemove.addEventListener('click', () => {
       console.log('cliquei');
-      removePost(post.idPost).then((a) => console.log(a)).catch((error) => console.log(error));
+      removePost(post.idPost).then(() => {
+        timelinePost.innerHTML = '';
+      }).catch((error) => console.log(error));
     });
 
     btnEdit.addEventListener('click', () => {
