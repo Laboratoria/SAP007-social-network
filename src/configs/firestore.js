@@ -9,6 +9,8 @@ import {
   updateDoc,
   doc,
   where,
+  arrayUnion,
+  arrayRemove
 } from '../lib/exports-firebase.js';
 
 import { auth } from './authentication.js';
@@ -37,27 +39,29 @@ export async function newPost(msg) {
 /* export const getLikesPost = (postId) => {
   createUserWithEmailAndPassword(auth, email, password) */
 
-export const getLikesPost = async (postId, likes) => {
+export const likePost = async (postId, user) => {
+  console.log(user);
   const postLiked = doc(db, 'posts', postId);
   try {
-    const user = auth.currentUser.uid;
-    if (likes.includes(user)) {
-      const indexOfUser = likes.indexOf(user);
-      likes.splice(indexOfUser, 1);
-      await updateDoc(postLiked, {
-        likes,
-      });
-      return likes;
-    }
-    likes.push(user);
-    await updateDoc(postLiked, {
-      likes,
+    return await updateDoc(postLiked, {
+      likes: arrayUnion(user)
     });
-    return likes;
   } catch (e) {
     return e;
   }
 };
+
+export const dislikePost = async (postId, user) => {
+ 
+  const postLiked = doc(db, "posts", postId);
+  try {
+    return await updateDoc(postLiked, {
+      likes: arrayRemove(user),
+    });
+  } catch (e) {
+    return e;
+  }
+}
 
 // cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName) {
@@ -95,11 +99,22 @@ export const getUserPosts = async (id) => {
   const test = await getDocs(querySnapshot);
   test.forEach((item) => {
     const post = item.data();
+    const postId = item.id;
+    post.id = postId;
     arrayOfMyPosts.push(post);
   });
   return arrayOfMyPosts;
 };
 
 export const getFunctionDelet = async (postId) => {
+  console.log(postId)
   await deleteDoc(doc(db, "posts", postId))
+}
+
+export const editAPost = async (postId, editedMessage) => {
+  const postToEdit = doc(db, 'posts', postId)
+  return await updateDoc(postToEdit, {
+    message: editedMessage,
+  });
+
 }

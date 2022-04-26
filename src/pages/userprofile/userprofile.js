@@ -5,6 +5,7 @@ import {
 import { auth } from '../../configs/authentication.js';
 import header from '../components/header.js';
 
+import { createCardPost } from '../components/post.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -31,7 +32,7 @@ export default () => {
   printDisplayName.innerHTML = auth.currentUser.displayName;
   printEmail.innerHTML = auth.currentUser.email;
 
-  // template do card do post
+  /*// template do card do post
   function myPostsCard(text, displayName, date, id = '', likes = []) {
     const containerMyPost = document.createElement('div');
     const templateCardMyPost = `
@@ -57,9 +58,8 @@ export default () => {
 
     containerMyPost.innerHTML = templateCardMyPost;
     return containerMyPost;
-  }
-  const deleteBtn = container.querySelectorAll("#button-delete-post")
-  //const editBtn = container.querySelectorAll("#button-edit-post")
+  }*/
+
   const myPost = container.querySelector('#my-post');
 
   const functionDelete = () => {
@@ -90,17 +90,46 @@ export default () => {
     const id = auth.currentUser.uid;
     const myTimeline = await getUserPosts(id);
     myTimeline.filter((post) => {
-      const postCard = myPostsCard(
-        post.message,
-        post.displayName,
-        post.date,
-        post.id,
-        post.likes,
-      );
+      const postCard = createCardPost(post)
+      console.log(post)
       return myPost.appendChild(postCard);
+    
     });
   };
   showMyPosts();
+
+  //const deleteBtn = container.querySelectorAll("#button-delete-post")
+  //const editBtn = container.querySelectorAll("#button-edit-post")
+
+  console.log(myPost)
+  console.log(typeof(myPost))
+
+  const functionDelete = () => {
+    Array.from(myPost).forEach((post) => {
+      const deleteBtn = container.querySelector('#button-delete-post')
+      deleteBtn.addEventListener('click', async() => {
+        const confirmDeleted = window.confirm("Caro poeta, deseja mesmo deletar esse poema?")
+        if(!confirmDeleted){
+          return;
+        }
+        else{
+          console.log(post.id)
+          const getIdPost = container.getElementById(post.id)
+          await getFunctionDelet(post.id)
+          getIdPost.parentElement.remove()
+          console.log(post.id)
+        }
+      })
+    })
+    //const myTimeline = await getUserPosts(id);
+    //myTimeline.forEach((posts) => {
+      //const getPostId = posts.id
+      //console.log(getPostId)
+   // })
+  }
+  functionDelete()
+
+
 
   return container;
 };
