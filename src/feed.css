@@ -87,9 +87,6 @@ button {
   position: absolute;
 }
 
-footer {
-  display: none;
-}
 
 @media (min-width: 900px) {
   .logo {
