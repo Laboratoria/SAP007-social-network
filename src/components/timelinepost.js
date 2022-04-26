@@ -40,6 +40,8 @@ export function postElement(post, uid) {
     <button class="close-modify btn-edit-style" id="data-cancel-edit">Cancelar Editar</button>
   </div>
   `;
+  // const modal com template do modal de excluir
+
   // /\ aqui será o menu de configurações que só aparece pro usuário dono do post
   if (uid === post.userUid) {
     mainPost.appendChild(modifyForm);
@@ -51,15 +53,15 @@ export function postElement(post, uid) {
         <li class="btn-config"><button
         id="data-post-remove" 
         class="btn-config remove">Remover</button></li>
-        <li class="btn-config"><button id="data-post-modify" class="modify
+        <li class="btn-config"><button class="modify
         btn-config">Editar</button></li>
       </ul>`;
 
-    const btnRemove = timelinePost.querySelector('#data-post-remove');
-    const btnEdit = timelinePost.querySelector('#data-post-modify');
-    const btnCancelEdit = timelinePost.querySelector('#data-cancel-edit');
-    const btnConfirmEdit = timelinePost.querySelector('#data-confirm-edit');
-    const inputModify = timelinePost.querySelector('#data-input-value');
+    const btnRemove = timelinePost.querySelector('.remove');
+    const btnEdit = timelinePost.querySelector('.modify');
+    const btnCancelEdit = timelinePost.querySelector('.close-modify');
+    const btnConfirmEdit = timelinePost.querySelector('.confirm-modify');
+    const inputModify = timelinePost.querySelector('.modify-input-value');
 
     btnRemove.addEventListener('click', () => {
       console.log('cliquei');
