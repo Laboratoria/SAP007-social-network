@@ -4,7 +4,9 @@ import { createHeader } from "./components/header.js";
 import { createFeed } from "./pages/feed.js";
 import { createFriends } from "./pages/friends.js";
 import { createProfile } from "./pages/profile.js";
-import { authChange } from "../config/authentication.js";
+import { authChange, logout } from "../config/authentication.js";
+import { initModal } from "../js/components/modal.js";
+import { createNewPost } from "../js/components/add-post.js";
 
 const container = document.getElementById("root");
 
@@ -50,15 +52,20 @@ function redirectPages() {
 }
 
 function internalRoute(page) {
-  const background = document.querySelector(".background");
+  const background = document.querySelector("#root");
   background.style.backgroundImage = "none";
 
-  const section = document.createElement("section");
-  section.classList.add("container-labfriends");
-  section.append(createHeader());
-  container.append(section);
+  //criar header
+  const sectionGeneral = document.createElement("section");
+  sectionGeneral.classList.add("container-labfriends");
 
-  const header = document.querySelector("#header");
+  const header = document.createElement("header");
+  header.setAttribute("id", "header");
+  header.prepend(createHeader());
+  header.append(createNewPost());
+
+  sectionGeneral.append(header);
+  container.append(sectionGeneral);
 
   switch (page) {
     case "feed":
@@ -71,4 +78,19 @@ function internalRoute(page) {
       header.after(createProfile());
       break;
   }
+
+  //usar função de modal
+  //usar funçao logout
+
+  const modalOpen = document.querySelector(".modal-open");
+  const modalClose = document.querySelector(".modal-close");
+  const modalContainer = document.querySelector(".modal-container");
+  initModal(modalOpen, modalClose, modalContainer);
+
+  const buttonLogout = document.querySelector(".button-logout");
+  buttonLogout.addEventListener("click", () => {
+    logout().then(() => {
+      window.location.hash = "#login";
+    });
+  });
 }

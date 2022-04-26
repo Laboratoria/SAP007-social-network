@@ -65,7 +65,9 @@ export function authUserWithGoogle() {
 }
 
 export function logout() {
-  return signOut(auth);
+  return signOut(auth).then(
+    
+  )
 }
 
 export function authChange(cb) {

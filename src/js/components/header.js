@@ -1,11 +1,15 @@
+
+
 export function createHeader() {
-  const container = document.createElement("header");
-  container.setAttribute("id", "header");
+  const container = document.createElement("section");
+  container.setAttribute("class", "menu-header");
   container.innerHTML = `
-        <section class="menu-header">
           <h1 class="container-logo">
-            <a href="#timeline">
-              <img src="../img/icons/icon-logo.png" id="logo-header" alt="Ícone do logo da LabFriends">
+            <a href="#feed">
+              <img src="../img/icons/icon-logo.png" id="logo-icon" alt="Ícone do logo da LabFriends">
+            </a>
+            <a href="#feed">
+              <img src="../img/log-labfriends-yellow.png" id="logo-header" alt="Ícone do logo da LabFriends">
             </a>
           <h1>
           <nav id="menu">
@@ -28,34 +32,22 @@ export function createHeader() {
                   <p class="menu-text">Novo Post</p>
                 </a>
               </li>
-              <li id="submenu" class="menu-list">
-                <button class="btn-menu">
+              <li class="menu-list">
+                <a href="/#" class="modal-open">
                   <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
-                </button>
+                </a>
                 <ul class="submenu-list">
-                  <li><a href="#profile">Visualizar Perfil</a></li>
                   <li>
-                    <button type="button" id="button-logout">
-                      SAIR
-                    </button>
+                    <a href="#profile">Visualizar Perfil</a>
+                  </li>
+                  <li>
+                    <button a href="/#" class="button-logout">SAIR</button>
                   </li>
                 </ul>
               </li>
             </ul>
           </nav>
-        </section>
-      <button type="button" id="button-logout">
-        SAIR
-      </button>
     `;
-
-  const buttonLogout = container.querySelector("#button-logout");
-  buttonLogout.addEventListener("click", () => {
-    logout().then(() => {
-      window.location.hash = "#login";
-    });
-  });
-
   return container;
 }

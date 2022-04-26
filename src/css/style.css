@@ -22,7 +22,6 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  background-color: var(--color-dark-gray);
 }
 .container-login {
   background-color: var(--color-dark-yellow);
@@ -33,35 +32,35 @@
   height: 100vh;
 }
 .container-labfriends {
+  width: 100vw;
   height: 100vh;
-  min-width: 300px;
-  max-width: 1800px;
-  margin: 0 auto;
+  background-color: var(--color-dark-gray);
 }
 #header {
   position: fixed;
-  width: 100%;
   padding: 20px;
   top: 0;
   right: 0;
   left: 0;
-  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-dark-gray);
+  z-index: 1;
 }
 #main-container {
+  max-width: 1800px;
   position: relative;
-  top: 80px;
-  bottom: -20px;
+  top: 82px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
 }
 
 @media screen and (min-width: 550px) {
-  .background {
+  #main-container {
+    top: 97px;
+  }
+  #root {
     height: 100vh;
     background-image: url("../../img/background.gif");
     background-position: top center;

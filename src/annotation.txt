@@ -1,9 +1,7 @@
 
-//Ao inserir as funções do firestore, adicionar o nome de cadastro no banco
-
 
 MENU
-criar modal para ir no perfil ou sair
+criar modal para ir no perfil ou sair --> inserir o template de post
 permanecer com o icone verde --> percorrer usando 
 
 TIMELINE
