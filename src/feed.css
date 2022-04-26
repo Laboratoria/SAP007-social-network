@@ -38,7 +38,7 @@ body {
 }
 
 .publish {
-  width: 320px;  
+  width: 320px;
   border-radius: 8px;
   background-color: #F5EFEF;
   margin-top: 20px;
@@ -75,19 +75,18 @@ button {
 select {
   margin-left: 120px;
 }
+
 button {
   float: right;
   margin-right: 20px;
   margin-bottom: 10px;
 }
+
 .buttons {
   display: flex;
   position: absolute;
 }
 
-footer {
-  display: none;
-}
 
 @media (min-width: 900px) {
   .logo {
@@ -107,21 +106,23 @@ footer {
   }
 
   textarea {
-    width:500px;
-    font-size:18px;
+    width: 500px;
+    font-size: 18px;
   }
 
-  select, button {
-    width:100px;
-    height:40px;
+  select,
+  button {
+    width: 100px;
+    height: 40px;
     font-size: 16px;
     margin-bottom: 20px;
   }
-  
+
   select {
     margin-left: 280px;
   }
+
   button {
     margin-right: 35px;
   }
-  }
+}
