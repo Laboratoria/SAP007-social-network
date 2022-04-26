@@ -38,7 +38,6 @@ body{
 
 @media (min-width: 481px) and (max-width: 1024px) {
 .publicated{
-    background-color: rgb(215, 228, 215);
     margin-left: 10vh;
     margin-right: 10vh;
     border-radius: 5px;
