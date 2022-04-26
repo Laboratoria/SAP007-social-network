@@ -1,8 +1,11 @@
-
+LOGIN
+email válido
 
 MENU
-criar modal para ir no perfil ou sair --> inserir o template de post
-permanecer com o icone verde --> percorrer usando 
+arrumar o tamanho do modal perfil
+arrumar modal perfil clique fora
+na hora de se cadastrar, aparece o menu
+
 
 TIMELINE
 a aplicação estará fixada na parte superior
@@ -16,3 +19,4 @@ Corrigir classes de português para inglês
 
 PERGUNTAR
 then / cath na redefinição de senha, não está sendo recuperado ... somente quando colocado na função que está o login
+

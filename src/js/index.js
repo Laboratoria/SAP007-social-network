@@ -1,7 +1,6 @@
 import { createLogin } from "./pages/login.js";
 import { createRegister } from "./pages/register.js";
 import { createHeader } from "./components/header.js";
-import { initDropdownMenu } from "./components/dropdown-menu.js";
 import { createFeed } from "./pages/feed.js";
 import { createFriends } from "./pages/friends.js";
 import { createProfile } from "./pages/profile.js";
@@ -85,8 +84,9 @@ function internalRoute(page) {
   initModal(modalOpen, modalClose, modalContainer);
 
   const menuOpen = document.querySelector('[data-menu="open"]');
+  const menuClose = document.querySelector('[data-menu="close"]');
   const menuContainer = document.querySelector('[data-menu="container"]');
-  initDropdownMenu(menuOpen, menuContainer);
+  initModal(menuOpen, menuClose, menuContainer);
 
   document.querySelector("#button-logout").addEventListener("click", () => {
     logout().then(() => {

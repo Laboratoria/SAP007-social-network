@@ -30,7 +30,7 @@ export function createHeader() {
                   <p class="menu-text">Novo Post</p>
                 </a>
               </li>
-              <li class="menu-list dropdown-open" data-menu="open">
+              <li id="dropdown-open" class="menu-list">
                 <a href="/#" data-menu="open">
                   <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
@@ -39,22 +39,25 @@ export function createHeader() {
             </ul>
           </nav>
 
-          <ul class="dropdown-menu" data-menu="container">
-            <li>
-              <a href="#profile" class="container-dropdown">
-                <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
-                <div class="drop-text">
-                  <p class="name-user">Nome do Usuário</p>
-                  <p class="text-small">Veja seu perfil</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <button id="button-logout" class="user-button button-pink">
-                SAIR
-              </button>
-            </li>
-          </ul>
+          <section data-menu="container">
+            <button data-menu="close"></button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#profile" class="container-dropdown">
+                  <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
+                  <div class="drop-text">
+                    <p class="name-user">Nome do Usuário</p>
+                    <p class="text-small">Veja seu perfil</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <button id="button-logout" class="user-button button-pink">
+                  SAIR
+                </button>
+              </li>
+            </ul>
+          </section>
     `;
   return container;
 }
