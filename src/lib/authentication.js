@@ -30,7 +30,7 @@ export function userGoogle() {
 }
 
 export function userRegister(email, password) {
-  createUserWithEmailAndPassword(auth, email, password)
+  return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       return user;
