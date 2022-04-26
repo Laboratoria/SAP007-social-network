@@ -3,8 +3,6 @@ import { register } from './create-login.js';
 import { getAuth, updateProfile } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 export const createLogin = () => {
-  const main = document.getElementById('root');
-  main.innerHTML = '';
   const createLoginStr = document.createElement('div');
   createLoginStr.setAttribute('class', 'box-form-create-register');
   createLoginStr.innerHTML = `
@@ -14,8 +12,8 @@ export const createLogin = () => {
    <form method="post" class="form-register">
      <h1>Vamos começar!</h1>
      <figure>
-       <img src='./img/camera.png' class='img-camera'>
-       <input type='file' name='arquivo' class='profile-figure'>
+       <img src="./img/camera.png" class="img-camera">
+       <input type='file' name='arquivo' class="profile-figure">
      </figure>
      <input type="text" placeholder="Nome Completo" id="name-area" name="name-area" class="create-area">
      <input type="text" placeholder="Apelido" id="nick-name-area" name="nick-name-area" class="create-area">
@@ -26,7 +24,7 @@ export const createLogin = () => {
    </form>
    <div class="box-btns">
      <a href="#login" class="btn-back btn-area" id="btn-back">Voltar</a>
-     <button class="btn-confirm btn-area"  id="btn-confirm">Confirmar</button>
+     <button type="submit" class="btn-confirm btn-area"  id="btn-confirm">Confirmar</button>
     </div>
   `;
   const inputName = createLoginStr.querySelector('#name-area');
@@ -39,9 +37,14 @@ export const createLogin = () => {
     event.preventDefault();
     const auth = getAuth();
 
-    register(inputName.value, inputEmail.value, inputPassword.value).then(() => {
+    register(inputEmail.value, inputPassword.value).then(() => {
+      updateProfile(auth.currentUser, {
+        displayName: inputName.value,
+
+      }).then(() => console.log('funcionei')).catch((error) => console.log(error));
       window.location.hash = '#login';
     }).catch((error) => {
+      console.log(error);
       switch (error.code) {
         case 'auth/internal-error':
           errorRegister.innerHTML = 'Preencha todos os campos';
@@ -59,10 +62,7 @@ export const createLogin = () => {
         default:
       }
     });
-    updateProfile(auth.currentUser, {
-      displayName: inputName.value,
 
-    });
   };
   newRegister.addEventListener('click', newUser);
   return createLoginStr;

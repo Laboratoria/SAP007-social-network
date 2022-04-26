@@ -56,6 +56,7 @@ export const feed = (user) => {
   btnLogOut.addEventListener('click', (e) => {
     e.preventDefault();
     authLogOut().then(() => {
+      // limpar session storage
       window.location.hash = '#login';
       document.location.reload(true);
     }).catch((error) => {
@@ -106,6 +107,7 @@ export const feed = (user) => {
           .catch((error) => console.error(error));
       }).catch((e) => console.error('Error adding document', e));
       document.querySelector('#input-post').value = '';
+      // mandar mensagem pro usuário pois a postagem não foi no firestore
     } else {
       // innerHTML = 'Digite algo para compartilhar!';
     }
