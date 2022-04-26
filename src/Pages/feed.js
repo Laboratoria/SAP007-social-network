@@ -15,9 +15,9 @@ export default () => {
         </a>
       </picture>     
   </nav>
-  <div class= line-header> </div>  
-  <section  class="publish "id="publish">
-    <textarea class="post-area-text" placeholder="O que você quer compartilhar?" cols="33" rows="5"></textarea>
+  <div class= "line-header"> </div>  
+  <section  class="publish" id="publish">
+    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="33" rows="5"></textarea>
     <div class ="buttons" id='selected-theme'>
       <select id='theme'>
         <option value disabled selected>Assunto</option>
@@ -28,9 +28,20 @@ export default () => {
     </div>
     <div>
       <button id="publish-btn">Enviar</button>
-    </div>  
+    </div> 
+    <div id= "posts"> </div> 
   </section>`;
   feed.innerHTML = templateFeed;
+
+  const posts = feed.querySelector('#posts');
+  const btnPosts = feed.querySelector('#publish-btn');
+  const postText = feed.querySelector('#post-text');
+  btnPosts.addEventListener('click', () => {
+    posts.innerHTML += ` 
+    <p> ${postText.value} </p>
+    `
+
+  })
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
@@ -42,6 +53,13 @@ export default () => {
   });
   return feed;
 }
+
+//const textContainer = feed.querySelector(".post-area-text").value
+
+//const objectPost{
+  //text: textContainer,
+  //data:  Date.now(),
+//}
 
 
 
