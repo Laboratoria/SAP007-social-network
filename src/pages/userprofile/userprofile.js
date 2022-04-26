@@ -18,7 +18,6 @@ export default () => {
         <p class="item-user" id="email-user"></p>
       </div>
       <section class="my-post" id="my-post">
-        <h1 class="my-poems">Meus Poemas:</h1>
       </section>
     </main>
   `;
