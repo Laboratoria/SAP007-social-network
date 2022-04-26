@@ -25,7 +25,8 @@ body {
 }
 
 .line-header {
-  width: 300px border: 1px solid #;
+  width: 100%;
+  border: 1px solid #48d9b0;
 }
 
 .textarea {
