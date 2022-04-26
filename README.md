@@ -29,47 +29,47 @@ A rede social Eu, Poesia tem como objetivo reunir pessoas que gostam de escrever
 ## 2. HISTÓRIAS DE USUÁRIOS
 
 ### História de usuário 1
->"Como uma pessoa que gosta de poesias, quero criar uma conta na rede social Eu, poesia."
+>"Como uma pessoa que gosta de poesias, quero criar uma conta na rede social Eu, poesia."<br><br>
 Para isso, ao entrar na página inicial, o futuro usuário precisará clicar em "Registre-se" e, então, será direcionado para a página de cadastro em que deverá digitar Nome de usuário, e-mail e Senha. Caso o cadastro seja concluído aparecerá uma mensagem de sucesso e o usuário será redirecionado para a página de publicações. Caso contrário, aparecerá uma mensagem explicativa de erro.
 <br>
 
 ### História de usuário 2
->"Como usuário da rede social Eu, Poesia quero entrar em minha conta."
+>"Como usuário da rede social Eu, Poesia quero entrar em minha conta."<br><br>
 Ao acessar a página inicial da rede social, o usuário poderá colocar seu email e senha de cadastro. Se as informações estivererm corretas, será direcionado para a página "Feed" em que poderá ver todas as publicações e fazê-las também. Caso as informações estejam incorretas aparecerá uma mensagem explicativa de erro. Ainda, se o usuário tiver esquecido sua senha poderá clicar em "Esqueci a senha" para fazer a redefinição.
 <br>
 
 ### História de usuário 3
->"Como usuário da rede social Eu, Poesia quero entrar em minha conta porém esqueci minha senha."
+>"Como usuário da rede social Eu, Poesia quero entrar em minha conta porém esqueci minha senha."<br><br>
 Ao clicar em "Esqueci a senha" na página de login, o usuário será levado para uma página em que deverá digitar o email que foi utilizado para cadastro. Assim, será encaminhado para sua caixa de entrada um e-mail em que, ao clicar no link, será possível digitar uma nova senha. Após isso, basta o usuário voltar para a página de login, digitar seu e-mail e sua nova senha e então será redirecionado para o "Feed".
 <br>
 
 ### História de usuário 4
->"Como usuário da rede social Eu, Poesia quero sair da minha conta."
+>"Como usuário da rede social Eu, Poesia quero sair da minha conta."<br><br>
 Após o usuário logar em sua conta, todas páginas da rede social terão a opção de Sair de sua conta. Ao clicar nessa opção o usuário, é direcionado para a página inicial.
 <br>
 
 ### História de usuário 5
->"Como usuário da rede social Eu, Poesia quero publicar minhas poesias."
+>"Como usuário da rede social Eu, Poesia quero publicar minhas poesias."<br><br>
 Na página Feed, o usuário encontrará um campo para digitar sua poesia. Ao clicar no botão "Publicar", o post passará a integrar o feed.
 <br>
 
 ### História de usuário 6
->"Como usuário da rede social Eu, Poesia quero ver as poesias dos outros usuários."
+>"Como usuário da rede social Eu, Poesia quero ver as poesias dos outros usuários."<br><br>
 Logo abaixo da área para digitar sua poesia, o usuário encontrará todos os posts que foram realizados. Cada post mostrará a poesia digitada, a data em que foi criado, o nome do usuário que o fez e a quantidades de likes que recebeu. 
 <br>
 
 ### História de usuário 7
->"Como usuário da rede social Eu, Poesia quero dar like em poesias que gostei"
+>"Como usuário da rede social Eu, Poesia quero dar like em poesias que gostei"<br><br>
 Para dar like em suas poesias favoritas o usuário só precisará clicar no ícone em formato de coração que, de cinza passará a ser roxo. O usuário poderá curtir cada post apenas uma vez e ao clicar novamente no ícone, o usuário retirará o like e o coração voltará a ser cinza. 
 <br>
 
 ### História de usuário 8
->"Como usuário da rede social Eu, Poesia quero editar uma publicação que havia feito."
+>"Como usuário da rede social Eu, Poesia quero editar uma publicação que havia feito."<br><br>
 O usuário deverá entrar na página "Meu Perfil". Lá ele verá todos os seus posts e um ícone de lápis para poder realizar a edição naquele que desejar.
 <br>
 
 ### História de usuário 9
->"Como usuário da rede social Eu, Poesia quero deletar uma publicação que havia feito."
+>"Como usuário da rede social Eu, Poesia quero deletar uma publicação que havia feito."<br><br>
 Ainda na página "Meu Perfil", em cada post realizado haverá um ícone de lixeira que, ao ser clicado, confirmará se o usuário realmente quer apagar o post. O post só será apagado se a opção escolhida for "Sim".
 
 ## 3. CRITÉRIOS DE ACEITAÇÃO
