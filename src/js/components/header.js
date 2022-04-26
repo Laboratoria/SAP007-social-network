@@ -1,8 +1,7 @@
-const header = {
-  createHeader: function () {
-    const container = document.createElement("header");
-    container.setAttribute("id", "header");
-    container.innerHTML = `
+export function createHeader() {
+  const container = document.createElement("header");
+  container.setAttribute("id", "header");
+  container.innerHTML = `
         <section class="menu-header">
           <h1 class="container-logo">
             <a href="#timeline">
@@ -18,9 +17,9 @@ const header = {
                 </a>
               </li>
               <li class="menu-list">
-                <a href="#timeline">
-                  <img src="../img/icons/icon-timeline.png" class="menu-icon" alt="Ícone de início">
-                  <p class="menu-text">Timeline</p>
+                <a href="#feed">
+                  <img src="../img/icons/icon-feed.png" class="menu-icon" alt="Ícone de início">
+                  <p class="menu-text">Feed</p>
                 </a>
               </li>
               <li class="menu-list">
@@ -46,21 +45,17 @@ const header = {
             </ul>
           </nav>
         </section>
-      </header>
       <button type="button" id="button-logout">
         SAIR
       </button>
     `;
 
-    const buttonLogout = container.querySelector("#button-logout");
-    buttonLogout.addEventListener("click", () => {
-      logout().then(() => {
-        window.location.hash = "#login";
-      });
+  const buttonLogout = container.querySelector("#button-logout");
+  buttonLogout.addEventListener("click", () => {
+    logout().then(() => {
+      window.location.hash = "#login";
     });
+  });
 
-    return container;
-  },
-};
-
-export default header;
+  return container;
+}

@@ -32,7 +32,7 @@ export function authUserLabFriends(email, password) {
     .then((userCredential) => {
       const user = userCredential.user;
       const uid = userCredential.uid;
-      window.location.hash = "#timeline";
+      window.location.hash = "#feed";
     })
     .catch((error) => {
       switch (error.code) {
@@ -54,6 +54,7 @@ export function authUserWithGoogle() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      window.location.hash = "#feed";
     })
     .catch((error) => {
       const errorCode = error.code;

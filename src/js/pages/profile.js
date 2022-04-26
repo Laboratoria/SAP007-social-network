@@ -1,6 +1,7 @@
-const profile = {
-  createProfile: function () {
-    const template = `
+export function createProfile() {
+  const container = document.createElement("main");
+  container.setAttribute("id", "main-container");
+  container.innerHTML = `
     <form id="form-profile">
       <div class="linha">
         <div class="foto-perfil"></div>
@@ -34,8 +35,5 @@ const profile = {
 
     <input class="btn-atualizar" type="submit" value="ATUALIZAR PERFIL">
     `;
-    return template;
-  },
-};
-
-export default profile;
+  return container;
+}

@@ -80,7 +80,6 @@ function loginLabFriends(e) {
 function loginGoogle(e) {
   e.preventDefault();
   authUserWithGoogle();
-  window.location.hash = "#timeline";
 }
 
 function resetPassword(e) {

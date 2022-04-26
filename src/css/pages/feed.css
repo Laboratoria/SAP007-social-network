@@ -2,13 +2,9 @@
 @import url(./timeline/post.css);
 @import url(./timeline/comment.css);
 
-#main-container {
-  position: relative;
-  top: 80px;
-  bottom: -20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+
+.cards {
+  list-style: none;
 }
 .user-post {
   width: 285px;

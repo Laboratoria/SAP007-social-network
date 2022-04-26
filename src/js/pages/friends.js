@@ -1,6 +1,7 @@
-const friends = {
-  createFriendsList: function () {
-    const template = `
+export function createFriends() {
+  const container = document.createElement("main");
+  container.setAttribute("id", "main-container");
+  container.innerHTML = `
     <main>
       <input type="text" name="search-name" id="search-name" class="user-input" placeholder="Pesquise pelo nome" required>
       <div class="user-container">
@@ -15,8 +16,5 @@ const friends = {
       </div>
     </main>
     `;
-    return template;
-  },
-};
-
-export default friends;
+  return container;
+}

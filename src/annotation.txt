@@ -14,3 +14,7 @@ arrumar o tamanho do textarea
 fazer a função da timeline que adiciona post e commentários - arquivo timeline.js
 
 Corrigir classes de português para inglês
+
+
+PERGUNTAR
+then / cath na redefinição de senha, não está sendo recuperado ... somente quando colocado na função que está o login

@@ -1,8 +1,9 @@
 import { createLogin } from "./pages/login.js";
 import { createRegister } from "./pages/register.js";
-import timeline from "./pages/timeline.js";
-import friends from "./pages/friends.js";
-import profile from "./pages/profile.js";
+import { createHeader } from "./components/header.js";
+import { createFeed } from "./pages/feed.js";
+import { createFriends } from "./pages/friends.js";
+import { createProfile } from "./pages/profile.js";
 import { authChange } from "../config/authentication.js";
 
 const container = document.getElementById("root");
@@ -19,31 +20,55 @@ function redirectPages() {
   switch (window.location.hash) {
     default:
     case "#login":
-      container.appendChild(createLogin());
+      container.append(createLogin());
       break;
     case "#register":
-      container.appendChild(createRegister());
+      container.append(createRegister());
       break;
-    case "#timeline":
+    case "#feed":
       authChange((logged) => {
         if (logged) {
-          container.appendChild(timeline.createTimeline());
+          internalRoute("feed");
         } else window.location.hash = "#home";
       });
       break;
     case "#friends":
       authChange((logged) => {
         if (logged) {
-          container.appendChild(friends.createFriendsList());
+          internalRoute("friends");
         } else window.location.hash = "#home";
       });
       break;
     case "#profile":
       authChange((logged) => {
         if (logged) {
-          container.appendChild(profile.createProfile());
+          internalRoute("profile");
         } else window.location.hash = "#home";
       });
+      break;
+  }
+}
+
+function internalRoute(page) {
+  const background = document.querySelector(".background");
+  background.style.backgroundImage = "none";
+
+  const section = document.createElement("section");
+  section.classList.add("container-labfriends");
+  section.append(createHeader());
+  container.append(section);
+
+  const header = document.querySelector("#header");
+
+  switch (page) {
+    case "feed":
+      header.after(createFeed());
+      break;
+    case "friends":
+      header.after(createFriends());
+      break;
+    case "profile":
+      header.after(createProfile());
       break;
   }
 }
