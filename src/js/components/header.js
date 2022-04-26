@@ -30,30 +30,31 @@ export function createHeader() {
                   <p class="menu-text">Novo Post</p>
                 </a>
               </li>
-              <li class="menu-list" data-dropdown-icon data-menu="open">
-                <button data-menu="button">
+              <li class="menu-list dropdown-open" data-menu="open">
+                <a href="/#" data-menu="open">
                   <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
-                </button>
-                <ul class="dropdown-menu" data-menu="container">
-                  <li>
-                    <a href="#profile" class="container-dropdown">
-                      <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
-                      <div class="drop-text">
-                        <p class="name-user">Nome do Usuário</p>
-                        <p class="text-small">Veja seu perfil</p>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <button id="button-logout" class="user-button button-pink">
-                      SAIR
-                    </button>
-                  </li>
-                </ul>
+                </a>
               </li>
             </ul>
           </nav>
+
+          <ul class="dropdown-menu" data-menu="container">
+            <li>
+              <a href="#profile" class="container-dropdown">
+                <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
+                <div class="drop-text">
+                  <p class="name-user">Nome do Usuário</p>
+                  <p class="text-small">Veja seu perfil</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <button id="button-logout" class="user-button button-pink">
+                SAIR
+              </button>
+            </li>
+          </ul>
     `;
   return container;
 }

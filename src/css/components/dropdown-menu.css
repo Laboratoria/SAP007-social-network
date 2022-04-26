@@ -1,14 +1,14 @@
-[data-dropdown-icon] .dropdown-menu {
+.dropdown-open .dropdown-menu {
   display: none;
 }
 
-[data-dropdown-icon]:hover .dropdown-menu,
-[data-dropdown-icon]:active .dropdown-menu {
+.dropdown-open:hover .dropdown-menu,
+.dropdown-open:active .dropdown-menu {
   display: block;
   animation: show-up 0.3 forwards;
 }
 
-[data-dropdown-icon] {
+.dropdown-open {
   position: relative;
 }
 .dropdown-menu {
@@ -38,13 +38,6 @@
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-bottom: 15px solid var(--color-dark-green);
-}
-[data-menu="button"] {
-  width: 40px;
-  height: 40px;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--color-dark-yellow);
 }
 .name-user {
   font-size: 0.875rem;
