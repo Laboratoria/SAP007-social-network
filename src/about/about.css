@@ -1,9 +1,4 @@
-:root {
-    --shadow: #2F3A4B;
-    --letter: #DADADA;
-    --menu: #3C4A5F;
-    --buttons: #546B8D;
-}
+@import '../Styles/Variables.Css';
 
 a {
     text-decoration: none;
@@ -15,7 +10,7 @@ body {
     color: var(--letter);
 }
 
-div {
+div .text-about{
     width: fit-content;
     border-width: medium;
     border-color: transparent;
@@ -48,8 +43,6 @@ div {
 }
 
 
-@media (min-width:500px) and (max-width:600px) {
-    body {}
-}
+@media (min-width:500px) and (max-width:600px) {}
 
 @media (min-width: 601px) and (max-width:767px) {}

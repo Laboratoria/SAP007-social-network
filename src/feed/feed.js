@@ -1,13 +1,15 @@
 import '../firebase/firebaseconfig.js';
 import { addPosts, posts } from '../firebase/firestoreconfig.js';
 import { structuresPost } from './post.js';
-import { sair, authentication } from '../firebase/authentication.js';
+import { sair, authentication } from '../firebase/firebaseauth.js';
 
 export const timeline = () => {
   const feed = document.createElement('div');
   const link = document.getElementById('stylePages');
-  link.href = 'feed/feed.Css';
+  link.href = 'feed/feed.css';
   const templateFeed = `
+  <body>
+   <section>
     <div class='post' >
       <textarea type='text'  class='text-post' data-ls-module='charCounter' maxlength='300' rows='10' placeholder='o que você está pensando?' required></textarea>
       <button type='submit' class='btn-post'>Postar</button>
@@ -16,7 +18,8 @@ export const timeline = () => {
     <button class='btn-logout'>sair</button>
     <ul class='new-post'></ul>
     <ul  id= 'all-post' class='all-posts'></ul>
-   
+   </section>
+  </body>
   `;
 
   feed.innerHTML = templateFeed;

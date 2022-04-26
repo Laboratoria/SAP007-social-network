@@ -1,5 +1,5 @@
 import '../firebase/firebaseconfig.js';
-import { signinPassword, googleLogin } from '../firebase/authentication.js';
+import { signinPassword, googleLogin } from '../firebase/firebaseauth.js';
 
 export const login = () => {
   const containerLogin = document.createElement('div');

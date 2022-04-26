@@ -50,6 +50,7 @@ export function stateVerification(cb) {
     cb(user != null); // function de sair veio do firebase
   });
 }
+//função sair
 export function sair() {
   return signOut(authentication)
     .then(() => 'sair')

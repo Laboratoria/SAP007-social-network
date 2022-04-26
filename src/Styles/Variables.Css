@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;  
+    font-family: var(--main-font);
+    font-style: normal;
+  }
+  header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: -10px;
+  }
+:root{
+    --background-color: #1C232E;
+    --shadow: #2F3A4B;
+    --letter: #DADADA;
+    --menu: #3C4A5F;
+    --buttons: #546B8D;
+    --main-font: 'Poiret One', cursive;
+    --font-color: #ffffff;
+    --font-color-error:red;
+}

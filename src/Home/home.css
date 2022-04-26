@@ -1,14 +1,8 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: 'Sawarabi Gothic';
-  font-style: normal;
-}
+@import '../Styles/Variables.Css';
+
 
 body {
-  background: #1C232E;
-  font-family: Sawarabi Gothic;
-  font-style: normal;
+  background:var(--background-color);
 }
 
 #root {
@@ -29,7 +23,7 @@ img.logo {
   height: 89%;
   margin: auto;
   margin-top: 1.5rem;
-  background: #2F3A4B;
+  background: var(--shadow);
   border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -57,13 +51,13 @@ img.logo {
   font-size: 1rem;
   text-align: center;
   line-height: 2rem;
-  color: #ffffff;
+  color: var(--font-color);
 }
 
 .name-page {
   font-size: 2rem;
   text-align: center;
-  color: #ffffff;
+  color:var(--font-color);
   width: 100%;
   height: 3.3rem;
 
@@ -78,7 +72,7 @@ video {
 .footer {
   text-align: center;
   font-size: 1rem;
-  color: #ffffff;
+  color: var(--font-color);
   margin: 34% 7% 8% 5%;
   /* top left bottom right*/
 
@@ -86,7 +80,7 @@ video {
 
 a {
   text-decoration: none;
-  color: #ffffff;
+  color:var(--font-color);
 }
 
 @media (max-width:600px) {

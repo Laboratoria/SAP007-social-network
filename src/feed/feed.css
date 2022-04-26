@@ -1,0 +1,23 @@
+@import '../Styles/Variables.Css';
+
+body{
+    background-color: var(--background-color);
+}
+section{
+background: linear-gradient(115.51deg, rgba(196, 196, 196, 0.2) 14.75%, rgba(196, 196, 196, 0) 78.73%);
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 10px;
+margin-top: 10px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+
+}
+textarea{
+    width: 100px;
+    height: 100px;
+}

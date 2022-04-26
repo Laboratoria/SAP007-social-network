@@ -1,5 +1,5 @@
 import '../firebase/firebaseconfig.js';
-import { creatNewUser } from '../firebase/authentication.js';
+import { creatNewUser } from '../firebase/firebaseauth.js';
 
 export const register = () => {
   const containerRegister = document.createElement('div'); // criando uma div para inserir o conteúdo na tela
