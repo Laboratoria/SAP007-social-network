@@ -1,22 +1,14 @@
-LOGIN
-email válido
+CSS 
+corrigir classes de português para inglês
 
 MENU
 arrumar o tamanho do modal perfil
 arrumar modal perfil clique fora
-na hora de se cadastrar, aparece o menu
-
 
 TIMELINE
-a aplicação estará fixada na parte superior
-subtrair a altura visível da main do header
-se necessário colocar scroll
 arrumar o tamanho do textarea
-fazer a função da timeline que adiciona post e commentários - arquivo timeline.js
-
-Corrigir classes de português para inglês
 
 
-PERGUNTAR
-then / cath na redefinição de senha, não está sendo recuperado ... somente quando colocado na função que está o login
+- como validar email
+- como montar uma coleção de usuário
 

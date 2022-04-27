@@ -4,7 +4,8 @@ import { createHeader } from "./components/header.js";
 import { createFeed } from "./pages/feed.js";
 import { createFriends } from "./pages/friends.js";
 import { createProfile } from "./pages/profile.js";
-import { authChange, logout } from "../config/authentication.js";
+import { logout } from "../config/authentication.js";
+import { authChange } from "../config/user.js";
 import { initModal } from "../js/components/modal.js";
 import { createNewPost } from "../js/components/add-post.js";
 
@@ -12,13 +13,12 @@ const container = document.getElementById("root");
 
 window.addEventListener("load", () => {
   redirectPages();
-  window.addEventListener("hashchange", () => {
-    container.innerHTML = "";
-    redirectPages();
-  });
+  window.addEventListener("hashchange", redirectPages);
 });
 
 function redirectPages() {
+  container.innerHTML = "";
+  const loggedIn = authChange();
   switch (window.location.hash) {
     default:
     case "#login":
@@ -28,25 +28,16 @@ function redirectPages() {
       container.append(createRegister());
       break;
     case "#feed":
-      authChange((logged) => {
-        if (logged) {
-          internalRoute("feed");
-        } else window.location.hash = "#home";
-      });
+      if (loggedIn) internalRoute("feed");
+      else window.location.hash = "#home";
       break;
     case "#friends":
-      authChange((logged) => {
-        if (logged) {
-          internalRoute("friends");
-        } else window.location.hash = "#home";
-      });
+      if (loggedIn) internalRoute("friends");
+      else window.location.hash = "#home";
       break;
     case "#profile":
-      authChange((logged) => {
-        if (logged) {
-          internalRoute("profile");
-        } else window.location.hash = "#home";
-      });
+      if (loggedIn) internalRoute("profile");
+      else window.location.hash = "#home";
       break;
   }
 }

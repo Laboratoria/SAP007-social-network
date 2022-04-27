@@ -3,20 +3,22 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+} from "./export.js";
 import { auth } from "./start-firebase.js";
+import { userCollection } from "./user.js";
 
-export function registerNewUser(email, password) {
+export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      const userId = userCredential.user.uid;
       sendEmailVerification(auth.currentUser)
         .then(() => {
-          const user = userCredential.user;
-          message.innerHTML = "Cadastro realizado com sucesso!";
+          userCollection(name, email, userId);
+          alert("Cadastro realizado com sucesso!");
+          window.location.hash = "#feed";
         })
         .catch(() => {
           message.innerHTML = "Email de verificação não enviado!";
@@ -37,8 +39,8 @@ export function registerNewUser(email, password) {
 export function authUserLabFriends(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
-      const uid = userCredential.uid;
+      const userName = userCredential.user.name;
+      const userId = userCredential.user.uid;
       window.location.hash = "#feed";
     })
     .catch((error) => {
@@ -59,8 +61,10 @@ export function authUserWithGoogle() {
   return signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
+      const userName = result.user.displayName;
+      const userEmail = result.user.email;
+      const userId = credential.accessToken;
+      userCollection(userName, userEmail, userId);
       window.location.hash = "#feed";
     })
     .catch((error) => {
@@ -73,12 +77,6 @@ export function authUserWithGoogle() {
 
 export function logout() {
   return signOut(auth).then();
-}
-
-export function authChange(cb) {
-  return onAuthStateChanged(auth, (user) => {
-    cb(user !== null);
-  });
 }
 
 export function forgotPassword(email) {
