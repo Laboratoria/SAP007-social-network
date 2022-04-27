@@ -9,6 +9,7 @@ export async function userCollection(socialName, email, id) {
       userId: id,
     });
     return;
+    
   } catch (e) {
     console.error("Error adding document: ", e);
   }
