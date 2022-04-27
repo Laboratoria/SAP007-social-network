@@ -7,37 +7,77 @@ import writePost from './pages/writePost.js';
 const mainContent = document.querySelector('#root');
 
 const init = () => {
-  mainContent.innerHTML = '';
-  const loggedUser = checkLogin();
-  if (loggedUser) {
+  window.addEventListener('hashchange', () => {
+    mainContent.innerHTML = '';
     switch (window.location.hash) {
-      case '#feed':
-        mainContent.appendChild(feed());
+      case '':
+        mainContent.appendChild(login());
+        break;
+      case '#login':
+        mainContent.appendChild(login());
         break;
       case '#writePost':
         mainContent.appendChild(writePost());
         break;
-      default:
-        mainContent.appendChild(login());
-    }
-  } else {
-    switch (window.location.hash) {
+      case '#feed':
+        mainContent.appendChild(feed());
+        break;
       case '#register':
         mainContent.appendChild(register());
         break;
       default:
         mainContent.appendChild(login());
     }
-  }
+  });
 };
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('load', () => {
+  mainContent.appendChild(login());
   init();
 });
 
 window.addEventListener('load', () => {
-  init();
+  checkLogin((logged) => {
+    if (logged) {
+      window.location.hash = '#feed';
+    } else {
+      window.location.hash = '#login';
+    }
+  });
 });
+
+// const init = () => {
+//   mainContent.innerHTML = '';
+//   const loggedUser = checkLogin();
+//   if (loggedUser) {
+//     switch (window.location.hash) {
+//       case '#feed':
+//         mainContent.appendChild(feed());
+//         break;
+//       case '#writePost':
+//         mainContent.appendChild(writePost());
+//         break;
+//       default:
+//         mainContent.appendChild(login());
+//     }
+//   } else {
+//     switch (window.location.hash) {
+//       case '#register':
+//         mainContent.appendChild(register());
+//         break;
+//       default:
+//         mainContent.appendChild(login());
+//     }
+//   }
+// };
+
+// window.addEventListener('hashchange', () => {
+//   init();
+// });
+
+// window.addEventListener('load', () => {
+//   init();
+// });
 
 // const init = () => {
 //   window.addEventListener('hashchange', () => {
