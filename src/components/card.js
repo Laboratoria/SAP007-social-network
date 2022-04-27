@@ -12,12 +12,20 @@ export default function card(item) {
       <button class="buttons-like" id="like">like</button>
       <a href=""class=""edit">editar</a>
       <button class="delete" type="submit" id="delete">deletar<button>
-      <p class="likes"></p>
+      <p class="likes">${item.likes.length}</p>
     </div>
     <span class="edition"></span>
   `;
   publications.innerHTML = mold;
 
+
+  const buttonsLike = publications.querySelector(".buttons-like");
+
+  buttonsLike.addEventListener("click", async () => {
+    const user = auth.currentUser;
+    await like(item.id, user.uid);
+    });
+  
   const deleteAction = publications.querySelector(".delete");
   deleteAction.addEventListener("click", async (e) => {
     //console.log("clicou");
