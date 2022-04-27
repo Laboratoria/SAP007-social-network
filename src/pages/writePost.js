@@ -10,7 +10,6 @@ export default function writePost() {
     <br>
     <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required	>
     </textarea>
-    EH ISSOO0
     <button class="post-btn">Postar</button>
     <br>
     <button class="return-feed"><a href="#feed"> Voltar para o feed </a></button>
