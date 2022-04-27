@@ -1,5 +1,5 @@
 import "../lib/firebase.js";
-import { userLogout } from "../lib/authentication.js";
+import { userLogout, auth } from "../lib/authentication.js";
 import { publicatedPost, getPost } from "../lib/firestore.js";
 import card from "../components/card.js";
 
@@ -8,13 +8,13 @@ export default () => {
   container.setAttribute("class", "section");
   const template = `
     <nav class="nav-section">
-    <ul>
-    <li><a href="#timeline">Linha do Tempo</a></li>
-    <li><a href="#profile">Perfil</a></li>
-    </ul>
-    <hr>
+      <ul>
+        <li><a href="#timeline">Linha do Tempo</a></li>
+        <li><a href="#profile">Perfil</a></li>
+      </ul>
+      <hr>
     </nav>
-    `;
+  `;
   container.innerHTML = template;
 
   const feed = document.createElement("form");
@@ -22,35 +22,74 @@ export default () => {
 
   const mold = `
     <div class="div-logout">
-    <button class="logout">Sair</button>
+      <button class="logout">Sair</button>
     </div>
     <div class="post">
-    <textarea class="title" type="text" placeholder="Título" required></textarea>
-    <textarea class="text" type="text" placeholder="Texto" wrap="hard" required></textarea>
-    <button class="btn-post" type="submit">Postar</button>
+      <textarea class="title" type="text" placeholder="Título" wrap="hard" required></textarea>
+      <span class="error-title"></span>
+      <textarea class="text" type="text" placeholder="Texto" wrap="hard" required></textarea>
+      <span class="error-text"></span>
+      <button class="btn-post" id="button-post" disabled type="submit">Postar</button>
     </div>
     <div class="feed"><div>
-    `;
+  `;
 
   feed.innerHTML = mold;
   container.appendChild(feed);
 
-  const post = container.querySelector(".feed");
+  const userPublications = container.querySelector(".feed");
   const buttonPost = container.querySelector(".btn-post");
   const valueTitle = container.querySelector(".title");
   const valueText = container.querySelector(".text");
   const logout = container.querySelector(".logout");
   const data = new Date();
-  
+  const post = container.querySelector(".post");
+  const errorTitle = container.querySelector(".error-title");
+  const errorText = container.querySelector(".error-text");
+
+  post.addEventListener("keyup", () => {
+    const title = valueTitle.value;
+    const text = valueText.value;
+    if (title.length >= 3) {
+      errorTitle.innerHTML = "";
+    } else if (text.length >= 10) {
+      errorText.innerHTML = "";
+    } else {
+      errorTitle.innerHTML = "Insira um título válido";
+      errorText.innerHTML = "Insira um texto válido";
+    }
+  });
+
   buttonPost.addEventListener("click", async (e) => {
     e.preventDefault();
     const title = valueTitle.value;
     const text = valueText.value;
     const id = await publicatedPost(title, text);
+    auth.currentUser.displayName;
     showAllPosts();
     valueTitle.value = "";
     valueText.value = "";
   });
+
+  // buttonPost.addEventListener("click", async (e) => {
+  //   e.preventDefault();
+  //   const title = valueTitle.value;
+  //   const text = valueText.value;
+  //   if (title.length < 3) {
+  //     errorTitle.innerHTML = "Insira um título válido";
+  //   } else if (text.length < 10) {
+  //     errorText.innerHTML = "Insira um texto válido";
+  //   } else {
+  //     const id = await publicatedPost(title, text);
+  //     errorTitle.innerHTML = "";
+  //     errorText.innerHTML = "";
+  //     auth.currentUser.displayName;
+  //     showAllPosts();
+  //     valueTitle.value = "";
+  //     valueText.value = "";
+  //   }
+  // });
+
 
   logout.addEventListener("click", (e) => {
     e.preventDefault();
@@ -58,14 +97,13 @@ export default () => {
       window.location.hash = "";
     });
   });
-
   const showAllPosts = async () => {
     const allPosts = await getPost();
-    allPosts.map(item => {
-        const postElement = card(item);
-        post.prepend(postElement);
-    })
-  }
+    allPosts.map((item) => {
+      const postElement = card(item);
+      userPublications.prepend(postElement);
+    });
+  };
   showAllPosts();
   return container;
 };

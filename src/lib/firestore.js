@@ -5,22 +5,19 @@ import {
   getDocs,
   orderBy,
   query,
-  arrayUnion,
+  where,
+  deleteDoc,
   doc,
   updateDoc,
+  arrayUnion,
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 
 import { app } from "./firebase.js";
 import { auth } from "./authentication.js";
 
-// PARA FUNÇÃO DELETAR
-// import { doc, deleteDoc } from "firebase/firestore";
-
-// await deleteDoc(doc(db, "cities", "DC"));
-
 export const db = getFirestore(app);
 
-export const publicatedPost = async (valueTitle, valueText, data) => {
+export const publicatedPost = async (valueTitle, valueText) => {
   try {
     const docRef = await addDoc(collection(db, "posts"), {
       title: valueTitle,
@@ -35,8 +32,6 @@ export const publicatedPost = async (valueTitle, valueText, data) => {
     console.error("Error adding document: ", e);
   }
 };
-
-//export const postUser = query(collection(db, "posts"), where ("uid","==",auth.currentUser.uid));
 
 export const getPost = async () => {
   const collectionSortedByDate = query(
@@ -53,16 +48,21 @@ export const getPost = async () => {
   return arrPost;
 };
 
-// export const postUser = async () => {
-//   const arrPost = [];
-//   const querySnapshot = await getDocs(collection(db, "posts"));
-//   const myProfile = where("uid", "==", uid)
-//   querySnapshot.forEach((doc)=>{
-//     const myPost = doc.data(myProfile);
-//     arrPost.push(myPost);
-//   });
-//     return arrPost
-// };
+export const postUser = async (uid) => {
+  const collectionSortedByUid = query(
+    collection(db, "posts"),
+    orderBy("data", "asc"),
+    where("uid", "==", uid)
+  );
+  let arrMyPost = [];
+  const querySnapshot = await getDocs(collectionSortedByUid);
+  querySnapshot.forEach((doc) => {
+    const myPost = doc.data();
+    myPost.id = doc.id;
+    arrMyPost.push(myPost);
+  });
+  return arrMyPost;
+};
 
 export function docId() {
   const docRef = doc(db, "posts", id);
@@ -71,6 +71,10 @@ export function docId() {
   });
   return postId;
 }
+
+export const deletePost = async (id) => {
+  return await deleteDoc(doc(db, "posts", id));
+};
 
 export async function like(id, user) {
   const post = doc(db, "posts", id);

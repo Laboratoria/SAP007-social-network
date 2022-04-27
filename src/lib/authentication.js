@@ -16,8 +16,9 @@ export function userCreate(email, password) {
     (userCredential) => {
       const user = userCredential.user;
       return user;
-    });
-  }
+    }
+  );
+}
 
 export function userLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password).then(

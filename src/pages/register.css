@@ -1,9 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .template {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 40%;
-  left: 18%;
+  bottom: 50%;
 }
 .email-register,
 .password-register,
@@ -18,8 +20,8 @@
   align-self: center;
 }
 .button-enter {
-  width: 70%;
   background-color: #f26e22;
+  width: 70%;
   margin: auto;
   margin-top: 10%;
   border-radius: 8px;
@@ -30,32 +32,42 @@
 }
 .user-register {
   margin: auto;
+  margin-bottom: 15%;
 }
 .user-register a {
   color: black;
-  float: inline-end;
   position: relative;
-  top: 180px;
+  top: 150px;
 }
-@media (min-width: 600px) and (max-width: 999px) {
+
+@media (min-width: 280px) and (max-width: 424px) {
   .template {
-    left: 35%;
-    bottom: 25%;
+    margin-top: 20%;
+  }
+  .button-enter {
+    width: 50%;
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 425px) and (max-width: 999px) {
   .template {
-    left: 40%;
-    bottom: 30%;
+    margin-top: 10%;
+  }
+  .button-enter {
+    width: 30%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 2142px) {
+  .template {
+    margin-top: 10%;
   }
   .email-register,
   .password-register,
   .username {
-    width: 150%;
+    width: 50%;
   }
-  .user-register a {
-    float: none;
-    top: 60px;
+  .button-enter {
+    width: 30%;
   }
 }
