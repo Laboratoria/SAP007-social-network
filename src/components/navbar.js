@@ -37,5 +37,3 @@ export function printNav() {
   //  e.preventDefault();
   //  window.location.hash = '#writePost';
   // });
-
- 
