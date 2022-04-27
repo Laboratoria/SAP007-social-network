@@ -7,6 +7,8 @@ import {
   collection,
   addDoc,
   getDocs,
+  setDoc,
+  doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { app } from '../configs/config.firebase.js';
 // import writePostContainer from '../pages/writePost.js';
