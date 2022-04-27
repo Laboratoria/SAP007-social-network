@@ -49,8 +49,8 @@ export function userLogout() {
 //   return user || localStorage.getItem('userEmail');
 // }
 const user = auth.currentUser;
-export function checkLogin(cb) {
+export function checkLogin(callback) {
   onAuthStateChanged(auth, (user) => {
-    cb(user !== null);
+    callback(user !== null);
   });
 }
