@@ -49,6 +49,6 @@ function registerUser(e) {
   } else if (!newEmail) {
     message.innerHTML = "Preencha o campo de email corretamente!";
   } else if (name && email && password && passwordRepeat && newEmail) {
-    registerNewUser(email, password);
+    registerNewUser(name, email, password);
   }
 }

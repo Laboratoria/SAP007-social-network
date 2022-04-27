@@ -3,20 +3,22 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+} from "./export.js";
 import { auth } from "./start-firebase.js";
+import { userCollection } from "./user.js";
 
-export function registerNewUser(email, password) {
+export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      const user = userCredential.user.uid;
       sendEmailVerification(auth.currentUser)
         .then(() => {
-          const user = userCredential.user;
-          message.innerHTML = "Cadastro realizado com sucesso!";
+          userCollection(name, email, user);
+          alert("Cadastro realizado com sucesso!");
+          window.location.hash = "#feed";
         })
         .catch(() => {
           message.innerHTML = "Email de verificação não enviado!";
@@ -73,12 +75,6 @@ export function authUserWithGoogle() {
 
 export function logout() {
   return signOut(auth).then();
-}
-
-export function authChange(cb) {
-  return onAuthStateChanged(auth, (user) => {
-    cb(user !== null);
-  });
 }
 
 export function forgotPassword(email) {
