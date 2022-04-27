@@ -18,13 +18,13 @@ function redirect() {
         } else window.location.hash = "#home";
       });
       break;
-      case "#profile":
-        loggedIn((logged)=>{
-          if (logged){
+    case "#profile":
+      loggedIn((logged) => {
+        if (logged) {
           main.appendChild(profile());
-          }else window.location.hash = "#home";
-        });
-        break;
+        } else window.location.hash = "#home";
+      });
+      break;
     default:
       main.appendChild(home());
   }

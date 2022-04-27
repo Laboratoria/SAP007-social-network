@@ -7,14 +7,16 @@ export default () => {
 
   const template = `
     <div class="template">
-    <input class="username" placeholder="nome de usuário" required></input>
-    <input class="email-register" placeholder="e-mail" type="email" required></input>
-    <span class="error"></span>
-    <input class="password-register" placeholder="senha" minlength="6" type="password" required></input>
-    <button class="button-enter" type="submit">Cadastrar</button>
-    <div class="user-register"><a href="#">Já tenho um cadastro</a></div>
+      <input class="username" placeholder="nome de usuário" required></input>
+      <input class="email-register" placeholder="e-mail" type="email" required></input>
+      <span class="error"></span>
+      <input class="password-register" placeholder="senha" minlength="6" type="password" required></input>
+      <button class="button-enter" type="submit">Cadastrar</button>
+      <div class="user-register">
+        <a href="#">Já tenho um cadastro</a>
+      </div>
     </div>
-    `;
+  `;
 
   container.innerHTML = template;
 

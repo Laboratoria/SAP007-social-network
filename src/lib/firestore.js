@@ -58,6 +58,7 @@ export const postUser = async (uid) => {
   const querySnapshot = await getDocs(collectionSortedByUid);
   querySnapshot.forEach((doc) => {
     const myPost = doc.data();
+    myPost.id = doc.id;
     arrMyPost.push(myPost);
   });
   return arrMyPost;
@@ -71,15 +72,14 @@ export function docId() {
   return postId;
 }
 
-export const deletePost = async (docId) => {
-  const deletePost = await deleteDoc(doc(db, "posts", docId));
-  return deletePost;
+export const deletePost = async (id) => {
+  return await deleteDoc(doc(db, "posts", id));
 };
 
 export async function like(id, user) {
-const post = doc(db, "id", id);
-console.log(post, id, user);
-return await updateDoc(post, {
-  likes: arrayUnion(user),
-});
+  const post = doc(db, "id", id);
+  console.log(post, id, user);
+  return await updateDoc(post, {
+    likes: arrayUnion(user),
+  });
 }
