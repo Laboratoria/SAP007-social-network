@@ -1,13 +1,33 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import {
   getFirestore,
+  // doc,
+  // setDoc,
   collection,
   addDoc,
   getDocs,
   setDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+import { app } from '../configs/config.firebase.js';
+// import writePostContainer from '../pages/writePost.js';
 
-const db = getFirestore();
+const db = getFirestore(app);
+
+// const postsDb = {
+//   title: titleContent,
+//   author: authorContent,
+//   recipe: recipeContet,
+//   date: new Date(),
+// };
+// export const asyncFunction = async () => {
+//   try {
+//     await setDoc(doc(db, 'posts',), postsDb);
+//   } catch (e) {
+//     alert('Algo deu errado');
+//   }
+// };
 
 export const createPost = async (textPost, userEmail) => {
   try {
@@ -22,39 +42,15 @@ export const createPost = async (textPost, userEmail) => {
   }
 };
 
-// const colRef= collection(db, 'posts')
-
-
-// const addBookForm = document.querySelector('.add')
-// addBookForm.addEventListener('submit', (e) => {
-//   e.preventDefault()
-
-//   addDoc(colRef, {
-//     titulo: addBookForm.title.value,
-//     author: addBookForm.author.value,
-//   })
-//   .then(() => {
-//     addBookForm.reset()
-//   })
-// })
-
-// export function createPost () {
-//   addDoc(collection(db, 'posts'), {
-//     
-//   });
-// }
-
-
-// export const createPost = async (textPost) => {
-//   try {
-//       const docRef = await addDoc(collection(db, "posts"), {
-//           textPost: textPost,
-//       });
-//       console.log("Document written with ID: ", docRef.id);
-//   } catch (e) {
-//       console.error("Error adding document: ", e);
-//   }
-// }
-
-
-
+export async function getPosts() {
+  const arrPost = [];
+  const querySnapshot = await getDocs(collection(db, 'posts'));
+  querySnapshot.forEach((doc) => {
+    const postObj = doc.data();
+    postObj.id = doc.id;
+    console.log('Oie', postObj.date, postObj.title, postObj.author, postObj.recipe);
+    arrPost.push(postObj);
+  });
+  return arrPost;
+}
+// console.log(getPosts());
