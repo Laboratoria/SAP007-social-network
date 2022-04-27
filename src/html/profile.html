@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+</head>
+
+<body id="root">
+
+  <section class="container-labfriends">
+    <header id="header">
+      <section class="menu-header">
+        <h1 class="container-logo">
+          <a href="#feed">
+            <img src="../img/icons/icon-logo.png" id="logo-icon" alt="Ícone do logo da LabFriends">
+          </a>
+          <a href="#feed">
+            <img src="../img/log-labfriends-yellow.png" id="logo-header" alt="Ícone do logo da LabFriends">
+          </a>
+          <h1>
+            <nav class="menu">
+              <ul>
+                <li class="menu-list">
+                  <a href="#friends">
+                    <img src="../img/icons/icon-frinds-list.png" class="menu-icon" alt="Ícone de lista de amigas">
+                    <p class="menu-text">Amigas</p>
+                  </a>
+                </li>
+                <li class="menu-list">
+                  <a href="#feed">
+                    <img src="../img/icons/icon-feed.png" class="menu-icon" alt="Ícone de início">
+                    <p class="menu-text">Feed</p>
+                  </a>
+                </li>
+                <li class="menu-list">
+                  <a href="/#" class="modal-open" data-modal="open">
+                    <img src="../img/icons/icon-add.png" class="menu-icon" alt="Ícone de nova mensagem">
+                    <p class="menu-text">Novo Post</p>
+                  </a>
+                </li>
+                <li id="dropdown-open" class="menu-list">
+                  <a href="/#" data-menu="open">
+                    <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
+                    <p class="menu-text">Meu Perfil</p>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+      </section>
+      <section data-menu="container">
+        <button data-menu="close"></button>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#profile" class="container-dropdown">
+              <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
+              <div class="drop-text">
+                <p class="name-user">Nome do Usuário</p>
+                <p class="text-small">Veja seu perfil</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <button id="button-logout" class="user-button button-pink">
+              SAIR
+            </button>
+          </li>
+        </ul>
+      </section>
+
+    </header>
+
+    <main id="main-container"></main>
+  </section>
+
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>

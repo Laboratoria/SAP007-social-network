@@ -1,7 +1,7 @@
 export function createNewPost() {
-  const container = document.createElement("section");
-  container.setAttribute("data-modal", "container");
-  container.setAttribute("class", "modal-container");
+  const container = document.createElement('section');
+  container.setAttribute('data-modal', 'container');
+  container.setAttribute('class', 'modal-container');
   container.innerHTML = `
     <div class="modal">
       <button class="modal-close" data-modal="close">X</button>

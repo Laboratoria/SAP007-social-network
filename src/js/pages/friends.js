@@ -1,11 +1,10 @@
 export function createFriends() {
-  const container = document.createElement("main");
-  container.setAttribute("id", "main-container");
+  const container = document.createElement('main');
+  container.setAttribute('id', 'main-container');
   container.innerHTML = `
-    <main>
       <input type="text" name="search-name" id="search-name" class="user-input" placeholder="Pesquise pelo nome" required>
       <div class="user-container">
-        <section>
+        <section class=""card-user>
           <a href="">
             <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
             <p>Nome do Usuário</p>
@@ -14,7 +13,6 @@ export function createFriends() {
           <p class="work">Desenvolvedora Front-End</p>
         </section>
       </div>
-    </main>
     `;
   return container;
 }

@@ -1,6 +1,6 @@
 export function createHeader() {
-  const container = document.createElement("section");
-  container.setAttribute("class", "menu-header");
+  const container = document.createElement('section');
+  container.setAttribute('class', 'menu-header');
   container.innerHTML = `
           <h1 class="container-logo">
             <a href="#feed">
