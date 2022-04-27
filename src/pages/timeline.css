@@ -52,7 +52,6 @@ hr {
   align-self: center;
   margin: auto;
 }
-
 .text {
   padding-bottom: 15%;
   margin-top: 2%;
@@ -74,7 +73,12 @@ hr {
   font-weight: bold;
   margin-left: 40%;
 }
-/* Media Query for low resolution  Tablets, Ipads */
+:disabled {
+  background-color: grey;
+  box-shadow: 7px 6px 5px rgb(32, 32, 32);
+  border: black;
+}
+
 @media (min-width: 481px) and (max-width: 1024px) {
   .logout {
     width: 10%;
@@ -93,8 +97,8 @@ hr {
     margin-left: 38%;
   }
 }
-/* Media Query for Laptops and Desktops */
-@media (min-width: 1025px) and (max-width: 1500px) {
+
+@media (min-width: 800px) and (max-width: 2142px) {
   .logout {
     width: 10%;
     margin-bottom: 1%;
@@ -102,13 +106,13 @@ hr {
   }
   .title,
   .text {
-    width: 40%;
+    width: 60%;
   }
   .text {
     padding-bottom: 8%;
   }
   .btn-post {
     width: 9%;
-    margin-left: 32%;
+    margin-left: 50%;
   }
 }
