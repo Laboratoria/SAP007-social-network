@@ -1,4 +1,4 @@
-import { createUser } from "../lib/auth.js";
+import { createUser } from '../lib/auth.js';
 
 export default () => {
   const register = document.createElement('div');
@@ -27,15 +27,15 @@ export default () => {
   const registerPassword = register.querySelector('#register-password');
   const buttonRegister = register.querySelector('#register-button');
 
-  buttonRegister.addEventListener("click", (e) => {
+  buttonRegister.addEventListener('click', (e) => {
     e.preventDefault();
     createUser(registerEmail.value, registerPassword.value)
-      .then(function () {
-        window.location.hash = "#feed";
+      .then(() => {
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert("iihhhhh não funcionou mané! Tenta de novo!");
+        alert('iihhhhh não funcionou mané! Tenta de novo!');
         return errorMessage;
       });
   });

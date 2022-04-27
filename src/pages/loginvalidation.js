@@ -1,10 +1,12 @@
-export default function login() {
+/* eslint-disable max-len */
+/* export default function login() {
   // eslint-disable-next-line no-shadow
   const login = document.createElement('div');
   login.innerHTML = `
     <div class="login-container">
     <form class="login-form">
         <label for="" class="labels-input">Email</label>
+        // eslint-disable-next-line max-len
         <input class="text-input" type="email" name="" id="email-login-input" required onchange="onChangeEmail()">
         <span class="error-message" id="email-required-error">Por favor, digite seu e-mail</span>
         <span class="error-message" id="email-invalid-error">E-mail inválido</span>
@@ -14,10 +16,10 @@ export default function login() {
         <span class="error-message" id="password-required-error">Por favor, digite sua senha</span>
 
         <button class="btn-login" type="submit" id="btn-submit-login" disabled="true"><a href="#feed">Entrar</a></button>
-      
+
         <div class="container-btn-login">
         <button class="btn-login-google" type="submit" id="google-login"><a herf=" ">Entrar com Google</a></button>
-        
+
         <p class="register-text">Ainda não possui uma conta? <a href="#cadastro">Cadastre-se</a></p>
       </div>
     </form>
@@ -68,4 +70,4 @@ export default function login() {
   }
 
   return login;
-}
+} */

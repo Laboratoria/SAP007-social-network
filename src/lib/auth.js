@@ -9,14 +9,6 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import { auth } from '../configs/config.firebase.js';
 
-// O usuário deve:
-// Fazer login (X)
-// Fazer login com o Google (X)
-// Fazer cadastro (X)
-// Fazer validação de Cadastro
-// Fazer Logout
-// Continuar Logado após fazer login
-
 const provider = new GoogleAuthProvider();
 
 export function signinGoogle() {
@@ -37,12 +29,6 @@ export function signIn(email, password) {
       alert('Deu tudo certo!');
       return user;
     });
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = errorCode.message;
-  //   alert('Deu errado!');
-  //     return errorMessage;
-  // });
 }
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -50,31 +36,21 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
     return user;
   });
 
-// export function userLogout() {
-//   return signOut(auth)
-//     .then(() => 'Logout')
-//     .catch((error) => error);
-// }
-
 export function userLogout() {
   signOut(auth).then(() => {
     window.location.hash = '#login';
   }).catch((error) => {
-    console.log('Error no logout')
-    return error
+    console.log('Error no logout');
+    return error;
   });
 }
-
-//
 // export function checkLogin() {
 //   const user = auth.currentUser;
-//   return user;
+//   return user || localStorage.getItem('userEmail');
 // }
-
 const user = auth.currentUser;
-  export function checkLogin(callback) {
-    
-    onAuthStateChanged(auth, (user) => {
-      callback(user !== null)
-    });
-  }
+export function checkLogin(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user !== null);
+  });
+}
