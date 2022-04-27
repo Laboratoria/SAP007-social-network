@@ -91,6 +91,24 @@ Ainda na página "Meu Perfil", em cada post realizado haverá um ícone de lixei
 
 ## 5. PROTÓTIPOS
 
+O Eu, Poesia foi idealizado utilizando-se o conceito de Mobile First, isto é, foi pensado primeiro para dispositivos móveis, como o celular, para depois fazer as adaptações necessárias para o desktop. Para isso, durante o desenvolvimento do projeto foi aplicado responsividade para que o design e conteúdo da rede social possam
+ser adaptados de acordo com o tamanho da tela do usuário.
+
+- ### Protótipo de baixa fidelidade
+
+- ### Protótipo de alta fidelidade
+
+  <div>
+    <img alt="Protótipo de Smartphone com orientação horizontal" src="/src/img/to-readme/smartphone-horizontal.gif">
+  </div>
+
+  - #### _Mobile_
+  - #### _Desktop_
+  
+
+
+
+
 ## 6. TECNOLOGIAS UTILIZADAS
 
 - **Firebase**
