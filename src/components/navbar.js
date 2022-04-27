@@ -18,9 +18,24 @@ export function printNav() {
 
 
 
+  
+  // const searchRecipe = navContainer.querySelector('#recipe-search');
+  // 
+  // const newRecipe = navContainer.querySelector('#icon-new-recipe');
 
-  
-  
+  // logOut.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   userLogout().then(() => {
+  //     window.location.hash = '';
+  //   });
+  // });
+
+  // searchRecipe.addEventListener('keyup', function(){
+  //   })
+
+  // newRecipe.addEventListener('click', (e) => {
+  //  e.preventDefault();
+  //  window.location.hash = '#writePost';
+  // });
 
  
-
