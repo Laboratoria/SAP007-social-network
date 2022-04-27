@@ -1,5 +1,5 @@
-//import { signIn} from '../lib/auth.js';
-//import { createPost } from "../lib/firestore.js";
+// import { signIn} from '../lib/auth.js';
+// import { createPost } from "../lib/firestore.js";
 
 export default function writePost() {
   const writePostContainer = document.createElement('section');
@@ -33,16 +33,16 @@ export default function writePost() {
   return writePostContainer;
 }
 
- // const titleContent = writePostContainer.querySelector('#title-input');
+// const titleContent = writePostContainer.querySelector('#title-input');
 // const authorContent = writePostContainer.querySelector('author-input');
 // const recipeContet = writePostContainer.querySelector('#recipe-input');
-  //   btnPost.addEventListener("click", (e) => {
-  //     e.preventDefault();
-  //     if (postContent.value !== " ") {
-  //       createPost(postContent.value);
-  //       window.location.hash = "#feed";
-  //     } else {
-  //       alert("deu ruim mané!");
-  //     }
-  //   });
-  // };
+//   btnPost.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     if (postContent.value !== " ") {
+//       createPost(postContent.value);
+//       window.location.hash = "#feed";
+//     } else {
+//       alert("deu ruim mané!");
+//     }
+//   });
+// };

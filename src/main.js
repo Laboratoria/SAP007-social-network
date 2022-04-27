@@ -7,57 +7,140 @@ import writePost from './pages/writePost.js';
 const mainContent = document.querySelector('#root');
 
 const init = () => {
-  mainContent.innerHTML = '';
-  const loggedUser = checkLogin();
-  // eslint-disable-next-line no-console
-  console.log(loggedUser);
-  if (loggedUser) {
+  window.addEventListener('hashchange', () => {
+    mainContent.innerHTML = '';
     switch (window.location.hash) {
-      case '#register':
-        mainContent.appendChild(register());
+      case '':
+        mainContent.appendChild(login());
         break;
-      case '#feed':
-        mainContent.appendChild(feed());
+      case '#login':
+        mainContent.appendChild(login());
         break;
       case '#writePost':
         mainContent.appendChild(writePost());
         break;
+      case '#feed':
+        mainContent.appendChild(feed());
+        break;
+      case '#register':
+        mainContent.appendChild(register());
+        break;
       default:
         mainContent.appendChild(login());
     }
-  } else {
-    window.location.hash = '';
-    mainContent.appendChild(login());
-  }
+  });
 };
 
-window.addEventListener('hashchange', init);
+window.addEventListener('load', () => {
+  mainContent.appendChild(login());
+  init();
+});
 
-window.addEventListener('load', init);
+window.addEventListener('load', () => {
+  checkLogin((logged) => {
+    if (logged) {
+      window.location.hash = '#feed';
+    } else {
+      window.location.hash = '#login';
+    }
+  });
+});
 
-// window.addEventListener("load", () => {
-//   checkLogin((logged) => {
-//     if (logged) {
-//       window.location.hash = "#feed";
-//     } else {
-//       window.location.hash = "#login";
+// const init = () => {
+//   mainContent.innerHTML = '';
+//   const loggedUser = checkLogin();
+//   if (loggedUser) {
+//     switch (window.location.hash) {
+//       case '#feed':
+//         mainContent.appendChild(feed());
+//         break;
+//       case '#writePost':
+//         mainContent.appendChild(writePost());
+//         break;
+//       default:
+//         mainContent.appendChild(login());
 //     }
-//   });
+//   } else {
+//     switch (window.location.hash) {
+//       case '#register':
+//         mainContent.appendChild(register());
+//         break;
+//       default:
+//         mainContent.appendChild(login());
+//     }
+//   }
+// };
+
+// window.addEventListener('hashchange', () => {
+//   init();
 // });
 
-// case "#login":
-//   mainContent.appendChild(login());
-//   break;
-// case "#cadastro":
-//   mainContent.appendChild(register());
-//   break;
+// window.addEventListener('load', () => {
+//   init();
+// });
 
-// case "#register":
-//   mainContent.appendChild(register());
-//   break;
-// case "#writePost":
-//   mainContent.appendChild(writePost());
-//   break;
+// const init = () => {
+//   window.addEventListener('hashchange', () => {
+//     mainContent.innerHTML = '';
+//     switch (window.location.hash) {
+//       case '':
+//         checkLogin((loggedUser) => {
+//           if (loggedUser) {
+//             mainContent.appendChild(feed());
+//           } else {
+//             mainContent.appendChild(login());
+//           }
+//         });
+//         break;
+//       case '#login':
+//         checkLogin((loggedUser) => {
+//           if (loggedUser) {
+//             mainContent.appendChild(feed());
+//           } else {
+//             mainContent.appendChild(login());
+//           }
+//         });
+//         break;
+//       case '#feed':
+//         checkLogin((loggedUser) => {
+//           if (loggedUser) {
+//             mainContent.appendChild(feed());
+//           } else {
+//             mainContent.appendChild(login());
+//           }
+//         });
+//         break;
+//       case '#register':
+//         checkLogin((loggedUser) => {
+//           if (loggedUser) {
+//             mainContent.appendChild(feed());
+//           } else {
+//             mainContent.appendChild(register());
+//           }
+//         });
+//         break;
+//       case '#writePost':
+//         checkLogin((loggedUser) => {
+//           if (loggedUser) {
+//             mainContent.appendChild(writePost());
+//           } else {
+//             mainContent.appendChild(login());
+//           }
+//         });
+//         break;
+//       default:
+//         mainContent.appendChild(login());
+//     }
+//   });
+// };
 
-// }
-
+// window.addEventListener('load', () => {
+//   checkLogin((loggedUser) => {
+//     if (loggedUser) {
+//       mainContent.appendChild(feed());
+//     } else {
+//       mainContent.appendChild(login());
+//     }
+//   });
+//   init();
+// });
