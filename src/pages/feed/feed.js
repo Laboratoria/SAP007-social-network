@@ -23,7 +23,7 @@ export const feed = (user) => {
           <span id="hamburguer" class="hamburguer"></span>
         </button>
         <ul id="menu" class="menu ">
-          <li class="link"><button class="btn-log-out" id="btn-log-out"</button>Sair</li>
+          <li class="link"><button class="btn-log-out" id="btn-log-out"></button>Sair</li>
         </ul>
       </nav>
     </header>

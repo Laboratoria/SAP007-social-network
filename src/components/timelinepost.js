@@ -15,6 +15,7 @@ export function postElement(post, uid) {
           </div>
         </div>
       </div> 
+
       <nav class="nav-remove-modify flex">
       </nav>
     </div>
