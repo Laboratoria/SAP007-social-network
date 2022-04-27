@@ -24,7 +24,8 @@
 
 ## 1. INTRODUÇÃO
 
-A rede social Eu, Poesia tem como objetivo reunir pessoas que gostam de escrever e/ou ler poesias. Para criar um cadastro nela basta escolher um nome de usuário, colocar um e-mail e criar uma senha de, no mínimo, seis dígitos. Após ter sua conta criada, o usuário pode publicar poesias, ver o que outros usuários postaram e curtir aquelas que lhe agradam. Cada usuário possui uma página de perfil em que fica visível o seu nome de usuário e o email que está sendo utilizado. Além disso, o usuário consegue ver todas as suas publicações podendo editá-las ou apagá-las. 
+A rede social Eu, Poesia tem como objetivo reunir pessoas que gostam de poesias e criar um espaço em que os usuários sintam-se livres para compartilhar poesias de sua autoria ou de terceiros.
+Para criar um cadastro nela basta escolher um nome de usuário, colocar um e-mail e criar uma senha. Após ter sua conta criada, o usuário pode publicar poesias, ver o que outros usuários postaram e curtir aquelas que lhe agradam. Cada usuário possui uma página de perfil em que fica visível o seu nome de usuário e o email que está sendo utilizado. Além disso, o usuário consegue ver todas as suas publicações podendo editá-las ou apagá-las. 
 
 ## 2. HISTÓRIAS DE USUÁRIOS
 
@@ -45,7 +46,7 @@ Ao clicar em "Esqueci a senha" na página de login, o usuário será levado para
 
 ### História de usuário 4
 >"Como usuário da rede social Eu, Poesia quero sair da minha conta."<br><br>
-Após o usuário logar em sua conta, todas páginas da rede social terão a opção de Sair de sua conta. Ao clicar nessa opção o usuário, é direcionado para a página inicial.
+Após o usuário logar em sua conta, todas páginas da rede social terão a opção de Sair de sua conta. Ao clicar nessa opção, o usuário será direcionado para a página inicial.
 <br>
 
 ### História de usuário 5
@@ -98,16 +99,17 @@ ser adaptados de acordo com o tamanho da tela do usuário.
 
 - ### Protótipo de alta fidelidade
 
-  <div>
-    <img alt="Protótipo de Smartphone com orientação horizontal" src="/src/img/to-readme/smartphone-horizontal.gif">
-  </div>
-
   - #### _Mobile_
-  - #### _Desktop_
+
+  <div>
+    <img alt="Protótipo Eu,Poesia mobile" src="/src/img/prototipo-mobile.gif">
+  </div>
   
+  - #### _Desktop_
 
-
-
+  <div>
+    <img alt="Protótipo Eu,Poesia desktop" src="/src/img/prototipo-desktop.gif">
+  </div>
 
 ## 6. TECNOLOGIAS UTILIZADAS
 
