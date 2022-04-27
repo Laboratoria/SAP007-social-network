@@ -1,8 +1,9 @@
+/* eslint-disable no-alert */
 import { signIn, signinGoogle } from '../lib/auth.js';
 
 export default function login() {
-  const login = document.createElement('div');
-  login.innerHTML = `
+  const loginContainer = document.createElement('div');
+  loginContainer.innerHTML = `
   <div class="login-container">
   <form class="login-form">
       <label for="" class="labels-input">Email</label>
@@ -22,10 +23,10 @@ export default function login() {
   </div>
     `;
 
-  const email = login.querySelector('#email-login-input');
-  const password = login.querySelector('#password-login-input');
-  const btnSubmit = login.querySelector('#btn-submit-login');
-  const btnGoogle = login.querySelector('#google-login');
+  const email = loginContainer.querySelector('#email-login-input');
+  const password = loginContainer.querySelector('#password-login-input');
+  const btnSubmit = loginContainer.querySelector('#btn-submit-login');
+  const btnGoogle = loginContainer.querySelector('#google-login');
 
   btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -54,5 +55,5 @@ export default function login() {
       });
   });
 
-  return login;
+  return loginContainer;
 }
