@@ -9,6 +9,8 @@ const mainContent = document.querySelector('#root');
 const init = () => {
   window.addEventListener('hashchange', () => {
     mainContent.innerHTML = '';
+    //const logado= checkLogin();
+
     switch (window.location.hash) {
       case '':
         checkLogin((logado) => {

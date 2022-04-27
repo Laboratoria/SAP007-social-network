@@ -1,5 +1,5 @@
-import { signIn} from '../lib/auth.js';
-import { createPost } from "../lib/firestore.js";
+//import { signIn} from '../lib/auth.js';
+//import { createPost } from "../lib/firestore.js";
 
 export default function writePost() {
   const writePost = document.createElement("section");
@@ -46,7 +46,6 @@ export default function writePost() {
   //     if (postContent.value !== " ") {
   //       createPost(postContent.value);
   //       window.location.hash = "#feed";
-  //       alert("ENVIOUUUUUUU");
   //     } else {
   //       alert("deu ruim mané!");
   //     }

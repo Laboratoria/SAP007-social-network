@@ -50,7 +50,6 @@ export function userLogout() {
 
 const user = auth.currentUser;
   export function checkLogin(callback) {
-    
     onAuthStateChanged(auth, (user) => {
       callback(user !== null)
     });
