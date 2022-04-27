@@ -73,9 +73,8 @@ export function docId() {
 }
 
 export async function like(id, user) {
-  const post = doc(db, "id", id);
-  console.log(post, id, user)
-  return await updateDoc(post, {
+  const post = doc(db, "posts", id);
+  await updateDoc(post, {
     likes: arrayUnion(user),
   });
 }
