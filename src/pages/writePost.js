@@ -6,6 +6,11 @@ export default function writePost() {
   writePostContainer.classList.add('new-post-writePost');
   const postTemplate = `
     <br>
+    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required	>
+    </textarea>
+
+    <button class="post-btn">Postar</button>
+
 	  <label for="titulo"> Título</label>
 	  <input type="text" name="titulo" required class="title-input">
         
