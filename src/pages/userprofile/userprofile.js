@@ -1,5 +1,5 @@
 import {
-  getUserPosts
+  getUserPosts,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
 import header from '../components/header.js';
@@ -30,20 +30,17 @@ export default () => {
 
   printDisplayName.innerHTML = auth.currentUser.displayName;
   printEmail.innerHTML = auth.currentUser.email;
-  
+
   const myPost = container.querySelector('#my-post');
 
   const showMyPosts = async () => {
     const id = auth.currentUser.uid;
     const myTimeline = await getUserPosts(id);
     myTimeline.filter((post) => {
-      const postCard = createCardPost(post)
-      console.log(post)
+      const postCard = createCardPost(post);
       return myPost.appendChild(postCard);
-    
     });
   };
   showMyPosts();
   return container;
-
-}
+};

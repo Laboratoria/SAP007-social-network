@@ -86,10 +86,10 @@ export default function feed() {
       for (let i = 0; i < colorButton.length; i++) {
         if (post.likes.includes(auth.currentUser.uid)) {
           colorButton[i].classList.add('liked');
-        } /*else {
+        } /* else {
           colorButton[i].classList.remove('liked');
-        }*/
-      }  
+        } */
+      }
     });
   };
 

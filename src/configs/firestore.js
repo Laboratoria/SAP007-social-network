@@ -10,7 +10,7 @@ import {
   doc,
   where,
   arrayUnion,
-  arrayRemove
+  arrayRemove,
 } from '../lib/exports-firebase.js';
 
 import { auth } from './authentication.js';
@@ -29,7 +29,6 @@ export async function newPost(msg) {
       userId: uid,
     };
     const docRef = await addDoc(collection(db, 'posts'), post);
-    // console.log('Document written with ID: ', docRef.id);
     return docRef;
   } catch (e) {
     return e;
@@ -40,11 +39,10 @@ export async function newPost(msg) {
   createUserWithEmailAndPassword(auth, email, password) */
 
 export const likePost = async (postId, user) => {
-  console.log(user);
   const postLiked = doc(db, 'posts', postId);
   try {
     return await updateDoc(postLiked, {
-      likes: arrayUnion(user)
+      likes: arrayUnion(user),
     });
   } catch (e) {
     return e;
@@ -52,8 +50,7 @@ export const likePost = async (postId, user) => {
 };
 
 export const dislikePost = async (postId, user) => {
- 
-  const postLiked = doc(db, "posts", postId);
+  const postLiked = doc(db, 'posts', postId);
   try {
     return await updateDoc(postLiked, {
       likes: arrayRemove(user),
@@ -61,7 +58,7 @@ export const dislikePost = async (postId, user) => {
   } catch (e) {
     return e;
   }
-}
+};
 
 // cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName) {
@@ -71,7 +68,6 @@ export async function collectUsers(email, displayName) {
       displayName,
     };
     const docRef = await addDoc(collection(db, 'users'), user);
-    // console.log('Document written with ID: ', docRef.id);
     return docRef;
   } catch (e) {
     return e;
@@ -107,14 +103,12 @@ export const getUserPosts = async (id) => {
 };
 
 export const getFunctionDelet = async (postId) => {
-  console.log(postId)
-  await deleteDoc(doc(db, "posts", postId))
-}
+  await deleteDoc(doc(db, 'posts', postId));
+};
 
 export const editAPost = async (postId, editedMessage) => {
-  const postToEdit = doc(db, 'posts', postId)
-  return await updateDoc(postToEdit, {
+  const postToEdit = doc(db, 'posts', postId);
+  await updateDoc(postToEdit, {
     message: editedMessage,
   });
-
-}
+};

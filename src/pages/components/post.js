@@ -7,7 +7,7 @@ import {
 } from '../../configs/firestore.js';
 
 export function createCardPost(post) {
-  const seeWichPage = window.location.hash == "#userprofile";
+  const seeWichPage = window.location.hash === '#userprofile';
 
   const containerPost = document.createElement('div');
   const templateCardPost = `
@@ -29,7 +29,7 @@ export function createCardPost(post) {
 				</button>
 				<button class="button-delete-post" id="button-delete-post">	
 					<i class="fa fa-trash"></i>
-				</button>` : ""}	
+				</button>` : ''}	
       </section>
     </div>    
   `;
@@ -38,18 +38,16 @@ export function createCardPost(post) {
 
   const likeButton = containerPost.querySelector('.button-heart');
   const numberOfLikes = containerPost.querySelector('#number-of-likes');
- 
+
   likeButton.addEventListener('click', (e) => {
     const postLike = post.likes;
     const heartButton = e.currentTarget.querySelector('.like-btn');
     if (!postLike.includes(auth.currentUser.uid)) {
-      console.log(post.id);
       likePost(post.id, auth.currentUser.uid)
         .then(() => {
           postLike.push(auth.currentUser.uid);
           const sumNumLikes = Number(numberOfLikes.innerHTML) + 1;
           numberOfLikes.innerHTML = sumNumLikes;
-          console.log(numberOfLikes);
           heartButton.classList.add('liked');
         });
     } else {
@@ -65,20 +63,20 @@ export function createCardPost(post) {
   });
 
   if (seeWichPage) {
-    const deleteButton = containerPost.querySelector("#button-delete-post");
-    const editButton = containerPost.querySelector("#button-edit-post");
-    const modalAlert = containerPost.querySelector("#modal-delete");
+    const deleteButton = containerPost.querySelector('#button-delete-post');
+    const editButton = containerPost.querySelector('#button-edit-post');
+    const modalAlert = containerPost.querySelector('#modal-delete');
 
-    deleteButton.addEventListener("click", async () => {
-     // confirmAlertDelete()
-      /*if(confirmWantDelete){
+    deleteButton.addEventListener('click', async () => {
+      // confirmAlertDelete()
+      /* if(confirmWantDelete){
         await getFunctionDelet(post.id)
         containerPost.remove();
-      }*/
+      } */
       const confirmAlertDelete = () => {
         const alertContainer = document.createElement('div');
         alertContainer.classList.add('alert-box');
-  
+
         const templateConfirmDelete = `
           <p class='message'>
             Caro poeta, deseja mesmo deletar esse poema?
@@ -88,42 +86,36 @@ export function createCardPost(post) {
           <button class="no-alert" id="no-alert">Não
           </button>
         `;
-  
-        modalAlert.innerHTML = templateConfirmDelete;
-        modalAlert.style.display = "block";
-        deleteButton.style.visibility = "hiden";
-        editButton.style.visibility = "hiden";
 
-        const hideAlert = modalAlert.querySelector('#no-alert')
-        const confirmAlert = modalAlert.querySelector('#yes-alert')
+        modalAlert.innerHTML = templateConfirmDelete;
+        modalAlert.style.display = 'block';
+        deleteButton.style.visibility = 'hiden';
+        editButton.style.visibility = 'hiden';
+
+        const hideAlert = modalAlert.querySelector('#no-alert');
+        const confirmAlert = modalAlert.querySelector('#yes-alert');
 
         confirmAlert.addEventListener('click', async () => {
-          await getFunctionDelet(post.id)
+          await getFunctionDelet(post.id);
           containerPost.remove();
-        })
-  
+        });
+
         hideAlert.addEventListener('click', () => {
-          modalAlert.style.display = "none";
-          deleteButton.style.visibility = "visible";
-          editButton.style.visibility = "visible";
-        })
-  
-  
+          modalAlert.style.display = 'none';
+          deleteButton.style.visibility = 'visible';
+          editButton.style.visibility = 'visible';
+        });
+
         return alertContainer;
-      } 
+      };
 
-      confirmAlertDelete()
-
+      confirmAlertDelete();
     });
 
-    
-
-
     // box para editar
-    function editPost (post) {
+    function editPost() {
       const editContainer = document.createElement('div');
       editContainer.classList.add('edit-box');
-      
 
       const templateEditPost = `
         <textarea class="input-text" id="textarea">${post.message}</textarea>
@@ -138,10 +130,10 @@ export function createCardPost(post) {
       editContainer.innerHTML = templateEditPost;
       return editContainer;
     }
-    
-    // com o click no botao de editar o containerPost é substituido pelo 
+
+    // com o click no botao de editar o containerPost é substituido pelo
     // template da função edit post
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener('click', () => {
       containerPost.replaceWith(editPost(post));
       const saveEdit = document.querySelector('#save-edit');
       const cancelEdit = document.querySelector('#cancel-edit');
@@ -149,7 +141,7 @@ export function createCardPost(post) {
       const editBox = document.querySelector('.edit-box');
 
       saveEdit.addEventListener('click', async () => {
-        await editAPost(post.id, editedMessage.value)
+        await editAPost(post.id, editedMessage.value);
         post.message = editedMessage.value;
         editBox.replaceWith(createCardPost(post));
       });
@@ -158,7 +150,7 @@ export function createCardPost(post) {
         editBox.replaceWith(createCardPost(post));
       });
     });
-  }  
+  }
 
   return containerPost;
 }
