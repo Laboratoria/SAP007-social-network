@@ -3,7 +3,6 @@ import login from './pages/login.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
 import { checkLogin } from './lib/auth.js';
-import writePost from './pages/writePost.js';
 
 const mainContent = document.querySelector('#root');
 
@@ -44,15 +43,6 @@ const init = () => {
             mainContent.appendChild(feed());
           } else {
             mainContent.appendChild(register());
-          }
-        })
-        break;
-      case '#writePost':
-        checkLogin((logado) => {
-          if (logado) {
-            mainContent.appendChild(writePost());
-          } else {
-            mainContent.appendChild(login());
           }
         })
         break;
