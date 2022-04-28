@@ -19,6 +19,10 @@
   border: black;
   align-self: center;
 }
+.error,
+.registered {
+  text-align: center;
+}
 .button-enter {
   background-color: #f26e22;
   width: 70%;

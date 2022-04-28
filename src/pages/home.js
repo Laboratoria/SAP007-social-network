@@ -37,8 +37,14 @@ export default () => {
         const errorMessage = error.message;
         if (error.code == "auth/user-not-found") {
           messageEmail.innerHTML = "E-mail não cadastrado";
+          email.value = "";
+          password.value = "";
+          focus();
         } else if (error.code == "auth/wrong-password") {
           messagePassword.innerHTML = "Senha inválida";
+          email.value = "";
+          password.value = "";
+          focus();
         }
         return errorMessage;
       });
