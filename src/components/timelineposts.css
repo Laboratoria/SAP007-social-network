@@ -48,13 +48,17 @@
 
 .post-text-id {
   margin: 2%;
+  width: 100%;
+  height: auto;
 }
 
 .post-date {
   text-align: center;
 }
 
-.post-text {}
+.post-text {
+  width: fit-content
+}
 
 .like-comment {
   flex-direction: row;
