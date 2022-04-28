@@ -12,6 +12,7 @@ export default () => {
       <span class="error"></span>
       <input class="password-register" placeholder="senha" minlength="6" type="password" required></input>
       <button class="button-enter" type="submit">Cadastrar</button>
+      <span class="registered"></span>
       <div class="user-register">
         <a href="#">Já tenho um cadastro</a>
       </div>
@@ -23,7 +24,7 @@ export default () => {
   const email = container.querySelector(".email-register");
   const password = container.querySelector(".password-register");
   const message = container.querySelector(".error");
-  //const registered = container.querySelector(".registered");
+  const registered = container.querySelector(".registered");
 
   container.addEventListener("submit", (e) => {
     e.preventDefault();
