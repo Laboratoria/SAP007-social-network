@@ -26,7 +26,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
-    "jest": "^27.0.1",
+    "jest": "^27.5.1",
     "regenerator-runtime": "^0.13.1",
     "serve": "^13.0.2",
     "stylelint": "^14.1.0",

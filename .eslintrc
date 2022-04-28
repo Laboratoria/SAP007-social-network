@@ -29,7 +29,8 @@
     "jest/valid-expect": "error",
     "no-plusplus":0,
     "no-alert":0,
-    "no-tabs":0
-    
+    "no-tabs":0,
+    "no-inner-declarations": 0,
+    "no-param-reassign": 0
   }
 }
