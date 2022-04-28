@@ -6,6 +6,7 @@ import {
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
+  onAuthStateChanged,
 } from './export.js';
 import { auth } from './start-firebase.js';
 import { userCollection } from './user.js';

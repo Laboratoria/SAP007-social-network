@@ -18,7 +18,7 @@ function creatingInternalElements() {
   const header = document.createElement('header');
   header.setAttribute('id', 'header');
   header.prepend(createHeader());
-  header.append(createNewPost());
+  header.append(createAddPost());
   sectionGeneral.append(header);
   container.append(sectionGeneral);
 
@@ -48,46 +48,38 @@ function creatingInternalElements() {
 }
 
 function redirectPages() {
- container.innerHTML = "";
+  container.innerHTML = '';
   authChange((logged) => {
     if (logged) {
-  switch (window.location.hash) {
-    case '#login':
-      container.append(createLogin());
-      break;
-    case '#register':
-      container.append(createRegister());
-      break;
-    case '#friends':
-      if (loggedIn) {
-        const header = creatingInternalElements();
-        header.after(createFriends());
-      } else window.location.hash = '#home';
-      break;
-    case '#profile':
-      if (loggedIn) {
-        const header = creatingInternalElements();
-        header.after(createProfile());
-      } else window.location.hash = '#home';
-      break;
-    default:
-      case '#feed':
-      if (loggedIn) {
-        const header = creatingInternalElements();
-        header.after(createFeed());
-      } else window.location.hash = '#home';
-      break;
+      let headerFeed = '';
+      let headerFriends = '';
+      let headerProfile = '';
+      switch (window.location.hash) {
+        case '#friends':
+          headerFriends = creatingInternalElements();
+          headerFriends.after(createFriends());
+          break;
+        case '#profile':
+          headerProfile = creatingInternalElements();
+          headerProfile.after(createProfile());
+          break;
+        case '#feed':
+        default:
+          headerFeed = creatingInternalElements();
+          headerFeed.after(createFeed());
+          break;
+      }
     } else {
-      const background = document.querySelector("#root");
-      background.style.backgroundImage = "url(../../img/background.gif)";
+      const background = document.querySelector('#root');
+      background.style.backgroundImage = 'url(../../img/background.gif)';
 
       switch (window.location.hash) {
-        case "#register":
+        case '#register':
           container.append(createRegister());
           break;
-        case "#login":
+        case '#login':
         default:
-          window.location.hash = "";
+          window.location.hash = '';
           container.append(createLogin());
           break;
       }
