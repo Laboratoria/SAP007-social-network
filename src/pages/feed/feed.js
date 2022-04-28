@@ -3,10 +3,14 @@ import {
   allPosts,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
-import header from '../components/header.js';
+import {
+  header,
+  logoutUser,
+} from '../components/header.js';
 import { createCardPost } from '../components/post.js';
 
 export default function feed() {
+
   const container = document.createElement('div');
   container.classList.add('content-feed');
 
@@ -30,14 +34,12 @@ export default function feed() {
   container.appendChild(header());
   container.innerHTML += templateFeed;
 
-  const showNewPost = container.querySelector('#new-post');
-  const addNewPost = container.querySelector('#textarea');
-  const showPosts = container.querySelector('#publications');
-  const buttonPublic = container.querySelector('#btn-publish');
-  const msgAlert = container.querySelector('#alert-notification');
+  const logoutButton = container.querySelector('#btn-exit');
+  logoutButton.addEventListener('click', logoutUser)
 
-  // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -54,10 +56,12 @@ export default function feed() {
     }
   }
 
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
+  const showNewPost = container.querySelector('#new-post');
+  const addNewPost = container.querySelector('#textarea');
+  const showPosts = container.querySelector('#publications');
+  const buttonPublic = container.querySelector('#btn-publish');
+  const msgAlert = container.querySelector('#alert-notification');
 
-  // publicar novo post
   buttonPublic.addEventListener('click', (e) => {
     e.preventDefault();
     if (addNewPost.value === '') {
@@ -82,15 +86,7 @@ export default function feed() {
     const timeline = await allPosts();
     timeline.forEach((post) => {
       const postElement = createCardPost(post);
-      showPosts.appendChild(postElement);
-      const colorButton = container.querySelectorAll('.like-btn');
-      for (let i = 0; i < colorButton.length; i++) {
-        if (post.likes.includes(auth.currentUser.uid)) {
-          colorButton[i].classList.add('liked');
-        } /*else {
-          colorButton[i].classList.remove('liked');
-        }*/
-      }  
+      showPosts.appendChild(postElement);  
     });
   };
 

@@ -36,27 +36,14 @@ export function isLoggedIn(callback) {
   });
 }
 
-/* export function receiveUser(displayName){
-  const user = auth.currentUser;
-  if (user){
-    displayName = user.displayName;
-    console.log(displayName)
-    return displayName;
-    //const email = user.email;
-    //const photoURL = user.photoURL;
-    //const emailVerified = user.emailVerified;
-  }
-  else {
-    console.log('Not Logged In');
-  }
-}; */
-
 export function logout() {
+  console.log("teste")
   return signOut(auth)
-    .then(() => logout).catch((error) => error);
+    .then(() => 
+    console.log("teste")
+    ).catch((error) => console.log(error));
 }
 
-// Para enviar o email de redefinição
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email)
     .then(() => email);

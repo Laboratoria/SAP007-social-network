@@ -1,8 +1,8 @@
 import { logout } from '../../configs/authentication.js';
 
-export default () => {
+export function header() {
   const containerHeader = document.createElement('div');
-  containerHeader.classList.add('content-header');
+ 
   const templateHeader = `
     <header class="header">
       <img class="header-image" src="./img/logo3.png" alt="logo">
@@ -15,24 +15,21 @@ export default () => {
           <li><a class="header-menu-item" href="#about">Sobre nós</a></li>
           <li><a class="header-menu-item" href="#userprofile">Meu Perfil</a></li>
           <li><a class="header-menu-item" href="#feed">Feed</a></li>
-          <li><a class="header-menu-item link-login" href="#login" id="btn-exit">Sair</a></li>
+          <li><a class="header-menu-item link-login" href="#login" id="btn-exit">Sair</button></li>
         </ul>  
       </nav>
     </header>
   `;
 
   containerHeader.innerHTML = templateHeader;
-
-  const logoutButton = containerHeader.querySelector('#btn-exit');
-
-  // função para sair do seu login
-  logoutButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    logout()
-      .then(() => {
-        window.location.hash = '#login';
-      });
-  });
-
   return containerHeader;
 };
+
+export function logoutUser() {
+  // função para sair do seu login
+  logout()
+  .then(() => {
+    window.location.hash = '#login';
+  });
+} 
+
