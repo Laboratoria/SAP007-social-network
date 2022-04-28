@@ -39,10 +39,10 @@ export default function card(item) {
     const updatePost = document.getElementById("update")
     updatePost.addEventListener("click", (e)=> {
       e.preventDefault();
-      const valueTitle = publications.querySelector(".title").value;
-      const valueText = publications.querySelector(".text").value;
-      item.title = valueTitle;
-      item.text = valueText;
+      // const valueTitle = publications.querySelector(".title").value;
+      // const valueText = publications.querySelector(".text").value;
+      // item.title = valueTitle;
+      // item.text = valueText;
     })  
   });
 
