@@ -91,7 +91,7 @@ export const allPosts = async () => {
 export const getUserPosts = async (id) => {
   const arrayOfMyPosts = [];
   const clause = where('userId', '==', id);
-  const querySnapshot = query(collection(db, 'posts'), clause);
+  const querySnapshot = query(collection(db, 'posts'),orderBy('date', 'desc'), clause);
   const test = await getDocs(querySnapshot);
   test.forEach((item) => {
     const post = item.data();
