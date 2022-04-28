@@ -3,7 +3,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebas
 
 const firebaseConfig = {
   apiKey: "AIzaSyB1PM6Kq8qggIFKLEd8zqXex_WTnde7sCw",
-  authDomain: "alem-91779.firebaseapp.com",
   projectId: "alem-91779",
   storageBucket: "alem-91779.appspot.com",
   messagingSenderId: "1076428810136",

@@ -1,5 +1,6 @@
-import login from "./pages/login.js"
-import register from "./pages/register.js"
+import home from "./pages/home/home.js";
+import login from "./pages/login/login.js"
+import register from "./pages/register/register.js"
 
 const main = document.querySelector("#root");
 
@@ -23,6 +24,6 @@ const init = () => {
 }
 
 window.addEventListener("load", () => {
-    main.appendChild(login());
+    main.appendChild(home());
     init();
 })
