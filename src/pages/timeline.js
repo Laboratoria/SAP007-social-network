@@ -25,9 +25,9 @@ export default () => {
       <button class="logout">Sair</button>
     </div>
     <div class="post">
-      <textarea class="title" type="text" placeholder="Título" wrap="hard" required></textarea>
+      <textarea class="title" type="text" placeholder="Título" wrap="hard"></textarea>
       <span class="error-title"></span>
-      <textarea class="text" type="text" placeholder="Texto" wrap="hard" required></textarea>
+      <textarea class="text" type="text" placeholder="Texto" wrap="hard"></textarea>
       <span class="error-text"></span>
       <button class="btn-post" id="button-post" disabled type="submit">Postar</button>
     </div>

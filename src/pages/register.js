@@ -29,12 +29,10 @@ export default () => {
     e.preventDefault();
     userCreate(email.value, password.value)
       .then(function () {
-        //registered.innerHTML = "Usuário(a) cadastrado(a) com sucesso";
-        alert("Usuário cadastrado com sucesso");
-        // setTimeout(() => {
-        // console.log("Usuário(a) cadastrado(a) com sucesso")
-        // },"50000");
-        window.location.hash = "#timeline";
+        registered.innerHTML = "Usuário(a) cadastrado(a) com sucesso";
+         setTimeout(() => {
+          window.location.hash = "#timeline";
+         },"2000");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -46,6 +44,5 @@ export default () => {
         return errorMessage;
       });
   });
-
   return container;
 };
