@@ -11,32 +11,51 @@ import { createNewPost } from './components/add-post.js';
 
 const container = document.getElementById('root');
 
-function internalRoute(page) {
-  const background = document.querySelector('#root');
-  background.style.backgroundImage = 'none';
-
+function creatingInternalElements() {
+  container.style.backgroundImage = 'none';
   const sectionGeneral = document.createElement('section');
   sectionGeneral.classList.add('container-labfriends');
-
   const header = document.createElement('header');
   header.setAttribute('id', 'header');
   header.prepend(createHeader());
   header.append(createNewPost());
-
   sectionGeneral.append(header);
   container.append(sectionGeneral);
 
-  switch (page) {
-    case 'feed':
-      header.after(createFeed());
+  return header;
+}
+
+function redirectPages() {
+  container.innerHTML = '';
+  const loggedIn = authChange();
+  switch (window.location.hash) {
+    case '#login':
+      container.append(createLogin());
       break;
-    case 'friends':
-      header.after(createFriends());
+    case '#register':
+      container.append(createRegister());
       break;
-    case 'profile':
-      header.after(createProfile());
+    case '#feed':
+      if (loggedIn) {
+        const header = creatingInternalElements();
+        header.after(createFeed());
+      } else window.location.hash = '#home';
+      break;
+    case '#friends':
+      if (loggedIn) {
+        const header = creatingInternalElements();
+        header.after(createFriends());
+      } else window.location.hash = '#home';
+      break;
+    case '#profile':
+      if (loggedIn) {
+        const header = creatingInternalElements();
+        header.after(createProfile());
+      } else window.location.hash = '#home';
       break;
     default:
+      container.append(createLogin());
+      break;
   }
 
   const modalOpen = document.querySelector('[data-modal="open"]');
@@ -54,32 +73,6 @@ function internalRoute(page) {
       window.location.hash = '#login';
     });
   });
-}
-
-function redirectPages() {
-  container.innerHTML = '';
-  const loggedIn = authChange();
-  switch (window.location.hash) {
-    case '#login':
-      container.append(createLogin());
-      break;
-    case '#register':
-      container.append(createRegister());
-      break;
-    case '#feed':
-      if (loggedIn) internalRoute('feed');
-      else window.location.hash = '#home';
-      break;
-    case '#friends':
-      if (loggedIn) internalRoute('friends');
-      else window.location.hash = '#home';
-      break;
-    case '#profile':
-      if (loggedIn) internalRoute('profile');
-      else window.location.hash = '#home';
-      break;
-    default:
-  }
 }
 
 window.addEventListener('load', () => {

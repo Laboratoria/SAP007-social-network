@@ -1,4 +1,12 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail, sendEmailVerification } from './export.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  sendPasswordResetEmail,
+  sendEmailVerification,
+} from './export.js';
 import { auth } from './start-firebase.js';
 import { userCollection } from './user.js';
 
@@ -36,7 +44,7 @@ export function authUserLabFriends(email, password) {
     .catch((error) => {
       switch (error.code) {
         case 'auth/user-not-found':
-          message.innerHTML = 'Usuário não encontrado! Crie um cadastro na LabFriends!';
+          message.innerHTML = 'Usuário não encontrado! <br>Crie um cadastro na LabFriends!';
           break;
         case 'auth/wrong-password':
           message.innerHTML = 'Senha errada! Digite novamente!';
