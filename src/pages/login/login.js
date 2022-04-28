@@ -57,7 +57,6 @@ export const pageLogin = () => {
         console.log('success', response);
         window.location.hash = '#feed';
       }).catch((error) => {
-        console.log(error.code);
         userError.innerHTML = errorHandlingGeneral(error);
         userError.style.display = 'block';
       });

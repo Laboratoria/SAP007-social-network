@@ -22,8 +22,8 @@ export const feed = (user) => {
         <button id="btn-mobile" class="btn-mobile flex">
           <span id="hamburguer" class="hamburguer"></span>
         </button>
-        <ul id="menu" class="menu ">
-          <li class="link"><button class="btn-log-out" id="btn-log-out"</button>Sair</li>
+        <ul id="menu" class="menu">
+          <li class="link"><button class="btn-log-out" id="btn-log-out">Sair</button></li>
         </ul>
       </nav>
     </header>

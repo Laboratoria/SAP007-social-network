@@ -39,17 +39,39 @@
 .config-btn-nav {
   cursor: pointer;
 }
-
-.nav-remove-modify {}
-
-.remove {}
-
-.modify {}
-
+.configs-posts{
+  display: flex;
+}
+.meatball-menu{  
+  height: 20px;
+  width: 6vw;
+  margin-top: 5px;
+  background: transparent;
+  justify-content: space-between;
+}
+.meatball-menu span{
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: var(--black);
+}
+.menu-edit-remove{
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  background: greenyellow;
+  margin-top: 20px;
+}
+.menu-edit-remove.active{
+  display: block;
+}
+.img-delete, .img-edit{
+  height: 8vh;
+}
 .post-text-id {
   margin: 2%;
 }
-
 .post-date {
   text-align: center;
 }
@@ -65,8 +87,6 @@
   border-color: var(--mustard);
   padding: 4%;
 }
-
-
 .post-like {}
 
 .post-comment {}
@@ -76,6 +96,7 @@
   background: transparent;
   font-weight: bold;
   margin: 2%;
+  width: 40px;
 }
 
 .form-modify-post {
