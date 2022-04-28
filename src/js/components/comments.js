@@ -1,6 +1,5 @@
-const comment = {
-  createComment: function () {
-    const template = `
+export function createComment() {
+  const template = `
       <article class="user-comment">
         <a href="/#" class="user-link-photo">
           <img src="../img/icons/icon-perfil.png" class="user-photo-comment" alt="Foto do perfil">
@@ -16,8 +15,5 @@ const comment = {
       </article>
     `;
 
-    return template;
-  },
-};
-
-export default comment;
+  return template;
+}

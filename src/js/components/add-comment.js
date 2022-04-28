@@ -1,6 +1,5 @@
-const newComment = {
-  createNewComment: function () {
-    const template = `
+export function createNewComment() {
+  const template = `
       <section class="add-comments">
         <div class="line-post"></div>
         <textarea class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva um comentário...">
@@ -8,8 +7,5 @@ const newComment = {
       <section>
     `;
 
-    return template;
-  },
-};
-
-export default newComment;
+  return template;
+}

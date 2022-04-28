@@ -22,6 +22,28 @@ function creatingInternalElements() {
   sectionGeneral.append(header);
   container.append(sectionGeneral);
 
+  const postOpen = document.querySelector('[data-post="open"]');
+  const menuOpen = document.querySelector('[data-menu="open"]');
+
+  postOpen.addEventListener('click', (e) => {
+    e.preventDefault();
+    const postClose = document.querySelector('[data-post="close"]');
+    const postContainer = document.querySelector('[data-post="container"]');
+    initModal(postOpen, postClose, postContainer);
+  });
+
+  menuOpen.addEventListener('click', (e) => {
+    e.preventDefault();
+    const menuClose = document.querySelector('[data-menu="close"]');
+    const menuContainer = document.querySelector('[data-menu="container"]');
+    initModal(menuOpen, menuClose, menuContainer);
+  });
+
+  document.querySelector('#button-logout').addEventListener('click', () => {
+    logout().then(() => {
+      window.location.hash = '#login';
+    });
+  });
   return header;
 }
 
@@ -57,22 +79,6 @@ function redirectPages() {
       container.append(createLogin());
       break;
   }
-
-  const modalOpen = document.querySelector('[data-modal="open"]');
-  const modalClose = document.querySelector('[data-modal="close"]');
-  const modalContainer = document.querySelector('[data-modal="container"]');
-  initModal(modalOpen, modalClose, modalContainer);
-
-  const menuOpen = document.querySelector('[data-menu="open"]');
-  const menuClose = document.querySelector('[data-menu="close"]');
-  const menuContainer = document.querySelector('[data-menu="container"]');
-  initModal(menuOpen, menuClose, menuContainer);
-
-  document.querySelector('#button-logout').addEventListener('click', () => {
-    logout().then(() => {
-      window.location.hash = '#login';
-    });
-  });
 }
 
 window.addEventListener('load', () => {

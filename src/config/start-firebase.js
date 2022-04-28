@@ -1,6 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+import { initializeApp, getAuth, getFirestore } from './export.js'; // eslint-disable-next-line
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCNu5tg68pS65UVJ6vaUjYgYonYzfYvR7w',
