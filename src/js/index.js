@@ -48,7 +48,7 @@ function redirectPages() {
           break;
         case "#login":
         default:
-          window.location.hash = "#login";
+          window.location.hash = "";
           container.append(createLogin());
           break;
       }
