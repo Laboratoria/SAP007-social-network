@@ -1,3 +1,5 @@
+import { signIn, validateEmail } from "../lib/auth-firebase.js";
+
 export default function login() {
   const container = document.createElement("div");
   container.classList.add("login-page")
@@ -43,16 +45,16 @@ signInButton.addEventListener('click', (e) => {
   if (email.value) {
     signIn(email.value, password.value)
       .then(() => {
-        window.location.hash = 'home'; 
+        window.location.hash = "home"; 
       })
       .catch((error) => {
         const errorCode = error.code;
-        if (errorCode === 'auth/invalid-email') {
-          loginError.style.color = 'red"';
-          loginError.innerHTML = 'Não há registro de usuário correspondente a este e-mail';
-        } else if (errorCode === 'auth/wrong-password') {
-          loginError.style.color = 'red';
-          loginError.innerHTML = 'Senha inválida';
+        if (errorCode === "email-already-in-use") {
+          loginError.style.color = "red";
+          loginError.innerHTML = "Não há registro de usuário correspondente a este e-mail";
+        } else if (errorCode === "auth/wrong-password") {
+          loginError.style.color = "red";
+          loginError.innerHTML = "Senha inválida";
         }
       });
   } else {
