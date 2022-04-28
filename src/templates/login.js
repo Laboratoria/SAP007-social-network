@@ -60,7 +60,7 @@ signInButton.addEventListener('click', (e) => {
         }
       });
   } else {
-   loginError.innerHTML='Preencha o campo de E-mail"();
+   loginError.innerHTML="Preencha o campo de E-mail";
   }
 });
 
