@@ -1,5 +1,3 @@
-import { createNewPost } from '../../config/posts.js';
-
 export function createFeed() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
@@ -58,16 +56,4 @@ export function createFeed() {
   </li>
 </ul>
     `;
-
-    
-
-  const btnPublicar = document.querySelector('#btn-publicar');
-  btnPublicar?.addEventListener('click', publish);
-  return container;
-}
-
-function publish() {
-  const message = document.querySelector('#message');
-  const newPost = message.value;
-  createNewPost(newPost);
 }

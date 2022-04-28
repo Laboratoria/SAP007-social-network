@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 #root {
-  font-family: 'Segoe UI', Helvetica, Arial, Verdana;
+  font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;

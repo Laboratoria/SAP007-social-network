@@ -3,7 +3,7 @@ import { db, auth } from './start-firebase.js';
 
 export function createNewPost(newText) {
   try {
-    if (newText.length == 0) {
+    if (newText.length === 0) {
       // colocar mensagem avisando que não tem texto na postagem
       return;
     }
@@ -20,10 +20,10 @@ export function createNewPost(newText) {
         window.location.hash = '#feed';
       })
       .catch((error) => {
-        console.error('Error adding document: ', error);
+        return error;
       });
   } catch (e) {
-    console.error('Error adding document: ', e);
+    return e;
   }
 }
 

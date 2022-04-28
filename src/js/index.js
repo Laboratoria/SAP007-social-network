@@ -11,7 +11,7 @@ import { initModal } from './components/modal.js';
 function creatingInternalElements() {
   const container = document.getElementById('root');
   const sectionGeneral = document.createElement('section');
-  
+
   container.style.backgroundImage = 'none';
   sectionGeneral.classList.add('container-labfriends');
   sectionGeneral.innerHTML = createHeader;
