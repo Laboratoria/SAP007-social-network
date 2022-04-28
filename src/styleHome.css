@@ -1,0 +1,67 @@
+/*@media (min-width: 576px) {
+
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Josefin+Sans&family=Poppins:ital,wght@1,300&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        color:crimson;
+    }
+    
+    body {
+        background: rgb(255,255,255);
+        background-repeat: no-repeat;
+        min-height: 100vh;
+    }
+    
+    .home {
+       margin-top: 10%;
+       margin-left: 170px;
+       font-size: 4em;
+    }
+    
+    .div {
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(131,200,133,1) 47%);;
+        height: 80vh;
+        width: 70%;
+        border-radius: 10px 10px 10px 10px;
+        margin-top: 20%;
+        margin-left: 80px;
+        text-decoration: none;
+    }
+
+    .mensagem{
+        font-size: 2em;
+        padding-top: 15%;
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .links{
+        margin-top: 10%;
+        padding-left: 5%;
+    }
+
+    .rodapé {
+        margin-top: 60px;
+        margin-left: 20%;
+    }
+
+}
+
+@media (min-width: 768px) { 
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) { 
+
+}
+
+@media (min-width: 1400px) {
+
+}
