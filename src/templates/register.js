@@ -30,6 +30,7 @@ export default function formRegister() {
 
           <p id="error-message" class="alert-error"></p>
         </div>
+        <a href="home.js">postar</a>
       </form>
       <p class="footer-register">Desenvolvido por Helena G. Silva <a class="footer-register" href="https://github.com/nannayusuf">[GitHub]</a> e Jaqueline de Oliveira <a class="footer-register" href="https://github.com/jaquelinedeoliveira93">[GitHub]</a></p>
     </main>
