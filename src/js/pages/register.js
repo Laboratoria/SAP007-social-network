@@ -1,8 +1,26 @@
-import { registerNewUser } from "../../config/authentication.js";
+import { registerNewUser } from '../../config/authentication.js';
+
+function registerUser(e) {
+  e.preventDefault();
+  const name = document.querySelector('#user-name').value;
+  const email = document.querySelector('#user-email').value;
+  const password = document.querySelector('#user-password').value;
+  const passwordRepeat = document.querySelector('#user-password-repeat').value;
+  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const message = document.querySelector('#message');
+
+  if (password !== passwordRepeat) {
+    message.innerHTML = 'As duas senhas não coincidem. Digite-as novamente!';
+  } else if (!newEmail) {
+    message.innerHTML = 'Preencha o campo de email corretamente!';
+  } else if (name && email && password && passwordRepeat && newEmail) {
+    registerNewUser(name, email, password);
+  }
+}
 
 export function createRegister() {
-  const container = document.createElement("section");
-  container.classList.add("container-login");
+  const container = document.createElement('section');
+  container.classList.add('container-login');
   container.innerHTML = `
     <form class="user-form">
       <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
@@ -30,25 +48,7 @@ export function createRegister() {
     </form>
     `;
 
-  const buttonNewUser = container.querySelector("#new-login");
-  buttonNewUser.addEventListener("click", registerUser);
+  const buttonNewUser = container.querySelector('#new-login');
+  buttonNewUser.addEventListener('click', registerUser);
   return container;
-}
-
-function registerUser(e) {
-  e.preventDefault();
-  const name = document.querySelector("#user-name").value;
-  const email = document.querySelector("#user-email").value;
-  const password = document.querySelector("#user-password").value;
-  const passwordRepeat = document.querySelector("#user-password-repeat").value;
-  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
-  const message = document.querySelector("#message");
-
-  if (password !== passwordRepeat) {
-    message.innerHTML = "As duas senhas não coincidem. Digite-as novamente!";
-  } else if (!newEmail) {
-    message.innerHTML = "Preencha o campo de email corretamente!";
-  } else if (name && email && password && passwordRepeat && newEmail) {
-    registerNewUser(name, email, password);
-  }
 }

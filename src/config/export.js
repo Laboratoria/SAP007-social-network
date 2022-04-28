@@ -1,4 +1,8 @@
+// eslint-disable-next-line
+export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
+
 export {
+  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -6,10 +10,11 @@ export {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  sendEmailVerification
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+  sendEmailVerification,
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js'; // eslint-disable-line
 
-export {
-  collection,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
+export { 
+  getFirestore, 
+  collection, 
+  addDoc 
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js'; // eslint-disable-line

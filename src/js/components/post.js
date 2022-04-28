@@ -1,6 +1,5 @@
-const post = {
-  createPost: function () {
-    const template = `
+export function createPost() {
+  const template = `
       <section class="post-timeline">
         <header class="post-header">
           <a href="#profile" class="user-link-photo">
@@ -30,8 +29,5 @@ const post = {
         </footer>
       </section>
       `;
-    return template;
-  },
-};
-
-export default post;
+  return template;
+}

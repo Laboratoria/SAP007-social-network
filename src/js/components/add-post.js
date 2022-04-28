@@ -1,11 +1,11 @@
-
 export function createAddPost() {
   const container = document.createElement("section");
   container.setAttribute("data-modal", "container");
   container.setAttribute("class", "modal-container");
+
   container.innerHTML = `
     <div class="modal">
-      <button class="modal-close" data-modal="close">X</button>
+      <button class="modal-close" data-post="close">X</button>
       <section>
         <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
         <p>Nome do Usuário</p>

@@ -6,10 +6,9 @@ import {
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
-  onAuthStateChanged
-} from "./export.js";
-import { auth } from "./start-firebase.js";
-// import { userCollection } from "./user.js";
+} from './export.js';
+import { auth } from './start-firebase.js';
+import { userCollection } from './user.js';
 
 export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -17,42 +16,43 @@ export function registerNewUser(name, email, password) {
       const userId = userCredential.user.uid;
       sendEmailVerification(auth.currentUser)
         .then(() => {
-          // userCollection(name, email, userId);
-          alert("Cadastro realizado com sucesso!");
-          window.location.hash = "#feed";
+          userCollection(name, email, userId);
+          window.location.hash = '#feed';
         })
         .catch(() => {
-          message.innerHTML = "Email de verificação não enviado!";
+          const message = document.querySelector('#message');
+          message.innerHTML = 'Email de verificação não enviado!';
         });
     })
     .catch((error) => {
+      const message = document.querySelector('#message');
       switch (error.code) {
-        case "auth/email-already-in-use":
-          message.innerHTML = "Email já cadastrado! Escolha outro email.";
+        case 'auth/email-already-in-use':
+          message.innerHTML = 'Email já cadastrado! Escolha outro email.';
           break;
-        case "auth/weak-password":
-          message.innerHTML = "Sua senha deve ter no mínimo 6 caracteres.";
+        case 'auth/weak-password':
+          message.innerHTML = 'Sua senha deve ter no mínimo 6 caracteres.';
           break;
+        default:
       }
     });
 }
 
 export function authUserLabFriends(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // const userName = userCredential.user.name;
-      // const userId = userCredential.user.uid;
-      window.location.hash = "#feed";
+    .then(() => {
+      window.location.hash = '#feed';
     })
     .catch((error) => {
+      const message = document.querySelector('#message');
       switch (error.code) {
-        case "auth/user-not-found":
-          message.innerHTML =
-            "Usuário não encontrado! Crie um cadastro na LabFriends!";
+        case 'auth/user-not-found':
+          message.innerHTML = 'Usuário não encontrado! <br>Crie um cadastro na LabFriends!';
           break;
-        case "auth/wrong-password":
-          message.innerHTML = "Autenticação inválida, verifica seu e-mail e senha!";
+        case 'auth/wrong-password':
+          message.innerHTML = 'Senha errada! Digite novamente!';
           break;
+        default:
       }
     });
 }
@@ -62,17 +62,14 @@ export function authUserWithGoogle() {
   return signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const userName = result.user.displayName;
-      // const userEmail = result.user.email;
-      // const userId = credential.accessToken;
-      // userCollection(userName, userEmail, userId);
-      window.location.hash = "#feed";
+      const userName = result.user.displayName;
+      const userEmail = result.user.email;
+      const userId = credential.accessToken;
+      userCollection(userName, userEmail, userId);
+      window.location.hash = '#feed';
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
+      GoogleAuthProvider.credentialFromError(error);
     });
 }
 
