@@ -68,6 +68,7 @@ export const pageLogin = () => {
     logarGmail().then(() => {
       window.location.hash = '#feed';
     }).catch((error) => {
+      console.log(error);
       userErrorGmail.innerHTML = errorHandlingGeral(error);
       userErrorGmail.style.display = 'block';
     });
