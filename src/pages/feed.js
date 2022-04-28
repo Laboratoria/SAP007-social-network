@@ -1,5 +1,5 @@
-//import { getPost } from '../lib/firestore.js';
-//import {postComponent} from '../components/post.js';
+import { getPost } from '../lib/firestore.js';
+import {postComponent} from '../components/posts.js';
 import {printNav} from '../components/navbar.js';
 //import writePost from "../pages/writePost.js";
 
@@ -27,13 +27,13 @@ export default function feed() {
   //   window.location.hash = "#writePost";
   // }
 
-  // const showAllPosts = async () => {
-  //   const allPosts = await getPost();
-  //   allPosts.forEach((item) => {
-  //     const postElement = postComponent(item);
-  //     sectionPost.prepend(postElement);
-  //   });
-  // };
-  // showAllPosts();
+  const showAllPosts = async () => {
+    const allPosts = await getPost();
+    allPosts.forEach((item) => {
+      const postElement = postComponent(item);
+      sectionPost.prepend(postElement);
+    });
+  };
+  showAllPosts();
   return feed;
 }
