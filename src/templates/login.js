@@ -12,8 +12,8 @@ export default function login() {
             <div class="card-login">
                 <h2>LOGIN</h2>
                 <div class="textfield">
-                    <label for="usuario">Usuário</label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <label for="usuario">E-mail</label>
+                    <input type="text" name="e-mail" placeholder="e-mail" id="inputEmail">
                 </div>  
                 <div class="textfield">
                     <label for="senha">Senha</label>
@@ -22,7 +22,7 @@ export default function login() {
                 <button class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             
             </div>
-            
+            <a href="home.js">postar</a>
         </div>     
     </div>
   `;
@@ -36,6 +36,33 @@ export default function login() {
   return container;
 }
 
+const email = login.querySelector('#email');
+const password = login.querySelector('#password');
+const loginError = login.querySelector('#loginError');
+const signInButton = login.querySelector('#signin-button');
+
+
+signInButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (email.value) {
+    signIn(email.value, password.value)
+      .then(() => {
+        window.location.hash = 'timeline'; 
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/invalid-email') {
+          loginError.style.color = 'red"';
+          loginError.innerHTML = 'Não há registro de usuário correspondente a este e-mail';
+        } else if (errorCode === 'auth/wrong-password') {
+          loginError.style.color = 'red';
+          loginError.innerHTML = 'Senha inválida';
+        }
+      });
+  } else {
+   loginError.innerHTML='Preencha o campo de E-mail"();
+  }
+});
 
 
 

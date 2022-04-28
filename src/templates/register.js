@@ -28,6 +28,7 @@ export default function formRegister() {
           <button type="button" id="button-register" class="button-register" >Enviar</button>
           <p id="error-message" class="alert"></p>
         </div>
+        <a href="home.js">postar</a>
       </form>
     </main>
   `;
