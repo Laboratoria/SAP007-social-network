@@ -11,7 +11,7 @@ import { createProfile } from "./pages/profile.js";
 // Componentes
 import { createHeader } from "./components/header.js";
 import { initModal } from "../js/components/modal.js";
-import { createNewPost } from "../js/components/add-post.js";
+import { createAddPost } from "../js/components/add-post.js";
 
 const container = document.getElementById("root");
 
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 
 function redirectPages() {
   container.innerHTML = "";
-
+  
   authChange((logged) => {
     if (logged) {
       switch (window.location.hash) {
@@ -66,7 +66,7 @@ function internalRoute(page) {
   const header = document.createElement("header");
   header.setAttribute("id", "header");
   header.prepend(createHeader());
-  header.append(createNewPost());
+  header.append(createAddPost());
 
   sectionGeneral.append(header);
   container.append(sectionGeneral);
