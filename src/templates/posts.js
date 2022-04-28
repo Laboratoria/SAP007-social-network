@@ -1,15 +1,20 @@
-//import { ... } from '../lib/index.js';
+//import {  } from "../lib/firestore-firebase.js"
 
 export default function posts() {
-    const container = document.createElement("div");
+    const profilePage = document.createElement("div");
+    profilePage.classList.add("profile-user-posts")
   
-    container.innerHTML = `
-      <h1>POST</h1>
-      <form> 
-      <textarea placeholder="Escreva seu post">
-      </form>
+    profilePage.innerHTML = `
+    <input type="search" placeholder="Buscar">
+    <button>Buscar</button>
+    <button><img class="profile-user-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></button>
+    <textarea class="postProfile">
+    Conta um pouco sobre o quadrinho que você esta lendo?
+    </textarea>
+    <button>POSTAR</button>
+    <button>EXCLUIR</button>
     `;
   
-    return container
+    return profilePage
   
   }
