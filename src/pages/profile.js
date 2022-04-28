@@ -1,6 +1,6 @@
 import { auth } from "../lib/authentication.js";
 import { postUser } from "../lib/firestore.js";
-import card from "../components/card.js";
+import card from "../components/templates.js";
 
 export default () => {
   const container = document.createElement("section");

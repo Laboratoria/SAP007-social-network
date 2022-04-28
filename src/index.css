@@ -1,11 +1,9 @@
 * {
-  margin: 0;
-  padding: 0;
   font-family: "Roboto", sans-serif;
 }
 body {
   background-color: #bfbfbf;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 .name a {
   color: #f26e22;
@@ -26,18 +24,13 @@ body {
   text-align: center;
 }
 footer {
-  bottom: 0;
-  position: relative;
-  width: 100%;
   text-align: center;
   font-size: 80%;
+  margin-top: auto;
 }
 footer a {
   color: black;
   font-weight: bold;
-}
-footer p {
-  bottom: 0;
 }
 
 @media (min-width: 280px) and (max-width: 914px) {

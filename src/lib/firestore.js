@@ -64,14 +64,6 @@ export const postUser = async (uid) => {
   return arrMyPost;
 };
 
-export function docId() {
-  const docRef = doc(db, "posts", id);
-  const postId = updateDoc(docRef, {
-    idPost: id,
-  });
-  return postId;
-}
-
 export const deletePost = async (id) => {
   return await deleteDoc(doc(db, "posts", id));
 };
@@ -81,4 +73,13 @@ export async function like(id, user) {
   await updateDoc(post, {
     likes: arrayUnion(user),
   });
+}
+
+export const editPost = async (id,title, text) => {
+const post = doc(db, "posts", id);
+    await updateDoc(post, {
+    title: title,
+    text: text
+  });
+  return post;
 }

@@ -1,0 +1,31 @@
+.edit,
+.delete{
+    background-color: rgb(187, 181, 181);
+    width: 20%;
+    margin-top: 2%;
+    border-radius: 8px;
+    height: 25px;
+    font-size: 16px;
+    border: black;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+  .title{
+    margin-top: 10%;
+  }
+  .btn-update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    background-color: #f26e22;
+    width: 50%;
+    margin-top: 10%;
+    border-radius: 8px;
+    height: 25px;
+    font-size: 16px;
+    box-shadow: 7px 6px 5px grey;
+    border: black;
+    
+  }
