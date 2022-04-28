@@ -59,6 +59,8 @@ export function createFeed() {
 </ul>
     `;
 
+    
+
   const btnPublicar = document.querySelector('#btn-publicar');
   btnPublicar?.addEventListener('click', publish);
   return container;

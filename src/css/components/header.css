@@ -2,7 +2,7 @@
   min-width: 285px;
   max-width: 999px;
   display: grid;
-  grid-template-areas: "logo icons";
+  grid-template-areas: 'logo icons';
 }
 .container-logo {
   display: flex;

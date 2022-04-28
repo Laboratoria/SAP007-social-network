@@ -3,9 +3,9 @@
 }
 [data-menu='container'] {
   background-color: rgba(0, 0, 0, 0.01);
-  position: fixed;
   height: 100vh;
   width: 100%;
+  position: fixed;
   top: 0px;
   left: 0px;
   display: none;
