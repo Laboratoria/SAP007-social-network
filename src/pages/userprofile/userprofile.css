@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
 .text {
   background-color: bisque;
+}
+
+.icone-user{
+  width: 10rem;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  border-radius: 10rem;
+}
+
+.card-user, .card{
+  border: 2px solid rgba(45, 44, 44, 0.7);
+  background-color: rgba(231, 207, 177, 0.8);
+  padding: 5px;
+  margin: 15px;
+  width: 50rem;
 }

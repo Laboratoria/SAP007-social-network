@@ -26,7 +26,6 @@ export default function feed() {
       <section class="new-post" id="new-post">
       </section>
       <section class="publications" id="publications">
-        <h1 class="last-poems">Últimos poemas:</h1>
       </section>
     </main> 
   `;
