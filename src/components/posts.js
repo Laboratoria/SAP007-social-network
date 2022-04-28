@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-duplicates */
-/* eslint-disable no-undef */
 import { getPosts } from '../lib/firestore.js';
 
 export function postComponent(postObj) {

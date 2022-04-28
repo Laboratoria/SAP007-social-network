@@ -1,39 +1,45 @@
-import { getPost } from '../lib/firestore.js';
-import {postComponent} from '../components/posts.js';
-import {printNav} from '../components/navbar.js';
-//import writePost from "../pages/writePost.js";
+import { getPosts } from '../lib/firestore.js';
+import { postComponent } from '../components/posts.js';
+import { printNav } from '../components/navbar.js';
+import { auth } from '../configs/config.firebase.js';
+import { createPost } from '../lib/firestore.js';
 
 export default function feed() {
-  const feed = document.createElement("section");
-  //const template 
+  const feedContainer = document.createElement("section");
 
-  feed.innerHTML= `
+  feedContainer.innerHTML = `
+  <div class="new-post-writePost">
+    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required	>
+    </textarea>
+    <button class="post-btn" id="new-post-btn">Postar</button>
+  </div>
   <section class="show-posts" id="showPosts">
-
   </section>
     `;
 
-  feed.appendChild(printNav());
+  feedContainer.appendChild(printNav());
   //feed.innerHTML+= printNav();
-  
-  
 
-  // const sectionPost = feed.querySelector("#showPosts");
-  // const newRecipe = feed.querySelector("#btn-new-recipe");
+  const sectionPost = feedContainer.querySelector("#showPosts");
+  const postContent = feedContainer.querySelector('#write-post');
+  const btnPost = feedContainer.querySelector('#new-post-btn');
 
-  // newRecipe.addEventListener("click", e);
-  // {
-  //   e.preventDefault();
-  //   window.location.hash = "#writePost";
-  // }
+  btnPost.addEventListener("click", (e) => {
+    e.preventDefault();
+    createPost(postContent.value, auth.currentUser.email);
+    showPosts();
+  })
 
-  const showAllPosts = async () => {
-    const allPosts = await getPost();
-    allPosts.forEach((item) => {
-      const postElement = postComponent(item);
+  const showPosts = async () => {
+    sectionPost.innerHTML = '';
+    const postsArray = await getPosts();
+    console.log(postsArray);
+    postsArray.forEach((postObj) => {
+      const postElement = postComponent(postObj);
       sectionPost.prepend(postElement);
     });
   };
-  showAllPosts();
-  return feed;
+  showPosts();
+  console.log(feedContainer);
+  return feedContainer;
 }

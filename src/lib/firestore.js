@@ -9,9 +9,9 @@ const db = getFirestore();
 
 export const createPost = async (textPost, userEmail) => {
   try {
-    const docRef = await addDoc(collection(db, 'post'), {
-      textPost,
-      userEmail,
+    const docRef = await addDoc(collection(db, 'posts'), {
+      recipe: textPost,
+      author: userEmail,
       date: new Date(),
     });
     console.log('Document written with ID: ', docRef.id);
@@ -20,16 +20,18 @@ export const createPost = async (textPost, userEmail) => {
   }
 };
 
-export const getPost = async () => {
+export async function getPosts() {
   const arrPost = [];
-  const querySnapshot = await getDocs(collection(db, 'post'));
+  const querySnapshot = await getDocs(collection(db, 'posts'));
   querySnapshot.forEach((doc) => {
-    const timeline = doc.data();
-    // console.log(`${doc.id} => ${doc.data()}`);
-    arrPost.push(timeline);
+    const postObj = doc.data();
+    postObj.id = doc.id;
+    console.log('Oie', postObj.date, postObj.title, postObj.author, postObj.recipe);
+    arrPost.push(postObj);
   });
   return arrPost;
-};
+  }
+  console.log(getPosts());
 
 // const createPost = async (e) => {
 //     e.preventDefault();
