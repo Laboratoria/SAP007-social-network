@@ -1,4 +1,4 @@
-//import { ... } from '../lib/index.js';
+//import {  } from "../lib/firestore-firebase.js"
 
 export default function posts() {
     const profilePage = document.createElement("div");
@@ -8,7 +8,7 @@ export default function posts() {
     <input type="search" placeholder="Buscar">
     <button>Buscar</button>
     <button><img class="profile-user-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></button>
-    <textarea>
+    <textarea class="postProfile">
     Conta um pouco sobre o quadrinho que você esta lendo?
     </textarea>
     <button>POSTAR</button>

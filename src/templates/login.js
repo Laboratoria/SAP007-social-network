@@ -36,27 +36,35 @@ export default function login() {
   return container;
 }
 
+const email = login.querySelector('#email');
+const password = login.querySelector('#password');
+const loginError = login.querySelector('#loginError');
+const signInButton = login.querySelector('#signin-button');
 
-function validacaoEmail(field) {
-  usuario = field.value.substring(0, field.value.indexOf("@"));
-  dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
-  if ((usuario.length >=1) &&
-      (dominio.length >=3) &&
-      (usuario.search("@")==-1) &&
-      (dominio.search("@")==-1) &&
-      (usuario.search(" ")==-1) &&
-      (dominio.search(" ")==-1) &&
-      (dominio.search(".")!=-1) &&
-      (dominio.indexOf(".") >=1)&&
-      (dominio.lastIndexOf(".") < dominio.length - 1)) {
-  document.getElementById("inputEmail").innerHTML="E-mail válido";
-  alert("email valido");
+
+signInButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (email.value) {
+    signIn(email.value, password.value)
+      .then(() => {
+        window.location.hash = 'timeline'; 
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/invalid-email') {
+          loginError.style.color = 'red"';
+          loginError.innerHTML = 'Não há registro de usuário correspondente a este e-mail';
+        } else if (errorCode === 'auth/wrong-password') {
+          loginError.style.color = 'red';
+          loginError.innerHTML = 'Senha inválida';
+        }
+      });
+  } else {
+   loginError.innerHTML='Preencha o campo de E-mail"();
   }
-  else{
-  document.getElementById("inputEmail").innerHTML="<font color='red'>Email inválido </font>";
-  alert("E-mail invalido");
-  }
-  }
+});
+
+
 
 
 
