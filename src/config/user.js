@@ -1,25 +1,22 @@
 import { auth, db } from './start-firebase.js';
 import { collection, addDoc, onAuthStateChanged } from './export.js';
 
-export async function userCollection(socialName, email, id) {
+export async function userCollection(name, email, id) {
   try {
-    const docRef = await addDoc(collection(db, 'user'), {
-      socialName: socialName,
+    const user = {
+      socialName: name,
       userEmail: email,
       userId: id,
-    });
-    return docRef.id;
+    };
+    const docRef = await addDoc(collection(db, 'user'), user);
+    return docRef;
   } catch (e) {
-    return null;
+    return e;
   }
 }
 
-export function authChange() {
+export function authChange(cb) {
   return onAuthStateChanged(auth, (user) => {
-    if (user !== null) {
-      user.socialName;
-      user.email;
-      user.id;
-    }
+    cb(user !== null);
   });
 }
