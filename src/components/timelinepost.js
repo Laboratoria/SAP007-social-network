@@ -15,7 +15,6 @@ export function postElement(post, uid) {
           </div>
         </div>
       </div> 
-
       <nav class="nav-remove-modify flex">
       </nav>
     </div>
@@ -35,10 +34,10 @@ export function postElement(post, uid) {
   modifyForm.setAttribute('class', 'form-modify-post');
   modifyForm.innerHTML = `
   <div class="content-edit-post flex">
-    <textarea class="modify-input-value" id="data-input-value">
+    <textarea class="modify-input-value">
     </textarea>
-    <button class="confirm-modify btn-edit-style" id="data-confirm-edit">Confirmar Editar</button>
-    <button class="close-modify btn-edit-style" id="data-cancel-edit">Cancelar Editar</button>
+    <button class="confirm-modify btn-edit-style">Confirmar Editar</button>
+    <button class="close-modify btn-edit-style">Cancelar Editar</button>
   </div>
   `;
   // const modal com template do modal de excluir
@@ -47,22 +46,29 @@ export function postElement(post, uid) {
   if (uid === post.userUid) {
     mainPost.appendChild(modifyForm);
     navRemoveModifie.innerHTML = `
-      <button class="btn-config-post">
-        <span id="balls" class="balls"></span>
-      </button>
-      <ul class="configs-post">
-        <li class="btn-config"><button
-        id="data-post-remove" 
-        class="btn-config remove">Remover</button></li>
-        <li class="btn-config"><button class="modify
-        btn-config">Editar</button></li>
-      </ul>`;
+    <button class="meatball-menu flex">
+      <span id="balls" class="balls"></span>
+      <span id="balls" class="balls"></span>
+      <span id="balls" class="balls"></span>
+    </button>
+    <div class="menu-edit-remove">
+      <ul class="configs-posts">
+        <li class="btn-config"><button class="btn-config remove"><img src="../img/iconeLixeira.png" alt="Icone remover post" class="img-delete"></button></li>
+        <li class="btn-config"><button class="modify btn-config"><img src="../img/iconeEditar.png" alt="Icone editar post" class="img-edit"></button></li>
+      </ul> 
+    </div>  `;
 
     const btnRemove = timelinePost.querySelector('.remove');
     const btnEdit = timelinePost.querySelector('.modify');
     const btnCancelEdit = timelinePost.querySelector('.close-modify');
     const btnConfirmEdit = timelinePost.querySelector('.confirm-modify');
     const inputModify = timelinePost.querySelector('.modify-input-value');
+    const btnMenu = timelinePost.querySelector('.meatball-menu');
+    const menuEditRemove = timelinePost.querySelector('.menu-edit-remove');
+
+    btnMenu.addEventListener('click', () => {
+      menuEditRemove.classList.toggle('active');
+    });
 
     btnRemove.addEventListener('click', () => {
       console.log('cliquei');
@@ -74,6 +80,7 @@ export function postElement(post, uid) {
     btnEdit.addEventListener('click', () => {
       modifyForm.style.display = 'block';
       inputModify.value = timelinePost.querySelector('#post-text').textContent;
+      menuEditRemove.classList.toggle('active');
     });
 
     btnCancelEdit.addEventListener('click', (e) => {

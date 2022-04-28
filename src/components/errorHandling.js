@@ -1,28 +1,32 @@
 export const errorHandlingGeneral = (error) => {
-  let valorRetorno;
+  let returnValue;
 
   switch (error.code) {
     case 'auth/invalid-email':
-      valorRetorno = 'Campos obrigatórios';
+      returnValue = 'Campos obrigatórios';
 
       break;
     case 'auth/internal-error':
-      valorRetorno = 'Campos obrigatórios';
+      returnValue = 'Campos obrigatórios';
 
       break;
     case 'auth/wrong-password':
-      valorRetorno = 'Email ou senhas estão errados';
+      returnValue = 'Email ou senhas estão errados';
 
       break;
     case 'auth/user-not-found':
-      valorRetorno = 'Usuário não cadastrado, registre-se!';
+      returnValue = 'Usuário não cadastrado, registre-se!';
 
       break;
     case 'auth/user-disabled':
-      valorRetorno = 'Não foi possivel logar com sua conta Google';
+      returnValue = 'Não foi possivel logar com sua conta Google';
+      break;
+
+    case 'auth/popup-closed-by-user':
+      returnValue = 'Não foi possivel logar com sua conta Google';
       break;
     default:
   }
 
-  return valorRetorno;
+  return returnValue;
 };
