@@ -7,7 +7,7 @@ export default function formRegister() {
   registerPage.innerHTML = `
     <header>
       <h1 class="title-register">Crie uma conta</h1>
-      <h2 class="subtitle-register">Inscreva-se com sua conta do google ou endereço de e-mail</h2>
+      <h2 class="subtitle-register">Inscreva-se com sua conta do google <br> ou endereço de e-mail</h2>
       <button id="button-google" class="button-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
     </header>
     <main>
@@ -25,10 +25,13 @@ export default function formRegister() {
             <label for="password-register" class="label-password">Senha</label>
             <input type="password" id="password-register" class="form-fields" placeholder="Senha" autocomplete="on"/>
           
-          <button type="button" id="button-register" class="button-register" >Enviar</button>
-          <p id="error-message" class="alert"></p>
+          <button type="button" id="button-register" class="button-register">Enviar</button>
+          <button type="button" id="button-register-back" class="button-register-back">Voltar</button>
+
+          <p id="error-message" class="alert-error"></p>
         </div>
       </form>
+      <p class="footer-register">Desenvolvido por Helena G. Silva <a class="footer-register" href="https://github.com/nannayusuf">[GitHub]</a> e Jaqueline de Oliveira <a class="footer-register" href="https://github.com/jaquelinedeoliveira93">[GitHub]</a></p>
     </main>
   `;
   const msgError = registerPage.querySelector("#error-message");
@@ -70,6 +73,13 @@ export default function formRegister() {
           alert("O pop-up foi bloqueado pelo navegador.");
         }
       });
+  })
+
+  //Função para voltar para a página de login
+  const goBackButton = registerPage.querySelector("#button-register-back");
+  goBackButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.hash = "login";
   })
 
   return registerPage;
