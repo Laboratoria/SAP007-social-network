@@ -18,11 +18,13 @@ export default function card(item) {
   publications.innerHTML = mold;
 
   const buttonsLike = publications.querySelector(".buttons-like");
+  const likeImage = publications.querySelector(".img-like");
 
   buttonsLike.addEventListener("click", async () => {
     const user = auth.currentUser;
     if (!item.likes.includes(user.uid)) {
       like(item.id, user.uid);
+      likeImage.setAttribute("src", "./images/icon-like.jpg");
     } else {
       dislike(item.id, user.uid);
     }
