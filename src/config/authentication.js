@@ -20,10 +20,12 @@ export function registerNewUser(name, email, password) {
           window.location.hash = '#feed';
         })
         .catch(() => {
+          const message = document.querySelector('#message');
           message.innerHTML = 'Email de verificação não enviado!';
         });
     })
     .catch((error) => {
+      const message = document.querySelector('#message');
       switch (error.code) {
         case 'auth/email-already-in-use':
           message.innerHTML = 'Email já cadastrado! Escolha outro email.';
@@ -42,6 +44,7 @@ export function authUserLabFriends(email, password) {
       window.location.hash = '#feed';
     })
     .catch((error) => {
+      const message = document.querySelector('#message');
       switch (error.code) {
         case 'auth/user-not-found':
           message.innerHTML = 'Usuário não encontrado! <br>Crie um cadastro na LabFriends!';
