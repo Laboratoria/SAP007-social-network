@@ -31,6 +31,13 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+.container-like {
+  display: flex;
+  width: 30%;
+}
+.img-like {
+  width: 20%;
+}
 
 @media (min-width: 768px) and (max-width: 2142px) {
   .publicated {

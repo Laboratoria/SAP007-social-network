@@ -23,12 +23,17 @@ export default () => {
   const email = container.querySelector(".email-register");
   const password = container.querySelector(".password-register");
   const message = container.querySelector(".error");
-  //const user = container.querySelector(".username");
+  //const registered = container.querySelector(".registered");
 
   container.addEventListener("submit", (e) => {
     e.preventDefault();
     userCreate(email.value, password.value)
       .then(function () {
+        //registered.innerHTML = "Usuário(a) cadastrado(a) com sucesso";
+        alert("Usuário cadastrado com sucesso");
+        // setTimeout(() => {
+        // console.log("Usuário(a) cadastrado(a) com sucesso")
+        // },"50000");
         window.location.hash = "#timeline";
       })
       .catch((error) => {

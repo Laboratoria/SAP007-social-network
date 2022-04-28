@@ -32,7 +32,8 @@
 }
 .user-register {
   margin: auto;
-  margin-bottom: 15%;
+  margin-bottom: 25%;
+  margin-top: -20%;
 }
 .user-register a {
   color: black;
@@ -69,5 +70,8 @@
   }
   .button-enter {
     width: 30%;
+  }
+  .user-register {
+    margin-top: -10%;
   }
 }

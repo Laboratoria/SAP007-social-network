@@ -42,7 +42,6 @@ export default () => {
   const valueTitle = container.querySelector(".title");
   const valueText = container.querySelector(".text");
   const logout = container.querySelector(".logout");
-  const data = new Date();
   const post = container.querySelector(".post");
   const errorTitle = container.querySelector(".error-title");
   const errorText = container.querySelector(".error-text");
@@ -50,9 +49,9 @@ export default () => {
   post.addEventListener("keyup", () => {
     const title = valueTitle.value;
     const text = valueText.value;
-    if (title.length >= 3) {
+    if (title.length >= 3 && text.length >= 10) {
       errorTitle.innerHTML = "";
-    } else if (text.length >= 10) {
+      buttonPost.disabled = false;
       errorText.innerHTML = "";
     } else {
       errorTitle.innerHTML = "Insira um título válido";
@@ -64,32 +63,13 @@ export default () => {
     e.preventDefault();
     const title = valueTitle.value;
     const text = valueText.value;
-    const id = await publicatedPost(title, text);
+    await publicatedPost(title, text);
     auth.currentUser.displayName;
     showAllPosts();
+    buttonPost.disabled = true;
     valueTitle.value = "";
     valueText.value = "";
   });
-
-  // buttonPost.addEventListener("click", async (e) => {
-  //   e.preventDefault();
-  //   const title = valueTitle.value;
-  //   const text = valueText.value;
-  //   if (title.length < 3) {
-  //     errorTitle.innerHTML = "Insira um título válido";
-  //   } else if (text.length < 10) {
-  //     errorText.innerHTML = "Insira um texto válido";
-  //   } else {
-  //     const id = await publicatedPost(title, text);
-  //     errorTitle.innerHTML = "";
-  //     errorText.innerHTML = "";
-  //     auth.currentUser.displayName;
-  //     showAllPosts();
-  //     valueTitle.value = "";
-  //     valueText.value = "";
-  //   }
-  // });
-
 
   logout.addEventListener("click", (e) => {
     e.preventDefault();
@@ -97,6 +77,7 @@ export default () => {
       window.location.hash = "";
     });
   });
+
   const showAllPosts = async () => {
     const allPosts = await getPost();
     allPosts.map((item) => {
@@ -105,5 +86,6 @@ export default () => {
     });
   };
   showAllPosts();
+
   return container;
 };
