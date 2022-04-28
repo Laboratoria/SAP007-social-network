@@ -2,18 +2,20 @@
 
 // import { createLogin } from '../register/page-register.js';
 import { logar, logarGmail } from './authentication.js';
-import { errorHandlingGeral } from './errorHandling.js';
+import { errorHandlingGeneral } from '../../components/errorHandling.js';
 
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
-  login.innerHTML = `    
-      <figure class="box-slogan-page-login">
-        <img src="./img/kfandom.svg" alt="Logotype" class="logo-page-login">
-      </figure>  
-      <figure class="section-btn-about" id="section-btn-about">
-        <button class="btn-about" id="btn-about"><img src="./img/" alt="btn-about" class="img-btn-about"></button>
-      </figure>
+  login.innerHTML = `  
+
+  <section class="header-page-login">
+    <figure class="box-slogan-page-login">
+      <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
+    </figure>  
+    <a href="#about" class="btn-about" id="btn-about"><img src="./img/iconeInterrogacao.png" alt="botão interrogação" class="img-btn-about"></a>
+  </section>     
+       
       <figure class="box-slogan-desktop-page-login">
         <img src="./img/imgLogoDesktop.png" alt="Logotype" class="logo-desktop">
       </figure>
@@ -23,7 +25,7 @@ export const pageLogin = () => {
         <form method="post" class = "form-login">
           <input type="email" placeholder="seu@email.com" class="login-area font-size" id="email-area" name="email-area" requered>
           <input type="password" placeholder="Senha" class="login-area font-size" id="password-area" name="password-area" requered>
-          <button class="btn-sign-in btn-area font-size" id="btn-sign-in">Entrar</button>          
+          <button class="btn-sign-in font-size" id="btn-sign-in">Entrar</button>          
         </form>
       <p class="error text-center font-size" id="user-error"></p> 
       <p class="error text-center font-size" id = "user-error-gmail"></p>
@@ -55,8 +57,7 @@ export const pageLogin = () => {
         console.log('success', response);
         window.location.hash = '#feed';
       }).catch((error) => {
-        console.log(error.code);
-        userError.innerHTML = errorHandlingGeral(error);
+        userError.innerHTML = errorHandlingGeneral(error);
         userError.style.display = 'block';
       });
     }
@@ -68,8 +69,7 @@ export const pageLogin = () => {
     logarGmail().then(() => {
       window.location.hash = '#feed';
     }).catch((error) => {
-      console.log(error);
-      userErrorGmail.innerHTML = errorHandlingGeral(error);
+      userErrorGmail.innerHTML = errorHandlingGeneral(error);
       userErrorGmail.style.display = 'block';
     });
   });
