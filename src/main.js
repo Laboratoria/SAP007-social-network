@@ -23,13 +23,11 @@ const redirect = () => {
   }
 
 };
-
 const init = () => {
   window.addEventListener("hashchange", () => {
     redirect();
   });
 }
-
 window.addEventListener("load", () => {
   redirect();
   init();
