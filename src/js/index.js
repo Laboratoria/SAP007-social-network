@@ -1,11 +1,15 @@
+// Autenticação e configurações
+import { logout, authChange } from "../config/authentication.js";
+
+// Páginas
 import { createLogin } from "./pages/login.js";
 import { createRegister } from "./pages/register.js";
-import { createHeader } from "./components/header.js";
 import { createFeed } from "./pages/feed.js";
 import { createFriends } from "./pages/friends.js";
 import { createProfile } from "./pages/profile.js";
-import { logout } from "../config/authentication.js";
-import { authChange } from "../config/user.js";
+
+// Componentes
+import { createHeader } from "./components/header.js";
 import { initModal } from "../js/components/modal.js";
 import { createNewPost } from "../js/components/add-post.js";
 
@@ -18,28 +22,35 @@ window.addEventListener("load", () => {
 
 function redirectPages() {
   container.innerHTML = "";
-  const loggedIn = authChange();
-  switch (window.location.hash) {
-    default:
-    case "#login":
-      container.append(createLogin());
-      break;
-    case "#register":
-      container.append(createRegister());
-      break;
-    case "#feed":
-      if (loggedIn) internalRoute("feed");
-      else window.location.hash = "#home";
-      break;
-    case "#friends":
-      if (loggedIn) internalRoute("friends");
-      else window.location.hash = "#home";
-      break;
-    case "#profile":
-      if (loggedIn) internalRoute("profile");
-      else window.location.hash = "#home";
-      break;
-  }
+
+  authChange((logged) => {
+    if (logged) {
+      switch (window.location.hash) {
+        case "#friends":
+          internalRoute("friends");
+          break;
+        case "#profile":
+          internalRoute("profile");
+          break;
+        case "#feed":
+        default:
+          window.location.hash = "#feed";
+          internalRoute("feed");
+          break;
+      }
+    } else {
+      switch (window.location.hash) {
+        case "#register":
+          container.append(createRegister());
+          break;
+        case "#login":
+        default:
+          window.location.hash = "#login";
+          container.append(createLogin());
+          break;
+      }
+    }
+  });
 }
 
 function internalRoute(page) {

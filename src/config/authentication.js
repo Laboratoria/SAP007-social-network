@@ -6,9 +6,10 @@ import {
   signOut,
   sendPasswordResetEmail,
   sendEmailVerification,
+  onAuthStateChanged
 } from "./export.js";
 import { auth } from "./start-firebase.js";
-import { userCollection } from "./user.js";
+// import { userCollection } from "./user.js";
 
 export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -16,7 +17,7 @@ export function registerNewUser(name, email, password) {
       const userId = userCredential.user.uid;
       sendEmailVerification(auth.currentUser)
         .then(() => {
-          userCollection(name, email, userId);
+          // userCollection(name, email, userId);
           alert("Cadastro realizado com sucesso!");
           window.location.hash = "#feed";
         })
@@ -39,8 +40,8 @@ export function registerNewUser(name, email, password) {
 export function authUserLabFriends(email, password) {
   return signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const userName = userCredential.user.name;
-      const userId = userCredential.user.uid;
+      // const userName = userCredential.user.name;
+      // const userId = userCredential.user.uid;
       window.location.hash = "#feed";
     })
     .catch((error) => {
@@ -50,7 +51,7 @@ export function authUserLabFriends(email, password) {
             "Usuário não encontrado! Crie um cadastro na LabFriends!";
           break;
         case "auth/wrong-password":
-          message.innerHTML = "Senha errada! Digite novamente!";
+          message.innerHTML = "Autenticação inválida, verifica seu e-mail e senha!";
           break;
       }
     });
@@ -61,10 +62,10 @@ export function authUserWithGoogle() {
   return signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const userName = result.user.displayName;
-      const userEmail = result.user.email;
-      const userId = credential.accessToken;
-      userCollection(userName, userEmail, userId);
+      // const userName = result.user.displayName;
+      // const userEmail = result.user.email;
+      // const userId = credential.accessToken;
+      // userCollection(userName, userEmail, userId);
       window.location.hash = "#feed";
     })
     .catch((error) => {
@@ -81,4 +82,10 @@ export function logout() {
 
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email);
+}
+
+export function authChange(cb) {
+  return onAuthStateChanged(auth, (user) => {
+    cb(user !== null);
+  });
 }

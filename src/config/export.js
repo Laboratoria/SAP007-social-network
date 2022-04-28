@@ -6,10 +6,10 @@ export {
   onAuthStateChanged,
   signOut,
   sendPasswordResetEmail,
-  sendEmailVerification,
+  sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
 
 export {
   collection,
-  addDoc,
+  addDoc
 } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
