@@ -1,10 +1,9 @@
 import './configs/start-firebase.js';
-// import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+import { isLoggedIn } from './configs/authentication.js';
 import login from './pages/login/login.js';
 import newuser from './pages/newuser/newuser.js';
 import recover from './pages/login/recover.js';
 import feed from './pages/feed/feed.js';
-import { isLoggedIn } from './configs/authentication.js';
 import about from './pages/about/about.js';
 import userprofile from './pages/userprofile/userprofile.js';
 
@@ -25,13 +24,31 @@ function redirect() {
       main.appendChild(recover());
       break;
     case '#feed':
-      main.appendChild(feed());
-      break;
+      isLoggedIn((logged) => {
+        if (logged) {
+          main.appendChild(feed());
+        } else{
+          window.location.hash = '#login';
+        }
+      }) 
+      break; 
     case '#userprofile':
-      main.appendChild(userprofile());
-      break;
+      isLoggedIn((logged) => {
+        if (logged) {
+          main.appendChild(userprofile());
+        } else {
+          window.location.hash = '#login';
+        }
+      }) 
+      break; 
     case '#about':
-      main.appendChild(about());
+      isLoggedIn((logged) => {
+        if (logged) {
+          main.appendChild(about());
+        } else {
+          window.location.hash = '#login';
+        }
+    })  
       break;
     default:
       main.appendChild(login());
@@ -45,9 +62,4 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   redirect();
-  isLoggedIn((logged) => {
-    if (logged) {
-      window.location.hash = '#feed';
-    }
-  });
 });

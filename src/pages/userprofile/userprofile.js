@@ -2,8 +2,10 @@ import {
   getUserPosts,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
-import header from '../components/header.js';
-
+import { 
+  header,
+  logoutUser
+} from '../components/header.js';
 import { createCardPost } from '../components/post.js';
 
 export default () => {
@@ -24,6 +26,29 @@ export default () => {
 
   container.appendChild(header());
   container.innerHTML += templateUserProfile;
+
+  const logoutButton = container.querySelector('#btn-exit');
+  logoutButton.addEventListener('click', logoutUser)
+
+  // função botão menu hamburguer
+  const btnMobile = container.querySelector('#btn-mobile');
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+
+  function toggleMenu(event) {
+    if (event.type === 'touchstart') {
+      event.preventDefault();
+    }
+    const nav = container.querySelector('#nav');
+    nav.classList.toggle('active');
+    const navActive = nav.classList.contains('active');
+    event.currentTarget.setAttribute('aria-expanded', navActive);
+    if (navActive) {
+      event.currentTarget.setAttribute('aria-label', 'Close Menu');
+    } else {
+      event.currentTarget.setAttribute('aria-label', 'Open Menu');
+    }
+  }
 
   const printDisplayName = container.querySelector('#name-user');
   const printEmail = container.querySelector('#email-user');

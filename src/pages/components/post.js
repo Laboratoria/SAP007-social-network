@@ -8,16 +8,17 @@ import {
 
 export function createCardPost(post) {
   const seeWichPage = window.location.hash === '#userprofile';
+  const colorLike = post.likes.includes(auth.currentUser.uid);
 
   const containerPost = document.createElement('div');
   const templateCardPost = `
     <div class="card">
-      <p class="date-card">Postado em:${post.date}</p}
+      <p class="date-card">${post.date}</p>
       <section class="post-infos">
         <p class="write-message">${post.message[0].toUpperCase() + post.message.substr(1)}</p>    
         <p class="author">${post.displayName}</p>
         <button class="button-heart">
-          <i class="fa fa-heart like-btn" id="like-button"></i>
+          <i class="fa fa-heart like-btn ${colorLike ? 'liked' : ''}" id="like-button"></i>
          
           <span class="button-heart-text" id="number-of-likes" data-number="${post.likes}">${post.likes.length}</span>
         </button> 
@@ -33,6 +34,8 @@ export function createCardPost(post) {
       </section>
     </div>    
   `;
+
+  
 
   containerPost.innerHTML = templateCardPost;
 
@@ -67,12 +70,7 @@ export function createCardPost(post) {
     const editButton = containerPost.querySelector('#button-edit-post');
     const modalAlert = containerPost.querySelector('#modal-delete');
 
-    deleteButton.addEventListener('click', async () => {
-      // confirmAlertDelete()
-      /* if(confirmWantDelete){
-        await getFunctionDelet(post.id)
-        containerPost.remove();
-      } */
+    deleteButton.addEventListener("click", async () => {
       const confirmAlertDelete = () => {
         const alertContainer = document.createElement('div');
         alertContainer.classList.add('alert-box');
@@ -88,9 +86,9 @@ export function createCardPost(post) {
         `;
 
         modalAlert.innerHTML = templateConfirmDelete;
-        modalAlert.style.display = 'block';
-        deleteButton.style.visibility = 'hiden';
-        editButton.style.visibility = 'hiden';
+        modalAlert.style.display = "block";
+        deleteButton.style.visibility = "hidden";
+        editButton.style.visibility = "hidden";
 
         const hideAlert = modalAlert.querySelector('#no-alert');
         const confirmAlert = modalAlert.querySelector('#yes-alert');
