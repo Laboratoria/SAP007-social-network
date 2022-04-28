@@ -1,5 +1,11 @@
-CSS 
-corrigir classes de português para inglês
 
 TIMELINE
 arrumar o tamanho do textarea
+
+
+- arrumar o tamanho do modal
+- arrumar o tamanho do menu dropdown
+- arrumar responsivo feed
+- arrumar profile
+- arrumar friends-list
+- arrumar edit-profile

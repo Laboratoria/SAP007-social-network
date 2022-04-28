@@ -1,5 +1,5 @@
 :root {
-  --font-emphasis: "Bitter", serif, "Helvetica Neue", Arial;
+  --font-emphasis: 'Bitter', serif, 'Helvetica Neue', Arial;
 
   --color-dark-pink: #ff009e;
   --color-light-pink: #ffb8e1;
@@ -22,9 +22,8 @@
 
   --spacing-small: 5px;
   --spacing-medium: 10px;
-  --spacing-error: 8px 0 5px 0;
   --spacing-small-line: 5px 0;
-  --spacing-small-login-logo: 10px 0 20px 0;
+  --spacing-small-login-logo: 10px 0 30px 0;
   --spacing-medium-login-logo: 15px 0 30px 0;
   --spacing-big-login-logo: 18px 0 35px 0;
   --spacing-medium-top-bottom: 15px 0;

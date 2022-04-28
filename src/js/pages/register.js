@@ -10,9 +10,9 @@ function registerUser(e) {
   const message = document.querySelector('#message');
 
   if (password !== passwordRepeat) {
-    message.innerHTML = 'As duas senhas não coincidem. Digite-as novamente!';
+    message.innerHTML = 'As duas senhas não coincidem.<br>Digite-as novamente!';
   } else if (!newEmail) {
-    message.innerHTML = 'Preencha o campo de email corretamente!';
+    message.innerHTML = 'Preencha o campo<br>de email corretamente!';
   } else if (name && email && password && passwordRepeat && newEmail) {
     registerNewUser(name, email, password);
   }
@@ -40,7 +40,7 @@ export function createRegister() {
         Repita a Senha
       </label>
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
-      <span id="message"></span>
+      <p id="message"></p>
       <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <a href="#login" class="link small-text-right">
         < Voltar para o Login

@@ -34,31 +34,30 @@ export const createHeader = `
                   <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
                 </a>
+                <section data-menu="container">
+                  <div class="modal-menu">
+                    <button data-menu="close">X</button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#profile" class="container-dropdown">
+                          <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
+                          <div class="drop-text">
+                            <p class="name-user">Nome do Usuário</p>
+                            <p class="text-small">Veja seu perfil</p>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <button id="button-logout" class="user-button button-pink">
+                          SAIR
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
               </li>
             </ul>
           </nav>
-        </section>
-        
-        <section data-menu="container">
-          <div class="modal-menu">
-            <button data-menu="close">X</button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#profile" class="container-dropdown">
-                  <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
-                  <div class="drop-text">
-                    <p class="name-user">Nome do Usuário</p>
-                    <p class="text-small">Veja seu perfil</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <button id="button-logout" class="user-button button-pink">
-                  SAIR
-                </button>
-              </li>
-            </ul>
-          </div>
         </section>
 
         <section class="modal-container" data-post="container">

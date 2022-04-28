@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 #root {
-  font-family: 'Segoe UI', Helvetica, Arial, Verdana;
+  font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,13 +83,13 @@ button {
 @media screen and (min-width: 550px) and (max-width: 1799px) {
   .container-login {
     max-width: 31.25rem;
-    max-height: 36rem;
+    max-height: 39rem;
   }
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
   .container-login {
     max-width: 37.5rem;
-    max-height: 40.63rem;
+    max-height: 45rem;
   }
 }

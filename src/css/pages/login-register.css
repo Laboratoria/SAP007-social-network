@@ -4,6 +4,7 @@
   align-self: center;
 }
 .user-form {
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,11 +33,6 @@ input {
   margin-bottom: var(--spacing-medium);
 }
 
-input[type=button]:hover {
-  cursor: pointer;
-  background-color: var(--color-dark-yellow);
-}
-
 .user-input {
   background-color: var(--color-light-yellow);
 }
@@ -51,7 +47,7 @@ input::placeholder {
 .small-text-right {
   align-self: flex-end;
   font-size: 0.875rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 .line {
   background-color: var(--color-black);
@@ -88,13 +84,12 @@ input::placeholder {
   align-items: center;
 }
 #message {
+  width: 100%;
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.5;
   color: var(--color-dark-pink);
   text-align: center;
-  width: 100%;
-  margin: var(--spacing-error);
 }
 
 @media screen and (min-width: 550px) {
@@ -135,6 +130,9 @@ input::placeholder {
   .emphasis-pink {
     font-size: 1rem;
   }
+  #message {
+    font-size: 1.125rem;
+  }
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
@@ -168,5 +166,8 @@ input::placeholder {
   .new-account,
   .emphasis-pink {
     font-size: 1.125rem;
+  }
+  #message {
+    font-size: 1.25rem;
   }
 }

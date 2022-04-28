@@ -29,10 +29,10 @@ export function registerNewUser(name, email, password) {
       const message = document.querySelector('#message');
       switch (error.code) {
         case 'auth/email-already-in-use':
-          message.innerHTML = 'Email já cadastrado! Escolha outro email.';
+          message.innerHTML = 'Email já cadastrado!<br>Escolha outro email.';
           break;
         case 'auth/weak-password':
-          message.innerHTML = 'Sua senha deve ter no mínimo 6 caracteres.';
+          message.innerHTML = 'Sua senha deve ter no<br> mínimo 6 caracteres.';
           break;
         default:
       }
@@ -48,10 +48,10 @@ export function authUserLabFriends(email, password) {
       const message = document.querySelector('#message');
       switch (error.code) {
         case 'auth/user-not-found':
-          message.innerHTML = 'Usuário não encontrado! <br>Crie um cadastro na LabFriends!';
+          message.innerHTML = 'Usuário não encontrado!<br>Crie um cadastro na LabFriends!';
           break;
         case 'auth/wrong-password':
-          message.innerHTML = 'Senha errada! Digite novamente!';
+          message.innerHTML = 'Senha errada!<br>Digite novamente!';
           break;
         default:
       }

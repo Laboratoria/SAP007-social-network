@@ -11,7 +11,7 @@ function loginLabFriends(e) {
   if (!email || !password) {
     message.innerHTML = 'Preencha todos os campos!';
   } else if (!newEmail) {
-    message.innerHTML = 'Preencha o campo de email corretamente!';
+    message.innerHTML = 'Preencha o campo<br>de email corretamente!';
   } else if (email && password && newEmail) {
     authUserLabFriends(email, password);
   }
@@ -36,7 +36,7 @@ function resetPassword(e) {
           messageReset.innerHTML = 'Preencha o campo de email!';
           break;
         case 'auth/user-not-found':
-          messageReset.innerHTML = 'Usuário não encontrado! Cadastre-se no LabFriends!';
+          messageReset.innerHTML = 'Usuário não encontrado!<br>Cadastre-se no LabFriends!';
           break;
         default:
       }
@@ -56,7 +56,7 @@ export function createLogin() {
         <a href="#" type="button" class="link small-text-right modal-open" data-email="open">
           Esqueceu a senha?
         </a>
-        <span id="message"></span>
+        <p id="message"></p>
         <button type="submit" id="login-labfriends" class="user-button button-pink">
           ENTRAR
         </button>
