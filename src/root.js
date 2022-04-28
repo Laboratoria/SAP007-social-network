@@ -15,11 +15,11 @@ const redirect = () => {
         case "#register":
             main.appendChild(register());
             break;
-        case "#posts":
-            main.appendChild(posts());
-            break;
         case "#home":
             main.appendChild(home());
+            break;
+        case "#posts":
+            main.appendChild(posts());
             break;
         default:
             main.appendChild(login());

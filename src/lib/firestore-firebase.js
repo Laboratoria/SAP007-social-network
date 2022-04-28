@@ -8,12 +8,13 @@ import {
 import { db } from './config-firebase.js';
 
 export async function getPosts() {
+    const arrPosts = [];
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
+        arrPosts.push(doc.data())
         console.log(doc.id, " => ", doc.data());
     });
-
+    return arrPosts
 }
 
 export async function creatPost(message, titleHQ) {
