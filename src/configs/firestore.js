@@ -36,9 +36,6 @@ export async function newPost(msg) {
   }
 }
 
-/* export const getLikesPost = (postId) => {
-  createUserWithEmailAndPassword(auth, email, password) */
-
 export const likePost = async (postId, user) => {
   console.log(user);
   const postLiked = doc(db, 'posts', postId);
@@ -52,7 +49,6 @@ export const likePost = async (postId, user) => {
 };
 
 export const dislikePost = async (postId, user) => {
- 
   const postLiked = doc(db, "posts", postId);
   try {
     return await updateDoc(postLiked, {
@@ -95,7 +91,7 @@ export const allPosts = async () => {
 export const getUserPosts = async (id) => {
   const arrayOfMyPosts = [];
   const clause = where('userId', '==', id);
-  const querySnapshot = query(collection(db, 'posts'), clause);
+  const querySnapshot = query(collection(db, 'posts'),orderBy('date', 'desc'), clause);
   const test = await getDocs(querySnapshot);
   test.forEach((item) => {
     const post = item.data();
@@ -107,7 +103,6 @@ export const getUserPosts = async (id) => {
 };
 
 export const getFunctionDelet = async (postId) => {
-  console.log(postId)
   await deleteDoc(doc(db, "posts", postId))
 }
 
@@ -116,5 +111,4 @@ export const editAPost = async (postId, editedMessage) => {
   return await updateDoc(postToEdit, {
     message: editedMessage,
   });
-
 }
