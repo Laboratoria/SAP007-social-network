@@ -11,7 +11,7 @@ export default function formRegister() {
       <button id="button-google" class="button-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
     </header>
     <main>
-      <form class="myForm" id="form-register">
+      <form class="register-form" id="form-register">
         <div class="information">
             <label for="name" class="label-name">Nome completo</label>
             <input type="text" id="name" class="form-fields" placeholder="Nome completo"/>
@@ -39,8 +39,12 @@ export default function formRegister() {
   const password = registerPage.querySelector("#password-register");
   const submitButton = registerPage.querySelector("#button-register");
 
+
+  //Validação dos dados do formulário antes de mandar para o firebase
+
+
   //Função para fazer o cadastro
-  submitButton.addEventListener("click", (e) => {
+  /*submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     registerUser(email.value, password.value)
       .then(() => {
@@ -73,13 +77,13 @@ export default function formRegister() {
           alert("O pop-up foi bloqueado pelo navegador.");
         }
       });
-  })
+  })*/
 
   //Função para voltar para a página de login
   const goBackButton = registerPage.querySelector("#button-register-back");
   goBackButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "login";
+    window.location.hash = "posts";
   })
 
   return registerPage;
