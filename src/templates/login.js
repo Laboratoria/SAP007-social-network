@@ -33,13 +33,10 @@ export default function login() {
     window.location.hash = "register";
   });
 
-  return container;
-}
-
-const email = login.querySelector('#email');
-const password = login.querySelector('#password');
-const loginError = login.querySelector('#loginError');
-const signInButton = login.querySelector('#signin-button');
+const email = container.querySelector('#email');
+const password = container.querySelector('#password');
+const loginError = container.querySelector('#loginError');
+const signInButton = container.querySelector('#signin-button');
 
 
 signInButton.addEventListener('click', (e) => {
@@ -62,7 +59,12 @@ signInButton.addEventListener('click', (e) => {
   } else {
    loginError.innerHTML="Preencha o campo de E-mail";
   }
+
+  return container;
+
 });
+
+}
 
 
 
