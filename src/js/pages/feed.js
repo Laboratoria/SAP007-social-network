@@ -1,3 +1,8 @@
+
+import { createNewPost } from "../../config/posts.js";
+import { createAddPost } from "../components/add-post.js";
+import { initModal } from "../components/modal.js";
+
 export function createFeed() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
@@ -57,5 +62,16 @@ export function createFeed() {
 </ul>
     `;
 
+  container.append(createAddPost());
+
+  const btnPublicar = document.querySelector("#btn-publicar");
+  btnPublicar?.addEventListener("click", publish);
   return container;
+}
+
+
+function publish() {
+  const message = document.querySelector("#message");
+  const newPost = message.value;
+  createNewPost(newPost);
 }

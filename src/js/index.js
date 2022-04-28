@@ -7,7 +7,7 @@ import { createProfile } from './pages/profile.js';
 import { logout } from '../config/authentication.js';
 import { authChange } from '../config/user.js';
 import { initModal } from './components/modal.js';
-import { createNewPost } from './components/add-post.js';
+import { createAddPost } from './components/add-post.js';
 
 const container = document.getElementById('root');
 
@@ -48,20 +48,15 @@ function creatingInternalElements() {
 }
 
 function redirectPages() {
-  container.innerHTML = '';
-  const loggedIn = authChange();
+ container.innerHTML = "";
+  authChange((logged) => {
+    if (logged) {
   switch (window.location.hash) {
     case '#login':
       container.append(createLogin());
       break;
     case '#register':
       container.append(createRegister());
-      break;
-    case '#feed':
-      if (loggedIn) {
-        const header = creatingInternalElements();
-        header.after(createFeed());
-      } else window.location.hash = '#home';
       break;
     case '#friends':
       if (loggedIn) {
@@ -76,9 +71,28 @@ function redirectPages() {
       } else window.location.hash = '#home';
       break;
     default:
-      container.append(createLogin());
+      case '#feed':
+      if (loggedIn) {
+        const header = creatingInternalElements();
+        header.after(createFeed());
+      } else window.location.hash = '#home';
       break;
-  }
+    } else {
+      const background = document.querySelector("#root");
+      background.style.backgroundImage = "url(../../img/background.gif)";
+
+      switch (window.location.hash) {
+        case "#register":
+          container.append(createRegister());
+          break;
+        case "#login":
+        default:
+          window.location.hash = "";
+          container.append(createLogin());
+          break;
+      }
+    }
+  });
 }
 
 window.addEventListener('load', () => {

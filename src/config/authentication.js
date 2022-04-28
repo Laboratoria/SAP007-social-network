@@ -80,3 +80,9 @@ export function logout() {
 export function forgotPassword(email) {
   return sendPasswordResetEmail(auth, email);
 }
+
+export function authChange(cb) {
+  return onAuthStateChanged(auth, (user) => {
+    cb(user !== null);
+  });
+}
