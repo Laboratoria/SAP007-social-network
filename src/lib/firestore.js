@@ -30,8 +30,8 @@ export async function getPosts() {
     arrPost.push(postObj);
   });
   return arrPost;
-  }
-  console.log(getPosts());
+}
+console.log(getPosts());
 
 // const createPost = async (e) => {
 //     e.preventDefault();

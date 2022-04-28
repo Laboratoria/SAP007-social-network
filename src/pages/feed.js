@@ -6,19 +6,21 @@ import { createPost } from '../lib/firestore.js';
 
 export default function feed() {
   const feedContainer = document.createElement("section");
+  feedContainer.classList.add("feed-content");
 
   feedContainer.innerHTML = `
-  <div class="new-post-writePost">
-    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required	>
+  <div class="new-post">
+    <input class="recipe-input" id="title-recipe" placeholder="Nome da receita" required></input>
+    <input class="recipe-input" id="author-recipe" placeholder="Autor(a)" required></input>
+    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required>
     </textarea>
     <button class="post-btn" id="new-post-btn">Postar</button>
+    <section class="show-posts" id="showPosts">
+    </section>
   </div>
-  <section class="show-posts" id="showPosts">
-  </section>
     `;
 
   feedContainer.appendChild(printNav());
-  //feed.innerHTML+= printNav();
 
   const sectionPost = feedContainer.querySelector("#showPosts");
   const postContent = feedContainer.querySelector('#write-post');
