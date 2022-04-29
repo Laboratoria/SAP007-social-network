@@ -69,13 +69,13 @@ export const createHeader = `
               <label for="user-comment">
                 <textarea id="message" class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
               </label>
-              <button>
+              <!-- <button>
                 <img src="../img/icons/icon-add-image.png" alt="Ícone de adicionar imagens">
                 <p>adicionar imagem</p>
-              </button>
+              </button> -->
             </section>
             <input id="btn-publicar" type="button" value="PUBLICAR" data-modal="close" />
           </div>
-        </section>
+        </section>x'
       </header>
     `;

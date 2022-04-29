@@ -50,6 +50,7 @@
 }
 .active .modal {
   animation: modal 0.3s forwards;
+  padding: 10px;
 }
 .title-modal {
   font-size: 1.25rem;
