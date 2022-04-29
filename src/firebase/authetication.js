@@ -4,21 +4,25 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signOut
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export function signIn(email, password) {
-  return signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+  return signInWithEmailAndPassword(auth, email, password).then(
+    (userCredential) => {
       const user = userCredential.user;
       console.log('entrou', userCredential);
       return userCredential;
-
-    })
+    }
+  );
 }
+
+export const ExistSession = async () => {
+  const token = localStorage.getItem('token');
+};
 
 export function signInWithGoogle(auth, provider) {
   return signInWithPopup(auth, provider)
@@ -26,7 +30,9 @@ export function signInWithGoogle(auth, provider) {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      console.log("googlei")
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      console.log('googlei');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -46,5 +52,6 @@ export function userCreate(email, password) {
 }
 
 export function logout() {
-  return signOut(auth)
+  localStorage.clear();
+  return signOut(auth);
 }
