@@ -1,91 +1,111 @@
 import {
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup,
-    onAuthStateChanged,
-    signOut,
-    sendPasswordResetEmail,
-  } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-  import { auth } from '../dependencies/config-firebase.js';
-  
-  export function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
-  }
-  
-  export function loginGoogle() {
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        window.location.hash = 'feed';
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(' não entrou com o google');
-      });
-  }
-  
-  export function register(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
-    // .then((userCredential) => {
-    //   const user = userCredential.user;
-    //   const userRef = doc(db, 'users', user.uid);
-    //   setDoc(userRef, { email: email.value, name: completeName.value });
-    //   console.log(user.uid);
-    //   console.log('Entrou no then do service');
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    //   console.log('Entrou no catch do service');
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    // });
-  }
-  
-  
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+  updateProfile,
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+import { auth } from '../dependencies/config-firebase.js';
+
+//Armazenando o usuário logado em uma função reutilizável
+export function current() {
   const user = auth.currentUser;
-  export function loggedIn(callback) {
-    onAuthStateChanged(auth, (user) => {
-      callback(user !== null)
-    });
-  }
-  
-  export function guard() {
-    onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        window.location.hash = '#login';
+  return user;
+}
+
+//Login por e-mail e senha
+export function login(email, password, errorPrint) {
+  return signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      window.location.hash = 'feed';
+    })
+    .catch((error) => {
+      if (error.code === 'auth/wrong-password') {
+        errorPrint.innerHTML = ' Senha incorreta!';
+      } else if (error.code === 'auth/invalid-email') {
+        errorPrint.innerHTML = ' E-mail incorreto!';
+      } else {
+        errorPrint.innerHTML = 'E-mail incorreto ou não cadastrado';
       }
     });
-  }
-  
-  export function logout() {
-    signOut(auth).then(() => {
-      window.location.hash = '#login';
-    }).catch((error) => {
-      console.log('Error no logout')
-      return error
-    });
-  }
-  
-  export function redefinirSenha(email) {
-    sendPasswordResetEmail(auth, email)
+}
+
+//Login por Google
+export function loginGoogle(errorPrint) {
+  const provider = new GoogleAuthProvider();
+  return signInWithPopup(auth, provider)
     .then(() => {
-      console.log('EmailEnviado');
-      console.log('Entrou no then de redefinir');
-      // Password reset email sent!
-      // ..
+      window.location.hash = 'feed';
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      console.log('Entrou no cath de redefinir');
-      // ..
+      const errorEmail = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      if (errorCode || errorEmail || credential) {
+        errorPrint.innerHTML = ' Ocorreu algum erro! Tente novamente mais tarde.';
+      };
     });
-  }
-  
+}
+
+//Função de redefinir a senha
+export function redefinePassword(email, errorPrint) {
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      errorPrint.innerHTML = ' E-mail enviado com sucesso!';
+      errorPrint.style.color = 'green'
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode) {
+        errorPrint.innerHTML = ' Ocorreu algum erro. Tente novamente.';
+      }
+    });
+}
+
+//Cadastar usuário
+export function register(email, password, name, errorPrint) {
+  return createUserWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      const user = auth.currentUser;
+      const photoUser = '../img/user-default-photo.png';
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photoUser
+      })
+    })
+    .then(() => {
+      window.location.hash = '#feed';
+    })
+    .catch((error) => {
+      if (error.code === 'auth/uid-already-exists') {
+        errorPrint.innerHTML = 'E-mail já cadastrado';
+      } else if (error.code === 'auth/email-already-in-use') {
+        errorPrint.innerHTML = 'E-mail já cadastrado';
+      } else if (error.code === 'auth/invalid-email') {
+        errorPrint.innerHTML = 'E-mail inválido';
+      } else {
+        errorPrint.innerHTML = ' Ocorreu algum erro! Tente novamente.';
+      }
+    });
+}
+
+//Função de manter o usuário logado
+export function logged(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user !== null)
+  });
+}
+
+//Função de sair da conta
+export function logout() {
+  signOut(auth)
+    .then(() => {
+      window.location.hash = '#login';
+    })
+    .catch((error) => {
+      return error
+    });
+}
