@@ -1,0 +1,44 @@
+.nav-publish {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1rem solid gray;
+}
+
+.main-content {
+  height: 67.5%;
+}
+
+.feedPublish {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-publish {
+  position: absolute;
+  width: 97%;
+  bottom: 3.65rem;
+}
+
+.addImage,
+.btnPublicar {
+  width: 100%;
+  height: 2.3rem;
+}
+
+textarea {
+  height: 78%;
+  width: 95%;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.menu {
+  position: absolute;
+  bottom: 0;
+  width: 97%;
+  border-top: 0.1rem solid gray;
+}
