@@ -11,6 +11,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
 import { app } from './firebase.js';
@@ -30,7 +31,7 @@ export const publicatedPost = async (valueTitle, valueText) => {
     });
     return docRef;
   } catch (e) {
-    console.error('Error adding document: ', e);
+    e('Post não publicado', e);
   }
 };
 
@@ -41,6 +42,7 @@ export const getPost = async () => {
   );
   const arrPost = [];
   const querySnapshot = await getDocs(collectionSortedByDate);
+  // eslint-disable-next-line no-shadow
   querySnapshot.forEach((doc) => {
     const timeline = doc.data();
     timeline.id = doc.id;
@@ -57,6 +59,7 @@ export const postUser = async (uid) => {
   );
   const arrMyPost = [];
   const querySnapshot = await getDocs(collectionSortedByUid);
+  // eslint-disable-next-line no-shadow
   querySnapshot.forEach((doc) => {
     const myPost = doc.data();
     myPost.id = doc.id;

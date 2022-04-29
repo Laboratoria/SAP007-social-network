@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const provider = new GoogleAuthProvider();
