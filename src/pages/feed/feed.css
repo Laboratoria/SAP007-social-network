@@ -184,7 +184,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  top: 70px;
+  top: 0;
   background: var(--light-pink-opacity);
   height: 0px;
   z-index: 900;
@@ -195,7 +195,7 @@
 
 .section-input-post.apear .form-post-apear {
   visibility: visible;
-  height: calc(100vh - 70px);
+  height: 100vh;
   overflow-y: auto;
 }
 
@@ -204,6 +204,7 @@
 }
 
 .input-post {
+  margin-top: 40%;
   border-radius: 10px;
   border: 2px solid var(--mustard);
   width: 100%;
@@ -231,7 +232,6 @@
 
 .without-user {
   font-size: 20px;
-
 }
 
 .link-login-button {
@@ -239,6 +239,22 @@
   color: var(--lilac);
   font-size: 20px;
   text-decoration: underline;
+}
+
+.warnings-feed {
+  box-shadow: 0 0 1em var(--black-shadow);
+  padding: 2%;
+  z-index: 999;
+  display: none;
+  position: fixed;
+  border: 2px solid var(--black-shadow);
+  border-radius: 10px;
+  top: 80px;
+  margin: 0 20% 0 20%;
+  background: var(--white);
+  height: auto;
+  width: 60%;
+  text-align: center;
 }
 
 /* } */

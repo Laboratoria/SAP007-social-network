@@ -28,6 +28,9 @@ export const feed = (user) => {
       </nav>
     </header>
     <main class="main-post flex column">
+      <section class="warnings-feed" id="warnings-feed">
+        <p class="warnings-feed-message" id="warnings-feed-message"></p>
+      </section>
       <section class="section-feed flex column" id="section-feed">
       </section>
       <section class="section-input-post" id="section-input-post">
@@ -56,20 +59,17 @@ export const feed = (user) => {
   btnLogOut.addEventListener('click', (e) => {
     e.preventDefault();
     authLogOut().then(() => {
-      // limpar session storage
+      sessionStorage.clear();
       window.location.hash = '#login';
       document.location.reload(true);
-    }).catch((error) => {
-      console.log(error);
+    }).catch(() => {
+      sessionStorage.clear();
+      window.location.hash = '#login';
     });
   });
 
   function toggleInput() {
     sectionInput.classList.toggle('apear');
-    // const classes = sectionInput.className;
-    // if (classes.indexOf('active') !== -1) {
-    //   toggleMenu();
-    // }
   }
 
   btnInputPost.addEventListener('click', toggleInput);
@@ -105,11 +105,23 @@ export const feed = (user) => {
             console.log('Deu certo');
           })
           .catch((error) => console.error(error));
-      }).catch((e) => console.error('Error adding document', e));
-      document.querySelector('#input-post').value = '';
-      // mandar mensagem pro usuário pois a postagem não foi no firestore
+      }).catch(() => {
+        timeline.querySelector('#warnings-feed').style.display = 'block';
+        timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
+
+        setTimeout(() => {
+          timeline.querySelector('#warnings-feed').style.display = 'none';
+          timeline.querySelector('#warnings-feed-message').textContent = '';
+        }, 4000);
+      });
     } else {
-      // innerHTML = 'Digite algo para compartilhar!';
+      timeline.querySelector('#warnings-feed').style.display = 'block';
+      timeline.querySelector('#warnings-feed-message').textContent = 'Não deixe sua mensagem vazia, compartilhe algo com a gente!';
+
+      setTimeout(() => {
+        timeline.querySelector('#warnings-feed').style.display = 'none';
+        timeline.querySelector('#warnings-feed-message').textContent = '';
+      }, 4000);
     }
   });
 

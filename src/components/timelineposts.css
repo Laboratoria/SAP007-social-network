@@ -39,23 +39,27 @@
 .config-btn-nav {
   cursor: pointer;
 }
-.configs-posts{
+
+.configs-posts {
   display: flex;
 }
-.meatball-menu{  
+
+.meatball-menu {
   height: 20px;
   width: 6vw;
   margin-top: 5px;
   background: transparent;
   justify-content: space-between;
 }
-.meatball-menu span{
+
+.meatball-menu span {
   height: 5px;
   width: 5px;
   border-radius: 50%;
   background: var(--black);
 }
-.menu-edit-remove{
+
+.menu-edit-remove {
   display: none;
   position: absolute;
   right: 0;
@@ -63,20 +67,30 @@
   background: greenyellow;
   margin-top: 20px;
 }
-.menu-edit-remove.active{
+
+.menu-edit-remove.active {
   display: block;
 }
-.img-delete, .img-edit{
+
+.img-delete,
+.img-edit {
   height: 8vh;
 }
+
 .post-text-id {
   margin: 2%;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
 }
+
 .post-date {
   text-align: center;
 }
 
-.post-text {}
+.post-text {
+  width: 100%;
+  word-wrap: break-word;
+}
 
 .like-comment {
   flex-direction: row;
@@ -87,6 +101,7 @@
   border-color: var(--mustard);
   padding: 4%;
 }
+
 .post-like {}
 
 .post-comment {}
