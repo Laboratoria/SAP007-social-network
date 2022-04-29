@@ -80,13 +80,17 @@
 .post-text-id {
   margin: 2%;
   flex-wrap: wrap;
+  overflow-wrap: break-word;
 }
 
 .post-date {
   text-align: center;
 }
 
-.post-text {}
+.post-text {
+  width: 100%;
+  word-wrap: break-word;
+}
 
 .like-comment {
   flex-direction: row;
