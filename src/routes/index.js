@@ -17,7 +17,7 @@ const init = () => {
           } else {
             main.appendChild(login());
           }
-        })
+        });
         break;
       case '#login':
         loggedIn((logado) => {
@@ -26,7 +26,7 @@ const init = () => {
           } else {
             main.appendChild(login());
           }
-        })
+        });
         break;
       case '#feed':
         loggedIn((logado) => {
@@ -35,7 +35,7 @@ const init = () => {
           } else {
             main.appendChild(login());
           }
-        })
+        });
         break;
       case '#signUp':
         loggedIn((logado) => {
@@ -44,7 +44,7 @@ const init = () => {
           } else {
             main.appendChild(signUp());
           }
-        })
+        });
         break;
       case '#publish':
         loggedIn((logado) => {
@@ -53,7 +53,7 @@ const init = () => {
           } else {
             main.appendChild(login());
           }
-        })
+        });
         break;
       case '#profile':
         loggedIn((logado) => {
@@ -62,10 +62,10 @@ const init = () => {
           } else {
             main.appendChild(login());
           }
-        })
+        });
         break;
       default:
-        main.appendChild(login()); //criar error
+        main.appendChild(login());
     }
   });
 };
@@ -77,6 +77,6 @@ window.addEventListener('load', () => {
     } else {
       main.appendChild(login());
     }
-  })
+  });
   init();
 });

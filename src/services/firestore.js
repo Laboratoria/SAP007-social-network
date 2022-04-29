@@ -1,4 +1,14 @@
-import { collection, getDocs, getDoc, addDoc, query, orderBy, deleteDoc, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+import {
+  collection,
+  getDocs,
+  getDoc,
+  addDoc,
+  query,
+  orderBy,
+  deleteDoc,
+  updateDoc,
+  doc,
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { db } from '../dependencies/config-firebase.js';
 import { current } from './authentication.js';
 
@@ -16,20 +26,24 @@ export function createPost(text) {
     hour: new Date().toLocaleTimeString([], { timeStyle: 'short' }),
     post: text,
     likes: [],
-    comments: []
-  })
+    comments: [],
+  });
 }
 
 export async function getAllPosts() {
-  const postCollection = query(collection(db, 'posts'), orderBy('date', 'desc'), orderBy('hour', 'desc'));
+  const postCollection = query(
+    collection(db, 'posts'),
+    orderBy('date', 'desc'),
+    orderBy('hour', 'desc'),
+  );
   const postSnapshot = await getDocs(postCollection);
-  const listingOfPosts = postSnapshot.docs.map(doc => {
+  const listingOfPosts = postSnapshot.docs.map((doc) => {
     const id = doc.id;
     const data = doc.data();
     const listingOfPostsWithId = {
       id,
       ...data,
-    }
+    };
     return listingOfPostsWithId;
   });
   return listingOfPosts;
@@ -38,33 +52,33 @@ export async function getAllPosts() {
 export const deletePost = async (idPost) => {
   const del = await deleteDoc(doc(db, 'posts', idPost));
   return del;
-}
+};
 
 export async function like(idPost, icon) {
   const post = await getPostById(idPost);
   const userLogado = current().uid;
   let likes = post.likes;
   let liked;
-  if(post.likes.includes(userLogado)) {
+  if (post.likes.includes(userLogado)) {
     liked = false;
-    likes = likes.filter((id) => id !== userLogado)
-    icon.classList.remove('curtido')
+    likes = likes.filter((id) => id !== userLogado);
+    icon.classList.remove('curtido');
   } else {
     liked = true;
-    likes.push(userLogado)
-    icon.classList.add('curtido')
+    likes.push(userLogado);
+    icon.classList.add('curtido');
   }
   await updateDoc(doc(db, 'posts', idPost), {
-    likes: likes
-  })
+    likes: likes,
+  });
   return {
     liked,
-    count: likes.length
-  }
+    count: likes.length,
+  };
 }
 
 export async function editedPost(idPost, text) {
   await updateDoc(doc(db, 'posts', idPost), {
-    post: text
-  })
+    post: text,
+  });
 }

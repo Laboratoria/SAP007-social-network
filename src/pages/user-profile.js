@@ -1,18 +1,18 @@
-import { logout } from "../services/authentication.js";
-import { menu } from "./components/menu.js";
+import { logout } from '../services/authentication.js';
+import { menu } from './components/menu.js';
 
 export default () => {
   const feedProfile = document.createElement('div');
   feedProfile.classList.add('feedProfile');
   feedProfile.innerHTML = `
     <header>
-      <img src="../img/logo.png" alt="Logo Laboriam">
+      <img src='../img/logo.png' alt='Logo Laboriam'>
     </header>
-    <div id="main-content">
-      <textarea name="" id="" cols="30" rows="10"></textarea>
-      <button type="button">Publicar</button>
+    <div id='main-content'>
+      <textarea name='' id='' cols='30' rows='10'></textarea>
+      <button type='button'>Publicar</button>
     </div>
-    <aside id="menu"></aside>
+    <aside id='menu'></aside>
     `;
 
   const menuNavigation = feedProfile.querySelector('#menu');

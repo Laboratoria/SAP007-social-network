@@ -50,10 +50,10 @@ export default () => {
     event.preventDefault();
     if (loginEmail.value && loginSenha.value) {
       login(loginEmail.value, loginSenha.value)
-      .then(() => {
-        window.location.hash = 'feed';
-      })
-      .catch((error) => {
+        .then(() => {
+          window.location.hash = 'feed';
+        })
+        .catch((error) => {
           if (error.code === 'auth/wrong-password') {
             mensagemErro.innerHTML = ' Senha incorreta!';
           } else if (error.code === 'auth/invalid-email') {
@@ -75,8 +75,6 @@ export default () => {
   btnRedefinirSenha.addEventListener('click', (e) => {
     e.preventDefault();
     redefinirSenha(loginEmail.value);
-    console.log('Entrou na função de redefinir');
-  })
-
+  });
   return areaLogin;
 };
