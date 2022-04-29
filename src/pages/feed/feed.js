@@ -61,7 +61,7 @@ export const feed = (user) => {
     authLogOut().then(() => {
       sessionStorage.clear();
       window.location.hash = '#login';
-      // document.location.reload(true);
+      document.location.reload(true);
     }).catch(() => {
       sessionStorage.clear();
       window.location.hash = '#login';
@@ -105,15 +105,23 @@ export const feed = (user) => {
             console.log('Deu certo');
           })
           .catch((error) => console.error(error));
-      }).catch((e) => {
-        console.error('Error adding document', e);
+      }).catch(() => {
+        timeline.querySelector('#warnings-feed').style.display = 'block';
+        timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
+
         setTimeout(() => {
-          timeline.querySelector('#warnings-feed').style.display = 'block';
-          timeline.querySelector('#warnings-feed').textContent = 'Não foi a mensagem';
-        }, 4 * 1000);
+          timeline.querySelector('#warnings-feed').style.display = 'none';
+          timeline.querySelector('#warnings-feed-message').textContent = '';
+        }, 4000);
       });
     } else {
-      // innerHTML = 'Digite algo para compartilhar!';
+      timeline.querySelector('#warnings-feed').style.display = 'block';
+      timeline.querySelector('#warnings-feed-message').textContent = 'Não deixe sua mensagem vazia, compartilhe algo com a gente!';
+
+      setTimeout(() => {
+        timeline.querySelector('#warnings-feed').style.display = 'none';
+        timeline.querySelector('#warnings-feed-message').textContent = '';
+      }, 4000);
     }
   });
 
