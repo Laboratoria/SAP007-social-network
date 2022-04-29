@@ -7,30 +7,34 @@ export default () => {
     const templateRegister = `
       <form>
       <p class="paragrafoLogin">Sign Up</p>
-      <input type="text" id="inputName" placeholder="Nome Completo" required /><br>
+      <input type="email" id="inputName" placeholder="Insera seu nome completo " requerid /><br>
       <input type="email" id="inputEmail" placeholder="Insera seu email" requerid /><br>
-      <input type="password" id="inputSenha" placeholder="Insera uma senha" requerid /><br>
       <input type="password" id="inputSenha" placeholder="Confirme sua senha" requerid /><br>
-    <br><button class='btn-submit' type="submit">Sign Up</button><br></form>
+    <br><button type="submit" id="btn-Cadastrar">Sign Up</button><br></form>
     `;
 
     containerRegister.innerHTML = templateRegister;
 
+const email = containerRegister.querySelector("#inputName");
+const name = containerRegister.querySelector("#inputEmail");
+const password = containerRegister.querySelector("#inputSenha");
+const btnCadastrar = containerRegister.querySelector("#btn-Cadastrar");
 const auth = getAuth();
-const email = document.getElementById("inputEmail")
-const password = document.getElementById("inputSenha")
 
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
+btnCadastrar.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (name.value, email.value, password.value) {
+    createUserWithEmailAndPassword(auth, name.value, email.value, password.value)
+  .then(() => {
+      window.location.hash = "#home";
   })
   .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-
-  return containerRegister;
+    if (errorCode === 'auth/account-exists-with-different-credential') {
+      alert("Essa conta já existe com uma credencial diferente");
+  }
+}) 
+}
+})
+return containerRegister;
 }
