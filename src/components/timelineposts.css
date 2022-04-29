@@ -40,11 +40,44 @@
   cursor: pointer;
 }
 
-.nav-remove-modify {}
+.configs-posts {
+  display: flex;
+}
 
-.remove {}
+.meatball-menu {
+  height: 20px;
+  width: 6vw;
+  margin-top: 5px;
+  background: transparent;
+  justify-content: space-between;
+}
 
-.modify {}
+.meatball-menu span {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: var(--black);
+}
+
+.menu-edit-remove {
+  display: none;
+  position: absolute;
+  width: 100px;
+  margin-top: 20px;
+  right: 0;
+
+}
+
+.menu-edit-remove.active {
+  display: block;
+}
+
+.img-delete,
+.img-edit,
+.btn-like-post,
+.bnt-comment-post {
+  height: 8vh;
+}
 
 .post-text-id {
   margin: 2%;
@@ -57,7 +90,8 @@
 }
 
 .post-text {
-  width: fit-content
+  width: 100%;
+  word-wrap: break-word;
 }
 
 .like-comment {
@@ -70,7 +104,6 @@
   padding: 4%;
 }
 
-
 .post-like {}
 
 .post-comment {}
@@ -80,6 +113,7 @@
   background: transparent;
   font-weight: bold;
   margin: 2%;
+  width: 40px;
 }
 
 .form-modify-post {
@@ -113,4 +147,20 @@
   margin-top: 5px;
   margin-bottom: 5px;
   background: var(--blue-op);
+}
+
+.modal-delete {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: aquamarine;
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-delete-confirm {
+  background: white;
+  display: flex;
 }

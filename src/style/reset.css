@@ -16,6 +16,7 @@
 
   --mustard: #F8BD0F;
   --yellow: #FFF338;
+  --green: greenyellow;
   --light-yellow: #FFFCAB;
   --lilac: #A275E3;
   --purple: #C400FF;
@@ -27,6 +28,7 @@
   --blue-op: #5ccfad;
   --blue-opacity: #e9f5f1;
   --black: black;
+  --black-shadow: rgba(94, 92, 92, 0.5);
   --white: white;
   --background-feed: (rgb(246, 237, 250));
   --off-white: #F7F7F7;

@@ -10,9 +10,10 @@
   justify-content: center;
   align-items: center;
 }
-.section-btn-about{
-  display: none;
+.img-btn-about{
+ height: 10vh;
 }
+
 .slogan-desktop{
   display: none;
 }
@@ -67,9 +68,8 @@ a:link {
     text-decoration: underline;
 }
 
-
-@media screen and (max-width: 576px){
-  
+/* trabalhar breakpoint antes de 576px, telas muito pequena */
+@media screen and (max-width: 576px){  
   .logo-page-login {
         height: 20vh;
         margin: 3% 0;
@@ -80,14 +80,14 @@ a:link {
     }
     .form-login {
         height: 40vh;
-        width: 50vw;
+        width: 60vw;
     }
     .login-area,
     .btn-sign-in,
     .btn-google {
         height: 8vh;
         width: 40vw;
-        margin-top: 7%;
+        margin-top: 10%;
         font-size: 15px;
     }
     .btn-google{
@@ -104,16 +104,15 @@ a:link {
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
-
   .logo-page-login {
-        height: 35vh;      
+        height: 30vh;      
     }
     .box-slogan-desktop-page-login{
       display: none;
     }
   
     .form-login {
-        height: 45vh;
+        height: 40vh;
         width: 50vw;
     }
     .login-area,

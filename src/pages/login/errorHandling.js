@@ -18,6 +18,7 @@ export const errorHandlingGeral = (error) => {
       valorRetorno = 'Usuário não cadastrado, registre-se!';
 
       break;
+    // case auth/popup-closed-by-user, quando o pop-up fecha antes de concluir o login.
     case 'auth/user-disabled':
       valorRetorno = 'Não foi possivel logar com sua conta Google';
       break;

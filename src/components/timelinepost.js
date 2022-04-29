@@ -23,8 +23,8 @@ export function postElement(post, uid) {
       <p class="post-text" id="post-text">${post.message}</p>
     </div>
     <div class="like-comment flex">
-      <button class="post-like"><img src="" alt="">Gostei</button>
-      <button class="post-comment"><img src="" alt="">Comentar</button>
+      <button class="post-like"><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
+      <button class="post-comment"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
     </div>`;
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
@@ -34,43 +34,57 @@ export function postElement(post, uid) {
   modifyForm.setAttribute('class', 'form-modify-post');
   modifyForm.innerHTML = `
   <div class="content-edit-post flex">
-    <textarea class="modify-input-value" id="data-input-value">
+    <textarea class="modify-input-value">
     </textarea>
-    <button class="confirm-modify btn-edit-style" id="data-confirm-edit">Confirmar Editar</button>
-    <button class="close-modify btn-edit-style" id="data-cancel-edit">Cancelar Editar</button>
+    <button class="confirm-modify btn-edit-style">Confirmar Editar</button>
+    <button class="close-modify btn-edit-style">Cancelar Editar</button>
   </div>
   `;
-  // /\ aqui será o menu de configurações que só aparece pro usuário dono do post
+  // const modal com template do modal de excluir
+  const modalDelete = document.createElement('div');
+  modalDelete.setAttribute('class', 'modal-delete');
+  modalDelete.innerHTML = `
+  <div class="modal-delete-confirm">
+    <h3>Você tem certeza que deseja excluir essa postagem?</h3>
+    <button class="confirm-delete style-delete">Confirmar</button>
+    <button class="close-delete style-delete">Cancelar</button>
+  </div>
+  `;
+  // aqui será o menu de configurações que só aparece pro usuário dono do post
   if (uid === post.userUid) {
+    timelinePost.appendChild(modalDelete);
     mainPost.appendChild(modifyForm);
     navRemoveModifie.innerHTML = `
-      <button class="btn-config-post">
-        <span id="balls" class="balls"></span>
-      </button>
-      <ul class="configs-post">
-        <li class="btn-config"><button
-        id="data-post-remove" 
-        class="btn-config remove">Remover</button></li>
-        <li class="btn-config"><button id="data-post-modify" class="modify
-        btn-config">Editar</button></li>
-      </ul>`;
+    <button class="meatball-menu flex">
+      <span id="balls" class="balls"></span>
+      <span id="balls" class="balls"></span>
+      <span id="balls" class="balls"></span>
+    </button>
+    <div class="menu-edit-remove">
+      <ul class="configs-posts">
+        <li class="btn-config"><button class="btn-config remove"><img src="../img/iconeLixeira.png" alt="Icone remover post" class="img-delete"></button></li>
+        <li class="btn-config"><button class="modify btn-config"><img src="../img/iconeEditar.png" alt="Icone editar post" class="img-edit"></button></li>
+      </ul> 
+    </div>  `;
 
-    const btnRemove = timelinePost.querySelector('#data-post-remove');
-    const btnEdit = timelinePost.querySelector('#data-post-modify');
-    const btnCancelEdit = timelinePost.querySelector('#data-cancel-edit');
-    const btnConfirmEdit = timelinePost.querySelector('#data-confirm-edit');
-    const inputModify = timelinePost.querySelector('#data-input-value');
+    const btnRemove = timelinePost.querySelector('.remove');
+    const btnEdit = timelinePost.querySelector('.modify');
+    const btnCancelEdit = timelinePost.querySelector('.close-modify');
+    const btnConfirmEdit = timelinePost.querySelector('.confirm-modify');
+    const inputModify = timelinePost.querySelector('.modify-input-value');
+    const btnMenu = timelinePost.querySelector('.meatball-menu');
+    const menuEditRemove = timelinePost.querySelector('.menu-edit-remove');
+    const btnDeletePost = timelinePost.querySelector('.confirm-delete');
+    const btnCancelDeletePost = timelinePost.querySelector('.close-delete');
 
-    btnRemove.addEventListener('click', () => {
-      console.log('cliquei');
-      removePost(post.idPost).then(() => {
-        timelinePost.innerHTML = '';
-      }).catch((error) => console.log(error));
+    btnMenu.addEventListener('click', () => {
+      menuEditRemove.classList.toggle('active');
     });
 
     btnEdit.addEventListener('click', () => {
       modifyForm.style.display = 'block';
       inputModify.value = timelinePost.querySelector('#post-text').textContent;
+      menuEditRemove.classList.toggle('active');
     });
 
     btnCancelEdit.addEventListener('click', (e) => {
@@ -93,6 +107,22 @@ export function postElement(post, uid) {
         inputModify.value = '';
         modifyForm.style.display = 'none';
       }
+    });
+
+    btnRemove.addEventListener('click', () => {
+      modalDelete.style.display = 'block';
+    });
+    btnDeletePost.addEventListener('click', (e) => {
+      e.preventDefault();
+      removePost(post.idPost).then(() => {
+        timelinePost.innerHTML = '';
+      }).catch((error) => console.log(error));
+    });
+
+    btnCancelDeletePost.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalDelete.value = '';
+      modalDelete.style.display = 'none';
     });
   }
   return timelinePost;

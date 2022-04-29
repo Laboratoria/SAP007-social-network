@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence, inMemoryPersistence, signInWithRedirect, getRedirectResult, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 const auth = getAuth();
 
