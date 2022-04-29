@@ -10,8 +10,11 @@ export const pageAbout = () => {
       </section>  
       
       <section class="about text-align">
-        <h1 class="tittle-about">Lorem ipsum dolor sit amet</h1>      
-        <p class="text-about">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1 class="tittle-about">K-Fandom</h1>      
+        <p class="text-about">A K-Fandom é uma Rede Social voltada para kpopers (fãs de Kpop). Sinta-se à vontade para compartilhar tudo relacionado sobre Kpop, falar sobre votações, conhecer amigues e o melhor de tudo dentro de um espaço onde todes curtem o mesmo estilo. Curta mensagens e se conecte nesse meio. 
+        Essa Rede surgiu da ideia de trazer um cantinho seguro onde kpopers podem compartilhar sem se sentirem julgados. Uma grande maioria de kpopers na internet são pessoas mais jovens e estar em um meio onde temos apenas pessoas com interesses em comum e com postagens públicas apenas, evitamos de pessoas más intencionadas de agirem através de mensagens diretas.
+        Esta é uma rede social em construção e para fins (inicialmente) de estudo. O projeto foi iniciado a partir da ideia da Laboratória para aprender desenvolvimento Web. Conheça ou mande seu feedback para as desenvolvedoras:
+        </p>
       </section>
       <h2 class="tittle-devs-about">Desenvolvido por:</h2>
       

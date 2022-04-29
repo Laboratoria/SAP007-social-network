@@ -28,6 +28,7 @@
   padding-right: 10px;
   border-bottom: 1px solid;
   border-color: var(--mustard);
+  z-index: 1;
 }
 
 .menu {
