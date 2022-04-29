@@ -2,6 +2,7 @@ import { auth } from '../lib/authentication.js';
 import { like, dislike } from '../lib/firestore.js';
 
 export default function card(item) {
+  const user = auth.currentUser;
   const publications = document.createElement('div');
   publications.setAttribute('class', 'publicated');
   const mold = `
@@ -10,7 +11,7 @@ export default function card(item) {
     <div class="user-name">${item.user}</div>
     <div class="container-like">
       <button class="buttons-like" id="like">
-      <img id="imgLike" class="img-like" src="./images/like.png" alt="button-like"/>
+      <img id="imgLike" class="img-like" src=${checkLikes()} alt="button-like"/>
       </button>
       <p class="likes" id="like-${item.id}">${item.likes.length}</p>
     </div>
@@ -24,7 +25,6 @@ export default function card(item) {
 
   buttonsLike.addEventListener('click', async (e) => {
     e.preventDefault();
-    const user = auth.currentUser;
     if (!item.likes.includes(user.uid)) {
       like(item.id, user.uid);
       item.likes.push(user.uid);
@@ -40,6 +40,13 @@ export default function card(item) {
       likeImage.setAttribute('src', './images/like.png');
     }
   });
+
+  function checkLikes() {
+    if (item.likes.includes(user.uid)) {
+      return './images/icon-like.jpg';
+    }
+    return './images/like.png';
+  }
 
   return publications;
 }
