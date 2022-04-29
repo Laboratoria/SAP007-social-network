@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from './export.js';
 import { auth } from './start-firebase.js';
-import { userCollection } from './user.js';
+import { createNewUser } from './user.js';
 
 export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
@@ -17,7 +17,7 @@ export function registerNewUser(name, email, password) {
       const userId = userCredential.user.uid;
       sendEmailVerification(auth.currentUser)
         .then(() => {
-          userCollection(name, email, userId);
+          createNewUser(name, email, userId);
           window.location.hash = '#feed';
         })
         .catch(() => {
@@ -65,8 +65,8 @@ export function authUserWithGoogle() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const userName = result.user.displayName;
       const userEmail = result.user.email;
-      const userId = credential.accessToken;
-      userCollection(userName, userEmail, userId);
+      const userId = result.user.uid;
+      createNewUser(userName, userEmail, userId);
       window.location.hash = '#feed';
     })
     .catch((error) => {
