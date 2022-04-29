@@ -1,8 +1,13 @@
 import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
 import { auth } from '../firebase/config-firebase.js';
+import { createPost } from '../firebase/firestore.js';
+import { getPost } from '../firebase/firestore.js';
 
-export default () => {
+
+
+export default function feed() {
+  getPost();
   const feed = document.createElement('div');
   const templateFeed = `
   <nav class="top-nav">
@@ -16,7 +21,7 @@ export default () => {
       </picture>     
   </nav>
   <div class= "line-header"> </div>  
-  <section  class="publish" id="publish">
+  <section class="publish" id="publish">
     <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="33" rows="5"></textarea>
     <div class ="buttons" id='selected-theme'>
       <select id='theme'>
@@ -28,18 +33,22 @@ export default () => {
     </div>
     <div>
       <button id="publish-btn">Enviar</button>
-    </div> 
-    <div id= "posts"> </div> 
-  </section>`;
+    </div>  
+  </section>
+  <div class= "posts" id= "posts"> </div>`;
+
   feed.innerHTML = templateFeed;
 
   const posts = feed.querySelector('#posts');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
-  btnPosts.addEventListener('click', () => {
+  btnPosts.addEventListener('click', async () => {
+    const docRef = await createPost(postText.value, auth.currentUser.email)
+    console.log(docRef.id, "banana")
     posts.innerHTML += ` 
     <p> ${postText.value} </p>
     `
+
 
   })
 

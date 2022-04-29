@@ -43,7 +43,6 @@ body {
   background-color: #F5EFEF;
   margin-top: 20px;
   margin-left: 20px;
-  position: absolute;
 }
 
 textarea {
@@ -56,6 +55,14 @@ textarea {
 textarea:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
+}
+
+.posts {
+  width: 320px;
+  border-radius: 8px;
+  background-color: #F5EFEF;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 select,
