@@ -1,4 +1,5 @@
 import login from '../../src/pages/login/login.js';
+
 jest.mock('../../src/lib/exports-firebase.js');
 
 describe('login', () => {

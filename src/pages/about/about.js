@@ -1,4 +1,5 @@
-import {header,
+import {
+  header,
   logoutUser,
 } from '../components/header.js';
 
@@ -17,8 +18,6 @@ export default () => {
 
   // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -34,9 +33,10 @@ export default () => {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
-
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
   const logoutButton = container.querySelector('#btn-exit');
-  logoutButton.addEventListener('click', logoutUser)
+  logoutButton.addEventListener('click', logoutUser);
 
   return container;
 };

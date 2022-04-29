@@ -35,8 +35,6 @@ export function createCardPost(post) {
     </div>    
   `;
 
-  
-
   containerPost.innerHTML = templateCardPost;
 
   const likeButton = containerPost.querySelector('.button-heart');
@@ -70,7 +68,7 @@ export function createCardPost(post) {
     const editButton = containerPost.querySelector('#button-edit-post');
     const modalAlert = containerPost.querySelector('#modal-delete');
 
-    deleteButton.addEventListener("click", async () => {
+    deleteButton.addEventListener('click', async () => {
       const confirmAlertDelete = () => {
         const alertContainer = document.createElement('div');
         alertContainer.classList.add('alert-box');
@@ -86,9 +84,9 @@ export function createCardPost(post) {
         `;
 
         modalAlert.innerHTML = templateConfirmDelete;
-        modalAlert.style.display = "block";
-        deleteButton.style.visibility = "hidden";
-        editButton.style.visibility = "hidden";
+        modalAlert.style.display = 'block';
+        deleteButton.style.visibility = 'hidden';
+        editButton.style.visibility = 'hidden';
 
         const hideAlert = modalAlert.querySelector('#no-alert');
         const confirmAlert = modalAlert.querySelector('#yes-alert');

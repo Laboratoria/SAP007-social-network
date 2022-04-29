@@ -2,9 +2,9 @@ import {
   getUserPosts,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
-import { 
+import {
   header,
-  logoutUser
+  logoutUser,
 } from '../components/header.js';
 import { createCardPost } from '../components/post.js';
 
@@ -28,12 +28,10 @@ export default () => {
   container.innerHTML += templateUserProfile;
 
   const logoutButton = container.querySelector('#btn-exit');
-  logoutButton.addEventListener('click', logoutUser)
+  logoutButton.addEventListener('click', logoutUser);
 
   // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -49,7 +47,8 @@ export default () => {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
-
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
   const printDisplayName = container.querySelector('#name-user');
   const printEmail = container.querySelector('#email-user');
 

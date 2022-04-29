@@ -2,7 +2,7 @@ import { logout } from '../../configs/authentication.js';
 
 export function header() {
   const containerHeader = document.createElement('div');
- 
+
   const templateHeader = `
     <header class="header">
       <img class="header-image" src="./img/logo3.png" alt="logo">
@@ -23,13 +23,12 @@ export function header() {
 
   containerHeader.innerHTML = templateHeader;
   return containerHeader;
-};
+}
 
 export function logoutUser() {
   // função para sair do seu login
   logout()
-  .then(() => {
-    window.location.hash = '#login';
-  });
-} 
-
+    .then(() => {
+      window.location.hash = '#login';
+    });
+}
