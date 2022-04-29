@@ -1,13 +1,11 @@
 import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
-import { auth } from '../firebase/config-firebase.js';
 import { createPost } from '../firebase/firestore.js';
 import { getPost } from '../firebase/firestore.js';
 
 
 
 export default function feed() {
-  getPost();
   const feed = document.createElement('div');
   const templateFeed = `
   <nav class="top-nav">
@@ -43,13 +41,11 @@ export default function feed() {
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
   btnPosts.addEventListener('click', async () => {
-    const docRef = await createPost(postText.value, auth.currentUser.email)
+    const docRef = await createPost(postText.value);
     console.log(docRef.id, "banana")
     posts.innerHTML += ` 
     <p> ${postText.value} </p>
     `
-
-
   })
 
   const logoutUser = feed.querySelector('#logout');
