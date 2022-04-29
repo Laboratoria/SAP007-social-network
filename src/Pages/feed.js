@@ -1,6 +1,5 @@
 import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
-import { auth } from '../firebase/config-firebase.js';
 
 export default () => {
   const feed = document.createElement('div');
@@ -57,14 +56,16 @@ export default () => {
   const posts = feed.querySelector('#posts');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
-  btnPosts.addEventListener('click', () => {
-    const user = JSON.parse(localStorage.getItem('user'));
 
-    posts.innerHTML += newPost({
-      post: postText.value,
-      user,
-    });
-  });
+//   btnPosts.addEventListener('click', () => {
+//     const user = JSON.parse(localStorage.getItem('user'));
+
+//     posts.innerHTML += newPost({
+//       post: postText.value,
+//       user,
+//     });
+//   });
+
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
