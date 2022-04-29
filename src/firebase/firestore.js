@@ -10,8 +10,9 @@ import {
   arrayRemove,
   doc,
   deleteDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
+//import { db } from './config-firebase';
 const db = getFirestore();
 
 export const createPost = async (textPost, userEmail) => {
@@ -23,8 +24,10 @@ export const createPost = async (textPost, userEmail) => {
       like: [],
     });
     console.log('Document written with ID: ', docRef.id);
+    return docRef
   } catch (e) {
     console.error('Error adding document: ', e);
+    return e
   }
 };
 
@@ -37,6 +40,7 @@ export const getPost = async () => {
     // console.log(`${doc.id} => ${doc.data()}`);
     arrPost.push({ ...timeline, id: doc.id });
   });
+  console.log(arrPost);
   return arrPost;
 };
 

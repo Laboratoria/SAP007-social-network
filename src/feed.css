@@ -77,6 +77,14 @@ textarea:focus {
   outline: 0;
 }
 
+.posts {
+  width: 320px;
+  border-radius: 8px;
+  background-color: #F5EFEF;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 select,
 option,
 button {
