@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
-} from "https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const provider = new GoogleAuthProvider();
 export const auth = getAuth();
@@ -16,7 +16,7 @@ export function userCreate(email, password) {
     (userCredential) => {
       const user = userCredential.user;
       return user;
-    }
+    },
   );
 }
 
@@ -25,7 +25,7 @@ export function userLogin(email, password) {
     (userCredential) => {
       const user = userCredential.user;
       return user;
-    }
+    },
   );
 }
 
@@ -47,7 +47,7 @@ export function loggedIn(cb) {
 export function userLogout() {
   return signOut(auth)
     .then(() => {
-      return "Logout";
+      return 'Logout';
     })
     .catch((error) => {
       return error;

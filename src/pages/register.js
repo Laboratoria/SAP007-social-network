@@ -1,9 +1,9 @@
-import "../lib/firebase.js";
-import { userCreate } from "../lib/authentication.js";
+import '../lib/firebase.js';
+import { userCreate } from '../lib/authentication.js';
 
 export default () => {
-  const container = document.createElement("form");
-  container.setAttribute("class", "container-register");
+  const container = document.createElement('form');
+  container.setAttribute('class', 'container-register');
 
   const template = `
     <div class="template">
@@ -21,26 +21,26 @@ export default () => {
 
   container.innerHTML = template;
 
-  const email = container.querySelector(".email-register");
-  const password = container.querySelector(".password-register");
-  const message = container.querySelector(".error");
-  const registered = container.querySelector(".registered");
+  const email = container.querySelector('.email-register');
+  const password = container.querySelector('.password-register');
+  const message = container.querySelector('.error');
+  const registered = container.querySelector('.registered');
 
-  container.addEventListener("submit", (e) => {
+  container.addEventListener('submit', (e) => {
     e.preventDefault();
     userCreate(email.value, password.value)
-      .then(function () {
-        registered.innerHTML = "Usuário(a) cadastrado(a) com sucesso";
-         setTimeout(() => {
-          window.location.hash = "#timeline";
-         },"2000");
+      .then(() => {
+        registered.innerHTML = 'Usuário(a) cadastrado(a) com sucesso';
+        setTimeout(() => {
+          window.location.hash = '#timeline';
+        }, '2000');
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if (error.code == "auth/invalid-email") {
-          message.innerHTML = "Digite um e-mail válido";
-        } else if (error.code == "auth/email-already-in-use") {
-          message.innerHTML = "Esse e-mail já está sendo utilizado";
+        if (error.code === 'auth/invalid-email') {
+          message.innerHTML = 'Digite um e-mail válido';
+        } else if (error.code === 'auth/email-already-in-use') {
+          message.innerHTML = 'Esse e-mail já está sendo utilizado';
         }
         return errorMessage;
       });

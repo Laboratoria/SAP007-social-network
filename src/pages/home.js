@@ -1,9 +1,9 @@
-import "../lib/firebase.js";
-import { userLogin, googleLogin } from "../lib/authentication.js";
+import '../lib/firebase.js';
+import { userLogin, googleLogin } from '../lib/authentication.js';
 
 export default () => {
-  const container = document.createElement("form");
-  container.setAttribute("class", "container");
+  const container = document.createElement('form');
+  container.setAttribute('class', 'container');
 
   const template = `
     <div class="login"><input class="input-email" placeholder="e-mail" type="email" required></input>
@@ -21,38 +21,38 @@ export default () => {
 
   container.innerHTML = template;
 
-  const email = container.querySelector(".input-email");
-  const password = container.querySelector(".input-password");
-  const googleButton = container.querySelector(".google-button");
-  const messageEmail = container.querySelector(".error-email");
-  const messagePassword = container.querySelector(".error-password");
+  const email = container.querySelector('.input-email');
+  const password = container.querySelector('.input-password');
+  const googleButton = container.querySelector('.google-button');
+  const messageEmail = container.querySelector('.error-email');
+  const messagePassword = container.querySelector('.error-password');
 
-  container.addEventListener("submit", (e) => {
+  container.addEventListener('submit', (e) => {
     e.preventDefault();
     userLogin(email.value, password.value)
-      .then(function () {
-        window.location.hash = "#timeline";
+      .then(() => {
+        window.location.hash = '#timeline';
       })
       .catch((error) => {
         const errorMessage = error.message;
-        if (error.code == "auth/user-not-found") {
-          messageEmail.innerHTML = "E-mail não cadastrado";
-          email.value = "";
-          password.value = "";
-        } else if (error.code == "auth/wrong-password") {
-          messagePassword.innerHTML = "Senha inválida";
-          email.value = "";
-          password.value = "";
+        if (error.code === 'auth/user-not-found') {
+          messageEmail.innerHTML = 'E-mail não cadastrado';
+          email.value = '';
+          password.value = '';
+        } else if (error.code === 'auth/wrong-password') {
+          messagePassword.innerHTML = 'Senha inválida';
+          email.value = '';
+          password.value = '';
         }
         return errorMessage;
       });
   });
 
-  googleButton.addEventListener("click", (e) => {
+  googleButton.addEventListener('click', (e) => {
     e.preventDefault();
     googleLogin()
       .then(() => {
-        window.location.hash = "#timeline";
+        window.location.hash = '#timeline';
       })
       .catch((error) => {
         const errorMessage = error.message;

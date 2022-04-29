@@ -37,7 +37,6 @@ body {
   margin-left: 4%;
   margin-bottom: 4%;
 }
-
 .buttons-like {
   border-radius: 50%;
   width: 30%;
@@ -45,11 +44,9 @@ body {
   margin-right: 5%;
   background-color: transparent;
 }
-
 .img-like {
   width: 80%;
 }
-
 .likes {
   font-weight: bold;
 }

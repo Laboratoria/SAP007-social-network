@@ -37,7 +37,7 @@ export const publicatedPost = async (valueTitle, valueText) => {
 export const getPost = async () => {
   const collectionSortedByDate = query(
     collection(db, 'posts'),
-    orderBy('data', 'asc')
+    orderBy('data', 'asc'),
   );
   const arrPost = [];
   const querySnapshot = await getDocs(collectionSortedByDate);
@@ -53,9 +53,9 @@ export const postUser = async (uid) => {
   const collectionSortedByUid = query(
     collection(db, 'posts'),
     orderBy('data', 'asc'),
-    where('uid', '==', uid)
+    where('uid', '==', uid),
   );
-  let arrMyPost = [];
+  const arrMyPost = [];
   const querySnapshot = await getDocs(collectionSortedByUid);
   querySnapshot.forEach((doc) => {
     const myPost = doc.data();
@@ -66,7 +66,7 @@ export const postUser = async (uid) => {
 };
 
 export const deletePost = async (id) => {
-  return await deleteDoc(doc(db, 'posts', id));
+  await deleteDoc(doc(db, 'posts', id));
 };
 
 export async function like(id, user) {
@@ -83,11 +83,11 @@ export async function dislike(id, user) {
   });
 }
 
-export const editPost = async (id,title, text) => {
-const post = doc(db, 'posts', id);
-    await updateDoc(post, {
-    title: title,
-    text: text
+export const editPost = async (id, title, text) => {
+  const post = doc(db, 'posts', id);
+  await updateDoc(post, {
+    title: title.value,
+    text: text.value,
   });
   return post;
-}
+};

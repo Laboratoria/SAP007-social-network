@@ -1,9 +1,9 @@
-import { auth } from "../lib/authentication.js";
-import { like, dislike } from "../lib/firestore.js";
+import { auth } from '../lib/authentication.js';
+import { like, dislike } from '../lib/firestore.js';
 
 export default function card(item) {
-  const publications = document.createElement("div");
-  publications.setAttribute("class", "publicated");
+  const publications = document.createElement('div');
+  publications.setAttribute('class', 'publicated');
   const mold = `
     <h3 class="published-title">${item.title}</h3>
     <p class="published-text">${item.text}</p>
@@ -17,26 +17,27 @@ export default function card(item) {
   `;
   publications.innerHTML = mold;
 
-  const buttonsLike = publications.querySelector(".buttons-like");
-  const likeImage = publications.querySelector(".img-like");
+  const buttonsLike = publications.querySelector('.buttons-like');
+  const likeImage = publications.querySelector('.img-like');
   const likeCount = publications.querySelector(`#like-${item.id}`);
   let arrLike = item.likes.length;
 
-
-  buttonsLike.addEventListener("click", async () => {
+  buttonsLike.addEventListener('click', async (e) => {
+    e.preventDefault();
     const user = auth.currentUser;
     if (!item.likes.includes(user.uid)) {
+      like(item.id, user.uid);
       item.likes.push(user.uid);
       arrLike += 1;
       likeCount.textContent = arrLike;
-      likeImage.setAttribute("src", "./images/icon-like.jpg");
+      likeImage.setAttribute('src', './images/icon-like.jpg');
     } else {
       const likeUser = item.likes.indexOf(user.uid);
       dislike(item.id, user.uid);
       item.likes.splice(likeUser, 1);
       arrLike -= 1;
       likeCount.textContent = arrLike;
-      likeImage.setAttribute("src", "./images/like.png");
+      likeImage.setAttribute('src', './images/like.png');
     }
   });
 

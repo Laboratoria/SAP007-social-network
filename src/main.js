@@ -1,28 +1,28 @@
-import home from "./pages/home.js";
-import register from "./pages/register.js";
-import timeline from "./pages/timeline.js";
-import profile from "./pages/profile.js";
-import { loggedIn } from "./lib/authentication.js";
+import home from './pages/home.js';
+import register from './pages/register.js';
+import timeline from './pages/timeline.js';
+import profile from './pages/profile.js';
+import { loggedIn } from './lib/authentication.js';
 
-const main = document.querySelector("#root");
+const main = document.querySelector('#root');
 
 function redirect() {
   switch (window.location.hash) {
-    case "#register":
+    case '#register':
       main.appendChild(register());
       break;
-    case "#timeline":
+    case '#timeline':
       loggedIn((logged) => {
         if (logged) {
           main.appendChild(timeline());
-        } else window.location.hash = "#home";
+        } else window.location.hash = '#home';
       });
       break;
-    case "#profile":
+    case '#profile':
       loggedIn((logged) => {
         if (logged) {
           main.appendChild(profile());
-        } else window.location.hash = "#home";
+        } else window.location.hash = '#home';
       });
       break;
     default:
@@ -31,13 +31,13 @@ function redirect() {
 }
 
 const init = () => {
-  window.addEventListener("hashchange", () => {
-    main.innerHTML = "";
+  window.addEventListener('hashchange', () => {
+    main.innerHTML = '';
     redirect();
   });
 };
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   redirect();
   init();
 });

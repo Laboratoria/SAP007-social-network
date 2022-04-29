@@ -1,10 +1,10 @@
-import { auth, userLogout } from "../lib/authentication.js";
-import { postUser } from "../lib/firestore.js";
-import card from "../components/templates.js";
+import { auth, userLogout } from '../lib/authentication.js';
+import { postUser } from '../lib/firestore.js';
+import card from '../components/templates.js';
 
 export default () => {
-  const container = document.createElement("section");
-  container.setAttribute("class", "section");
+  const container = document.createElement('section');
+  container.setAttribute('class', 'section');
   const template = `
     <nav class="nav-section">
       <ul>
@@ -20,9 +20,8 @@ export default () => {
   `;
   container.innerHTML = template;
 
-  const post = container.querySelector(".feed");
-  const logout = container.querySelector(".logout");
-
+  const post = container.querySelector('.feed');
+  const logout = container.querySelector('.logout');
 
   const showMyPosts = async () => {
     const uid = auth.currentUser.uid;
@@ -34,10 +33,10 @@ export default () => {
   };
   showMyPosts();
 
-  logout.addEventListener("click", (e) => {
+  logout.addEventListener('click', (e) => {
     e.preventDefault();
-    userLogout().then(function () {
-      window.location.hash = "";
+    userLogout().then(() => {
+      window.location.hash = '';
     });
   });
 
