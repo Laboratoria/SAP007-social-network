@@ -58,15 +58,15 @@
 .menu-edit-remove{
   display: none;
   position: absolute;
-  right: 0;
-  width: 200px;
-  background: greenyellow;
+  width: 100px;
   margin-top: 20px;
+  right: 0;
+  
 }
 .menu-edit-remove.active{
   display: block;
 }
-.img-delete, .img-edit{
+.img-delete, .img-edit, .btn-like-post, .bnt-comment-post{
   height: 8vh;
 }
 .post-text-id {
@@ -130,4 +130,19 @@
   margin-top: 5px;
   margin-bottom: 5px;
   background: var(--blue-op);
+}
+
+.modal-delete{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: aquamarine;
+  z-index: 5;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.modal-delete-confirm{
+  background: white;
+  display: flex;
 }

@@ -7,8 +7,7 @@ import { errorHandlingGeneral } from '../../components/errorHandling.js';
 export const pageLogin = () => {
   const login = document.createElement('div');
   login.setAttribute('class', 'box-form-login');
-  login.innerHTML = `  
-
+  login.innerHTML = `
   <section class="header-page-login">
     <figure class="box-slogan-page-login">
       <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
