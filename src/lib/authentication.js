@@ -29,14 +29,12 @@ export function userLogin(email, password) {
   );
 }
 
-export const googleLogin = () => {
-  return signInWithPopup(auth, provider).then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    return user;
-  });
-};
+export const googleLogin = () => signInWithPopup(auth, provider).then((result) => {
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  const user = result.user;
+  return user;
+});
 
 export function loggedIn(cb) {
   onAuthStateChanged(auth, (user) => {
@@ -46,10 +44,6 @@ export function loggedIn(cb) {
 
 export function userLogout() {
   return signOut(auth)
-    .then(() => {
-      return 'Logout';
-    })
-    .catch((error) => {
-      return error;
-    });
+    .then(() => 'Logout')
+    .catch((error) => error);
 }
