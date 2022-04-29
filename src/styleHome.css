@@ -49,6 +49,40 @@
     }
 
 }
+*/
+
+@media (min-width: 576px) {
+
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Josefin+Sans&family=Poppins:ital,wght@1,300&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .cabeçalho {
+        background-color: #7dc289;
+        color: white;
+        width: 100%;
+        height: 12vh;
+        font-size: 1.5em;
+        border-radius: 0px 0px 5px 5px;
+    }
+    .titulo {
+      text-align: center; 
+   }
+    .footer {
+        background-color: #7dc289;
+        color: white;
+        width: 100%;
+        height: 12vh;
+        margin-top: 74%;
+        text-align: center; 
+        border-radius: 5px 5px 0px 0px;
+    }
+}
+
 
 @media (min-width: 768px) { 
 

@@ -1,7 +1,7 @@
 import "../../lib/config-firebase.js";
 
 export default () => {
-    const containerHome = document.createElement('div')
+    const containerHome = document.createElement('div');
 
     const templateHome = `
       <form>
@@ -17,3 +17,5 @@ export default () => {
 
     return containerHome;
 }
+
+
