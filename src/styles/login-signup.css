@@ -1,40 +1,12 @@
-:root {
-  --color-error: red;
-  --font-color-button: white;
-  --gray-default: gray;
-  --purple-border-body: #6a2b7b;
-  --purple-gradient: rgb(103, 41, 125);
-  --purple-hover: rgb(76, 24, 94);
-  --yellow-border-body: #fbc41c;
-  --yellow-gradient: #fac31c;
-  --yellow-hover: rgb(212, 166, 28);
-  --yellow-font: #ecb200;
-}
-
-.nav-bar button,
-.menu-icons {
-  background: none;
-  border: none;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.root {
-  height: 100vh;
+.login,
+.signup {
+  height: 100%;
+  width: 101.3%;
   border-left: solid 0.3rem var(--yellow-border-body);
   border-right: solid 0.3rem var(--purple-border-body);
 }
 
-.login,
-.signup {
-  height: 99%;
-}
-
-.content {
+.container {
   height: 90%;
   width: 100%;
   display: flex;
@@ -43,8 +15,8 @@
 }
 
 .main-login,
-.main-signUp {
-  height: 90%;
+.main-signup {
+  height: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,15 +27,9 @@
   width: 80%;
 }
 
-h2 {
-  color: var(--yellow-font);
-  margin-top: -2.5rem;
-  margin-bottom: 0.9rem;
-  text-align: center;
-}
-
 form {
   width: 70%;
+  height: 85%;
   margin-top: 1rem;
   margin-bottom: 0.9rem;
   text-align: center;
@@ -71,11 +37,14 @@ form {
   flex-direction: column;
 }
 
-.imgPhones {
-  display: none;
+h2 {
+  color: var(--yellow-font);
+  margin-top: -2.5rem;
+  margin-bottom: 0.9rem;
+  text-align: center;
 }
 
-input {
+form input {
   height: 2rem;
   border-style: none;
   border: 0.1rem solid var(--gray-default);
@@ -83,6 +52,7 @@ input {
   padding-left: 0.625rem;
   margin-bottom: 0.5rem;
   outline: none;
+  background: transparent;
 }
 
 input::placeholder {
@@ -94,74 +64,65 @@ input:focus {
   border-color: var(--yellow-font);
 }
 
-.mensagemErro {
+.error-message {
   color: var(--color-error);
   font-size: 0.8rem;
   margin-bottom: 0.4rem;
 }
 
-.btnEntrar,
-.buttonRegister {
+.enter-button,
+.register-button {
   height: 2rem;
   width: 100%;
   border-style: none;
   border-radius: 0.125rem;
   background-image: linear-gradient(to right, var(--purple-gradient), var(--yellow-gradient));
+  cursor: pointer;
 }
 
-.btnEntrar a,
-.buttonRegister a {
+.enter-button a,
+.register-button a {
   text-decoration: none;
   color: var(--font-color-button);
   font-weight: bold;
 }
 
-.btnEntrar:hover,
-.buttonRegister:hover {
+.enter-button:hover,
+.register-button:hover {
   background-image: linear-gradient(to right, var(--purple-hover), var(--yellow-hover));
 }
 
-.alternativaLogin {
+.redefine-password {
+  text-decoration: none;
+  color: var(--yellow-font);
+  font-size: 0.8rem;
+  margin-top: 1.4rem;
+  cursor: pointer;
+}
+
+.login-alternative {
   color: var(--yellow-font);
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-.alternativaLogin div {
+.login-alternative div {
   background-color: var(--yellow-font);
   height: 0.05rem;
   width: 60%;
 }
 
-.alternativaLogin p {
+.login-alternative p {
   font-weight: bold;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
-.recoverPassword {
-  text-decoration: none;
-  color: var(--yellow-font);
-  font-size: 0.8rem;
-  margin-bottom: 1.4rem;
-}
-
 .buttons {
-  margin-bottom: 1rem;
-}
-
-.buttonsSignup {
   margin-top: 1rem;
-}
-
-.buttons p {
-  color: var(--yellow-font);
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-bottom: 0.7rem;
-  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .google,
@@ -172,30 +133,32 @@ input:focus {
   border: none;
   border-radius: 50%;
   background: none;
+  cursor: pointer;
 }
 
-.iconGoogle,
-.iconFacebook,
-.iconGithub {
+.google-icon,
+.facebook-icon,
+.github-icon {
   height: 2rem;
 }
 
-.criarConta,
-.irParaAConta {
+.createAnAccount,
+.goToAccount {
   color: var(--yellow-font);
   font-size: 0.8rem;
   font-weight: bold;
+  margin-top: 1rem;
 }
 
-.criarConta a,
-.irParaAConta a {
+.createAnAccount a,
+.goToAccount a {
   text-decoration: none;
   color: var(--purple-gradient);
   font-weight: bold;
 }
 
-.copyright {
-  height: 0.7rem;
+.phones-image {
+  display: none;
 }
 
 .devs {
@@ -210,13 +173,13 @@ input:focus {
 
 @media screen and (min-width: 1024px) {
   .main-login,
-  .main-signUp {
+  .main-signup {
     margin-top: -4rem;
   }
   .logo {
     margin-top: 2rem;
   }
-  .imgPhones {
+  .phones-image {
     margin-right: 2rem;
     display: block;
     height: 90%;
