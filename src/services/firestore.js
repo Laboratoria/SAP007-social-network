@@ -45,7 +45,7 @@ export async function like(idPost, icon) {
   const userLogado = current().uid;
   let likes = post.likes;
   let liked;
-  if(post.likes.includes(userLogado)) {
+  if (post.likes.includes(userLogado)) {
     liked = false;
     likes = likes.filter((id) => id !== userLogado)
     icon.classList.remove('curtido')

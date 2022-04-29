@@ -2,7 +2,6 @@ import login from '../pages/login.js';
 import feed from '../pages/feed.js';
 import signUp from '../pages/signup.js';
 import publish from '../pages/publish.js';
-import profile from '../pages/user-profile.js';
 import { loggedIn } from '../services/authentication.js';
 
 const main = document.querySelector('#root');
@@ -50,15 +49,6 @@ const init = () => {
         loggedIn((logado) => {
           if (logado) {
             main.appendChild(publish());
-          } else {
-            main.appendChild(login());
-          }
-        })
-        break;
-      case '#profile':
-        loggedIn((logado) => {
-          if (logado) {
-            main.appendChild(profile());
           } else {
             main.appendChild(login());
           }
