@@ -1,5 +1,5 @@
 import '../lib/firebase.js';
-import { userLogout, auth } from '../lib/authentication.js';
+import { userLogout } from '../lib/authentication.js';
 import { publicatedPost, getPost } from '../lib/firestore.js';
 import card from '../components/card.js';
 
@@ -46,6 +46,15 @@ export default () => {
   const errorTitle = container.querySelector('.error-title');
   const errorText = container.querySelector('.error-text');
 
+  const showAllPosts = async () => {
+    const allPosts = await getPost();
+    allPosts.forEach((item) => {
+      const postElement = card(item);
+      userPublications.prepend(postElement);
+    });
+  };
+  showAllPosts();
+
   post.addEventListener('keyup', () => {
     const title = valueTitle.value;
     const text = valueText.value;
@@ -64,7 +73,7 @@ export default () => {
     const title = valueTitle.value;
     const text = valueText.value;
     await publicatedPost(title, text);
-    auth.currentUser.displayName;
+    // auth.currentUser.displayName;
     showAllPosts();
     buttonPost.disabled = true;
     valueTitle.value = '';
@@ -77,15 +86,6 @@ export default () => {
       window.location.hash = '';
     });
   });
-
-  const showAllPosts = async () => {
-    const allPosts = await getPost();
-    allPosts.map((item) => {
-      const postElement = card(item);
-      userPublications.prepend(postElement);
-    });
-  };
-  showAllPosts();
 
   return container;
 };

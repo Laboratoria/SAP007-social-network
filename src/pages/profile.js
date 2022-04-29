@@ -26,7 +26,7 @@ export default () => {
   const showMyPosts = async () => {
     const uid = auth.currentUser.uid;
     const feedProfile = await postUser(uid);
-    feedProfile.map((item) => {
+    feedProfile.forEach((item) => {
       const postCard = card(item);
       post.prepend(postCard);
     });
