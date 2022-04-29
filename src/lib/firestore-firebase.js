@@ -17,12 +17,18 @@ export async function getPosts() {
     return arrPosts
 }
 
-export async function creatPost(message, titleHQ) {
-    const docRef = await addDoc(collection(db, "posts"), {
+export function creatPost(message, titleHQ, userName) {
+    return addDoc(collection(db, "posts"), {
         message,
         titleHQ,
+        userName,
         date: new Date().toLocaleString("pt-br"),
-    });
-    console.log("Document written with ID: ", docRef.id);
-    return docRef.id;
+    }).then((docRef) => {
+        return {
+            id:docRef.id,
+            message,
+            titleHQ,
+            userName
+        }
+    })
 }

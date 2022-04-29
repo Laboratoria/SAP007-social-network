@@ -7,10 +7,12 @@ import {
 
 import { auth } from "./config-firebase.js";
 
+//Cadastrar um usuário com endereço de e-mail e senha
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
+//Cadastrar um usuário e fazer login com google
 const provider = new GoogleAuthProvider();
 export function registerGoogle() {
     return signInWithPopup(auth, provider)
