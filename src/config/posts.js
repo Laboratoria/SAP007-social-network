@@ -13,6 +13,7 @@ export function createNewPost(newText) {
       userId: auth.currentUser.uid,
       text: newText,
       like: 0,
+      createdAt: new Date()
     };
 
     addDoc(postsCollection, newPost)
