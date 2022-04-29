@@ -10,13 +10,11 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import { auth } from '../dependencies/config-firebase.js';
 
-//Armazenando o usuário logado em uma função reutilizável
 export function current() {
   const user = auth.currentUser;
   return user;
 }
 
-//Login por e-mail e senha
 export function login(email, password, errorPrint) {
   return signInWithEmailAndPassword(auth, email, password)
     .then(() => {
@@ -33,7 +31,6 @@ export function login(email, password, errorPrint) {
     });
 }
 
-//Login por Google
 export function loginGoogle(errorPrint) {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider)
@@ -50,7 +47,6 @@ export function loginGoogle(errorPrint) {
     });
 }
 
-//Função de redefinir a senha
 export function redefinePassword(email, errorPrint) {
   sendPasswordResetEmail(auth, email)
     .then(() => {
@@ -65,7 +61,6 @@ export function redefinePassword(email, errorPrint) {
     });
 }
 
-//Cadastar usuário
 export function register(email, password, name, errorPrint) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
@@ -92,14 +87,12 @@ export function register(email, password, name, errorPrint) {
     });
 }
 
-//Função de manter o usuário logado
 export function logged(callback) {
   onAuthStateChanged(auth, (user) => {
     callback(user !== null)
   });
 }
 
-//Função de sair da conta
 export function logout() {
   signOut(auth)
     .then(() => {
