@@ -14,7 +14,7 @@ function creatingInternalElements() {
 
   container.style.backgroundImage = 'none';
   sectionGeneral.classList.add('container-labfriends');
-  sectionGeneral.innerHTML = createHeader;
+  sectionGeneral.innerHTML = createHeader();
   container.append(sectionGeneral);
 
   const postOpen = container.querySelector('[data-post="open"]');

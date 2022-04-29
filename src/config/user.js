@@ -9,22 +9,22 @@ export async function createNewUser(name, email, id) {
     let hasUser = false;
 
     datas.forEach((user) => {
-      if(user._document.data.value.mapValue.fields.userId.stringValue === id) {
+      if (user._document.data.value.mapValue.fields.userId.stringValue === id) {
         hasUser = true;
       }
     });
 
-    if(hasUser) {
+    if (hasUser) {
       return user;
     }
     else {
-          const newUser = {
-            socialName: name,
-            userEmail: email,
-            userId: id,
-          };
-          const docRef = await addDoc(collection(db, 'users'), newUser);
-          return docRef;
+      const newUser = {
+        socialName: name,
+        userEmail: email,
+        userId: id,
+      };
+      const docRef = await addDoc(collection(db, 'users'), newUser);
+      return docRef;
     }
 
   } catch (e) {

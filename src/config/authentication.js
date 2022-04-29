@@ -7,6 +7,7 @@ import {
   sendPasswordResetEmail,
   sendEmailVerification,
   onAuthStateChanged,
+  updateProfile
 } from './export.js';
 import { auth } from './start-firebase.js';
 import { createNewUser } from './user.js';
@@ -14,7 +15,13 @@ import { createNewUser } from './user.js';
 export function registerNewUser(name, email, password) {
   return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      
+      updateProfile(auth.currentUser, {
+        displayName: name
+      });
+
       const userId = userCredential.user.uid;
+      
       sendEmailVerification(auth.currentUser)
         .then(() => {
           createNewUser(name, email, userId);

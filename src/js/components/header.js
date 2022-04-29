@@ -1,4 +1,7 @@
-export const createHeader = `
+import { auth } from "../../config/export.js";
+
+export function createHeader () { 
+  const header = `
       <header id="header">
         <section class="menu-header">
           <h1 class="container-logo">
@@ -65,7 +68,7 @@ export const createHeader = `
             <button class="modal-close" data-post="close">X</button>
             <section>
               <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-              <p>Nome do Usuário</p>
+              <p>${auth.currentUser.displayName}</p>
               <label for="user-comment">
                 <textarea id="message" class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
               </label>
@@ -79,3 +82,6 @@ export const createHeader = `
         </section>x'
       </header>
     `;
+
+    return header;
+}
