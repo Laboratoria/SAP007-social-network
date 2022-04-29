@@ -1,3 +1,5 @@
+import { signIn, validateEmail } from "../lib/auth-firebase.js";
+
 export default function login() {
   const container = document.createElement("div");
   container.classList.add("login-page")
@@ -17,12 +19,11 @@ export default function login() {
                 </div>  
                 <div class="textfield">
                     <label for="senha">Senha</label>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input id="password" type="password" name="senha" placeholder="Senha">
                 </div>     
-                <button class="botaologin">ENTRAR</button>
+                <button id="signin-button" class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             
             </div>
-            <a href="home.js">postar</a>
         </div>     
     </div>
   `;
@@ -33,7 +34,7 @@ export default function login() {
     window.location.hash = "register";
   });
 
-const email = container.querySelector('#email');
+const email = container.querySelector('#inputEmail');
 const password = container.querySelector('#password');
 const loginError = container.querySelector('#loginError');
 const signInButton = container.querySelector('#signin-button');
@@ -44,25 +45,26 @@ signInButton.addEventListener('click', (e) => {
   if (email.value) {
     signIn(email.value, password.value)
       .then(() => {
-        window.location.hash = 'timeline'; 
+        window.location.hash = "home"; 
       })
       .catch((error) => {
         const errorCode = error.code;
-        if (errorCode === 'auth/invalid-email') {
-          loginError.style.color = 'red"';
-          loginError.innerHTML = 'Não há registro de usuário correspondente a este e-mail';
-        } else if (errorCode === 'auth/wrong-password') {
-          loginError.style.color = 'red';
-          loginError.innerHTML = 'Senha inválida';
+        if (errorCode === "email-already-in-use") {
+          loginError.style.color = "red";
+          loginError.innerHTML = "Não há registro de usuário correspondente a este e-mail";
+        } else if (errorCode === "auth/wrong-password") {
+          loginError.style.color = "red";
+          loginError.innerHTML = "Senha inválida";
         }
       });
   } else {
    loginError.innerHTML="Preencha o campo de E-mail";
   }
 
-  return container;
-
 });
+
+return container;
+
 
 }
 

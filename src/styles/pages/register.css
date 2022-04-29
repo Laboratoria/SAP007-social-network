@@ -17,56 +17,54 @@
 }
 
 .logo-google {
-    width: 50px;
-    height: 35px;
+    width: 3.125rem;
+    height: 2.188rem;
 }
 
 .subtitle-register {
-    font-size: 11px;
+    font-size: 0.688rem;
     color: black;
 }
 
 .form-fields {
     border: none;
-    border-radius: 10px;
+    border-radius: 0.625;
     background-color: rgb(63, 51, 90);
     color: rgb(200, 202, 204);
     font-size: 9pt;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 10px 40px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0rem 0.625rem 2.5rem;
     outline: none;
     box-sizing: border-box;
-    width: 208px;
-    height: 28px;
-    padding-left: 8px;
+    width: 13rem;
+    height: 1.75rem;
+    padding-left: 0.5rem;
 }
 
 .label-name, .label-user, .label-email, .label-password {
     font-weight: 300;
-    font-size: 13px;
+    font-size: 0.813rem;
     color: rgb(200, 202, 204);
-    margin-bottom: 7px;
+    margin-bottom: 0.438rem;
 }
 
 .label-name {
-    margin-right: 97px;
+    margin-right: 6.063rem;
 }
 
 .label-user {
-    margin-right: 146px;
-    margin-top: 16px;
+    margin-right: 9.125rem;
 }
 
 .label-email, .label-password {
-    margin-right: 154px;
-    margin-top: 16px;
+    margin-right: 9.625rem;
 }
 
 .register-form {
     display: flex;
     justify-content: center;
     background-color: #241d3f;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 10px 40px;
+    border-radius: 1.25rem;
+    box-shadow: rgba(0, 0, 0, 0.56) 0rem 0.625rem 2.5rem;
     margin-top: 0.3rem;
     margin-left: 2.688rem;
     margin-right: 2.688rem;
@@ -76,12 +74,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 15px;
+    margin-top: 0.938rem;
     margin-bottom: 0;
 }
 
 .alert-error {
-    font-size: 10px;
+    font-size: 0.625rem;
     color: rgb(200, 202, 204);
 }
 
@@ -89,31 +87,31 @@
     padding: 0.375rem 0.75rem;
     border: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 8px;
+    letter-spacing: 0.063rem;
+    border-radius: 0.5rem;
     outline: none;
     font-weight: 800;
-    margin-top: 21px;
-    margin-bottom: 15px;
+    margin-bottom: 0.938rem;
     color: #171329;
     background-color: rgba(184, 115, 248, 0.829);
     cursor: pointer;
-    box-shadow: rgba(149, 42, 248, 0.829) 0px 10px 40px -12px;
-    width: 208px;
+    box-shadow: rgba(149, 42, 248, 0.829) 0px 0.625rem 2.5rem -0.75rem;
+    width: 13rem;
 }
 
 .button-register-back {
-    width: 100px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    font-size: 11px;
+    width: 6.25rem;
+    margin-top: 0.063rem;
+    margin-bottom: 0.063rem;
+    font-size: 0.688rem;
 }
 
 .footer-register {
     color: rgba(184, 115, 248, 0.829);
     font-weight: lighter;
-    font-size: 9px;
-    margin-top: 32px;
+    font-size: 0.563rem;
+    margin-top: 1.563rem;
+    text-decoration: none;
 }
 
 
@@ -121,16 +119,16 @@
 
     .title-register {
         font-size: 1.875rem;
-        margin-top: 76px;
+        margin-top: 4.75rem;
     }
 
     .subtitle-register {
-        font-size: 15px;
+        font-size: 0.938rem;
     }
     
     .logo-google {
-        width: 55px;
-        height: 40px;
+        width: 3.438rem;
+        height: 2.5rem;
     }
 
     .label-name, .label-user, .label-email, .label-password {
@@ -144,15 +142,15 @@
     }
 
     .label-name {
-        margin-right: 125px;
+        margin-right: 7.813rem;
     }
 
     .label-user {
-        margin-right: 190px;
+        margin-right: 11.875rem;
     }
 
     .label-email, .label-password {
-        margin-right: 201px;
+        margin-right: 12.563rem;
     }
 
     .register-form {
@@ -167,12 +165,12 @@
     }
 
     .alert-error {
-        font-size: 13px;
+        font-size: 0.813rem;
     }
 
     .footer-register {
-        font-size: 12px;
-        margin-top: 313px;
+        font-size: 0.75rem;
+        margin-top: 18.125rem;
     }
         
 }
@@ -184,28 +182,28 @@
     }
 
     .subtitle-register {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .logo-google {
-        width: 60px;
-        height: 45px;
+        width: 3.75rem;
+        height: 2.813rem;
     }
 
     .label-name, .label-user, .label-email, .label-password, .label-confirm {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     .label-name {
-        margin-right: 140px;
+        margin-right: 8.75rem;
     }
 
     .label-user {
-        margin-right: 203px;
+        margin-right: 12.688rem;
     }
 
     .label-email, .label-password {
-        margin-right: 216px;
+        margin-right: 13.5rem;
     }
 
     .form-fields {
@@ -226,17 +224,17 @@
     }
 
     .button-register-back {
-        width: 118px;
-        font-size: 12px;
+        width: 7.375rem;
+        font-size: 0.75rem;
     }    
 
     .alert-error {
-        font-size: 16px;
+        font-size: 1rem;
     }
     
     .footer-register {
-        font-size: 14px;
-        margin-top: 109px;
+        font-size: 0.875rem;
+        margin-top: 2.813rem;
     }
 
 }
