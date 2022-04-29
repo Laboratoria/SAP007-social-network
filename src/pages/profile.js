@@ -1,4 +1,4 @@
-import { auth } from "../lib/authentication.js";
+import { auth, userLogout } from "../lib/authentication.js";
 import { postUser } from "../lib/firestore.js";
 import card from "../components/templates.js";
 
@@ -13,11 +13,16 @@ export default () => {
       </ul>
       <hr>
     </nav>
+    <div class="div-logout">
+      <button class="logout">Sair</button>
+    </div>
     <div class="feed"></div>
   `;
   container.innerHTML = template;
 
   const post = container.querySelector(".feed");
+  const logout = container.querySelector(".logout");
+
 
   const showMyPosts = async () => {
     const uid = auth.currentUser.uid;
@@ -28,6 +33,13 @@ export default () => {
     });
   };
   showMyPosts();
+
+  logout.addEventListener("click", (e) => {
+    e.preventDefault();
+    userLogout().then(function () {
+      window.location.hash = "";
+    });
+  });
 
   return container;
 };
