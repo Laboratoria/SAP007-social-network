@@ -2,8 +2,7 @@ import login from '../pages/login.js';
 import feed from '../pages/feed.js';
 import signUp from '../pages/signup.js';
 import publish from '../pages/publish.js';
-import profile from '../pages/user-profile.js';
-import { loggedIn } from '../services/authentication.js';
+import { logged } from '../services/authentication.js';
 
 const main = document.querySelector('#root');
 const init = () => {
@@ -11,7 +10,7 @@ const init = () => {
     main.innerHTML = '';
     switch (window.location.hash) {
       case '':
-        loggedIn((logado) => {
+        logged((logado) => {
           if (logado) {
             main.appendChild(feed());
           } else {
@@ -20,7 +19,7 @@ const init = () => {
         });
         break;
       case '#login':
-        loggedIn((logado) => {
+        logged((logado) => {
           if (logado) {
             main.appendChild(feed());
           } else {
@@ -29,7 +28,7 @@ const init = () => {
         });
         break;
       case '#feed':
-        loggedIn((logado) => {
+        logged((logado) => {
           if (logado) {
             main.appendChild(feed());
           } else {
@@ -38,7 +37,7 @@ const init = () => {
         });
         break;
       case '#signUp':
-        loggedIn((logado) => {
+        logged((logado) => {
           if (logado) {
             main.appendChild(feed());
           } else {
@@ -47,7 +46,7 @@ const init = () => {
         });
         break;
       case '#publish':
-        loggedIn((logado) => {
+        logged((logado) => {
           if (logado) {
             main.appendChild(publish());
           } else {
@@ -71,7 +70,7 @@ const init = () => {
 };
 
 window.addEventListener('load', () => {
-  loggedIn((logado) => {
+  logged((logado) => {
     if (logado) {
       main.appendChild(feed());
     } else {

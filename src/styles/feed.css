@@ -1,208 +1,208 @@
 .feedHome {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .feedHome::before {
-    content: " ";
-    height: 100%;
-    width: 100%;
-    background-color: var(--background-color-feed);
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-  }
-  
-  .container-feed {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
+  height: 100%;
+  width: 100%;
+}
+
+.feedHome::before {
+  content: " ";
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-feed);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container-feed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.feed {
+  width: 95%;
+  margin-bottom: 112px;
+}
+
+.post-list {
+  width: 100%;
+  list-style-type: none;
+  position: relative;
+  bottom: -64px;
+}
+
+.post-list .post {
+  background-color: var(--background-color-post);
+  box-shadow: 1px 1px 5px var(--purple-hover);
+  border-radius: 11.2px;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.post-header {
+  height: 64px;
+  width: 100%;
+  border-bottom: 1.6px solid var(--gray-default);
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-photo {
+  height: 48px;
+  border-radius: 50px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.header-information {
+  width: 75%;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.post-date {
+  width: 50%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.post-date p {
+  font-size: 9.6px;
+}
+
+.post-text {
+  padding: 16px 8px;
+  resize: none;
+}
+
+.post-text p {
+  outline: none;
+}
+
+.saveAndCancelButtons {
+  display: none;
+}
+
+.post-footer {
+  border-top: 1.6px solid var(--gray-default);
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-footer button {
+  background: transparent;
+  border: none;
+  margin: 3.2px;
+}
+
+.likes {
+  display: inline-flex;
+  align-items: center;
+}
+
+.like-button::before {
+  content: "\e87e";
+  color: var(--gray-default);
+}
+
+.like-button.curtido::before {
+  content: "\e87d";
+  color: var(--color-like);
+}
+
+.edit-button::before {
+  content: "\e3c9";
+  color: var(--gray-default);
+}
+
+.saveAndCancelButtons {
+  margin-top: 2rem;
+  justify-content: end;
+}
+
+.saveAndCancelButtons button {
+  margin-left: 0.5rem;
+  background: lightgray;
+  border: none;
+  height: 1.5rem;
+  width: 5rem;
+  border-radius: 0.2rem;
+  color: dimgray
+}
+
+.save-button:hover,
+.cancel-button:hover,
+.yes-button:hover,
+.no-button:hover {
+  background-color: var(--yellow-menu-hover);
+  color: var(--yellow-font);
+}
+
+.delete-button::before {
+  content: "\e872";
+  color: var(--gray-default);
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-modal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center
+}
+
+.internal-modal {
+  height: 80px;
+  width: 160px;
+  border-radius: 11.2px;
+  padding: 16px;
+  background-color: var(--font-color-button);
+  box-shadow: 1px 1px 5px var(--purple-hover);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.internal-modal p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.internal-modal button {
+  height: 24px;
+  width: 100%;
+  border: none;
+  border-radius: 3.2px;
+  font-weight: bold;
+  margin-bottom: 3.2px;
+}
+
+@media screen and (min-width: 450px) {
   .feed {
-    width: 95%;
-    margin-bottom: 112px;
-  }
-  
-  .post-list {
-    width: 100%;
-    list-style-type: none;
-    position: relative;
-    bottom: -64px;
-  }
-  
-  .post-list .post {
-    background-color: var(--background-color-post);
-    box-shadow: 1px 1px 5px var(--purple-hover);
-    border-radius: 11.2px;
-    padding: 16px;
-    margin-bottom: 8px;
-  }
-  
-  .post-header {
-    height: 64px;
-    width: 100%;
-    border-bottom: 1.6px solid var(--gray-default);
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .user-photo {
-    height: 48px;
-    border-radius: 50px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-  
-  .header-information {
     width: 75%;
   }
-  
-  .username {
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .post-date {
-    width: 50%;
-    display: inline-flex;
-    justify-content: space-between;
-  }
-  
-  .post-date p {
-    font-size: 9.6px;
-  }
-  
-  .post-text {
-    padding: 16px 8px;
-    resize: none;
-  }
-  
-  .post-text p {
-    outline: none;
-  }
-  
-  .saveAndCancelButtons {
-    display: none;
-  }
-  
-  .post-footer {
-    border-top: 1.6px solid var(--gray-default);
-    padding-top: 8px;
+}
+
+@media screen and (min-width: 800px) {
+  .feedHome {
     display: flex;
-    justify-content: space-between;
   }
-  
-  .post-footer button {
-    background: transparent;
-    border: none;
-    margin: 3.2px;
+  .container-feed {
+    width: 76%;
   }
-  
-  .likes {
-    display: inline-flex;
-    align-items: center;
-  }
-  
-  .like-button::before {
-    content: "\e87e";
-    color: var(--gray-default);
-  }
-  
-  .like-button.curtido::before {
-    content: "\e87d";
-    color: var(--color-like);
-  }
-  
-  .edit-button::before {
-    content: "\e3c9";
-    color: var(--gray-default);
-  }
-  
-  .saveAndCancelButtons {
-    margin-top: 2rem;
-    justify-content: end;
-  }
-  
-  .saveAndCancelButtons button {
-    margin-left: 0.5rem;
-    background: lightgray;
-    border: none;
-    height: 1.5rem;
-    width: 5rem;
-    border-radius: 0.2rem;
-    color: dimgray
-  }
-  
-  .save-button:hover,
-  .cancel-button:hover,
-  .yes-button:hover,
-  .no-button:hover {
-    background-color: var(--yellow-menu-hover);
-    color: var(--yellow-font);
-  }
-  
-  .delete-button::before {
-    content: "\e872";
-    color: var(--gray-default);
-  }
-  
   .modal {
-    height: 100%;
-    width: 100%;
-    background-color: var(--background-color-modal);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    justify-content: center;
-    align-items: center
+    width: 75%;
   }
-  
-  .internal-modal {
-    height: 80px;
-    width: 160px;
-    border-radius: 11.2px;
-    padding: 16px;
-    background-color: var(--font-color-button);
-    box-shadow: 1px 1px 5px var(--purple-hover);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .internal-modal p {
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  .internal-modal button {
-    height: 24px;
-    width: 100%;
-    border: none;
-    border-radius: 3.2px;
-    font-weight: bold;
-    margin-bottom: 3.2px;
-  }
-  
-  @media screen and (min-width: 450px) {
-    .feed {
-      width: 75%;
-    }
-  }
-  
-  @media screen and (min-width: 800px) {
-    .feedHome {
-      display: flex;
-    }
-    .container-feed {
-      width: 76%;
-    }
-    .modal {
-      width: 75%;
-    }
-  }
+}

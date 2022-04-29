@@ -1,5 +1,5 @@
 import { logout, current } from '../services/authentication.js';
-import { menu } from './elements/menu.js';
+import { menu } from './components/menu.js';
 import {
   deletePost,
   getAllPosts,

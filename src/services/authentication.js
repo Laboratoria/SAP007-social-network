@@ -42,8 +42,8 @@ export function loginGoogle(errorPrint) {
       const errorEmail = error.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
       if (errorCode || errorEmail || credential) {
-        errorPrint.innerHTML = 'Ocorreu algum erro! Tente novamente mais tarde.';
-      }
+        errorPrint.innerHTML = ' Ocorreu algum erro! Tente novamente mais tarde.';
+      };
     });
 }
 
@@ -87,7 +87,7 @@ export function register(email, password, name, errorPrint) {
     });
 }
 
-export function loggedIn(callback) {
+export function logged(callback) {
   onAuthStateChanged(auth, (user) => {
     callback(user !== null);
   });
