@@ -54,15 +54,6 @@ const init = () => {
           }
         });
         break;
-      case '#profile':
-        loggedIn((logado) => {
-          if (logado) {
-            main.appendChild(profile());
-          } else {
-            main.appendChild(login());
-          }
-        });
-        break;
       default:
         main.appendChild(login());
     }

@@ -16,52 +16,57 @@ export function current() {
 }
 
 export function login(email, password, errorPrint) {
+  const printError = errorPrint;
   return signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       window.location.hash = 'feed';
     })
     .catch((error) => {
       if (error.code === 'auth/wrong-password') {
-        errorPrint.innerHTML = ' Senha incorreta!';
+        printError.innerHTML = ' Senha incorreta!';
       } else if (error.code === 'auth/invalid-email') {
-        errorPrint.innerHTML = ' E-mail incorreto!';
+        printError.innerHTML = ' E-mail incorreto!';
       } else {
-        errorPrint.innerHTML = 'E-mail incorreto ou não cadastrado';
+        printError.innerHTML = 'E-mail incorreto ou não cadastrado';
       }
     });
 }
 
 export function loginGoogle(errorPrint) {
+  const printError = errorPrint;
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider)
     .then(() => {
       window.location.hash = 'feed';
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorEmail = error.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
+      const e404 = error;
+      const errorCode = e404.code;
+      const errorEmail = e404.email;
+      const credential = GoogleAuthProvider.credentialFromError(e404);
       if (errorCode || errorEmail || credential) {
-        errorPrint.innerHTML = ' Ocorreu algum erro! Tente novamente mais tarde.';
-      };
+        printError.innerHTML = ' Ocorreu algum erro! Tente novamente mais tarde.';
+      }
     });
 }
 
 export function redefinePassword(email, errorPrint) {
+  const printError = errorPrint;
   sendPasswordResetEmail(auth, email)
     .then(() => {
-      errorPrint.innerHTML = 'E-mail enviado com sucesso!';
-      errorPrint.style.color = 'green';
+      printError.innerHTML = 'E-mail enviado com sucesso!';
+      printError.style.color = 'green';
     })
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode) {
-        errorPrint.innerHTML = 'Ocorreu algum erro. Tente novamente.';
+        printError.innerHTML = 'Ocorreu algum erro. Tente novamente.';
       }
     });
 }
 
 export function register(email, password, name, errorPrint) {
+  const printError = errorPrint;
   return createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       const user = auth.currentUser;
@@ -76,13 +81,13 @@ export function register(email, password, name, errorPrint) {
     })
     .catch((error) => {
       if (error.code === 'auth/uid-already-exists') {
-        errorPrint.innerHTML = 'E-mail já cadastrado';
+        printError.innerHTML = 'E-mail já cadastrado';
       } else if (error.code === 'auth/email-already-in-use') {
-        errorPrint.innerHTML = 'E-mail já cadastrado';
+        printError.innerHTML = 'E-mail já cadastrado';
       } else if (error.code === 'auth/invalid-email') {
-        errorPrint.innerHTML = 'E-mail inválido';
+        printError.innerHTML = 'E-mail inválido';
       } else {
-        errorPrint.innerHTML = ' Ocorreu algum erro! Tente novamente.';
+        printError.innerHTML = ' Ocorreu algum erro! Tente novamente.';
       }
     });
 }
@@ -98,7 +103,5 @@ export function logout() {
     .then(() => {
       window.location.hash = '#login';
     })
-    .catch((error) => {
-      return error;
-    });
+    .catch((error) => error);
 }

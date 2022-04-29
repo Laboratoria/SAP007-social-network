@@ -1,8 +1,6 @@
-import { logout } from "../services/authentication.js";
-import { createPost } from "../services/firestore.js";
-import { menu } from "./components/menu.js";
-//import { storage } from '../dependencies/config-firebase.js';
-//import { ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-storage.js';
+import { logout } from '../services/authentication.js';
+import { createPost } from '../services/firestore.js';
+import { menu } from './components/menu.js';
 
 export default () => {
   const feedPublish = document.createElement('div');
@@ -30,8 +28,6 @@ export default () => {
   const publicar = feedPublish.querySelector('.btnPublicar');
   const messagePost = feedPublish.querySelector('.post-input');
 
-  // const addImage = feedPublish.querySelector('#addImage')
-
   publicar.addEventListener('click', (e) => {
     e.preventDefault();
     if (messagePost.value) {
@@ -40,16 +36,11 @@ export default () => {
     }
   });
 
-  // addImage.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  // })
-
   const btnLogout = feedPublish.querySelector('#signout');
   btnLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logout();
   });
-
 
   return feedPublish;
 };

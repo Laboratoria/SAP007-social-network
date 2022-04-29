@@ -37,9 +37,9 @@ export async function getAllPosts() {
     orderBy('hour', 'desc'),
   );
   const postSnapshot = await getDocs(postCollection);
-  const listingOfPosts = postSnapshot.docs.map((doc) => {
-    const id = doc.id;
-    const data = doc.data();
+  const listingOfPosts = postSnapshot.docs.map((docsCol) => {
+    const id = docsCol.id;
+    const data = docsCol.data();
     const listingOfPostsWithId = {
       id,
       ...data,
@@ -69,7 +69,7 @@ export async function like(idPost, icon) {
     icon.classList.add('curtido');
   }
   await updateDoc(doc(db, 'posts', idPost), {
-    likes: likes,
+    likes,
   });
   return {
     liked,
