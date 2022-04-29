@@ -8,26 +8,13 @@ body {
   font-family: 'Inder';
   box-sizing: border-box;
 }
-.row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.col {
-  display: flex;
-  flex-direction: column;
-}
-.box {
-  padding: 25px;
-  margin: 15px;
-}
 
 .top-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: #fefaef;
+  background: #FEFAEF;
   color: #fff;
   height: 50px;
   padding: 1em;
@@ -47,22 +34,15 @@ body {
 .line-header {
   margin-top: 15px;
   width: 100%;
-  border: 1px solid #48d9b0;
+  border: 1px solid #48D9B0;
 }
-.post-container {
-  width: 580px;
-  height: 250px;
-  background-color: #f5efef;
-  border-radius: 8px;
-}
+
 .publish {
   width: 320px;
   border-radius: 8px;
-  background-color: #f5efef;
+  background-color: #F5EFEF;
   margin-top: 20px;
   margin-left: 20px;
-  margin-bottom: 15px;
-  padding-bottom: 25px;
 }
 
 textarea {
@@ -92,7 +72,7 @@ button {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  background-color: #466c8c;
+  background-color: #466C8C;
   width: 80px;
   height: 25px;
   border: none;
@@ -111,8 +91,7 @@ button {
 
 .buttons {
   display: flex;
-  width: 100%;
-  justify-content: space-evenly;
+  position: absolute;
 }
 
 @media (min-width: 900px) {
@@ -124,20 +103,11 @@ button {
     width: 60px;
     margin-top: 40px;
   }
-  .posts {
-    width: 100%;
-    display: flex;
-
-    align-items: center;
-  }
 
   .publish {
     width: 580px;
     margin-top: 50px;
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
+    margin-left: 400px;
   }
 
   textarea {
