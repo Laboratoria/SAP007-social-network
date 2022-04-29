@@ -68,5 +68,7 @@ export function createFeed() {
 function publish() {
   const message = document.querySelector('#message');
   const newPost = message.value;
+  message.value = "";
+  message.focus();
   createNewPost(newPost);
 }
