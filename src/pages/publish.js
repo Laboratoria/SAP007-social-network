@@ -1,6 +1,6 @@
 import { logout } from "../services/authentication.js";
 import { createPost } from "../services/firestore.js";
-import { menu } from "./elements/menu.js";
+import { menu } from "./components/menu.js";
 //import { storage } from '../dependencies/config-firebase.js';
 //import { ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-storage.js';
 

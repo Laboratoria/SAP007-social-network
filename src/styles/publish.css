@@ -1,25 +1,79 @@
-.nav-publish {
-  height: 3rem;
+.feedPublish {
+  height: 100%;
   width: 100%;
+  position: fixed;
+}
+
+.feedPublish::before {
+  content: " ";
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-feed);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.nav-publish {
+  height: 4rem;
+  /* width: 100%; */
+  margin-top: 3.5rem;
+  background-color: var(--font-color-button);
   display: flex;
   align-items: center;
-  border-bottom: 0.1rem solid gray;
+  justify-content: center;
+  border-bottom: 0.1rem solid var(--gray-default);
+}
+
+.nav-publish h3 {
+  color: var(--yellow-font);
+}
+
+.icon-back {
+  height: 2.2rem;
 }
 
 .main-content {
-  height: 67.5%;
-}
-
-.feedPublish {
   height: 100%;
+  width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
+.post-input {
+  height: 100%;
+  /* width: 100%; */
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  outline: none;
+  /* background-color: transparent; */
+  resize: none;
+  /* color: white; */
+}
+
 .buttons-publish {
-  position: absolute;
-  width: 97%;
-  bottom: 3.65rem;
+  position: fixed;
+  width: 100%;
+  bottom: 3rem;
+}
+
+.buttons-publish button {
+  background: lightgray;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: transparent;
+  color: dimgray;
+  border-top: 0.1rem solid var(--gray-default);
+}
+
+.buttons-publish button:hover {
+  background-color: var(--yellow-menu-hover);
+  color: var(--yellow-font);
 }
 
 .addImage,
@@ -28,17 +82,24 @@
   height: 2.3rem;
 }
 
-textarea {
-  height: 78%;
-  width: 95%;
-  border: none;
-  font-size: 1.2rem;
-  padding: 0.5rem;
+@media screen and (min-width: 450px) {
+  .feedPublish,
+  .buttons-publish {
+    width: 75%;
+  }
+  .main-content {
+    margin-left: 17%;
+    box-shadow: 1px 1px 5px var(--purple-hover);
+  }
 }
 
-.menu {
-  position: absolute;
-  bottom: 0;
-  width: 97%;
-  border-top: 0.1rem solid gray;
+@media screen and (min-width: 800px) {
+  .main-content {
+    width: 75%;
+    margin-left: 12.2%;
+  }
+  .buttons-publish {
+    width: 56.2%;
+    bottom: 0;
+  }
 }

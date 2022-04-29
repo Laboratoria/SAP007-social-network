@@ -1,0 +1,168 @@
+@import './login-signup.css';
+@import './feed.css';
+@import './publish.css';
+
+:root {
+  --color-error: red;
+  --color-like: #f1c40f;
+  --background-color-feed: #6a2b7b6b;
+  --background-color-post: whitesmoke;
+  --background-color-modal: #fff0c48f;
+  --button-confirm: rgb(255, 36, 36);
+  --button-reject: #19c119;
+  --font-color-button: white;
+  --gray-default: gray;
+  --purple-border-body: #6a2b7b;
+  --purple-gradient: rgb(103, 41, 125);
+  --purple-hover: rgb(76, 24, 94);
+  --yellow-border-body: #fbc41c;
+  --yellow-gradient: #fac31c;
+  --yellow-hover: rgb(212, 166, 28);
+  --yellow-menu-hover: #f8cf2988;
+  --yellow-font: #ecb200;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  height: 3.5rem;
+  width: 100%;
+  border-bottom: 0.1rem solid var(--gray-default);
+  background-color: var(--font-color-button);
+  position: fixed;
+  z-index: 1;
+}
+
+.header img {
+  height: 4rem;
+  width: 9rem;
+}
+
+.responsive-menu .picture {
+  display: none;
+}
+
+.menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 0.1rem solid gray;
+  background-color: var(--font-color-button);
+  height: 3rem;
+}
+
+.nav-bar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+}
+
+.menu p {
+  display: none;
+}
+
+.menu-icons {
+  height: 2rem;
+  border: none;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased; /* Support for all WebKit browsers. */
+  text-rendering: optimizeLegibility; /* Support for Safari and Chrome. */
+  -moz-osx-font-smoothing: grayscale; /* Support for Firefox. */
+  font-feature-settings: 'liga'; /* Support for IE. */
+}
+
+@media screen and (min-width: 800px) {
+  .root {
+    height: 100vh;
+    width: 98vw;
+  }
+  .responsive-menu .picture {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    margin-top: 8%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    right: 0;
+  }
+  .picture img {
+    height: 5rem;
+    border-radius: 50%;
+    border: 0.2rem solid var(--yellow-font);
+    margin-bottom: 3.5rem;
+  }
+  .menu {
+    height: 100%;
+    width: 25%;
+    right: 0;
+  }
+  .menu-icons {
+    display: none;
+  }
+  .menu a {
+    width: 100%;
+    height: 4rem;
+    align-items: center;
+    display: flex;
+    justify-content: end;
+  }
+  .menu a:hover {
+    background-color: var(--yellow-menu-hover);
+  }
+  .menu p {
+    display: block;
+    padding: 1rem;
+    font-weight: bold;
+    color: var(--yellow-font);
+  }
+  .nav-bar {
+    flex-direction: column;
+    margin-top: 6rem;
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .responsive-menu .picture {
+    margin-top: 6%;
+  }
+  .picture img {
+    height: 9rem;
+  }
+  .nav-bar {
+    margin-top: 5rem;
+  }
+}
