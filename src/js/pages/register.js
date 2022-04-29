@@ -1,4 +1,4 @@
-import { registerNewUser } from '../../config/authentication.js';
+import { userValidation } from '../components/email-validation.js';
 
 function registerUser(e) {
   e.preventDefault();
@@ -6,16 +6,9 @@ function registerUser(e) {
   const email = document.querySelector('#user-email').value;
   const password = document.querySelector('#user-password').value;
   const passwordRepeat = document.querySelector('#user-password-repeat').value;
-  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const validatedEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
   const message = document.querySelector('#message');
-
-  if (password !== passwordRepeat) {
-    message.innerHTML = 'As duas senhas não coincidem.<br>Digite-as novamente!';
-  } else if (!newEmail) {
-    message.innerHTML = 'Preencha o campo<br>de email corretamente!';
-  } else if (name && email && password && passwordRepeat && newEmail) {
-    registerNewUser(name, email, password);
-  }
+  userValidation(name, email, validatedEmail, password, passwordRepeat, message);
 }
 
 export function createRegister() {

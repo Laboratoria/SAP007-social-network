@@ -4,8 +4,7 @@ import { createHeader } from './components/header.js';
 import { createFeed } from './pages/feed.js';
 import { createFriends } from './pages/friends.js';
 import { createProfile } from './pages/profile.js';
-import { logout } from '../config/authentication.js';
-import { authChange } from '../config/user.js';
+import { logout, authChange } from '../config/authentication.js';
 import { initModal } from './components/modal.js';
 
 function creatingInternalElements() {

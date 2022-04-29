@@ -1,25 +1,29 @@
-import { authUserLabFriends, authUserWithGoogle, forgotPassword } from '../../config/authentication.js';
 import { initModal } from '../components/modal.js';
+import { userValidation, redirectedPage } from '../components/email-validation.js';
+import { authUserWithGoogle, forgotPassword } from '../../config/authentication.js';
+import { GoogleAuthProvider } from '../../config/export.js';
+import { errorsFirebase } from '../components/errors-firebase.js';
 
 function loginLabFriends(e) {
   e.preventDefault();
+  const name = '';
   const email = document.querySelector('#user-email').value;
   const password = document.querySelector('#user-password').value;
-  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const passwordRepeat = '';
+  const validatedEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
   const message = document.querySelector('#message');
-
-  if (!email || !password) {
-    message.innerHTML = 'Preencha todos os campos!';
-  } else if (!newEmail) {
-    message.innerHTML = 'Preencha o campo<br>de email corretamente!';
-  } else if (email && password && newEmail) {
-    authUserLabFriends(email, password);
-  }
+  userValidation(name, email, validatedEmail, password, passwordRepeat, message);
 }
 
 function loginGoogle(e) {
   e.preventDefault();
-  authUserWithGoogle();
+  authUserWithGoogle()
+    .then(() => {
+      window.location.hash = redirectedPage;
+    })
+    .catch((error) => {
+      GoogleAuthProvider.credentialFromError(error);
+    });
 }
 
 function resetPassword(e) {
@@ -31,15 +35,7 @@ function resetPassword(e) {
       messageReset.innerHTML = 'Email enviado com sucesso!';
     })
     .catch((error) => {
-      switch (error.code) {
-        case 'auth/missing-email':
-          messageReset.innerHTML = 'Preencha o campo de email!';
-          break;
-        case 'auth/user-not-found':
-          messageReset.innerHTML = 'Usuário não encontrado!<br>Cadastre-se no LabFriends!';
-          break;
-        default:
-      }
+      errorsFirebase(error.code, messageReset);
     });
 }
 
@@ -80,7 +76,7 @@ export function createLogin() {
           <button type="submit" id="button-reset-password" class="user-button button-pink">
             ENVIAR POR EMAIL
           </button>
-          <span id="message-reset"></span>
+          <p id="message-reset"></p>
         </div>
       </section>
     `;

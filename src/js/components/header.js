@@ -1,6 +1,6 @@
-import { auth } from "../../config/export.js";
+import { auth } from '../../config/start-firebase.js';
 
-export function createHeader () { 
+export function createHeader() {
   const header = `
       <header id="header">
         <section class="menu-header">
@@ -65,23 +65,17 @@ export function createHeader () {
 
         <section class="modal-container" data-post="container">
           <div class="modal">
-            <button class="modal-close" data-post="close">X</button>
             <section>
-              <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
               <p>${auth.currentUser.displayName}</p>
               <label for="user-comment">
                 <textarea id="message" class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
               </label>
-              <!-- <button>
-                <img src="../img/icons/icon-add-image.png" alt="Ícone de adicionar imagens">
-                <p>adicionar imagem</p>
-              </button> -->
             </section>
-            <input id="btn-publicar" type="button" value="PUBLICAR" data-modal="close" />
+            <input id="button-publish" type="button" value="PUBLICAR" data-post="close"/>
           </div>
         </section>x'
       </header>
     `;
 
-    return header;
+  return header;
 }

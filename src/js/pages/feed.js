@@ -1,5 +1,13 @@
 import { createNewPost } from '../../config/posts.js';
 
+function publish() {
+  const message = document.querySelector('#message');
+  const newPost = message.value;
+  message.value = '';
+  message.focus();
+  createNewPost(newPost);
+}
+
 export function createFeed() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
@@ -35,40 +43,12 @@ export function createFeed() {
               </button>
             </footer>
           </section>
-          <section class="container-comments">
-            <section class="add-comments">
-              <div class="line-post"></div>
-              <textarea class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva um comentário...">
-              </textarea>
-            </section>
-            <article class="user-comment">
-              <a href="/#" class="user-link-photo">
-                <img src="../img/icons/icon-perfil.png" class="user-photo-comment" alt="Foto do perfil">
-              </a>
-              <div>
-                <a href="/#">
-                  <p class="user-name-comment">Nome do Usuário</p>
-                </a>
-                <div class="group-text-comment">
-                  <p class="paragraph">Comentário mais logo.<br>Com quebra de linha.</p>
-                </div>
-              </div>
-            </article>
         </article>
       </li>
     </ul>
         `;
 
-    const btnPublicar = document.querySelector('#btn-publicar');
-    btnPublicar.addEventListener('click', publish);
-    return container;
-}
-
-
-function publish() {
-  const message = document.querySelector('#message');
-  const newPost = message.value;
-  message.value = "";
-  message.focus();
-  createNewPost(newPost);
+  const btnPublish = document.querySelector('#button-publish');
+  btnPublish.addEventListener('click', publish);
+  return container;
 }
