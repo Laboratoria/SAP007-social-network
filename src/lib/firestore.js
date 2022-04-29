@@ -3,6 +3,8 @@ import {
   collection,
   addDoc,
   getDocs,
+  orderBy,
+  query,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
 const db = getFirestore();
@@ -24,7 +26,8 @@ export const createPost = async (textPost, userEmail) => {
 
 export async function getPosts() {
   const arrPost = [];
-  const querySnapshot = await getDocs(collection(db, 'posts'));
+  const sortingPosts = query(collection(db, 'posts'), orderBy('date', 'asc'));
+  const querySnapshot = await getDocs(sortingPosts);
   querySnapshot.forEach((doc) => {
     const postObj = doc.data();
     postObj.id = doc.id;
@@ -34,21 +37,3 @@ export async function getPosts() {
   return arrPost;
 }
 console.log(getPosts());
-
-// const createPost = async (e) => {
-//     e.preventDefault();
-//     const uid = auth.currentUser.uid;
-//     const ref = firestore.collection('users').doc(uid).collection('posts').doc(slug)
-
-//     export const createPost = async (textPost, userEmail) => {
-//         try {
-//             const docRef = await addDoc(collection(db, "post"), {
-//                 textPost: textPost,
-//                 userEmail: userEmail,
-//                 date: new Date(),
-//             });
-//             console.log("Document written with ID: ", docRef.id);
-//         } catch (e) {
-//             console.error("Error adding document: ", e);
-//         }
-//     }
