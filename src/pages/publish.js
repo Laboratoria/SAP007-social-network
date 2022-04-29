@@ -1,4 +1,4 @@
-import { logout } from "../services/authentication.js";
+import { current, logout } from "../services/authentication.js";
 import { createPost } from "../services/firestore.js";
 import { menu } from "./components/menu.js";
 //import { storage } from '../dependencies/config-firebase.js';
@@ -10,18 +10,23 @@ export default () => {
   feedPublish.innerHTML = `
     <section class="header">
       <img src="../img/logo.png" alt="Logo Laboriam">
-    </section>
-    <section class="nav-publish">
-      <h3>Criar publicação</h3>
+      <section class="nav-publish">
+        <h3>Criar publicação</h3>
+      </section>
     </section>
     <section class="main-content">
       <textarea placeholder="No que você está pensando?" class="post-input"></textarea>
       <div class="buttons-publish">
-        <button type="button" class="addImage">Add foto</button>
         <button type="button" class="btnPublicar">Publicar</button>
       </div>
     </section>
-    <aside id="menu" class="menu"></aside>
+    <div class="picture-pb">
+      <img src="${current().photoURL}" alt="Foto do usuário logado" class="userPhotoInTheMenu">
+      <h2>${current().displayName}</h2>
+    </div>
+    <section class="responsive-menu">
+      <div id="menu" class="menu"></div>
+    </section>
   `;
 
   const menuNavigation = feedPublish.querySelector('#menu');
