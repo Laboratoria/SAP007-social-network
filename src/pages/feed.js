@@ -29,7 +29,7 @@ export default () => {
   const loggedInUser = current();
 
   menuNavigation.innerHTML = menu;
-
+  
   getAllPosts()
   .then(posts => {
     const postTemplate = posts.map(post => {
@@ -129,6 +129,5 @@ export default () => {
     e.preventDefault();
     logout();
   });
-
   return feedHome
 };
