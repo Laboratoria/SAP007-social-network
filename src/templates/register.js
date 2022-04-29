@@ -53,7 +53,7 @@ export default function formRegister() {
   const errorEmail = registerPage.querySelector("#error-email");
   const errorPassword = registerPage.querySelector("#error-password");
 
-  function checkForm () {
+  function checkForm() {
     let isValid = true
     if (name.value === "") {
       errorName.innerHTML = "Este campo não pode estar vazio"
@@ -111,7 +111,6 @@ export default function formRegister() {
         window.location.hash = "home";
       })
       .catch((error) => {
-        console.log(error);
         if (error.code === "auth/account-exists-with-different-credential") {
           alert("Já existi uma conta com esse endereço de e-mail.");
         } else if (error.code === "auth/popup-blocked") {
