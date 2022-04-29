@@ -8,17 +8,19 @@ import {
 const db = getFirestore();
 
 export const createPost = async (textPost, userEmail) => {
+  const displayNameUser = auth.currentUser.displayName;
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       recipe: textPost,
-      author: userEmail,
-      date: new Date(),
+      author: displayNameUser,
+      date: new Date().toLocaleString('pt-br'),
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
     console.error('Error adding document: ', e);
   }
 };
+
 
 export async function getPosts() {
   const arrPost = [];
