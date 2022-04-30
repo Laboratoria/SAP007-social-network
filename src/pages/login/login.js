@@ -7,7 +7,12 @@ export default () => {
   const templateLogin = `
     <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
     <form class="form-login">
-      <a href="#register" class="link-register">Registre-se</a>
+      <p class="register-text">
+        Caro Poeta, caso não tenha conta 
+        <br>
+        <a href="#register" class="link-register" id="link-register">Registre-se</a>
+        <label for="remember-password"></label>
+      </p> 
       <input type="email" id="input-email" class="input-email" placeholder="E-mail" autocomplete="on">
       <input type="password" id="input-password" class="input-email" placeholder="Senha">
       <div class="checkbox">
@@ -67,10 +72,3 @@ export default () => {
   });
   return container;
 };
-
-/* entre form e footer
-<section class="google">
-  <p class="connect-google">Ou conecte-se com</p>
-  <a href="#login-google">img botao google</a>
-</section>
-*/

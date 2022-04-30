@@ -1,13 +1,12 @@
 import { registerUser } from '../../configs/authentication.js';
-import { collectUsers } from '../../configs/firestore.js';
 
 export default () => {
   const container = document.createElement('div');
   container.classList.add('content-login');
 
   const templateNewUser = `
-      <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
-      <p class="text-register">Registre-se para publicar suas poesias</p>
+    <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
+    <p class="text-register">Registre-se para publicar suas poesias</p>
 
     <form class="form-newuser">
       <input type="text" id="input-name" class="input-email" placeholder="Nome de usuário">
@@ -37,9 +36,12 @@ export default () => {
     e.preventDefault();
     registerUser(newUserName.value, newUserEmail.value, newUserPassword.value)
       .then(() => {
-        collectUsers(newUserEmail.value, newUserName.value);
-        window.location.hash = '#feed';
-        alert('Email Cadastrado');
+        if (newUserName.value === '') {
+          msgAlert.innerHTML = 'Insira um nome de usuário.';
+        } else {
+          window.location.hash = '#feed';
+          alert('Usuário Cadastrado!');
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -71,8 +73,3 @@ export default () => {
 
   return container;
 };
-
-/* <input type="text" id="input-name" class="input-email" placeholder="Nome de usuário">
-      <input type="date" id="birth-date" class="input-email"></input> */
-// const NewUserName = container.querySelector('#input-name')
-// const NewUserDate = container.querySelector('#birth-date')

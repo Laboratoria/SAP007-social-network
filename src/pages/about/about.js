@@ -1,24 +1,43 @@
-import {header,
+import {
+  header,
   logoutUser,
 } from '../components/header.js';
 
 export default () => {
   const container = document.createElement('div');
-  container.classList.add('content-about-us');
 
   const templateAboutUs = `
-    <main class="main">
-      <p class='text'>Teste para página Sobre Nós</p>
-    </main> 
+    <div class="content-about-us"> 
+    <p class="text-about">O <strong>Eu, Poesia</strong> 
+      é a rede social tanto para quem gosta de ler quanto para quem gosta de escrever
+      poesias. Um espaço seguro para compartilhar suas criações ou de terceiros,
+      curtir aquelas que lhe agradam, sem julgamentos.
+    </p>
+
+    <ul id="list-developers" class="list-developers">Desenvolvido por: 
+      <li>
+        <a class="name-developer" href="https://github.com/BeaSCarvalho">Beatriz de Sousa Carvalho
+          <img src="./img/icon-github.png" alt="logo github" class="icon-git"> 
+        </a>
+      </li>
+      <li>
+        <a class="name-developer" href="https://github.com/MariaLuizaSantana">Maria Luiza Costa Santana
+          <img src="./img/icon-github.png" alt="logo github" class="icon-git"> 
+        </a>
+      </li>
+      <li>
+        <a class="name-developer" href="https://github.com/raelepereira">Raele Pereira
+          <img src="./img/icon-github.png" alt="logo github" class="icon-git"> 
+        </a>
+      </li>
+    </ul> 
+    </div>
   `;
 
   container.appendChild(header());
   container.innerHTML += templateAboutUs;
 
-  // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -35,8 +54,11 @@ export default () => {
     }
   }
 
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+
   const logoutButton = container.querySelector('#btn-exit');
-  logoutButton.addEventListener('click', logoutUser)
+  logoutButton.addEventListener('click', logoutUser);
 
   return container;
 };

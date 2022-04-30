@@ -37,11 +37,9 @@ export function isLoggedIn(callback) {
 }
 
 export function logout() {
-  console.log("teste")
   return signOut(auth)
-    .then(() => 
-    console.log("teste")
-    ).catch((error) => console.log(error));
+    .then(() => 'logout')
+    .catch((error) => error);
 }
 
 export function forgotPassword(email) {
