@@ -34,14 +34,18 @@ export function postElement(post, uid) {
   const paragraphLikeValue = timelinePost.querySelector('.value-like');
   let userLike = post.like.filter((user) => user === uid);
 
+  if (userLike.length !== 0) {
+    timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
+  }
+
   btnLike.addEventListener('click', () => {
-    console.log(userLike);
     if (userLike.length === 0) {
       console.log('oi adicionei');
       likePost(post.idPost, uid).then(() => {
         userLike.push(uid);
         numberLikes += 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
+        timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
       }).catch((e) => console.log(e));
     } else {
       console.log('oi exclui');
@@ -49,6 +53,7 @@ export function postElement(post, uid) {
         userLike = [];
         numberLikes -= 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
+        timelinePost.querySelector('.btn-like-post').src = '../img/iconeLike.png';
       }).catch((e) => console.log(e));
     }
   });
