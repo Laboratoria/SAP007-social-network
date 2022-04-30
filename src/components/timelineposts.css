@@ -96,13 +96,22 @@
 }
 
 .like-comment {
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   width: 100%;
   border-bottom: 1px solid;
   border-color: var(--mustard);
 }
-
+.btns-like-comment{
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.form-comment{
+  display: none;
+}
+.form-comment.active{
+  display: block;
+}
 .post-like {}
 
 .post-comment {}
