@@ -17,7 +17,6 @@ export default () => {
     <section class="main-content">
       <textarea placeholder="No que você está pensando?" class="post-input"></textarea>
       <div class="buttons-publish">
-        <button type="button" class="addImage">Add foto</button>
         <button type="button" class="btnPublicar">Publicar</button>
       </div>
     </section>

@@ -26,12 +26,6 @@ export default () => {
             <button class="google" id="google">
               <img src="../img/icon-google.png" alt="Ícone do Google" class="google-icon">
             </button>
-            <button class="facebook">
-              <img src="../img/icon-facebook.png" alt="Ícone do Facebook" class="facebook-icon">
-            </button>
-            <button class="github">
-              <img src="../img/icon-github.png" alt="Ícone do GitHub" class="github-icon">
-            </button>
           </section>
           <p class="goToAccount">Tem uma conta? <a href="/#login">Conecte-se</a></p>
         </form>
