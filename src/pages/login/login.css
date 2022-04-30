@@ -17,12 +17,18 @@
 	grid-column: 2;
 	grid-row: 2;
 	display: grid;
-	justify-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.register-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
 .link-register, 
 .title-recover {
-	color: #7A098C;
+	color: purple;
 	font-size: 1.6rem;
 	text-decoration: none;
 	font-weight: bold;
@@ -95,11 +101,9 @@
 	margin: 20px 0 20px 0;
 }
 
-.msg-recover {
-  height: 60px;
+.link-login {
   margin-top: 20px;
 }
-
 
 /*celular*/
 @media screen and (min-width: 300px) and (max-width: 599px) {

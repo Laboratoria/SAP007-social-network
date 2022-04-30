@@ -10,7 +10,6 @@ import {
 import { createCardPost } from '../components/post.js';
 
 export default function feed() {
-
   const container = document.createElement('div');
   container.classList.add('content-feed');
 
@@ -18,7 +17,7 @@ export default function feed() {
     <main class="main">
       <form class="write-post main-form" id="write-post">
         <h1 class="welcome-title">Bem-vindo(a), poeta!</h1>
-        <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
+        <textarea class="textarea" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
         <p id="alert-notification" class="message"></p>
         <button class="btn-publish" id="btn-publish" type="submit"> Publicar </button>
       </form>
@@ -34,11 +33,9 @@ export default function feed() {
   container.innerHTML += templateFeed;
 
   const logoutButton = container.querySelector('#btn-exit');
-  logoutButton.addEventListener('click', logoutUser)
+  logoutButton.addEventListener('click', logoutUser);
 
   const btnMobile = container.querySelector('#btn-mobile');
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -54,6 +51,9 @@ export default function feed() {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
 
   const showNewPost = container.querySelector('#new-post');
   const addNewPost = container.querySelector('#textarea');
@@ -85,7 +85,7 @@ export default function feed() {
     const timeline = await allPosts();
     timeline.forEach((post) => {
       const postElement = createCardPost(post);
-      showPosts.appendChild(postElement);  
+      showPosts.appendChild(postElement);
     });
   };
 

@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
 
 .main {
   margin-bottom: 40px;
-  border-top: 0.3px solid #FFF2E7;
 }
 
 .main-form {
-  display: flex;
-    
-    }
+  display: flex;  
+}
 
 .write-post {
   display: flex;
@@ -24,14 +21,17 @@
   padding: 30px;
 }
 
-.input-text {
-  height: 150px;
-  width: 300px;
+.textarea {
+  height: 10rem;
+  width: 25rem;
   border-radius: 4px;
   margin-top: 25px;
-  text-transform: capitalize;
-  font-size: 15px;
-  }
+  font-size: 16px;
+  resize: none;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  border: 2px solid rgb(131, 128, 128);
+}
   
 .btn-publish {
   display: flex;
@@ -63,7 +63,6 @@
   font-size: 18px;
 }
 
-.last-poems,
 .welcome-title {
   font-family: 'Sarala', sans-serif;
   font-style: bold;
@@ -76,44 +75,38 @@
   background-color: rgba(231, 207, 177, 0.8);
   padding: 5px;
   margin: 15px;
-  width: 50rem;
+  width: 40rem;
 }
 
-.card p {
-  margin: 10px;
-}
-
-.post-infos {
-margin: 10px;
+.date-card,
+.write-message,
+.author {
+  margin: 15px;
+  font-size: 20px;
 }
 
 .date-card {
-font-style:oblique;
+  font-style:oblique;
 }
 
 .write-message {
-font-family:"Merriweather", sans-serif;
-font-size: 20px;
+  font-family:"Merriweather", sans-serif;
 }
 
 .author{
   font-style:italic;
 }
 
-.button-heart-text{
-  background-color: transparent;
-  border: none;
-  font-size: 15px;
-  outline: none;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
 
+.button-heart-text{
+  font-size: 15px;
+  margin: 0 0 0 7px;
 }
+
 
 .button-heart {
   background-color: transparent;
   border: none;
-  font-size: 20px;
   outline: none;
   cursor: pointer;
 }
@@ -129,10 +122,11 @@ font-size: 20px;
 }
 
 .message{
-  margin-top: 10px;
-  font-size: 20px;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  font-size: 1.2rem;
   font-family: 'Sarala', sans-serif;
-  background-color: rgba(192, 188, 184, 0.3);
+  background-color: rgba(164, 164, 164, 0.3);
 }
 
 @media screen and (min-width: 300px) and (max-width: 667px) {
@@ -140,24 +134,39 @@ font-size: 20px;
     display: block;
     text-align: center;
   }
-  .welcome-title,
-  .last-poems {
+  .welcome-title {
     font-size: 25px;
-
+    padding: 0;
   }
+
+  .textarea {
+    width: 18rem;
+  }
+
+  .message{
+    margin: 0 0 20px 0;
+  }
+
+  .card{
+    width: 18rem;
+  }
+
+  .write-message {
+    font-size: 18px;
+  }  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-.content-feed {
-  display: block;
-  text-align: center;
-}
+  .content-feed {
+    display: block;
+    text-align: center;
+  }
 
-.input-text {
-  height: 180px;
-  width: 400px;
-}
+  .input-text {
+    height: 180px;
+    width: 400px;
+  }
 
   .btn-publish {
     height: 50px;
@@ -174,21 +183,7 @@ font-size: 20px;
     font-size: 20px;
   }
 
-  .last-poems {
-    font-style: bold;
-    font-size: 35px;
-  }
-
   .date-card {
     font-size: 18px;
-    }
-    
-    .write-message {
-    font-family:"Merriweather", serif;
-    font-size: 20px;
-    }
-    
-    .author{
-      font-style:italic;
-    }
   }
+}

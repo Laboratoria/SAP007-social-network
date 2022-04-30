@@ -27,11 +27,11 @@ function redirect() {
       isLoggedIn((logged) => {
         if (logged) {
           main.appendChild(feed());
-        } else{
+        } else {
           window.location.hash = '#login';
         }
-      }) 
-      break; 
+      });
+      break;
     case '#userprofile':
       isLoggedIn((logged) => {
         if (logged) {
@@ -39,8 +39,8 @@ function redirect() {
         } else {
           window.location.hash = '#login';
         }
-      }) 
-      break; 
+      });
+      break;
     case '#about':
       isLoggedIn((logged) => {
         if (logged) {
@@ -48,7 +48,7 @@ function redirect() {
         } else {
           window.location.hash = '#login';
         }
-    })  
+      });
       break;
     default:
       main.appendChild(login());

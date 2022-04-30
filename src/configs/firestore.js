@@ -10,7 +10,7 @@ import {
   doc,
   where,
   arrayUnion,
-  arrayRemove
+  arrayRemove,
 } from '../lib/exports-firebase.js';
 
 import { auth } from './authentication.js';
@@ -37,11 +37,10 @@ export async function newPost(msg) {
 }
 
 export const likePost = async (postId, user) => {
-  console.log(user);
   const postLiked = doc(db, 'posts', postId);
   try {
     return await updateDoc(postLiked, {
-      likes: arrayUnion(user)
+      likes: arrayUnion(user),
     });
   } catch (e) {
     return e;
@@ -49,7 +48,7 @@ export const likePost = async (postId, user) => {
 };
 
 export const dislikePost = async (postId, user) => {
-  const postLiked = doc(db, "posts", postId);
+  const postLiked = doc(db, 'posts', postId);
   try {
     return await updateDoc(postLiked, {
       likes: arrayRemove(user),
@@ -57,9 +56,8 @@ export const dislikePost = async (postId, user) => {
   } catch (e) {
     return e;
   }
-}
+};
 
-// cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName) {
   try {
     const user = {
@@ -67,14 +65,12 @@ export async function collectUsers(email, displayName) {
       displayName,
     };
     const docRef = await addDoc(collection(db, 'users'), user);
-    // console.log('Document written with ID: ', docRef.id);
     return docRef;
   } catch (e) {
     return e;
   }
 }
 
-// para ver todos os documentos de "posts"
 export const allPosts = async () => {
   const arrayOfPosts = [];
   const sortingPosts = query(collection(db, 'posts'), orderBy('date', 'desc'));
@@ -91,7 +87,7 @@ export const allPosts = async () => {
 export const getUserPosts = async (id) => {
   const arrayOfMyPosts = [];
   const clause = where('userId', '==', id);
-  const querySnapshot = query(collection(db, 'posts'),orderBy('date', 'desc'), clause);
+  const querySnapshot = query(collection(db, 'posts'), orderBy('date', 'desc'), clause);
   const test = await getDocs(querySnapshot);
   test.forEach((item) => {
     const post = item.data();
@@ -103,12 +99,12 @@ export const getUserPosts = async (id) => {
 };
 
 export const getFunctionDelet = async (postId) => {
-  await deleteDoc(doc(db, "posts", postId))
-}
+  await deleteDoc(doc(db, 'posts', postId));
+};
 
 export const editAPost = async (postId, editedMessage) => {
-  const postToEdit = doc(db, 'posts', postId)
-  return await updateDoc(postToEdit, {
+  const postToEdit = doc(db, 'posts', postId);
+  await updateDoc(postToEdit, {
     message: editedMessage,
   });
-}
+};

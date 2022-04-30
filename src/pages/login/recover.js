@@ -11,8 +11,8 @@ export default () => {
       <p class="title-recover">Redefinir Senha</p>
       <p class="text-recover">Insira o seu email e enviaremos um link para você poder criar uma nova senha.</p>
       <input type="email" id="input-email" class="input-email" placeholder="E-mail">
+      <span class="message" id="msg-recover"></span>
       <button type="button" id="button-send" class="button-login">Enviar link</button>
-      <span class="msg-recover" id="msg-recover"></span>
       <a href="#login" class="link-login">Voltar ao Login</a>
     </form>    
   `;

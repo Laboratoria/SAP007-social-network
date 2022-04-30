@@ -1,3 +1,45 @@
-.text {
-  background-color: bisque;
+.content-about-us{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(243, 212, 175, 0.7);
+  width: 30rem;
+  font-family: "Merriweather", sans-serif;
+  font-size: 20px;
+  margin: 50px 0  0 25rem;
+  padding: 15px; 
+  align-items: center;
 }
+
+.text-about{
+  text-align: center;
+  margin:10px 0 25px 0;
+}
+
+.list-developers{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.name-developer {
+  padding: 30px;
+  color: black;
+}
+
+.icon-git{
+  width: 20px;
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 667px) {
+  .content-about-us{
+    margin: 0;
+    width: 20rem;
+    font-size: 15px;
+  }  
+
+  .name-developer {
+    padding: 0;
+  }
+  
+}   

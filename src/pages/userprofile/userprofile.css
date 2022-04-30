@@ -1,20 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
 
-.text {
-  background-color: bisque;
+.container-profile{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
 }
 
-.icone-user{
-  width: 10rem;
+.card-user {
+  display: flex;
+  border-radius: 10px;
+  border: 2px solid rgba(122,	9,	140, 0.7);
+  background-color: rgba(231, 207, 177, 0.8);
   padding: 5px;
-  margin: 0px 10px 10px 0;
+  margin: 30px 0 40px 0;
+  width: 40rem;
+}
+
+.img-icon,
+.infos-user {
+  display: flex;
+  align-items: center;
+}
+
+.icon-user{
+  width: 12rem;
   border-radius: 10rem;
 }
 
-.card-user, .card{
-  border: 2px solid rgba(45, 44, 44, 0.7);
-  background-color: rgba(231, 207, 177, 0.8);
-  padding: 5px;
-  margin: 15px;
-  width: 50rem;
+.infos-user {
+  flex-direction: column;
+  justify-content: center;
 }
+
+.item-user {
+  margin: .5rem 0 1rem 4rem;
+  font-size: 1.5rem;
+}
+
+.my-post {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.container-buttons {
+  display: flex;
+}
+
+.button-edit-post,
+.button-delete-post {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.fa-pencil,
+.fa-trash {
+  font-size: 20px;
+  color: #7A098C;
+}
+
+.fa-trash{
+  margin: 0 0 0 10px;
+}
+
+.modal-delete{
+  text-align: center;
+}
+.answer-alert,
+.edit-buttons {
+  position: relative;
+  border-radius: 5px;
+	border: 0;
+	background: #7A098C;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 1.1rem;
+}
+
+.edit-buttons {
+  width: 28px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 667px) {
+  .card-user {
+    width: 18rem;
+    margin: 30px 0 20px 0;
+  }
+  
+  .icon-user{
+    width: 5rem;
+  }
+
+  .item-user {
+    font-size: 1.1rem;
+    margin: 5px 0 5px 0;
+
+  }  
+
+  .edit-box {
+    align-items: center;
+    margin-left: 12px;
+  }
+
+  .edit-buttons {
+    margin-right: 10px;
+  }
+} 
+
+
+
+
+
+

@@ -1,39 +1,38 @@
 import {
-  getUserPosts
+  getUserPosts,
 } from '../../configs/firestore.js';
 import { auth } from '../../configs/authentication.js';
-import { 
+import {
   header,
-  logoutUser
+  logoutUser,
 } from '../components/header.js';
 import { createCardPost } from '../components/post.js';
 
 export default () => {
   const container = document.createElement('div');
   const templateUserProfile = `
-    <main>
-      <div class="card-user">
-        <div class="imgIcone">
-          <img class="icone-user" src="./img/profile-icone.png" alt="Meu Perfil">
-        </div>
+  <section class="container-profile">
+    <div class="card-user">
+      <div class="img-icon">
+        <img class="icon-user" src="./img/feather-pen.png" alt="Meu Perfil">
+      </div>
+      <section class="infos-user">
         <p class="item-user" id="name-user"></p>
         <p class="item-user" id="email-user"></p>
-      </div>
-      <section class="my-post" id="my-post">
-      </section>
-    </main>
+      </section>  
+    </div>
+    <section class="my-post" id="my-post">
+    </section>
+  </section>  
   `;
 
   container.appendChild(header());
   container.innerHTML += templateUserProfile;
 
   const logoutButton = container.querySelector('#btn-exit');
-  logoutButton.addEventListener('click', logoutUser)
+  logoutButton.addEventListener('click', logoutUser);
 
-  // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
 
   function toggleMenu(event) {
     if (event.type === 'touchstart') {
@@ -50,6 +49,9 @@ export default () => {
     }
   }
 
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+
   const printDisplayName = container.querySelector('#name-user');
   const printEmail = container.querySelector('#email-user');
 
@@ -62,13 +64,10 @@ export default () => {
     const id = auth.currentUser.uid;
     const myTimeline = await getUserPosts(id);
     myTimeline.filter((post) => {
-      const postCard = createCardPost(post)
-      console.log(post)
+      const postCard = createCardPost(post);
       return myPost.appendChild(postCard);
-    
     });
   };
   showMyPosts();
   return container;
-
-}
+};
