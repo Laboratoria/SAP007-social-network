@@ -1,4 +1,4 @@
-.body {
+.root {
   width: 100%;
   height: 100%;
 }
@@ -155,6 +155,7 @@
 
 .main-post {
   background: var(--backgroud-feed);
+  width: 100%;
 }
 
 .section-feed {
@@ -250,7 +251,7 @@
   border: 2px solid var(--black-shadow);
   border-radius: 10px;
   top: 80px;
-  margin: 0 20% 0 20%;
+  margin: 0 10% 0 10%;
   background: var(--white);
   height: auto;
   width: 60%;

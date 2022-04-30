@@ -23,8 +23,8 @@ export function postElement(post, uid) {
       <p class="post-text" id="post-text">${post.message}</p>
     </div>
     <div class="like-comment flex">
-      <button class="post-like"><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
-      <button class="post-comment"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
+      <button class="post-like btn-config"><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
+      <button class="post-comment btn-config"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
     </div>`;
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
