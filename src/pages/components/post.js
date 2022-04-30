@@ -125,6 +125,7 @@ export function createCardPost(post) {
       editContainer.innerHTML = templateEditPost;
       return editContainer;
     }
+
     editButton.addEventListener('click', () => {
       containerPost.replaceWith(editPost(post));
       const saveEdit = document.querySelector('#save-edit');

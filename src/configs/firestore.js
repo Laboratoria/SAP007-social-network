@@ -29,7 +29,6 @@ export async function newPost(msg) {
       userId: uid,
     };
     const docRef = await addDoc(collection(db, 'posts'), post);
-    // console.log('Document written with ID: ', docRef.id);
     return docRef;
   } catch (e) {
     return e;
