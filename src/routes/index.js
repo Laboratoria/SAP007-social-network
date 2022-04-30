@@ -10,8 +10,8 @@ const init = () => {
     main.innerHTML = '';
     switch (window.location.hash) {
       case '':
-        logged((logado) => {
-          if (logado) {
+        logged((logged) => {
+          if (logged) {
             main.appendChild(feed());
           } else {
             main.appendChild(login());
@@ -19,8 +19,8 @@ const init = () => {
         })
         break;
       case '#login':
-        logged((logado) => {
-          if (logado) {
+        logged((logged) => {
+          if (logged) {
             main.appendChild(feed());
           } else {
             main.appendChild(login());
@@ -28,8 +28,8 @@ const init = () => {
         })
         break;
       case '#feed':
-        logged((logado) => {
-          if (logado) {
+        logged((logged) => {
+          if (logged) {
             main.appendChild(feed());
           } else {
             main.appendChild(login());
@@ -37,8 +37,8 @@ const init = () => {
         })
         break;
       case '#signup':
-        logged((logado) => {
-          if (logado) {
+        logged((logged) => {
+          if (logged) {
             main.appendChild(feed());
           } else {
             main.appendChild(signup());
@@ -46,8 +46,8 @@ const init = () => {
         })
         break;
       case '#publish':
-        logged((logado) => {
-          if (logado) {
+        logged((logged) => {
+          if (logged) {
             main.appendChild(publish());
           } else {
             main.appendChild(login());
@@ -55,14 +55,14 @@ const init = () => {
         })
         break;
       default:
-        main.appendChild(login()); //criar error
+        main.appendChild(login());
     }
   });
 };
 
 window.addEventListener('load', () => {
-  logged((logado) => {
-    if (logado) {
+  logged((logged) => {
+    if (logged) {
       main.appendChild(feed());
     } else {
       main.appendChild(login());
