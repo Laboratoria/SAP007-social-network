@@ -87,6 +87,11 @@ export const feed = (user) => {
     if (text.trim().length !== 0 && text !== ' ' && text !== null && text !== false) {
       toggleInput();
       createPost(text, date, edited, uidUser, nameProfile, imgProfile).then((response) => {
+        console.log(response.id);
+        generateIdPost(response.id).then(() => {
+          console.log('Deu certo');
+        })
+          .catch((error) => console.error(error));
         const objeto = {
           message: text,
           day: {
@@ -97,15 +102,12 @@ export const feed = (user) => {
           userUid: uidUser,
           name: nameProfile,
           imgProfile,
+          like: [],
         };
         const newPostElement = postElement(objeto, uidUser);
         postsElement.prepend(newPostElement);
-        generateIdPost(response.id)
-          .then(() => {
-            console.log('Deu certo');
-          })
-          .catch((error) => console.error(error));
-      }).catch(() => {
+      }).catch((e) => {
+        console.log(e);
         timeline.querySelector('#warnings-feed').style.display = 'block';
         timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
 

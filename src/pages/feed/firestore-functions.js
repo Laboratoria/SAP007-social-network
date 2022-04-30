@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line
-import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc, deleteDoc, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
 import { bd } from '../../configurafirebase/configfirestore.js';
 // eslint-disable-next-line
 import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
@@ -36,8 +36,8 @@ export function createPost(text, date, edited, userId, nameProfile, imgProfile) 
     userUid: userId,
     name: nameProfile,
     imgProfile,
-    like: {},
-    comment: {},
+    like: [],
+    comment: [],
   });
   return post;
 }
@@ -50,6 +50,22 @@ export function generateIdPost(id) {
   });
 
   return postWithId;
+}
+
+export function likePost(idPost, uidUser) {
+  const docRef = doc(bd, 'post', idPost);
+  const likedPost = updateDoc(docRef, {
+    like: arrayUnion(uidUser),
+  });
+  return likedPost;
+}
+
+export function removeLikePost(idPost, uidUser) {
+  const docRef = doc(bd, 'post', idPost);
+  const removeLikedPost = updateDoc(docRef, {
+    like: arrayRemove(uidUser),
+  });
+  return removeLikedPost;
 }
 
 export function editPost(idPost, newContent) {

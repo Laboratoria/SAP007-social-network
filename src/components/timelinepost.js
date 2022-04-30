@@ -1,6 +1,9 @@
-import { removePost, editPost } from '../pages/feed/firestore-functions.js';
+import {
+  removePost, editPost, likePost, removeLikePost,
+} from '../pages/feed/firestore-functions.js';
 
 export function postElement(post, uid) {
+  let numberLikes = post.like.length;
   const date = new Date(post.day.seconds * 1000);
   const timelinePost = document.createElement('div');
   timelinePost.setAttribute('class', 'box-post flex column');
@@ -23,9 +26,38 @@ export function postElement(post, uid) {
       <p class="post-text" id="post-text">${post.message}</p>
     </div>
     <div class="like-comment flex">
-      <button class="post-like btn-config"><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
+      <button class="post-like btn-config"><p class="value-like">${numberLikes}</p><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
       <button class="post-comment btn-config"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
     </div>`;
+
+  const btnLike = timelinePost.querySelector('.post-like');
+  const paragraphLikeValue = timelinePost.querySelector('.value-like');
+
+  btnLike.addEventListener('click', () => {
+    if (numberLikes === 0) {
+      console.log('oi adicionei');
+      likePost(post.idPost, uid).then(() => {
+        numberLikes += 1;
+        paragraphLikeValue.textContent = `${numberLikes}`;
+      }).catch((e) => console.log(e));
+    } else {
+      post.like.forEach((user) => {
+        if (user === uid) {
+          console.log('oi exclui');
+          removeLikePost(post.idPost, uid).then(() => {
+            numberLikes -= 1;
+            paragraphLikeValue.textContent = `${numberLikes}`;
+          }).catch((e) => console.log(e));
+        } else {
+          console.log('oi adicionei');
+          likePost(post.idPost, uid).then(() => {
+            numberLikes += 1;
+            paragraphLikeValue.textContent = `${numberLikes}`;
+          }).catch((e) => console.log(e));
+        }
+      });
+    }
+  });
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
   const mainPost = timelinePost.querySelector('.post-text-id');
