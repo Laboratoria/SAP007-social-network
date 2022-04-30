@@ -61,7 +61,7 @@ export default () => {
           </section>
           <section class="post-footer">
             <div class="likes">
-              <button type="button" data-like="true" class="like-button material-icons ${post.likes.includes(loggedInUser.uid) ? 'curtido' : ''}"></button>
+              <button type="button" data-like="true" class="like-button material-icons ${post.likes.includes(loggedInUser.uid) ? 'liked' : ''}"></button>
               <span class="likes-counter">${post.likes.length}</span>
             </div>
             ${editAndDeleteButtons}

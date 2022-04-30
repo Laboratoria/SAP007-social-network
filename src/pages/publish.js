@@ -1,8 +1,6 @@
 import { current, logout } from "../services/authentication.js";
 import { createPost } from "../services/firestore.js";
 import { menu } from "./components/menu.js";
-//import { storage } from '../dependencies/config-firebase.js';
-//import { ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-storage.js';
 
 export default () => {
   const feedPublish = document.createElement('div');
@@ -17,7 +15,7 @@ export default () => {
     <section class="main-content">
       <textarea placeholder="No que você está pensando?" class="post-input"></textarea>
       <div class="buttons-publish">
-        <button type="button" class="btnPublicar">Publicar</button>
+        <button type="button" class="publish-button">Publicar</button>
       </div>
     </section>
     <div class="picture-pb">
@@ -32,12 +30,10 @@ export default () => {
   const menuNavigation = feedPublish.querySelector('#menu');
   menuNavigation.innerHTML = menu;
 
-  const publicar = feedPublish.querySelector('.btnPublicar');
+  const publish = feedPublish.querySelector('.publish-button');
   const messagePost = feedPublish.querySelector('.post-input');
 
-  // const addImage = feedPublish.querySelector('#addImage')
-
-  publicar.addEventListener('click', (e) => {
+  publish.addEventListener('click', (e) => {
     e.preventDefault();
     if (messagePost.value) {
       createPost(messagePost.value);
@@ -45,16 +41,11 @@ export default () => {
     }
   })
 
-  // addImage.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  // })
-
   const btnLogout = feedPublish.querySelector('#signout');
   btnLogout.addEventListener('click', (e) => {
     e.preventDefault();
     logout();
   });
-
 
   return feedPublish;
 };

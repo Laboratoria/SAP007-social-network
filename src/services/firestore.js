@@ -42,17 +42,17 @@ export const deletePost = async (idPost) => {
 
 export async function like(idPost, icon) {
   const post = await getPostById(idPost);
-  const userLogado = current().uid;
+  const loggedUser = current().uid;
   let likes = post.likes;
   let liked;
-  if (post.likes.includes(userLogado)) {
+  if (post.likes.includes(loggedUser)) {
     liked = false;
-    likes = likes.filter((id) => id !== userLogado)
-    icon.classList.remove('curtido')
+    likes = likes.filter((id) => id !== loggedUser)
+    icon.classList.remove('liked')
   } else {
     liked = true;
-    likes.push(userLogado)
-    icon.classList.add('curtido')
+    likes.push(loggedUser)
+    icon.classList.add('liked')
   }
   await updateDoc(doc(db, 'posts', idPost), {
     likes: likes
