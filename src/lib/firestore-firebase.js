@@ -17,6 +17,7 @@ export async function getPosts() {
     return arrPosts
 }
 
+//Função que alimenta a coleção "posts" no Clound Firestore
 export function creatPost(message, titleHQ, userName) {
     return addDoc(collection(db, "posts"), {
         message,
@@ -29,6 +30,22 @@ export function creatPost(message, titleHQ, userName) {
             message,
             titleHQ,
             userName
+        }
+    })
+}
+
+//Função que alimenta a coleção "Users" no Clound Firestore
+export function infoUser(name, user, email) {
+    return addDoc(collection(db, "Users"), {
+        name,
+        user,
+        email,
+    }).then((docRef) => {
+        return {
+            id:docRef.id,
+            name,
+            user,
+            email
         }
     })
 }

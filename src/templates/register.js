@@ -1,4 +1,5 @@
 import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
+import { infoUser } from "../lib/firestore-firebase.js";
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
@@ -99,7 +100,7 @@ export default function formRegister() {
         }
       });
     }
-
+    infoUser(name.value, user.value, email.value)
   });
 
   //Função para cadastrar com o google

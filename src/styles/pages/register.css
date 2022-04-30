@@ -28,7 +28,7 @@
 
 .form-fields {
     border: none;
-    border-radius: 0.625;
+    border-radius: 0.625rem;
     background-color: rgb(63, 51, 90);
     color: rgb(200, 202, 204);
     font-size: 9pt;
