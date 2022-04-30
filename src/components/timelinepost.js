@@ -32,30 +32,24 @@ export function postElement(post, uid) {
 
   const btnLike = timelinePost.querySelector('.post-like');
   const paragraphLikeValue = timelinePost.querySelector('.value-like');
+  let userLike = post.like.filter((user) => user === uid);
 
   btnLike.addEventListener('click', () => {
-    if (numberLikes === 0) {
+    console.log(userLike);
+    if (userLike.length === 0) {
       console.log('oi adicionei');
       likePost(post.idPost, uid).then(() => {
+        userLike.push(uid);
         numberLikes += 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
       }).catch((e) => console.log(e));
     } else {
-      post.like.forEach((user) => {
-        if (user === uid) {
-          console.log('oi exclui');
-          removeLikePost(post.idPost, uid).then(() => {
-            numberLikes -= 1;
-            paragraphLikeValue.textContent = `${numberLikes}`;
-          }).catch((e) => console.log(e));
-        } else {
-          console.log('oi adicionei');
-          likePost(post.idPost, uid).then(() => {
-            numberLikes += 1;
-            paragraphLikeValue.textContent = `${numberLikes}`;
-          }).catch((e) => console.log(e));
-        }
-      });
+      console.log('oi exclui');
+      removeLikePost(post.idPost, uid).then(() => {
+        userLike = [];
+        numberLikes -= 1;
+        paragraphLikeValue.textContent = `${numberLikes}`;
+      }).catch((e) => console.log(e));
     }
   });
 
