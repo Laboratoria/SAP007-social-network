@@ -26,8 +26,16 @@ export function postElement(post, uid) {
       <p class="post-text" id="post-text">${post.message}</p>
     </div>
     <div class="like-comment flex">
-      <button class="post-like btn-config"><p class="value-like">${numberLikes}</p><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
-      <button class="post-comment btn-config"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
+      <div class="btns-like-comment flex">
+        <button class="post-like btn-config"><p class="value-like">${numberLikes}</p><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
+        <button class="post-comment btn-config"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
+      </div>
+      <form class="form-comment">
+        <textarea class="comment-input-value">
+        </textarea>
+        <button class="confirm-comment btn-edit-style">Confirmar</button>
+        <button class="close-comment btn-edit-style">Cancelar</button>
+      </form>
     </div>`;
 
   const btnLike = timelinePost.querySelector('.post-like');
@@ -56,6 +64,14 @@ export function postElement(post, uid) {
         timelinePost.querySelector('.btn-like-post').src = '../img/iconeLike.png';
       }).catch((e) => console.log(e));
     }
+  });
+
+  //const divLikePost = timelinePost.querySelector('.like-comment');
+  const commentPost = timelinePost.querySelector('.post-comment');
+  const formComment = timelinePost.querySelector('.form-comment');
+
+  commentPost.addEventListener('click', () => {
+    formComment.classList.toggle('active');
   });
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
