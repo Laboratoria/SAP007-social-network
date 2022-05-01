@@ -2,10 +2,6 @@ import { logout } from '../../configs/authentication.js';
 
 export function header() {
   const containerHeader = document.createElement('div');
-<<<<<<< HEAD
-
-=======
->>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
   const templateHeader = `
     <header class="header">
       <img class="header-image" src="./img/logo3.png" alt="logo">

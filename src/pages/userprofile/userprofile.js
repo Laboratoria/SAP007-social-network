@@ -48,15 +48,10 @@ export default () => {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
-<<<<<<< HEAD
-  btnMobile.addEventListener('click', toggleMenu);
-  btnMobile.addEventListener('touchstart', toggleMenu);
-=======
 
   btnMobile.addEventListener('click', toggleMenu);
   btnMobile.addEventListener('touchstart', toggleMenu);
 
->>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
   const printDisplayName = container.querySelector('#name-user');
   const printEmail = container.querySelector('#email-user');
 

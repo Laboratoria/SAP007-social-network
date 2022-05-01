@@ -38,12 +38,8 @@ export function isLoggedIn(callback) {
 
 export function logout() {
   return signOut(auth)
-<<<<<<< HEAD
-    .then(() => 'logout').catch((error) => 'error');
-=======
     .then(() => 'logout')
     .catch((error) => error);
->>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
 }
 
 export function forgotPassword(email) {

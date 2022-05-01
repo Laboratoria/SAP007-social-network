@@ -84,11 +84,7 @@ export function createCardPost(post) {
         `;
 
         modalAlert.innerHTML = templateConfirmDelete;
-<<<<<<< HEAD
-        modalAlert.style.display = 'block';
-=======
         modalAlert.style.visibility = 'block';
->>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
         deleteButton.style.visibility = 'hidden';
         editButton.style.visibility = 'hidden';
 
