@@ -1,6 +1,6 @@
 import { registerUser } from '../../configs/authentication.js';
 
-export default () => {
+export default function newuser() {
   const container = document.createElement('div');
   container.classList.add('content-login');
 
@@ -72,4 +72,4 @@ export default () => {
   });
 
   return container;
-};
+}
