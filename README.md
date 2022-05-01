@@ -45,10 +45,10 @@ Como usuário de uma rede social gostaria de fazer publicações e vizualizar as
 
 <b>Critérios de Aceitação</b>
 
-- [x]Conseguir publicar um post.
-- [x]Poder excluir uma postagem específica.
-- [x]Poder editar uma postagem específica.
-- [x]Solicitar confirmação antes de excluir um post.
+- [x] Conseguir publicar um post.
+- [x] Poder excluir uma postagem específica.
+- [x] Poder editar uma postagem específica.
+- [x] Solicitar confirmação antes de excluir um post.
 - [x] Ao clicar em editar um post, permitir que o usuário edite o texto e salve as alterações.
  
 ### História de usuário 3: 
@@ -56,8 +56,8 @@ Como usuário de uma rede social , gostaria de interagir nas publicações
 
 <b>Critérios de Aceitação</b>
 
- - [x]Poder dar e remover likes em uma publicação. Máximo de um por usuário.
- - [x]Visualizar contagem de likes.
+ - [x] Poder dar e remover likes em uma publicação. Máximo de um por usuário.
+ - [x] Visualizar contagem de likes.
 
 
 ## 3. Protótipos
