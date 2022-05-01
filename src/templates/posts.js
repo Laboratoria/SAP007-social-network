@@ -1,37 +1,46 @@
-import { creatPost } from "../lib/firestore-firebase.js"
+import { creatPost, getPosts, infoUser } from "../lib/firestore-firebase.js"
+import { publishingPosts } from "../componentes/template-post.js"
+import { logOff } from "../lib/auth-firebase.js"
 
 export default function posts() {
   const profilePage = document.createElement("div");
-  profilePage.classList.add("header-search-menu");
+  profilePage.classList.add("body-post");
 
   profilePage.innerHTML = `
-    <div class="body-post">
-      <div class="header-search-menu">
-        <input type="search" class="field-search" placeholder="Buscar">
-        <button class="button-search">Buscar</button>
-        <button class="button-icon-user"><img class="profile-user-icon-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></button>
-      </div>
+    <input type="checkbox" id=check>
+    <label for="check" class="label-user-icon"><img class="profile-user-icon-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></label>
+    <nav class="menu">
+      <ul class="menu-options">
+        <li><a class="link-menu-post" href="#home">Feed</a></li>
+        <li><a id="link-logoff" class="link-menu-post">Sair</a></li>
+      </ul>
+    </nav>
+      <input type="search" class="field-search" placeholder="Buscar">
+      <button class="button-search">Buscar</button> 
         
-      <div class="main-posts">
-        <div class="new-post">
-          <div id="author" class="name-user">Nome do usuário</div>
-          <form class="form-post">
-            <input for="message" type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
-            <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
-            <div class="buttons-post-delete">
-              <button id="post-button" class="post-button">postar</button>
-              <button id="delete-button" class="delete-button">excluir</button>
-            </div>  
-          </form>
-        </div>
+    <div id="new-post" class="section-new-post">
+      <div class="new-post">
+        <div id="author" class="name-user">Usuario</div>
+        <form class="form-post">
+          <input for="message" type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
+          <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
+          <div class="buttons-post-delete">
+            <button id="post-button" class="post-button">postar</button>
+            <button id="delete-button" class="delete-button">excluir</button>
+          </div>  
+        </form>
       </div>
-    <div> 
+    </div>
+
+    <div class="posts-container">
+      <section id="new-post-here"></section>
+      <section id="all-posts-here"></section>
+    </div>    
     `;
 
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
-  const user = profilePage.querySelector("#author");
-  
+  const sectionNewPost = profilePage.querySelector("#new-post-here");
 
   //Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
@@ -56,8 +65,9 @@ export default function posts() {
     e.preventDefault();
     const isValid = checkNewPostFields()
     if (isValid) {
-      creatPost(message.value, titleHQ.value, user.value)
+      creatPost(message.value, titleHQ.value, "Jaque")
         .then((post) => {
+          console.log(post)
           message.value = "";
           titleHQ.value = "";
         }).catch((error) => {
@@ -80,6 +90,15 @@ export default function posts() {
     titleHQ.value = "";
     message.value = ""
   })
+
+  //Função para sair da rede social
+  const logOut = profilePage.querySelector("#link-logoff")
+  logOut.addEventListener("click", (e) => {
+    e.preventDefault();
+    logOff(); 
+    window.location.hash = "login"
+  })
+    
 
   return profilePage
 

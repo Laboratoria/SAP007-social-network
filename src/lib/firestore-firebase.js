@@ -1,7 +1,8 @@
 import {
     collection,
     getDocs,
-    doc,
+    query,
+    orderBy,
     addDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
@@ -18,22 +19,19 @@ export async function getPosts() {
 }
 
 //Função que alimenta a coleção "posts" no Clound Firestore
-export function creatPost(message, titleHQ, userName) {
+export function creatPost(message, titleHQ) {
     return addDoc(collection(db, "posts"), {
         message,
         titleHQ,
-        userName,
         date: new Date().toLocaleString("pt-br"),
     }).then((docRef) => {
         return {
-            id:docRef.id,
+            id: docRef.id,
             message,
             titleHQ,
-            userName
         }
     })
 }
-
 //Função que alimenta a coleção "Users" no Clound Firestore
 export function infoUser(name, user, email) {
     return addDoc(collection(db, "Users"), {
@@ -42,7 +40,7 @@ export function infoUser(name, user, email) {
         email,
     }).then((docRef) => {
         return {
-            id:docRef.id,
+            id: docRef.id,
             name,
             user,
             email

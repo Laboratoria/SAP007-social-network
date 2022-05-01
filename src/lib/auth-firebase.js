@@ -3,6 +3,8 @@ import {
     signInWithPopup,
     GoogleAuthProvider,
     signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import { auth } from "./config-firebase.js";
@@ -27,3 +29,39 @@ export function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
+
+//Função para sair da rede social
+export function logOff() {
+    const userLogOff = auth.signOut();
+    return userLogOff;
+  }
+
+//Receber o perfil de um usuário
+/*const user = auth.currentUser;
+if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+  const displayName = user.displayName;
+  const email = user.email;
+  const photoURL = user.photoURL;
+  const emailVerified = user.emailVerified;
+
+  // The user's ID, unique to the Firebase project. Do NOT use
+  // this value to authenticate with your backend server, if
+  // you have one. Use User.getToken() instead.
+  const uid = user.uid;
+}*/
+
+//Identificar o usuário conectado
+/*onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+*/
+  
