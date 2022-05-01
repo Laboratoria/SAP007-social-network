@@ -16,10 +16,10 @@ function creatingInternalElements() {
   sectionGeneral.innerHTML = createHeader();
   container.append(sectionGeneral);
 
-  const postOpen = container.querySelector('[data-post="open"]');
-  const postClose = container.querySelector('[data-post="close"]');
-  const postContainer = container.querySelector('[data-post="container"]');
-  const menuOpen = container.querySelector('[data-menu="open"]');
+  const postOpen = document.querySelector('[data-post="open"]');
+  const postClose = document.querySelector('[data-post="close"]');
+  const postContainer = document.querySelector('[data-post="container"]');
+  const menuOpen = document.querySelector('[data-menu="open"]');
   const menuClose = document.querySelector('[data-menu="close"]');
   const menuContainer = document.querySelector('[data-menu="container"]');
 

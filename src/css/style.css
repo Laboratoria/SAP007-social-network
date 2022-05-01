@@ -82,14 +82,14 @@ button {
 
 @media screen and (min-width: 550px) and (max-width: 1799px) {
   .container-login {
-    max-width: 31.25rem;
-    max-height: 39rem;
+    max-width: 31rem;
+    max-height: 37rem;
   }
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
   .container-login {
-    max-width: 37.5rem;
+    max-width: 37rem;
     max-height: 45rem;
   }
 }

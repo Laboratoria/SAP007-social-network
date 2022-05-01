@@ -1,8 +1,10 @@
 import { initModal } from '../components/modal.js';
-import { userValidation, redirectedPage } from '../components/email-validation.js';
-import { authUserWithGoogle, forgotPassword } from '../../config/authentication.js';
+import { userValidation, resetEmailValidation } from '../components/user-validation.js';
 import { GoogleAuthProvider } from '../../config/export.js';
-import { errorsFirebase } from '../components/errors-firebase.js';
+import { authUserWithGoogle } from '../../config/authentication.js';
+
+const redirectedPage = '#feed';
+const regexEmail = /[\w.\-+]+@[\w-]+\.[\w-.]+/gi;
 
 function loginLabFriends(e) {
   e.preventDefault();
@@ -10,9 +12,18 @@ function loginLabFriends(e) {
   const email = document.querySelector('#user-email').value;
   const password = document.querySelector('#user-password').value;
   const passwordRepeat = '';
-  const validatedEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const validatedEmail = email.match(regexEmail);
   const message = document.querySelector('#message');
   userValidation(name, email, validatedEmail, password, passwordRepeat, message);
+}
+
+function resetPassword(e) {
+  e.preventDefault();
+  const emailClean = document.querySelector('#user-email-reset');
+  const emailReset = emailClean.value;
+  const validatedEmail = emailReset.match(regexEmail);
+  const messageReset = document.querySelector('#message-reset');
+  resetEmailValidation(emailReset, validatedEmail, messageReset, emailClean);
 }
 
 function loginGoogle(e) {
@@ -26,19 +37,6 @@ function loginGoogle(e) {
     });
 }
 
-function resetPassword(e) {
-  e.preventDefault();
-  const emailResetPassword = document.querySelector('#user-email-reset').value;
-  const messageReset = document.querySelector('#message-reset');
-  forgotPassword(emailResetPassword)
-    .then(() => {
-      messageReset.innerHTML = 'Email enviado com sucesso!';
-    })
-    .catch((error) => {
-      errorsFirebase(error.code, messageReset);
-    });
-}
-
 export function createLogin() {
   const container = document.createElement('section');
   container.classList.add('container-login');
@@ -49,7 +47,7 @@ export function createLogin() {
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
         <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="link small-text-right modal-open" data-email="open">
+        <a href="#" type="button" class="link small-text-right" data-email="open">
           Esqueceu a senha?
         </a>
         <p id="message"></p>

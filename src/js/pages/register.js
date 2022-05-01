@@ -1,4 +1,4 @@
-import { userValidation } from '../components/email-validation.js';
+import { userValidation } from '../components/user-validation.js';
 
 function registerUser(e) {
   e.preventDefault();
