@@ -26,12 +26,15 @@ export default () => {
             <button class='google' id='google'>
               <img src='../img/icon-google.png' alt='Ícone do Google' class='google-icon'>
             </button>
+<<<<<<< HEAD
             <button class='facebook'>
               <img src='../img/icon-facebook.png' alt='Ícone do Facebook' class='facebook-icon'>
             </button>
             <button class='github'>
               <img src='../img/icon-github.png' alt='Ícone do GitHub' class='github-icon'>
             </button>
+=======
+>>>>>>> 46eda474b5988a87e5bbfb29c8c031e29bff2058
           </section>
           <p class='goToAccount'>Tem uma conta? <a href='/#login'>Conecte-se</a></p>
         </form>

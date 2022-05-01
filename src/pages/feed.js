@@ -64,10 +64,17 @@ export default () => {
               <button data-cancel='true' class='cancel-button'>Cancelar</button>
             </div>
           </section>
+<<<<<<< HEAD
           <section class='post-footer'>
             <div class='likes'>
               <button type='button' data-like='true' class='like-button material-icons ${post.likes.includes(loggedInUser.uid) ? 'curtido' : ''}'> </button>
               <span class='likes-counter'>${post.likes.length}</span>
+=======
+          <section class="post-footer">
+            <div class="likes">
+              <button type="button" data-like="true" class="like-button material-icons ${post.likes.includes(loggedInUser.uid) ? 'liked' : ''}"></button>
+              <span class="likes-counter">${post.likes.length}</span>
+>>>>>>> 46eda474b5988a87e5bbfb29c8c031e29bff2058
             </div>
             ${editAndDeleteButtons}
           </section>
