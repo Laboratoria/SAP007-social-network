@@ -92,17 +92,17 @@ Como usuário de uma rede social , gostaria de interagir nas publicações
 
 * O objetivo principal de aprendizagem deste projeto é construir uma Single-page Application (SPA). Trabalhamos com as seguintes tecnologias/ferramentas:
 
-- [ ] **HTML**
+- [x] **HTML**
 
-- [ ] **CSS**
+- [x] **CSS**
 
-- [ ] **JavaScript**
+- [x] **JavaScript**
 
-- [ ] **Firebase**
+- [x] **Firebase**
 
-- [ ] **Jest**
+- [x] **Jest**
 
-- [ ] **Git e Github**
+- [x] **Git e Github**
 
 
 
