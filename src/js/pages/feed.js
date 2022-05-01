@@ -1,13 +1,5 @@
 import { createNewPost } from '../../config/posts.js';
 
-function publish() {
-  const message = document.querySelector('#message');
-  const newPost = message.value;
-  message.value = '';
-  message.focus();
-  createNewPost(newPost);
-}
-
 export function createFeed() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
@@ -48,7 +40,18 @@ export function createFeed() {
     </ul>
         `;
 
+  return container;
+}
+
+function publish() {
+  const message = document.querySelector('#message');
+  const newPost = message.value;
+  message.value = '';
+  message.focus();
+  createNewPost(newPost);
+}
+
+export function feedWorking() {
   const btnPublish = document.querySelector('#button-publish');
   btnPublish.addEventListener('click', publish);
-  return container;
 }

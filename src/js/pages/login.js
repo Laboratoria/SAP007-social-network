@@ -1,43 +1,10 @@
 import { initModal } from '../components/modal.js';
-import { userValidation, redirectedPage } from '../components/email-validation.js';
-import { authUserWithGoogle, forgotPassword } from '../../config/authentication.js';
+import { userValidation, resetEmailValidation } from '../components/user-validation.js';
 import { GoogleAuthProvider } from '../../config/export.js';
-import { errorsFirebase } from '../components/errors-firebase.js';
+import { authUserWithGoogle } from '../../config/authentication.js';
 
-function loginLabFriends(e) {
-  e.preventDefault();
-  const name = '';
-  const email = document.querySelector('#user-email').value;
-  const password = document.querySelector('#user-password').value;
-  const passwordRepeat = '';
-  const validatedEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
-  const message = document.querySelector('#message');
-  userValidation(name, email, validatedEmail, password, passwordRepeat, message);
-}
-
-function loginGoogle(e) {
-  e.preventDefault();
-  authUserWithGoogle()
-    .then(() => {
-      window.location.hash = redirectedPage;
-    })
-    .catch((error) => {
-      GoogleAuthProvider.credentialFromError(error);
-    });
-}
-
-function resetPassword(e) {
-  e.preventDefault();
-  const emailResetPassword = document.querySelector('#user-email-reset').value;
-  const messageReset = document.querySelector('#message-reset');
-  forgotPassword(emailResetPassword)
-    .then(() => {
-      messageReset.innerHTML = 'Email enviado com sucesso!';
-    })
-    .catch((error) => {
-      errorsFirebase(error.code, messageReset);
-    });
-}
+const redirectedPage = '#feed';
+const regexEmail = /[\w.\-+]+@[\w-]+\.[\w-.]+/gi;
 
 export function createLogin() {
   const container = document.createElement('section');
@@ -49,7 +16,7 @@ export function createLogin() {
         <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
         <label for="user-password" class="user-label">Senha</label>
         <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="link small-text-right modal-open" data-email="open">
+        <a href="#" type="button" class="link small-text-right" data-email="open">
           Esqueceu a senha?
         </a>
         <p id="message"></p>
@@ -81,17 +48,48 @@ export function createLogin() {
       </section>
     `;
 
-  const buttonLoginLabfriends = container.querySelector('#login-labfriends');
-  const buttonLoginGoogle = container.querySelector('#login-google');
-  const buttonResetPassword = container.querySelector('#button-reset-password');
-  const modalOpen = container.querySelector('[data-email="open"');
-  const modalClose = container.querySelector('[data-email="close"]');
-  const modalContainer = container.querySelector('[data-email="container"]');
+  return container;
+}
+
+function loginLabFriends(e) {
+  e.preventDefault();
+  const name = '';
+  const email = document.querySelector('#user-email').value;
+  const password = document.querySelector('#user-password').value;
+  const passwordRepeat = '';
+  const validatedEmail = email.match(regexEmail);
+  userValidation(name, email, validatedEmail, password, passwordRepeat);
+}
+
+function resetPassword(e) {
+  e.preventDefault();
+  const emailClean = document.querySelector('#user-email-reset');
+  const emailReset = emailClean.value;
+  const validatedEmail = emailReset.match(regexEmail);
+  resetEmailValidation(emailReset, validatedEmail);
+}
+
+function loginGoogle(e) {
+  e.preventDefault();
+  authUserWithGoogle()
+    .then(() => {
+      window.location.hash = redirectedPage;
+    })
+    .catch((error) => {
+      GoogleAuthProvider.credentialFromError(error);
+    });
+}
+
+export function loginWorking() {
+  const buttonLoginLabfriends = document.querySelector('#login-labfriends');
+  const buttonLoginGoogle = document.querySelector('#login-google');
+  const buttonResetPassword = document.querySelector('#button-reset-password');
+  const modalOpen = document.querySelector('[data-email="open"');
+  const modalClose = document.querySelector('[data-email="close"]');
+  const modalContainer = document.querySelector('[data-email="container"]');
 
   buttonLoginLabfriends.addEventListener('click', loginLabFriends);
   buttonLoginGoogle.addEventListener('click', loginGoogle);
   buttonResetPassword.addEventListener('click', resetPassword);
-  initModal(modalOpen, modalClose, modalContainer);
-
-  return container;
+  initModal(modalOpen, modalContainer, modalClose);
 }

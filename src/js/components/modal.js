@@ -12,7 +12,7 @@ function outside(e) {
   }
 }
 
-export function initModal(open, close, container) {
+export function initModal(open, container, close) {
   modalContainer = container;
   if (open && close && container) {
     open.addEventListener('click', toogle);
@@ -23,4 +23,12 @@ export function initModal(open, close, container) {
     close.addEventListener('touchstart', toogle);
     container.addEventListener('touchstart', outside);
   }
+}
+
+export function closeModalAutomatically(modalClose, container) {
+  modalContainer = container;
+  const event = new Event('click');
+  modalClose.addEventListener('click', toogle, false);
+  modalClose.addEventListener('touchstart', toogle, false);
+  modalClose.dispatchEvent(event);
 }
