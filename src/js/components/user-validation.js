@@ -1,11 +1,12 @@
 import { authUserLabFriends, registerNewUser, forgotPassword } from '../../config/authentication.js';
 import { errorsFirebase, errorsFirebaseModal } from './errors-firebase.js';
-import { closeModalAutomatically } from './modal.js'
+import { closeModalAutomatically } from './modal.js';
 
 export const redirectedPage = '#feed';
 
-export function userValidation(name, email, validatedEmail, password, passwordRepeat, message) { 
-  
+export function userValidation(name, email, validatedEmail, password, passwordRepeat) {
+  const message = document.querySelector('#message');
+
   if (!email || !password) {
     message.innerHTML = 'Preencha todos os campos!';
   } else if (!validatedEmail) {
@@ -14,16 +15,17 @@ export function userValidation(name, email, validatedEmail, password, passwordRe
     message.innerHTML = '';
     if (!name || !email || !password || !passwordRepeat) {
       message.innerHTML = 'Preencha todos os campos!';
-    } if (password !== passwordRepeat) {
+    }
+    if (password !== passwordRepeat) {
       message.innerHTML = 'As duas senhas não coincidem.<br>Digite-as novamente!';
     } else {
       registerNewUser(name, email, password)
-      .then(() => {
-        window.location.hash = redirectedPage;
-      })
-      .catch((error) => {
-        errorsFirebase(error.code);
-      });
+        .then(() => {
+          window.location.hash = redirectedPage;
+        })
+        .catch((error) => {
+          errorsFirebase(error.code);
+        });
     }
   } else {
     authUserLabFriends(email, password)
@@ -36,7 +38,9 @@ export function userValidation(name, email, validatedEmail, password, passwordRe
   }
 }
 
-export function resetEmailValidation(emailReset, validatedEmail, messageReset, emailClean) {
+export function resetEmailValidation(emailReset, validatedEmail) {
+  const emailClean = document.querySelector('#user-email-reset');
+  const messageReset = document.querySelector('#message-reset');
   const modalClose = document.querySelector('[data-email="close"]');
   const modalContainer = document.querySelector('[data-email="container"]');
 

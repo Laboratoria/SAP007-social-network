@@ -1,4 +1,6 @@
 import { auth } from '../../config/start-firebase.js';
+import { initModal } from './modal.js';
+import { logout } from '../../config/authentication.js';
 
 export function createHeader() {
   const header = `
@@ -65,17 +67,58 @@ export function createHeader() {
 
         <section class="modal-container" data-post="container">
           <div class="modal">
+            <button class="modal-close" data-post="close">X</button>
             <section>
+              <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
               <p>${auth.currentUser.displayName}</p>
               <label for="user-comment">
                 <textarea id="message" class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
               </label>
+              <button>
+                <img src="../img/icons/icon-add-image.png" alt="Ícone de adicionar imagens">
+                <p>adicionar imagem</p>
+              </button>
             </section>
             <input id="button-publish" type="button" value="PUBLICAR" data-post="close"/>
           </div>
-        </section>x'
+        </section>
+
       </header>
     `;
 
   return header;
+}
+
+export function headerWorking() {
+  const postOpen = document.querySelector('[data-post="open"]');
+  const postClose = document.querySelectorAll('[data-post="close"]');
+  const postContainer = document.querySelector('[data-post="container"]');
+  const menuOpen = document.querySelector('[data-menu="open"]');
+  const menuClose = document.querySelector('[data-menu="close"]');
+  const menuContainer = document.querySelector('[data-menu="container"]');
+
+  postOpen.addEventListener('focus', () => {
+    initModal(postOpen, postContainer, postClose[0]);
+  });
+  postOpen.addEventListener('touchstart', () => {
+    initModal(postOpen, postContainer, postClose[0]);
+  });
+  postOpen.addEventListener('focus', () => {
+    initModal(postOpen, postContainer, postClose[1]);
+  });
+  postOpen.addEventListener('touchstart', () => {
+    initModal(postOpen, postContainer, postClose[1]);
+  });
+  menuOpen.addEventListener('focus', () => {
+    initModal(menuOpen, menuContainer, menuClose);
+  });
+  menuOpen.addEventListener('touchstart', () => {
+    initModal(menuOpen, menuContainer, menuClose);
+  });
+
+  document.querySelector('#button-logout').addEventListener('click', () => {
+    logout().then(() => {
+      window.location.hash = '#login';
+    });
+  });
 }
