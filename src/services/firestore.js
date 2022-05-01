@@ -8,7 +8,7 @@ import {
   deleteDoc,
   updateDoc,
   doc,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+} from '../export.js';
 import { db } from '../dependencies/config-firebase.js';
 import { current } from './authentication.js';
 

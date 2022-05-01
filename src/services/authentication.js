@@ -7,8 +7,8 @@ import {
   signOut,
   sendPasswordResetEmail,
   updateProfile,
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
-import { auth } from '../dependencies/config-firebase.js';
+} from '../export.js';
+import { auth, db } from "../dependencies/config-firebase.js"; //eslint-disable-line
 
 export function current() {
   const user = auth.currentUser;

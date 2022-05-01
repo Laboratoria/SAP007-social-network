@@ -1,6 +1,6 @@
 import login from '../pages/login.js';
 import feed from '../pages/feed.js';
-import signUp from '../pages/signup.js';
+import signup from '../pages/signup.js';
 import publish from '../pages/publish.js';
 import { logged } from '../services/authentication.js';
 
@@ -36,12 +36,12 @@ const init = () => {
           }
         });
         break;
-      case '#signUp':
+      case '#signup':
         logged((logado) => {
           if (logado) {
             main.appendChild(feed());
           } else {
-            main.appendChild(signUp());
+            main.appendChild(signup());
           }
         });
         break;

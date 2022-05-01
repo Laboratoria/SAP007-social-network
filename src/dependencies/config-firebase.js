@@ -1,6 +1,5 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
+/* eslint-disable no-unused-vars */
+import { initializeApp, getFirestore, getAuth } from '../export.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCHQm4GkaSIhilU-MdYk7iItd09BUzqFA0',
