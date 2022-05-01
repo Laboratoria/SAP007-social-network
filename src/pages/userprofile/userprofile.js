@@ -11,17 +11,19 @@ import { createCardPost } from '../components/post.js';
 export default () => {
   const container = document.createElement('div');
   const templateUserProfile = `
-    <main>
-      <div class="card-user">
-        <div class="imgIcone">
-          <img class="icone-user" src="./img/profile-icone.png" alt="Meu Perfil">
-        </div>
+  <section class="container-profile">
+    <div class="card-user">
+      <div class="img-icon">
+        <img class="icon-user" src="./img/feather-pen.png" alt="Meu Perfil">
+      </div>
+      <section class="infos-user">
         <p class="item-user" id="name-user"></p>
         <p class="item-user" id="email-user"></p>
-      </div>
-      <section class="my-post" id="my-post">
-      </section>
-    </main>
+      </section>  
+    </div>
+    <section class="my-post" id="my-post">
+    </section>
+  </section>  
   `;
 
   container.appendChild(header());
@@ -30,7 +32,6 @@ export default () => {
   const logoutButton = container.querySelector('#btn-exit');
   logoutButton.addEventListener('click', logoutUser);
 
-  // função botão menu hamburguer
   const btnMobile = container.querySelector('#btn-mobile');
 
   function toggleMenu(event) {
@@ -47,8 +48,15 @@ export default () => {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
+<<<<<<< HEAD
   btnMobile.addEventListener('click', toggleMenu);
   btnMobile.addEventListener('touchstart', toggleMenu);
+=======
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+
+>>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
   const printDisplayName = container.querySelector('#name-user');
   const printEmail = container.querySelector('#email-user');
 

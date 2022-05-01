@@ -1,34 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
 .header {
-  box-sizing: border-box;
-  height: 78px;
+  height: 5rem;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
+  flex-direction: column; 
+  flex-wrap: wrap;
+  border-bottom: 0.3px solid #000000;
+}
+
+.header-image{
+  height: 5rem;
+  width: 10rem;
+  margin-top: 0;
+}
+
+.header-menu{
+  display: flex;
+  justify-content: flex-end;  
+  
 }
 
 .menu {
+  margin: 1.5rem 1rem 0 0;
   display: flex;
   list-style: none;
-  gap: .4rem;
-}
+  gap: 2rem;
+}  
 
 .menu a:hover {
   background-color: rgba(122,	9,	140, 0.5);
   border-radius: 5px;
 }
 
-
 .header-menu-item {
-  display: block;
-  padding: .5rem;
   font-family: 'Sarala', sans-serif;
   color: #020202;
-  font-weight: 400px;
   font-style: bold;
-  font-size: 19px;
+  font-size: 1.5rem;
 }
 
 .btn-mobile {
@@ -37,16 +45,16 @@
 
 @media screen and (min-width: 300px) and (max-width: 667px) {
   .header {
-    background: #e7e7e7;
+    background-color: rgba(122,	9,	140, 0.5);
   }
   
   .menu {
     display: block;
     position: absolute;
     width: 100%;
-    top: 70px;
+    top: 57px;
     right: 0px;
-    background: #e7e7e7;
+    background: rgba(231, 207, 177);
     height: 0;
     transition: .6s;
     z-index: 1000;
@@ -55,17 +63,21 @@
   }
   
   #nav.active .menu {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 55px);
     visibility: visible;
+    width: 100%;
   }
-  
+
   .menu a {
-    padding: 1rem 0;
-    margin: 0 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+   
   }
 
   .btn-mobile {
+    margin-top: 25px;
     display: flex;
     padding: .5rem 1rem; 
     font-size: 1rem;
@@ -111,13 +123,9 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .header-image {
-    width: 14rem;
-  }
-  
+@media screen and (min-width: 768px) and (max-width: 1024px) {  
   .header-menu-item {
-    font-size: 18px;
+    font-size: 1.5rem;
     }
 }  
 

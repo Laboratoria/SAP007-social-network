@@ -14,11 +14,11 @@ export {
   addDoc,
   orderBy,
   query,
+  deleteDoc,
   getDocs,
   updateDoc,
   doc,
   where,
   arrayUnion,
   arrayRemove,
-  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js'; // eslint-disable-line

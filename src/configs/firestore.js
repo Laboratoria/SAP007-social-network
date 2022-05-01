@@ -57,7 +57,6 @@ export const dislikePost = async (postId, user) => {
   }
 };
 
-// cria uma nova coleção - cada user é um documento
 export async function collectUsers(email, displayName) {
   try {
     const user = {
@@ -71,7 +70,6 @@ export async function collectUsers(email, displayName) {
   }
 }
 
-// para ver todos os documentos de "posts"
 export const allPosts = async () => {
   const arrayOfPosts = [];
   const sortingPosts = query(collection(db, 'posts'), orderBy('date', 'desc'));

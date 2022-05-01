@@ -17,7 +17,7 @@ export default function feed() {
     <main class="main">
       <form class="write-post main-form" id="write-post">
         <h1 class="welcome-title">Bem-vindo(a), poeta!</h1>
-        <textarea class="input-text" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
+        <textarea class="textarea" id="textarea" placeholder="Escreva seu poema aqui"></textarea>
         <p id="alert-notification" class="message"></p>
         <button class="btn-publish" id="btn-publish" type="submit"> Publicar </button>
       </form>
@@ -51,8 +51,15 @@ export default function feed() {
       event.currentTarget.setAttribute('aria-label', 'Open Menu');
     }
   }
+<<<<<<< HEAD
   btnMobile.addEventListener('click', toggleMenu);
   btnMobile.addEventListener('touchstart', toggleMenu);
+=======
+
+  btnMobile.addEventListener('click', toggleMenu);
+  btnMobile.addEventListener('touchstart', toggleMenu);
+
+>>>>>>> bf0be9fad9ff87194f5c802e9e0235420afe2e8d
   const showNewPost = container.querySelector('#new-post');
   const addNewPost = container.querySelector('#textarea');
   const showPosts = container.querySelector('#publications');
