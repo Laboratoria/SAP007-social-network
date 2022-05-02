@@ -9,20 +9,28 @@ export function createProfile() {
   container.setAttribute('id', 'main-container');
   container.innerHTML = `
   <section class="container-internal">
-    <header class="profile-header">
-      <a href="/#" class="user-link-photo  user-link-photo-card">
-        <img src="../img/icons/icon-profile.png" class="user-photo-post" alt="Foto do perfil">
-      </a>
-      <div>
-        <a href="/#">
-          <p class="user-name">Nome do Usuário</p>
-        </a>
-        <p class="language">Javascript, HTML, CSS</p>
-        <p class="work">Desenvolvedora Front-End</p>
-        <textarea class="user-description-text" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" readonly>${textPost}</textarea>
+    <header class="header-profile">
+      <div class="user-own">
+        <div class="user-photo-container-profile">
+          <a href="/#" class="user-link-photo  user-link-photo-profile">
+            <img src="../img/icons/icon-profile.png" class="user-photo-profile" alt="Foto do perfil">
+          </a>
+          <button class="button-icon-profile">
+                <img src="../img/icons/icon-edit-pink.png" class="icon-user-profile" alt="Editar perfil">
+                <p class="post-icon-text">editar</p>
+          </button>
+        </div>
+        <div>
+          <a href="/#">
+            <p class="user-name">Nome do Usuário</p>
+          </a>
+          <p class="language">Javascript, HTML, CSS</p>
+          <p class="work">Desenvolvedora Front-End</p>
+          <textarea class="user-description-text" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" readonly>${textPost}</textarea>
+        </div>
       </div>
     </header>
-    <div class="line-post"></div>
+
     <ul class="cards-timeline">
       ${createListPost()}
     </ul>

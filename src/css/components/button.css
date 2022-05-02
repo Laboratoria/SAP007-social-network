@@ -18,12 +18,23 @@
 .button-add-img {
   background-color: var(--color-dark-green);
 }
-.button-icon-post {
+.button-icon-post,
+.button-icon-profile {
   display: flex;
-  background-color: var(--color-white);
   border: none;
-  padding: 8px;
   cursor: pointer;
+}
+.button-icon-post {
+  background-color: var(--color-white);
+}
+.button-icon-profile {
+  width: 55px;
+  padding: 0;
+  padding-top: 5px;
+  background: var(--color-dark-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .button-add-img {
   background-color: var(--color-dark-green);
@@ -31,10 +42,15 @@
   padding-bottom: 0;
 }
 .button-like {
-  align-self: end;
+  justify-self: start;
+  margin-left: 5px;
 }
 .button-comment {
-  align-self: start;
+  justify-self: end;
+  margin-right: 8px;
+}
+.button-feed {
+  width: 100%;
 }
 .icon-button {
   width: 1.625rem;

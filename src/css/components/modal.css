@@ -21,6 +21,10 @@
   border-radius: var(--spacing-small);
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .modal-close {
   width: 2.5rem;

@@ -2,7 +2,7 @@ export function createFriends() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
   container.innerHTML = `
-    <section class="container-internal container-internal-friends">
+    <section class="container-internal">
       <input type="text" id="search-name" class="search-input" placeholder="Pesquisar pelo nome" required>
       <ul class="user-container container-internal-list">
         ${createUserFriends()}
