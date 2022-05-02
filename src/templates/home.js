@@ -1,5 +1,6 @@
 import { getPosts } from "../lib/firestore-firebase.js";
 import { publishingPosts } from "../componentes/template-post.js";
+//import { async } from "regenerator-runtime";
 
 export default function home() {
   const homePage = document.createElement("div");
@@ -15,17 +16,15 @@ export default function home() {
       <section id="all-posts" class="section-post"></section>
     </div>
     `;
-  const showAllPosts = homePage.querySelector("#all-posts")
-  const allPosts = getPosts();
-  //console.log(allPosts);
 
-  getPosts().then((banana) => {
-    banana.forEach((item) => {
-      const date = item.date;
-      const title = item.titleHQ;
-      const message = item.message;
-      const postElement = publishingPosts(date, title, message);
-      console.log(date)
+  const showAllPosts = homePage.querySelector("#all-posts")
+  
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      item.date;
+      item.titleHQ;
+      item.message;
+      const postElement = publishingPosts(item);
 
       showAllPosts.prepend(postElement);
 

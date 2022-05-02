@@ -1,3 +1,4 @@
+
 export function publishingPosts(post) {
   const templatePost = document.createElement("div");
   templatePost.classList.add("body-template-post");
