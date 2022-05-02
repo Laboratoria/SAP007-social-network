@@ -2,7 +2,6 @@ import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
 import { createPost } from '../firebase/firestore.js';
 import { getPost } from '../firebase/firestore.js';
-
 export default function feed() {
 
   const feed = document.createElement('div');
@@ -32,25 +31,52 @@ export default function feed() {
       <button id="publish-btn">Enviar</button>
     </div>
   </section>
-  <div class= "posts" id= "posts"> </div>`;
-  feed.innerHTML = templateFeed;
+  <div id='posts-container' class="posts-container">  
+  </div>
+  `;
 
-  const posts = feed.querySelector('#posts');
+  feed.innerHTML = templateFeed;
+  const posts = feed.querySelector('#posts-container');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
   btnPosts.addEventListener('click', async () => {
-    const docRef = await createPost(postText.value);
-    console.log(docRef.id, "banana")
+    const docRef = await createPost(postText.value, "teste@teste.com");    
     posts.innerHTML += `
-    <p> ${postText.value} </p>
-    `
-  })
+    <div class= "posts w-100" id= "posts" >  
+    <p> ${postText.value} </p>    
+    </div>
+    `;
+  });
+
+  const convertTimestamp = (timestamp) => {
+    const date = timestamp.toDate();
+    return date.toLocaleString('pt-br');
+  };
+
+  const getPostsFromDatabase = async () => {
+    const posts = await getPost();
+    posts.forEach((post) => {
+      document.querySelector('#posts-container').innerHTML += `         
+      <div class= "posts" id= "posts" >
+        <ul class="posts" id="posts">
+          <li>
+           <p>${post.userEmail}</p> 
+           <p>${convertTimestamp(post.date)}</p>           
+           <p>${post.textPost}</p>
+          </li>
+        </ul>          
+      </div>     
+      `;
+    });
+  };
+
+  getPostsFromDatabase();
+
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
     e.preventDefault();
     logout().then(() => {
-      window.location.hash = "#login"
-      console.log(logout)
+      window.location.hash = '#login';
     });
   });
   return feed;

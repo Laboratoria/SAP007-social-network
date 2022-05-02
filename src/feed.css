@@ -3,12 +3,10 @@ body {
   margin: 0;
   height: 100%;
 }
-
 * {
   font-family: 'Inder';
   box-sizing: border-box;
 }
-
 .top-nav {
   display: flex;
   flex-direction: row;
@@ -19,18 +17,15 @@ body {
   height: 50px;
   padding: 1em;
 }
-
 .logo {
   width: 70px;
   margin-top: 20px;
   padding: 5px;
 }
-
 .button-logout {
   width: 40px;
   margin-top: 20px;
 }
-
 .line-header {
   margin-top: 15px;
   width: 100%;
@@ -45,18 +40,28 @@ body {
   margin-left: 20px;
 }
 
+ul {
+  list-style: none;
+}
+
+.posts-container {  
+  width: 320px;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-left: 20px;
+  justify-content: center;
+}
+
 textarea {
   border-radius: 5px;
   border: none;
   margin: 20px 12px;
   resize: none;
 }
-
 textarea:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
 }
-
 .posts {
   width: 320px;
   border-radius: 8px;
@@ -64,7 +69,6 @@ textarea:focus {
   margin-top: 20px;
   margin-left: 20px;
 }
-
 select,
 option,
 button {
@@ -78,43 +82,35 @@ button {
   border: none;
   cursor: pointer;
 }
-
 select {
   margin-left: 120px;
 }
-
 button {
   float: right;
   margin-right: 20px;
   margin-bottom: 10px;
 }
-
 .buttons {
   display: flex;
   position: absolute;
 }
-
 @media (min-width: 900px) {
   .logo {
     width: 100px;
   }
-
   .button-logout {
     width: 60px;
     margin-top: 40px;
   }
-
   .publish {
     width: 580px;
     margin-top: 50px;
     margin-left: 400px;
   }
-
   textarea {
     width: 500px;
     font-size: 18px;
   }
-
   select,
   button {
     width: 100px;
@@ -122,11 +118,9 @@ button {
     font-size: 16px;
     margin-bottom: 20px;
   }
-
   select {
     margin-left: 280px;
   }
-
   button {
     margin-right: 35px;
   }
