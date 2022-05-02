@@ -6,7 +6,6 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
-// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 const provider = new GoogleAuthProvider();
@@ -32,6 +31,7 @@ export function userLogin(email, password) {
 
 export const googleLogin = () => signInWithPopup(auth, provider).then((result) => {
   const credential = GoogleAuthProvider.credentialFromResult(result);
+  // eslint-disable-next-line no-unused-vars
   const token = credential.accessToken;
   const user = result.user;
   return user;

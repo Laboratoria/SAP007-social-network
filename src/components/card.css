@@ -36,6 +36,7 @@ body {
   width: 30%;
   margin-left: 4%;
   margin-bottom: 4%;
+  align-items: center;
 }
 .buttons-like {
   border-radius: 50%;
@@ -49,7 +50,7 @@ body {
 }
 .likes {
   font-weight: bold;
-}
+} 
 
 @media (min-width: 768px) and (max-width: 2142px) {
   .publicated {
@@ -58,5 +59,15 @@ body {
     border-radius: 5px;
     width: 80%;
     margin: auto;
+  }
+  .container-like {
+    width: 30%;
+    margin-left: 0%;
+  }
+  .buttons-like {
+    margin-right: 0%;
+  }
+  .img-like {
+    width: 45%;
   }
 }

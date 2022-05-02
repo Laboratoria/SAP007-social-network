@@ -33,7 +33,7 @@ export default () => {
         registered.innerHTML = 'Usuário(a) cadastrado(a) com sucesso';
         setTimeout(() => {
           window.location.hash = '#timeline';
-        }, '2000');
+        }, '3000');
       })
       .catch((error) => {
         const errorMessage = error.message;
