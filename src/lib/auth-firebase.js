@@ -32,8 +32,7 @@ export function validateEmail(email) {
 
 //Função para sair da rede social
 export function logOff() {
-    const userLogOff = auth.signOut();
-    return userLogOff;
+    return signOut(auth);
   }
 
 //Receber o perfil de um usuário
@@ -51,7 +50,7 @@ if (user !== null) {
   const uid = user.uid;
 }*/
 
-//Identificar o usuário conectado
+//Observar o estado do usuário, se está logado ou não
 /*onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties

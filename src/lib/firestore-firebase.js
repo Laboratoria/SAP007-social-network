@@ -10,10 +10,11 @@ import { db } from './config-firebase.js';
 
 export async function getPosts() {
     const arrPosts = [];
+    //const orderingPosts = query(collection(db, "posts"), orderBy("desc"));
     const querySnapshot = await getDocs(collection(db, "posts"));
     querySnapshot.forEach((doc) => {
         arrPosts.push(doc.data())
-        console.log(doc.id, " => ", doc.data());
+        //console.log(doc.id, " => ", doc.data());
     });
     return arrPosts
 }

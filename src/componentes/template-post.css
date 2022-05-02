@@ -1,6 +1,7 @@
-.body-template-post {
+.body {
     margin: 0;
     padding: 0;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .section-post {
@@ -8,8 +9,8 @@
     margin: 0px 30px;
 }
 
-.section-new-post-published {
-    width: 84%;
+.section-post-published {
+    width: 79%;
     height: 263px;
     display: flex;
     flex-direction: column;
@@ -18,29 +19,31 @@
     border-radius: 10px;
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
     padding: 12px 25px;
-    margin: 30px 0 0px;
+    margin: 30px 11px 0px;
 }
 
-.username{
-    margin-bottom: auto;
+.username-post{
+    margin-bottom: 0;
     margin-top: 0;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.date {
+.date-post {
     margin-top: 0;
     font-size: 11px;
     font-weight: lighter;
 }
 
-.HQ-title {
-    margin-bottom: auto;
+.HQ-title-post {
+    margin-bottom: 0;
     margin-top: 8px;
     font-size: 14px;
+    font-weight: bold;
 }
 
-.message {
-    margin-bottom: auto;
+.message-post {
+    margin-bottom: 0;
     margin-top: 4px;
     font-size: 13px;
 }
@@ -52,9 +55,12 @@
 }
 
 .edit-button {
-    margin-left: 126px;
+    margin-left: 170px;
 }
 
+.post-delete-button {
+    margin-left: 6px;
+}
 .edit-button, .post-delete-button {
     text-transform: uppercase;
     font-size: 11px;
@@ -65,8 +71,8 @@
     cursor: pointer;
 }
 
-.likes {
-    margin-left: 204px;
+.likes-post {
+    margin-left: 248px;
     margin-top: 3px;
     margin-bottom: 7px;
 }

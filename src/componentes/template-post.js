@@ -1,35 +1,26 @@
-import { infoUser, creatPost } from "../lib/firestore-firebase.js";
-
-
-export function publishingPosts(post, user) {
-  const userDate = infoUser();
-  const postItens = creatPost();
+export function publishingPosts(post) {
   const templatePost = document.createElement("div");
   templatePost.classList.add("body-template-post");
 
   templatePost.innerHTML = `    
-    <div class="section-post">
-      <div class="section-new-post-published">
-        <p class="username">${userDate.user}</p>
-        <p class="date">${postItens.data}</p>
-        <p class="HQ-title">${postItens.titleHQ}</p>
-        <p class="message">${postItens.message}</p>
-        <div class="likes">
-          likes
+      <div class="section-post-published">
+        <p class="username-post"></p>
+        <p class="date-post">${post.date}</p>
+        <p class="HQ-title-post">${post.titleHQ}</p>
+        <p class="message-post">${post.message}</p>
+        <div class="likes-post">
+          LIKE
         </div>
         <div class="buttons-edit-delete">
           <button class="edit-button">editar</button>
           <button class="post-delete-button">excluir</button>
         </div>
       </div>
-    </div>
     `;
 
-  publishingPosts(userDate, postItens);
   return templatePost
 
 }
-
 
 /*export const mostrarPosts = (dataPost, user,idPost) => {
     const mostraPosts = document.createElement('div');

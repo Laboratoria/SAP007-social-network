@@ -65,7 +65,7 @@ export default function posts() {
     e.preventDefault();
     const isValid = checkNewPostFields()
     if (isValid) {
-      creatPost(message.value, titleHQ.value, "Jaque")
+      creatPost(message.value, titleHQ.value)
         .then((post) => {
           console.log(post)
           message.value = "";
@@ -99,7 +99,6 @@ export default function posts() {
     window.location.hash = "login"
   })
     
-
   return profilePage
 
 }
