@@ -1,9 +1,18 @@
-import { registerUser } from '../../src/configs/authentication.js';
-import { createUserWithEmailAndPassword } from '../../src/lib/exports-firebase.js';
+/*
+* @jest-environment jsdom
+*/
+/* eslint-disable */
+import newuser from '../../src/pages/newuser/newuser.js';
+import * as functionsFirebase from '../../src/lib/exports-firebase.js';
 
 jest.mock('../../src/lib/exports-firebase.js');
 
-it('registerUser should create a user with email; password and displayname', async () => {
+
+
+
+
+
+/* it('registerUser should create a user with email; password and displayname', async () => {
   createUserWithEmailAndPassword.mockResolvedValue({
     user: {},
   });
@@ -11,4 +20,4 @@ it('registerUser should create a user with email; password and displayname', asy
   await registerUser('beaproscarva@gmail.com', '123456');
 
   expect(createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
-});
+}); */
