@@ -1,8 +1,8 @@
 import {
-  removePost, editPost, likePost, removeLikePost,
+  removePost, editPost, likePost, removeLikePost, createCommentPost,
 } from '../pages/feed/firestore-functions.js';
 
-export function postElement(post, uid) {
+export function postElement(post, user) {
   let numberLikes = post.like.length;
   const date = new Date(post.day.seconds * 1000);
   const timelinePost = document.createElement('div');
@@ -40,7 +40,7 @@ export function postElement(post, uid) {
 
   const btnLike = timelinePost.querySelector('.post-like');
   const paragraphLikeValue = timelinePost.querySelector('.value-like');
-  let userLike = post.like.filter((user) => user === uid);
+  let userLike = post.like.filter((people) => people === user.uid);
 
   if (userLike.length !== 0) {
     timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
@@ -49,15 +49,15 @@ export function postElement(post, uid) {
   btnLike.addEventListener('click', () => {
     if (userLike.length === 0) {
       console.log('oi adicionei');
-      likePost(post.idPost, uid).then(() => {
-        userLike.push(uid);
+      likePost(post.idPost, user.uid).then(() => {
+        userLike.push(user.uid);
         numberLikes += 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
         timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
       }).catch((e) => console.log(e));
     } else {
       console.log('oi exclui');
-      removeLikePost(post.idPost, uid).then(() => {
+      removeLikePost(post.idPost, user.uid).then(() => {
         userLike = [];
         numberLikes -= 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
@@ -69,9 +69,27 @@ export function postElement(post, uid) {
   // const divLikePost = timelinePost.querySelector('.like-comment');
   const commentPost = timelinePost.querySelector('.post-comment');
   const formComment = timelinePost.querySelector('.form-comment');
+  const btnConfirmComment = timelinePost.querySelector('.confirm-comment');
+  const btnCancelComment = timelinePost.querySelector('.close-comment');
+  const inputComment = timelinePost.querySelector('.comment-input-value');
 
   commentPost.addEventListener('click', () => {
     formComment.classList.toggle('active');
+  });
+
+  btnCancelComment.addEventListener('click', () => {
+    formComment.classList.toggle('active');
+    inputComment.value = '';
+  });
+
+  btnConfirmComment.addEventListener('click', () => {
+    const comment = {};
+    comment.name = user.displayName;
+    comment.userUid = user.uid;
+    comment.imgProfile = user.photoURL;
+    comment.message = inputComment.value;
+    comment.day = new Date();
+    createCommentPost(post.idPost, comment).then(() => console.log('foi')).catch((e) => console.log(e));
   });
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
@@ -98,7 +116,7 @@ export function postElement(post, uid) {
   </div>
   `;
   // aqui será o menu de configurações que só aparece pro usuário dono do post
-  if (uid === post.userUid) {
+  if (user.uid === post.userUid) {
     timelinePost.appendChild(modalDelete);
     mainPost.appendChild(modifyForm);
     navRemoveModifie.innerHTML = `

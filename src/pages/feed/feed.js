@@ -130,7 +130,7 @@ export const feed = (user) => {
   getAllPosts().then((posts) => {
     posts.docs.forEach((onePost) => {
       const post = onePost.data();
-      const timelinePost = postElement(post, user.uid);
+      const timelinePost = postElement(post, user);
       postsElement.prepend(timelinePost);
     });
   }).catch((error) => console.log(error));

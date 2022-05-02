@@ -68,6 +68,14 @@ export function removeLikePost(idPost, uidUser) {
   return removeLikedPost;
 }
 
+export function createCommentPost(idPost, objComment) {
+  const docRef = doc(bd, 'post', idPost);
+  const comment = updateDoc(docRef, {
+    comment: arrayUnion(objComment),
+  });
+  return comment;
+}
+
 export function editPost(idPost, newContent) {
   const docRef = doc(bd, 'post', idPost);
 
