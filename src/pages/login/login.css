@@ -50,26 +50,3 @@
     box-shadow: 2px 2px 2px grey;
  }
 }
-
- /*@media (min-width: 768px) { 
-   .conteudoLogin {
-    width: 60%;
-    height: 100vh;
-    padding-top: 4%;
-    margin-top: 10%;
-    padding-left: 5%;
-    padding-right: 5%;
-   }
-   .btn {
-      width: 200px;
-      height: 40px;
-      font-size: 1em;
-   }
-   .Entrar {
-      margin-top: 160px;
-      margin-bottom: 5px;
-   }
-   .input {
-      margin-top: 200px;
-   }
-} */
