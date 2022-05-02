@@ -24,7 +24,9 @@
   border: none;
   cursor: pointer;
 }
-.button-icon {
+.button-icon,
+.button-icon-post,
+.button-icon-post-edit {
   background-color: var(--color-white);
   border: none;
 }

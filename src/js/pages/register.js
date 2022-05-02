@@ -34,7 +34,7 @@ export function createRegister() {
       </label>
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
       <p id="message"></p>
-      <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
+      <input type="submit" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <a href="#login" class="link small-text-right">
         < Voltar para o Login
       </a>

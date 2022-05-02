@@ -41,11 +41,11 @@ export function createHeader() {
                   <p class="menu-text">Meu Perfil</p>
                 </a>
                 <section data-menu="container">
-                  <div class="modal-menu">
-                    <button data-menu="close">X</button>
-                    <ul class="dropdown-menu">
+                  <div class="modal-dropdown">
+                    <button class="modal-dropdown-close" data-menu="close">X</button>
+                    <ul class="dropdown-ul">
                       <li>
-                        <a href="#profile" class="container-dropdown">
+                        <a href="#profile" class="dropdown-link-icon">
                           <img src="../img/icons/icon-profile.png" class="drop-icon" alt="Ícone do meu perfil">
                           <div class="drop-text">
                             <p class="name-user">Nome do Usuário</p>
@@ -53,7 +53,7 @@ export function createHeader() {
                           </div>
                         </a>
                       </li>
-                      <li>
+                      <li class="dropdown-link-icon">
                         <button id="button-logout" class="user-button button-pink">
                           SAIR
                         </button>

@@ -3,6 +3,7 @@
   max-width: 999px;
   display: grid;
   grid-template-areas: 'logo icons';
+  position: relative;
 }
 .container-logo {
   display: flex;
@@ -38,9 +39,6 @@
   display: block;
   width: 40px;
   height: 40px;
-}
-.submenu-list li {
-  display: none;
 }
 .menu-text {
   display: none;

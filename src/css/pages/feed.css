@@ -3,6 +3,12 @@
 /* general */
 .user-post,
 .container-internal,
+#form-profile,
+[data-menu='open'] {
+  width: 285px;
+}
+.user-post,
+.container-internal,
 #form-profile {
   width: 285px;
   background-color: var(--color-white);
@@ -42,7 +48,8 @@
 .post-header,
 .line-post,
 #form-profile,
-.profile-description {
+.profile-description,
+.user-form-login {
   width: 100%;
 }
 .post-text,
@@ -78,18 +85,12 @@
   color: var(--color-black);
   text-align: start;
 }
-.header-profile,
-.user-own {
-  display: flex;
-  flex-direction: row;
-}
 .header-profile {
   margin-bottom: 20px;
   background-color: var(--color-dark-green);
   padding: 10px;
-}
-.user-own {
-  width: 90%;
+  display: grid;
+  grid-template-areas: 'user-photo description';
 }
 .post-text,
 .comment-text,
@@ -155,6 +156,7 @@
   display: flex;
   justify-content: flex-end;
   margin: 0;
+  padding-top: 10px;
 }
 .label-profile {
   font-weight: 600;
@@ -234,6 +236,14 @@ input[type='file'] {
 }
 
 /* user information */
+.user-information {
+  width: 100%;
+  grid-area: description;
+}
+.user-information p {
+  display: block;
+  width: 100%;
+}
 .user-link-photo,
 .user-link-photo-comment {
   border-radius: 4px;
@@ -251,6 +261,9 @@ input[type='file'] {
   margin-top: 5px;
   align-self: flex-start;
 }
+.user-link-photo-profile {
+  background: var(--color-dark-pink);
+}
 .user-link-photo-comment {
   width: 30px;
   height: 30px;
@@ -267,6 +280,7 @@ input[type='file'] {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  grid-area: user-photo;
 }
 .user-photo-post {
   width: 35px;

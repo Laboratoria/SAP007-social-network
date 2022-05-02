@@ -9,7 +9,7 @@ export function createEditProfile() {
         </div>
 
         <figure class="user-container-image">
-          <img src="../img/icons/icon-profile.png" class="user-profile-image" alt="Foto do meu perfil">
+          <img src="../img/icons/icon-photo.png" class="user-profile-image" alt="Foto do meu perfil">
         </figure>
 
         <label class="button-icon button-user-add-img">
