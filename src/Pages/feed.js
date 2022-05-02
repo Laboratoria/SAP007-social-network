@@ -1,12 +1,7 @@
 import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
-import { auth } from '../firebase/config-firebase.js';
 import { createPost } from '../firebase/firestore.js';
 import { getPost } from '../firebase/firestore.js';
-
-
-
-
 export default function feed() {
   getPost();
   const feed = document.createElement('div');
@@ -19,9 +14,9 @@ export default function feed() {
         <a href="#home" id="logout">
             <img  class="button-logout" src="./img/botao-voltar.png" alt="Botão Sair">
         </a>
-      </picture>     
+      </picture>
   </nav>
-  <div class= "line-header"> </div>  
+  <div class= "line-header"> </div>
   <section class="publish" id="publish">
     <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="33" rows="5"></textarea>
     <div class ="buttons" id='selected-theme'>
@@ -34,96 +29,55 @@ export default function feed() {
     </div>
     <div>
       <button id="publish-btn">Enviar</button>
-    </div>  
-  </section>
-  <div class= "posts" id= "posts"> </div>`;
-
-  <picture>
-      <img class="logo" src="./img/logo-sem fundo.png" alt="logo">
-  </picture>
-  <picture>
-      <a href="#home" id="logout">
-          <img class="button-logout" src="./img/botao-voltar.png" alt="Botão Sair">
-      </a>
-  </picture>
-</nav>
-<div class="line-header"> </div>
-<div class="d-flex col items-center w-100">
-  <section class="publish col" id="publish">
-      <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="33"
-          rows="5"></textarea>
-      <div class="row ">
-          <div class="buttons" id='selected-theme'>
-              <select id='theme'>
-                  <option value disabled selected>Assunto</option>
-                  <option value="Destinos">Destinos</option>
-                  <option value="Dicas">Dicas</option>
-                  <option value="Milhas">Milhas</option>
-              </select>
-              <div>
-                  <button id="publish-btn">Enviar</button>
-              </div>
-          </div>
-      </div>
-  </section>
-</div>
-
-<div id="posts" class="col  posts"> </div>
-  `;
-  feed.innerHTML = templateFeed;
-
-  const newPost = (data) => `
-    <div class="post-container col p-2 m-2">
-      <div class="row new-post-header w-100 d-flex row justify-between">
-          <div>
-            <div></div>
-            <div>${data.user.displayName}</div>
-          </div>
-          <div></div>
-      </div>
-      <div class="row new-post-body">${data.post}</div>
-      <div class="row new-post-footer"></div>
     </div>
+  </section>
+  <div id='posts-container' class="posts-container">  
+  </div>
   `;
 
-  const posts = feed.querySelector('#posts');
+  feed.innerHTML = templateFeed;
+  const posts = feed.querySelector('#posts-container');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
-
   btnPosts.addEventListener('click', async () => {
-    const docRef = await createPost(postText.value, auth.currentUser.email)
-    console.log(docRef.id, "banana")
-    posts.innerHTML += ` 
-    <p> ${postText.value} </p>
-    `
+    const docRef = await createPost(postText.value, "teste@teste.com");    
+    posts.innerHTML += `
+    <div class= "posts w-100" id= "posts" >  
+    <p> ${postText.value} </p>    
+    </div>
+    `;
+  });
 
+  const convertTimestamp = (timestamp) => {
+    const date = timestamp.toDate();
+    return date.toLocaleString('pt-br');
+  };
 
-  })
+  const getPostsFromDatabase = async () => {
+    const posts = await getPost();
+    posts.forEach((post) => {
+      document.querySelector('#posts-container').innerHTML += `         
+      <div class= "posts" id= "posts" >
+        <ul class="posts" id="posts">
+          <li>
+           <p>${post.userEmail}</p> 
+           <p>${convertTimestamp(post.date)}</p>           
+           <p>${post.textPost}</p>
+          </li>
+        </ul>          
+      </div>     
+      `;
+    });
+  };
 
-//   btnPosts.addEventListener('click', () => {
-//     const user = JSON.parse(localStorage.getItem('user'));
-
-//     posts.innerHTML += newPost({
-//       post: postText.value,
-//       user,
-//     });
-//   });
-
+  getPostsFromDatabase();
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
     e.preventDefault();
     logout().then(() => {
       window.location.hash = '#login';
-      console.log(logout);
     });
   });
   return feed;
-};
-
-//const textContainer = feed.querySelector(".post-area-text").value
-
-//const objectPost{
-//text: textContainer,
-//data:  Date.now(),
-//}
+}

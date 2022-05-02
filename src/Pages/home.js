@@ -35,11 +35,12 @@ export default () => {
   const message = container.querySelector('.error');
 
   btnEnter.addEventListener('click', (e) => {
-    console.log('clicou');
     // e - comportamento padrão daquele evento
     e.preventDefault(); //prevenir comportamento padrão
     signIn(email.value, password.value)
+
       .then((response) => {
+        console.log(response);
         window.location.hash = '#feed';
         console.log('entrou', response.code);
       })
