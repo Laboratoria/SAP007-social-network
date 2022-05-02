@@ -3,7 +3,7 @@ import { logout } from '../firebase/authetication.js';
 import { createPost } from '../firebase/firestore.js';
 import { getPost } from '../firebase/firestore.js';
 export default function feed() {
-  getPost();
+
   const feed = document.createElement('div');
   const templateFeed = `
   <nav class="top-nav">
