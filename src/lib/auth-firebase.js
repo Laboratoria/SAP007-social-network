@@ -15,3 +15,4 @@ export function loginGoogle() {
     return credential
     })
 }
+
