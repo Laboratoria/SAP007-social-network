@@ -1,5 +1,6 @@
 :root {
-  --font-emphasis: 'Bitter', serif, 'Helvetica Neue', Arial;
+  --font-default: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
+  --font-emphasis: Georgia, Garamond, serif;
 
   --color-dark-pink: #ff009e;
   --color-light-pink: #ffb8e1;
@@ -10,6 +11,7 @@
   --color-white: #f5f5f5;
   --color-dark-gray: #1d1d1d;
   --color-medium-gray: #3a3a3a;
+  --color-medium-light-gray: #a5a3a3;
   --color-light-gray: #dfdfdf;
   --color-black: #000000;
 

@@ -6,20 +6,19 @@
   top: 0px;
   left: 0px;
   display: none;
-  flex-direction: column;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
 }
 .modal-container.active {
-  display: flex;
+  display: grid;
 }
 .modal {
-  width: 90%;
-  height: auto;
+  width: 280px;
+  margin: 0 auto;
   background: var(--color-dark-green);
   box-shadow: var(--shadow-big);
   border-radius: var(--spacing-small);
-  padding: var(--spacing-medium-top-bottom);
   text-align: center;
   position: relative;
 }
@@ -52,56 +51,23 @@
   animation: modal 0.3s forwards;
   padding: 10px;
 }
-.title-modal {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-.user-input-modal {
-  width: calc(100% * 0.9);
-  height: 2.25rem;
-  background-color: var(--color-light-green);
-  border: var(--border-input);
-  border-radius: var(--spacing-small);
-  padding-left: 0.625rem;
-  margin: var(--spacing-input-modal);
-}
-.user-input-modal,
-.user-input-modal::placeholder {
-  color: var(--color-black);
-  font-size: 1rem;
-}
-#message-reset {
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: center;
-  width: 100%;
-  margin: var(--spacing-error);
+.active .modal-feed {
+  padding-bottom: 0;
+  padding-top: 20px;
 }
 
 @media screen and (min-width: 550px) and (max-width: 1099px) {
   .modal {
-    max-width: 60%;
+    width: 60%;
   }
 }
 @media screen and (min-width: 1100px) {
   .modal {
-    max-width: 40%;
+    width: 40%;
   }
 }
 
 @media screen and (min-width: 550px) and (max-width: 1799px) {
-  .title-modal {
-    font-size: 1.5rem;
-  }
-  .user-input-modal {
-    height: 2.875rem;
-  }
-  .user-input-modal,
-  .user-input-modal::placeholder,
-  #message-reset {
-    font-size: 1.125rem;
-  }
   .modal-close {
     width: 3.125rem;
     height: 3.125rem;
@@ -112,17 +78,6 @@
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
-  .title-modal {
-    font-size: 1.75rem;
-  }
-  .user-input-modal {
-    height: 3.125rem;
-  }
-  .user-input-modal,
-  .user-input-modal::placeholder,
-  #message-reset {
-    font-size: 1.25rem;
-  }
   .modal-close {
     width: 3.75rem;
     height: 3.75rem;

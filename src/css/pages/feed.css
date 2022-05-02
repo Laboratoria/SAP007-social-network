@@ -1,19 +1,240 @@
 @import url(./timeline/menu.css);
-@import url(./timeline/post.css);
-@import url(./timeline/comment.css);
 
-
-.cards {
-  list-style: none;
-}
-.user-post {
+/* general */
+.user-post,
+.container-internal {
   width: 285px;
   background-color: var(--color-white);
   border-radius: 5px;
-  margin-bottom: 15px;
-  padding: 15px 0;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.container-internal {
+  height: 80vh;
+  position: relative;
+}
+.container-internal-friends {
+  background: var(--color-dark-gray);
+}
+.container-internal-list {
+  width: 90%;
+}
+.post-text,
+.comment-text,
+.friend-card,
+.add-comment-input,
+.add-post-input,
+.profile-header,
+.user-description-text,
+.search-input {
+  width: 90%;
+  background-color: var(--color-light-gray);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-black);
+  text-align: start;
+}
+.post-text,
+.comment-text,
+.add-comment-input,
+.add-post-input,
+.profile-header,
+.user-description-text {
+  resize: none;
+  outline: none;
+  overflow: hidden;
+}
+.post-header,
+.profile-header {
+  width: 90%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile-header,
+.user-description-text {
+  background-color: var(--color-white);
+}
+.post-timeline,
+.add-comments,
+.comments-general {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.friend-card {
+  width: 100%;
+  background-color: var(--color-dark-green);
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-text {
+  margin: 5px 0;
+}
+.comment-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+.user-description-text {
+  padding: 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.user-comment {
+  display: flex;
+  justify-content: flex-start;
+}
+.post-footer {
+  width: 90%;
+  margin: 5px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.add-post-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+}
+.line-post {
+  height: 3px;
+  width: 90%;
+  background-color: var(--color-dark-green);
+}
+
+/* page feed */
+.add-comment-input,
+.add-post-input {
+  border: var(--border-input-post);
+}
+.add-comment-input {
+  margin: 15px 0;
+}
+.add-post-input {
+  width: 100%;
+  height: 200px;
+  background-color: var(--color-light-yellow);
+  margin: 0;
+}
+.add-comment-input::placeholder,
+.add-post-input::placeholder {
+  font-size: 0.75rem;
+}
+.comment-card {
+  width: 90%;
+  list-style: none;
+}
+.post-icon {
+  height: 16px;
+  margin-right: 5px;
+}
+.post-icon-text {
+  font-size: 0.75rem;
+  color: var(--color-black);
+}
+.post-number-like,
+.post-number-comment {
+  margin-right: 3px;
+}
+
+/* create new post */
+.modal-header {
+  width: 90%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.modal-container-itens {
+  width: 100%;
+}
+
+/* page friends */
+.search-input {
+  height: 40px;
+  width: 90%;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  background-color: var(--color-dark-pink);
+  border: none;
+  background-image: url('../../img/icons/icon-search.png');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 96% center;
+  padding: 20px 30px 20px 10px;
+  font-size: 0.875rem;
+  text-align: left;
+}
+.search-input::placeholder {
+  color: var(--color-medium-ligh-gray);
+}
+
+/* user information */
+.user-link-photo,
+.user-link-photo-comment {
+  border-radius: 4px;
+  background-color: var(--color-dark-yellow);
+  margin-right: 10px;
+  display: flex;
+  column-gap: 20px;
+}
+.user-link-photo {
+  width: 35px;
+  height: 35px;
+}
+.user-link-photo-comment {
+  width: 30px;
+  height: 30px;
+}
+.user-photo-post {
+  width: 35px;
+  height: 35px;
+  align-self: center;
+}
+.user-photo-comment {
+  width: 30px;
+  height: 30px;
+  align-self: flex-start;
+}
+.user-link-photo-card {
+  margin-top: 5px;
+  align-self: flex-start;
+}
+.user-name,
+.user-name-comment {
+  font-family: var(--font-emphasis);
+  font-weight: 600;
+  color: var(--color-black);
+}
+.user-name {
+  font-size: 1rem;
+  text-align: left;
+}
+.user-name-comment {
+  font-size: 0.875rem;
+}
+.post-date {
+  font-size: 0.75rem;
+  text-align: left;
+}
+.user-friend-name {
+  font-size: 0.875rem;
+}
+.friend-small-text {
+  font-size: 1rem;
 }

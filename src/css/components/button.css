@@ -14,8 +14,27 @@
   background-color: var(--color-dark-pink);
   color: var(--color-white);
 }
-.button-green {
+.button-green,
+.button-add-img {
   background-color: var(--color-dark-green);
+}
+.button-icon-post {
+  display: flex;
+  background-color: var(--color-white);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.button-add-img {
+  background-color: var(--color-dark-green);
+  margin: 0;
+  padding-bottom: 0;
+}
+.button-like {
+  align-self: end;
+}
+.button-comment {
+  align-self: start;
 }
 .icon-button {
   width: 1.625rem;
@@ -35,6 +54,9 @@
   .user-button {
     height: 3.125rem;
     font-size: 1.25rem;
+  }
+  .button-feed {
+    height: 2.8rem;
   }
 }
 

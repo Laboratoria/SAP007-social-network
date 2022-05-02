@@ -15,9 +15,9 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: var(--font-default);
 }
 #root {
-  font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,6 +48,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  background-color: var(--color-dark-gray);
 }
 #main-container {
   max-width: 1800px;
@@ -57,9 +58,13 @@
   grid-template-columns: 1fr;
   justify-items: center;
 }
-
 button {
   cursor: pointer;
+}
+textarea:focus,
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 @media screen and (min-width: 550px) {
