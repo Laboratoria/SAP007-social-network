@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { auth } from '../lib/authentication.js';
 import { like, dislike } from '../lib/firestore.js';
 
