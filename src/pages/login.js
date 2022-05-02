@@ -6,11 +6,9 @@ export default function login() {
   loginContainer.innerHTML = `
   <div class="login-container">
   <form class="login-form">
-      <label for="" class="labels-input">Email</label>
-      <input class="text-input" type="email" name="" id="email-login-input" required>
+      <input class="text-input" type="email" name="" id="email-login-input" placeholder="Email" required>
 
-      <label for="" class="labels-input">Senha</label>
-      <input class="text-input" type="password" name="" id="password-login-input" required>
+      <input class="text-input" type="password" name="" id="password-login-input" placeholder="Senha" required>
 
       <button class="btn-login" type="submit" id="btn-submit-login"><a href="#feed">Entrar</a></button>
       

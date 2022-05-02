@@ -25,6 +25,19 @@ export function postComponent(postObj) {
   // const cookie = postsContainer.querySelector('#cookie-btn');
   // const editPost = postsContainer.querySelector('#pencil-btn');
   // const deletePost = postsContainer.querySelector('#trash-btn');
+  // deletePost.forEach((icon) => {
+  //     icon.addEventListener('click', async(event) => {
+  //         event.preventDefault();
+  //         try {
+  //             swal({
+  //                 text:'Tem certeza que quer excluir essa receita?',
+  //             });
+  //             await deletePosts(event.target.dataset.id);
+  //         } catch (error) {
+  //             console.error('error', error);
+  //         }
+  //     });
+  // });
   postsContainer.innerHTML = templatePost;
   getPosts();
   return postsContainer;

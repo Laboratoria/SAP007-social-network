@@ -5,6 +5,7 @@ import {
   getDocs,
   orderBy,
   query,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
 const db = getFirestore();
@@ -37,3 +38,8 @@ export async function getPosts() {
   return arrPost;
 }
 console.log(getPosts());
+
+
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, 'posts', id));
+};
