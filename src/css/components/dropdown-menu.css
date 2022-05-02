@@ -1,7 +1,9 @@
 [data-menu='container'] {
   background-color: rgba(0, 0, 0, 0.01);
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  top: 50px;
+  top: 0;
   right: 0;
   display: none;
   flex-direction: column;
@@ -15,12 +17,15 @@
   width: 200px;
   height: auto;
   padding: 10px;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-dark-yellow);
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
   z-index: 3;
 }
 .modal-dropdown::before {
@@ -33,7 +38,7 @@
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 15px solid var(--color-dark-green);
+  border-bottom: 15px solid var(--color-dark-yellow);
 }
 .modal-dropdown-close {
   display: none;
