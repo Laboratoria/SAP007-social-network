@@ -5,9 +5,14 @@
 @import url("./pages/userprofile/userprofile.css");
 @import url("./pages/about/about.css");
 @import url("./pages/components/header.css");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
 
 .all-content {
   background-image: url(./img/paper-background.jpg);
+  background-repeat: repeat;
+  background-size: contain;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 

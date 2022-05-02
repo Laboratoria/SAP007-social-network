@@ -76,6 +76,7 @@ export const allPosts = async () => {
   const querySnapshot = await getDocs(sortingPosts);
   querySnapshot.forEach((item) => {
     const posts = item.data();
+    console.log(posts)
     const postId = item.id;
     posts.id = postId;
     arrayOfPosts.push(posts);

@@ -21,8 +21,9 @@ export default () => {
         <p class="item-user" id="email-user"></p>
       </section>  
     </div>
-    <section class="my-post" id="my-post">
-    </section>
+    <ul>
+      <li class="my-post" id="my-post"></li>
+    </ul>
   </section>  
   `;
 
@@ -65,7 +66,7 @@ export default () => {
     const myTimeline = await getUserPosts(id);
     myTimeline.filter((post) => {
       const postCard = createCardPost(post);
-      return myPost.appendChild(postCard);
+      return myPost.prepend(postCard);
     });
   };
   showMyPosts();

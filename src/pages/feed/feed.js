@@ -22,10 +22,10 @@ export default function feed() {
         <button class="btn-publish" id="btn-publish" type="submit"> Publicar </button>
       </form>
 
-      <section class="new-post" id="new-post">
-      </section>
-      <section class="publications" id="publications">
-      </section>
+      <ul>
+      <li class="new-post" id="new-post"></li>
+      <li class="publications" id="publications"></li>
+    </ul>
     </main> 
   `;
 
@@ -75,7 +75,7 @@ export default function feed() {
             likes: [],
             date: newDate,
           };
-          showNewPost.appendChild(createCardPost(post));
+          showNewPost.prepend(createCardPost(post));
           addNewPost.value = '';
         });
     }
@@ -85,7 +85,7 @@ export default function feed() {
     const timeline = await allPosts();
     timeline.forEach((post) => {
       const postElement = createCardPost(post);
-      showPosts.appendChild(postElement);
+      showPosts.prepend(postElement);
     });
   };
 

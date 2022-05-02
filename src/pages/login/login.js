@@ -7,12 +7,6 @@ export default () => {
   const templateLogin = `
     <img class="logo-site" src="img/logo-eu-poesia-r.png" alt="Logo Eu, Poesia">
     <form class="form-login">
-      <p class="register-text">
-        Caro Poeta, caso não tenha conta 
-        <br>
-        <a href="#register" class="link-register" id="link-register">Registre-se</a>
-        <label for="remember-password"></label>
-      </p> 
       <input type="email" id="input-email" class="input-email" placeholder="E-mail" autocomplete="on">
       <input type="password" id="input-password" class="input-email" placeholder="Senha">
       <div class="checkbox">
@@ -22,6 +16,10 @@ export default () => {
       </div>  
       <span id="message" class="message"></span>
       <button type="button" id="button-login" class="button-login">Login</button>
+      <p class="register-text">
+      Caro Poeta, caso não tenha conta 
+      <br>
+      <a href="#register" class="link-register" id="link-register">Registre-se</a>
     </form>
     <footer class="footer">
       <p class="footer-text">
