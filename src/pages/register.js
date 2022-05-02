@@ -5,17 +5,13 @@ export default () => {
   register.innerHTML = `
   <div class="login-container">
       <form class="login-form">
-          <label class="login-text">Nome</label>
-          <input class="text-input" type="text" id="user-name" required>
+          <input class="text-input" type="text" id="user-name" placeholder="Nome" required>
+  
+          <input class="text-input" type="email" id="register-email" placeholder="Email" required>
     
-          <label class="login-text">E-mail</label>
-          <input class="text-input" type="email" id="register-email" required>
+          <input class="text-input" type="password" id="register-password" placeholder="Senha" required>
     
-          <label class="login-text">Senha</label>
-          <input class="text-input" type="password" id="register-password" required>
-    
-          <label class="login-text">Confirmar senha</label>
-          <input class="text-input" type="password" id="register-password" required>
+          <input class="text-input" type="password" id="register-password" placeholder="Confirme sua senha"required>
           
           <button class="btn-login" type="submit" id="register-button"><a href="#feed">Cadastrar</a></button>
           <p class="login-text">Já tem uma conta?<a href="#login"> Faça login</a></p>
