@@ -40,6 +40,7 @@ export function createHeader() {
                   <img src="../img/icons/icon-profile.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
                 </a>
+
                 <section data-menu="container">
                   <div class="modal-dropdown">
                     <button class="modal-dropdown-close" data-menu="close">X</button>
@@ -61,6 +62,7 @@ export function createHeader() {
                     </ul>
                   </div>
                 </section>
+                
               </li>
             </ul>
           </nav>

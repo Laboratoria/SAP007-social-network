@@ -168,6 +168,12 @@
 .post-text-yellow::placeholder {
   color: var(--color-medium-gray);
 }
+.modal-post-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 #file-upload-image {
   border: none;
 }
@@ -213,7 +219,7 @@ input[type='file'] {
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* page friends */
@@ -308,6 +314,7 @@ input[type='file'] {
 .post-date {
   font-size: 0.75rem;
   text-align: left;
+  margin: 5px 0;
 }
 .user-friend-name {
   font-size: 0.875rem;

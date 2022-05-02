@@ -10,7 +10,7 @@ export function createAddPost() {
             <a href="/#" class="user-link-photo">
               <img src="../img/icons/icon-profile.png" class="user-photo-post" alt="Foto do perfil">
             </a>
-            <div>
+            <div class="modal-post-user">
               <a href="/#">
                 <p class="user-name">${auth.currentUser.displayName}</p>
               </a>
