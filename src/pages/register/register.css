@@ -1,9 +1,9 @@
-@media (min-width: 576px){
+@media (min-width: 576px) {
  * {
     margin: 0px;
     padding: 0px;
  }
- .conteudoLogin {
+ .conteudoRegister {
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 70%;
@@ -15,11 +15,23 @@
     border-style:solid;
     border-color:darkgreen;
  }
- .login {
+ .input {
+    width: 300px;
+    height: 58px;
+    border-style:groove;
+    border-color:darkgreen;
+    border-radius:30px 30px 30px 30px ;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1em;
+    box-shadow: 2px 2px 2px grey;
+ }
+ .tituloS{
     color:crimson;
     font-size: 2em;
  }
- .btn {
+ .btn{
     background-color: chartreuse;
     color: crimson;
     width: 200px;
@@ -29,24 +41,5 @@
     border-color: chartreuse;
     text-align: center;
     font-size: 1em;
- }
- .Entrar {
-    margin-top: 60px;
-    margin-bottom: 2px;
- }
- .Senha{
-  margin-bottom: 10px;
- }
- .input {
-    width: 300px;
-    height: 58px;
-    border-style:groove;
-    border-color:darkgreen;
-    border-radius:30px 30px 30px 30px ;
-    margin-left: 5px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1em;
-    box-shadow: 2px 2px 2px grey;
  }
 }
