@@ -1,6 +1,5 @@
 import { getPosts } from "../lib/firestore-firebase.js";
 import { publishingPosts } from "../componentes/template-post.js";
-//import { async } from "regenerator-runtime";
 
 export default function home() {
   const homePage = document.createElement("div");
