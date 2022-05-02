@@ -54,11 +54,11 @@ body {
 
 @media (min-width: 768px) and (max-width: 2142px) {
   .publicated {
+    margin: auto;
     margin-left: 15vh;
     margin-right: 15vh;
     border-radius: 5px;
     width: 80%;
-    margin: auto;
   }
   .container-like {
     width: 30%;

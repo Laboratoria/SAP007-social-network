@@ -1,4 +1,3 @@
-import '../lib/firebase.js';
 import { userLogout } from '../lib/authentication.js';
 import { publicatedPost, getPost } from '../lib/firestore.js';
 import card from '../components/card.js';

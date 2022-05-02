@@ -23,12 +23,12 @@ body {
 .slogan {
   text-align: center;
 }
-footer {
+.footer {
   text-align: center;
   font-size: 80%;
   margin-top: auto;
 }
-footer a {
+.footer a {
   color: black;
   font-weight: bold;
 }

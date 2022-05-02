@@ -1,4 +1,3 @@
-import '../lib/firebase.js';
 import { userLogin, googleLogin } from '../lib/authentication.js';
 
 export default () => {

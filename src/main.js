@@ -1,3 +1,4 @@
+import './lib/firebase.js';
 import home from './pages/home.js';
 import register from './pages/register.js';
 import timeline from './pages/timeline.js';

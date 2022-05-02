@@ -1,4 +1,3 @@
-import '../lib/firebase.js';
 import { userCreate } from '../lib/authentication.js';
 
 export default () => {
@@ -28,6 +27,7 @@ export default () => {
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log('enviou');
     userCreate(email.value, password.value)
       .then(() => {
         registered.innerHTML = 'Usuário(a) cadastrado(a) com sucesso';
