@@ -1,28 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" href="https://fontawesome.com/icons/envelope?s=thin">
   <link rel="shortcut icon" href="./meditacao.png">
   <title>Zazen</title>
 </head>
 <body>
-  <h1>ZAZEN</h1>
-  <section>
-   <p><img src="./o-email.png" id="icon-mail">E-mail</p>
-     <input id="email"></input>
-    <br>
-    <p><img src="./fechadura.png" id="icon-senha">Senha</p>
-     <input id="senha"></input>
-      <button id="entrarComGoogle">
-        <img src="./google (1).png" id="image-icone"> <i>Google</i>
-      </button>
-       <div id="registre-se">Não tem uma conta? 
-         <a href ="">Registre-se</a>
-       </div>
-  </section>
+  <div class="container-login">
+    <div class="img-box">
+      <img src="./meditacao (1).png">
+      <h1>ZAZEN</h1>
+    </div>
+    <div class="content-box">
+      <div class="form-box">
+        <h2>Log In</h2>
+        <form>
+          <div class="input-box">
+            <input type="email" id ="email-e-senha"placeholder="user@example.com">
+          </div>
+          <div class="input-box">
+            <input type="password" id="email-e-senha" placeholder="password">
+          </div>
+          <div class="input-box">
+            <input type="submit" id="login"value="Log In">
+          </div>
+          <div>
+            <input type="submit" id="registro" value="Sign Up">
+          </div>
+          <div class="alternative">
+            <span>Continue with</span>
+          </div>
+          <button type="submit" >
+            <img src="./google (1).png" id="google">
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
   <script type="module" src="main.js"></script>
 </body>
 </html>
