@@ -1,8 +1,9 @@
-import { getPosts } from '../lib/firestore.js';
+import { getPosts } from "../lib/firestore.js";
+import { likePost } from "../lib/firestore.js";
 
 export function postComponent(postObj) {
-  const postsContainer = document.createElement('div');
-  postsContainer.classList.add('new-post-writePost');
+  const postsContainer = document.createElement("div");
+  postsContainer.classList.add("new-post-writePost");
 
   const templatePost = `
     <div class= "post-container">
@@ -15,17 +16,35 @@ export function postComponent(postObj) {
         </ol>
       
       <div class='post-interations'>
-          <a class="cookie-btn"><img src="assets/cookie.png" alt="ícone-cookie" class="cookie-icon"></img></a>
-          <span class="cookies-number" id="num-cookies">10</span>
-          <a class="pencil-btn"><img src="assets/pencil.png" alt="ícone-lápis" class="pencil-icon"></img></a>
-          <a class="trash-btn"><img src="assets/trash.png" alt="ícone-lixo" class="trash-icon"></img></a>
+      <button id="cookie-btn"> Curtir </button>
+
+      <button id="pencil-btn">Editar</button>
+      <button id="trash-btn">Apagar</button> 
       </div>  
     </div>
     `;
-  // const cookie = postsContainer.querySelector('#cookie-btn');
+  const likeButton = postsContainer.querySelector("#cookie-btn");
   // const editPost = postsContainer.querySelector('#pencil-btn');
   // const deletePost = postsContainer.querySelector('#trash-btn');
   postsContainer.innerHTML = templatePost;
   getPosts();
+
+  likeButton.addEventListener("click", (e) => {
+    const postLike = post.likes;
+    if (!postLike.includes(getUserEmail)) {
+      like(post.id, getUserEmail).then(() => {
+        postLike.push(getUserEmail);
+        const addLikeNum = Number(countLikes.innerHTML) + 1;
+        countLikes.innerHTML = addLikeNum;
+      });
+    } else {
+      dislike(post.id, getUserEmail).then(() => {
+        postLike.splice(getUserEmail);
+        const addLikeNum = Number(countLikes.innerHTML) - 1;
+        countLikes.innerHTML = addLikeNum;
+      });
+    }
+  });
+
   return postsContainer;
 }
