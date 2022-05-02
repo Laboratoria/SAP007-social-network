@@ -26,7 +26,3 @@ describe('registerUser', () => {
     expect(functionsFirebase.createUserWithEmailAndPassword).toHaveBeenCalledTimes(1);
   });
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> 2440956aee70ef33c75562ce18c2106f9740b92e

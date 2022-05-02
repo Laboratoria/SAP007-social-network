@@ -3,11 +3,8 @@
 */
 /* eslint-disable */
 import login from '../../src/pages/login/login.js';
-<<<<<<< HEAD
-=======
 import * as functionsFirebase from '../../src/lib/exports-firebase.js';
 import { userWithLogin } from '../../src/configs/authentication.js';
->>>>>>> 2440956aee70ef33c75562ce18c2106f9740b92e
 
 jest.mock('../../src/lib/exports-firebase.js');
 
