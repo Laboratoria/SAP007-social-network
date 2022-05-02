@@ -1,6 +1,6 @@
 import "../../lib/config-firebase.js";
 
-export default () => {
+export default () => { 
     const containerHome = document.createElement('div');
 
     const templateHome = `

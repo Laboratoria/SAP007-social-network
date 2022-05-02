@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
  }
- .conteudoRegister {
+  .conteudoRegister{
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 70%;
@@ -15,7 +15,7 @@
     border-style:solid;
     border-color:darkgreen;
  }
- .input {
+   .input {
     width: 300px;
     height: 58px;
     border-style:groove;
@@ -27,11 +27,11 @@
     font-size: 1em;
     box-shadow: 2px 2px 2px grey;
  }
- .tituloS{
+    .paragrafoLogin{
     color:crimson;
     font-size: 2em;
  }
- .btn{
+    .btn {
     background-color: chartreuse;
     color: crimson;
     width: 200px;

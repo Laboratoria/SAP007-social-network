@@ -5,14 +5,13 @@ export default () => {
     const containerRegister = document.createElement('div')
 
     const templateRegister = `
-      <form class="conteudoRegister">
-      <p class="tituloS">Sign Up</p>
-      <input type="text" class="input nome" id="inputName" placeholder="Nome Completo" required /><br>
+      <form class="conteudoRegister">  
+      <p class="paragrafoLogin">Sign Up</p>
+      <input type="email" class="input nome" id="inputName" placeholder="Insira seu nome Completo" required /><br>
       <input type="email" class="input email" id="inputEmail" placeholder="Insira seu email" requerid /><br>
-      <input type="password" class="input senha" id="inputSenha" placeholder="Insira uma senha" requerid /><br>
       <input type="password" class="input confirmaSenha" id="inputSenha" placeholder="Confirme sua senha" requerid /><br>
-    <br><button class='btn submit' type="submit">Sign Up</button><br>
-    </form>
+      <p id="message" class="sucessMessage" menssage"></p>
+    <br><button class='btn submit' type="submit" id="btn-Cadastrar">Sign Up</button><br></form>
       
     `;
 
