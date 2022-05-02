@@ -5,6 +5,8 @@ import {
   getDocs,
   orderBy,
   query,
+  updateDoc,
+  arrayUnion,
   deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
@@ -39,7 +41,15 @@ export async function getPosts() {
 }
 console.log(getPosts());
 
-
+export const likePost = async (postId, user) => {
+  const postLiked = doc(db, 'posts', postId);
+  try {
+    return await updateDoc(postLiked, {
+      likes: arrayUnion(user),
+    });
+  } catch (e) {
+    return e;
+  }
 export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'posts', id));
 };
