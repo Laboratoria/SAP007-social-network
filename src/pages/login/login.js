@@ -6,14 +6,16 @@ export default () => {
   const containerLogin = document.createElement('div')
 
   const templateLogin = `
-    <p class="paragrafoLogin">Login</p>
-    <input type="email" id="inputEmail" placeholder="Insira seu Email">
-    <input type="password" id="inputSenha" placeholder="Insira sua senha" /><br>
+    <form class="conteudoLogin">
+    <p class="login">Login</p>
+    <input type="email" class="input Email" id="inputEmail" placeholder="Insira seu Email">
+    <input type="password" class="input Senha" id="inputSenha" placeholder="Insira sua senha" /><br>
     <a href="" > <p class='reset-password'>Esqueceu sua senha?</p></a><br>
-    <br><button type="submit" id="btnEntrar">Entrar</button><br>
-    <button class="btn-google" id="buttonGoogle">Entrar com o Google
+    <br><button type="submit" class="btn Entrar" id="btnEntrar">Entrar</button><br>
+    <button class="btn google" id="buttonGoogle">Entrar com o Google
     </button><br>
     <p id="message" class="successMessage errorMessage"></p>
+    </form>
   `;
   containerLogin.innerHTML = templateLogin;
 
