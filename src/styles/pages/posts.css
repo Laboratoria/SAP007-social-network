@@ -1,33 +1,268 @@
+.body-post {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .profile-user-icon-posts {
     width: 30px;
     height: 30px;
+    margin-top: 9px;
+    margin-left: 14px;
 }
 
-.button-icon-user {
-    background-color: transparent;
-    border: none;
+.link-menu-post {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 20px 5px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.header-search-menu {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 35px;
-    align-items: center;
+.menu {
+    background: rgba(16, 16, 16, .5);
+    width: 124px;
+    height: 100%;
+    left: -124px;
+    position: absolute;
+    transition: all .5s;
 }
 
-.form-post {
-    display: flex;
-    flex-direction: column;
+.menu-options {
+    list-style: none;
+    top: 50px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+input[type="checkbox"]:checked~nav {
+    transform: translateX(124px);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.label-user-icon {
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.field-search {
+    border-radius: 5px;
+    width: 174px;
+    height: 28px;
+    margin-top: 27px;
+    margin-left: 93px;
+}
+
+.button-search {
+    width: 56px;
+    margin-right: 30px;
+    height: 24px;
+    margin-top: 27px;
+}
+
+
+.section-new-post {
+    max-width: 900px;
+    margin: 0px 30px;
 }
 
 .new-post {
-    width: 88%;
-    height: 240px;
+    width: 250px;
+    height: 263px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background: rgb(235, 233, 240);
     border-radius: 10px;
-    box-shadow: 1px 0 3px rgba(0,0,0,0.2);
-    
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 12px 25px;
+    margin: 30px 0;
+}
+
+.name-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.form-post {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.title-post, .new-post-message {
+    background: #fbfbfb;
+    border: 1px solid rgb(160, 160, 160);
+}
+
+.title-post {
+    border-radius: 5px;
+    margin-top: 4px;
+    height: 20px;
+    padding: 7px;
+}
+
+.new-post-message {
+    margin: 9px 0;
+    padding: 6px;
+    height: 150px;
+    resize: none;
+    border-radius: 10px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.buttons-post-delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-button {
+    margin-left: 126px;
+}
+
+.post-button, .delete-button, .button-search {
+    text-transform: uppercase;
+    font-size: 11px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .profile-user-icon-posts {
+        width: 40px;
+        height: 40px;
+        margin-top: 32px;
+        margin-left: 29px;
+    }
+
+    .menu {
+        width: 193px;
+        left: -193px;
+    }
+
+    .menu-options {
+        top: 80px;
+        width: 124px;
+    }
+
+    .link-menu-post {
+        font-size: 15px;
+    }
+
+    input[type="checkbox"]:checked~nav {
+        transform: translateX(193px);
+    }
+
+    .field-search {
+        width: 428px;
+        height: 34px;
+        margin-top: 50px;
+        margin-left: 168px;
+    }
+
+    .button-search {
+        width: 68px;
+        margin-left: 4px;
+        height: 29px;
+    }
+
+    .section-new-post {
+        margin-left: 89px;
+        margin-top: 44px;
+    }
+
+    .new-post {
+        width: 550px;
+        height: 271px;
+    }
+
+    .name-user {
+        font-size: 17px;
+    }
+
+    .post-button {
+        margin-left: 400px;
+    }
+
+    .post-button, .delete-button, .button-search {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .profile-user-icon-posts {
+        width: 45px;
+        height: 45px;
+        margin-top: 32px;
+        margin-left: 221px;
+    }
+
+    .menu {
+        width: 193px;
+        left: -193px;
+    }
+
+    .menu-options {
+        top: 80px;
+        width: 124px;
+    }
+
+    .link-menu-post {
+        font-size: 20px;
+    }
+
+    input[type="checkbox"]:checked~nav {
+        transform: translateX(193px);
+    }
+
+    .field-search {
+        width: 428px;
+        height: 34px;
+        margin-top: 50px;
+        margin-left: 523px;
+    }
+
+    .button-search {
+        width: 68px;
+        margin-left: 4px;
+        height: 29px;
+    }
+
+    .section-new-post {
+        margin: 0 auto;
+    }
+
+    .new-post {
+        width: 769px;
+        height: 271px;
+    }
+
+    .name-user {
+        font-size: 20px;
+    }
+
+    .post-button {
+        margin-left: 608px;
+    }
+
+    .post-button, .delete-button, .button-search {
+        font-size: 12px;
+        padding: 7px;
+    }
+
 }

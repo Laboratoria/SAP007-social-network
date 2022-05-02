@@ -1,4 +1,5 @@
 import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
+import { infoUser } from "../lib/firestore-firebase.js";
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
@@ -9,21 +10,21 @@ export default function formRegister() {
       <header>
         <h1 class="title-register">Crie uma conta</h1>
         <h2 class="subtitle-register">Inscreva-se com sua conta do google <br> ou endereço de e-mail</h2>
-        <button id="button-google" class="button-google"><img src="./images/google.png" class="logo-google" alt="logo do google"></button>
+        <button id="button-google-register" class="button-google-register"><img src="./images/google.png" class="logo-google-register" alt="logo do google"></button>
       </header>
       <main>
         <form class="register-form" id="form-register">
-          <div class="information">
-              <label for="name" class="label-name">Nome completo</label>
-              <input type="text" id="name" class="form-fields" placeholder="Nome completo"/>
+          <div class="information-register">
+              <label for="name-register" class="label-name">Nome completo</label>
+              <input type="text" id="name-register" class="form-fields" placeholder="Nome completo"/>
               <p id="error-name" class="alert-error"></p>
 
-              <label for="user" class="label-user">Usuário</label>
-              <input type="text" id="user" class="form-fields" placeholder="Usuário"/>
+              <label for="user-register" class="label-user">Usuário</label>
+              <input type="text" id="user-register" class="form-fields" placeholder="Usuário"/>
               <p id="error-user" class="alert-error"></p>
 
-              <label for="email" class="label-email">E-mail</label>
-              <input type="email" id="email" class="form-fields" placeholder="E-mail"/>
+              <label for="email-register" class="label-email">E-mail</label>
+              <input type="email" id="email-register" class="form-fields" placeholder="E-mail"/>
               <p id="error-email" class="alert-error"></p>
           
               <label for="password-register" class="label-password">Senha</label>
@@ -37,17 +38,16 @@ export default function formRegister() {
           </div>
         </form>
       </main>
-      <footer class="footer-register">Desenvolvido por Helena G. Silva <a class="footer-register" href="https://github.com/nannayusuf">[GitHub]</a> e Jaqueline de Oliveira <a class="footer-register" href="https://github.com/jaquelinedeoliveira93">[GitHub]</a></footer>
+      <footer class="footer-register">Desenvolvido por Helena <a class="footer-register" href="https://github.com/nannayusuf">[GitHub]</a> e Jaqueline <a class="footer-register" href="https://github.com/jaquelinedeoliveira93">[GitHub]</a></footer>
     </body>
   `;
-  const msgError = registerPage.querySelector("#error-message");
-  const email = registerPage.querySelector("#email");
+
+  const email = registerPage.querySelector("#email-register");
   const password = registerPage.querySelector("#password-register");
-  const submitButton = registerPage.querySelector("#button-register");
 
   //Validação dos dados do formulário antes de mandar para o firebase
-  const name = registerPage.querySelector("#name");
-  const user = registerPage.querySelector("#user");
+  const name = registerPage.querySelector("#name-register");
+  const user = registerPage.querySelector("#user-register");
   const errorName = registerPage.querySelector("#error-name");
   const errorUser = registerPage.querySelector("#error-user");
   const errorEmail = registerPage.querySelector("#error-email");
@@ -81,6 +81,9 @@ export default function formRegister() {
   }
 
   //Função para fazer o cadastro
+  const msgError = registerPage.querySelector("#error-message");
+  const submitButton = registerPage.querySelector("#button-register");
+
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     const isValid = checkForm()
@@ -99,11 +102,11 @@ export default function formRegister() {
         }
       });
     }
-
+    infoUser(name.value, user.value, email.value)
   });
 
   //Função para cadastrar com o google
-  const googleButton = registerPage.querySelector("#button-google");
+  const googleButton = registerPage.querySelector("#button-google-register");
   googleButton.addEventListener("click", (e) => {
     e.preventDefault();
     registerGoogle()

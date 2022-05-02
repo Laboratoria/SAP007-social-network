@@ -1,4 +1,15 @@
+.body-home-page {
+    margin: 0;
+    padding: 0;
+}
+
 .profile-user {
     width: 30px;
     height: 30px;
+    display: inline;
+}
+
+.button-user {
+    background: transparent;
+    border: none;
 }

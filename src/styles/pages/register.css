@@ -11,24 +11,25 @@
 
 }
 
-.button-google {
-    background-color: transparent;
-    border: none;
-}
-
-.logo-google {
-    width: 3.125rem;
-    height: 2.188rem;
-}
-
 .subtitle-register {
     font-size: 0.688rem;
     color: black;
 }
 
+.button-google-register {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.logo-google-register {
+    width: 3.125rem;
+    height: 2.188rem;
+}
+
 .form-fields {
     border: none;
-    border-radius: 0.625;
+    border-radius: 0.625rem;
     background-color: rgb(63, 51, 90);
     color: rgb(200, 202, 204);
     font-size: 9pt;
@@ -70,7 +71,7 @@
     margin-right: 2.688rem;
 }
 
-.information {
+.information-register {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -79,8 +80,9 @@
 }
 
 .alert-error {
-    font-size: 0.625rem;
+    font-size: 0.438rem;
     color: rgb(200, 202, 204);
+    font-weight: lighter;
 }
 
 .button-register, .button-register-back {
@@ -126,7 +128,7 @@
         font-size: 0.938rem;
     }
     
-    .logo-google {
+    .logo-google-register {
         width: 3.438rem;
         height: 2.5rem;
     }
@@ -165,7 +167,7 @@
     }
 
     .alert-error {
-        font-size: 0.813rem;
+        font-size: 0.625rem;
     }
 
     .footer-register {
@@ -185,7 +187,7 @@
         font-size: 1rem;
     }
 
-    .logo-google {
+    .logo-google-register {
         width: 3.75rem;
         height: 2.813rem;
     }
@@ -229,7 +231,7 @@
     }    
 
     .alert-error {
-        font-size: 1rem;
+        font-size: 0.75rem;
     }
     
     .footer-register {

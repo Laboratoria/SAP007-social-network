@@ -6,7 +6,6 @@ import posts from "./templates/posts.js";
 const main = document.querySelector("#root");
 
 const redirect = () => {
-    //window.addEventListener("hashchange", () => {
     main.innerHTML = "";
     switch (window.location.hash) {
         case "":
@@ -24,7 +23,6 @@ const redirect = () => {
         default:
             main.appendChild(login());
     }
-    //})
 
 }
 const init = () => {
