@@ -66,7 +66,7 @@ export function postElement(post, uid) {
     }
   });
 
-  //const divLikePost = timelinePost.querySelector('.like-comment');
+  // const divLikePost = timelinePost.querySelector('.like-comment');
   const commentPost = timelinePost.querySelector('.post-comment');
   const formComment = timelinePost.querySelector('.form-comment');
 

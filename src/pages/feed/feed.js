@@ -137,5 +137,7 @@ export const feed = (user) => {
 
   // modifieButton.addEventListener('click', (e) => {
 
+  commentPost(post.idPost, comment).then(() => console.log('foi')).catch((e) => console.log(e));
+
   return timeline;
 };

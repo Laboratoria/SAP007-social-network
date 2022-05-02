@@ -20,24 +20,22 @@ export const pageAbout = () => {
       
       <section class="about-devs">       
         <div class="div-picture-devs">    
-            <img src="./img/Anna.jpg" alt="picture-dev-anna" class="picture-devs">                
-              <h3> Anna Ferraz</h3>                   
-                <p><a href="https://github.com/AnnaIsah" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/anna-ferraz/" target="_blank">LinkeIn</a></p>          
-        </div>              
-          
-        <div class="div-picture-devs">
-            <img src="./img/Monica.jpg" alt="picture-dev-anna" class="picture-devs">         
-              <h3> Mônica Guimarães</h3>         
-                <p><a href="https://github.com/MonicaGuimaraes" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/monica-peixoto-guimaraes-v/" target="_blank">LinkeIn</a><p>
+          <img src="./img/Anna.jpg" alt="picture-dev-anna" class="picture-devs">                
+          <p><h3>Anna Ferraz</h3>                   
+          <a href="https://github.com/AnnaIsah" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/anna-ferraz/" target="_blank">LinkedIn</a></p>          
         </div>               
-          
+        <div class="div-picture-devs">
+          <p><img src="./img/Monica.jpg" alt="picture-dev-anna" class="picture-devs"></p>       
+          <p><h3> Mônica Guimarães</h3>         
+          <a href="https://github.com/MonicaGuimaraes" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/monica-peixoto-guimaraes-v/" target="_blank">LinkedIn</a><p>
+        </div>               
         <div class="div-picture-devs">            
-            <img src="./img/Taize.jpg" alt="picture-dev-anna" class="picture-devs">         
-              <h3> Taize dos Santos</h3>        
-                <p><a href="https://github.com/taizesantos" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/taizeborges/" target="_blank">LinkeIn</a></p> 
+          <img src="./img/Taize.jpg" alt="picture-dev-anna" class="picture-devs">         
+          <p><h3> Taize dos Santos</h3>        
+          <a href="https://github.com/taizesantos" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taizeborges/" target="_blank">LinkedIn</a></p> 
         </div>                    
       </section>  
      `;
