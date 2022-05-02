@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: flex-start;
 }
-label,
 .user-label,
 .user-button,
 .text-line,
@@ -18,8 +17,7 @@ label,
 .small-text-right {
   font-weight: 600;
 }
-.user-label,
-label {
+.user-label {
   font-size: 1rem;
   margin-bottom: var(--spacing-small);
 }

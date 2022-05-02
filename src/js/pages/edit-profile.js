@@ -2,38 +2,46 @@ export function createEditProfile() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
   container.innerHTML = `
-    <form id="form-profile">
-      <div class="linha">
-        <div class="foto-perfil"></div>
-      </div>
+    <section class="container-internal">
+      <form id="form-profile">
+        <div class="linha">
+          <div class="foto-perfil"></div>
+        </div>
 
-      <div class="linha centralizar-verticalmente">
-       <img id="img-alterar-imagem" src="./../img/icons/icon-add-image.png" />
-       <span id="alterar-imagem"> Alterar Imagem </span>
-      </div>
+        <figure class="user-container-image">
+          <img src="../img/icons/icon-profile.png" class="user-profile-image" alt="Foto do meu perfil">
+        </figure>
 
-      <div class="linha">
-       <label>Nome Social</label>
-       <input type="text">
-      </div>
+        <label class="button-icon button-user-add-img">
+         <img src="./../img/icons/icon-add-image.png" class="post-icon"/>
+         <input type="file" id="file-upload-image" accept="image/png, image/jpeg, image/jpg">
+         <p class="post-icon-text">alterar imagem</p>
+        </label>
 
-      <div class="linha">
-       <label>Breve descrição sobre você</label>
-       <textarea type="text"></textarea>
-      </div>
+        <label for="profile-description" class="label-profile">
+          Nome Social
+          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Como você gostaria de se chamar?"></textarea>
+        </label>
+  
+        <label for="profile-description" class="label-profile">
+          Breve descrição sobre você
+          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Escreva sobre você..."></textarea>
+        </label>
 
-      <div class="linha">
-       <label>Assuntos que você domina</label>
-       <input type="text">
-      </div>
+        <label for="profile-description" class="label-profile">
+          Assuntos que você domina
+          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="2" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Escreva as linguagens, frameworks e outras tecnologias que você domina"></textarea>
+        </label>
 
-      <div class="linha">
-       <label>Área de atuação</label>
-       <input type="text">
-      </div>
-    </form>
+        <label for="profile-description" class="label-profile">
+          Área de atuação
+          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Escreva o que você faz profissionalmente "></textarea>
+        </label>
 
-    <input class="btn-atualizar" type="submit" value="ATUALIZAR PERFIL">
+      </form>
+  
+      <input class="user-button button-pink button-feed" type="submit" value="ATUALIZAR PERFIL">
+    </section>
     `;
   return container;
 }

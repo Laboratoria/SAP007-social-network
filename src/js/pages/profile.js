@@ -15,10 +15,10 @@ export function createProfile() {
           <a href="/#" class="user-link-photo  user-link-photo-profile">
             <img src="../img/icons/icon-profile.png" class="user-photo-profile" alt="Foto do perfil">
           </a>
-          <button class="button-icon-profile">
-                <img src="../img/icons/icon-edit-pink.png" class="icon-user-profile" alt="Editar perfil">
-                <p class="post-icon-text">editar</p>
-          </button>
+          <a href="#edit-profile" class="button-icon-profile">
+            <img src="../img/icons/icon-edit.png" class="icon-user-profile" alt="Editar perfil">
+            <p class="post-icon-text">editar</p>
+          </a>
         </div>
         <div>
           <a href="/#">

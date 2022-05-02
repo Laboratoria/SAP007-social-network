@@ -2,7 +2,8 @@
 
 /* general */
 .user-post,
-.container-internal {
+.container-internal,
+#form-profile {
   width: 285px;
   background-color: var(--color-white);
   border-radius: 5px;
@@ -12,8 +13,13 @@
   justify-content: flex-start;
   align-items: center;
 }
-.user-post {
+.user-post,
+#form-profile {
   padding: 20px 10px;
+  position: relative;
+}
+#form-profile {
+  margin: 0;
 }
 .container-internal {
   background: var(--color-dark-gray);
@@ -34,7 +40,9 @@
 .modal-container-itens,
 .post-footer,
 .post-header,
-.line-post {
+.line-post,
+#form-profile,
+.profile-description {
   width: 100%;
 }
 .post-text,
@@ -49,6 +57,9 @@
 .post-header {
   margin-bottom: 10px;
 }
+.label-profile {
+  margin-top: 10px;
+}
 .post-text,
 .comment-text,
 .friend-card,
@@ -62,7 +73,7 @@
   border: none;
   border-radius: 5px;
   padding: 5px 8px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-black);
   text-align: start;
@@ -122,10 +133,11 @@
   display: flex;
   flex-direction: column;
   margin: 5px 0;
+  font-size: 0.75rem;
 }
 .user-description-text {
   padding: 0;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   background-color: var(--color-dark-green);
   margin: 5px 0 0 0;
@@ -143,6 +155,22 @@
   display: flex;
   justify-content: flex-end;
   margin: 0;
+}
+.label-profile {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.post-text-yellow {
+  background: var(--color-dark-yellow);
+}
+.post-text-yellow::placeholder {
+  color: var(--color-medium-gray);
+}
+#file-upload-image {
+  border: none;
+}
+input[type='file'] {
+  display: none;
 }
 .line-post {
   margin: 15px 0;
@@ -166,6 +194,15 @@
 .add-comment-input::placeholder,
 .add-post-input::placeholder {
   font-size: 0.75rem;
+}
+.icon-container-edit-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /* create new post */
@@ -264,15 +301,33 @@
 .friend-small-text {
   font-size: 1rem;
 }
+.user-container-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  background-color: var(--color-dark-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-profile-image {
+  width: 80px;
+  height: 80px;
+}
 
 /* icons */
 .icon-user-profile {
   height: 12px;
   margin-right: 5px;
 }
-.post-icon {
+.post-icon,
+.post-icon-edit {
   height: 16px;
   margin-right: 5px;
+}
+.post-icon-edit {
+  margin: 10px;
+  background-color: var(--color-white);
 }
 .post-icon-text {
   font-size: 0.75rem;

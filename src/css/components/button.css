@@ -24,8 +24,17 @@
   border: none;
   cursor: pointer;
 }
-.button-icon-post {
+.button-icon {
   background-color: var(--color-white);
+  border: none;
+}
+.button-icon-post-edit {
+  border-radius: 5px;
+  border: none;
+}
+.button-user-add-img {
+  display: flex;
+  padding: 10px 0;
 }
 .button-icon-profile {
   width: 55px;
@@ -51,6 +60,8 @@
 }
 .button-feed {
   width: 100%;
+  border: none;
+  margin: 25px 0;
 }
 .icon-button {
   width: 1.625rem;

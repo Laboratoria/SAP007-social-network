@@ -18,11 +18,12 @@ export function createAddPost() {
             </div>
           </header>
           <textarea class="add-post-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
-          <footer class="add-post-footer">
-            <button class="button-icon-post button-add-img">
+          <footer>
+            <label class="add-post-footer">
               <img src="../img/icons/icon-add-image.png" class="post-icon" alt="Ícone de adicionar imagens">
+              <input type="file" id="file-upload-image" accept="image/png, image/jpeg, image/jpg">
               <p class="post-icon-text">adicionar imagem</p>
-            </button>
+            </label>
           </footer>
         </section>
         <input id="button-publish" class="user-button button-pink button-feed" type="button" value="PUBLICAR"/>

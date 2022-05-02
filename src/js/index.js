@@ -4,6 +4,7 @@ import { createHeader, headerWorking } from './components/header.js';
 import { createFeed, feedWorking } from './pages/feed.js';
 import { createFriends } from './pages/friends.js';
 import { createProfile } from './pages/profile.js';
+import { createEditProfile } from './pages/edit-profile.js';
 import { authChange } from '../config/authentication.js';
 
 function creatingInternalElements() {
@@ -34,6 +35,9 @@ function redirectPages() {
         case '#profile':
           header.after(createProfile());
           break;
+        case '#edit-profile':
+            header.after(createEditProfile());
+            break;
         case '#feed':
         default:
           header.after(createFeed());

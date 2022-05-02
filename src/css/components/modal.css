@@ -60,6 +60,7 @@
   padding-top: 20px;
 }
 
+
 @media screen and (min-width: 550px) and (max-width: 1099px) {
   .modal {
     width: 60%;
