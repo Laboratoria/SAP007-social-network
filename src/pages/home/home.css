@@ -1,6 +1,6 @@
 @media (min-width: 576px){
 
- .conteudoComeço {
+    .conteudoComeço{
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 70%;
@@ -13,19 +13,19 @@
     border-color:darkgreen;
  }
 
- .boasVindas{
+   .boasVindas{
     font-size: 1.9em;
     margin-top: 30px;
     margin-bottom: 50px;
     color: crimson;
  }
 
- .mensagem {
+   .mensagem{
     margin-top: 10%;
     font-size: 1.5em;
  }
 
- .botaoCriar{
+   .botaoCriar{
     background-color: chartreuse;
     color: crimson;
     width: 200px;
@@ -37,7 +37,7 @@
     font-size: 1em;
  }
 
- .criar-entrar {
+    .criar-entrar{
     font-size: 1.5em;
     margin-top: 15%;
  }
@@ -45,13 +45,13 @@
 
 
 @media (min-width: 768px) {
-   .mensagem {
+    .mensagem{
       margin-top: 10%;
       font-size: 1.5em;
       margin-left: 6% ;
       margin-right: 6%;
    }
-   .criar-entrar {
+    .criar-entrar{
       font-size: 1.5em;
       margin-top: 10%;
    }
