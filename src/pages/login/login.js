@@ -31,8 +31,7 @@ export default () => {
   loginButtonGoogle.addEventListener("click", (e) => {
     e.preventDefault();
     loginGoogle().then((result) => {
-      msgAlert.innerHTML = "Login google feito com sucesso!";
-      //window.location.hash = "#feed"; //substituir mensagem quando criar pagina de timeline com posts 
+      window.location.hash = "#feed"; //substituir mensagem quando criar pagina de timeline com posts 
     })
       .catch((error) => {
         msgAlert.innerHTML = "Login não deu certo, tente novamente!";
