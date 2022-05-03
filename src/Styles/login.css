@@ -106,18 +106,6 @@ p {
     text-align: center;
     margin-top: 1.25rem;
     align-items: center;
-<<<<<<< HEAD
-  }
-
-  .googleBtn {
-    margin: 0;
-    height: auto;
-    width: 100px;
-    margin-top: 3px;
-  }
-
-  p {
-=======
 }
 .root{
     justify-content: center;
@@ -137,14 +125,9 @@ p {
 .google, p{
     background-color: #283040;
     border-color: #283040;
->>>>>>> 76f53aa9bce4f812848c7b1a566ab64c79414987
     color: #fff;
     font-size: 1.6em;
     text-align: center;
-<<<<<<< HEAD
-    margin-top: 30px;
-  }
-=======
 }
 .googleLogin{
     display: flex;
@@ -166,7 +149,6 @@ p {
     cursor: pointer;
     color: #757575;
 
->>>>>>> 76f53aa9bce4f812848c7b1a566ab64c79414987
 }
 
 @media (min-width: 768px) {
@@ -189,22 +171,4 @@ p {
   .logo {
     justify-content: center;
     text-align: center;
-<<<<<<< HEAD
-    height: auto;
-    width: 18em;
-    margin-left: 50 px;
-  }
-
-  p {
-    color: #fff;
-    font-size: 2em;
-  }
-
-  .googleBtn {
-    height: auto;
-    width: 105px;
-  }
-}
-=======
    }
->>>>>>> 76f53aa9bce4f812848c7b1a566ab64c79414987
