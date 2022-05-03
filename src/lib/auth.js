@@ -8,7 +8,6 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 import { auth } from '../configs/config.firebase.js';
 
-
 const provider = new GoogleAuthProvider();
 
 export function signinGoogle() {
@@ -35,7 +34,6 @@ export const createUser = (email, password) => createUserWithEmailAndPassword(au
     return user;
   });
 
-
 export function userLogout() {
   signOut(auth).then(() => {
     window.location.hash = '#login';
@@ -45,8 +43,11 @@ export function userLogout() {
   });
 }
 
-
-const user = auth.currentUser;
+// export function checkLogin() {
+//   const user = auth.currentUser;
+//   return user;
+// }
+  export const user = auth.currentUser;
   export function checkLogin(callback) {
     
     onAuthStateChanged(auth, (user) => {
