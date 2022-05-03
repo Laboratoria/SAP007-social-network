@@ -10,10 +10,9 @@
 }
 body{
     font-family: Comfortaa;
-
 }
 .container{
-    background-color: rgb(167, 164, 164);
+    background: linear-gradient(to bottom,rgba(167, 162, 189, 0.3),rgba(166, 169, 185, 0.418),rgba(138, 154, 173, 0.548));;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,7 @@ body{
 .content::before{
     content: '';
     position: absolute;
-    background-color: rgba(84, 160, 179, 0.945);
+    background-color: rgba(106, 189, 209, 0.945);
     width: 40%;
     height: 100%;
 }
@@ -45,6 +44,7 @@ body{
     color: #fff;
 }
 .title-second{
+    margin-bottom: 2rem;
     color:rgb(63, 163, 245);
 }
 .description{
@@ -54,25 +54,34 @@ body{
     line-height: 30px;
 }
 .btn{
-    padding: 10px 50px;
+    color: #fff;
+    padding: 10px;
     border-radius: 15px;
     text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
+    width: 150px;
+    align-self: center;
+    border:none;
 }
 .btn-primary{
     margin-top: 1rem;
-    padding: 10px 50px;
-    color: #fff;
     background-color: transparent;
     border: 1px solid #fff;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 15px;
 }
 .btn-primary:hover{
     background-color: #fff;
-    color: rgb(95, 213, 243);
+    color: rgba(84, 160, 179, 0.945);
+}
+.btn-second{
+    margin: 2rem;
+    background-color: rgba(84, 160, 179, 0.945);
+    border: 1px solid rgba(84, 160, 179, 0.945);
+}
+.btn-second:hover{
+    background-color: #fff;
+    border: 1px solid rgba(84, 160, 179, 0.945);
+    color: rgba(84, 160, 179, 0.945);
 }
 .first-column{
     text-align: center;
@@ -94,9 +103,42 @@ body{
     width: 55%;
 }
 .form input{
+    padding: 10px;
     height: 45px;
-    border: none;
-    background-color: rgb(230, 245, 243);
+    border:none;
+    outline: none;
+    background-color: rgb(220, 241, 239);
+    width: 100%;
+}
+.label-input{
+    border-radius: 10px;
+    background-color: rgb(220, 241, 239);
+    display: flex;
+    align-items: center;
     margin: 8px;
+    padding: 0 5px;
+}
+.icon-modify{
+    color: rgb(86, 95, 121);
+    padding: 0 5px;
+}
+@media screen and (max-width:1100px){
 
+    .container{
+        width: 100%;    
+    }
+    .content{
+        border: 1px solid rgb(105, 104, 104);
+        width: 100%;
+        height: 100%;
+    }
+    .content::before{
+        display: none;
+        }
+    .form{
+        width: 60%;
+}
+ .first-column{
+    display: none;
+}
 }

@@ -1,5 +1,22 @@
-// Este es el punto de entrada de tu aplicacion
+import pageLogin from "./pages/pageLogin/login.js";
+import pageRegister from "./pages/pageRegister/register.js";
 
-import { myFunction } from './lib/index.js';
+const main = document.querySelector("#root");
 
-myFunction();
+const init = () => {
+    main.innerHTML = "";
+    const url = window.location.hash;
+    let page = pageLogin();
+    switch (url) {
+        case "#register":
+            page = pageRegister();
+            break
+        case "#":
+            page = pageRegister();
+            break
+    }
+    main.appendChild(page)
+}
+
+window.addEventListener("load", init);
+window.addEventListener("hashchange", init);
