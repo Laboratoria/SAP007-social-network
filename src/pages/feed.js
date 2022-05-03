@@ -11,8 +11,7 @@ export default function feed() {
   feedContainer.innerHTML = `
   <div class="new-post">
     <input class="recipe-input" id="title-recipe" placeholder="Nome da receita" required></input>
-    <input class="recipe-input" id="author-recipe" placeholder="Autor(a)" required></input>
-    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" autofocus required>
+    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" required>
     </textarea>
     <button class="post-btn" id="new-post-btn">Postar</button>
     <section class="show-posts" id="showPosts">
@@ -42,6 +41,5 @@ export default function feed() {
     });
   };
   showPosts();
-  console.log(feedContainer);
   return feedContainer;
 }

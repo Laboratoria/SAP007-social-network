@@ -31,7 +31,7 @@ export default () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert('iihhhhh não funcionou mané! Tenta de novo!');
+        alert('Algum erro ocorreu, tente novamente mais tarde');
         return errorMessage;
       });
   });

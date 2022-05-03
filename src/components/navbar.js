@@ -15,13 +15,3 @@ export function printNav() {
     return navContainer;
   }
   
-  // const searchRecipe = navContainer.querySelector('#recipe-search');
-  // const newRecipe = navContainer.querySelector('#icon-new-recipe');
-  // searchRecipe.addEventListener('keyup', function(){
-  //   })
-  // newRecipe.addEventListener('click', (e) => {
-  //  e.preventDefault();
-  //  window.location.hash = '#writePost';
-  // });
-
- 
