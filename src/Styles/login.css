@@ -15,7 +15,7 @@
   margin-left: auto;
   margin-right: auto;
   height: auto;
-  width: 17em;
+  width: 14em;
 }
 .title {
   color: #fff;
@@ -49,19 +49,19 @@
   color: #fff;
   font-size: 1.6em;
   text-align: center;
-  margin-top: 3px;
 }
 .googleLogin {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 .googleBtn {
   margin: 0;
   height: auto;
   width: 90px;
-  margin-top: 3px;
+  margin-bottom: 15px;
 }
 .enter {
   margin: -0.1rem;
@@ -89,7 +89,7 @@ p {
 @media (min-width: 360px) and (max-width: 915px) {
   * {
     margin: 0;
-    margin-left: 14px;
+    margin-left: 15px;
     margin-top: 13px;
     background-color: #283040;
     font-family: Anton;
