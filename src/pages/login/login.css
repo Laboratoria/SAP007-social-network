@@ -1,0 +1,184 @@
+
+.form-login {
+    background-color: var(--lilac);
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+.box-slogan-page-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-about {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
+.img-btn-about{
+ height: 10vh;
+}
+
+.slogan-desktop{
+  display: none;
+}
+
+.login-area,
+.btn-sign-in {
+    background-color: var(--off-white);
+    border-radius: 10px;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    margin-top: 12px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    font-size: 15px;
+    height: 8vh;
+    margin: 5px 10px;
+    padding-left: 10px;
+    width: 60vw;
+
+}
+
+.btn-sign-in {
+    cursor: pointer;
+}   
+
+.error {
+    display: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
+    color: var(--red-error);
+}
+
+.text-center {
+    text-align: center;
+    margin: 3% auto;
+    display: block;
+}
+
+.btn-google {
+    background: #F8BD0F;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    cursor: pointer;
+}
+
+a:link {
+    color: #C400FF;
+}
+
+#click-register:hover{
+    text-decoration: underline;
+}
+
+/* trabalhar breakpoint antes de 576px, telas muito pequena */
+@media screen and (max-width: 576px){  
+  .logo-page-login {
+        height: 20vh;
+        margin: 3% 0;
+    }
+     
+    .box-slogan-desktop-page-login{
+      display: none;
+    }
+    .form-login {
+        height: 40vh;
+        width: 60vw;
+    }
+    .login-area,
+    .btn-sign-in,
+    .btn-google {
+        height: 8vh;
+        width: 40vw;
+        margin-top: 10%;
+        font-size: 15px;
+    }
+    .btn-google{
+      width: 50vw;
+      margin-top: 3%
+    }
+    
+    .img-btn-google {
+        height: 4vh;
+    }
+    .font-size{
+      font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+  .logo-page-login {
+        height: 30vh;      
+    }
+    .box-slogan-desktop-page-login{
+      display: none;
+    }
+  
+    .form-login {
+        height: 40vh;
+        width: 50vw;
+    }
+    .login-area,
+    .btn-sign-in,
+    .btn-google {
+        height: 8vh;
+        width: 40vw;
+        margin-top: 25px;
+    }
+    .btn-google{
+      width: 50vw;
+      margin-top: 3%
+    }
+ 
+    .img-btn-google {
+        height: 4vh;
+    }
+    .font-size{
+      font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .box-slogan-page-login {
+    display: none;    
+  } 
+
+  .box-slogan-desktop-page-login{
+    height: 95%;
+    width: 40%;
+  } 
+  .logo-desktop{
+    width: 100%;
+  }
+  .slogan-desktop{
+    display: block;
+  }
+  .form-login {    
+    margin: 0 200px;
+    
+}
+  .form-login {
+      height: 45vh;
+      width: 50vw;
+  }
+  .login-area,
+  .btn-sign-in,
+  .btn-google {
+      height: 8vh;
+      width: 40vw;
+      margin-top: 25px;
+  }
+  .btn-google{
+    width: 50vw;
+    margin-top: 3%
+  }
+
+  .img-btn-google {
+      height: 4vh;
+  }
+  .font-size{
+    font-size: 18px;
+  }
+}

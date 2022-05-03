@@ -1,0 +1,261 @@
+.root {
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.box-feed {
+  width: 100%;
+}
+
+.header-feed {
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--light-yellow);
+  height: 70px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid;
+  border-color: var(--mustard);
+  z-index: 1;
+}
+
+.menu {
+  display: flex;
+  gap: .5rem;
+}
+
+.menu .link {
+  display: block;
+  padding: .5rem;
+}
+
+.link:hover .btn-log-out:hover {
+  background: var(--mustard);
+}
+
+.link .btn-config {
+  color: var(--black);
+}
+
+.menu {
+  display: block;
+  position: absolute;
+  width: 50%;
+  top: 68px;
+  right: 0;
+  background: var(--light-yellow);
+  box-shadow: -1rem 0rem 3rem var(--shadowheader);
+  transition: .6s;
+  height: 0px;
+  z-index: 1;
+  visibility: hidden;
+  overflow-y: hidden;
+  border: 0px 1px 1px 1px solid var(--mustard);
+
+}
+
+.btn-log-out {
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu .link {
+  margin: 0 1rem;
+  border-bottom: 2px solid var(--mustard);
+}
+
+.btn-mobile {
+  display: flex;
+  padding: .5rem;
+  font-size: 1rem;
+  background: none;
+  cursor: pointer;
+  gap: .5rem;
+}
+
+.hamburguer {
+  border-top: 2px solid var(--lilac);
+  width: 20px;
+  margin-top: 15px;
+}
+
+.hamburguer::after,
+.hamburguer::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--lilac);
+  margin-top: 5px;
+  transition: .3s;
+  position: relative;
+}
+
+.nav-options.active .hamburguer {
+  border-top-color: transparent;
+}
+
+.nav-options.active .hamburguer::before {
+  transform: rotate(135deg);
+
+}
+
+.nav-options.active .hamburguer::after {
+  transform: rotate(-135deg);
+  top: -7px;
+}
+
+.nav-options.active .menu {
+  visibility: visible;
+  height: calc(90vh - 70px);
+  overflow-y: auto;
+}
+
+.user-perfil-img-feed {
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.logo-img-feed {
+  width: 50px;
+  height: 50px;
+  margin-top: 5px;
+}
+
+.logo-img-feed-user-message {
+  width: 200px;
+  height: 200px;
+}
+
+/* screen and (min-width: 320px) { */
+
+.nav-options {}
+
+.btn-mobile {}
+
+.menu-list {}
+
+.btn-log-out {
+  width: 100px;
+}
+
+.main-post {
+  background: var(--backgroud-feed);
+  width: 100%;
+}
+
+.section-feed {
+  margin-top: 80px;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-post-input-apear {
+  font-size: 50px;
+  background: var(--lilac);
+  border-radius: 50%;
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  bottom: 10px;
+  right: 10px;
+  opacity: 1.0;
+  z-index: 999;
+  transition: .6s;
+}
+
+.form-post-apear {
+  position: fixed;
+  flex-direction: column;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  background: var(--light-pink-opacity);
+  height: 0px;
+  z-index: 900;
+  visibility: hidden;
+  overflow-y: hidden;
+  padding: 10% 5% 0 5%;
+}
+
+.section-input-post.apear .form-post-apear {
+  visibility: visible;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.section-input-post.apear .btn-post-input-apear {
+  transform: rotate(135deg);
+}
+
+.input-post {
+  margin-top: 40%;
+  border-radius: 10px;
+  border: 2px solid var(--mustard);
+  width: 100%;
+  height: 100px;
+  resize: none;
+  text-align: center;
+}
+
+.btn-post {
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--lilac);
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 50px;
+  width: 200px;
+}
+
+.message-without-user {
+  margin-top: 20%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.without-user {
+  font-size: 20px;
+}
+
+.link-login-button {
+  background: transparent;
+  color: var(--lilac);
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.warnings-feed {
+  box-shadow: 0 0 1em var(--black-shadow);
+  padding: 2%;
+  z-index: 999;
+  display: none;
+  position: fixed;
+  border: 2px solid var(--black-shadow);
+  border-radius: 10px;
+  top: 80px;
+  margin: 0 10% 0 10%;
+  background: var(--white);
+  height: auto;
+  width: 60%;
+  text-align: center;
+}
+
+/* } */

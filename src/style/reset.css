@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+  background: var(--blue-opacity);
+}
+
+:root {
+
+  --mustard: #F8BD0F;
+  --yellow: #FFF338;
+  --green: greenyellow;
+  --light-yellow: #FFFCAB;
+  --lilac: #A275E3;
+  --purple: #C400FF;
+  --light-pink: #FA86BE;
+  --light-pink-opacity: #fa86beee;
+  --pink: #FF67E7;
+  --light-blue: #9AEBED;
+  --tiffany-blue: #0CECDD;
+  --blue-op: #5ccfad;
+  --blue-opacity: #e9f5f1;
+  --black: black;
+  --black-shadow: rgba(94, 92, 92, 0.5);
+  --white: white;
+  --background-feed: (rgb(246, 237, 250));
+  --off-white: #F7F7F7;
+  --red-error: #B20C0C;
+}
