@@ -36,7 +36,8 @@
 [data-menu='container'].active {
   display: flex;
 }
-.modal {
+.modal,
+.modal-add-post {
   width: 285px;
   margin: 0 auto;
   background: var(--color-dark-green);
@@ -48,6 +49,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.modal-add-post {
+  padding: 20px 10px 0 10px;
 }
 .modal-close {
   width: 2.5rem;
@@ -79,6 +83,9 @@
   padding: 10px;
 }
 .active .modal-dropdown {
+  animation: modal 0.3s forwards;
+}
+.active .modal-add-post {
   animation: modal 0.3s forwards;
 }
 

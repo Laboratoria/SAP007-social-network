@@ -300,13 +300,13 @@ input[type='file'] {
   align-self: flex-start;
 }
 .user-name,
-.user-name-comment {
+.user-name-comment,
+.name-user {
   font-family: var(--font-emphasis);
-  font-weight: 600;
   color: var(--color-black);
 }
 .user-name {
-  font-size: 1rem;
+  font-size: 1.125rem;
   text-align: left;
 }
 .user-name-comment {
@@ -318,7 +318,7 @@ input[type='file'] {
   margin: 5px 0;
 }
 .user-friend-name {
-  font-size: 0.875rem;
+  font-size: 1.125rem;
 }
 .friend-small-text {
   font-size: 1rem;

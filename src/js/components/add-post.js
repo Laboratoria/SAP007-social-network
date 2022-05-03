@@ -3,7 +3,7 @@ import { auth } from '../../config/start-firebase.js';
 export function createAddPost() {
   const template = `
     <section class="modal-container-light" data-post="container">
-      <div class="modal modal-add-post">
+      <div class="modal-add-post">
         <button class="modal-close" data-post="close">X</button>
         <section class="modal-container-itens">
           <header class="modal-header">
