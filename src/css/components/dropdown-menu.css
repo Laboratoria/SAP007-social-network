@@ -1,6 +1,5 @@
 .modal-dropdown {
   /* width class='menu-header' */
-  background-color: var(--transparent-light);
   height: 100vh;
   position: relative;
   top: 82px; /* width id='main-container' */

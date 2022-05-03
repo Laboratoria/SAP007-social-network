@@ -19,8 +19,8 @@ function createListPost (){
     <li class="post-card">
       <article class="user-post">
         ${createPost()}
-        ${createAddComment()}
-        ${createComment()}
+        <!--${createAddComment()}-->
+        <!--${createComment()}-->
       </article>
     </li>
   `
