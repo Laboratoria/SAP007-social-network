@@ -3,10 +3,7 @@ import register from './pages/register.js';
 import feed from './pages/feed.js';
 
 const mainHome = document.querySelector('#root');
-
-window.addEventListener('hashchange', (e) => {
-  e.preventDefault();
-
+const verificarHash = () => {
   switch (window.location.hash) {
     case '':
       mainHome.appendChild(login());
@@ -28,10 +25,16 @@ window.addEventListener('hashchange', (e) => {
       mainHome.innerHTML = '';
       mainHome.appendChild(login());
   }
+}
+
+window.addEventListener('hashchange', (e) => {
+  e.preventDefault();
+  verificarHash();
+
 });
 
 window.addEventListener('load', () => {
-  mainHome.appendChild(login());
+  verificarHash();
 });
 
 const links = document.querySelectorAll('a');
