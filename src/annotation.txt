@@ -1,10 +1,11 @@
 
 
-
+FAZENDO:
 - fazer função para aumentar a linha do textarea
-- fazer função para aumentar altura do view-list, main, modal-dropdown -> criar uma classe e aplicar nela
 - fazer função que verifique o tamanho do container header e atribua o tamanho para o modal menu --> class="modal-dropdown"
 
+
+FAZER:
 CSS - REPSONSIVO
 - arrumar os tamanhos de TEXTO E ÍCONES no media querie (3 medidas - figma)
 - aumentar um pouco os espaçamentos e paddings/margins, dependendo do elemento
