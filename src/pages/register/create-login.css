@@ -6,24 +6,6 @@
         align-items: center;
     }
 
-    /* .box-slogan-page-register {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        align-items: center;
-    } */
-
-    .img-camera {
-        height: 10vh;
-        align-items: center;
-    }
-
-    .profile-figure {
-        cursor: pointer;
-        background-color: #F8BD0F;
-        margin-bottom: 2%
-    }
-
     .logo-icon-page-register {
         height: 20vh;
         margin-bottom: 2%
@@ -32,8 +14,8 @@
     .form-register {
         background-color: var(--lilac);
         border-radius: 10px;
-        height: 72vh;
-        width: 72vw;
+        height: 52vh;
+        width: 42vw;
         text-align: center;
     }
 
@@ -51,7 +33,7 @@
         height: 8vh;
         margin: 5px 10px;
         padding-left: 10px;
-        width: 60vw;
+        width: 30vw;
         box-shadow: var(--black) 10px 10px 15px -8px;
     }
 
