@@ -2,4 +2,7 @@
 
 
 - fazer função para aumentar a linha do textarea
-- fazer função para aumentar altura do view-list, main, modal-dropdown -> criar uma tag global
+- fazer função para aumentar altura do view-list, main, modal-dropdown -> criar uma classe e aplicar nela
+
+CSS
+- arrumar os tamanhos de TEXTO E ÍCONES no media querie (3 medidas - figma)

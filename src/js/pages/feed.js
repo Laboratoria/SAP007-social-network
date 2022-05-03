@@ -7,24 +7,19 @@ export function createFeed() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
   container.innerHTML = `
-    <ul class="cards">
-      ${createListPost()}
+    <ul class="list-posts">
+      <li class="post-card">
+        <article class="user-post">
+          ${createPost()}
+        </article>
+      </li>
     </ul>
   `;
-  return container;
-}
 
-function createListPost (){
-  const template = `
-    <li class="post-card">
-      <article class="user-post">
-        ${createPost()}
-        <!--${createAddComment()}-->
-        <!--${createComment()}-->
-      </article>
-    </li>
-  `
-  return template;
+  const userPost = container.querySelector('.user-post');
+  userPost.append(createAddComment());
+  userPost.append(createComment());
+  return container;
 }
 
 function publish() {

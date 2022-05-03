@@ -4,7 +4,7 @@ export function createFriends() {
   container.innerHTML = `
     <section class="container-internal">
       <input type="search" id="search-name" class="search-input" placeholder="Pesquisar pelo nome" required>
-      <ul class="user-container container-internal-list">
+      <ul class="container-internal-list">
         ${createUserFriends()}
       </ul>
     </section>

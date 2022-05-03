@@ -1,29 +1,25 @@
 .modal-dropdown,
 .menu-header {
   min-width: 285px;
-  max-width: 999px;
+  max-width: 1000px;
 }
 .menu-header {
+  width: 100%;
   display: grid;
+  grid-template-columns: 50px 3fr;
   grid-template-areas: 'logo icons';
   position: relative;
+  column-gap: 20px;
 }
 .container-logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  grid-area: logo;
-}
-#logo-icon {
-  width: 50px;
-}
-#logo-header {
-  display: none;
-}
-.menu {
-  grid-area: icons;
+  width: 100%;
+  background-image: url(../../img/icons/icon-logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 50px;
 }
 .menu ul {
+  width: 100%;
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -47,17 +43,27 @@
   display: none;
 }
 
-@media screen and (min-width: 550px) and (max-width: 999px) {
+@media screen and (min-width: 450px) and (max-width: 549px) {
+  .container-logo {
+    background-image: url(../../img/log-labfriends-yellow.png);
+    background-size: 120px;
+  }
+  .menu-header {
+    grid-template-columns: 120px 2fr;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 949px) {
   .menu-header,
   .modal-dropdown {
     min-width: 480px;
   }
-  #logo-header {
-    display: block;
-    width: 180px;
+  .menu-header {
+    grid-template-columns: 200px 2fr;
   }
-  #logo-icon {
-    display: none;
+  .container-logo {
+    background-image: url(../../img/log-labfriends-yellow.png);
+    background-size: 160px;
   }
   .menu-list,
   .btn-menu {
@@ -70,17 +76,17 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 950px) {
   .menu-header,
   .modal-dropdown {
-    min-width: 1000px;
+    min-width: 950px;
   }
-  #logo-header {
-    display: block;
-    width: 200px;
+  .menu-header {
+    grid-template-columns: 80px 2fr;
+    column-gap: 40px;
   }
-  #logo-icon {
-    display: none;
+  .container-logo {
+    background-size: 80px;
   }
   .menu-list,
   .btn-menu {

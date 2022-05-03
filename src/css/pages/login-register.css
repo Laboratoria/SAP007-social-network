@@ -1,11 +1,10 @@
-
 #logo {
   height: 1.875rem;
   margin: var(--spacing-small-login-logo);
   align-self: center;
 }
 .user-form {
-  width: 280px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -166,7 +165,7 @@ input::placeholder {
   }
 }
 
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
+@media screen and (min-width: 1800px) {
   #logo {
     height: 3.125rem;
     margin: var(--spacing-big-login-logo);

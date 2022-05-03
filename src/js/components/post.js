@@ -38,5 +38,7 @@ export function createPost() {
         </footer>
       </section>
       `;
+
+  
   return template;
 }

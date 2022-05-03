@@ -8,12 +8,6 @@ export function createHeader() {
       <header id="header">
         <section class="menu-header">
           <h1 class="container-logo">
-            <a href="#feed">
-              <img src="../img/icons/icon-logo.png" id="logo-icon" alt="Ícone do logo da LabFriends">
-            </a>
-            <a href="#feed">
-              <img src="../img/log-labfriends-yellow.png" id="logo-header" alt="Ícone do logo da LabFriends">
-            </a>
           </h1>
           <nav class="menu">
             <ul>

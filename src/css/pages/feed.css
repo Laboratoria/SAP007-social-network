@@ -1,9 +1,39 @@
 @import url(./timeline/menu.css);
 
 /* general */
+.list-posts,
+.post-card,
+.comments-general,
+.comment-card {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .user-post,
+.add-comments,
+.comment-card,
 .container-internal,
-#form-profile,
+.container-internal-list,
+.friend-card {
+  width: 100%;
+  max-width: 1000px;
+}
+.user-comment {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.user-name-comment,
+.comment-text,
+.list-comments {
+  width: 100%;
+}
+#form-profile {
+  width: 285px;
+}
 [data-menu='open'] {
   width: 285px;
 }
@@ -53,7 +83,9 @@
 .line-post,
 #form-profile,
 .profile-description,
-.user-form-login {
+.user-form-login,
+.post-timeline,
+.user-comment-text {
   width: 100%;
 }
 .post-text,
@@ -93,8 +125,8 @@
   margin-bottom: 20px;
   background-color: var(--color-dark-green);
   padding: 10px;
-  display: grid;
-  grid-template-areas: 'user-photo description';
+  display: flex;
+  flex-direction: row;
 }
 .post-text,
 .comment-text,
@@ -146,10 +178,6 @@
   font-weight: 600;
   background-color: var(--color-dark-green);
   margin: 5px 0 0 0;
-}
-.user-comment {
-  display: flex;
-  justify-content: flex-start;
 }
 .post-footer {
   margin-top: 5px;
@@ -245,7 +273,6 @@ input[type='file'] {
 /* user information */
 .user-information {
   width: 100%;
-  grid-area: description;
 }
 .user-information p {
   display: block;
@@ -287,7 +314,6 @@ input[type='file'] {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  grid-area: user-photo;
 }
 .user-photo-post {
   width: 35px;

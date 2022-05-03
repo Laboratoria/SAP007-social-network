@@ -38,6 +38,10 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--color-dark-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 #header {
   position: fixed;
@@ -52,22 +56,16 @@
   background-color: var(--color-dark-gray);
 }
 #main-container {
-  max-width: 1800px;
+  width: 100vw;
   position: relative;
   top: 82px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-}
-button {
-  cursor: pointer;
-}
-textarea:focus,
-input:focus {
-  box-shadow: 0 0 0 0;
-  outline: 0;
+  padding: 0 20px;
 }
 ul li {
+  text-decoration: none;
   list-style: none;
 }
 
@@ -96,7 +94,7 @@ ul li {
   }
 }
 
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
+@media screen and (min-width: 1800px) {
   .container-login {
     max-width: 37rem;
     max-height: 45rem;

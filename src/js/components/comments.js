@@ -21,11 +21,12 @@ export function templateComment (){
 }
 
 export function createComment() {
-  const template = `
-    <ul class="comments-general">
+  const container = document.createElement('section');
+  container.setAttribute('class', 'comments-general');
+  container.innerHTML = `
+    <ul class="list-comments">
       ${templateComment()}
     </ul>
     `;
-
-  return template;
+  return container;
 }
