@@ -7,7 +7,6 @@ import {
 } from '../../components/timelinepost.js';
 
 export const feed = (user) => {
-  console.log(user);
   const timeline = document.createElement('div');
   timeline.setAttribute('class', 'box-feed flex column');
   timeline.innerHTML = `
@@ -16,7 +15,7 @@ export const feed = (user) => {
         <img src="${user.photoURL}" class="user-perfil-img-feed" alt="user">
       </picture>  
       <picture>
-        <img class="logo-img-feed" src="../../img/kfandomKF.svg" alt="Logo">
+        <img class="logo-img-feed" src="./img/kfandomKF.svg" alt="Logo">
       </picture>   
       <nav id="nav-options" class="nav-options" aria-expanded="false">
         <button id="btn-mobile" class="btn-mobile flex">
@@ -78,19 +77,45 @@ export const feed = (user) => {
 
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
-    const text = document.querySelector('#input-post').value;
-    const date = new Date();
-    const edited = '';
-    const uidUser = user.uid;
-    const nameProfile = user.displayName;
-    const imgProfile = user.photoURL;
-    if (text.trim().length !== 0 && text !== ' ' && text !== null && text !== false) {
+    const post = {};
+    post.message = document.querySelector('#input-post').value;
+    post.day = new Date();
+    post.day.seconds = post.day.getTime() / 1000;
+    post.edit = '';
+    post.userUid = user.uid;
+    post.name = user.displayName;
+    post.imgProfile = user.photoURL;
+    post.like = [];
+    post.comment = [];
+    post.idPost = 'att';
+
+    if (post.message.trim().length !== 0 && post.message !== ' ' && post.message !== null && post.message !== false) {
       toggleInput();
-      createPost(text, date, edited, uidUser, nameProfile, imgProfile).then((response) => {
-        console.log(response.id);
+      createPost(post).then((response) => {
         generateIdPost(response.id).then(() => {
-          console.log('Deu certo');
+          post.idPost = response.id;
+          const newPostElement = postElement(post, user);
+          postsElement.prepend(newPostElement);
+          timeline.querySelector('#warnings-feed').style.display = 'block';
+          timeline.querySelector('#warnings-feed-message').textContent = 'Sua mensagem foi enviada!';
+
+          setTimeout(() => {
+            timeline.querySelector('#warnings-feed').style.display = 'none';
+            timeline.querySelector('#warnings-feed-message').textContent = '';
+          }, 4000);
         })
+<<<<<<< HEAD
+          .catch(() => {
+            timeline.querySelector('#warnings-feed').style.display = 'block';
+            timeline.querySelector('#warnings-feed-message').textContent = 'Aconteceu um probleminha... Mianamnida!! "o"';
+
+            setTimeout(() => {
+              timeline.querySelector('#warnings-feed').style.display = 'none';
+              timeline.querySelector('#warnings-feed-message').textContent = '';
+            }, 4000);
+          });
+      }).catch(() => {
+=======
           .catch((error) => console.error(error));
         const objeto = {
           message: text,
@@ -109,6 +134,7 @@ export const feed = (user) => {
         postsElement.prepend(newPostElement);
       }).catch((e) => {
         console.log(e);
+>>>>>>> 77c99cb6e5330942d4ecff2b04bdb5dc524bdc40
         timeline.querySelector('#warnings-feed').style.display = 'block';
         timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
 
@@ -134,9 +160,15 @@ export const feed = (user) => {
       const timelinePost = postElement(post, user);
       postsElement.prepend(timelinePost);
     });
-  }).catch((error) => console.log(error));
+  }).catch(() => {
+    timeline.querySelector('#warnings-feed').style.display = 'block';
+    timeline.querySelector('#warnings-feed-message').textContent = 'Aconteceu um probleminha... Mianamnida!! "o"';
 
-  // modifieButton.addEventListener('click', (e) => {
+    setTimeout(() => {
+      timeline.querySelector('#warnings-feed').style.display = 'none';
+      timeline.querySelector('#warnings-feed-message').textContent = '';
+    }, 4000);
+  });
 
   return timeline;
 };

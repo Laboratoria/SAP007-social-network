@@ -8,7 +8,6 @@ export const pageAbout = () => {
           <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
         </figure>  
       </section>  
-      
       <section class="about text-align">
         <h1 class="tittle-about">K-Fandom</h1>      
         <p class="text-about">A K-Fandom é uma Rede Social voltada para kpopers (fãs de Kpop). Sinta-se à vontade para compartilhar tudo relacionado sobre Kpop, falar sobre votações, conhecer amigues e o melhor de tudo dentro de um espaço onde todes curtem o mesmo estilo. Curta mensagens e se conecte nesse meio. 
@@ -17,27 +16,24 @@ export const pageAbout = () => {
         </p>
       </section>
       <h2 class="tittle-devs-about">Desenvolvido por:</h2>
-      
       <section class="about-devs">       
         <div class="div-picture-devs">    
-            <img src="./img/Anna.jpg" alt="picture-dev-anna" class="picture-devs">                
-              <h3> Anna Ferraz</h3>                   
-                <p><a href="https://github.com/AnnaIsah" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/anna-ferraz/" target="_blank">LinkeIn</a></p>          
-        </div>              
-          
-        <div class="div-picture-devs">
-            <img src="./img/Monica.jpg" alt="picture-dev-anna" class="picture-devs">         
-              <h3> Mônica Guimarães</h3>         
-                <p><a href="https://github.com/MonicaGuimaraes" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/monica-peixoto-guimaraes-v/" target="_blank">LinkeIn</a><p>
+          <img src="./img/Anna.jpg" alt="picture-dev-anna" class="picture-devs">                
+          <p><h3>Anna Ferraz</h3>                   
+          <a href="https://github.com/AnnaIsah" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/anna-ferraz/" target="_blank">LinkedIn</a></p>          
         </div>               
-          
+        <div class="div-picture-devs">
+          <p><img src="./img/Monica.jpg" alt="picture-dev-anna" class="picture-devs"></p>       
+          <p><h3> Mônica Guimarães</h3>         
+          <a href="https://github.com/MonicaGuimaraes" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/monica-peixoto-guimaraes-v/" target="_blank">LinkedIn</a><p>
+        </div>               
         <div class="div-picture-devs">            
-            <img src="./img/Taize.jpg" alt="picture-dev-anna" class="picture-devs">         
-              <h3> Taize dos Santos</h3>        
-                <p><a href="https://github.com/taizesantos" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/taizeborges/" target="_blank">LinkeIn</a></p> 
+          <img src="./img/Taize.jpg" alt="picture-dev-anna" class="picture-devs">         
+          <p><h3> Taize dos Santos</h3>        
+          <a href="https://github.com/taizesantos" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/taizeborges/" target="_blank">LinkedIn</a></p> 
         </div>                    
       </section>  
      `;

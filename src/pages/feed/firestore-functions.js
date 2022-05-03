@@ -6,15 +6,6 @@ import { bd } from '../../configurafirebase/configfirestore.js';
 import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 const auth = getAuth();
-// console.log(sessionStorage);
-// export function getUser() {
-//   onAuthStateChanged(auth, (user) => {
-//     console.log(user);
-//     return user;
-//   });
-//   console.log('controll', getUserInfo);
-//   return getUserInfo;
-// }
 
 export function getPersistedUser() {
   const authUserKey = Object.keys(window.sessionStorage).find((item) => item.startsWith('firebase:authUser'));
@@ -27,19 +18,9 @@ export function authLogOut() {
   return signOut(auth);
 }
 
-export function createPost(text, date, edited, userId, nameProfile, imgProfile) {
-  const post = addDoc(collection(bd, 'post'), {
-    message: text,
-    day: date,
-    edit: edited,
-    idPost: 'att',
-    userUid: userId,
-    name: nameProfile,
-    imgProfile,
-    like: [],
-    comment: [],
-  });
-  return post;
+export function createPost(post) {
+  const postObject = addDoc(collection(bd, 'post'), post);
+  return postObject;
 }
 
 export function generateIdPost(id) {
@@ -104,9 +85,3 @@ export function getAllPosts() {
   const postsFirestore = getDocs(orderFirestore);
   return postsFirestore;
 }
-
-// export function consultDB(idPost) {
-//   const docRef = doc(bd, 'post', idPost);
-//   const docSnap = getDoc(docRef);
-//   return docSnap;
-// }
