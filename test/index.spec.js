@@ -10,15 +10,16 @@ jest.mock('../src/lib/authentication.js');
 
 describe('userLogin', () => {
   it.skip('Deverá ser função de logar usuário', () => {
+    userLogin.mockResolvedValueOnce();
     const email = 'teste@teste.com';
     const password = '123456';
     const page = home();
     const emailLogin = page.querySelector('.input-email');
     const passwordLogin = page.querySelector('.input-password');
-    const btnLogin = page.querySelector('container');
+    const btnLogin = page.querySelector('.enter');
     emailLogin.value = email;
     passwordLogin.value = password;
-    btnLogin.dispatchEvent(new Event('submit'));
+    btnLogin.dispatchEvent(new Event('click'));
     expect(userLogin).toHaveBeenCalledWith(email, password);
   });
 });
@@ -28,12 +29,16 @@ describe('userCreate', () => {
     const email = 'teste@teste.com';
     const password = '123456';
     const page = register();
+    const userName = page.querySelector('.username');
     const emailRegister = page.querySelector('.email-register');
     const passwordRegister = page.querySelector('.password-register');
     const btnRegister = page.querySelector('.button-enter');
+
+    userName.value = 'User';
     emailRegister.value = email;
     passwordRegister.value = password;
     btnRegister.dispatchEvent(new Event('click'));
+    
     expect(userCreate).toHaveBeenCalledWith(email, password);
   });
 });
