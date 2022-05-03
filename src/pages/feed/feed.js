@@ -103,6 +103,7 @@ export const feed = (user) => {
           name: nameProfile,
           imgProfile,
           like: [],
+          comment: [],
         };
         const newPostElement = postElement(objeto, user);
         postsElement.prepend(newPostElement);
