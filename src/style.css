@@ -79,7 +79,7 @@ form {
 p,
 a {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
 }
 
@@ -97,7 +97,7 @@ a {
 
 .error {
   text-align: center;
-  font-size: 18px;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -142,7 +142,7 @@ footer {
 
 .github {
   font-size: 15px;
-  text-decoration:none;
+  text-decoration: none;
   color: black
 }
 
@@ -194,7 +194,7 @@ footer {
   }
 
   .welcome {
-    font-size:22px; 
+    font-size: 22px;
   }
 
   .inputs {
@@ -203,7 +203,7 @@ footer {
   }
 
   .btnEnter {
-    margin-right:15px;
+    margin-right: 15px;
   }
 
   footer {

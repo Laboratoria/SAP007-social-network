@@ -10,14 +10,16 @@ import { auth } from './authetication.js';
 
 // import { db } from './config-firebase';
 const db = getFirestore();
-export const createPost = async (textPost, userEmail) => {
+export const getCurrentUser = () => {
+  return auth.currentUser.displayName
+};
+
+export const createPost = async (textPost) => {
   try {
     const docRef = await addDoc(collection(db, 'post'), {
       textPost,
-      userEmail,
+      userName: auth.currentUser.displayName,
       date: new Date(),
-      uid: auth.currentUser.uid,
-      user: auth.currentUser.displayName,
       like: [],
     });
     console.log('Document written with ID: ', docRef.id);

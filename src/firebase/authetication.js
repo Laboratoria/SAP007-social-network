@@ -5,9 +5,10 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
-export const auth = getAuth(); 
+export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export function signIn(email, password) {
@@ -19,10 +20,6 @@ export function signIn(email, password) {
     }
   );
 }
-
-export const ExistSession = async () => {
-  const token = localStorage.getItem('token');
-};
 
 export function signInWithGoogle(auth, provider) {
   return signInWithPopup(auth, provider)
@@ -42,9 +39,18 @@ export function signInWithGoogle(auth, provider) {
     });
 }
 
-export function userCreate(email, password) {
+export function userCreate(email, password, name) {
   return createUserWithEmailAndPassword(auth, email, password).then(
     (userCredential) => {
+      updateProfile(auth.currentUser, {
+        displayName: name, photoURL: "https://example.com/jane-q-user/profile.jpg"
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
       const user = userCredential.user;
       return user;
     }
