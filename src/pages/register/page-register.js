@@ -11,15 +11,10 @@ export const createLogin = () => {
    </figure>
    <form method="post" class="form-register">
      <h1>Vamos começar!</h1>
-     <figure>
-       <img src="./img/camera.png" class="img-camera">
-       <input type='file' name='arquivo' class="profile-figure">
-     </figure>
-     <input type="text" placeholder="Nome Completo" id="name-area" name="name-area" class="create-area">
-     <input type="text" placeholder="Apelido" id="nick-name-area" name="nick-name-area" class="create-area">
-     <input type="date" placeholder="Data de nascimento" id="birth-area" name="birth-area" class="create-area">
-     <input type="email" placeholder="seu@email.com" id="email-area" name="email-area" class="create-area">
-     <input type="password" placeholder="Senha" id="password-area" name="password-area" class="create-area">
+     <input type="text" placeholder="Nome" id="name-area" class="create-area">
+     <input type="email" placeholder="seu@email.com" id="email-area" class="create-area">
+     <input type="password" placeholder="Senha" id="password-area" class="create-area">
+     <input type="text" placeholder="URL para a foto do perfil" id="photo-area" class="create-area">
      <p class="inerror-message" id="error-register"></p>
    </form>
    <div class="box-btns">
@@ -32,35 +27,42 @@ export const createLogin = () => {
   const inputPassword = createLoginStr.querySelector('#password-area');
   const newRegister = createLoginStr.querySelector('#btn-confirm');
   const errorRegister = createLoginStr.querySelector('#error-register');
+  const inputPhoto = createLoginStr.querySelector('#photo-area');
 
   const newUser = (event) => {
     event.preventDefault();
     const auth = getAuth();
 
-    register(inputEmail.value, inputPassword.value).then(() => {
-      updateProfile(auth.currentUser, {
+    register(inputEmail.value, inputPassword.value)
+      .then(() => updateProfile(auth.currentUser, {
         displayName: inputName.value,
+        photoURL: inputPhoto.value || 'img/avatar.jpg',
+      }))
+      .then(() => {
+        window.location.hash = '#login';
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case 'auth/missing-email':
+            errorRegister.innerHTML = 'Preencha todos os campos';
+            errorRegister.style.display = 'block';
+            break;
+          case 'auth/invalid-email':
+            errorRegister.innerHTML = 'E-mail inválido';
+            errorRegister.style.display = 'block';
+            break;
+          case 'auth/weak-password':
+            errorRegister.innerHTML = 'A senha deve ter 6 caracteres ou mais.';
+            errorRegister.style.display = 'block';
+            break;
+          case 'auth/email-already-in-use':
+            errorRegister.innerHTML = 'Email já cadastrado, volte a página login!';
+            errorRegister.style.display = 'block';
+            break;
 
-      }).then(() => console.log('funcionei'));
-      window.location.hash = '#login';
-    }).catch((error) => {
-      switch (error.code) {
-        case 'auth/internal-error':
-          errorRegister.innerHTML = 'Preencha todos os campos';
-          errorRegister.style.display = 'block';
-          break;
-        case 'auth/weak-password':
-          errorRegister.innerHTML = 'A senha deve ter 6 caracteres ou mais.';
-          errorRegister.style.display = 'block';
-          break;
-        case 'auth/email-already-in-use':
-          errorRegister.innerHTML = 'Email já cadastrado, volte a página login!';
-          errorRegister.style.display = 'block';
-          break;
-
-        default:
-      }
-    });
+          default:
+        }
+      });
   };
   newRegister.addEventListener('click', newUser);
   return createLoginStr;
