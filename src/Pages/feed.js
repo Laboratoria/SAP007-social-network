@@ -3,7 +3,6 @@ import { logout } from '../firebase/authetication.js';
 import { createPost } from '../firebase/firestore.js';
 import { getPost } from '../firebase/firestore.js';
 export default function feed() {
-
   const feed = document.createElement('div');
   const templateFeed = `
   <nav class="top-nav">
@@ -39,30 +38,40 @@ export default function feed() {
   const posts = feed.querySelector('#posts-container');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
+
+  const convertDateObject = (dateObject) => {
+    const date = dateObject.toDate();
+    return date.toLocaleString('pt-br');
+  };
+
+  const convertTime = (timestamp) => {
+    const dateObject = new Date(timestamp);
+    const humanDateFormat = dateObject.toLocaleString();
+    return humanDateFormat;
+  };
+
   btnPosts.addEventListener('click', async () => {
-    const docRef = await createPost(postText.value, "teste@teste.com");    
+    await createPost(postText.value, 'teste@teste.com');
     posts.innerHTML += `
-    <div class= "posts w-100" id= "posts" >  
-    <p> ${postText.value} </p>    
+    <div class= "posts w-100" id= "posts" > 
+    <p>${convertTime(Date.now())}</p> 
+    <p> ${postText.value} </p> 
+    <p>${posts.userEmail}</p>         
     </div>
     `;
   });
 
-  const convertTimestamp = (timestamp) => {
-    const date = timestamp.toDate();
-    return date.toLocaleString('pt-br');
-  };
-
   const getPostsFromDatabase = async () => {
-    const posts = await getPost();
-    posts.forEach((post) => {
+    const posts2 = await getPost();
+    posts2.forEach((post) => {
       document.querySelector('#posts-container').innerHTML += `         
       <div class= "posts" id= "posts" >
         <ul class="posts" id="posts">
           <li>
-           <p>${post.userEmail}</p> 
-           <p>${convertTimestamp(post.date)}</p>           
-           <p>${post.textPost}</p>
+          <p>${convertDateObject(post.date)}</p> 
+          <p>${post.textPost}</p>
+          <p>${post.userEmail}</p>                   
+           
           </li>
         </ul>          
       </div>     
