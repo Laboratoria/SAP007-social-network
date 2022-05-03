@@ -29,7 +29,7 @@ export function createEditProfile() {
 
         <label for="profile-description" class="label-profile">
           Assuntos que você domina
-          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="2" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Escreva as linguagens, frameworks e outras tecnologias que você domina"></textarea>
+          <textarea id="profile-description" class="post-text post-text-yellow" autocomplete="on" rows="1" cols="70" minlength="2" spellcheck="true" wrap="hard" placeholder="Escreva as linguagens, frameworks e outras tecnologias que você domina"></textarea>
         </label>
 
         <label for="profile-description" class="label-profile">

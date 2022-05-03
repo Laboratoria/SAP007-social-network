@@ -79,7 +79,7 @@
 @media screen and (min-width: 950px) {
   .menu-header,
   .modal-dropdown {
-    min-width: 950px;
+    min-width: 1000px;
   }
   .menu-header {
     grid-template-columns: 80px 2fr;

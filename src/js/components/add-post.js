@@ -5,7 +5,7 @@ export function createAddPost() {
     <section class="modal-container-light" data-post="container">
       <div class="modal-add-post">
         <button class="modal-close" data-post="close">X</button>
-        <section class="modal-container-itens">
+        <section class="container-add-post">
           <header class="modal-header">
             <a href="/#" class="user-link-photo">
               <img src="../img/icons/icon-profile.png" class="user-photo-post" alt="Foto do perfil">

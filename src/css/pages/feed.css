@@ -17,7 +17,10 @@
 .comment-card,
 .container-internal,
 .container-internal-list,
-.friend-card {
+.friend-card,
+.label-profile,
+.modal-add-post,
+.container-add-post {
   width: 100%;
   max-width: 1000px;
 }
@@ -77,7 +80,6 @@
 .header-profile,
 .container-internal-list,
 .comment-card,
-.modal-container-itens,
 .post-footer,
 .post-header,
 .line-post,
