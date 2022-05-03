@@ -130,14 +130,10 @@ export const feed = (user) => {
   getAllPosts().then((posts) => {
     posts.docs.forEach((onePost) => {
       const post = onePost.data();
-      const timelinePost = postElement(post, user);
+      const timelinePost = postElement(post, user.uid);
       postsElement.prepend(timelinePost);
     });
   }).catch((error) => console.log(error));
-
-  // modifieButton.addEventListener('click', (e) => {
-
-  commentPost(post.idPost, comment).then(() => console.log('foi')).catch((e) => console.log(e));
 
   return timeline;
 };

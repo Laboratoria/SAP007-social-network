@@ -8,7 +8,6 @@ export const pageAbout = () => {
           <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
         </figure>  
       </section>  
-      
       <section class="about text-align">
         <h1 class="tittle-about">K-Fandom</h1>      
         <p class="text-about">A K-Fandom é uma Rede Social voltada para kpopers (fãs de Kpop). Sinta-se à vontade para compartilhar tudo relacionado sobre Kpop, falar sobre votações, conhecer amigues e o melhor de tudo dentro de um espaço onde todes curtem o mesmo estilo. Curta mensagens e se conecte nesse meio. 
@@ -17,7 +16,6 @@ export const pageAbout = () => {
         </p>
       </section>
       <h2 class="tittle-devs-about">Desenvolvido por:</h2>
-      
       <section class="about-devs">       
         <div class="div-picture-devs">    
           <img src="./img/Anna.jpg" alt="picture-dev-anna" class="picture-devs">                
