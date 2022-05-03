@@ -1,57 +1,235 @@
-# Criando uma Rede Social
+# DevDoubt
 
 ## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação mínimos do
-  projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Guias, dicas e leituras
-  complementares](#8-guias-dicas-e-leituras-complementares)
+- [1. Resumo do Projeto](#1-resumo-do-projeto)
+- [2. Definição do Projeto](#2-definição-do-projeto)
+- [3. Planejamento e Organização](#3-planejamento-e-organização)
+- [4. Protótipo de baixa fidelidade](#4-protótipo-de-baixa-fidelidade)
+- [5. Protótipo de alta fidelidade](#5-protótipo-de-alta-fidelidade)
+- [6. Paleta de Cores](#6-paleta-de-cores)
+- [7. Histórias de usuários](#6-histórias-de-usuários)
+- [8. Testes de Usabilidade](#7-testes-de-usabilidade)
+- [9. Tecnologias Utilizadas](#8-tecnologias-utilizadas)
+- [10. Considerações](#9-considerações)
 
 ***
 
-## 1. Prefácio
+## 1. Resumo do projeto.
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. As redes sociais
-invadiram nossas vidas. Nós as amamos ou odiamos, e muitas pessoas não conseguem
-viver sem elas.
+**_DevDoubt_** foi pensado e desenvolvido com a intenção de ajudar os programadores profissionais e os intusiastas a encontrarem respostas para suas dúvidas de forma mais rápida e prática.
 
-![adem-ay-Tk9m_HP4rgQ-unsplash](https://user-images.githubusercontent.com/110297/135544666-4efa54f1-4ff6-4c4c-b398-6df04ef56117.jpg)
+Como sabemos, a internet possue uma infinidade de informações, e muitas vezes, para conseguir filtrar essas informações, acaba demandando um bom tempo de experiência, sendo assim, decidimos unir em um só lugar as melhores soluções para seus Bugs ou até mesmo aperfeiçoamento de seu código.
 
-Há redes sociais de todo tipo para todos os tipos de interesse. Por exemplo: em
-uma rodada de financiamento com investidores, foi apresentada uma rede social
-para químicos onde os usuários podem publicar artigos a respeito de suas
-pesquisas, comentar os artigos de seus colegas e filtrar artigos de acordo com
-determinadas tags ou popularidade, mais recente ou mais comentado.
+## 2. Definição do Projeto.
 
-## 2. Resumo do projeto
+O site foi desenvolvido para que o usuário possa navegar de forma simples e prática.
 
-Neste projeto você construirá uma Rede Social sobre o que você e sua equipe
-decidirem. Pode ser, por exemplo, sobre alimentação saudável, feminismo,
-educação, saúde, energias renováveis, amantes das
-[Empanadas](https://pt.wikipedia.org/wiki/Empanada), de
-[Tacos](https://pt.wikipedia.org/wiki/Taco_(culin%C3%A1ria)), de
-[Feijoada](https://pt.wikipedia.org/wiki/Feijoada), ou do que seja.
+Nossa inspiração para a criação do nosso app, foi o renomado site [Stack Overflow](https://pt.stackoverflow.com/).
 
-Sua Rede Social terá que permitir à qualquer usuário criar uma conta de acesso,
-logar-se com ela, criar, editar, deletar e dar _likes_ em publicações.
-
-O objetivo principal de aprendizagem deste projeto é construir uma [Single-page
+A nossa missão foi criar uma [Single-page
 Application
-(SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica)
-[_responsiva_](https://curriculum.laboratoria.la/pt/topics/css/02-responsive) (com mais de uma tela/ página) na
-qual seja possível **ler e escrever dados**.
+(SPA)](https://pt.wikipedia.org/wiki/Aplicativo_de_p%C3%A1gina_%C3%BAnica) que fosse responsiva e com mais de uma tela, onde o usuário pudessse criar uma conta de acesso,
+logar-se com ela, criar, editar, deletar e dar likes em publicações.
 
-## 3. Objetivos de aprendizagem
+## 3. Planejamento e Organização.
 
-Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projeto. Pense nisso para decidir sua estratégia de trabalho.
+O projeto foi desenvolvido por [_Fernanda Monteiro_](https://github.com/Fe-Monteiro), [_Leticia Antunes_](https://github.com/leticiaantunesjpeg) e [_Thaís Bonalume_](https://github.com/moreirathais) uma equipe incrível, sendo nosso terceiro projeto a ser realizado no Bootcamp na turma SAP007, no qual a principal ferramenta utilizada para nossa organização foi o Trello.
 
-### HTML
+Nele trabalhamos cada história de usuário e esmiuçamos em Baby Steps, o que facilitou muito a nossa comunicação e desenvolvimento.
+
+Outro ponto bastante positivo, foi que procuramos fazer o projeto na sua grande maioria em pair programming, o que nos ajudou a chegarmos ainda mais no resultado esperado.
+
+<img src="readme.img/trello.png">
+
+## 4. Protótipo de baixa fidelidade.
+
+Foi esboçado à princípio um projeto em folha de papel, para que pudéssemos juntar as ideias, após, fizemos um protótipo utilizando a ferramenta do Figma.
+Houve algumas pequenas mudanças, mas buscamos manter a idéia original.
+
+### Protótipo de baixa fidelidade feita à mão em folha de papel
+
+<img src="readme.img/prototipoBaixaMobile(folha_de_papel).jpg">
+
+### Protótipo de baixa fidelidade feita na ferramenta do Figma
+
+<img src="readme.img/prototipoBaixaMobile.png">
+
+## 5. Protótipo de alta fidelidade.
+
+O protótipo de alta fielidade foi desenvolvido na ferramenta do Figma.
+
+<img src="readme.img/prototipoAltaMobile.png">
+
+## 6. Paleta de Cores.
+
+Nossa paleta de cores foi inspirada no reconhecido site Stack Overflow.
+
+<img src="readme.img/paletaDeCores.jpg">
+
+## 7. Histórias de usuários.
+
+**1**. "Como desenvolvedor, gostaria de poder navegar pelo app e encontrar diversas soluções de problemas".
+
+#### Critérios de aceitação:
+- [x] Interface que exiba as soluções postadas.
+- [x] Visualização da página que está navegando.
+
+#### Definição de Pronto:
+
+- Página HTML que exiba as soluções postadas.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+**2**. "Como usuário tendo contato com a aplicação pela primeira vez, gostaria de acessar e saber do que se trata".
+
+#### Critérios de aceitação:
+- [x] Interface que defina a finalidade da aplicação.
+- [x] Opção de login.
+
+#### Definição de Pronto:
+
+- Página HTML que exiba o slogan.
+- Inputs de entrada.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+**3**. "Como usuário interessado no conteúdo da página, gostaria de efetuar o cadastro para login de acesso".
+
+#### Critérios de aceitação:
+- [x] Opção de cadastro.
+- [x] Validação do usuário sem repetição.
+- [x] Validação do email.
+- [x] Validação da senha de modo oculto.
+- [x] Voltar para a página de login.
+
+#### Definição de Pronto:
+
+- Campos de preenchimento.
+- Autenticações.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+**4**. "Como usuário da rede social, desejo acessar o aplicativo com a conta Google para um acesso mais rápido".
+
+#### Critérios de aceitação:
+- [x] Opção de login com Google.
+- [x] Validação da conta Google.
+
+#### Definição de Pronto:
+
+- Botão clicável que autentique conta Google e dá acesso ao aplicativo.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+**5**. "Como usuário da rede social, gostaria de acessar com meu e-mail e senha".
+
+#### Critérios de aceitação:
+- [x] Opção de login.
+- [x] Verificar se o usuário está logado.
+
+#### Definição de Pronto:
+
+- Botão clicável que permita o login e autentique.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+**6**. "Como usuário da rede social, gostaria de postar uma solução encontrada para ajudar outros desenvolvedores".
+
+#### Critérios de aceitação:
+- [x] Campo de postagem.
+- [x] Campo para título e texto.
+- [x] Botão de postagem.
+
+#### Definição de Pronto:
+
+- Botão postar funcional.
+- Campos de texto com validação de conteúdo.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+- Guardar postagens no banco de dados.
+
+**7**. "Como usuário da rede social, gostaria de editar ou deletar a minha postagem".
+
+#### Critérios de aceitação:
+- [x] Opção editar que altere a forma de visualização.
+- [x] Opção deletar que confirme a exclusão.
+
+#### Definição de Pronto:
+
+- Botões de editar e deletar no perfil.
+- Campos de texto com validação de conteúdo.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+- Guardar as alterações no banco de dados.
+
+**8**. "Como usuário da rede social, gostaria de curtir postagens de outros usuários".
+
+#### Critérios de aceitação:
+- [x] Opção de curtida única.
+- [x] Contagem ativa das curtidas.
+- [x] Exclusão da curtida.
+
+#### Definição de Pronto:
+
+- Botão de curtida.
+- Ativação e inativação da curtida.
+- Adição e subtração da curtida.
+- Estilização conforme protótipo e responsividade.
+- Testes unitários e de usabilidade.
+- Implementação.
+
+## 8. Testes de usabilidade.
+
+Foram realizados testes de usabilidades com pessoas de diferentes faixas etárias:
+
+***Usuários adultos na faixa de idade de 30-40 anos:***
+
+- Achou poluído o layout quando havia vários botões de pesquisa.
+
+Solução: Fiz os botões com opções suspensas.
+
+- Gostaria que ao clicar nos filtros, os cards já aparecessem, sem que houvesse a necessidade de clicar em algum botão para processar o filtro.
+
+Solução: Retirei o botão de filtrar, que deveria recarregar o filtro selecionado após o clique, e coloquei a opção "change" que recarrega os cards assim que o filtro é selecionado.
+
+## 9. Tecnologias Utilizadas.
+- HTML 5
+- CSS3
+- JavaScript Vanilla
+- Node.js
+- Git
+- GitHub
+- GitHUb Pages
+- Jest
+- FIrebase
+
+## 10. Considerações.
+
+DevDoubt foi desenvolvido em trio por, _Fernanda Monteiro_, _Leticia Antunes_ e _Thaís Bonalume_, alunas da turma SAP007 da <Laboratória>&#128155;.
+
+Este projeto foi o nosso terceiro desafio do Bootcamp que nos ensinou sobre:
+- Manipulação do DOM, Objetos e Array;
+- Funções;
+- Consumo de banco de dados externo;
+- Firebase;
+- Desenvolvimento de testes unitários;
+- Responsividade;
+- Single-page Application (SPA)
+- UX Design;
+- GitHub;
+- Eslint;
+- Aprendder a aprender;
+
+Agradeço por esse grande desafio, pelo trio fantástico e pelo apoio das mentoras, psicólogas e colegas de squad.
+
 
 - [ ] **Uso de HTML semântico**
 
@@ -61,271 +239,12 @@ Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projet
   * [Semantics in HTML - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
 </p></details>
 
-### CSS
 
-- [ ] **Uso de seletores de CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [Intro a CSS](https://curriculum.laboratoria.la/pt/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
-
-- [ ] **Empregar o modelo de caixa (box model): borda, margem, preenchimento**
-
-  <details><summary>Links</summary><p>
-
-  * [Modelo de Caixa e Display](https://curriculum.laboratoria.la/pt/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
-
-- [ ] **Uso de flexbox en CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#pt-br)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
-
-- [ ] **Uso de CSS Grid Layout**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
-
-### Web APIs
-
-- [ ] **Uso de seletores de DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Modificando o DOM](https://curriculum.laboratoria.la/pt/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introdução ao DOM - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction)
-  * [Locating DOM elements using selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
-
-- [ ] **Gerenciamento de eventos de DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução a eventos - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/removeEventListener)
-  * [El objeto Event](https://developer.mozilla.org/pt-BR/docs/Web/API/Event)
-</p></details>
-
-- [ ] **Manipulação dinâmica de DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao DOM](https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/textContent)
-</p></details>
-
-- [ ] **Routing (History API, evento hashchange, window.location)**
-
-  <details><summary>Links</summary><p>
-
-  * [Manipulando o histórico do navegador - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/History_API)
-</p></details>
-
-### JavaScript
-
-- [ ] **Manipular arrays (filter, map, sort, reduce)**
-
-  <details><summary>Links</summary><p>
-
-  * [Arrays](https://curriculum.laboratoria.la/pt/topics/javascript/04-arrays)
-  * [Array.prototype.sort() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-  * [Array.prototype.forEach() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-  * [Array.prototype.map() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-  * [Array.prototype.filter() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
-  * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-</p></details>
-
-- [ ] **Manipular objects (key | value)**
-
-  <details><summary>Links</summary><p>
-
-  * [Objetos em JavaScript](https://curriculum.laboratoria.la/pt/topics/javascript/05-objects/01-objects)
-</p></details>
-
-- [ ] **Diferenciar entre tipos de dados primitivos e não primitivos**
-
-- [ ] **Variáveis (declaração, atribuição, escopo)**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores, tipos de dados e operadores](https://curriculum.laboratoria.la/pt/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variáveis](https://curriculum.laboratoria.la/pt/topics/javascript/01-basics/02-variables)
-</p></details>
-
-- [ ] **Uso de condicionais (if-else, switch, operador ternário)**
-
-  <details><summary>Links</summary><p>
-
-  * [Estruturas condicionais e repetitivas](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisões no seu código — condicionais - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
-
-- [ ] **Uso de laços (for, for..of, while)**
-
-  <details><summary>Links</summary><p>
-
-  * [Laços (Loops)](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/02-loops)
-  * [Laços e iterações - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
-
-- [ ] **Uso de funções (parâmetros, argumentos, valor de retorno)**
-
-  <details><summary>Links</summary><p>
-
-  * [Funções (controle de fluxo)](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/03-functions)
-  * [Funções clásicas](https://curriculum.laboratoria.la/pt/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/pt/topics/javascript/03-functions/02-arrow)
-  * [Funções — blocos reutilizáveis de código - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
-
-- [ ] **Testes unitários**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao Jest - Documentação oficial](https://jestjs.io/docs/pt-BR/getting-started)
-</p></details>
-
-- [ ] **Testes assíncronos**
-
-  <details><summary>Links</summary><p>
-
-  * [Testando Código Assíncrono - Documentação oficial](https://jestjs.io/docs/pt-BR/asynchronous)
-</p></details>
-
-- [ ] **Mocking**
-
-  <details><summary>Links</summary><p>
-
-  * [Simulações Manuais - Documentação oficial](https://jestjs.io/docs/pt-BR/manual-mocks)
-</p></details>
-
-- [ ] **Uso ES modules**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descritivos (Nomenclatura | Semântica)**
-
-- [ ] **Diferença entre expression e statements**
-
-- [ ] **Uso de callbacks**
-
-  <details><summary>Links</summary><p>
-
-  * [Função Callback - MDN](https://developer.mozilla.org/pt-BR/docs/Glossario/Callback_function)
-</p></details>
-
-- [ ] **Promise**
-
-  <details><summary>Links</summary><p>
-
-  * [How to Write a JavaScript Promise - freecodecamp (em inglês)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
-</p></details>
-
-### Git e GitHub
-
-- [ ] **Git: Instalação e configuração**
-
-- [ ] **Git: Controle de versão com git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integração de mudanças entre ramos (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Criação de contas e repositórios, configuração de chave SSH**
-
-- [ ] **GitHub: Implantação com GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Site oficial do GitHub Pages](https://pages.github.com/)
-</p></details>
-
-- [ ] **GitHub: Colaboração pelo Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organização pelo Github (projects | issues | labels | milestones | releases)**
-
-### user-centricity
-
-- [ ] **Desenhar a aplicação pensando e entendendo a usuária**
-
-### product-design
-
-- [ ] **Criar protótipos para obter feedback e iterar**
-
-- [ ] **Aplicar os princípios de desenho visual (contraste, alinhamento, hierarquia)**
-
-### research
-
-- [ ] **Planejar e executar testes de usabilidade**
-
-### Firebase
-
-- [ ] **Firebase Auth**
-
-  <details><summary>Links</summary><p>
-
-  * [Primeiros passos com o Firebase Authentication em sites - Documentação oficial](https://firebase.google.com/docs/auth/web/start?hl=pt-BR)
-  * [Gerenciar usuários no Firebase (onAuthStateChanged) - Documentação oficial](https://firebase.google.com/docs/auth/web/manage-users?hl=pt-BR)
-</p></details>
-
-- [ ] **Firestore**
-
-  <details><summary>Links</summary><p>
-
-  * [Firestore - Documentação oficial](https://firebase.google.com/docs/firestore?hl=pt-BR)
-  * [Regras de segurança do Firebase - Documentação oficial](https://firebase.google.com/docs/rules?hl=pt-BR)
-  * [Receber atualizações em tempo real com o Cloud Firestore - Documentação oficial](https://firebase.google.com/docs/firestore/query-data/listen?hl=pt-BR)
-</p></details>
 
 ## 4. Considerações gerais
 
-* Este projeto deve ser desenvolvido em trios.
 
-* A lógica do projeto deve estar implementada completamente em JavaScript
-  (ES6+), HTML e CSS :smiley:. Para este projeto **não está permitido** o uso de
-  _frameworks_ ou bibliotecas de CSS e JS.
 
-* A divisão e organização do trabalho deve permitir, sem exceção, que **cada
-  integrante** da equipe pratique a aprendizagem de tudo que está envolvido em
-  **cada história**. _Não dividam o trabalho como em uma fábrica._
-
-* Está avançando em seus projetos com alguma fluidez e sem grandes problemas?
-  Seja generosa com suas parceiras, deixe-as aprender e praticar sem restrições,
-  mesmo que demore um pouco mais. Aproveite para _mentorá-las_, para fazer _pair
-  programming_. Uma das melhores formas de aprender é explicar verbalmente.
-
-* Está sentindo dificuldade e para você é mais difícil de avançar? Não fique com
-  as partes "fáceis" do projeto. Converse, negocie, busque sua oportunidade de
-  praticar e aprender o que é mais difícil para você.
-
-* Vocês apenas poderão trabalhar em uma história por vez. Não avancem para a
-  próxima sem completar a anterior. As histórias apenas são concluídas quando se
-  completam **todos** os critérios de aceitação + **toda** sua definição de
-  pronto.
-
-Para começar, você precisará criar um _fork_ e _clone_ deste repositório.
 
 ## 5. Critérios de aceitação mínimos do projeto
 

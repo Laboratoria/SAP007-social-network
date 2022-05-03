@@ -72,7 +72,6 @@ export default () => {
     const title = valueTitle.value;
     const text = valueText.value;
     await publicatedPost(title, text);
-    // auth.currentUser.displayName;
     showAllPosts();
     buttonPost.disabled = true;
     valueTitle.value = '';
