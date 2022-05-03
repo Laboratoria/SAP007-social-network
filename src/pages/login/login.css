@@ -10,6 +10,11 @@
   justify-content: center;
   align-items: center;
 }
+.btn-about {
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
 .img-btn-about{
  height: 10vh;
 }
