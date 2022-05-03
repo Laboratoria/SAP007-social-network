@@ -1,19 +1,19 @@
 .edit,
-.delete{
-    background-color: rgb(187, 181, 181);
-    width: 20%;
-    margin-top: 2%;
-    border-radius: 8px;
-    height: 25px;
-    font-size: 16px;
-    border: black;
-    margin-left: 5px;
-    margin-bottom: 5px;
+.delete {
+  background-color: rgb(187, 181, 181);
+  width: 20%;
+  margin-top: 2%;
+  border-radius: 8px;
+  height: 25px;
+  font-size: 16px;
+  border: black;
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
-.title{
+.title {
   margin-top: 5%;
 }
-.btn-update{
+.btn-update {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,4 +27,15 @@
   font-size: 16px;
   box-shadow: 7px 6px 5px grey;
   border: black;
+}
+.confirm-delete {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 5%;
+}
+#yes,
+#no {
+  width: 30%;
+  margin: auto;
 }
