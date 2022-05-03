@@ -2,6 +2,8 @@ import {
   removePost, editPost, likePost, removeLikePost, createCommentPost,
 } from '../pages/feed/firestore-functions.js';
 
+import { createComments } from './comments.js';
+
 export function postElement(post, user) {
   let numberLikes = post.like.length;
   const date = new Date(post.day.seconds * 1000);
@@ -66,7 +68,7 @@ export function postElement(post, user) {
     }
   });
 
-  // const divLikePost = timelinePost.querySelector('.like-comment');
+  const divLikePost = timelinePost.querySelector('.like-comment');
   const commentPost = timelinePost.querySelector('.post-comment');
   const formComment = timelinePost.querySelector('.form-comment');
   const btnConfirmComment = timelinePost.querySelector('.confirm-comment');
@@ -89,8 +91,28 @@ export function postElement(post, user) {
     comment.imgProfile = user.photoURL;
     comment.message = inputComment.value;
     comment.day = new Date();
-    createCommentPost(post.idPost, comment).then(() => console.log('foi')).catch((e) => console.log(e));
+    comment.day.seconds = comment.day.getTime() / 1000;
+    createCommentPost(post.idPost, comment).then(() => {
+      console.log('foi');
+      formComment.classList.toggle('active');
+      inputComment.value = '';
+      divLikePost.appendChild(createComments(comment, user, post.idPost));
+    }).catch((e) => {
+      console.log(e);
+      document.querySelector('#warnings-feed').style.display = 'block';
+      document.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
+
+      setTimeout(() => {
+        document.querySelector('#warnings-feed').style.display = 'none';
+        document.querySelector('#warnings-feed-message').textContent = '';
+      }, 4000);
+    });
   });
+  if (post.comment.length !== 0) {
+    post.comment.forEach((oneComment) => {
+      divLikePost.appendChild(createComments(oneComment, user, post.idPost));
+    });
+  }
 
   const navRemoveModifie = timelinePost.querySelector('.nav-remove-modify');
   const mainPost = timelinePost.querySelector('.post-text-id');
