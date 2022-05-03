@@ -104,7 +104,6 @@ export const feed = (user) => {
             timeline.querySelector('#warnings-feed-message').textContent = '';
           }, 4000);
         })
-<<<<<<< HEAD
           .catch(() => {
             timeline.querySelector('#warnings-feed').style.display = 'block';
             timeline.querySelector('#warnings-feed-message').textContent = 'Aconteceu um probleminha... Mianamnida!! "o"';
@@ -115,26 +114,6 @@ export const feed = (user) => {
             }, 4000);
           });
       }).catch(() => {
-=======
-          .catch((error) => console.error(error));
-        const objeto = {
-          message: text,
-          day: {
-            seconds: date.getTime() / 1000,
-          },
-          edit: edited,
-          idPost: response.id,
-          userUid: uidUser,
-          name: nameProfile,
-          imgProfile,
-          like: [],
-          comment: [],
-        };
-        const newPostElement = postElement(objeto, user);
-        postsElement.prepend(newPostElement);
-      }).catch((e) => {
-        console.log(e);
->>>>>>> 77c99cb6e5330942d4ecff2b04bdb5dc524bdc40
         timeline.querySelector('#warnings-feed').style.display = 'block';
         timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
 
