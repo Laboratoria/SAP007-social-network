@@ -1,20 +1,43 @@
-.modal-container {
-  background-color: var(--transparent);
+.modal-container-light,
+.modal-container-dark,
+[data-menu='container'] {
   position: fixed;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   top: 0px;
   left: 0px;
   display: none;
+}
+.modal-container-light,
+.modal-container-dark {
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
 }
-.modal-container.active {
+[data-menu='container'] {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+[data-menu='container'],
+.modal-container-dark {
+  background-color: var(--transparent-medium);
+}
+.modal-container-light {
+  background-color: var(--transparent-light);
+}
+.modal-container-dark.active {
   display: grid;
 }
+.modal-container-light.active {
+  display: grid;
+}
+[data-menu='container'].active {
+  display: flex;
+}
 .modal {
-  width: 280px;
+  width: 285px;
   margin: 0 auto;
   background: var(--color-dark-green);
   box-shadow: var(--shadow-big);
@@ -55,9 +78,8 @@
   animation: modal 0.3s forwards;
   padding: 10px;
 }
-.active .modal-feed {
-  padding-bottom: 0;
-  padding-top: 20px;
+.active .modal-dropdown {
+  animation: modal 0.3s forwards;
 }
 
 @media screen and (min-width: 550px) and (max-width: 1099px) {

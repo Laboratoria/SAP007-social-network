@@ -17,7 +17,8 @@
   --border-input-post: 1px solid var(--color-medium-gray);
   --border-input: 2px solid var(--color-medium-gray);
 
-  --transparent: rgba(0, 0, 0, 0.8);
+  --transparent-light: rgba(0, 0, 0, 0.3);
+  --transparent-medium: rgba(0, 0, 0, 0.7);
   --shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
   --shadown-big: 0 0 10px 0 var(--color-medium-gray);
 

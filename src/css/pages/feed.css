@@ -10,7 +10,6 @@
 .user-post,
 .container-internal,
 #form-profile {
-  width: 285px;
   background-color: var(--color-white);
   border-radius: 5px;
   margin-bottom: 20px;
@@ -27,10 +26,15 @@
 #form-profile {
   margin: 0;
 }
+.user-form-login {
+  display: flex;
+  flex-direction: column;
+}
 .container-internal {
   background: var(--color-dark-gray);
-  height: 80vh;
-  padding-top: 0;
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .post-text,
 .comment-text,
@@ -156,7 +160,6 @@
   display: flex;
   justify-content: flex-end;
   margin: 0;
-  padding-top: 10px;
 }
 .label-profile {
   font-weight: 600;
@@ -185,8 +188,6 @@ input[type='file'] {
   height: 3px;
   background-color: var(--color-dark-green);
 }
-
-/* page add comment entry */
 .add-comment-input,
 .add-post-input {
   border: var(--border-input-post);
@@ -197,7 +198,7 @@ input[type='file'] {
 .add-post-input {
   height: 200px;
   background-color: var(--color-light-yellow);
-  margin: 0;
+  margin-bottom: 5px;
 }
 .add-comment-input::placeholder,
 .add-post-input::placeholder {

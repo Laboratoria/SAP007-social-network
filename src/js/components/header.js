@@ -43,23 +43,25 @@ export function createHeader() {
 
                 <section data-menu="container">
                   <div class="modal-dropdown">
-                    <button class="modal-dropdown-close" data-menu="close">X</button>
-                    <ul class="dropdown-ul">
-                      <li>
-                        <a href="#profile" class="dropdown-link-icon">
-                          <img src="../img/icons/icon-profile.png" class="drop-icon" alt="Ícone do meu perfil">
-                          <div class="drop-text">
-                            <p class="name-user">Nome do Usuário</p>
-                            <p class="text-small">Veja seu perfil</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="dropdown-link-icon">
-                        <button id="button-logout" class="user-button button-pink">
-                          SAIR
-                        </button>
-                      </li>
-                    </ul>
+                    <button class="modal-dropdown-close" data-menu="close"></button>
+                    <div class="container-dropdown">
+                      <ul class="dropdown-ul">
+                        <li>
+                          <a href="#profile" class="dropdown-link-icon">
+                            <img src="../img/icons/icon-profile.png" class="drop-icon" alt="Ícone do meu perfil">
+                            <div class="drop-text">
+                              <p class="name-user">Nome do Usuário</p>
+                              <p class="text-small">Veja seu perfil</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="dropdown-link-icon">
+                          <button id="button-logout" class="user-button button-pink">
+                            SAIR
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </section>
                 

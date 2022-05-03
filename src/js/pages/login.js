@@ -39,7 +39,7 @@ export function createLogin() {
         </p>
       </section>
 
-      <section class="modal-container" data-email="container">
+      <section class="modal-container-dark" data-email="container">
         <div class="modal">
           <button class="modal-close" data-email="close">X</button>
           <label for="user-email-reset" class="title-modal">Informe o seu email</label>

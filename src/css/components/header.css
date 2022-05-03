@@ -1,6 +1,9 @@
+.modal-dropdown,
 .menu-header {
   min-width: 285px;
   max-width: 999px;
+}
+.menu-header {
   display: grid;
   grid-template-areas: 'logo icons';
   position: relative;
@@ -45,7 +48,8 @@
 }
 
 @media screen and (min-width: 550px) and (max-width: 999px) {
-  .menu-header {
+  .menu-header,
+  .modal-dropdown {
     min-width: 480px;
   }
   #logo-header {
@@ -67,7 +71,8 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .menu-header {
+  .menu-header,
+  .modal-dropdown {
     min-width: 1000px;
   }
   #logo-header {

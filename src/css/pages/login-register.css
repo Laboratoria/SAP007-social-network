@@ -1,3 +1,4 @@
+
 #logo {
   height: 1.875rem;
   margin: var(--spacing-small-login-logo);
@@ -11,7 +12,6 @@
   align-items: flex-start;
 }
 .user-label,
-.user-button,
 .text-line,
 .new-account,
 .small-text-right {
