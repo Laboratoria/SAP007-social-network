@@ -1,11 +1,15 @@
-import { getPosts, deletePost, editPost, likePost } from "../lib/firestore.js";
-// import { auth } from "../configs/config.firebase.js";
 
+import { getPosts, deletePost, editPost, likePost } from "../lib/firestore.js";
+import { auth } from "../configs/config.firebase.js";
+//import { checkLogin } from "../lib/auth.js";
 
 export function postComponent(postObj) {
+  // const curtida = postObj.like;
+  const isPostOwner = postObj.userEmail === auth.currentUser.email;
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
 
+ 
   const templatePost = `
     <div class= "post-container">
       <p>${postObj.date}</p>
@@ -17,14 +21,20 @@ export function postComponent(postObj) {
         </ol>
       
       <div class='post-interations'>
-        <button id="cookie-btn"> Curtir </button>
-        <button id="pencil-btn">Editar</button>
-        <button id="trash-btn">Apagar</button> 
+
+      <button id="cookie-btn"> Curtir </button>
+      <p id="num-likes" class="num-likes">Likes: ${postObj.likes.length}</p>
+
+      <button id="pencil-btn">Editar</button>
+      <button id="trash-btn">Apagar</button> 
+
       </div>  
+      
       <span id="edit-post"></span>
       <span id="delete-post"></span>
     </div>
     `;
+  
   postsContainer.innerHTML = templatePost;
 
   const likeButton = postsContainer.querySelector("#cookie-btn");
@@ -79,24 +89,34 @@ export function postComponent(postObj) {
     //   });
     });
 
-    getPosts();
+  const likeButton = postsContainer.querySelector("#cookie-btn");
+  const countLikes = postsContainer.querySelector("#num-likes");
+  console.log(likeButton);
 
+  //window.onload = function () {
+    //const getUserEmail =checkLogin();
     likeButton.addEventListener("click", (e) => {
-      const postLike = post.likes;
-      if (!postLike.includes(getUserEmail)) {
-        likePost(post.id, getUserEmail).then(() => {
-          postLike.push(getUserEmail);
-          const addLikeNum = Number(countLikes.innerHTML) + 1;
-          countLikes.innerHTML = addLikeNum;
-        });
-      } else {
-        dislike(post.id, getUserEmail).then(() => {
-          postLike.splice(getUserEmail);
-          const addLikeNum = Number(countLikes.innerHTML) - 1;
-          countLikes.innerHTML = addLikeNum;
-        });
-      }
-    });
+     console.log('foi!');
 
-    return postsContainer;
-  };
+      // const postLike = postObj.likes;
+      // if (postLike.includes(auth.currentUser.email)) {
+      //   likePost(postObj.id, auth.currentUser.email).then(() => {
+      //     postLike.push(auth.currentUser.email);
+      //     const addLikeNum = Number(countLikes.innerHTML) + 1;
+      //     countLikes.innerHTML = addLikeNum;
+      //   });
+      // } else {
+      //   dislike(postObj.id, auth.currentUser.email).then(() => {
+      //     postLike.splice(auth.currentUser.email);
+      //     const addLikeNum = Number(countLikes.innerHTML) - 1;
+      //     countLikes.innerHTML = addLikeNum;
+      //   });
+      // }
+     
+    });
+  // };
+
+  getPosts();
+
+  return postsContainer;
+}

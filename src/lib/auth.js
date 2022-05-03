@@ -27,12 +27,6 @@ export function signIn(email, password) {
       alert('Deu tudo certo!');
       return user;
     });
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = errorCode.message;
-  //   alert('Deu errado!');
-  //     return errorMessage;
-  // });
 }
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -48,11 +42,12 @@ export function userLogout() {
     return error
   });
 }
+
 // export function checkLogin() {
 //   const user = auth.currentUser;
 //   return user;
 // }
-export const user = auth.currentUser;
+  export const user = auth.currentUser;
   export function checkLogin(callback) {
     
     onAuthStateChanged(auth, (user) => {
