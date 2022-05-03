@@ -1,4 +1,4 @@
-import { registerNewUser } from '../../config/authentication.js';
+import { userValidation } from '../components/user-validation.js';
 
 function registerUser(e) {
   e.preventDefault();
@@ -6,16 +6,9 @@ function registerUser(e) {
   const email = document.querySelector('#user-email').value;
   const password = document.querySelector('#user-password').value;
   const passwordRepeat = document.querySelector('#user-password-repeat').value;
-  const newEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
+  const validatedEmail = email.match(/[\w.\-+]+@[\w-]+\.[\w-.]+/gi);
   const message = document.querySelector('#message');
-
-  if (password !== passwordRepeat) {
-    message.innerHTML = 'As duas senhas não coincidem.<br>Digite-as novamente!';
-  } else if (!newEmail) {
-    message.innerHTML = 'Preencha o campo<br>de email corretamente!';
-  } else if (name && email && password && passwordRepeat && newEmail) {
-    registerNewUser(name, email, password);
-  }
+  userValidation(name, email, validatedEmail, password, passwordRepeat, message);
 }
 
 export function createRegister() {
@@ -41,7 +34,7 @@ export function createRegister() {
       </label>
       <input type="password" name="user-password-repeat" id="user-password-repeat" class="user-input" placeholder="Digite sua senha novamente">
       <p id="message"></p>
-      <input type="button" value="CRIAR CONTA" id="new-login" class="user-button button-green">
+      <input type="submit" value="CRIAR CONTA" id="new-login" class="user-button button-green">
       <a href="#login" class="link small-text-right">
         < Voltar para o Login
       </a>

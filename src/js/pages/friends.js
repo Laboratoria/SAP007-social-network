@@ -2,17 +2,30 @@ export function createFriends() {
   const container = document.createElement('main');
   container.setAttribute('id', 'main-container');
   container.innerHTML = `
-      <input type="text" name="search-name" id="search-name" class="user-input" placeholder="Pesquise pelo nome" required>
-      <div class="user-container">
-        <section class=""card-user>
-          <a href="">
-            <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-            <p>Nome do Usuário</p>
-          </a>
-          <p class="language">Javascript, HTML, CSS</p>
-          <p class="work">Desenvolvedora Front-End</p>
-        </section>
-      </div>
+    <section class="container-internal">
+      <input type="search" id="search-name" class="search-input" placeholder="Pesquisar pelo nome" required>
+      <ul class="container-internal-list">
+        ${createUserFriends()}
+      </ul>
+    </section>
     `;
   return container;
+}
+
+function createUserFriends() {
+  const templateUser = `
+    <li class="friend-card">
+      <a class="user-link-photo user-link-photo-card">
+        <img src="../img/icons/icon-profile.png" class="user-photo-post" alt="Foto do perfil">
+      </a>
+      <div>
+        <a>
+          <p class="user-name user-friend-name">Nome do Usuário</p>
+        </a>
+        <p class="language">Javascript, HTML, CSS</p>
+        <p class="work">Desenvolvedora Front-End</p>
+      </div>
+    </li>
+  `;
+  return templateUser;
 }

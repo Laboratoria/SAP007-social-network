@@ -15,9 +15,9 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: var(--font-default);
 }
 #root {
-  font-family: 'Segoe UI', Helvetica, Arial, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,11 +32,16 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  padding: 0 20px;
 }
 .container-labfriends {
   width: 100vw;
   height: 100vh;
   background-color: var(--color-dark-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 #header {
   position: fixed;
@@ -48,18 +53,20 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  background-color: var(--color-dark-gray);
 }
 #main-container {
-  max-width: 1800px;
+  width: 100vw;
   position: relative;
   top: 82px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
+  padding: 0 20px;
 }
-
-button {
-  cursor: pointer;
+ul li {
+  text-decoration: none;
+  list-style: none;
 }
 
 @media screen and (min-width: 550px) {
@@ -82,14 +89,14 @@ button {
 
 @media screen and (min-width: 550px) and (max-width: 1799px) {
   .container-login {
-    max-width: 31.25rem;
-    max-height: 39rem;
+    max-width: 31rem;
+    max-height: 37rem;
   }
 }
 
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
+@media screen and (min-width: 1800px) {
   .container-login {
-    max-width: 37.5rem;
+    max-width: 37rem;
     max-height: 45rem;
   }
 }

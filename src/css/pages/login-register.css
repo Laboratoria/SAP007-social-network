@@ -10,30 +10,23 @@
   justify-content: center;
   align-items: flex-start;
 }
-label,
 .user-label,
-.user-button,
 .text-line,
 .new-account,
 .small-text-right {
   font-weight: 600;
 }
-.user-label,
-label {
+.user-label {
   font-size: 1rem;
   margin-bottom: var(--spacing-small);
 }
-.user-input,
-input {
+.user-input {
   width: 100%;
   height: 2.25rem;
   border: var(--border-input);
   border-radius: var(--spacing-small);
   padding-left: 0.625rem;
   margin-bottom: var(--spacing-medium);
-}
-
-.user-input {
   background-color: var(--color-light-yellow);
 }
 .link,
@@ -91,6 +84,33 @@ input::placeholder {
   color: var(--color-dark-pink);
   text-align: center;
 }
+.title-modal {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0px 0;
+}
+.user-input-modal {
+  width: calc(100% * 0.9);
+  height: 2.25rem;
+  background-color: var(--color-light-green);
+  border: var(--border-input);
+  border-radius: var(--spacing-small);
+  padding-left: 0.625rem;
+  margin: var(--spacing-input-modal);
+}
+.user-input-modal,
+.user-input-modal::placeholder {
+  color: var(--color-black);
+  font-size: 1rem;
+}
+#message-reset {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  margin: var(--spacing-error);
+}
 
 @media screen and (min-width: 550px) {
   .icon-button {
@@ -130,12 +150,22 @@ input::placeholder {
   .emphasis-pink {
     font-size: 1rem;
   }
-  #message {
+  #message,
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
     font-size: 1.125rem;
+  }
+  .title-modal {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .user-input-modal {
+    height: 2.875rem;
   }
 }
 
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
+@media screen and (min-width: 1800px) {
   #logo {
     height: 3.125rem;
     margin: var(--spacing-big-login-logo);
@@ -167,7 +197,17 @@ input::placeholder {
   .emphasis-pink {
     font-size: 1.125rem;
   }
-  #message {
+  #message,
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
     font-size: 1.25rem;
+  }
+  .title-modal {
+    font-size: 1.75rem;
+    margin: 20px 0;
+  }
+  .user-input-modal {
+    height: 3.125rem;
   }
 }

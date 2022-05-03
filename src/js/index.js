@@ -1,12 +1,11 @@
-import { createLogin } from './pages/login.js';
+import { createLogin, loginWorking } from './pages/login.js';
 import { createRegister } from './pages/register.js';
-import { createHeader } from './components/header.js';
-import { createFeed } from './pages/feed.js';
+import { createHeader, headerWorking } from './components/header.js';
+import { createFeed, feedWorking } from './pages/feed.js';
 import { createFriends } from './pages/friends.js';
 import { createProfile } from './pages/profile.js';
-import { logout } from '../config/authentication.js';
-import { authChange } from '../config/user.js';
-import { initModal } from './components/modal.js';
+import { createEditProfile } from './pages/edit-profile.js';
+import { authChange } from '../config/authentication.js';
 
 function creatingInternalElements() {
   const container = document.getElementById('root');
@@ -14,34 +13,10 @@ function creatingInternalElements() {
 
   container.style.backgroundImage = 'none';
   sectionGeneral.classList.add('container-labfriends');
-  sectionGeneral.innerHTML = createHeader;
+  sectionGeneral.innerHTML = createHeader();
   container.append(sectionGeneral);
 
-  const postOpen = container.querySelector('[data-post="open"]');
-  const postClose = container.querySelector('[data-post="close"]');
-  const postContainer = container.querySelector('[data-post="container"]');
-  const menuOpen = container.querySelector('[data-menu="open"]');
-  const menuClose = document.querySelector('[data-menu="close"]');
-  const menuContainer = document.querySelector('[data-menu="container"]');
-
-  postOpen.addEventListener('focus', () => {
-    initModal(postOpen, postClose, postContainer);
-  });
-  postOpen.addEventListener('touchstart', () => {
-    initModal(postOpen, postClose, postContainer);
-  });
-  menuOpen.addEventListener('focus', () => {
-    initModal(menuOpen, menuClose, menuContainer);
-  });
-  menuOpen.addEventListener('touchstart', () => {
-    initModal(menuOpen, menuClose, menuContainer);
-  });
-
-  document.querySelector('#button-logout').addEventListener('click', () => {
-    logout().then(() => {
-      window.location.hash = '#login';
-    });
-  });
+  headerWorking();
 
   const headerGeneral = document.querySelector('header');
   return headerGeneral;
@@ -60,9 +35,13 @@ function redirectPages() {
         case '#profile':
           header.after(createProfile());
           break;
+        case '#edit-profile':
+            header.after(createEditProfile());
+            break;
         case '#feed':
         default:
           header.after(createFeed());
+          feedWorking();
           break;
       }
     } else {
@@ -76,6 +55,7 @@ function redirectPages() {
         default:
           window.location.hash = '';
           container.append(createLogin());
+          loginWorking();
           break;
       }
     }

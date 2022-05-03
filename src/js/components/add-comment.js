@@ -1,11 +1,11 @@
-export function createNewComment() {
-  const template = `
+export function createAddComment() {
+  const container = document.createElement('section');
+  container.setAttribute('class', 'add-comments');
+  container.innerHTML = `
       <section class="add-comments">
         <div class="line-post"></div>
-        <textarea class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva um comentário...">
-        </textarea>
+        <textarea class="add-comment-input" autocomplete="on" rows="1" cols="70" spellcheck="true" wrap="hard" placeholder="Escreva um comentário..."></textarea>
       <section>
     `;
-
-  return template;
+  return container;
 }

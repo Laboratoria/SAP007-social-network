@@ -1,13 +1,13 @@
-export const createHeader = `
+import { auth } from '../../config/start-firebase.js';
+import { initModal } from './modal.js';
+import { logout } from '../../config/authentication.js';
+import { createAddPost } from './add-post.js';
+
+export function createHeader() {
+  const header = `
       <header id="header">
         <section class="menu-header">
           <h1 class="container-logo">
-            <a href="#feed">
-              <img src="../img/icons/icon-logo.png" id="logo-icon" alt="Ícone do logo da LabFriends">
-            </a>
-            <a href="#feed">
-              <img src="../img/log-labfriends-yellow.png" id="logo-header" alt="Ícone do logo da LabFriends">
-            </a>
           </h1>
           <nav class="menu">
             <ul>
@@ -31,51 +31,71 @@ export const createHeader = `
               </li>
               <li id="dropdown-open" class="menu-list">
                 <a href="/#" data-menu="open">
-                  <img src="../img/icons/icon-perfil.png" class="menu-icon" alt="Ícone do meu perfil">
+                  <img src="../img/icons/icon-profile.png" class="menu-icon" alt="Ícone do meu perfil">
                   <p class="menu-text">Meu Perfil</p>
                 </a>
+
                 <section data-menu="container">
-                  <div class="modal-menu">
-                    <button data-menu="close">X</button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="#profile" class="container-dropdown">
-                          <img src="../img/icons/icon-perfil.png" class="drop-icon" alt="Ícone do meu perfil">
-                          <div class="drop-text">
-                            <p class="name-user">Nome do Usuário</p>
-                            <p class="text-small">Veja seu perfil</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <button id="button-logout" class="user-button button-pink">
-                          SAIR
-                        </button>
-                      </li>
-                    </ul>
+                  <div class="modal-dropdown">
+                    <button class="modal-dropdown-close" data-menu="close"></button>
+                    <div class="container-dropdown">
+                      <ul class="dropdown-ul">
+                        <li>
+                          <a href="#profile" class="dropdown-link-icon">
+                            <img src="../img/icons/icon-profile.png" class="drop-icon" alt="Ícone do meu perfil">
+                            <div class="drop-text">
+                              <p class="name-user">Nome do Usuário</p>
+                              <p class="text-small">Veja seu perfil</p>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="dropdown-link-icon">
+                          <button id="button-logout" class="user-button button-pink">
+                            SAIR
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </section>
+                
               </li>
             </ul>
           </nav>
         </section>
 
-        <section class="modal-container" data-post="container">
-          <div class="modal">
-            <button class="modal-close" data-post="close">X</button>
-            <section>
-              <img src="../img/icons/icon-frinds-list.png" alt="Foto do perfil">
-              <p>Nome do Usuário</p>
-              <label for="user-comment">
-                <textarea id="message" class="comment-input" autocomplete="on" minlength="1" maxlength="1000" placeholder="Escreva uma mensagem..."></textarea>
-              </label>
-              <button>
-                <img src="../img/icons/icon-add-image.png" alt="Ícone de adicionar imagens">
-                <p>adicionar imagem</p>
-              </button>
-            </section>
-            <input id="btn-publicar" type="button" value="PUBLICAR" data-modal="close" />
-          </div>
-        </section>
+        ${ createAddPost()}
+
       </header>
     `;
+
+  return header;
+}
+
+export function headerWorking() {
+  const postOpen = document.querySelector('[data-post="open"]');
+  const postClose = document.querySelector('[data-post="close"]');
+  const postContainer = document.querySelector('[data-post="container"]');
+  const menuOpen = document.querySelector('[data-menu="open"]');
+  const menuClose = document.querySelector('[data-menu="close"]');
+  const menuContainer = document.querySelector('[data-menu="container"]');
+
+  postOpen.addEventListener('focus', () => {
+    initModal(postOpen, postContainer, postClose);
+  });
+  postOpen.addEventListener('touchstart', () => {
+    initModal(postOpen, postContainer, postClose);
+  });
+  menuOpen.addEventListener('focus', () => {
+    initModal(menuOpen, menuContainer, menuClose);
+  });
+  menuOpen.addEventListener('touchstart', () => {
+    initModal(menuOpen, menuContainer, menuClose);
+  });
+
+  document.querySelector('#button-logout').addEventListener('click', () => {
+    logout().then(() => {
+      window.location.hash = '#login';
+    });
+  });
+}
