@@ -1,59 +1,44 @@
-@media (min-width: 576px){
-
-    .conteudoComeço{
+@media (min-width: 360px) {
+  .conteudoComeço {
     background: white;
     border-radius: 12px 12px 12px 12px;
-    width: 70%;
-    height: 80vh;
+    width: 75%;
+    height: 60vh;
     margin-top: 20%;
-    margin-left: 15%;
-    text-align:center;
-    padding-top: 6%;  
-    border-style:solid;
-    border-color:darkgreen;
- }
-
-   .boasVindas{
-    font-size: 1.9em;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    color: crimson;
- }
-
-   .mensagem{
-    margin-top: 10%;
-    font-size: 1.5em;
- }
-
-   .botaoCriar{
-    background-color: chartreuse;
-    color: crimson;
-    width: 200px;
-    height: 40px;
-    border-radius:20px 20px 20px 20px;
-    border-style: solid;
-    border-color: chartreuse;
+    margin-left: 12%;
     text-align: center;
-    font-size: 1em;
- }
-
-    .criar-entrar{
-    font-size: 1.5em;
-    margin-top: 15%;
- }
+    padding-top: 6%;
+    border-style: solid;
+    border-color: darkgreen;
+  }
 }
 
-
-@media (min-width: 768px) {
-    .mensagem{
-      margin-top: 10%;
-      font-size: 1.5em;
-      margin-left: 6% ;
-      margin-right: 6%;
-   }
-    .criar-entrar{
-      font-size: 1.5em;
-      margin-top: 10%;
-   }
+.boasVindas {
+  font-size: 1.5em;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: crimson;
 }
 
+.mensagem {
+  margin-top: 8%;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 1.2em;
+}
+.botaoCriar {
+  background-color: chartreuse;
+  color: crimson;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: chartreuse;
+  text-align: center;
+  font-size: 1em;
+}
+
+.criar-entrar {
+  font-size: 1.1em;
+  margin-top: 20%;
+}

@@ -7,7 +7,7 @@ export default () => {
     const templateRegister = `
       <form class="conteudoRegister">  
       <p class="paragrafoLogin">Sign Up</p>
-      <input type="email" class="input nome" id="inputName" placeholder="Insira seu nome Completo" required /><br>
+      <input type="email" class="input nome" id="inputName" placeholder="Insira seu nome" required /><br>
       <input type="email" class="input email" id="inputEmail" placeholder="Insira seu email" requerid /><br>
       <input type="password" class="input confirmaSenha" id="inputSenha" placeholder="Confirme sua senha" requerid /><br>
       <p id="message" class="sucessMessage" menssage"></p>
