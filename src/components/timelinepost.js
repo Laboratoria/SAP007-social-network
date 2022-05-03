@@ -29,8 +29,8 @@ export function postElement(post, user) {
     </div>
     <div class="like-comment flex">
       <div class="btns-like-comment flex">
-        <button class="post-like btn-config"><p class="value-like">${numberLikes}</p><img src="../img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
-        <button class="post-comment btn-config"><img src="../img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
+        <button class="post-like btn-config"><p class="value-like">${numberLikes}</p><img src="./img/iconeLike.png" alt="Botão like" class="btn-like-post">Curtir</button>
+        <button class="post-comment btn-config"><img src="./img/iconeBalao.png" alt="Botão comentar" class="bnt-comment-post">Comentar</button>
       </div>
       <form class="form-comment">
         <textarea class="comment-input-value">
@@ -45,26 +45,40 @@ export function postElement(post, user) {
   let userLike = post.like.filter((people) => people === user.uid);
 
   if (userLike.length !== 0) {
-    timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
+    timelinePost.querySelector('.btn-like-post').src = './img/iconeLikePreenchido.png';
   }
 
   btnLike.addEventListener('click', () => {
     if (userLike.length === 0) {
-      console.log('oi adicionei');
       likePost(post.idPost, user.uid).then(() => {
         userLike.push(user.uid);
         numberLikes += 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
-        timelinePost.querySelector('.btn-like-post').src = '../img/iconeLikePreenchido.png';
-      }).catch((e) => console.log(e));
+        timelinePost.querySelector('.btn-like-post').src = './img/iconeLikePreenchido.png';
+      }).catch(() => {
+        document.querySelector('#warnings-feed').style.display = 'block';
+        document.querySelector('#warnings-feed-message').textContent = 'Não estamos conseguindo entrar em contato com a nuvem T-T.';
+
+        setTimeout(() => {
+          document.querySelector('#warnings-feed').style.display = 'none';
+          document.querySelector('#warnings-feed-message').textContent = '';
+        }, 4000);
+      });
     } else {
-      console.log('oi exclui');
       removeLikePost(post.idPost, user.uid).then(() => {
         userLike = [];
         numberLikes -= 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
-        timelinePost.querySelector('.btn-like-post').src = '../img/iconeLike.png';
-      }).catch((e) => console.log(e));
+        timelinePost.querySelector('.btn-like-post').src = './img/iconeLike.png';
+      }).catch(() => {
+        document.querySelector('#warnings-feed').style.display = 'block';
+        document.querySelector('#warnings-feed-message').textContent = 'Não estamos conseguindo entrar em contato com a nuvem T-T.';
+
+        setTimeout(() => {
+          document.querySelector('#warnings-feed').style.display = 'none';
+          document.querySelector('#warnings-feed-message').textContent = '';
+        }, 4000);
+      });
     }
   });
 
@@ -79,12 +93,14 @@ export function postElement(post, user) {
     formComment.classList.toggle('active');
   });
 
-  btnCancelComment.addEventListener('click', () => {
+  btnCancelComment.addEventListener('click', (e) => {
+    e.preventDefault();
     formComment.classList.toggle('active');
     inputComment.value = '';
   });
 
-  btnConfirmComment.addEventListener('click', () => {
+  btnConfirmComment.addEventListener('click', (e) => {
+    e.preventDefault();
     const comment = {};
     comment.name = user.displayName;
     comment.userUid = user.uid;
@@ -92,13 +108,12 @@ export function postElement(post, user) {
     comment.message = inputComment.value;
     comment.day = new Date();
     comment.day.seconds = comment.day.getTime() / 1000;
+    console.log(comment);
     createCommentPost(post.idPost, comment).then(() => {
-      console.log('foi');
       formComment.classList.toggle('active');
       inputComment.value = '';
       divLikePost.appendChild(createComments(comment, user, post.idPost));
-    }).catch((e) => {
-      console.log(e);
+    }).catch(() => {
       document.querySelector('#warnings-feed').style.display = 'block';
       document.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
 
@@ -108,6 +123,7 @@ export function postElement(post, user) {
       }, 4000);
     });
   });
+
   if (post.comment.length !== 0) {
     post.comment.forEach((oneComment) => {
       divLikePost.appendChild(createComments(oneComment, user, post.idPost));
@@ -132,9 +148,9 @@ export function postElement(post, user) {
   modalDelete.setAttribute('class', 'modal-delete');
   modalDelete.innerHTML = `
   <div class="modal-delete-confirm">
-    <h3>Você tem certeza que deseja excluir essa postagem?</h3>
-    <button class="confirm-delete style-delete">Confirmar</button>
-    <button class="close-delete style-delete">Cancelar</button>
+    <h3 class="title-modal-delete">Você tem certeza que deseja excluir essa postagem?</h3>
+    <button class="confirm-delete btn-edit-style">Confirmar</button>
+    <button class="close-delete btn-edit-style">Cancelar</button>
   </div>
   `;
   // aqui será o menu de configurações que só aparece pro usuário dono do post
@@ -149,8 +165,8 @@ export function postElement(post, user) {
     </button>
     <div class="menu-edit-remove">
       <ul class="configs-posts">
-        <li class="btn-config"><button class="btn-config remove"><img src="../img/iconeLixeira.png" alt="Icone remover post" class="img-delete"></button></li>
-        <li class="btn-config"><button class="modify btn-config"><img src="../img/iconeEditar.png" alt="Icone editar post" class="img-edit"></button></li>
+        <li class="btn-config"><button class="btn-config remove"><img src="./img/iconeLixeira.png" alt="Icone remover post" class="img-delete"></button></li>
+        <li class="btn-config"><button class="modify btn-config"><img src="./img/iconeEditar.png" alt="Icone editar post" class="img-edit"></button></li>
       </ul> 
     </div>  `;
 
@@ -198,6 +214,7 @@ export function postElement(post, user) {
 
     btnRemove.addEventListener('click', () => {
       modalDelete.style.display = 'block';
+      menuEditRemove.classList.toggle('active');
     });
     btnDeletePost.addEventListener('click', (e) => {
       e.preventDefault();

@@ -41,10 +41,9 @@ export const createLogin = () => {
       updateProfile(auth.currentUser, {
         displayName: inputName.value,
 
-      }).then(() => console.log('funcionei')).catch((error) => console.log(error));
+      }).then(() => console.log('funcionei'));
       window.location.hash = '#login';
     }).catch((error) => {
-      console.log(error);
       switch (error.code) {
         case 'auth/internal-error':
           errorRegister.innerHTML = 'Preencha todos os campos';
@@ -62,7 +61,6 @@ export const createLogin = () => {
         default:
       }
     });
-
   };
   newRegister.addEventListener('click', newUser);
   return createLoginStr;
