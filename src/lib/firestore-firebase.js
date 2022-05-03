@@ -1,6 +1,8 @@
 import {
     collection,
     getDocs,
+    doc, 
+    deleteDoc,
     query,
     orderBy,
     addDoc,
@@ -10,10 +12,13 @@ import { db } from './config-firebase.js';
 
 export async function getPosts() {
     const arrPosts = [];
-    //const orderingPosts = query(collection(db, "posts"), orderBy("desc"));
-    const querySnapshot = await getDocs(collection(db, "posts"));
+    const orderingPosts = query(collection(db, "posts"), orderBy("date", "desc"));
+    console.log(orderingPosts)
+    const querySnapshot = await getDocs(orderingPosts);
     querySnapshot.forEach((doc) => {
-        arrPosts.push(doc.data())
+        const feed = doc.data();
+        feed.id = doc.id;
+        arrPosts.push(feed);
         //console.log(doc.id, " => ", doc.data());
     });
     return arrPosts
@@ -24,7 +29,7 @@ export function creatPost(message, titleHQ) {
     return addDoc(collection(db, "posts"), {
         message,
         titleHQ,
-        date: new Date().toLocaleString("pt-br"),
+        date: new Date(),
     }).then((docRef) => {
         return {
             id: docRef.id,
@@ -33,6 +38,12 @@ export function creatPost(message, titleHQ) {
         }
     })
 }
+
+//Função para deletar o post
+export async function deletePost (docId){
+    return await deleteDoc(doc(db, "posts", docId));
+}
+
 //Função que alimenta a coleção "Users" no Clound Firestore
 export function infoUser(name, user, email) {
     return addDoc(collection(db, "Users"), {

@@ -25,11 +25,6 @@ export function signIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
 }
 
-export function validateEmail(email) {
-    var re = /\S+@\S+\.\S+/;
-    return re.test(email);
-}
-
 //Função para sair da rede social
 export function logOff() {
     return signOut(auth);
@@ -64,3 +59,7 @@ if (user !== null) {
 });
 */
   
+export function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}

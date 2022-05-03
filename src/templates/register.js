@@ -47,7 +47,7 @@ export default function formRegister() {
 
   //Validação dos dados do formulário antes de mandar para o firebase
   const name = registerPage.querySelector("#name-register");
-  const user = registerPage.querySelector("#user-register");
+  const username = registerPage.querySelector("#user-register");
   const errorName = registerPage.querySelector("#error-name");
   const errorUser = registerPage.querySelector("#error-user");
   const errorEmail = registerPage.querySelector("#error-email");
@@ -59,7 +59,7 @@ export default function formRegister() {
       errorName.innerHTML = "Este campo não pode estar vazio"
       isValid = false
     }
-    if (user.value === "") {
+    if (username.value === "") {
       errorUser.innerHTML = "Este campo não pode estar vazio"
       isValid = false
     }

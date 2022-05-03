@@ -24,7 +24,7 @@ export default function home() {
       item.titleHQ;
       item.message;
       const postElement = publishingPosts(item);
-
+console.log(allPosts)
       showAllPosts.prepend(postElement);
 
     });
