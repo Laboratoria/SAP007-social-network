@@ -7,18 +7,22 @@ import {
   query,
   updateDoc,
   arrayUnion,
-  deleteDoc,
+  doc,
+  // deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+
+import {auth} from "../configs/config.firebase.js";
 
 const db = getFirestore();
 
 export const createPost = async (textPost, userEmail) => {
-  const displayNameUser = auth.currentUser.displayName;
+  // const displayNameUser = auth.currentUser.displayName;
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       recipe: textPost,
-      author: displayNameUser,
+      author: userEmail,
       date: new Date().toLocaleString('pt-br'),
+      likes: [],
     });
     console.log('Document written with ID: ', docRef.id);
   } catch (e) {
@@ -41,15 +45,15 @@ export async function getPosts() {
 }
 console.log(getPosts());
 
-export const likePost = async (postId, user) => {
-  const postLiked = doc(db, 'posts', postId);
+export async function likePost(id, userEmail) {
   try {
-    return await updateDoc(postLiked, {
-      likes: arrayUnion(user),
+    const postId = doc(db, "posts", id);
+    return await updateDoc(postId, {
+      likes: arrayUnion(userEmail),
     });
   } catch (e) {
-    return e;
+    return console.log("Não deu certo o like", e);
   }
-export const deletePost = async (id) => {
-  await deleteDoc(doc(db, 'posts', id));
-};
+}
+
+
