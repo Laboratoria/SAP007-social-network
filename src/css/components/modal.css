@@ -1,27 +1,57 @@
-.modal-container {
-  background-color: var(--transparent);
+.modal-container-light,
+.modal-container-dark,
+[data-menu='container'] {
   position: fixed;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   top: 0px;
   left: 0px;
   display: none;
+}
+.modal-container-light,
+.modal-container-dark {
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+[data-menu='container'] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.modal-container.active {
+.modal-container-dark {
+  background-color: var(--transparent-medium);
+}
+[data-menu='container'],
+.modal-container-light {
+  background-color: var(--transparent-light);
+}
+.modal-container-dark.active {
+  display: grid;
+}
+.modal-container-light.active {
+  display: grid;
+}
+[data-menu='container'].active {
   display: flex;
 }
-.modal {
-  width: 90%;
-  height: auto;
+.modal,
+.modal-add-post {
+  width: 285px;
+  margin: 0 auto;
   background: var(--color-dark-green);
   box-shadow: var(--shadow-big);
   border-radius: var(--spacing-small);
-  padding: var(--spacing-medium-top-bottom);
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-add-post {
+  padding: 20px 20px 0 20px;
 }
 .modal-close {
   width: 2.5rem;
@@ -52,56 +82,25 @@
   animation: modal 0.3s forwards;
   padding: 10px;
 }
-.title-modal {
-  font-size: 1.25rem;
-  font-weight: 600;
+.active .modal-dropdown {
+  animation: modal 0.3s forwards;
 }
-.user-input-modal {
-  width: calc(100% * 0.9);
-  height: 2.25rem;
-  background-color: var(--color-light-green);
-  border: var(--border-input);
-  border-radius: var(--spacing-small);
-  padding-left: 0.625rem;
-  margin: var(--spacing-input-modal);
-}
-.user-input-modal,
-.user-input-modal::placeholder {
-  color: var(--color-black);
-  font-size: 1rem;
-}
-#message-reset {
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: center;
-  width: 100%;
-  margin: var(--spacing-error);
+.active .modal-add-post {
+  animation: modal 0.3s forwards;
 }
 
 @media screen and (min-width: 550px) and (max-width: 1099px) {
   .modal {
-    max-width: 60%;
+    width: 60%;
   }
 }
 @media screen and (min-width: 1100px) {
   .modal {
-    max-width: 40%;
+    width: 40%;
   }
 }
 
 @media screen and (min-width: 550px) and (max-width: 1799px) {
-  .title-modal {
-    font-size: 1.5rem;
-  }
-  .user-input-modal {
-    height: 2.875rem;
-  }
-  .user-input-modal,
-  .user-input-modal::placeholder,
-  #message-reset {
-    font-size: 1.125rem;
-  }
   .modal-close {
     width: 3.125rem;
     height: 3.125rem;
@@ -112,17 +111,6 @@
 }
 
 @media screen and (min-width: 1800px) and (max-width: 2600px) {
-  .title-modal {
-    font-size: 1.75rem;
-  }
-  .user-input-modal {
-    height: 3.125rem;
-  }
-  .user-input-modal,
-  .user-input-modal::placeholder,
-  #message-reset {
-    font-size: 1.25rem;
-  }
   .modal-close {
     width: 3.75rem;
     height: 3.75rem;

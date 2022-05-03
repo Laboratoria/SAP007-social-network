@@ -10,19 +10,23 @@ export function createLogin() {
   const container = document.createElement('section');
   container.classList.add('container-login');
   container.innerHTML = `
-      <form class="user-form">
+      <section class="user-form">
         <img src="./img/log-labfriends-black.png" id="logo" alt="Logo da LabFriends">
-        <label for="user-email" class="user-label">Email</label>
-        <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
-        <label for="user-password" class="user-label">Senha</label>
-        <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
-        <a href="#" type="button" class="link small-text-right" data-email="open">
-          Esqueceu a senha?
-        </a>
-        <p id="message"></p>
-        <button type="submit" id="login-labfriends" class="user-button button-pink">
-          ENTRAR
-        </button>
+
+        <form class="user-form-login">
+          <label for="user-email" class="user-label">Email</label>
+          <input type="email" id="user-email" class="user-input" placeholder="Digite seu email">
+          <label for="user-password" class="user-label">Senha</label>
+          <input type="password" id="user-password" class="user-input input-password-spacing" placeholder="Digite sua senha">
+          <a href="#" type="button" class="link small-text-right" data-email="open">
+            Esqueceu a senha?
+          </a>
+          <p id="message"></p>
+          <button type="submit" id="login-labfriends" class="user-button button-pink">
+            ENTRAR
+          </button>
+        </form>
+
         <div class="line">
           <span class="text-line">ou</span>
         </div>
@@ -33,9 +37,9 @@ export function createLogin() {
         <p class="new-account" >
           Não tem conta?<br> <a href="#register" class="emphasis-pink">Crie uma conta agora!</a>
         </p>
-      </form>
+      </section>
 
-      <section class="modal-container" data-email="container">
+      <section class="modal-container-dark" data-email="container">
         <div class="modal">
           <button class="modal-close" data-email="close">X</button>
           <label for="user-email-reset" class="title-modal">Informe o seu email</label>

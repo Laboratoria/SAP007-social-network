@@ -1,11 +1,13 @@
 
-TIMELINE
-arrumar o tamanho do textarea
+
+FAZENDO:
+- fazer função para aumentar a linha do textarea
+- fazer função que verifique o tamanho do container header e atribua o tamanho para o modal menu --> class="modal-dropdown"
 
 
-- arrumar o tamanho do modal
-- arrumar o tamanho do menu dropdown
-- arrumar responsivo feed
-- arrumar profile
-- arrumar friends-list
-- arrumar edit-profile
+FAZER:
+CSS - REPSONSIVO
+- arrumar os tamanhos de TEXTO E ÍCONES no media querie (3 medidas - figma)
+- aumentar um pouco os espaçamentos e paddings/margins, dependendo do elemento
+- arrumar a altura do top
+- aumentar a largura do dropdown menu, para diferentes tamanhos de telas

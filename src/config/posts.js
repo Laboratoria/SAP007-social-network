@@ -22,4 +22,6 @@ export function createNewPost(newText) {
     .catch((error) => {
       return error;
     });
+
+    //chamar função closeModalAutomatically do arquivo modal.js
 }
