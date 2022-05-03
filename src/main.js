@@ -16,14 +16,18 @@ function redirect() {
       loggedIn((logged) => {
         if (logged) {
           main.appendChild(timeline());
-        } else window.location.hash = '#home';
+        } else {
+          window.location.hash = '#home';
+        }
       });
       break;
     case '#profile':
       loggedIn((logged) => {
         if (logged) {
           main.appendChild(profile());
-        } else window.location.hash = '#home';
+        } else {
+          window.location.hash = '#home';
+        }
       });
       break;
     default:

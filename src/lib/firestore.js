@@ -90,8 +90,8 @@ export async function dislike(id, user) {
 export const editPost = async (id, title, text) => {
   const post = doc(db, 'posts', id);
   await updateDoc(post, {
-    title: title.value,
-    text: text.value,
+    title,
+    text,
   });
   return post;
 };
