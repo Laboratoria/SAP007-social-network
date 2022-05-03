@@ -68,6 +68,14 @@ export function removeLikePost(idPost, uidUser) {
   return removeLikedPost;
 }
 
+export function removeCommentPost(idPost, objComment) {
+  const docRef = doc(bd, 'post', idPost);
+  const removeComment = updateDoc(docRef, {
+    comment: arrayRemove(objComment),
+  });
+  return removeComment;
+}
+
 export function createCommentPost(idPost, objComment) {
   const docRef = doc(bd, 'post', idPost);
   const comment = updateDoc(docRef, {

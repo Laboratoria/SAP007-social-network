@@ -104,7 +104,7 @@ export const feed = (user) => {
           imgProfile,
           like: [],
         };
-        const newPostElement = postElement(objeto, uidUser);
+        const newPostElement = postElement(objeto, user);
         postsElement.prepend(newPostElement);
       }).catch((e) => {
         console.log(e);
