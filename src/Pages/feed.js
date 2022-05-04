@@ -65,7 +65,6 @@ export default function feed() {
     const ordanatedPosts = posts2.sort((a, b) => {
       const dateA = new Date(convertDateObject(a.date)).getTime();
       const dateB = new Date(convertDateObject(b.date)).getTime();
-
       if (dateA < dateB) return 1;
       return -1;
     });
