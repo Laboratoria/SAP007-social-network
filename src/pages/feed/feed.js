@@ -103,6 +103,7 @@ export const feed = (user) => {
           name: nameProfile,
           imgProfile,
           like: [],
+          comment: [],
         };
         const newPostElement = postElement(objeto, user);
         postsElement.prepend(newPostElement);
@@ -130,7 +131,7 @@ export const feed = (user) => {
   getAllPosts().then((posts) => {
     posts.docs.forEach((onePost) => {
       const post = onePost.data();
-      const timelinePost = postElement(post, user);
+      const timelinePost = postElement(post, user, timeline);
       postsElement.prepend(timelinePost);
     });
   }).catch((error) => console.log(error));

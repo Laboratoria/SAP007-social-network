@@ -1,3 +1,5 @@
+// import { modalConfirm } from '../pages/recover/recover-password.js';
+
 export const errorHandlingGeneral = (error) => {
   let returnValue;
 
@@ -25,7 +27,7 @@ export const errorHandlingGeneral = (error) => {
     case 'auth/popup-closed-by-user':
       returnValue = 'Não foi possivel logar com sua conta Google';
       break;
-    default:
+    default: returnValue = 'Não foi possível completar essa ação!';
   }
 
   return returnValue;

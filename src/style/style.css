@@ -1,5 +1,6 @@
 @import url(./reset.css);
 @import url(../pages/about/about.css);
+@import url(../pages/recover/recover.css);
 @import url(../pages/login/login.css);
 @import url(../pages/feed/feed.css);
 @import url(../pages/register/create-login.css);

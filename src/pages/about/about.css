@@ -1,5 +1,25 @@
+.flex-direction{
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 0 auto;
+}
+.btn-back-about{
+  position: absolute;
+  top: 0;
+  left: 1px;
+}
 .img-btn-back{
-  height: 10vh;
+  height: 12vh;
+}
+.logo-desktop{
+  display: none;
+}
+.box-slogan-page-about{
+  
+}
+.logo-icon-page-about{
+  height: 30vh;
 }
 .text-align{
   text-align: justify;
@@ -24,7 +44,6 @@
 .div-picture-devs{
   justify-content: center;
 }
-
 .information-about-devs{
   justify-content: center;
   align-items: center;
