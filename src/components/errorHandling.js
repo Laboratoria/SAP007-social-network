@@ -1,5 +1,3 @@
-// import { modalConfirm } from '../pages/recover/recover-password.js';
-
 export const errorHandlingGeneral = (error) => {
   let returnValue;
 
