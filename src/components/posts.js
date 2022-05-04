@@ -92,10 +92,7 @@ export function postComponent(postObj) {
   getPosts();
   return postsContainer;
 }
-
-
-
-   //   const titleValue = document.querySelector('#title-edit');
+    //   const titleValue = document.querySelector('#title-edit');
     //   const recipeValue = document.querySelector('#recipe-edit');
     //   const updatedPost = document.querySelector('#update-btn');
     //   // const cancelUpdate = document.querySelector('#cancel-update-btn');
@@ -107,3 +104,4 @@ export function postComponent(postObj) {
     //     recipe.textContent = recipeValue.value;
     //     editPostSpan.innerHTML = '';
     //   });
+
