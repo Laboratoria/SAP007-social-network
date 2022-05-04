@@ -1,6 +1,7 @@
 import login from './pages/home.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
+import { verifyLogged } from './firebase/authetication.js';
 
 const mainHome = document.querySelector('#root');
 const verificarHash = () => {
@@ -17,6 +18,13 @@ const verificarHash = () => {
       mainHome.appendChild(register());
       break;
     case '#feed':
+      verifyLogged((loggerUser) => {
+        if (loggerUser) {
+          mainHome.appendChild(feed());
+        } else {
+          window.location.hash = '#home';
+        }
+      });
       mainHome.innerHTML = '';
       mainHome.appendChild(feed());
       break;
