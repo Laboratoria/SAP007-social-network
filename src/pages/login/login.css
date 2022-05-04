@@ -14,139 +14,154 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60vw;
 }
 
 .btn-about {
   position: absolute;
   top: 0;
-  right: 5px;
+  right: 1px;
 }
 
 .img-btn-about {
   height: 10vh;
 }
 
-.slogan-desktop {
+.slogan-desktop{
   display: none;
 }
 
-.login-area,
-.btn-sign-in {
-  background-color: var(--off-white);
-  border-radius: 10px;
-  font-size: 15px;
-  height: 8vh;
-  margin: 17px 5% 5px 5%;
-  width: 90%;
+.box-slogan-desktop-page-login{
+  display: none;
 }
 
-.btn-sign-in {
-  cursor: pointer;
+.flex-direction{
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 60vw;
+  margin: 0 auto;
+}
+  
+.login-area,
+.btn-sign-in,
+.btn-recover-password {
+    background-color: var(--off-white);
+    border-radius: 10px;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    margin-top: 12px;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 5px 10px;
+    padding-left: 10px;
+    height: 6vh;
+    width: 90%;
+    flex: 2 2 200px;
+    cursor: pointer;
 }
 
 .error {
   display: none;
   color: var(--red-error);
 }
-
+  
 .text-center {
   text-align: center;
   margin: 3% auto;
   display: block;
 }
-
+  
 .btn-google {
-  background: #F8BD0F;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--black) 10px 10px 15px -8px;
-  cursor: pointer;
+    background:  var(--mustard);
+    border-radius: 10px;
+    flex: 2 2 150px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    cursor: pointer;
+    height: 6vh;
+    width: 60vw;
+}
+  
+.header-desktop{
+    display: none;
 }
 
 a:link {
-  color: #C400FF;
+    color: var(--purple);
 }
 
 #click-register:hover {
   text-decoration: underline;
 }
-
-/* trabalhar breakpoint antes de 576px, telas muito pequena */
-@media screen and (max-width: 576px) {
-  .logo-page-login {
-    height: 20vh;
-    margin: 3% 0;
+  
+@media screen and (max-width: 767px){  
+  .logo-icon-page-login {
+    height: 30vh;       
   }
-
-  .box-slogan-desktop-page-login {
-    display: none;
-  }
-
   .login-area,
   .btn-sign-in,
-  .btn-google {
-    height: 8vh;
-    margin-top: 10%;
-    font-size: 15px;
+  .btn-recover-password{
+    flex: 4 4 400px;
   }
-
-  .btn-google {
+  .btn-google{
+    height: auto;
     width: 50vw;
     margin-top: 3%
-  }
-
+  }    
   .img-btn-google {
     height: 4vh;
   }
-
-  .font-size {
+  .font-size{
     font-size: 15px;
   }
 }
 
-@media screen and (min-width: 576px) and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 992px){
   .logo-page-login {
-    height: 30vh;
+    height: 30vh;      
   }
-
-  .box-slogan-desktop-page-login {
-    display: none;
-  }
-
+  
   .login-area,
   .btn-sign-in,
-  .btn-google {
-    height: 8vh;
-    margin-top: 25px;
+  .btn-recover-password,
+  .btn-google{
+    flex: 1 1 300px;
   }
-
-  .btn-google {
-    width: 50vw;
-    margin-top: 3%
-  }
-
+  
   .img-btn-google {
     height: 4vh;
   }
-
-  .font-size {
+  
+  .font-size{
     font-size: 18px;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1220px){
+  .flex-direction{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
   .box-slogan-page-login {
     display: none;
-  }
 
-  .box-slogan-desktop-page-login {
+  } 
+  .box-slogan-desktop-page-login{
+    display: block;
     height: 95%;
     width: 40%;
-  }
-
-  .logo-desktop {
+    justify-content: start;
+  } 
+  
+  .logo-desktop{
+    display: block;
     width: 100%;
   }
 
@@ -154,24 +169,35 @@ a:link {
     display: block;
   }
 
-  .login-area,
-  .btn-sign-in,
-  .btn-google {
-    height: 8vh;
-    width: 40vw;
-    margin-top: 25px;
+  .btn-about{
+    display: none;
   }
-
-  .btn-google {
-    width: 50vw;
-    margin-top: 3%
+  
+  .form-login {    
+    margin: 0 200px;
+    height: auto;
+    width: auto;    
   }
-
+  
   .img-btn-google {
     height: 4vh;
   }
 
   .font-size {
     font-size: 18px;
+  }
+  
+  .btn-google{
+    width: 58vw;
+    background: transparent;
+    border: 1px solid var(--black);
+  }
+  
+  .header-desktop{
+    display: block;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--mustard);
+    height: 5vh;
   }
 }

@@ -1,13 +1,16 @@
 export const pageAbout = () => {
   const about = document.createElement('div');
-  about.setAttribute('class', 'box-about');
+  about.setAttribute('class', 'box-about flex-direction-about');
   about.innerHTML = `    
       <section class="header-page-about">
-      <a href="#login" class="btn-back-about" id="btn-back-about"><img src="./img/iconeSair.png" alt="botão sair" class="img-btn-back"></a>
-        <figure class="box-slogan-page-login">
-          <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-login">
+        <a href="#login" class="btn-back-about" id="btn-back-about"><img src="./img/iconeSair.png" alt="botão sair" class="img-btn-back"></a>
+        <figure class="box-slogan-page-about">
+          <img src="./img/kfandom.svg" alt="Logotype" class="logo-icon-page-about">
         </figure>  
       </section>  
+      <figure class="box-slogan-desktop">
+        <img src="./img/imgLogoDesktop.png" alt="Logotype" class="logo-desktop">
+      </figure>
       <section class="about text-align">
         <h1 class="tittle-about">K-Fandom</h1>      
         <p class="text-about">A K-Fandom é uma Rede Social voltada para kpopers (fãs de Kpop). Sinta-se à vontade para compartilhar tudo relacionado sobre Kpop, falar sobre votações, conhecer amigues e o melhor de tudo dentro de um espaço onde todes curtem o mesmo estilo. Curta mensagens e se conecte nesse meio. 

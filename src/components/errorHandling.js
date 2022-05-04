@@ -25,7 +25,7 @@ export const errorHandlingGeneral = (error) => {
     case 'auth/popup-closed-by-user':
       returnValue = 'Não foi possivel logar com sua conta Google';
       break;
-    default:
+    default: returnValue = 'Não foi possível completar essa ação!';
   }
 
   return returnValue;

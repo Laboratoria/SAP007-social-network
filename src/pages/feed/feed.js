@@ -103,8 +103,7 @@ export const feed = (user) => {
             timeline.querySelector('#warnings-feed').style.display = 'none';
             timeline.querySelector('#warnings-feed-message').textContent = '';
           }, 4000);
-        })
-          .catch(() => {
+        }).catch(() => {
             timeline.querySelector('#warnings-feed').style.display = 'block';
             timeline.querySelector('#warnings-feed-message').textContent = 'Aconteceu um probleminha... Mianamnida!! "o"';
 
@@ -136,7 +135,7 @@ export const feed = (user) => {
   getAllPosts().then((posts) => {
     posts.docs.forEach((onePost) => {
       const post = onePost.data();
-      const timelinePost = postElement(post, user);
+      const timelinePost = postElement(post, user, timeline);
       postsElement.prepend(timelinePost);
     });
   }).catch(() => {

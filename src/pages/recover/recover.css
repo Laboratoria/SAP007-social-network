@@ -1,0 +1,31 @@
+.tittle-page-recover{
+  margin-bottom: 5%;
+  font-size: 30px;
+  color: var(--black);
+}
+.form-recover{
+  background-color: #FFF338;
+  border-radius: 10px;
+  text-align: center;
+  width: auto;
+  height: 20vh;
+}
+.btns-recover{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+}
+.btn-cancel-recover, .btn-confirm-recover{
+  background: var(--lilac);
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 12px 12px 12px 12px;
+  width: 100px;
+  text-align: center;
+  box-shadow: var(--black) 10px 10px 15px -8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-area:hover {
+  text-decoration: underline;
+}
