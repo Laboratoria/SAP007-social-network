@@ -1,5 +1,5 @@
 import { collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-import {db} from "./config-firebase"
+import {db} from "./config-firebase.js"
 
 export const createPost = async (textPost) => {
   try {
