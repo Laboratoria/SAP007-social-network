@@ -1,4 +1,4 @@
-import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
+import { registerGoogle, registerUser, updateUsername } from "../lib/auth-firebase.js";
 import { infoUser } from "../lib/firestore-firebase.js";
 
 export default function formRegister() {
@@ -90,6 +90,7 @@ export default function formRegister() {
     if (isValid) {
       registerUser(email.value, password.value)
       .then(() => {
+        updateUsername(name.value)
         window.location.hash = "home";
       }).catch((error) => {
         console.log(error);

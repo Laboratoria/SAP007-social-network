@@ -20,7 +20,7 @@ export default function posts() {
         
     <div id="new-post" class="section-new-post">
       <div class="new-post">
-        <div id="author" class="name-user">Usuario</div>
+        <div id="name" class="name-user">Usuario</div>
         <form class="form-post">
           <input for="message" type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
           <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
@@ -32,15 +32,17 @@ export default function posts() {
       </div>
     </div>
 
-    <div class="posts-container">
+    <div class="posts-profilePage">
       <section id="new-post-here"></section>
       <section id="all-posts-here"></section>
     </div>    
     `;
-
+/*   profilePage.innerHTML = template; */
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
-  const sectionNewPost = profilePage.querySelector("#new-post-here");
+  const sectionNewPost = profilePage.querySelector("#new-post-here")
+  const name = profilePage.querySelector('#name');
+
 
   //Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
@@ -99,6 +101,24 @@ export default function posts() {
     window.location.hash = "login"
   })
     
-  return profilePage
+const post = profilePage.querySelector('.feed');
+// const uid =  
+const showAllPosts = async () => {
+  const uid = auth.currentUser.uid;
+  const postsProfile = await postUser(uid);
+  postsProfile.forEach((item) => {
+    const postCard = card(item);
+    post.prepend(postCard);
+  });
+};
+showAllPosts();
 
-}
+logOut.addEventListener('click', (e) => {
+  e.preventDefault();
+  userLogout().then(() => {
+    window.location.hash = '';
+  });
+});
+
+return profilePage;
+}; 

@@ -5,7 +5,9 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+    updateProfile,
+} 
+from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import { auth } from "./config-firebase.js";
 
@@ -13,7 +15,7 @@ import { auth } from "./config-firebase.js";
 export function registerUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
 }
-
+ 
 //Cadastrar um usuário e fazer login com google
 const provider = new GoogleAuthProvider();
 export function registerGoogle() {
@@ -63,4 +65,13 @@ if (user !== null) {
   }
 });
 */
-  
+/* 
+const auth = getAuth();
+
+   */
+
+export function updateUsername(name){
+  updateProfile(auth.currentUser, {
+    displayName: name
+  });
+}
