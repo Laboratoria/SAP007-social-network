@@ -3,13 +3,75 @@
     padding: 0;
 }
 
-.profile-user {
+.home-user-icon-posts {
     width: 30px;
     height: 30px;
-    display: inline;
+    margin-top: 9px;
+    margin-left: 63px;
 }
 
-.button-user {
-    background: transparent;
-    border: none;
+.link-menu-home {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 20px 5px;
+    text-align: center;
+    cursor: pointer;
 }
+
+.menu-home {
+    background: rgba(16, 16, 16, .5);
+    width: 124px;
+    height: 100%;
+    left: -124px;
+    position: absolute;
+    transition: all .5s;
+}
+
+.menu-options-home {
+    list-style: none;
+    top: 50px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+input[type="checkbox"]:checked~nav {
+    transform: translateX(124px);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.label-user-icon-home {
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+.field-search-home {
+    border-radius: 5px;
+    width: 146px;
+    height: 28px;
+    margin-top: 27px;
+    margin-left: 129px;
+}
+
+.button-search-home {
+    width: 56px;
+    margin-right: 19px;
+    height: 24px;
+    margin-top: 27px;
+}
+
+/*.button-search-home {
+    text-transform: uppercase;
+    font-size: 9px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}*/

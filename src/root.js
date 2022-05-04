@@ -2,6 +2,8 @@ import login from "./templates/login.js";
 import register from "./templates/register.js";
 import home from "./templates/home.js";
 import posts from "./templates/posts.js";
+//import edit from "./componentes/edit.js"
+
 
 const main = document.querySelector("#root");
 
@@ -20,6 +22,9 @@ const redirect = () => {
         case "#posts":
             main.appendChild(posts());
             break;
+       /*case "#edit":
+            main.appendChild(edit());
+            break;*/
         default:
             main.appendChild(login());
     }

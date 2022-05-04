@@ -1,5 +1,4 @@
-import { creatPost, getPosts, infoUser } from "../lib/firestore-firebase.js"
-import { publishingPosts } from "../componentes/template-post.js"
+import { creatPost } from "../lib/firestore-firebase.js"
 import { logOff } from "../lib/auth-firebase.js"
 
 export default function posts() {
@@ -22,7 +21,7 @@ export default function posts() {
       <div class="new-post">
         <div id="author" class="name-user">Usuario</div>
         <form class="form-post">
-          <input for="message" type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
+          <input type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
           <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
           <div class="buttons-post-delete">
             <button id="post-button" class="post-button">postar</button>
@@ -91,14 +90,24 @@ export default function posts() {
     message.value = ""
   })
 
+  //Função que edita o post
+  /*const editButton = templatePost.querySelector(".edit-button");
+  editButton.addEventListener("click", () => {
+    editPost(post.id).then(()=> {
+  //editbutton vira savebutton
+  //editbutton vai mandar para a pagina de edição
+    })
+  })*/
+
+
   //Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff")
   logOut.addEventListener("click", (e) => {
     e.preventDefault();
-    logOff(); 
+    logOff();
     window.location.hash = "login"
   })
-    
+
   return profilePage
 
 }

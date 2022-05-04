@@ -1,34 +1,44 @@
 import { getPosts } from "../lib/firestore-firebase.js";
 import { publishingPosts } from "../componentes/template-post.js";
+import { logOff } from "../lib/auth-firebase.js"
 
 export default function home() {
   const homePage = document.createElement("div");
   homePage.classList.add("body-home-page")
 
   homePage.innerHTML = `
-        <section class="section-search-icon-user">
-          <input type="search" id="search-field" class="search-field" placeholder="Buscar">
-          <button id="button-search" class="button-search">Buscar</button>
-        </section>
-        <button id="button-user" class="button-user"><img src="./images/user-icon.png" class="profile-user" alt="ícone contorno do usuário"></button>
-        <div class="section-posts-container">
-      <section id="all-posts" class="section-post"></section>
+    <input type="checkbox" id=check>
+    <label for="check" class="label-user-icon-home"><img class="home-user-icon-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></label>
+    <nav class="menu-home">
+      <ul class="menu-options-home">
+        <li><a class="link-menu-home" href="#posts">Perfil</a></li>
+        <li><a id="link-logoff" class="link-menu-home">Sair</a></li>
+      </ul>
+    </nav>
+    <input type="search" class="field-search-home" placeholder="Buscar">
+    <button class="button-search-home">Buscar</button> 
+    <div class="section-posts-container">
+      <ul id="all-posts" class="section-post"></ul>
     </div>
     `;
 
   const showAllPosts = homePage.querySelector("#all-posts")
-  
+
   getPosts().then((allPosts) => {
     allPosts.forEach((item) => {
-      item.date;
-      item.titleHQ;
-      item.message;
       const postElement = publishingPosts(item);
-console.log(allPosts)
       showAllPosts.prepend(postElement);
-
     });
   });
+
+  //Função para sair da rede social
+  const logOut = homePage.querySelector("#link-logoff")
+  logOut.addEventListener("click", (e) => {
+    e.preventDefault();
+    logOff();
+    window.location.hash = "login"
+  })
+
 
   return homePage
 
