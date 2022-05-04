@@ -10,9 +10,10 @@ export default function feed() {
 
   feedContainer.innerHTML = `
   <div class="new-post">
-    <input class="recipe-input" id="title-recipe" placeholder="Nome da receita" required></input>
+    <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
     <textarea id="write-post" class="post-content" placeholder="Postar nova receita" required>
     </textarea>
+    <p id="error-message" class="error-writepost"></p>
     <button class="post-btn" id="new-post-btn">Postar</button>
     <section class="show-posts" id="showPosts">
     </section>
@@ -23,13 +24,22 @@ export default function feed() {
 
   const sectionPost = feedContainer.querySelector("#showPosts");
   const postContent = feedContainer.querySelector('#write-post');
+  const titleContent = feedContainer.querySelector('#title-recipe');
   const btnPost = feedContainer.querySelector('#new-post-btn');
+  const errorMessage = feedContainer.querySelector('#error-message');
 
   btnPost.addEventListener("click", (e) => {
     e.preventDefault();
-    createPost(postContent.value, auth.currentUser.email);
+    errorMessage.innerHTML="";
+    if (titleContent.value.length >= "5" && postContent.value.length >= "10"){
+    createPost(postContent.value, auth.currentUser.email)
     showPosts();
-  })
+  } else if (titleContent.value === "" && postContent.value === "") {
+    errorMessage.innerText = "Preencha todos os campos acima";
+  } else if (titleContent.value.length < "5" || postContent.value.length < "5"); {
+    errorMessage.innerText = "Preencha os campos com mais de 5 caracteres";
+  }
+  });
 
   const showPosts = async () => {
     sectionPost.innerHTML = '';

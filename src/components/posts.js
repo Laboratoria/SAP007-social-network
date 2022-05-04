@@ -9,7 +9,6 @@ export function postComponent(postObj) {
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
 
- 
   const templatePost = `
     <div class= "post-container">
       <p>${postObj.date}</p>
@@ -89,7 +88,6 @@ export function postComponent(postObj) {
     //   });
     });
 
-  const likeButton = postsContainer.querySelector("#cookie-btn");
   const countLikes = postsContainer.querySelector("#num-likes");
   console.log(likeButton);
 
