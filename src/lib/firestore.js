@@ -51,7 +51,8 @@ export const deletePost = async (id) => {
 export async function likePost(id, userEmail) {
   try {
     const postId = doc(db, "posts", id);
-    return await updateDoc(postId, {
+    console.log(postId);
+    await updateDoc(postId, {
       likes: arrayUnion(userEmail),
     });
   } catch (e) {

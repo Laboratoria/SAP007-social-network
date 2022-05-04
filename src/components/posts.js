@@ -20,7 +20,7 @@ export function postComponent(postObj) {
       <div class='post-interations'>
 
       <button id="cookie-btn"> Curtir </button>
-      <p id="num-likes" class="num-likes">Likes: ${postObj.likes.length}</p>
+      <p class="num-likes">Likes:<span id="num-likes">${postObj.likes.length}</span></p>
 
       <button id="pencil-btn">Editar</button>
       <button id="trash-btn">Apagar</button> 
@@ -38,8 +38,8 @@ export function postComponent(postObj) {
   const deletePostSpan = postsContainer.querySelector('#delete-post');
   const editPostBtn = postsContainer.querySelector('#pencil-btn');
   const editPostSpan = postsContainer.querySelector('#edit-post');
-  const title = postsContainer.querySelector(`#title-${postObj.id}`);
-  const recipe = postsContainer.querySelector(`#recipe-${postObj.id}`);
+  // const title = postsContainer.querySelector(`#title-${postObj.id}`);
+  // const recipe = postsContainer.querySelector(`#recipe-${postObj.id}`);
   const countLikes = postsContainer.querySelector("#num-likes");
 
   deletePostBtn.addEventListener('click', async (e) => {
@@ -49,7 +49,7 @@ export function postComponent(postObj) {
     <button class="span-delete-btn" id="yes-btn" type="submit">Excluir</button>
     <button class="span-delete-btn" id="no-btn" type="submit">Cancelar</button>
     `;
-    
+
     const confirmBtn = document.getElementById('yes-btn');
     const declineBtn = document.getElementById('no-btn');
 
@@ -71,24 +71,28 @@ export function postComponent(postObj) {
     <button class="btn-update" id="cancel-update-btn" type="submit">Cancelar</button>
     <button class="btn-update" id="update-btn" type="submit">Atualizar</button>
     `;
-    });
+  });
 
-  likeButton.addEventListener("click", (e) => {
+  likeButton.addEventListener("click", async () => {
     const postLike = postObj.likes;
-    if (postLike.includes(auth.currentUser.email)) {
-        likePost(postObj.id, auth.currentUser.email).then(() => {
-          postLike.push(auth.currentUser.email);
-          const addLikeNum = Number(countLikes.innerHTML) + 1;
-          countLikes.innerHTML = addLikeNum;
-        });
-      } else {
-        dislikePost(postObj.id, auth.currentUser.email).then(() => {
-          postLike.splice(auth.currentUser.email);
-          const addLikeNum = Number(countLikes.innerHTML) - 1;
-          countLikes.innerHTML = addLikeNum;
-        });
-      }
-    });
+    console.log(postLike);
+    if (!postLike.includes(auth.currentUser.email)) {
+      console.log(postObj.id, auth.currentUser.email);
+      await likePost(postObj.id, auth.currentUser.email);
+      // likePost(postObj.id, auth.currentUser.email).then(() => {
+      //   postLike.push(auth.currentUser.email);
+        const addLikeNum = Number(countLikes.innerHTML) + 1;
+        countLikes.innerHTML = addLikeNum;
+      // });
+    } else {
+      await dislikePost(postObj.id, auth.currentUser.email).then(() => {
+        postLike.splice(auth.currentUser.email);
+        const addLikeNum = Number(countLikes.innerHTML) - 1;
+        countLikes.innerHTML = addLikeNum;
+      });
+    }
+  });
+  console.log(likePost(postObj.id, auth.currentUser.email));
   getPosts();
   return postsContainer;
 }
