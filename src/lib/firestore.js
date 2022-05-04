@@ -11,15 +11,13 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove,
-// eslint-disable-next-line import/no-unresolved
-} from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+} from './exports.js';
 
 import { app } from './firebase.js';
 import { auth } from './authentication.js';
 
 export const db = getFirestore(app);
 
-// eslint-disable-next-line consistent-return
 export const publicatedPost = async (valueTitle, valueText) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
@@ -27,7 +25,7 @@ export const publicatedPost = async (valueTitle, valueText) => {
       text: valueText,
       data: new Date(),
       uid: auth.currentUser.uid,
-      user: auth.currentUser.displayName,
+      name: auth.currentUser.displayName,
       likes: [],
     });
     return docRef;
@@ -95,3 +93,10 @@ export const editPost = async (id, title, text) => {
   });
   return post;
 };
+
+// export const addUserName = async (name) => {
+//   const colRef = doc(db, 'posts', name);
+//   await setDoc(colRef, {
+//     name,
+//   });
+// };

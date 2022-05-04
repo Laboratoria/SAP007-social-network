@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js';
+import { initializeApp } from './exports.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAOhKqo7lJpdWp4hLImccHwhEKVTgG2jo4',
