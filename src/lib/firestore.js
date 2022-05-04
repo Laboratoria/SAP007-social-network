@@ -7,10 +7,12 @@ import {
   query,
   updateDoc,
   arrayUnion,
+  arrayRemove,
   deleteDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-import { auth } from '../configs/config.firebase.js';
+
+// import { auth } from '../configs/config.firebase.js';
 
 const db = getFirestore();
 
@@ -53,10 +55,21 @@ export async function likePost(id, userEmail) {
       likes: arrayUnion(userEmail),
     });
   } catch (e) {
-    return console.log("Não deu certo o like", e);
+    return e;
+    // return console.log("Não deu certo o like", e);
   }
-
 };
+export async function dislikePost(id, userEmail) {
+  try {
+    const postId = doc(db, "posts", id);
+    return await updateDoc(postId, {
+      likes: arrayRemove(userEmail),
+    });
+  } catch (e) {
+    return e;
+    // console.log("Não deu certo o like", e);
+  }
+}
 
 export const editPost = async (id, title, recipe) => {
   const post = doc(db, 'posts', id);
