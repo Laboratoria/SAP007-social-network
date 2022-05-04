@@ -1,15 +1,12 @@
 
-import { getPosts, deletePost, editPost, likePost } from "../lib/firestore.js";
+import { getPosts, deletePost, editPost, likePost, dislikePost } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
-//import { checkLogin } from "../lib/auth.js";
 
 export function postComponent(postObj) {
-  // const curtida = postObj.like;
   const isPostOwner = postObj.userEmail === auth.currentUser.email;
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
 
- 
   const templatePost = `
     <div class= "post-container">
       <p>${postObj.date}</p>
@@ -34,7 +31,6 @@ export function postComponent(postObj) {
       <span id="delete-post"></span>
     </div>
     `;
-  
   postsContainer.innerHTML = templatePost;
 
   const likeButton = postsContainer.querySelector("#cookie-btn");
@@ -44,6 +40,7 @@ export function postComponent(postObj) {
   const editPostSpan = postsContainer.querySelector('#edit-post');
   const title = postsContainer.querySelector(`#title-${postObj.id}`);
   const recipe = postsContainer.querySelector(`#recipe-${postObj.id}`);
+  const countLikes = postsContainer.querySelector("#num-likes");
 
   deletePostBtn.addEventListener('click', async (e) => {
     e.preventDefault();
@@ -74,8 +71,31 @@ export function postComponent(postObj) {
     <button class="btn-update" id="cancel-update-btn" type="submit">Cancelar</button>
     <button class="btn-update" id="update-btn" type="submit">Atualizar</button>
     `;
-  
-    //   const titleValue = document.querySelector('#title-edit');
+    });
+
+  likeButton.addEventListener("click", (e) => {
+    const postLike = postObj.likes;
+    if (postLike.includes(auth.currentUser.email)) {
+        likePost(postObj.id, auth.currentUser.email).then(() => {
+          postLike.push(auth.currentUser.email);
+          const addLikeNum = Number(countLikes.innerHTML) + 1;
+          countLikes.innerHTML = addLikeNum;
+        });
+      } else {
+        dislikePost(postObj.id, auth.currentUser.email).then(() => {
+          postLike.splice(auth.currentUser.email);
+          const addLikeNum = Number(countLikes.innerHTML) - 1;
+          countLikes.innerHTML = addLikeNum;
+        });
+      }
+    });
+  getPosts();
+  return postsContainer;
+}
+
+
+
+   //   const titleValue = document.querySelector('#title-edit');
     //   const recipeValue = document.querySelector('#recipe-edit');
     //   const updatedPost = document.querySelector('#update-btn');
     //   // const cancelUpdate = document.querySelector('#cancel-update-btn');
@@ -87,36 +107,3 @@ export function postComponent(postObj) {
     //     recipe.textContent = recipeValue.value;
     //     editPostSpan.innerHTML = '';
     //   });
-    });
-
-  const likeButton = postsContainer.querySelector("#cookie-btn");
-  const countLikes = postsContainer.querySelector("#num-likes");
-  console.log(likeButton);
-
-  //window.onload = function () {
-    //const getUserEmail =checkLogin();
-    likeButton.addEventListener("click", (e) => {
-     console.log('foi!');
-
-      // const postLike = postObj.likes;
-      // if (postLike.includes(auth.currentUser.email)) {
-      //   likePost(postObj.id, auth.currentUser.email).then(() => {
-      //     postLike.push(auth.currentUser.email);
-      //     const addLikeNum = Number(countLikes.innerHTML) + 1;
-      //     countLikes.innerHTML = addLikeNum;
-      //   });
-      // } else {
-      //   dislike(postObj.id, auth.currentUser.email).then(() => {
-      //     postLike.splice(auth.currentUser.email);
-      //     const addLikeNum = Number(countLikes.innerHTML) - 1;
-      //     countLikes.innerHTML = addLikeNum;
-      //   });
-      // }
-     
-    });
-  // };
-
-  getPosts();
-
-  return postsContainer;
-}
