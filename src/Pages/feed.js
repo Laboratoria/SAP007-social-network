@@ -78,7 +78,6 @@ export default function feed() {
           <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
           <p>${post.textPost}</p>
-          <p>${post.userName}</p>
           <div class= "line"></div>
           <div class="icons">
             <button class="button-heart">
