@@ -7,33 +7,34 @@ export function createComments(comment, user, idPost) {
   timelineComment.innerHTML = `
     <div class="informations-user flex">
       <div class="photo-name-post flex">
-        <figure class="section-figure-comment"><img src="" class=""></figure>
+        <figure class="section-figure-comment flex"><img src="./img/line.svg" class="section-figure-comment-img"></figure>
         <figure class="post-img-user"><img class="post-img-user" src="${comment.imgProfile}" alt="user"></figure>
         <div class="name-modified-status flex column">
           <p class="post-name-user">${comment.name}</p>          
         </div>
       </div> 
-      <nav class="nav-remove-modify nav-remove-comment flex">
+      <nav class="nav-remove-comment flex">
       </nav>
     </div>
-    <div class="post-text-id flex column">
+    <div class="post-text-comment flex column">
       <p class="post-date">${dateComment.getDate()}/${(dateComment.getMonth() + 1)}/${dateComment.getFullYear()} ${dateComment.getHours()}:${dateComment.getMinutes()}</p>
       <p class="post-text" id="post-text">${comment.message}</p>
     </div>`;
+
   const navComment = timelineComment.querySelector('.nav-remove-comment');
   if (user.uid === comment.userUid) {
     const buttonDelete = document.createElement('button');
     buttonDelete.setAttribute('class', 'btn-config remove-comment');
     buttonDelete.innerHTML = `
-      <img src="../img/iconeLixeira.png" alt="Icone remover post" class="img-delete">`;
+      <img src="./img/iconeLixeira.png" alt="Icone remover post" class="img-delete img-delete-comment">`;
     navComment.appendChild(buttonDelete);
-    const modalDelete = document.createElement('div');
+    const modalDelete = document.createElement('section');
     modalDelete.setAttribute('class', 'modal-delete');
     modalDelete.innerHTML = `
     <div class="modal-delete-confirm">
-      <h3>Você tem certeza que deseja excluir esse comentário?</h3>
-      <button class="confirm-remove style-delete">Confirmar</button>
-      <button class="close-remove style-delete">Cancelar</button>
+      <h3 class="title-modal-delete">Você tem certeza que deseja excluir esse comentário?</h3>
+      <button class="confirm-remove btn-edit-style">Confirmar</button>
+      <button class="close-remove btn-edit-style">Cancelar</button>
     </div>
     `;
     timelineComment.appendChild(modalDelete);

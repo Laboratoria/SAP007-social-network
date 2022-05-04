@@ -1,6 +1,3 @@
-// aqui exportaras las funciones que necesites
-
-// import { createLogin } from '../register/page-register.js';
 import { logar, logarGmail } from './authentication.js';
 import { errorHandlingGeneral } from '../../components/errorHandling.js';
 
@@ -39,6 +36,7 @@ export const pageLogin = () => {
         <a href="#about">-Sobre a rede-</a>
       </section>
       `;
+  
   login.querySelector('#btn-about').addEventListener('click', (e) => {
     e.preventDefault();
     window.location.hash = '#about';

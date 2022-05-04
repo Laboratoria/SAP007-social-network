@@ -1,28 +1,40 @@
+.form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--lilac);
+  border-radius: 10px;
+  margin: 10%;
+  text-align: center;
+  height: 40vh;
+  width: 80vw;
+}
+
 .box-slogan-page-login {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 60vw;
 }
+
 .btn-about {
   position: absolute;
   top: 0;
   right: 1px;
 }
-.img-btn-about{
- height: 10vh;
+
+.img-btn-about {
+  height: 10vh;
 }
+
 .slogan-desktop{
   display: none;
 }
+
 .box-slogan-desktop-page-login{
   display: none;
 }
-.form-login {
-  background-color: var(--lilac);
-  border-radius: 10px;
-  text-align: center;
-}
+
 .flex-direction{
   display: flex;
   flex-wrap: wrap;
@@ -30,6 +42,7 @@
   width: 60vw;
   margin: 0 auto;
 }
+  
 .login-area,
 .btn-sign-in,
 .btn-recover-password {
@@ -45,20 +58,20 @@
     height: 6vh;
     width: 90%;
     flex: 2 2 200px;
-}
-.btn-sign-in {
     cursor: pointer;
 }
+
 .error {
-    display: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial;
-    color: var(--red-error);
+  display: none;
+  color: var(--red-error);
 }
+  
 .text-center {
-    text-align: center;
-    margin: 3% auto;
-    display: block;
+  text-align: center;
+  margin: 3% auto;
+  display: block;
 }
+  
 .btn-google {
     background:  var(--mustard);
     border-radius: 10px;
@@ -70,6 +83,7 @@
     height: 6vh;
     width: 60vw;
 }
+  
 .header-desktop{
     display: none;
 }
@@ -78,9 +92,10 @@ a:link {
     color: var(--purple);
 }
 
-#click-register:hover{
-    text-decoration: underline;
+#click-register:hover {
+  text-decoration: underline;
 }
+  
 @media screen and (max-width: 767px){  
   .logo-icon-page-login {
     height: 30vh;       
@@ -107,15 +122,18 @@ a:link {
   .logo-page-login {
     height: 30vh;      
   }
+  
   .login-area,
   .btn-sign-in,
   .btn-recover-password,
   .btn-google{
     flex: 1 1 300px;
   }
+  
   .img-btn-google {
     height: 4vh;
   }
+  
   .font-size{
     font-size: 18px;
   }
@@ -130,8 +148,10 @@ a:link {
     width: 100%;
     margin: 0 auto;
   }
+  
   .box-slogan-page-login {
     display: none;
+
   } 
   .box-slogan-desktop-page-login{
     display: block;
@@ -139,32 +159,40 @@ a:link {
     width: 40%;
     justify-content: start;
   } 
+  
   .logo-desktop{
     display: block;
     width: 100%;
   }
-  .slogan-desktop{
+
+  .slogan-desktop {
     display: block;
   }
+
   .btn-about{
     display: none;
   }
+  
   .form-login {    
     margin: 0 200px;
     height: auto;
     width: auto;    
   }
+  
   .img-btn-google {
-      height: 4vh;
+    height: 4vh;
   }
-  .font-size{
+
+  .font-size {
     font-size: 18px;
   }
+  
   .btn-google{
     width: 58vw;
     background: transparent;
     border: 1px solid var(--black);
   }
+  
   .header-desktop{
     display: block;
     justify-content: center;

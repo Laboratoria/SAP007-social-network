@@ -14,6 +14,7 @@ const init = () => {
   switch (window.location.hash) {
     case '#about':
       main.appendChild(pageAbout());
+      console.log(pageAbout().nodeType);
       break;
     case '#createLogin':
       main.appendChild(createLogin());

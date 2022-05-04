@@ -5,6 +5,5 @@ import { getAuth, createUserWithEmailAndPassword }
 const createRegister = getAuth();
 
 export function register(email, senha) {
-  console.log('criar');
   return createUserWithEmailAndPassword(createRegister, email, senha);
 }

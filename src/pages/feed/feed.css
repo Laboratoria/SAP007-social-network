@@ -31,14 +31,17 @@
   z-index: 1;
 }
 
-.menu {
-  display: flex;
-  gap: .5rem;
-}
-
 .menu .link {
   display: block;
   padding: .5rem;
+  margin: 0 1rem;
+  border-bottom: 2px solid var(--mustard);
+}
+
+.btn-log-out {
+  width: 100px;
+  background: transparent;
+  cursor: pointer;
 }
 
 .link:hover .btn-log-out:hover {
@@ -51,6 +54,7 @@
 
 .menu {
   display: block;
+  gap: .5rem;
   position: absolute;
   width: 50%;
   top: 68px;
@@ -64,16 +68,6 @@
   overflow-y: hidden;
   border: 0px 1px 1px 1px solid var(--mustard);
 
-}
-
-.btn-log-out {
-  background: transparent;
-  cursor: pointer;
-}
-
-.menu .link {
-  margin: 0 1rem;
-  border-bottom: 2px solid var(--mustard);
 }
 
 .btn-mobile {
@@ -119,7 +113,7 @@
 
 .nav-options.active .menu {
   visibility: visible;
-  height: calc(90vh - 70px);
+  height: calc(90vh - 170px);
   overflow-y: auto;
 }
 
@@ -139,18 +133,6 @@
 .logo-img-feed-user-message {
   width: 200px;
   height: 200px;
-}
-
-/* screen and (min-width: 320px) { */
-
-.nav-options {}
-
-.btn-mobile {}
-
-.menu-list {}
-
-.btn-log-out {
-  width: 100px;
 }
 
 .main-post {
@@ -205,7 +187,7 @@
 }
 
 .input-post {
-  margin-top: 40%;
+  margin-top: 200px;
   border-radius: 10px;
   border: 2px solid var(--mustard);
   width: 100%;
@@ -254,8 +236,56 @@
   margin: 0 10% 0 10%;
   background: var(--white);
   height: auto;
-  width: 60%;
+  width: 70%;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .user-perfil-img-feed {
+    margin-top: 20px;
+    width: 120px;
+    height: 120px;
+    margin-left: 20px;
+  }
+
+  .header-feed {
+    background-image: url(../../img/CapaKF.PNG);
+    height: 100px;
+  }
+
+  .menu {
+    top: 100px;
+  }
+
+  .logo-img-feed {
+    visibility: hidden;
+  }
+
+  .hamburguer {
+    border-top: 10px solid var(--black);
+    margin-top: 30px;
+    width: 50px;
+  }
+
+  .hamburguer::after,
+  .hamburguer::before {
+    width: 50px;
+    height: 10px;
+    background: var(--black);
+    margin-top: 8px;
+  }
+
+  .nav-options.active .hamburguer::after {
+    top: -19px;
+  }
+
+  .section-feed {
+    border-left: 2px solid var(--mustard);
+    border-right: 2px solid var(--mustard);
+    margin-left: 19%;
+    margin-top: 110px;
+    width: 80%;
+  }
 }
 
 /* } */
