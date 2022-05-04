@@ -11,16 +11,16 @@ export default function feed() {
       </picture>
       <picture>
         <a href="#home" id="logout">
-            <img  class="button-logout" src="./img/botao-voltar.png" alt="Botão Sair">
+            <img  class="button-logout" src="./img/logout.png" alt="Botão Sair">
         </a>
       </picture>
   </nav>
   <div class= "line-header"> </div>
   <section class="publish" id="publish">
-    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="33" rows="5"></textarea>
+    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="35" rows="7"></textarea>
         <p id="alert-notification" class="error"></p>
         <div class= "btn-container">
-          <button id="publish-btn">Publicar</button>
+          <button class="publish-btn" id="publish-btn">Publicar</button>
         </div>
   </section>
   <div id='posts-container' class="posts-container">  
@@ -28,6 +28,7 @@ export default function feed() {
   `;
 
   feed.innerHTML = templateFeed;
+
   const posts = feed.querySelector('#posts-container');
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
@@ -61,15 +62,22 @@ export default function feed() {
     const posts2 = await getPost();
     posts2.forEach((post) => {
       document.querySelector('#posts-container').innerHTML += `         
-      <div class= "posts" id= "posts" >
-        <ul class="posts" id="posts">
+      <div class= "box-posts" id= "posts" >
+        <ul class="box-posts" id="posts">
           <li>
+          <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
           <p>${post.textPost}</p>
-          <p>${post.userName}</p>                   
+          <p>${post.userName}</p>
+          <div class= "line"></div>
+          <div class="icons">
+            <button class="button-heart">
+              <img class="heart-btn" id="heart-btn" src="./img/heart.svg">
+            </button>
+          </div>
           </li>
-        </ul>          
-      </div>     
+        </ul>
+      </div>  
       `;
     });
   };

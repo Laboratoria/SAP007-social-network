@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  width: 100vw;
 }
 
 * {
@@ -14,7 +15,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: #FEFAEF;
+  background: #fefaef;
   color: #fff;
   height: 50px;
   padding: 1em;
@@ -27,34 +28,22 @@ body {
 }
 
 .button-logout {
-  width: 40px;
-  margin-top: 20px;
+  width: 30px;
+  margin-top: 40px;
 }
 
 .line-header {
   margin-top: 15px;
   width: 100%;
-  border: 1px solid #48D9B0;
+  border: 1px solid #48d9b0;
 }
 
 .publish {
-  width: 320px;
+  width: 330px;
   border-radius: 8px;
-  background-color: #F5EFEF;
+  background-color: #f5efef;
   margin-top: 20px;
-  margin-left: 20px;
-}
-
-ul {
-  list-style: none;
-}
-
-.posts-container {
-  width: 320px;
-  border-radius: 8px;
-  margin-top: 20px;
-  margin-left: 20px;
-  justify-content: center;
+  margin-left: 50px;
 }
 
 textarea {
@@ -64,60 +53,79 @@ textarea {
   resize: none;
 }
 
-.btn-container {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 textarea:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
 }
 
-.posts {
-  width: 320px;
-  border-radius: 8px;
-  background-color: #F5EFEF;
-  margin-top: 20px;
-  margin-left: 20px;
+.btn-container {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-select,
-option,
-button {
+.publish-btn {
   font-size: 12px;
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  background-color: #466C8C;
+  background-color: #466c8c;
   width: 80px;
   height: 25px;
   border: none;
   cursor: pointer;
-}
-
-select {
-  margin-left: 120px;
-}
-
-button {
   float: right;
   margin-right: 20px;
   margin-bottom: 10px;
 }
 
-.buttons {
+.posts-container {
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+.box-posts {
+  width: 320px;
+  border-radius: 8px;
+  background-color: #f5efef;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  line-height: 1.8em;
+}
+
+.line {
+  width: 300px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+}
+
+.icons {
   display: flex;
-  position: absolute;
+}
+
+.button-heart {
+  border: none;
+}
+
+.heart-btn {
+  font-size: 25px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 900px) {
   .logo {
     width: 100px;
+    margin-bottom: 8px;
   }
 
   .button-logout {
-    width: 60px;
+    width: 40px;
     margin-top: 40px;
   }
 
@@ -132,19 +140,20 @@ button {
     font-size: 18px;
   }
 
-  select,
-  button {
+  .publish-btn {
     width: 100px;
     height: 40px;
     font-size: 16px;
     margin-bottom: 20px;
   }
 
-  select {
-    margin-left: 280px;
-  }
-
-  button {
+  .publish-btn {
     margin-right: 35px;
+  }
+  
+  .box-post {
+    width: 580px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 }
