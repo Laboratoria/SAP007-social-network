@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   updateProfile,
+  onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-auth.js';
 
 export const auth = getAuth();
@@ -19,6 +20,12 @@ export function signIn(email, password) {
       return userCredential;
     }
   );
+}
+
+export function verifyLogged(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user !== null);
+  });
 }
 
 export function signInWithGoogle(auth, provider) {
