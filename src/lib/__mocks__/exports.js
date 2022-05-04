@@ -17,3 +17,4 @@ export const doc = jest.fn();
 export const updateDoc = jest.fn();
 export const arrayUnion = jest.fn();
 export const arrayRemove = jest.fn();
+export const initializeApp = jest.fn();

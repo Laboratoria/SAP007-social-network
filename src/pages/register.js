@@ -24,6 +24,12 @@ export default () => {
   const password = container.querySelector('.password-register');
   const message = container.querySelector('.error');
   const registered = container.querySelector('.registered');
+  const btn = container.querySelector('.button-enter');
+  const userName = container.querySelector('.username');
+
+  btn.addEventListener('click', (e) => {
+    console.log(email.value, password.value, userName.value);
+  })
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -3,10 +3,10 @@
  */
 import profile from '../../../src/pages/profile.js';
 import templates from '../../../src/components/templates.js';
-import { postUser, deletePost, editPost } from '../../../src/lib/firestore.js'
+import { postUser, deletePost, editPost } from '../../../src/lib/firestore.js';
 
-jest.mock('../src/lib/exports.js');
-jest.mock('../src/lib/firestore.js')
+jest.mock('../../../src/lib/exports.js');
+jest.mock('../../../src/lib/firestore.js');
 
 describe('postUser', () => {
   it('Deverá ser função de postar na página Perfil, apensas seus próprios posts', () => {

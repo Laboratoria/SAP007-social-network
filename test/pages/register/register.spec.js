@@ -4,8 +4,8 @@
 import register from '../../../src/pages/register.js';
 import { userCreate } from '../../../src/lib/authentication.js';
 
-jest.mock('../src/lib/exports.js');
-jest.mock('../src/lib/authentication.js');
+jest.mock('../../../src/lib/exports.js');
+jest.mock('../../../src/lib/authentication.js');
 
 describe('userCreate', () => {
   it('Deverá ser função de cadastrar usuário', () => {

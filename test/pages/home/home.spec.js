@@ -2,10 +2,10 @@
 * @jest-environment jsdom
  */
 import home from '../../../src/pages/home.js';
-import { userLogin } from '../../../src/lib/authentication';
+import { userLogin } from '../../../src/lib/authentication.js';
 
-jest.mock('../src/lib/exports.js');
-jest.mock('../src/lib/authentication.js');
+jest.mock('../../../src/lib/exports.js');
+jest.mock('../../../src/lib/authentication.js');
 
 describe('userLogin', () => {
   it('Deverá ser função de logar usuário', () => {
