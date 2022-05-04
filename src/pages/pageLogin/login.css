@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: Comfortaa;
-  src: url(Comfortaa-Light.ttf);
+  src: url(fonts/Comfortaa-Light.ttf);
 }
 *{
   margin: 0;
@@ -170,9 +170,7 @@ input{
 .btn-google{
   width: 60%;
 }
-.btn{
 
-}
 .btn-primary{
   display: flex;
   flex-direction: column;

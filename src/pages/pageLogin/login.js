@@ -1,11 +1,11 @@
 export default () => {
-    const container = document.createElement('div');
-     
-    const infoLogin = `
+  const container = document.createElement('div');
+
+  const infoLogin = `
     <div class="container">
       <div class="content first-content">
         <div class="first-column">
-          <img src="./meditacao (1).png" id="image">
+          <img src="./images/meditacao (1).png" id="image">
           <h1>ZAZEN</h1>
         </div>
         <div class="second-column">
@@ -25,14 +25,14 @@ export default () => {
               <span>Continue with</span>
             </div>
             <button class="btn btn-google" type="submit">
-              <img src="./google (1).png" id="google">
+              <img src="./images/google (1).png" id="google">
             </button>
           </form>
         </div>
       </div>
     </div>
-    `
-    container.innerHTML = infoLogin;
+    `;
+  container.innerHTML = infoLogin;
 
-    return container;
-}
+  return container;
+};
