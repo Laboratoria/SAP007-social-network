@@ -1,8 +1,13 @@
 .form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: var(--lilac);
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 10%;
   text-align: center;
+  height: 40vh;
+  width: 80vw;
 }
 
 .box-slogan-page-login {
@@ -29,15 +34,10 @@
 .btn-sign-in {
   background-color: var(--off-white);
   border-radius: 10px;
-  margin-top: 12px;
-  background-color: #F7F7F7;
-  border-radius: 10px;
   font-size: 15px;
   height: 8vh;
-  margin: 5px 10px;
-  padding-left: 10px;
-  width: 60vw;
-
+  margin: 17px 5% 5px 5%;
+  width: 90%;
 }
 
 .btn-sign-in {
@@ -46,7 +46,6 @@
 
 .error {
   display: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
   color: var(--red-error);
 }
 
@@ -85,16 +84,10 @@ a:link {
     display: none;
   }
 
-  .form-login {
-    height: 40vh;
-    width: 60vw;
-  }
-
   .login-area,
   .btn-sign-in,
   .btn-google {
     height: 8vh;
-    width: 40vw;
     margin-top: 10%;
     font-size: 15px;
   }
@@ -122,16 +115,10 @@ a:link {
     display: none;
   }
 
-  .form-login {
-    height: 40vh;
-    width: 50vw;
-  }
-
   .login-area,
   .btn-sign-in,
   .btn-google {
     height: 8vh;
-    width: 40vw;
     margin-top: 25px;
   }
 
@@ -165,16 +152,6 @@ a:link {
 
   .slogan-desktop {
     display: block;
-  }
-
-  .form-login {
-    margin: 0 200px;
-
-  }
-
-  .form-login {
-    height: 45vh;
-    width: 50vw;
   }
 
   .login-area,

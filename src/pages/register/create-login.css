@@ -1,69 +1,68 @@
 @media screen and (min-width: 320px) {
-    .box-form-create-register {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .box-form-create-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .logo-icon-page-register {
-        height: 20vh;
-        margin-bottom: 2%
-    }
+  .logo-icon-page-register {
+    height: 20vh;
+    margin-bottom: 2%
+  }
 
-    .form-register {
-        background-color: var(--lilac);
-        border-radius: 10px;
-        height: 52vh;
-        width: 42vw;
-        text-align: center;
-    }
+  .form-register {
+    background-color: var(--lilac);
+    border-radius: 10px;
+    height: 52vh;
+    width: 42vw;
+    text-align: center;
+  }
 
-    h1 {
-        font-size: 1.4em;
-        font-weight: bold;
-        color: #4a4842;
-    }
+  h1 {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #4a4842;
+  }
 
-    .create-area {
-        margin-top: 12px;
-        background-color: #F7F7F7;
-        border-radius: 10px;
-        font-size: 15px;
-        height: 8vh;
-        margin: 5px 10px;
-        padding-left: 10px;
-        width: 30vw;
-        box-shadow: var(--black) 10px 10px 15px -8px;
-    }
+  .create-area {
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    font-size: 15px;
+    height: 8vh;
+    margin: 17px 10px 5px 10px;
+    padding-left: 10px;
+    width: 30vw;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+  }
 
-    .box-btns {
-        display: flex;
-        width: 70vw;
-        justify-content: space-around;
-        margin-bottom: 3%;
-    }
+  .box-btns {
+    display: flex;
+    width: 70vw;
+    justify-content: space-around;
+    margin-bottom: 3%;
+  }
 
-    .btn-area {
-        margin-top: 20px;
-        background: #F8BD0F;
-        border-radius: 10px;
-        padding: 12px 12px 12px 12px;
-        width: 100px;
-        text-align: center;
-        box-shadow: var(--black) 10px 10px 15px -8px;
-        font-size: 16px;
-        color: #4a4842;
-        cursor: pointer;
-    }
+  .btn-area {
+    margin-top: 20px;
+    background: #F8BD0F;
+    border-radius: 10px;
+    padding: 12px 12px 12px 12px;
+    width: 100px;
+    text-align: center;
+    box-shadow: var(--black) 10px 10px 15px -8px;
+    font-size: 16px;
+    color: #4a4842;
+    cursor: pointer;
+  }
 
-    .btn-area:hover {
-        text-decoration: underline;
-    }
+  .btn-area:hover {
+    text-decoration: underline;
+  }
 
-    .inerror-message {
-        display: none;
-        font-size: 15px;
-        color: var(--red-error);
-    }
+  .inerror-message {
+    display: none;
+    font-size: 15px;
+    color: var(--red-error);
+  }
 }
