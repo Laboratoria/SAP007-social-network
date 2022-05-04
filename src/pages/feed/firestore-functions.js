@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line
-import { collection, addDoc, onSnapshot, doc, query, where, orderBy, getDocs, updateDoc, deleteDoc, arrayUnion, arrayRemove } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js';
+import {
+  collection, addDoc, doc, query, orderBy, getDocs, updateDoc,
+  deleteDoc, arrayUnion, arrayRemove, getAuth, signOut,
+} from '../../configurafirebase/exports.js';
 import { bd } from '../../configurafirebase/configfirestore.js';
-// eslint-disable-next-line
-import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js';
 
 const auth = getAuth();
 
