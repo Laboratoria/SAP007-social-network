@@ -1,19 +1,27 @@
-.flex-direction{
+.box-slogan-page-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-direction {
   display: flex;
   flex-wrap: wrap;
   height: auto;
   margin: 0 auto;
 }
-.btn-back-about{
+
+.btn-back-about {
   position: absolute;
   top: 0;
   left: 1px;
 }
+
 .img-btn-back {
   height: 12vh;
 }
 
-.logo-desktop{
+.logo-desktop {
   display: none;
 }
 
