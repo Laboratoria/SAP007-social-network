@@ -45,6 +45,8 @@ export default function feed() {
   };
 
   btnPosts.addEventListener('click', async () => {
+    const control = posts.innerHTML;
+    posts.innerHTML = '';
     if (postText.value === '') {
       msgAlert.innerHTML = 'Digite uma mensagem!';
     } else;
@@ -56,11 +58,19 @@ export default function feed() {
     <p> ${postText.value} </p> 
     </div>
     `;
+    posts.innerHTML += control;
   });
 
   const getPostsFromDatabase = async () => {
     const posts2 = await getPost();
-    posts2.forEach((post) => {
+    const ordanatedPosts = posts2.sort((a, b) => {
+      const dateA = new Date(convertDateObject(a.date)).getTime();
+      const dateB = new Date(convertDateObject(b.date)).getTime();
+      if (dateA < dateB) return 1;
+      return -1;
+    });
+
+    ordanatedPosts.forEach((post) => {
       document.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts" id= "posts" >
         <ul class="box-posts" id="posts">
