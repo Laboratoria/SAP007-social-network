@@ -1,4 +1,4 @@
-import { likePost, dislikePost ,} from "../lib/firestore.js";
+import { likePost, dislikePost} from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
 import { modalEditPost, modalDeletePost,  } from "../components/modal.js";
 import { getPosts } from "../lib/firestore.js";
@@ -7,6 +7,7 @@ import { getPosts } from "../lib/firestore.js";
 export function postComponent(postObj) {
   const userId = auth.currentUser.uid;
   const isAuthor = postObj.user === userId;
+  const postId = postObj.id;
 
   const postsContainer = document.createElement("div");
   postsContainer.classList.add("new-post-writePost");
@@ -37,13 +38,16 @@ export function postComponent(postObj) {
     </div>
     `;
   postsContainer.innerHTML = templatePost;
+
 /// MODAIS DE DELETAR E EDITAR
+
  if (isAuthor) {
     const editPost = postsContainer.querySelector("#pencil-btn");
     editPost.addEventListener("click", (e) => {
       e.preventDefault();
       postsContainer.appendChild(modalEditPost(postObj, postsContainer));
     });
+
     const deletePost = postsContainer.querySelector("#trash-btn");
     deletePost.addEventListener("click", (e) => {
       e.preventDefault();

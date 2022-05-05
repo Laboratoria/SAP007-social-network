@@ -11,20 +11,27 @@ import {
   deleteDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-// import { auth } from '../configs/config.firebase.js';
+
+import { auth } from '../configs/config.firebase.js';
 
 const db = getFirestore();
 
-export const createPost = async (textPost, userEmail) => {
-  // const displayNameUser = auth.currentUser.displayName;
+export const createPost = async (textPost, textTitle) => {
+  const user = auth.currentUser;
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
+      
+      title: textTitle,
       recipe: textPost,
-      author: userEmail,
+      author: user.displayName,
       date: new Date().toLocaleString('pt-br'),
       likes: [],
+      user: user.uid,
+      email: user.email,
     });
-    console.log('Post escrito por id: ', docRef.id);
+    return docRef.id;
+
+    // console.log('Post escrito por id: ', docRef.id);
   } catch (e) {
     alert('Erro ao adicionar post', e);
   }
