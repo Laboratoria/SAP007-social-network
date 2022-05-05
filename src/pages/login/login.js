@@ -36,7 +36,7 @@ export const pageLogin = () => {
         <a href="#about">-Sobre a rede-</a>
       </section>
       `;
-  
+
   login.querySelector('#btn-about').addEventListener('click', (e) => {
     e.preventDefault();
     window.location.hash = '#about';

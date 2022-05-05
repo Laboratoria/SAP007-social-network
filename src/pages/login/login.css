@@ -43,11 +43,8 @@
   background-color: var(--off-white);
   border-radius: 10px;
   box-shadow: var(--black) 10px 10px 15px -8px;
-  margin-top: 12px;
-  background-color: #F7F7F7;
-  border-radius: 10px;
   font-size: 15px;
-  margin: 5px 10px;
+  margin: 17px 10px;
   padding-left: 10px;
   height: 6vh;
   width: 90%;
@@ -60,7 +57,7 @@
 
 .error {
   display: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial'; */
   color: var(--red-error);
 }
 

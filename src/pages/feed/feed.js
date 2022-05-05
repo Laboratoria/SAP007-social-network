@@ -1,5 +1,5 @@
 import {
-  createPost, getAllPosts, authLogOut, generateIdPost, // consultDB,
+  createPost, getAllPosts, authLogOut,
 } from './firestore-functions.js';
 
 import {
@@ -78,7 +78,7 @@ export const feed = (user) => {
   btnPost.addEventListener('click', (event) => {
     event.preventDefault();
     const post = {};
-    post.message = document.querySelector('#input-post').value;
+    post.message = timeline.querySelector('#input-post').value;
     post.day = new Date();
     post.day.seconds = post.day.getTime() / 1000;
     post.edit = '';
@@ -87,32 +87,22 @@ export const feed = (user) => {
     post.imgProfile = user.photoURL;
     post.like = [];
     post.comment = [];
-    post.idPost = 'att';
 
     if (post.message.trim().length !== 0 && post.message !== ' ' && post.message !== null && post.message !== false) {
       toggleInput();
-      createPost(post).then((response) => {
-        generateIdPost(response.id).then(() => {
-          post.idPost = response.id;
-          const newPostElement = postElement(post, user);
-          postsElement.prepend(newPostElement);
-          timeline.querySelector('#warnings-feed').style.display = 'block';
-          timeline.querySelector('#warnings-feed-message').textContent = 'Sua mensagem foi enviada!';
+      createPost(post).then((postOnCloud) => {
+        const newPostElement = postElement(post, user, postOnCloud.id);
+        postsElement.prepend(newPostElement);
 
-          setTimeout(() => {
-            timeline.querySelector('#warnings-feed').style.display = 'none';
-            timeline.querySelector('#warnings-feed-message').textContent = '';
-          }, 4000);
-        }).catch(() => {
-            timeline.querySelector('#warnings-feed').style.display = 'block';
-            timeline.querySelector('#warnings-feed-message').textContent = 'Aconteceu um probleminha... Mianamnida!! "o"';
+        timeline.querySelector('#warnings-feed').style.display = 'block';
+        timeline.querySelector('#warnings-feed-message').textContent = 'Sua mensagem foi enviada!';
 
-            setTimeout(() => {
-              timeline.querySelector('#warnings-feed').style.display = 'none';
-              timeline.querySelector('#warnings-feed-message').textContent = '';
-            }, 4000);
-          });
-      }).catch(() => {
+        setTimeout(() => {
+          timeline.querySelector('#warnings-feed').style.display = 'none';
+          timeline.querySelector('#warnings-feed-message').textContent = '';
+        }, 4000);
+      }).catch((e) => {
+        console.log(e);
         timeline.querySelector('#warnings-feed').style.display = 'block';
         timeline.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
 
@@ -135,7 +125,7 @@ export const feed = (user) => {
   getAllPosts().then((posts) => {
     posts.docs.forEach((onePost) => {
       const post = onePost.data();
-      const timelinePost = postElement(post, user, timeline);
+      const timelinePost = postElement(post, user, onePost.id);
       postsElement.prepend(timelinePost);
     });
   }).catch(() => {
