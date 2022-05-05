@@ -19,14 +19,11 @@ export default () => {
 
   container.innerHTML = templateLoging;
 
-
-
   const email = container.querySelector(".email");
   const password = container.querySelector(".password");
   const loginGoogle = container.querySelector(".google");
   const messageErrorEmail = container.querySelector(".email-error");
   const messageErrorPassword = container.querySelector(".password-error");
-
 
   container.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -44,7 +41,6 @@ export default () => {
         return errorMessage;
       });
   });
-
 
 
   loginGoogle.addEventListener("click", (e) => {

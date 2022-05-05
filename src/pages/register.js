@@ -32,14 +32,14 @@ export default () => {
     e.preventDefault();
     userRegister(registerEmail.value, registerPassword.value)
       .then(() => {
-        window.location.hash = "#feed";
+        window.location.hash ="#feed";
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-exists") {
+        if (error.code == "auth/email-already-exists") {
           messageError.innerHTML = "E-mail já cadastrado"
-        } else if (error.code === "auth/invalid-email") {
+        } else if (error.code == "auth/invalid-email") {
           messageError.innerHTML = "E-mail inválido"
-        } else if (error.code === "auth/invalid-password") {
+        } else if (error.code == "auth/invalid-password") {
           messageError.innerHTML = "Sua senha deve ter no mínimo 6 carecteres"
         }
         return messageError
