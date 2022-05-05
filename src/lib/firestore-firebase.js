@@ -9,7 +9,8 @@ import {
     updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
-import { db } from './config-firebase.js';
+
+import { db, auth } from './config-firebase.js';
 
 export async function getPosts() {
     const arrPosts = [];
@@ -30,12 +31,14 @@ export function creatPost(message, titleHQ) {
         message,
         titleHQ,
         date: new Date(),
+        date: new Date().toLocaleString("pt-br"),
+        author:auth.currentUser.displayName
     }).then((docRef) => {
         return {
             id: docRef.id,
             message,
             titleHQ,
-        }
+                    }
     })
 }
 
