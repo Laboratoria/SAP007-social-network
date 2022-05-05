@@ -34,8 +34,11 @@
   flex-direction: column;
   margin-top: 5%;
 }
-#yes,
-#no {
+p {
+  margin-bottom: 10%;
+}
+.btn-delete-confirm {
   width: 30%;
   margin: auto;
+  margin-bottom: 4%;
 }
