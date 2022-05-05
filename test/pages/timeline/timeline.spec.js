@@ -43,7 +43,47 @@ describe('getPost', () => {
     textInput.value = text;
     btn.dispatchEvent(new Event('click'));
 
-   // expect(getPost).toHaveBeenCalledTimes(1);
+    expect(getPost).toHaveBeenCalledTimes(1);
     expect(getPost).toHaveBeenCalledWith(title, text, user);
+  });
+});
+
+describe('like', () => {
+  it('Deverá curtir um post', () => {
+    like.mockResolvedValueOnce();
+    // const title = 'Jest';
+    // const text = 'Jest é um framework de teste unitário de código aberto em JavaScript criado pelo Facebook a partir do framework Jasmine.';
+    // const user = auth.currentUser;
+    const page = card();
+    // const btn = page.querySelector('.btn-post');
+    // const titleInput = page.querySelector('.title');
+    // const textInput = page.querySelector('.text');
+
+    // titleInput.value = title;
+    // textInput.value = text;
+    // btn.dispatchEvent(new Event('click'));
+
+    // expect(like).toHaveBeenCalledTimes(1);
+    // expect(like).toHaveBeenCalledWith();
+  });
+});
+
+describe('dislike', () => {
+  it('Deverá desm post', () => {
+    dislike.mockResolvedValueOnce();
+    // const title = 'Jest';
+    // const text = 'Jest é um framework de teste unitário de código aberto em JavaScript criado pelo Facebook a partir do framework Jasmine.';
+    // const user = auth.currentUser;
+    const page = card();
+    // const btn = page.querySelector('.btn-post');
+    // const titleInput = page.querySelector('.title');
+    // const textInput = page.querySelector('.text');
+
+    // titleInput.value = title;
+    // textInput.value = text;
+    // btn.dispatchEvent(new Event('click'));
+
+    // expect(dislike).toHaveBeenCalledTimes(1);
+    // expect(dislike).toHaveBeenCalledWith();
   });
 });

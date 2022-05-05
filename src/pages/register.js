@@ -29,7 +29,7 @@ export default () => {
 
   btn.addEventListener('click', (e) => {
     console.log(email.value, password.value, userName.value);
-  })
+  });
 
   container.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -52,5 +52,3 @@ export default () => {
   });
   return container;
 };
-// export const name = document.querySelector('.username');
-// console.log(name);

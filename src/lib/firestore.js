@@ -25,7 +25,7 @@ export const publicatedPost = async (valueTitle, valueText) => {
       text: valueText,
       data: new Date(),
       uid: auth.currentUser.uid,
-      name: auth.currentUser.displayName,
+      user: auth.currentUser.displayName,
       likes: [],
     });
     return docRef;

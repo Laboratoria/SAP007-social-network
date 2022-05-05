@@ -3,9 +3,10 @@ import { deletePost, editPost } from '../lib/firestore.js';
 export default function card(item) {
   const publications = document.createElement('div');
   publications.setAttribute('class', 'publicated');
+  const id = item.id;
   const mold = `
-    <h3 class="published-title" id="title-${item.id}">${item.title}</h3>
-    <p class="published-text" id="text-${item.id}">${item.text}</p>
+    <h3 class="published-title" id="title-${id}">${item.title}</h3>
+    <p class="published-text" id="text-${id}">${item.text}</p>
     <div class="user-name">${item.user}</div>
     <div>
     <button class="edit">editar</button>
@@ -14,6 +15,7 @@ export default function card(item) {
     <span class="edition"></span>
     <span class="confirm-delete"></span>
     `;
+
   publications.innerHTML = mold;
 
   const deleteAction = publications.querySelector('.delete');
@@ -31,7 +33,7 @@ export default function card(item) {
 
     btnYes.addEventListener('click', (e) => {
       e.preventDefault();
-      deletePost(item.id);
+      deletePost(id);
       publications.remove();
     });
     btnNo.addEventListener('click', (e) => {
@@ -41,8 +43,8 @@ export default function card(item) {
 
   const editAction = publications.querySelector('.edit');
   const edition = publications.querySelector('.edition');
-  const title = publications.querySelector(`#title-${item.id}`);
-  const text = publications.querySelector(`#text-${item.id}`);
+  const title = publications.querySelector(`#title-${id}`);
+  const text = publications.querySelector(`#text-${id}`);
 
   editAction.addEventListener('click', (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ export default function card(item) {
 
     updatePost.addEventListener('click', (e) => {
       e.preventDefault();
-      editPost(item.id, valueTitle.value, valueText.value);
+      editPost(id, valueTitle.value, valueText.value);
       title.textContent = valueTitle.value;
       text.textContent = valueText.value;
       edition.innerHTML = '';
