@@ -26,7 +26,7 @@ export default function card(item) {
     deleteConfirm.innerHTML += `
     <p>Certeza que deseja deletar a sua contribuição?</p>
     <button class="btn-delete-confirm" id="yes">Sim</button>
-    <button class="btn-delete-confirm"id="no">Não</button>
+    <button class="btn-delete-confirm" id="no">Não</button>
     `;
     const btnYes = document.getElementById('yes');
     const btnNo = document.getElementById('no');

@@ -9,7 +9,7 @@ export default function card(item) {
   const mold = `
     <h3 class="published-title">${item.title}</h3>
     <p class="published-text">${item.text}</p>
-    <div class="user-name">${item.user}</div
+    <div class="user-name">${item.user}</div>
     <div class="container-like">
       <button class="buttons-like" id="like">
       <img id="imgLike" class="img-like" src=${checkLikes()} alt="button-like"/>
