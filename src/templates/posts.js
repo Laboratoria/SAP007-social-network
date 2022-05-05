@@ -1,7 +1,8 @@
-import { creatPost } from "../lib/firestore-firebase.js"
-import { logOff } from "../lib/auth-firebase.js"
+import { profilePosts } from "../componentes/perfil.js"
+import { creatPost, getPosts } from "../lib/firestore-firebase.js"
+import { userLogout, updateUsername } from "../lib/auth-firebase.js"
 
-export default function posts() {
+export default function posts(postUser) {
   const profilePage = document.createElement("div");
   profilePage.classList.add("body-post");
 
@@ -19,7 +20,7 @@ export default function posts() {
         
     <div id="new-post" class="section-new-post">
       <div class="new-post">
-        <div id="name" class="name-user">Usuario</div>
+        <div id="name" class="name-user">nome do usuario</div>
         <form class="form-post">
           <input type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
           <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
@@ -33,10 +34,12 @@ export default function posts() {
 
     <div class="posts-profilePage">
       <section id="new-post-here"></section>
-      <section id="all-posts-here"></section>
+      <ul id="all-posts" class="ul-posts"></ul>
+    </div>
+
     </div>    
     `;
-/*   profilePage.innerHTML = template; */
+  /*   profilePage.innerHTML = template; */
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const sectionNewPost = profilePage.querySelector("#new-post-here")
@@ -68,7 +71,6 @@ export default function posts() {
     if (isValid) {
       creatPost(message.value, titleHQ.value)
         .then((post) => {
-          console.log(post)
           message.value = "";
           titleHQ.value = "";
         }).catch((error) => {
@@ -92,42 +94,36 @@ export default function posts() {
     message.value = ""
   })
 
-  //Função que edita o post
-  /*const editButton = templatePost.querySelector(".edit-button");
-  editButton.addEventListener("click", () => {
-    editPost(post.id).then(()=> {
-  //editbutton vira savebutton
-  //editbutton vai mandar para a pagina de edição
-    })
-  })*/
+  //todos os posts na tela
+  const showAllPosts = profilePage.querySelector(".ul-posts")
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      const postElement = profilePosts(item);
+      showAllPosts.prepend(postElement);
+    });
+  });
 
+  //apenas os posts desse usuario na tela
+  /*const post = profilePage.querySelector(".ul-posts");
+  const showAllPosts = async () => {
+    const uid = auth.currentUser.uid;
+    const postsProfile = await postUser(uid);
+    postsProfile.forEach((item) => {
+      const postCard = profilePosts(item);
+      post.prepend(postCard);
+    });
+  };
+  showAllPosts();*/
 
   //Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff")
-  logOut.addEventListener("click", (e) => {
+  logOut.addEventListener('click', (e) => {
     e.preventDefault();
-    logOff();
-    window.location.hash = "login"
-  })
-    
-const post = profilePage.querySelector('.feed');
-// const uid =  
-const showAllPosts = async () => {
-  const uid = auth.currentUser.uid;
-  const postsProfile = await postUser(uid);
-  postsProfile.forEach((item) => {
-    const postCard = card(item);
-    post.prepend(postCard);
+    userLogout().then(() => {
+      window.location.hash = '';
+    });
   });
-};
-showAllPosts();
 
-logOut.addEventListener('click', (e) => {
-  e.preventDefault();
-  userLogout().then(() => {
-    window.location.hash = '';
-  });
-});
 
-return profilePage;
+  return profilePage;
 }; 

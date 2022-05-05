@@ -28,9 +28,24 @@ export function signIn(email, password) {
 }
 
 //Função para sair da rede social
-export function logOff() {
-    return signOut(auth);
+export function userLogout() {
+  console.log(auth.currentUser.displayName)
+    return signOut(auth)
+    .then(() => "Logout")
+    .catch((error) => error)
   }
+
+export function updateUsername(name){
+  console.log(name)
+  updateProfile(auth.currentUser, {
+    displayName: name
+  });
+}
+
+export function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
 
 //Observar o estado do usuário, se está logado ou não
 /*onAuthStateChanged(auth, (user) => {
@@ -45,14 +60,3 @@ export function logOff() {
   }
 });
 */
-  
-export function validateEmail(email) {
-  var re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
-
-export function updateUsername(name){
-  updateProfile(auth.currentUser, {
-    displayName: name
-  });
-}

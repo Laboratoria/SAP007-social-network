@@ -1,4 +1,3 @@
-import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
 import { registerGoogle, registerUser, updateUsername } from "../lib/auth-firebase.js";
 
 export default function formRegister() {

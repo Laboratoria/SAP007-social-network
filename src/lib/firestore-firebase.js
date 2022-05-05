@@ -31,14 +31,13 @@ export function creatPost(message, titleHQ) {
         message,
         titleHQ,
         date: new Date(),
-        date: new Date().toLocaleString("pt-br"),
-        author:auth.currentUser.displayName
+        author: auth.currentUser.displayName,
     }).then((docRef) => {
         return {
             id: docRef.id,
             message,
             titleHQ,
-                    }
+        }
     })
 }
 
@@ -56,19 +55,3 @@ export function editPost(id, message, titleHQ) {
     });
 }
 
-
-//Função que alimenta a coleção "Users" no Clound Firestore
-/*export function infoUser(name, user, email) {
-    return addDoc(collection(db, "Users"), {
-        name,
-        user,
-        email,
-    }).then((docRef) => {
-        return {
-            id: docRef.id,
-            name,
-            user,
-            email
-        }
-    })
-}*/
