@@ -1,0 +1,102 @@
+button {
+  cursor: pointer;
+}
+.user-button {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: var(--spacing-medium-top-bottom);
+  border: var(--border-input);
+  border-radius: var(--spacing-small);
+}
+.user-button:active {
+  transform: translateY(2px);
+}
+.button-pink {
+  background-color: var(--color-dark-pink);
+  color: var(--color-white);
+}
+.button-green,
+.button-add-img {
+  background-color: var(--color-dark-green);
+}
+.button-edit-profile {
+  margin: 20px 0;
+}
+.button-icon-post,
+.button-icon-profile {
+  display: flex;
+  border: none;
+  cursor: pointer;
+}
+.button-icon,
+.button-icon-post,
+.button-icon-post-edit {
+  background-color: var(--color-white);
+  border: none;
+}
+.button-icon-post-edit {
+  border-radius: 5px;
+  border: none;
+}
+.button-user-add-img {
+  display: flex;
+  padding: 10px 0;
+}
+.button-icon-profile {
+  width: 55px;
+  padding: 0;
+  padding-top: 5px;
+  background: var(--color-dark-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-add-img {
+  background-color: var(--color-dark-green);
+  margin: 0;
+  padding-bottom: 0;
+}
+.button-like {
+  justify-self: start;
+  margin-left: 5px;
+}
+.button-comment {
+  justify-self: end;
+  margin-right: 8px;
+}
+.button-add-post {
+  width: 100%;
+  border: none;
+}
+.icon-button {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 10px;
+}
+#button-reset-password {
+  width: calc(100% * 0.9);
+}
+#button-logout {
+  border: var(--border-input-post);
+  width: 100%;
+  font-size: 0.75rem;
+}
+@media screen and (min-width: 550px) and (max-width: 1799px) {
+  .user-button {
+    height: 3.125rem;
+    font-size: 1.1rem;
+  }
+  .button-feed {
+    height: 2.8rem;
+  }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+  .user-button {
+    height: 3.6rem;
+    font-size: 1.5rem;
+    margin: var(--spacing-big-top-bottom);
+  }
+}

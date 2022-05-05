@@ -1,0 +1,213 @@
+#logo {
+  height: 1.875rem;
+  margin: var(--spacing-small-login-logo);
+  align-self: center;
+}
+.user-form {
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.user-label,
+.text-line,
+.new-account,
+.small-text-right {
+  font-weight: 600;
+}
+.user-label {
+  font-size: 1rem;
+  margin-bottom: var(--spacing-small);
+}
+.user-input {
+  width: 100%;
+  height: 2.25rem;
+  border: var(--border-input);
+  border-radius: var(--spacing-small);
+  padding-left: 0.625rem;
+  margin-bottom: var(--spacing-medium);
+  background-color: var(--color-light-yellow);
+}
+.link,
+.user-input::placeholder {
+  color: var(--color-black);
+}
+.user-input::placeholder,
+input::placeholder {
+  font-size: 1rem;
+}
+.small-text-right {
+  align-self: flex-end;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+.line {
+  background-color: var(--color-black);
+  position: relative;
+  height: 2px;
+  width: 100%;
+  margin: var(--spacing-small-line);
+}
+.text-line {
+  background-color: var(--color-dark-yellow);
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 3rem;
+  font-size: 0.875rem;
+  top: -8px;
+}
+.new-account,
+.emphasis-pink {
+  font-size: 0.875rem;
+}
+.emphasis-pink {
+  color: var(--color-dark-pink);
+}
+.new-account {
+  align-self: center;
+  text-align: center;
+}
+#login-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#message {
+  width: 100%;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-dark-pink);
+  text-align: center;
+}
+.title-modal {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0px 0;
+}
+.user-input-modal {
+  width: calc(100% * 0.9);
+  height: 2.25rem;
+  background-color: var(--color-light-green);
+  border: var(--border-input);
+  border-radius: var(--spacing-small);
+  padding-left: 0.625rem;
+  margin: var(--spacing-input-modal);
+}
+.user-input-modal,
+.user-input-modal::placeholder {
+  color: var(--color-black);
+  font-size: 1rem;
+}
+#message-reset {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  margin: var(--spacing-error);
+}
+
+@media screen and (min-width: 550px) {
+  .icon-button {
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-right: 0.625rem;
+  }
+  .small-text-right {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 1799px) {
+  #logo {
+    height: 2.5rem;
+    margin: var(--spacing-medium-login-logo);
+  }
+  .user-label,
+  label {
+    font-size: 1.125rem;
+    display: block;
+  }
+  .user-input,
+  input {
+    height: 2.875rem;
+    font-size: 1.125rem;
+  }
+  .user-input::placeholder,
+  input::placeholder input {
+    font-size: 1.125rem;
+  }
+  .text-line {
+    font-size: 1.125rem;
+    top: -12px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 1rem;
+  }
+  #message,
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
+    font-size: 1.125rem;
+  }
+  .title-modal {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .user-input-modal {
+    height: 2.875rem;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  #logo {
+    height: 3.125rem;
+    margin: var(--spacing-big-login-logo);
+  }
+  .user-label,
+  label {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-medium);
+  }
+  .user-input,
+  input {
+    height: 3.125rem;
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-medium);
+  }
+  .user-input::placeholder,
+  input::placeholder {
+    font-size: 1.25rem;
+  }
+  .line {
+    height: 3px;
+  }
+  .text-line {
+    width: 3.125;
+    font-size: 1.25rem;
+    top: -12px;
+  }
+  .new-account,
+  .emphasis-pink {
+    font-size: 1.125rem;
+  }
+  #message,
+  .user-input-modal,
+  .user-input-modal::placeholder,
+  #message-reset {
+    font-size: 1.25rem;
+  }
+  .title-modal {
+    font-size: 1.75rem;
+    margin: 20px 0;
+  }
+  .user-input-modal {
+    height: 3.125rem;
+  }
+}

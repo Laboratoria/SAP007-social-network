@@ -1,0 +1,114 @@
+.modal-dropdown,
+.menu-header {
+  min-width: 285px;
+  max-width: 1000px;
+}
+.menu-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px 3fr;
+  grid-template-areas: 'logo icons';
+  position: relative;
+  column-gap: 20px;
+}
+.container-logo {
+  width: 100%;
+  background-image: url(../../img/icons/icon-logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 50px;
+}
+.menu ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-list {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--color-dark-yellow);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.menu-text {
+  display: none;
+}
+
+@media screen and (min-width: 450px) and (max-width: 549px) {
+  .container-logo {
+    background-image: url(../../img/log-labfriends-yellow.png);
+    background-size: 120px;
+  }
+  .menu-header {
+    grid-template-columns: 120px 2fr;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 949px) {
+  .menu-header,
+  .modal-dropdown {
+    min-width: 480px;
+  }
+  .menu-header {
+    grid-template-columns: 200px 2fr;
+  }
+  .container-logo {
+    background-image: url(../../img/log-labfriends-yellow.png);
+    background-size: 160px;
+  }
+  .menu-list,
+  .btn-menu {
+    width: 55px;
+    height: 55px;
+  }
+  .menu-icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .menu-header,
+  .modal-dropdown {
+    min-width: 1000px;
+  }
+  .menu-header {
+    grid-template-columns: 80px 2fr;
+    column-gap: 40px;
+  }
+  .container-logo {
+    background-size: 80px;
+  }
+  .menu-list,
+  .btn-menu {
+    width: 180px;
+    height: 55px;
+    justify-content: flex-start;
+  }
+  .menu-list a,
+  .menu-list .btn-menu {
+    display: flex;
+    align-items: center;
+  }
+  .menu-icon {
+    width: 55px;
+    height: 55px;
+  }
+  .menu-text {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--color-dark-gray);
+    font-weight: 600;
+    width: 125px;
+    text-align: center;
+  }
+}
