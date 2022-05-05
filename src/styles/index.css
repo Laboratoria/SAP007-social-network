@@ -3,6 +3,7 @@
 @import "./pages/home.css";
 @import "./pages/posts.css";
 @import "../componentes/template-post.css";
+@import "../componentes/edit.css";
 
 body {
     margin: 0;

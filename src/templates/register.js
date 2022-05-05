@@ -1,5 +1,5 @@
+import { registerGoogle, registerUser } from "../lib/auth-firebase.js";
 import { registerGoogle, registerUser, updateUsername } from "../lib/auth-firebase.js";
-import { infoUser } from "../lib/firestore-firebase.js";
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
@@ -47,7 +47,7 @@ export default function formRegister() {
 
   //Validação dos dados do formulário antes de mandar para o firebase
   const name = registerPage.querySelector("#name-register");
-  const user = registerPage.querySelector("#user-register");
+  const username = registerPage.querySelector("#user-register");
   const errorName = registerPage.querySelector("#error-name");
   const errorUser = registerPage.querySelector("#error-user");
   const errorEmail = registerPage.querySelector("#error-email");
@@ -59,7 +59,7 @@ export default function formRegister() {
       errorName.innerHTML = "Este campo não pode estar vazio"
       isValid = false
     }
-    if (user.value === "") {
+    if (username.value === "") {
       errorUser.innerHTML = "Este campo não pode estar vazio"
       isValid = false
     }
@@ -103,7 +103,6 @@ export default function formRegister() {
         }
       });
     }
-    infoUser(name.value, user.value, email.value)
   });
 
   //Função para cadastrar com o google
@@ -127,7 +126,7 @@ export default function formRegister() {
   const goBackButton = registerPage.querySelector("#button-register-back");
   goBackButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "posts";
+    window.location.hash = "login";
   })
 
   return registerPage;
