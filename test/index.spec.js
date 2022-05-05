@@ -1,4 +1,4 @@
-import { registerNewUser, logout } from '../src/config/authentication.js';
+import { registerNewUser } from '../src/config/authentication.js';
 import { loginLabFriends } from '../src/js/pages/login.js' 
 
 jest.mock('../src/config/export.js');
@@ -7,8 +7,8 @@ describe('Teste de tipo de função', () => {
   it('registerNewUser é uma função', () => {
     expect(typeof registerNewUser).toBe('function');
   });
-  it('logout é uma função ', () => {
-    expect(typeof logout).toBe('function');
+  it('loginLabFriends é uma função ', () => {
+    expect(typeof loginLabFriends).toBe('function');
   });
 });
 
