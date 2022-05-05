@@ -6,13 +6,28 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  updateProfile,
 } from './exports.js';
 
 const provider = new GoogleAuthProvider();
 export const auth = getAuth();
 
-export function userCreate(email, password) {
-  return createUserWithEmailAndPassword(auth, email, password);
+export function userCreate(email, password, name) {
+  return createUserWithEmailAndPassword(auth, email, password).then(
+    (userCredential) => {
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
+      const user = userCredential.user;
+      return user;
+    },
+  );
 }
 
 export function userLogin(email, password) {
