@@ -31,13 +31,13 @@ export default function feed() {
   btnPost.addEventListener("click", (e) => {
     e.preventDefault();
     errorMessage.innerHTML="";
-    if (titleContent.value.length >= "5" && postContent.value.length >= "10"){
+    if (titleContent.value.length >= "10" && postContent.value.length >= "10"){
     createPost(postContent.value, auth.currentUser.email)
     showPosts();
   } else if (titleContent.value === "" && postContent.value === "") {
     errorMessage.innerText = "Preencha todos os campos acima";
-  } else if (titleContent.value.length < "5" || postContent.value.length < "5"); {
-    errorMessage.innerText = "Preencha os campos com mais de 5 caracteres";
+  } else if (titleContent.value.length < "10" || postContent.value.length < "10"); {
+    errorMessage.innerText = "Preencha os campos com mais de 10 caracteres";
   }
   });
 
