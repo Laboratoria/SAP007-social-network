@@ -20,6 +20,7 @@ export const db = getFirestore(app);
 
 export const publicatedPost = async (valueTitle, valueText) => {
   try {
+    debugger;
     const docRef = await addDoc(collection(db, 'posts'), {
       title: valueTitle,
       text: valueText,
