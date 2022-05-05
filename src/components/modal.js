@@ -14,7 +14,6 @@ export function modalEditPost(postObj, postContainer) {
     <p id="error" class="error"></p>
   </div>
     `;
-
   modalContainer.innerHTML = template;
 
   const modal = modalContainer.querySelector("#modal");
@@ -23,12 +22,9 @@ export function modalEditPost(postObj, postContainer) {
   const recipe = modalContainer.querySelector("#recipe-edit");
   const errorMessage = modalContainer.querySelector("#error");
 
-
   salvarEdit.addEventListener("click", (e) => {
-    console.log()
     e.preventDefault();
-    if (// se o titulo não estiver vazio e a receita não estiver vazia, então
-        postObj.title != "" && postObj.recipe != "") {
+    if (title.value.length >= "3" && recipe.value.length >= "3") {
         editPost(postObj.id, title.value, recipe.value)
           .then(() => {
             const newTitle = postContainer.querySelector("#title-edit");
@@ -37,14 +33,14 @@ export function modalEditPost(postObj, postContainer) {
             newRecipe.innerHTML = recipe.value;
             modalContainer.remove();
           })
-
           .catch(() => {
             console.log("error");
           });
-      } else  (title.value === "" && recipe.value === "") 
-      {
+      } else  if (title.value === "" || recipe.value ==="") {
     errorMessage.innerText = "Preencha todos os campos acima";
-      }
+    } else if (recipe.value.length < "100") {
+      errorMessage.innerText = "Preencha a mensagem acima com mais de 100 caracteres";
+    }
   });
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
@@ -91,26 +87,3 @@ export function modalDeletePost(postObj, postContainer) {
 
   return modalContainer;
 }
-
-// // deletePostBtn.addEventListener('click', async (e) => {
-// //     e.preventDefault();
-// //     deletePostSpan.innerHTML += `
-// //     <h1>Tem certeza que quer excluir essa receita?</h1>
-// //     <button class="span-delete-btn" id="yes-btn" type="submit">Excluir</button>
-// //     <button class="span-delete-btn" id="no-btn" type="submit">Cancelar</button>
-// //     `;
-
-// //     const confirmBtn = document.getElementById('yes-btn');
-// //     const declineBtn = document.getElementById('no-btn');
-
-// //     confirmBtn.addEventListener('click', (e) => {
-// //       e.preventDefault();
-// //       deletePost(postObj.id);
-// //       postsContainer.remove();
-// //     })
-// //     declineBtn.addEventListener('click', (e) => {
-// //       deletePostSpan.innerHTML = '';
-// //     })
-// //   });
-
-// //   return modalContainer;
