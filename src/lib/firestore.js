@@ -11,7 +11,6 @@ import {
   deleteDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-
 // import { auth } from '../configs/config.firebase.js';
 
 const db = getFirestore();
@@ -79,7 +78,6 @@ export const editPost = async (id, title, recipe) => {
     recipe,
   });
   return post;
-
 }
 
 

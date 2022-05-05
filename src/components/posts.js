@@ -24,7 +24,6 @@ export function postComponent(postObj) {
 
       <button id="pencil-btn">Editar</button>
       <button id="trash-btn">Apagar</button> 
-
       </div>  
       
       <span id="edit-post"></span>
@@ -38,8 +37,8 @@ export function postComponent(postObj) {
   const deletePostSpan = postsContainer.querySelector('#delete-post');
   const editPostBtn = postsContainer.querySelector('#pencil-btn');
   const editPostSpan = postsContainer.querySelector('#edit-post');
-  // const title = postsContainer.querySelector(`#title-${postObj.id}`);
-  // const recipe = postsContainer.querySelector(`#recipe-${postObj.id}`);
+  const title = postsContainer.querySelector(`#title-${postObj.id}`);
+  const recipe = postsContainer.querySelector(`#recipe-${postObj.id}`);
   const countLikes = postsContainer.querySelector("#num-likes");
 
   deletePostBtn.addEventListener('click', async (e) => {
@@ -63,16 +62,6 @@ export function postComponent(postObj) {
     })
   });
 
-  editPostBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    editPostSpan.innerHTML += `
-    <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
-    <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
-    <button class="btn-update" id="cancel-update-btn" type="submit">Cancelar</button>
-    <button class="btn-update" id="update-btn" type="submit">Atualizar</button>
-    `;
-  });
-
   likeButton.addEventListener("click", async () => {
     const postLike = postObj.likes;
     console.log(postLike);
@@ -81,8 +70,8 @@ export function postComponent(postObj) {
       await likePost(postObj.id, auth.currentUser.email);
       // likePost(postObj.id, auth.currentUser.email).then(() => {
       //   postLike.push(auth.currentUser.email);
-        const addLikeNum = Number(countLikes.innerHTML) + 1;
-        countLikes.innerHTML = addLikeNum;
+      const addLikeNum = Number(countLikes.innerHTML) + 1;
+      countLikes.innerHTML = addLikeNum;
       // });
     } else {
       await dislikePost(postObj.id, auth.currentUser.email).then(() => {
@@ -93,19 +82,38 @@ export function postComponent(postObj) {
     }
   });
   console.log(likePost(postObj.id, auth.currentUser.email));
-  getPosts();
+
+  editPostBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    editPostSpan.innerHTML += `
+    <form>
+      <input class="title-edition" id="title-edit" type="text" value="${postObj.title}" placeholder="Título">
+      <textarea class="recipe-edition" id="recipe-edit" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
+      <button class="btn-update" id="cancel-update-btn" type="submit">Cancelar</button>
+      <button class="btn-update" id="update-btn" type="submit">Atualizar</button>
+    </form>
+    `;
+  });
+      // const updatedTitle = document.querySelector('#title-edit');
+      // const updatedRecipe = document.querySelector('#recipe-edit');
+      // const updatedPost = document.querySelector('#update-btn');
+      // const cancelUpdate = document.querySelector('#cancel-update-btn');
+      // const updateForm = editPostSpan.querySelector('form');
+
+      // updateForm.addEventListener('submit', (e) =>
+      // console.log(e)
+      // )
+  //     updatedPost.addEventListener('click', (e) => {
+  //       (e).preventDefault();
+  //       editPost(postObj.id, updatedTitle.value, updatedRecipe.value);
+  //       title.textContent = updatedTitle.value;
+  //       recipe.textContent = updatedRecipe.value;
+  //       });
+  //       cancelUpdate.addEventListener('click', (e) => {
+  //       editPostSpan.innerHTML = '';
+  // });
+
   return postsContainer;
 }
-    //   const titleValue = document.querySelector('#title-edit');
-    //   const recipeValue = document.querySelector('#recipe-edit');
-    //   const updatedPost = document.querySelector('#update-btn');
-    //   // const cancelUpdate = document.querySelector('#cancel-update-btn');
 
-    //   updatedPost.addEventListener('click', (e) => {
-    //     (e).preventDefault();
-    //     editPost(postObj.id, titleValue.value, recipeValue.value);
-    //     title.textContent = titleValue.value;
-    //     recipe.textContent = recipeValue.value;
-    //     editPostSpan.innerHTML = '';
-    //   });
 
