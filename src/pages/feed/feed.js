@@ -1,5 +1,5 @@
 import "../../lib/config-firebase.js";
-import { lerPost } from "../../lib/config-firestore.js";
+//import { lerPost } from "../../lib/config-firestore.js";
 
 
 export default () => { 
@@ -12,9 +12,9 @@ export default () => {
     `;
 
     containerFeed.innerHTML = templateFeed;
-
+    console.log("entrou");
     
-    const listButtonPost = containerLogin.querySelector("#buttonPost");
+    const listButtonPost = containerFeed.querySelector("#buttonPost");
  
     listButtonPost.addEventListener("click", (e) => {
         e.preventDefault();
