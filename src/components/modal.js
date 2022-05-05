@@ -1,4 +1,4 @@
-import { editPost } from '../lib/firestore.js';
+import { editPost, deletePost } from '../lib/firestore.js';
 
 export function modalEditPost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
@@ -54,7 +54,43 @@ export function modalEditPost(postObj, postContainer) {
   return modalContainer;
 }
 
+export function modalDeletePost(postObj, postContainer) {
+  const modalContainer = document.createElement("div");
+  const template = `
+  <div id="modal" class="modal">
+      <p>Tem certeza que quer excluir essa receita?</p>
 
+      <button class="span-delete-btn" id="yes-btn" type="submit">Excluir</button>
+      <button class="span-delete-btn" id="no-btn" type="submit">Cancelar</button>
+  </div>
+  `;
+  modalContainer.innerHTML = template;
+
+  const modal = modalContainer.querySelector("#modal");
+  const confirmBtn = modalContainer.querySelector('#yes-btn');
+  const declineBtn = modalContainer.querySelector('#no-btn');
+
+  confirmBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    deletePost(postObj.id).then(() => {
+      postContainer.remove();
+    });
+  });
+
+  declineBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalContainer.remove();
+  });
+  
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modalContainer.remove();
+    }
+  });
+
+  return modalContainer;
+}
 
 // // deletePostBtn.addEventListener('click', async (e) => {
 // //     e.preventDefault();
