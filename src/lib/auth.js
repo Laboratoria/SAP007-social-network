@@ -47,10 +47,9 @@ export function userLogout() {
 //   const user = auth.currentUser;
 //   return user;
 // }
-  export const user = auth.currentUser;
-  export function checkLogin(callback) {
-    
-    onAuthStateChanged(auth, (user) => {
-      callback(user !== null)
-    });
-  }
+export const user = auth.currentUser;
+export function checkLogin(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user !== null)
+  });
+}

@@ -11,7 +11,6 @@ import {
   deleteDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
-
 // import { auth } from '../configs/config.firebase.js';
 
 const db = getFirestore();
@@ -51,7 +50,8 @@ export const deletePost = async (id) => {
 export async function likePost(id, userEmail) {
   try {
     const postId = doc(db, "posts", id);
-    return await updateDoc(postId, {
+    console.log(postId);
+    await updateDoc(postId, {
       likes: arrayUnion(userEmail),
     });
   } catch (e) {
@@ -78,7 +78,6 @@ export const editPost = async (id, title, recipe) => {
     recipe,
   });
   return post;
-
 }
 
 
