@@ -1,6 +1,6 @@
 import { likePost, dislikePost } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
-import { modalEditPost  } from "../components/modal.js";
+import { modalEditPost } from "../components/modal.js";
 
 export function postComponent(postObj) {
   // const isPostOwner = postObj.userEmail === auth.currentUser.email;
@@ -21,7 +21,7 @@ export function postComponent(postObj) {
       <div class='post-interations'>
       <button id="cookie-btn"> Curtir </button>
 
-      <p class="num-likes">Likes:<span id="num-likes">${postObj.likes.length}</span></p>
+      <p class="num-likes">Likes:<span id="numLikes-${postObj.id}">${postObj.likes.length}</span></p>
 
       <button id="pencil-btn">Editar</button>
       <button id="trash-btn">Apagar</button> 
@@ -33,37 +33,53 @@ export function postComponent(postObj) {
     `;
   postsContainer.innerHTML = templatePost;
 
-//  if (isPostOwner) {
-    const editPost = postsContainer.querySelector("#pencil-btn");
-    editPost.addEventListener("click", (e) => {
-      e.preventDefault();
-      postsContainer.appendChild(modalEditPost(postObj, postsContainer));
-    });
-//  }
+  //  if (isPostOwner) {
+  const editPost = postsContainer.querySelector("#pencil-btn");
+  editPost.addEventListener("click", (e) => {
+    e.preventDefault();
+    postsContainer.appendChild(modalEditPost(postObj, postsContainer));
+  });
+  //  }
 
   const likeButton = postsContainer.querySelector("#cookie-btn");
-  const countLikes = postsContainer.querySelector("#num-likes");
+  const countLikes = postsContainer.querySelector(`#numLikes-${postObj.id}`);
+  const postLike = postObj.likes;
+  let arrayLike = postLike.length;
 
-
-  likeButton.addEventListener("click", async () => {
-    const postLike = postObj.likes;
-    console.log(postLike);
+  likeButton.addEventListener('click', async (e) => {
+    e.preventDefault();
     if (!postLike.includes(auth.currentUser.email)) {
-      console.log(postObj.id, auth.currentUser.email);
-      await likePost(postObj.id, auth.currentUser.email);
-      // likePost(postObj.id, auth.currentUser.email).then(() => {
-      //   postLike.push(auth.currentUser.email);
-      const addLikeNum = Number(countLikes.innerHTML) + 1;
-      countLikes.innerHTML = addLikeNum;
-      // });
+      likePost(postObj.id, auth.currentUser.email);
+      postLike.push(auth.currentUser.email);
+      arrayLike += 1;
+      countLikes.textContent = arrayLike;
     } else {
-      await dislikePost(postObj.id, auth.currentUser.email).then(() => {
-        postLike.splice(auth.currentUser.email);
-        const addLikeNum = Number(countLikes.innerHTML) - 1;
-        countLikes.innerHTML = addLikeNum;
-      });
+      const likeUser = postLike.indexOf(auth.currentUser.email);
+      dislikePost(postObj.id, auth.currentUser.email);
+      postLike.splice(likeUser, 1);
+      arrayLike -= 1;
+      countLikes.textContent = arrayLike;
     }
   });
+
+  // likeButton.addEventListener("click", async () => {
+  //   const postLike = postObj.likes;
+  //   console.log(postLike);
+  //   if (!postLike.includes(auth.currentUser.email)) {
+  //     console.log(postObj.id, auth.currentUser.email);
+  //     await likePost(postObj.id, auth.currentUser.email);
+  //     // likePost(postObj.id, auth.currentUser.email).then(() => {
+  //     //   postLike.push(auth.currentUser.email);
+  //     const addLikeNum = Number(countLikes.innerHTML) + 1;
+  //     countLikes.innerHTML = addLikeNum;
+  //     // });
+  //   } else {
+  //     dislikePost(postObj.id, auth.currentUser.email);
+  //     // postLike.splice(auth.currentUser.email);
+  //     const addLikeNum = Number(countLikes.innerHTML) - 1;
+  //     countLikes.innerHTML = addLikeNum;
+  //   }
+  // });
   console.log(likePost(postObj.id, auth.currentUser.email));
   // getPosts();
   return postsContainer;
