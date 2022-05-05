@@ -29,9 +29,9 @@ const msgError = container.querySelector("#msg-error")
 btnPost.addEventListener("click", async() => {
   const timeLine= postArea.innerHTML;
   postArea.innerHTML="";
-  if (textPost.value==="") {
-  msgError.innerHTML= "Opa, digite sua mensagem!";}
-  else;
+  if (textPost.value ==="") {
+  msgError.innerHTML = "Opa, digite sua mensagem!";
+} else; {
   await createPost(textPost.value);
   postArea.innerHTML += `
   <div class= "postArea" id="postArea">
@@ -39,7 +39,8 @@ btnPost.addEventListener("click", async() => {
   </div>
   `
   postArea.innerHTML+= timeLine
-  })
+  }
+});
 
   return container;
 
