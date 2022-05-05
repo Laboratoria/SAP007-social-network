@@ -4,7 +4,7 @@ import {
 
 import { createComments } from './comments.js';
 
-export function postElement(post, user) {
+export function postElement(post, user, postId) {
   let numberLikes = post.like.length;
   const date = new Date(post.day.seconds * 1000);
   const timelinePost = document.createElement('div');
@@ -50,7 +50,7 @@ export function postElement(post, user) {
 
   btnLike.addEventListener('click', () => {
     if (userLike.length === 0) {
-      likePost(post.idPost, user.uid).then(() => {
+      likePost(postId, user.uid).then(() => {
         userLike.push(user.uid);
         numberLikes += 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
@@ -65,7 +65,7 @@ export function postElement(post, user) {
         }, 4000);
       });
     } else {
-      removeLikePost(post.idPost, user.uid).then(() => {
+      removeLikePost(postId, user.uid).then(() => {
         userLike = [];
         numberLikes -= 1;
         paragraphLikeValue.textContent = `${numberLikes}`;
@@ -108,11 +108,11 @@ export function postElement(post, user) {
     comment.message = inputComment.value;
     comment.day = new Date();
     comment.day.seconds = comment.day.getTime() / 1000;
-    console.log(comment);
-    createCommentPost(post.idPost, comment).then(() => {
+
+    createCommentPost(postId, comment).then(() => {
       formComment.classList.toggle('active');
       inputComment.value = '';
-      divLikePost.appendChild(createComments(comment, user, post.idPost));
+      divLikePost.appendChild(createComments(comment, user, postId));
     }).catch(() => {
       document.querySelector('#warnings-feed').style.display = 'block';
       document.querySelector('#warnings-feed-message').textContent = 'Infelizmente não estamos conseguindo compartilhar a sua mensagem...';
@@ -126,7 +126,7 @@ export function postElement(post, user) {
 
   if (post.comment.length !== 0) {
     post.comment.forEach((oneComment) => {
-      divLikePost.appendChild(createComments(oneComment, user, post.idPost));
+      divLikePost.appendChild(createComments(oneComment, user, postId));
     });
   }
 
@@ -143,7 +143,7 @@ export function postElement(post, user) {
     <button class="close-modify btn-edit-style">Cancelar Editar</button>
   </div>
   `;
-  // const modal com template do modal de excluir
+
   const modalDelete = document.createElement('div');
   modalDelete.setAttribute('class', 'modal-delete');
   modalDelete.innerHTML = `
@@ -153,7 +153,7 @@ export function postElement(post, user) {
     <button class="close-delete btn-edit-style">Cancelar</button>
   </div>
   `;
-  // aqui será o menu de configurações que só aparece pro usuário dono do post
+
   if (user.uid === post.userUid) {
     timelinePost.appendChild(modalDelete);
     mainPost.appendChild(modifyForm);
@@ -199,7 +199,7 @@ export function postElement(post, user) {
     btnConfirmEdit.addEventListener('click', (e) => {
       e.preventDefault();
       if (inputModify.value !== post.message && inputModify.value.trim().length !== 0) {
-        editPost(post.idPost, inputModify.value)
+        editPost(postId, inputModify.value)
           .then(() => {
             timelinePost.querySelector('#post-text').textContent = inputModify.value;
             inputModify.value = '';
@@ -218,7 +218,7 @@ export function postElement(post, user) {
     });
     btnDeletePost.addEventListener('click', (e) => {
       e.preventDefault();
-      removePost(post.idPost).then(() => {
+      removePost(postId).then(() => {
         timelinePost.innerHTML = '';
       }).catch((error) => console.log(error));
     });

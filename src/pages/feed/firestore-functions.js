@@ -22,16 +22,6 @@ export function createPost(post) {
   return postObject;
 }
 
-export function generateIdPost(id) {
-  const docRef = doc(bd, 'post', id);
-
-  const postWithId = updateDoc(docRef, {
-    idPost: id,
-  });
-
-  return postWithId;
-}
-
 export function likePost(idPost, uidUser) {
   const docRef = doc(bd, 'post', idPost);
   const likedPost = updateDoc(docRef, {
