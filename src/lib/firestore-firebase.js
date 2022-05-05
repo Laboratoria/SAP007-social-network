@@ -1,11 +1,20 @@
-import { collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-import {db} from "./config-firebase.js"
+import {
+  collection,
+  getDocs,
+  addDoc
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
+import {
+  db
+} from "./config-firebase.js"
+import {
+  auth
+} from "./authentication.js"
 
 export const createPost = async (textPost) => {
   try {
     const docRef = await addDoc(collection(db, 'post'), {
       textPost,
-      userEmail,
+      userEmail: auth.currentUser.email,
       message: textPost,
       data: new Date(),
       uid: auth.currentUser.uid,
@@ -13,8 +22,8 @@ export const createPost = async (textPost) => {
       likes: [],
     });
 
-    return docRef;} catch (e) {
-      e('Post não publicado', e);
-    }
-  };
-
+    return docRef;
+  } catch (e) {
+    console.log('Post não publicado', e);
+  }
+};

@@ -5,8 +5,9 @@
 .tip {
   color: black;
   background-color: #F28241;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   text-align: left;
+  font-size:1.125rem;
 }
 .post-text{
   background-color: #F2E8D5;
@@ -16,14 +17,14 @@
 .post-button{
   background-color: #F2E8D5;
   border-color: #F2E8D5;
-  border-radius: 5px;
+  border-radius: 0.313rem;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1900px) {
   .tip, .post-text, .post-button{
     width: 100%;
-    font-size: 15px;
-    border-radius: 10px;
+    font-size: 0.938rem;
+    border-radius: 0.625rem;
   }
   .post-text{
     width: auto;
@@ -31,6 +32,6 @@
   .post-button{
     width: auto;
     height: auto;
-    border-radius: 100px;
+    border-radius: 6.25rem;
   }
 }

@@ -84,13 +84,13 @@ p {
 }
 
 @media (min-width: 360px) and (max-width: 915px) {
-  * {
+  /** {
     margin: 0;
     margin-left: 15px;
     margin-top: 13px;
     background-color: #283040;
     font-family: Anton;
-  }
+  }*/
 
   .logo {
     justify-content: center;
@@ -152,13 +152,13 @@ p {
 }
 
 @media (min-width: 768px) {
-  * {
+  /** {
     margin: 0%;
     margin-right: 4px;
     margin-top: 13px;
     background-color: #283040;
     font-family: Anton;
-  }
+  }*/
   .title {
     color: #fff;
     font-size: 3rem;
