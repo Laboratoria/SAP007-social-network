@@ -1,6 +1,6 @@
 import { likePost, dislikePost } from "../lib/firestore.js";
 import { auth } from "../configs/config.firebase.js";
-import { modalEditPost  } from "../components/modal.js";
+import { modalEditPost, modalDeletePost  } from "../components/modal.js";
 
 export function postComponent(postObj) {
   // const isPostOwner = postObj.userEmail === auth.currentUser.email;
@@ -40,6 +40,13 @@ export function postComponent(postObj) {
       postsContainer.appendChild(modalEditPost(postObj, postsContainer));
     });
 //  }
+    const deletePost = postsContainer.querySelector("#trash-btn");
+    deletePost.addEventListener("click", (e) => {
+      e.preventDefault();
+      postsContainer.appendChild(modalDeletePost(postObj, postsContainer));
+    });
+
+
 
   const likeButton = postsContainer.querySelector("#cookie-btn");
   const countLikes = postsContainer.querySelector("#num-likes");
@@ -68,6 +75,9 @@ export function postComponent(postObj) {
   // getPosts();
   return postsContainer;
 }
+
+
+
   //deletePostBtn.addEventListener('click', async (e) => {
    // e.preventDefault();
   //  deletePostSpan.innerHTML += `
