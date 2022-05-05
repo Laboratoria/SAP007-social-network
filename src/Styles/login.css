@@ -15,8 +15,93 @@
     width: 13em;
 }
 .title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.25rem;
+  align-items: center;
+}
+.root {
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.email,
+.password,
+.enter,
+.google {
+  background-color: #f2e8d5;
+  position: relative;
+  border: 0.063rem solid;
+  border-radius: 1.188rem;
+  text-align: center;
+  height: 2em;
+  width: 20em;
+}
+
+.google {
+  background-color: #283040;
+  border-color: #283040;
+  color: #fff;
+  font-size: 1.6em;
+  text-align: center;
+}
+.googleLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.googleBtn {
+  margin: 0;
+  height: auto;
+  width: 90px;
+  margin-bottom: 15px;
+}
+.enter {
+  margin: -0.1rem;
+  padding: 3px;
+  width: 6em;
+  height: 2em;
+  cursor: pointer;
+  color: #757575;
+}
+a {
+  margin: 1rem;
+  text-decoration: none;
+  color: #fff;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.6em;
+  z-index: 1;
+}
+
+p {
+  color: #fff;
+  font-size: 1.6em;
+}
+
+@media (min-width: 360px) and (max-width: 915px) {
+  * {
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 13px;
+    background-color: #283040;
+    font-family: Anton;
+  }
+
+  .logo {
+    justify-content: center;
+    text-align: center;
+    height: auto;
+    width: 17em;
+    margin-left: 50 px;
+  }
+  .title {
     color: #fff;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
     margin-top: 1.25rem;
@@ -41,7 +126,7 @@
     background-color: #283040;
     border-color: #283040;
     color: #fff;
-    font-size: 0.75em;
+    font-size: 1.6em;
     text-align: center;
 }
 .googleLogin{
@@ -50,7 +135,7 @@
     justify-content: center;
     align-items: center;
 }
- .googleBtn{
+.googleBtn{
     margin: 0;
     height: auto;
     width: 50px;
@@ -66,10 +151,24 @@
 
 }
 
-a {
-    margin: 2rem;
-    text-decoration: none;
+@media (min-width: 768px) {
+  * {
+    margin: 0%;
+    margin-right: 4px;
+    margin-top: 13px;
+    background-color: #283040;
+    font-family: Anton;
+  }
+  .title {
     color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.25rem;
+    align-items: center;
+  }
+
+  .logo {
     justify-content: center;
     text-align: center;
-   }
+  }}}
