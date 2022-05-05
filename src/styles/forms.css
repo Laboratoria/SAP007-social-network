@@ -8,8 +8,9 @@ body {
     background-color: #faebd7;
 }
 .logo {
-    width: 18vw;
+    width: 28vw;
     height: 30vh;
+    margin-top: 20px;
 }
 
 .main-header,
@@ -135,7 +136,7 @@ color:black;
 
 @media (max-width:480px) {
     .logo {
-        width: 55vw;
+        width: 75vw;
         height: 28vh;
     }
 
