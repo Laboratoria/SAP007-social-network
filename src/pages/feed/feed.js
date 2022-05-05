@@ -3,10 +3,10 @@ import { lerPost } from "../../lib/config-firestore.js";
 
 
 export default () => { 
-    const containerFeed = document.createElement('div');
+    let containerFeed = document.createElement('div');
 
-    const templateFeed = `
-    <p id="post"></p>
+    let templateFeed = `
+    <p id="post">Post</p>
     <input type="text" placeholder="Qual a sua teoria?" /><br>
     <br><button type="submit" id='buttonPost'>Postar</button><br>
     `;
@@ -14,7 +14,7 @@ export default () => {
     containerFeed.innerHTML = templateFeed;
 
     
-    const listButtonPost = containerLogin.querySelector("#buttonPost");
+    let listButtonPost = containerLogin.querySelector("#buttonPost");
  
     listButtonPost.addEventListener("click", (e) => {
         e.preventDefault();

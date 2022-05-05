@@ -17,4 +17,4 @@ getDocs(collectionRef)
     .then((snapshot) => {
         console.log(snapshot.docs);
     })
-}
+}""
