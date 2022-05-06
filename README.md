@@ -2,16 +2,16 @@
 
 ## Índice
 
-- [1. Resumo do Projeto](#&#127919;-1-resumo-do-projeto)
-- [2. Definição do Projeto](#&#127991;&#65039;-2-definição-do-projeto)
-- [3. Planejamento e Organização](#&#128187;-3-planejamento-e-organização)
-- [4. Protótipo de baixa fidelidade](#&#127902;&#65039;-4-protótipo-de-baixa-fidelidade)
-- [5. Protótipo de alta fidelidade](#&#127916;-5-protótipo-de-alta-fidelidade)
-- [6. Paleta de Cores](#&#128396;&#65039;-6-paleta-de-cores)
-- [7. Histórias de usuários](#&#128209;-7-histórias-de-usuários)
-- [8. Testes de Usabilidade](#&#128242;-8-testes-de-usabilidade)
-- [9. Tecnologias Utilizadas](#&#x1F916;-9-tecnologias-utilizadas)
-- [10. Considerações](#&#x1F469;&#x200D;&#x1F4BB;-10-considerações)
+- [1. Resumo do Projeto](#1-resumo-do-projeto)
+- [2. Definição do Projeto](#2-definição-do-projeto)
+- [3. Planejamento e Organização](#3-planejamento-e-organização)
+- [4. Protótipo de baixa fidelidade](#4-protótipo-de-baixa-fidelidade)
+- [5. Protótipo de alta fidelidade](#5-protótipo-de-alta-fidelidade)
+- [6. Paleta de Cores](#6-paleta-de-cores)
+- [7. Histórias de usuários](#7-histórias-de-usuários)
+- [8. Testes de Usabilidade](#8-testes-de-usabilidade)
+- [9. Tecnologias Utilizadas](#9-tecnologias-utilizadas)
+- [10. Considerações](#10-considerações)
 
 ***
 
