@@ -5,23 +5,23 @@
 - [1. Resumo do Projeto](#1-resumo-do-projeto)
 - [2. Definição do Projeto](#2-definição-do-projeto)
 - [3. Planejamento e Organização](#3-planejamento-e-organização)
-- [4. Protótipo de baixa fidelidade](#4-protótipo-de-baixa-fidelidade)
-- [5. Protótipo de alta fidelidade](#5-protótipo-de-alta-fidelidade)
+- [4. Protótipo de Baixa Fidelidade](#4-protótipo-de-baixa-fidelidade)
+- [5. Protótipo de Alta Fidelidade](#5-protótipo-de-alta-fidelidade)
 - [6. Paleta de Cores](#6-paleta-de-cores)
-- [7. Histórias de usuários](#7-histórias-de-usuários)
+- [7. Histórias de Usuários](#7-histórias-de-usuários)
 - [8. Testes de Usabilidade](#8-testes-de-usabilidade)
 - [9. Tecnologias Utilizadas](#9-tecnologias-utilizadas)
 - [10. Considerações](#10-considerações)
 
 ***
 
-## 1. Resumo do projeto.
+## 1. Resumo do Projeto.
 
 **_DevDoubt_** foi pensado e desenvolvido com a intenção de ajudar os programadores profissionais e os entusiastas a encontrarem respostas para suas dúvidas de forma mais rápida e prática.
 
 Como sabemos, a internet possue uma infinidade de informações, e muitas vezes, para conseguir filtrar essas informações, acaba demandando um bom tempo de experiência, sendo assim, decidimos unir em um só lugar as melhores soluções para seus Bugs ou até mesmo aperfeiçoamento de seu código.
 
-## 2.  Definição do Projeto.
+## 2. Definição do Projeto.
 
 O site foi desenvolvido para que o usuário possa navegar de forma simples e prática.
 
@@ -50,7 +50,7 @@ Outro ponto bastante positivo, foi que procuramos fazer o projeto na sua grande 
 
 <img src="readme.img/trello.png">
 
-## 4. Protótipo de baixa fidelidade.
+## 4. Protótipo de Baixa Fidelidade.
 
 Foi esboçado a princípio um projeto em folha de papel, para que pudéssemos juntar as ideias, após, fizemos um protótipo utilizando a ferramenta do Figma.
 Houve algumas pequenas mudanças, mas buscamos manter a idéia original.
@@ -63,7 +63,7 @@ Houve algumas pequenas mudanças, mas buscamos manter a idéia original.
 
 <img src="readme.img/prototipoBaixaMobile.png">
 
-## 5. Protótipo de alta fidelidade.
+## 5. Protótipo de Alta Fidelidade.
 
 O protótipo de alta fidelidade foi desenvolvido na ferramenta do Figma.
 
@@ -75,7 +75,7 @@ Nossa paleta de cores foi inspirada no reconhecido site Stack Overflow.
 
 <img src="readme.img/paletaDeCores.jpeg">
 
-## 7. Histórias de usuários.
+## 7. Histórias de Usuários.
 
 Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/DAE7WS-Ty_8/1xkLEZNoytuAD-69_wOALg/view?utm_content=DAE7WS-Ty_8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) entender as necessidades do nosso público e trazer um app que possa facilitar o dia a dia dos programadores profissionais e os entusiastas centralizando em um só lugar, as respostas para diversas dúvidas de códigos.
 
@@ -85,7 +85,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Interface que exiba as soluções postadas.
 - [x] Visualização da página que está navegando.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Página HTML que exiba as soluções postadas.
 - Estilização conforme protótipo e responsividade.
@@ -98,7 +98,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Interface que defina a finalidade da aplicação.
 - [x] Opção de login.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Página HTML que exiba o slogan.
 - Inputs de entrada.
@@ -115,7 +115,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Validação da senha de modo oculto.
 - [x] Voltar para a página de login.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Campos de preenchimento.
 - Autenticações.
@@ -129,7 +129,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Opção de login com Google.
 - [x] Validação da conta Google.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Botão clicável que autentique conta Google e dá acesso ao aplicativo.
 - Estilização conforme protótipo e responsividade.
@@ -142,7 +142,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Opção de login.
 - [x] Verificar se o usuário está logado.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Botão clicável que permita o login e autentique.
 - Estilização conforme protótipo e responsividade.
@@ -156,7 +156,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Campo para título e texto.
 - [x] Botão de postagem.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Botão postar funcional.
 - Campos de texto com validação de conteúdo.
@@ -171,7 +171,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Opção editar que altere a forma de visualização.
 - [x] Opção deletar que confirme a exclusão.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Botões de editar e deletar no perfil.
 - Campos de texto com validação de conteúdo.
@@ -187,7 +187,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - [x] Contagem ativa das curtidas.
 - [x] Exclusão da curtida.
 
-#### Definição de Pronto:
+#### Definição de pronto:
 
 - Botão de curtida.
 - Ativação e inativação da curtida.
@@ -196,7 +196,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - Testes unitários e de usabilidade.
 - Implementação.
 
-## 8. Testes de usabilidade.
+## 8. Testes de Usabilidade.
 
 Foram realizados testes de usabilidades com pessoas de diferentes cargos e faixas etárias:
 
