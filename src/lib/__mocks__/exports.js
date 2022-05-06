@@ -1,4 +1,8 @@
-export const getAuth = jest.fn();
+export const getAuth = jest.fn(()=>{
+    return {currentUser: {
+        uid: 'mxmskxsxw323',
+    }};
+});
 export const createUserWithEmailAndPassword = jest.fn();
 export const signInWithEmailAndPassword = jest.fn();
 export const GoogleAuthProvider = jest.fn();

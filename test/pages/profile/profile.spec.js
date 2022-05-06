@@ -22,7 +22,7 @@ describe('deletePost', () => {
     btn.dispatchEvent(new Event('click'));
 
     expect(deletePost).toHaveBeenCalledTimes(1);
-    expect(deletePost).toHaveBeenCalledWith(true);
+    expect(deletePost).toHaveBeenCalledWith(id);
   });
 });
 
