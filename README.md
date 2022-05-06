@@ -2,26 +2,26 @@
 
 ## Índice
 
-- [1. Resumo do Projeto](#1-resumo-do-projeto)
-- [2. Definição do Projeto](#2-definição-do-projeto)
-- [3. Planejamento e Organização](#3-planejamento-e-organização)
-- [4. Protótipo de baixa fidelidade](#4-protótipo-de-baixa-fidelidade)
-- [5. Protótipo de alta fidelidade](#5-protótipo-de-alta-fidelidade)
-- [6. Paleta de Cores](#6-paleta-de-cores)
-- [7. Histórias de usuários](#7-histórias-de-usuários)
-- [8. Testes de Usabilidade](#8-testes-de-usabilidade)
-- [9. Tecnologias Utilizadas](#9-tecnologias-utilizadas)
-- [10. Considerações](#10-considerações)
+- [1. Resumo do Projeto](#&#127919;-1-resumo-do-projeto)
+- [2. Definição do Projeto](#&#127991;&#65039;-2-definição-do-projeto)
+- [3. Planejamento e Organização](#&#128187;-3-planejamento-e-organização)
+- [4. Protótipo de baixa fidelidade](#&#127902;&#65039;-4-protótipo-de-baixa-fidelidade)
+- [5. Protótipo de alta fidelidade](#&#127916;-5-protótipo-de-alta-fidelidade)
+- [6. Paleta de Cores](#&#128396;&#65039;-6-paleta-de-cores)
+- [7. Histórias de usuários](#&#128209;-7-histórias-de-usuários)
+- [8. Testes de Usabilidade](#&#128242;-8-testes-de-usabilidade)
+- [9. Tecnologias Utilizadas](#&#x1F916;-9-tecnologias-utilizadas)
+- [10. Considerações](#&#x1F469;&#x200D;&#x1F4BB;-10-considerações)
 
 ***
 
-## 1. Resumo do projeto.
+## &#127919; 1. Resumo do projeto.
 
 **_DevDoubt_** foi pensado e desenvolvido com a intenção de ajudar os programadores profissionais e os entusiastas a encontrarem respostas para suas dúvidas de forma mais rápida e prática.
 
 Como sabemos, a internet possue uma infinidade de informações, e muitas vezes, para conseguir filtrar essas informações, acaba demandando um bom tempo de experiência, sendo assim, decidimos unir em um só lugar as melhores soluções para seus Bugs ou até mesmo aperfeiçoamento de seu código.
 
-## 2. Definição do Projeto.
+## &#127991;&#65039; 2.  Definição do Projeto.
 
 O site foi desenvolvido para que o usuário possa navegar de forma simples e prática.
 
@@ -35,12 +35,12 @@ Você pode acessar a aplicação utilizando o usuário de teste abaixo:
 
 | #                     	|             Login            |         
 |:-----------------------:|:----------------------------:	|
-| e-mail:                | sap007@laboratoria.com.br 	     | 
-| senha:                	|            lab007          	|            
+| &#128233;               | sap007@laboratoria.com.br 	     | 
+| &#128272;                	|            lab007          	|            
 
 </div>
 
-## 3. Planejamento e Organização.
+## &#128187; 3. Planejamento e Organização.
 
 O projeto foi desenvolvido em trio e a principal ferramenta utilizada para nossa organização foi o Trello.
 
@@ -50,7 +50,7 @@ Outro ponto bastante positivo, foi que procuramos fazer o projeto na sua grande 
 
 <img src="readme.img/trello.png">
 
-## 4. Protótipo de baixa fidelidade.
+## &#127902;&#65039; 4. Protótipo de baixa fidelidade.
 
 Foi esboçado a princípio um projeto em folha de papel, para que pudéssemos juntar as ideias, após, fizemos um protótipo utilizando a ferramenta do Figma.
 Houve algumas pequenas mudanças, mas buscamos manter a idéia original.
@@ -63,19 +63,19 @@ Houve algumas pequenas mudanças, mas buscamos manter a idéia original.
 
 <img src="readme.img/prototipoBaixaMobile.png">
 
-## 5. Protótipo de alta fidelidade.
+## &#127916; 5. Protótipo de alta fidelidade.
 
 O protótipo de alta fidelidade foi desenvolvido na ferramenta do Figma.
 
 <img src="readme.img/prototipoAltaMobile.png">
 
-## 6. Paleta de Cores.
+## &#128396;&#65039; 6. Paleta de Cores.
 
 Nossa paleta de cores foi inspirada no reconhecido site Stack Overflow.
 
 <img src="readme.img/paletaDeCores.jpeg">
 
-## 7. Histórias de usuários.
+## &#128209; 7. Histórias de usuários.
 
 Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/DAE7WS-Ty_8/1xkLEZNoytuAD-69_wOALg/view?utm_content=DAE7WS-Ty_8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) entender as necessidades do nosso público e trazer um app que possa facilitar o dia a dia dos programadores profissionais e os entusiastas centralizando em um só lugar, as respostas para diversas dúvidas de códigos.
 
@@ -196,7 +196,7 @@ Buscamos através das [_Histórias de Usuários_](https://www.canva.com/design/D
 - Testes unitários e de usabilidade.
 - Implementação.
 
-## 8. Testes de usabilidade.
+## &#128242; 8. Testes de usabilidade.
 
 Foram realizados testes de usabilidades com pessoas de diferentes cargos e faixas etárias:
 
@@ -221,7 +221,7 @@ Solução: Implementamos a funcionalidade em que aparece no post o nome que o us
 ### Thiago Kpelo - 34 anos:
 _Cargo:_ Software Engineer (Loft)
 
-## 9. Tecnologias Utilizadas.
+## &#x1F916; 9. Tecnologias Utilizadas.
 - HTML 5
 - CSS3
 - JavaScript Vanilla
@@ -235,7 +235,7 @@ _Cargo:_ Software Engineer (Loft)
 - Slack
 - Trello
 
-## 10. Considerações.
+## &#x1F469;&#x200D;&#x1F4BB; 10. Considerações.
 
 DevDoubt foi desenvolvido por [_Fernanda Monteiro_](https://github.com/Fe-Monteiro), [_Leticia Antunes_](https://github.com/leticiaantunesjpeg) e [_Thaís Bonalume_](https://github.com/moreirathais) uma equipe incrível, sendo nosso terceiro projeto a ser realizado no Bootcamp da <Laboratória> &#128155; na turma SAP007 e nos ensinou sobre:
 - Manipulação do DOM, Objetos e Array;
