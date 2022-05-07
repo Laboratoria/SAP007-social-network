@@ -64,7 +64,7 @@ export const pageLogin = () => {
         console.log('success', response);
         window.location.hash = '#feed';
       }).catch((error) => {
-        userError.innerHTML = errorHandlingGeneral(error);
+        userError.innerHTML = errorHandlingGeneral(error.code);
         userError.style.display = 'block';
       });
     }
@@ -76,7 +76,7 @@ export const pageLogin = () => {
     logarGmail().then(() => {
       window.location.hash = '#feed';
     }).catch((error) => {
-      userErrorGmail.innerHTML = errorHandlingGeneral(error);
+      userErrorGmail.innerHTML = errorHandlingGeneral(error.code);
       userErrorGmail.style.display = 'block';
     });
   });
