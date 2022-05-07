@@ -20,7 +20,6 @@ export const createPost = async (textPost, textTitle) => {
   const user = auth.currentUser;
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
-      
       title: textTitle,
       recipe: textPost,
       author: user.displayName,
