@@ -1,7 +1,7 @@
 export const errorHandlingGeneral = (error) => {
   let returnValue;
 
-  switch (error.code) {
+  switch (error) {
     case 'auth/invalid-email':
       returnValue = 'Campos obrigatórios';
 
@@ -27,6 +27,5 @@ export const errorHandlingGeneral = (error) => {
       break;
     default: returnValue = 'Não foi possível completar essa ação!';
   }
-
   return returnValue;
 };
