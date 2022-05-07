@@ -105,7 +105,7 @@ export const feed = (user) => {
         generalErrors(warningPost, warningsSection);
       });
     } else {
-      generalErrors(warningEmptyPost, warningGeneral);
+      generalErrors(warningEmptyPost, warningsSection);
     }
   });
 

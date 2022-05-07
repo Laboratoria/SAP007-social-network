@@ -241,6 +241,18 @@
   text-align: center;
 }
 
+.warnings-feed-post,
+.warnings-feed-empty-post,
+.warnings-feed-general {
+  display: none;
+}
+
+.warnings-feed-post.active,
+.warnings-feed-empty-post.active,
+.warnings-feed-general.active {
+  display: block;
+}
+
 .warnings-feed.active {
   visibility: visible;
 }

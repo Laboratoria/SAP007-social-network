@@ -31,6 +31,7 @@ describe('createPost(post)', () => {
   const input = timeline.querySelector('#input-post');
   const btnPost = timeline.querySelector('#btn-post');
   const warningsSection = timeline.querySelector('#warnings-feed');
+  const warningPost = timeline.querySelector('#warnings-feed-post');
 
   it('createPost(post) deve ter sido chamada pelo menos uma vez, deve ter um objeto na chamada que contenha {message: "testando", ...', () => {
     createPost.mockResolvedValueOnce();
@@ -56,13 +57,16 @@ describe('createPost(post)', () => {
     expect(createPost.mock.calls).toHaveLength(1);
   });
 
-  it('CreatePost é chamada e entra em catch adicionando a class active para warningsSection', async () => {
+  it('CreatePost é chamada e entra em catch adicionando a class active para warningsSection e depois de 4 seg a class não existe mais', async () => {
     createPost.mockRejectedValueOnce({ code: 'nada' });
     input.value = 'testando';
     btnPost.dispatchEvent(new Event('click'));
+    expect(warningsSection.classList.contains('active')).toBe(true);
+    expect(warningPost.classList.contains('active')).toBe(true);
     await new Promise(process.nextTick);
     expect(createPost).toHaveBeenCalledTimes(2);
-    expect(warningsSection.classList.contains('active')).toBe(true);
+    expect(warningsSection.classList.contains('active')).toBe(false);
+    expect(warningPost.classList.contains('active')).toBe(false);
   });
 });
 
