@@ -18,6 +18,7 @@ export function modalEditPost(postObj, postContainer) {
 
   const modal = modalContainer.querySelector("#modal");
   const salvarEdit = modalContainer.querySelector("#update-btn");
+  const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
   const title = modalContainer.querySelector("#title-edit");
   const recipe = modalContainer.querySelector("#recipe-edit");
   const errorMessage = modalContainer.querySelector("#error");
@@ -31,7 +32,7 @@ export function modalEditPost(postObj, postContainer) {
             const newRecipe = postContainer.querySelector("#recipe-edit");
             newTitle.innerHTML = title.value;
             newRecipe.innerHTML = recipe.value;
-            modalContainer.remove();
+            // modalContainer.remove();
           })
           .catch(() => {
             console.log("error");
@@ -42,11 +43,15 @@ export function modalEditPost(postObj, postContainer) {
       errorMessage.innerText = "Preencha a mensagem acima com mais de 100 caracteres";
     }
   });
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modalContainer.remove();
-    }
-  });
+  cancelEdit.addEventListener("click", (e) => {
+    e.preventDefault();
+    modalContainer.remove();
+  }); 
+  // window.addEventListener("click", (e) => {
+  //   if (e.target === modal) {
+  //     modalContainer.remove();
+  //   }
+  // });
   return modalContainer;
 }
 
@@ -78,12 +83,11 @@ export function modalDeletePost(postObj, postContainer) {
     modalContainer.remove();
   });
   
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modalContainer.remove();
-    }
-  });
+  // window.addEventListener("click", (e) => {
+  //   if (e.target === modal) {
+  //     modalContainer.remove();
+  //   }
+  // });
 
   return modalContainer;
 }
