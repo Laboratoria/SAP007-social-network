@@ -176,13 +176,13 @@
   padding: 10% 5% 0 5%;
 }
 
-.section-input-post.apear .form-post-apear {
+.section-input-post.active .form-post-apear {
   visibility: visible;
   height: 100vh;
   overflow-y: auto;
 }
 
-.section-input-post.apear .btn-post-input-apear {
+.section-input-post.active .btn-post-input-apear {
   transform: rotate(135deg);
 }
 
@@ -228,7 +228,8 @@
   box-shadow: 0 0 1em var(--black-shadow);
   padding: 2%;
   z-index: 999;
-  display: none;
+  display: block;
+  visibility: hidden;
   position: fixed;
   border: 2px solid var(--black-shadow);
   border-radius: 10px;
@@ -238,6 +239,10 @@
   height: auto;
   width: 70%;
   text-align: center;
+}
+
+.warnings-feed.active {
+  visibility: visible;
 }
 
 @media (min-width: 1024px) {
