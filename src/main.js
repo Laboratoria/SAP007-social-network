@@ -62,3 +62,18 @@ window.addEventListener('load', () => {
   })
   init();
 });
+
+// export const renderPage = () => {
+//   const mainContent = document.getElementById('root');
+//   const routes = {
+//     '/': login,
+//     "/login": login,
+//     '/feed': feed,
+//     '/cadastro': register,
+//   };
+//   mainContent.innerHTML = '';
+//   mainContent.appendChild(routes[window.location.pathname]());
+
+//   window.addEventListener("popstate", renderPage);
+//   window.addEventListener('load', renderPage);
+// };
