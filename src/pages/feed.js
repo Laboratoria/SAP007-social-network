@@ -11,9 +11,9 @@ export default function feed() {
   feedContainer.innerHTML = `
   <div class="new-post">
     <input id="title-recipe" class="recipe-input" placeholder="Nome da receita" required></input>
-    <textarea id="write-post" class="post-content" placeholder="Postar nova receita" required>
+    <textarea id="recipe-content" class="post-content" placeholder="Postar nova receita" required>
     </textarea>
-    <p id="error-message" class="error-writepost"></p>
+    <span id="error-message" class="error-writepost"></span>
     <button class="post-btn" id="new-post-btn">Postar</button>
     <section class="show-posts" id="showPosts">
     </section>
@@ -23,23 +23,46 @@ export default function feed() {
   feedContainer.appendChild(printNav());
 
   const sectionPost = feedContainer.querySelector("#showPosts");
-  const postContent = feedContainer.querySelector('#write-post');
+  const newPost = feedContainer.querySelector('.new-post');
   const titleContent = feedContainer.querySelector('#title-recipe');
+  const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
   const errorMessage = feedContainer.querySelector('#error-message');
+  const titleValue = titleContent.value;
+  const recipeValue = recipeContent.value;
 
-  btnPost.addEventListener("click", (e) => {
+  newPost.addEventListener('keyup', () => {
+    if (titleValue.length >= 7 && recipeContent.length >= 10) {
+      errorMessage.innerHTML = '';
+      btnPost.disabled = false;
+    } else {
+      errorMessage.innerHTML = 'Insira uma receita válida';
+    }
+  });
+
+  btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
     errorMessage.innerHTML="";
-    if (titleContent.value.length >= "10" && postContent.value.length >= "10"){
-    createPost(postContent.value, auth.currentUser.email)
+    await createPost(titleContent.value, recipeContent.value, auth.currentUser.email);
     showPosts();
-  } else if (titleContent.value === "" && postContent.value === "") {
-    errorMessage.innerText = "Preencha todos os campos acima";
-  } else if (titleContent.value.length < "10" || postContent.value.length < "10"); {
-    errorMessage.innerText = "Preencha os campos com mais de 10 caracteres";
-  }
+    btnPost.disabled = true;
+    titleValue.value = '';
+    recipeValue.value = '';
   });
+
+
+  // btnPost.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   errorMessage.innerHTML="";
+  //   if (titleContent.value.length >= "10" && recipeContent.value.length >= "10"){
+  //   createPost(recipeContent.value, auth.currentUser.email)
+  //   showPosts();
+  // } else if (titleContent.value === "" && recipeContent.value === "") {
+  //   errorMessage.innerText = "Preencha todos os campos acima";
+  // } else if (titleContent.value.length < "10" || recipeContent.value.length < "10"); {
+  //   errorMessage.innerText = "Preencha os campos com mais de 10 caracteres";
+  // } // else (errorMessage.innerHTML="");
+  // });
 
   const showPosts = async () => {
     sectionPost.innerHTML = '';

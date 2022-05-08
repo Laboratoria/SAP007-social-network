@@ -47,11 +47,11 @@ export function modalEditPost(postObj, postContainer) {
     e.preventDefault();
     modalContainer.remove();
   }); 
-  // window.addEventListener("click", (e) => {
-  //   if (e.target === modal) {
-  //     modalContainer.remove();
-  //   }
-  // });
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modalContainer.remove();
+    }
+  });
   return modalContainer;
 }
 
@@ -67,7 +67,6 @@ export function modalDeletePost(postObj, postContainer) {
   `;
   modalContainer.innerHTML = template;
 
-  const modal = modalContainer.querySelector("#modal");
   const confirmBtn = modalContainer.querySelector('#yes-btn');
   const declineBtn = modalContainer.querySelector('#no-btn');
 
@@ -83,11 +82,11 @@ export function modalDeletePost(postObj, postContainer) {
     modalContainer.remove();
   });
   
-  // window.addEventListener("click", (e) => {
-  //   if (e.target === modal) {
-  //     modalContainer.remove();
-  //   }
-  // });
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modalContainer.remove();
+    }
+  });
 
   return modalContainer;
 }
