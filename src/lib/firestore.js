@@ -16,7 +16,7 @@ import { auth } from '../configs/config.firebase.js';
 
 const db = getFirestore();
 
-export const createPost = async (textPost, textTitle) => {
+export const createPost = async (textTitle,textPost) => {
   const user = auth.currentUser;
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
