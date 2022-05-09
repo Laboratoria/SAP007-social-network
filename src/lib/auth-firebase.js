@@ -29,7 +29,6 @@ export function signIn(email, password) {
 
 //Função para sair da rede social
 export function userLogout() {
-  console.log(auth.currentUser.displayName)
     return signOut(auth)
     .then(() => "Logout")
     .catch((error) => error)
@@ -48,15 +47,8 @@ export function validateEmail(email) {
 }
 
 //Observar o estado do usuário, se está logado ou não
-/*onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-*/
+export function keepUserLoggedIn(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user != null);
+  });
+}

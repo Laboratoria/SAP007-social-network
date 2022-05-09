@@ -1,9 +1,8 @@
 import { getPosts, creatPost } from "../lib/firestore-firebase.js";
 import { publishingPosts } from "../componentes/template-post.js";
 import { userLogout } from "../lib/auth-firebase.js";
-//import { auth } from "../lib/config-firebase.js";
 
-export default function home() {
+export default function home(posts) {
   const homePage = document.createElement("div");
   homePage.classList.add("body-home-page")
 

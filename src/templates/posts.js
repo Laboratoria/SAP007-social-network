@@ -1,8 +1,9 @@
-import { profilePosts } from "../componentes/perfil.js"
-import { creatPost, getPosts } from "../lib/firestore-firebase.js"
-import { userLogout, updateUsername } from "../lib/auth-firebase.js"
+import { profilePosts } from "../componentes/perfil.js";
+import { creatPost, postUser, getPosts } from "../lib/firestore-firebase.js";
+import { userLogout } from "../lib/auth-firebase.js";
+import { auth } from "../lib/config-firebase.js";
 
-export default function posts(postUser) {
+export default function posts(profilePost) {
   const profilePage = document.createElement("div");
   profilePage.classList.add("body-post");
 
@@ -34,7 +35,7 @@ export default function posts(postUser) {
 
     <div class="posts-profilePage">
       <section id="new-post-here"></section>
-      <ul id="all-posts" class="ul-posts"></ul>
+      <ul id="user-all-posts" class="ul-posts"></ul>
     </div>
 
     </div>    
@@ -43,7 +44,6 @@ export default function posts(postUser) {
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const sectionNewPost = profilePage.querySelector("#new-post-here")
-  const name = profilePage.querySelector('#name');
 
 
   //Validação dos campos menssagem e título antes de mandar para o firebase
@@ -86,7 +86,7 @@ export default function posts(postUser) {
     }
   });
 
-  //Função para quando clickar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
+  //Função para quando clicar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
   const deleteButton = profilePage.querySelector("#delete-button")
   deleteButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -95,25 +95,34 @@ export default function posts(postUser) {
   })
 
   //todos os posts na tela
-  const showAllPosts = profilePage.querySelector(".ul-posts")
+  /*const showAllPosts = profilePage.querySelector(".ul-posts")
   getPosts().then((allPosts) => {
     allPosts.forEach((item) => {
       const postElement = profilePosts(item);
       showAllPosts.prepend(postElement);
     });
-  });
+  });*/
 
-  //apenas os posts desse usuario na tela
-  /*const post = profilePage.querySelector(".ul-posts");
-  const showAllPosts = async () => {
+  //apenas os posts do usuario na tela
+  const showPosts = profilePage.querySelector(".ul-posts")
+  const showMyPosts = async () => {
     const uid = auth.currentUser.uid;
-    const postsProfile = await postUser(uid);
-    postsProfile.forEach((item) => {
+    const feedProfile = await postUser(uid);
+    feedProfile.forEach((item) => {
       const postCard = profilePosts(item);
-      post.prepend(postCard);
+      showPosts.prepend(postCard);
     });
   };
-  showAllPosts();*/
+  showMyPosts();
+
+  /*const showUserPosts = profilePage.querySelector("#user-all-posts");
+  const uid = auth.currentUser.uid;
+  postUser(uid).then((userPosts) => {
+    userPosts.forEach((item) => {
+      const userPostElement = profilePosts(item);
+      showUserPosts.prepend(userPostElement);
+    });
+  });*/
 
   //Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff")

@@ -1,4 +1,4 @@
-import { deletePost } from "../lib/firestore-firebase.js"
+import { deletePost } from "../lib/firestore-firebase.js";
 import edit from "./edit.js";
 
 export function profilePosts(post) {
@@ -11,7 +11,7 @@ export function profilePosts(post) {
 
   templateProfile.innerHTML = `    
       <div class="section-post-published">
-        <p class="username-post">${post.author}</p>
+        <p class="username-post">${post.user}</p>
         <p class="date-post">${date}</p>
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
