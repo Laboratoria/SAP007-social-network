@@ -20,8 +20,6 @@ let postBtn = containerFeed.querySelector("#btnPost");
 
 async function addDocument_AutoId() {
     let ref = collection(db, "posts");
-    console.log(inputTitulo.value);
-    console.log(inputPost.value);
     const docRef = await addDoc(
       ref, {
         titulo:inputTitulo.value,
