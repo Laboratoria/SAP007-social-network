@@ -1,7 +1,7 @@
 /*
 * @jest-environment jsdom
  */
-import templates from '../../../src/components/templates.js';
+import card from '../../../src/components/templates.js';
 import { deletePost, editPost } from '../../../src/lib/firestore.js';
 
 jest.mock('../../../src/lib/exports.js');
@@ -9,38 +9,39 @@ jest.mock('../../../src/lib/firestore.js');
 
 describe('deletePost', () => {
   it('Deverá ser função de deletar um post', () => {
-    deletePost.mockResolvedValue();
-    const title = 'Jest';
-    const text = 'Jest é um framework de teste unitário de código aberto em JavaScript criado pelo Facebook a partir do framework Jasmine.';
-    const page = templates();
-    const titleInput = page.querySelector('.title');
-    const textInput = page.querySelector('.text');
-    const btn = page.getElementById('yes');
+    const item = {
+      title: 'Teste',
+      text: 'Testando',
+      user: 'hgsyws2344d',
+      id: 'hydxbeychsd12',
+    };
 
-    titleInput.value = title;
-    textInput.value = text;
-    btn.dispatchEvent(new Event('click'));
+    const page = card(item);
+    const deleteAction = page.querySelector('.delete');
+
+    deleteAction.dispatchEvent(new Event('click'));
 
     expect(deletePost).toHaveBeenCalledTimes(1);
-    expect(deletePost).toHaveBeenCalledWith(id);
+    expect(deletePost).toHaveBeenCalledWith(item.id);
   });
 });
 
 describe('editPost', () => {
   it('Deverá ser função de editar um post', () => {
-    editPost.mockResolvedValue();
-    const newTitle = 'Jest';
-    const newText = 'Jest é um framework de teste unitário de código aberto em JavaScript criado pelo Facebook a partir do framework Jasmine.';
-    const page = templates();
-    const titleInput = page.getElementById('title');
-    const textInput = page.getElementById('text');
-    const btn = page.getElementById('update');
+    const item = {
+      title: 'Teste',
+      text: 'Testando',
+      user: 'hgsyws2344d',
+      id: 'hydxbeychsd12',
+    };
+    const page = card(item);
+    const title = page.querySelector('.published-title');
+    const text = page.querySelector('.published-text');
+    const editAction = page.querySelector('.edit');
 
-    titleInput.value = newTitle;
-    textInput.value = newText;
-    btn.dispatchEvent(new Event('click'));
+    editAction.dispatchEvent(new Event('click'));
 
     expect(editPost).toHaveBeenCalledTimes(1);
-    expect(editPost).toHaveBeenCalledWith(newTitle, newText);
+    expect(editPost).toHaveBeenCalledWith(item.id, title.value, text.value);
   });
 });

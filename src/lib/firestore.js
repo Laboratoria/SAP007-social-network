@@ -93,10 +93,3 @@ export const editPost = async (id, title, text) => {
   });
   return post;
 };
-
-// export const addUserName = async (name) => {
-//   const colRef = doc(db, 'posts', name);
-//   await setDoc(colRef, {
-//     name,
-//   });
-// };

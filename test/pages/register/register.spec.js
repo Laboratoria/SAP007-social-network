@@ -23,6 +23,6 @@ describe('userCreate', () => {
     page.dispatchEvent(new Event('submit'));
 
     expect(userCreate).toHaveBeenCalledTimes(1);
-    expect(userCreate).toHaveBeenCalledWith(email, password);
+    expect(userCreate).toHaveBeenCalledWith(email, password, 'User');
   });
 });
