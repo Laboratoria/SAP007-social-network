@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Comfortaa;
+    src: url(../../fonts/Comfortaa-Light.ttf);
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: Comfortaa;
+    background-color:rgba(236, 240, 245, 0.596) ;
+  }
+.btn{
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    width: 150px;
+    align-self: center;
+    border:none;
+    margin-top: 1rem;
+  }
+.btn-primary{
+    background-color: #fff;
+    color:#3D9AE2;
+    border: 2px solid #3D9AE2;
+  }
+  .btn-primary:hover{
+    background-color: transparent;
+    color: #3D9AE2;
+  }
+  

@@ -1,2 +1,4 @@
+@import url("./global.css");
 @import url("./pages/pageLogin/login.css");
 @import url("./pages/pageRegister/register.css");
+@import url("./pages/pageFeed/feed.css");

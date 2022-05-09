@@ -1,17 +1,5 @@
 
-@font-face {
-  font-family: Comfortaa;
-  src: url(fonts/Comfortaa-Light.ttf);
-}
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-  font-family: Comfortaa;
-  background-color:rgba(236, 240, 245, 0.596) ;
-}
+
 .container{
   background: linear-gradient(to bottom,rgba(167, 162, 189, 0.3),rgba(166, 169, 185, 0.418),rgba(138, 154, 173, 0.548));;
   display: flex;
@@ -84,32 +72,14 @@ input{
   margin: 8px;
   padding: 0 5px;
 }
-.btn{
-  color: #fff;
-  padding: 10px;
-  border-radius: 15px;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  width: 150px;
-  align-self: center;
-  border:none;
-  margin-top: 1rem;
-}
-.btn-primary{
-  background-color: #fff;
-  color:rgba(84, 160, 179, 0.945);
-  border: 1px solid #fff;
-}
-.btn-primary:hover{
-  background-color: transparent;
-  color: #fff;
-}
+
+
 .btn-second{
   width: 150px;
   background-color: rgb(18, 139, 190);
   border: 1px solid #fff;
 }
+
 .alternative{
   font-family: Comfortaa;
   font-size: 1.1rem;
