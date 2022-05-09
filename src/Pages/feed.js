@@ -4,7 +4,7 @@ import { createPost } from '../firebase/firestore.js';
 import { getPost, getCurrentUser } from '../firebase/firestore.js';
 export default function feed() {
   const feed = document.createElement('div');
-  const templateFeed = `
+  const boxFeed = `
   <nav class="top-nav">
       <picture>
           <img class="logo" src="./img/logo-sem fundo.png" alt="logo">
@@ -27,7 +27,7 @@ export default function feed() {
   </div>
   `;
 
-  feed.innerHTML = templateFeed;
+  feed.innerHTML = boxFeed;
 
   const posts = feed.querySelector('#posts-container');
   const btnPosts = feed.querySelector('#publish-btn');
@@ -84,6 +84,9 @@ export default function feed() {
               <img class="heart-btn" id="heart-btn" src="./img/heart.svg">
             </button>
           </div>
+          <button class="button-edit">
+              <img class= "edit-btn" id="edit-btn" src="./img/page-edit.svg">
+          </button>
           </li>
         </ul>
       </div>  

@@ -39,17 +39,25 @@ body {
 }
 
 .publish {
-  width: 330px;
+  width: 100%;
   border-radius: 8px;
   background-color: #f5efef;
-  margin-top: 20px;
-  margin-left: 50px;
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.container-publish {
+  width: 65%;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 textarea {
+  height: 150px;
+  width: 100%;
   border-radius: 5px;
   border: none;
-  margin: 20px 12px;
   resize: none;
 }
 
@@ -79,27 +87,31 @@ textarea:focus {
 }
 
 .posts-container {
+  width: 80%;
+  display: flex;
   border-radius: 8px;
-  margin-top: 20px;
-  margin-left: 20px;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
 }
 
-ul {
+.box-posts ul {
   list-style: none;
 }
 
 .box-posts {
-  width: 320px;
+  width: 100%;
   border-radius: 8px;
   background-color: #f5efef;
-  margin-top: 30px;
   margin-left: 20px;
   margin-bottom: 20px;
   line-height: 1.8em;
 }
 
 .line {
-  width: 300px;
+  width: 100%;
   border: 1px solid lightgray;
   margin-top: 20px;
 }
@@ -108,11 +120,11 @@ ul {
   display: flex;
 }
 
-.button-heart {
+.button-heart .button-edit {
   border: none;
 }
 
-.heart-btn {
+.heart-btn .edit-btn {
   font-size: 25px;
   margin-top: 10px;
   cursor: pointer;
@@ -150,7 +162,7 @@ ul {
   .publish-btn {
     margin-right: 35px;
   }
-  
+
   .box-post {
     width: 580px;
     margin-top: 30px;
