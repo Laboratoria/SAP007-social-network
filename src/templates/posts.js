@@ -1,7 +1,9 @@
-import { creatPost } from "../lib/firestore-firebase.js"
-import { logOff } from "../lib/auth-firebase.js"
+import { profilePosts } from "../componentes/perfil.js";
+import { creatPost, postUser, getPosts } from "../lib/firestore-firebase.js";
+import { userLogout } from "../lib/auth-firebase.js";
+import { auth } from "../lib/config-firebase.js";
 
-export default function posts() {
+export default function posts(profilePost) {
   const profilePage = document.createElement("div");
   profilePage.classList.add("body-post");
 
@@ -19,7 +21,7 @@ export default function posts() {
         
     <div id="new-post" class="section-new-post">
       <div class="new-post">
-        <div id="name" class="name-user">Usuario</div>
+        <div id="name" class="name-user">nome do usuario</div>
         <form class="form-post">
           <input type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
           <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
@@ -33,14 +35,15 @@ export default function posts() {
 
     <div class="posts-profilePage">
       <section id="new-post-here"></section>
-      <section id="all-posts-here"></section>
+      <ul id="user-all-posts" class="ul-posts"></ul>
+    </div>
+
     </div>    
     `;
-/*   profilePage.innerHTML = template; */
+  /*   profilePage.innerHTML = template; */
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const sectionNewPost = profilePage.querySelector("#new-post-here")
-  const name = profilePage.querySelector('#name');
 
 
   //Validação dos campos menssagem e título antes de mandar para o firebase
@@ -68,7 +71,6 @@ export default function posts() {
     if (isValid) {
       creatPost(message.value, titleHQ.value)
         .then((post) => {
-          console.log(post)
           message.value = "";
           titleHQ.value = "";
         }).catch((error) => {
@@ -84,7 +86,7 @@ export default function posts() {
     }
   });
 
-  //Função para quando clickar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
+  //Função para quando clicar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
   const deleteButton = profilePage.querySelector("#delete-button")
   deleteButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -92,42 +94,45 @@ export default function posts() {
     message.value = ""
   })
 
-  //Função que edita o post
-  /*const editButton = templatePost.querySelector(".edit-button");
-  editButton.addEventListener("click", () => {
-    editPost(post.id).then(()=> {
-  //editbutton vira savebutton
-  //editbutton vai mandar para a pagina de edição
-    })
-  })*/
+  //todos os posts na tela
+  /*const showAllPosts = profilePage.querySelector(".ul-posts")
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      const postElement = profilePosts(item);
+      showAllPosts.prepend(postElement);
+    });
+  });*/
 
+  //apenas os posts do usuario na tela
+  const showPosts = profilePage.querySelector(".ul-posts")
+  const showMyPosts = async () => {
+    const uid = auth.currentUser.uid;
+    const feedProfile = await postUser(uid);
+    feedProfile.forEach((item) => {
+      const postCard = profilePosts(item);
+      showPosts.prepend(postCard);
+    });
+  };
+  showMyPosts();
+
+  /*const showUserPosts = profilePage.querySelector("#user-all-posts");
+  const uid = auth.currentUser.uid;
+  postUser(uid).then((userPosts) => {
+    userPosts.forEach((item) => {
+      const userPostElement = profilePosts(item);
+      showUserPosts.prepend(userPostElement);
+    });
+  });*/
 
   //Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff")
-  logOut.addEventListener("click", (e) => {
+  logOut.addEventListener('click', (e) => {
     e.preventDefault();
-    logOff();
-    window.location.hash = "login"
-  })
-    
-const post = profilePage.querySelector('.feed');
-// const uid =  
-const showAllPosts = async () => {
-  const uid = auth.currentUser.uid;
-  const postsProfile = await postUser(uid);
-  postsProfile.forEach((item) => {
-    const postCard = card(item);
-    post.prepend(postCard);
+    userLogout().then(() => {
+      window.location.hash = '';
+    });
   });
-};
-showAllPosts();
 
-logOut.addEventListener('click', (e) => {
-  e.preventDefault();
-  userLogout().then(() => {
-    window.location.hash = '';
-  });
-});
 
-return profilePage;
+  return profilePage;
 }; 
