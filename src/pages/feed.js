@@ -1,7 +1,6 @@
 import { getPosts } from '../lib/firestore.js';
 import { postComponent } from '../components/posts.js';
 import { printNav } from '../components/navbar.js';
-import { auth } from '../configs/config.firebase.js';
 import { createPost } from '../lib/firestore.js';
 
 export default function feed() {
@@ -42,8 +41,12 @@ export default function feed() {
 
   btnPost.addEventListener('click', async (e) => {
     e.preventDefault();
-    errorMessage.innerHTML="";
-    await createPost(titleContent.value, recipeContent.value, auth.currentUser.email);
+    errorMessage.innerHTML = "";
+    const user = {
+      email: localStorage.getItem('userEmail'),
+      uid: localStorage.getItem('userId'),
+    }
+    await createPost(titleContent.value, recipeContent.value, user);
     showPosts();
     btnPost.disabled = true;
     titleValue.value = '';

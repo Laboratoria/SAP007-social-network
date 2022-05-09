@@ -3,7 +3,7 @@ import { editPost, deletePost } from '../lib/firestore.js';
 export function modalEditPost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
   const template = `
-  <div id="modal" class="modal-content">
+  <div id="edit-modal" class="modal-content">
     <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
     <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
     
@@ -16,14 +16,14 @@ export function modalEditPost(postObj, postContainer) {
     `;
   modalContainer.innerHTML = template;
 
-  const modal = modalContainer.querySelector("#modal");
-  const salvarEdit = modalContainer.querySelector("#update-btn");
+  const editModal = modalContainer.querySelector("#edit-modal");
+  const saveEdit = modalContainer.querySelector("#update-btn");
   const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
   const title = modalContainer.querySelector("#title-edit");
   const recipe = modalContainer.querySelector("#recipe-edit");
   const errorMessage = modalContainer.querySelector("#error");
 
-  salvarEdit.addEventListener("click", (e) => {
+  saveEdit.addEventListener("click", (e) => {
     e.preventDefault();
     if (title.value.length >= "3" && recipe.value.length >= "3") {
         editPost(postObj.id, title.value, recipe.value)
@@ -37,28 +37,23 @@ export function modalEditPost(postObj, postContainer) {
           .catch(() => {
             console.log("error");
           });
-      } else  if (title.value === "" || recipe.value ==="") {
+      } else if (title.value === "" || recipe.value ==="") {
     errorMessage.innerText = "Preencha todos os campos acima";
-    } else if (recipe.value.length < "100") {
+    } else (recipe.value.length < "100"); {
       errorMessage.innerText = "Preencha a mensagem acima com mais de 100 caracteres";
     }
   });
   cancelEdit.addEventListener("click", (e) => {
     e.preventDefault();
-    modalContainer.remove();
+    editModal.innerHTML="";
   }); 
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modalContainer.remove();
-    }
-  });
   return modalContainer;
 }
 
 export function modalDeletePost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
   const template = `
-  <div id="modal" class="modal">
+  <div id="delete-modal" class="modal">
       <p>Tem certeza que quer excluir essa receita?</p>
 
       <button class="span-delete-btn" id="yes-btn" type="submit">Excluir</button>
@@ -66,7 +61,8 @@ export function modalDeletePost(postObj, postContainer) {
   </div>
   `;
   modalContainer.innerHTML = template;
-
+ 
+  const deleteModal = modalContainer.querySelector('#delete-modal');
   const confirmBtn = modalContainer.querySelector('#yes-btn');
   const declineBtn = modalContainer.querySelector('#no-btn');
 
@@ -79,14 +75,8 @@ export function modalDeletePost(postObj, postContainer) {
 
   declineBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    modalContainer.remove();
+    deleteModal.innerHTML="";
   });
   
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modalContainer.remove();
-    }
-  });
-
   return modalContainer;
 }

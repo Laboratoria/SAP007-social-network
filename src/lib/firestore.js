@@ -12,24 +12,19 @@ import {
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 
-import { auth } from '../configs/config.firebase.js';
-
 const db = getFirestore();
 
-export const createPost = async (textTitle,textPost) => {
-  const user = auth.currentUser;
+export const createPost = async (textTitle, textPost, user) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {
       title: textTitle,
       recipe: textPost,
-      author: user.displayName,
+      author: user.email,
       date: new Date().toLocaleString('pt-br'),
       likes: [],
       user: user.uid,
-      email: user.email,
     });
     return docRef.id;
-
     // console.log('Post escrito por id: ', docRef.id);
   } catch (e) {
     alert('Erro ao adicionar post', e);

@@ -29,7 +29,9 @@ export default function login() {
   btnSubmit.addEventListener('click', (e) => {
     e.preventDefault();
     signIn(email.value, password.value)
-      .then(() => {
+      .then((user) => {
+        localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userId", user.uid);
         window.location.hash = '#feed';
       })
       .catch((error) => {
