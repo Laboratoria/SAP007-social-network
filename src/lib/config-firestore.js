@@ -1,5 +1,5 @@
 import "../config-firebase.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import { getFirestore, collection, getDocs, doc, addDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
 
 
 //import { getFirestore, collection, addDoc, getDocs } 
@@ -17,4 +17,5 @@ getDocs(collectionRef)
     .then((snapshot) => {
         console.log(snapshot.docs);
     })
-}
+}""
+
