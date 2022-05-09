@@ -16,13 +16,15 @@ export default function feed() {
       </picture>
   </nav>
   <div class= "line-header"> </div>
+  <div class = "container-publish">
   <section class="publish" id="publish">
-    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="35" rows="7"></textarea>
+    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="25" rows="4" ></textarea>
         <p id="alert-notification" class="error"></p>
         <div class= "btn-container">
           <button class="publish-btn" id="publish-btn">Publicar</button>
         </div>
   </section>
+  </div>
   <div id='posts-container' class="posts-container">  
   </div>
   `;
@@ -62,8 +64,8 @@ export default function feed() {
   });
 
   const getPostsFromDatabase = async () => {
-    const posts2 = await getPost();
-    const ordanatedPosts = posts2.sort((a, b) => {
+    const elementPost = await getPost();
+    const ordanatedPosts = elementPost.sort((a, b) => {
       const dateA = new Date(convertDateObject(a.date)).getTime();
       const dateB = new Date(convertDateObject(b.date)).getTime();
       if (dateA < dateB) return 1;
@@ -72,8 +74,8 @@ export default function feed() {
 
     ordanatedPosts.forEach((post) => {
       document.querySelector('#posts-container').innerHTML += `         
-      <div class= "box-posts" id= "posts" >
-        <ul class="box-posts" id="posts">
+      <div class= "box-posts">
+        <ul class="box-posts">
           <li>
           <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
