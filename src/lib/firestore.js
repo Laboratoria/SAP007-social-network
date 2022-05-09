@@ -20,7 +20,6 @@ export const db = getFirestore(app);
 
 export const publicatedPost = async (valueTitle, valueText) => {
   try {
-    debugger;
     const docRef = await addDoc(collection(db, 'posts'), {
       title: valueTitle,
       text: valueText,
@@ -94,10 +93,3 @@ export const editPost = async (id, title, text) => {
   });
   return post;
 };
-
-// export const addUserName = async (name) => {
-//   const colRef = doc(db, 'posts', name);
-//   await setDoc(colRef, {
-//     name,
-//   });
-// };
