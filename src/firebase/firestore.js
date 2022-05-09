@@ -6,6 +6,8 @@ import {
   query,
   doc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { auth } from './authetication.js';
 
@@ -32,7 +34,7 @@ export const createPost = async (textPost) => {
 };
 export const getPost = async () => {
   const arrPost = [];
-  const orderFirestore = query(collection(db, 'post'), orderBy('date'));
+  const orderFirestore = query(collection(db, 'post'));
   const querySnapshot = await getDocs(orderFirestore);
   querySnapshot.forEach((doc) => {
     const timeline = doc.data();
@@ -43,12 +45,31 @@ export const getPost = async () => {
   return arrPost;
 };
 
+export const like = async (idPost, userEmail) => {
+  try {
+  const docId = doc(db, "post", idPost);
+    return await updateDoc(docId, {
+     like: arrayUnion(userEmail),
+    });
+  } catch (e) {
+  } return arrayUnion;
+};
+
+export const dislike = async (idPost, userEmail) => {
+  try {
+    const docId = doc(db, "post", idPost);
+    return await updateDoc(docId, {
+      like: arrayRemove(userEmail),
+    });
+  } catch (e) {
+  } return arrayRemove;
+};
 //conectar com o firebase
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
 
-export const editPost = async(id, textPost)
+/*export const editPost = async(id, textPost)
 const post = doc(db, "post", "DC");
 await updateDoc(post, {
   textPost,
-});
+});*/
