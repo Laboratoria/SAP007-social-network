@@ -43,7 +43,6 @@ export async function getPosts() {
   querySnapshot.forEach((doc) => {
     const postObj = doc.data();
     postObj.id = doc.id;
-    console.log(postObj.date, postObj.title, postObj.author, postObj.recipe);
     arrPost.push(postObj);
   });
   return arrPost;

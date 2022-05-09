@@ -63,7 +63,7 @@ export function postComponent(postObj) {
   likeButton.addEventListener('click', async (e) => {
     e.preventDefault();
     const postLike = postObj.likes;
-    console.log(postLike);
+    
     if (!postLike.includes(auth.currentUser.email)) {
       likePost(postObj.id, auth.currentUser.email);
       postLike.push(auth.currentUser.email);
@@ -78,7 +78,7 @@ export function postComponent(postObj) {
     }
   });
 
-  console.log(likePost(postObj.id, auth.currentUser.email));
+ 
   getPosts();
   return postsContainer;
 }
