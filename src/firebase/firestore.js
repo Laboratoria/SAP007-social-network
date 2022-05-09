@@ -3,8 +3,9 @@ import {
   collection,
   addDoc,
   getDocs,
-  orderBy,
   query,
+  doc,
+  updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
 import { auth } from './authetication.js';
 
@@ -23,7 +24,7 @@ export const createPost = async (textPost) => {
       like: [],
     });
     console.log('Document written with ID: ', docRef.id);
-    return docRef;
+    return docRef.id;
   } catch (e) {
     // console.error('Error adding document: ', e);
     // return e
@@ -41,3 +42,13 @@ export const getPost = async () => {
   console.log(arrPost);
   return arrPost;
 };
+
+//conectar com o firebase
+//encontrar o post certo pelo id (id do post)
+//atualizar as informações do post (novo texto)
+
+export const editPost = async(id, textPost)
+const post = doc(db, "post", "DC");
+await updateDoc(post, {
+  textPost,
+});
