@@ -27,10 +27,10 @@ export default function feed() {
   const recipeContent = feedContainer.querySelector('#recipe-content');
   const btnPost = feedContainer.querySelector('#new-post-btn');
   const errorMessage = feedContainer.querySelector('#error-message');
-  const titleValue = titleContent.value;
-  const recipeValue = recipeContent.value;
 
   newPost.addEventListener('keyup', () => {
+    let titleValue = titleContent.value;
+    let recipeValue = recipeContent.value;
     if (titleValue.length >= 7 && recipeContent.length >= 10) {
       errorMessage.innerHTML = '';
       btnPost.disabled = false;
@@ -38,8 +38,10 @@ export default function feed() {
       errorMessage.innerHTML = 'Insira uma receita válida';
     }
   });
-
+// LIMPAR INPUTS APÓS SUBMETER RECEITA
   btnPost.addEventListener('click', async (e) => {
+    // let titleValue = titleContent.value;
+    // let recipeValue = recipeContent.value;
     e.preventDefault();
     errorMessage.innerHTML = "";
     const user = {
@@ -49,8 +51,8 @@ export default function feed() {
     await createPost(titleContent.value, recipeContent.value, user);
     showPosts();
     btnPost.disabled = true;
-    titleValue.value = '';
-    recipeValue.value = '';
+    titleContent.value = '';
+    recipeContent.value = '';
   });
 
 
@@ -70,7 +72,6 @@ export default function feed() {
   const showPosts = async () => {
     sectionPost.innerHTML = '';
     const postsArray = await getPosts();
-    console.log(postsArray);
     postsArray.forEach((postObj) => {
       const postElement = postComponent(postObj);
       sectionPost.prepend(postElement);

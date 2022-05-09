@@ -41,6 +41,8 @@ export function modalEditPost(postObj, postContainer) {
     errorMessage.innerText = "Preencha todos os campos acima";
     } else (recipe.value.length < "100"); {
       errorMessage.innerText = "Preencha a mensagem acima com mais de 100 caracteres";
+    } else {
+      return modalContainer;
     }
   });
   cancelEdit.addEventListener("click", (e) => {
