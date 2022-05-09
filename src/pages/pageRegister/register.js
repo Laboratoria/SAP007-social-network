@@ -1,7 +1,12 @@
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js';
+
 export default () => {
-    const container = document.createElement('div');
-    
-    const infoRegister = `
+  const container = document.createElement('div');
+
+  const infoRegister = `
     <div class="container">
             <div class="content first-content">
             <div class="first-column">
@@ -19,17 +24,38 @@ export default () => {
                     </label>
                     <label class="label-input">
                         <i class="fa-regular fa-envelope icon-modify"></i>
-                        <input type="email" placeholder="E-mail">
+                        <input type="email" id="input-email" placeholder="E-mail">
                     </label>
                     <label class="label-input">
                         <i class="fa-solid fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" id="input-password" placeholder="Password">
                     </label>
-                    <button class=" btn btn-second">Sign up</button>
+                    <button id="btn-register" class=" btn btn-second">Sign up</button>
                 </form>
             </div>
         </div>
-    `
-    container.innerHTML = infoRegister;
-    return container;
-}
+    `;
+  container.innerHTML = infoRegister;
+
+  container.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const auth = getAuth();
+    const email = document.querySelector('#input-email').value;
+    const password = document.querySelector('#input-password').value;
+    if (email === '' || password === '') {
+      alert('Please fill all register fields');
+      return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
+  });
+  return container;
+};
