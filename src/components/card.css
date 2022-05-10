@@ -45,6 +45,7 @@ body {
   border: black;
   margin-right: 5%;
   background-color: transparent;
+  cursor: pointer;
 }
 .img-like {
   width: 80%;
@@ -68,6 +69,7 @@ body {
   }
   .buttons-like {
     margin-right: 0%;
+    cursor: pointer;
   }
   .img-like {
     width: 45%;

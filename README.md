@@ -33,10 +33,10 @@ A nossa missão foi criar uma [Single-page Application
 Você pode acessar a aplicação utilizando o usuário de teste abaixo:
 <div align='center'>
 
-| #                     	|             Login            |         
-|:-----------------------:|:----------------------------:	|
-| &#128233;               | sap007@laboratoria.com.br 	     | 
-| &#128272;                	|            lab007          	|            
+| # | Login | 
+|:-----------------------:|:----------------------------: |
+| &#128233; | sap007@laboratoria.com.br | 
+| &#128272; | lab007 | 
 
 </div>
 
@@ -218,8 +218,14 @@ _Cargo:_ Community Manager (Mutato, Draftline Ambev)
 
 Solução: Implementamos a funcionalidade em que aparece no post o nome que o usuário utilizou no momento da realização do cadastro.
 
-### Thiago Kpelo - 34 anos:
+### Thiago Capelo - 34 anos:
 _Cargo:_ Software Engineer (Loft)
+
+- Adicionar o cursor pointer nos botões (ficar uma mãozinha).
+- Campo título input ao invés de textarea.
+- Não definir height para os botões e aumentar o padding para facilitar o clique no mobile.
+
+Solução: Implementamos todas as melhorias propostas.
 
 ## 9. Tecnologias Utilizadas.
 - HTML 5

@@ -31,6 +31,7 @@ hr {
   font-size: 16px;
   margin-right: 5%;
   margin-top: 0%;
+  cursor: pointer;
 }
 .feed-section {
   margin-top: 5%;
@@ -73,6 +74,7 @@ hr {
   border: black;
   font-weight: bold;
   margin-left: 40%;
+  cursor: pointer;
 }
 :disabled {
   background-color: grey;
@@ -85,6 +87,7 @@ hr {
     width: 10%;
     margin-bottom: 2%;
     margin-right: 4%;
+    cursor: pointer;
   }
   .title,
   .text {
@@ -96,6 +99,7 @@ hr {
   .btn-post {
     width: 12%;
     margin-left: 38%;
+    cursor: pointer;
   }
 }
 
@@ -104,6 +108,7 @@ hr {
     width: 10%;
     margin-bottom: 1%;
     margin-right: 5%;
+    cursor: pointer;
   }
   .title,
   .text {
@@ -115,5 +120,6 @@ hr {
   .btn-post {
     width: 9%;
     margin-left: 50%;
+    cursor: pointer;
   }
 }

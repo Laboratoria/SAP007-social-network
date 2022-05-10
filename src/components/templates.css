@@ -9,6 +9,7 @@
   border: black;
   margin-left: 5px;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .title {
   margin-top: 5%;
@@ -27,12 +28,22 @@
   font-size: 16px;
   box-shadow: 7px 6px 5px grey;
   border: black;
+  cursor: pointer;
 }
 .confirm-delete {
-  display: flex;
+  display: none;
   text-align: center;
   flex-direction: column;
   margin-top: 5%;
+}
+.edition{
+  display: none;
+  text-align: center;
+  flex-direction: column;
+}
+.confirm-delete.visible,
+.edition.visible {
+  display: flex;
 }
 p {
   margin-bottom: 10%;
@@ -41,4 +52,5 @@ p {
   width: 30%;
   margin: auto;
   margin-bottom: 4%;
+  cursor: pointer;
 }

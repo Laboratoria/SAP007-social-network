@@ -33,6 +33,7 @@
   font-size: 16px;
   box-shadow: 7px 6px 5px grey;
   border: black;
+  cursor: pointer;
 }
 .container p {
   margin: auto;
@@ -54,6 +55,7 @@
   border-radius: 8px;
   position: relative;
   top: 75px;
+  cursor: pointer;
 }
 .google-logo {
   width: 20%;
@@ -61,6 +63,7 @@
 .register {
   margin: auto;
   margin-bottom: 15%;
+  cursor: pointer;
 }
 .register a {
   color: black;
@@ -78,9 +81,11 @@
     margin-top: 10%;
     width: 50%;
     align-items: center;
+    cursor: pointer;
   }
   .google-button {
     top: 20px;
+    cursor: pointer;
   }
   .register a {
     top: 60px;
@@ -100,12 +105,14 @@
     margin-top: 2%;
     width: 25%;
     align-items: center;
+    cursor: pointer;
   }
   .container p {
     top: 20px;
   }
   .google-button {
     top: 20px;
+    cursor: pointer;
   }
   .register a {
     top: 60px;
