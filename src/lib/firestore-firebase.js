@@ -8,7 +8,8 @@ import {
     addDoc,
     updateDoc,
     where,
-    getDoc,
+    arrayRemove,
+    arrayUnion,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { db, auth } from './config-firebase.js';
@@ -73,22 +74,22 @@ export async function getUserPosts(uid) {
 }
 
 //Função para dar like
-/*export async function like(id, user) {
+export function like(id, user) {
     const post = doc(db, "posts", id);
-    await updateDoc(post, {
+    return updateDoc(post, {
       likes: arrayUnion(user),
     });
   }
   
-  export async function dislike(id, user) {
+  export function dislike(id, user) {
     const post = doc(db, "posts", id);
-    await updateDoc(post, {
+    return updateDoc(post, {
       likes: arrayRemove(user),
     });
-  }*/
+  }
 
-export async function like(id, user) {
+/*export async function like(id, user) {
     const querySinglePost = doc(db, "posts", id);
     const querySnapshot = await getDoc(querySinglePost);
     console.log(querySnapshot.data())
-}
+}*/

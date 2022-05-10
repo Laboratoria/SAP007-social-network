@@ -1,4 +1,4 @@
-import { like } from "../lib/firestore-firebase.js";
+import { dislike, like } from "../lib/firestore-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
@@ -21,41 +21,41 @@ export function publishingPosts(post) {
           <button class="button-like">
            <img class="img-like" src=${checkLikes()} alt="botão de like"/>
           </button>
-          <p class="total-likes" id="like-${post.id}">${post.like.length}</p>
+          <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
       </div>
     `;
 
-  const buttonLike = templatePost.querySelector(".button-like")
+  const likeImage = templatePost.querySelector(".img-like");
+  const likeCounter = templatePost.querySelector(`#like-${post.id}`);
+  let arrLike = post.like.length;
+  const buttonLike = templatePost.querySelector(".button-like");
+
   buttonLike.addEventListener('click', async (e) => {
     e.preventDefault();
-    like(post.id, currentUser.uid)
-    /*if (!post.like.includes(currentUser.uid)) {
+    if (!post.like.includes(currentUser.uid)) {
       like(post.id, currentUser.uid);
       post.like.push(currentUser.uid);
       arrLike += 1;
-      likeCount.textContent = arrLike;
+      likeCounter.textContent = arrLike;
       likeImage.setAttribute("src", "./images/liked.png");
     } else {
       const likeUser = post.like.indexOf(currentUser.uid);
       dislike(post.id, currentUser.uid);
       post.like.splice(likeUser, 1);
       arrLike -= 1;
-      likeCount.textContent = arrLike;
+      likeCounter.textContent = arrLike;
       likeImage.setAttribute("src", "./images/like.png");
-    }*/
+    }
   });
 
   function checkLikes() {
-    console.log(post)
     if (post.like.includes(currentUser.uid)) {
       return "./images/liked.png";
     }
     return "./images/like.png";
   }
-
-
-
+  
   return templatePost
 }
 
