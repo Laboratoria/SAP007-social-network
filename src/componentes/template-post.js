@@ -1,58 +1,61 @@
-import { deletePost } from "../lib/firestore-firebase.js"
-import edit from "./edit.js";
+import { dislike, like } from "../lib/firestore-firebase.js";
+import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
+  const currentUser = auth.currentUser;
+  console.log(currentUser)
   const templatePost = document.createElement("div");
   templatePost.classList.add("body-template-post");
 
   const time = post.date;
   const formatDate = new Date(time.seconds * 1000 + time.nanoseconds / 1000000);
   const date = formatDate.toLocaleDateString("pt-br");
-  const atTime = formatDate.toLocaleTimeString(["pt-br"], { timeStyle: 'short' });
 
   templatePost.innerHTML = `    
       <div class="section-post-published">
-        <p class="username-post"></p>
-        <p class="date-post">${date}, ${atTime}</p>
+        <p class="username-post">${post.user}</p>
+        <p class="date-post">${date}</p>
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
-        <div class="likes-post">
-          LIKE
-        </div>
-        <div class="buttons-edit-delete">
-          <button class="edit-button">editar</button>
-          <button class="post-delete-button">excluir</button>
+        <div class="container-like">
+          <button class="button-like">
+           <img class="img-like" src=${checkLikes()} alt="botão de like"/>
+          </button>
+          <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
       </div>
     `;
 
+  const likeImage = templatePost.querySelector(".img-like");
+  const likeCounter = templatePost.querySelector(`#like-${post.id}`);
+  let arrLike = post.like.length;
+  const buttonLike = templatePost.querySelector(".button-like");
+
+  buttonLike.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (!post.like.includes(currentUser.uid)) {
+      like(post.id, currentUser.uid);
+      post.like.push(currentUser.uid);
+      arrLike += 1;
+      likeCounter.textContent = arrLike;
+      likeImage.setAttribute("src", "./images/liked.png");
+    } else {
+      const likeUser = post.like.indexOf(currentUser.uid);
+      dislike(post.id, currentUser.uid);
+      post.like.splice(likeUser, 1);
+      arrLike -= 1;
+      likeCounter.textContent = arrLike;
+      likeImage.setAttribute("src", "./images/like.png");
+    }
+  });
+
+  function checkLikes() {
+    if (post.like.includes(currentUser.uid)) {
+      return "./images/liked.png";
+    }
+    return "./images/like.png";
+  }
   
-  //Função que deleta o post
-  const deleteButton = templatePost.querySelector(".post-delete-button");
-  deleteButton.addEventListener("click", () => {
-    deletePost(post.id).then(() => {
-      templatePost.remove();
-    }).catch((error) => {
-      alert("não foi possivel deletar o post.")
-    })
-  })
-
-  //Função que edita o post
-  const message = templatePost.querySelector(".message-post");
-  const titleHQ = templatePost.querySelector(".HQ-title-post");
-
-  const editButton = templatePost.querySelector(".edit-button");
-  editButton.addEventListener("click", (e) => {
-    (e).preventDefault();
-    /*const post = {
-      message: message.valu,
-      title: titleHQ.value,
-    }*/
-    templatePost.appendChild(edit(post, message, titleHQ))
-    //window.location.hash = "edit"
-    //editbutton vai mandar para a pagina de edição
-  })
-
   return templatePost
 }
 

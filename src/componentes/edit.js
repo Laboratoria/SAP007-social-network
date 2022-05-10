@@ -1,10 +1,10 @@
 import { editPost } from "../lib/firestore-firebase.js";
 
 export default function edit(post, messageP, titleP) {
-    const editPage = document.createElement("div");
-    editPage.classList.add("body-edit");
-  
-    editPage.innerHTML = `          
+  const editPage = document.createElement("div");
+  editPage.classList.add("body-edit");
+
+  editPage.innerHTML = `          
       <div id="edit-post" class="container-edit-post">
         <div class="edit-post">
           <form class="form-edit-post">
@@ -18,30 +18,32 @@ export default function edit(post, messageP, titleP) {
         </div>
       </div> 
       `;
-  
-    const message = editPage.querySelector("#message");
-    const titleHQ = editPage.querySelector("#title-post");
 
+  const message = editPage.querySelector("#message");
+  const titleHQ = editPage.querySelector("#title-post");
+
+  //Função caso a pessoa desistar de editar, então clica no botão cancelar e volta para o perfil
   /*const cancelButton = editPage.querySelector("#message");
   cancelButton.addEventListener("click", (e) => {
-      (e).preventDefault();
+    e.preventDefault();
+    cancelEdit().then(() => {
       window.location.hash = "posts"
+    })
   })*/
 
-    //Função que edita o post
+  //Função que edita o post
   const saveButton = editPage.querySelector("#save-button");
   saveButton.addEventListener("click", (e) => {
     e.preventDefault()
     console.log(post.id, message.value, titleHQ.value)
-    editPost(post.id, message.value, titleHQ.value).then(()=> {
+    editPost(post.id, message.value, titleHQ.value).then(() => {
       titleP.innerHTML = titleHQ.value;
       messageP.innerHTML = message.value;
       editPage.remove()
     })
   })
-  
-        
-    return editPage
-  
-  }
-  
+
+
+  return editPage
+
+}

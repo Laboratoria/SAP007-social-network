@@ -28,31 +28,27 @@ export function signIn(email, password) {
 }
 
 //Função para sair da rede social
-export function logOff() {
-    return signOut(auth);
+export function userLogout() {
+    return signOut(auth)
+    .then(() => "Logout")
+    .catch((error) => error)
   }
 
-//Observar o estado do usuário, se está logado ou não
-/*onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
-*/
-  
+export function updateUsername(name){
+  console.log(name)
+  updateProfile(auth.currentUser, {
+    displayName: name
+  });
+}
+
 export function validateEmail(email) {
   var re = /\S+@\S+\.\S+/;
   return re.test(email);
 }
 
-export function updateUsername(name){
-  updateProfile(auth.currentUser, {
-    displayName: name
+//Observar o estado do usuário, se está logado ou não
+export function keepUserLoggedIn(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user != null);
   });
 }
