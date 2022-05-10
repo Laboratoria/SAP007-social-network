@@ -4,7 +4,7 @@ import feed from './pages/feed.js';
 import { verifyLogged } from './firebase/authetication.js';
 
 const mainHome = document.querySelector('#root');
-const verificarHash = () => {
+const verificarHash = async () => {
   switch (window.location.hash) {
     case '':
       mainHome.appendChild(login());
@@ -18,27 +18,29 @@ const verificarHash = () => {
       mainHome.appendChild(register());
       break;
     case '#feed':
-      verifyLogged((loggerUser) => {
+      console.log("oie")
+      await verifyLogged(async (loggerUser) => {
+        console.log(loggerUser);
         if (loggerUser) {
-          mainHome.appendChild(feed());
+          const templateFeed = await feed();
+          mainHome.appendChild(templateFeed);
         } else {
           window.location.hash = '#home';
         }
       });
       mainHome.innerHTML = '';
-      mainHome.appendChild(feed());
+      //mainHome.appendChild(templateFeed);
       break;
 
     default:
       mainHome.innerHTML = '';
       mainHome.appendChild(login());
   }
-}
+};
 
 window.addEventListener('hashchange', (e) => {
   e.preventDefault();
   verificarHash();
-
 });
 
 window.addEventListener('load', () => {

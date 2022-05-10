@@ -8,7 +8,7 @@ import {
   dislike,
 } from '../firebase/firestore.js';
 
-export default function feed() {
+export default async function feed() {
   const feed = document.createElement('div');
   const boxFeed = `
   <nav class="top-nav">
@@ -81,7 +81,7 @@ export default function feed() {
 
     ordanatedPosts.forEach((post) => {
       console.log(post);
-      document.querySelector('#posts-container').innerHTML += `         
+      feed.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul class="box-posts">
           <li>
@@ -101,35 +101,36 @@ export default function feed() {
      `;
     });
 
-    const buttonLike = document.querySelector('#like-btn');
-
-    buttonLike.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log(e.currentTarget.dataset.postId);
-      const selectPost = elementPost.find(
-        (item) => item.id == e.currentTarget.dataset.postId
-      );
-      const postLiked = selectPost.like;
-      const likesCounter = e.currentTarget.nextElementSibling;
-      console.log(getCurrentUser);
-      const user = getCurrentUser();
-      if (!postLiked.includes(user)) {
-        like(selectPost.id, user).then(() => {
-          postLiked.push(user);
-          const likeNumber = Number(likesCounter.textContent) + 1;
-          likesCounter.textContent = likeNumber;
-        });
-      } else {
-        dislike(selectPost.id, user).then(() => {
-          postLiked.splice(getCurrentUser);
-          const likeNumber = Number(likesCounter.textContent) - 1;
-          likesCounter.textContent = likeNumber;
-        });
-      }
+    const buttonsLike = feed.querySelectorAll('#like-btn');
+    buttonsLike.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(e.currentTarget.dataset.postId);
+        const selectPost = elementPost.find(
+          (item) => item.id == e.currentTarget.dataset.postId
+        );
+        const postLiked = selectPost.like;
+        const likesCounter = e.currentTarget.nextElementSibling;
+        console.log(getCurrentUser);
+        const user = getCurrentUser();
+        if (!postLiked.includes(user)) {
+          like(selectPost.id, user).then(() => {
+            postLiked.push(user);
+            const likeNumber = Number(likesCounter.textContent) + 1;
+            likesCounter.textContent = likeNumber;
+          });
+        } else {
+          dislike(selectPost.id, user).then(() => {
+            postLiked.splice(getCurrentUser);
+            const likeNumber = Number(likesCounter.textContent) - 1;
+            likesCounter.textContent = likeNumber;
+          });
+        }
+      });
     });
   };
 
-  getPostsFromDatabase();
+  await getPostsFromDatabase();
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
