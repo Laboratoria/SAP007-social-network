@@ -73,7 +73,7 @@ O protótipo de alta fidelidade foi desenvolvido na ferramenta do Figma.
 
 Nossa paleta de cores foi inspirada no reconhecido site Stack Overflow.
 
-<img src="readme.img/paletaDeCores.jpeg">
+<img src="readme.img/paletaDeCores.jpeg" width= 70%>
 
 ## 7. Histórias de Usuários.
 
@@ -223,9 +223,8 @@ _Cargo:_ Software Engineer (Loft)
 
 - Adicionar o cursor pointer nos botões (ficar uma mãozinha).
 - Campo título input ao invés de textarea.
-- Não definir height para os botões e aumentar o padding para facilitar o clique no mobile.
 
-Solução: Implementamos todas as melhorias propostas.
+Solução: Implementamos as melhorias propostas.
 
 ## 9. Tecnologias Utilizadas.
 - HTML 5
