@@ -1,6 +1,7 @@
 import { getPosts, creatPost } from "../lib/firestore-firebase.js";
 import { publishingPosts } from "../componentes/template-post.js";
 import { userLogout } from "../lib/auth-firebase.js";
+import { auth } from "../lib/config-firebase.js";
 
 export default function home(posts) {
   const homePage = document.createElement("div");
@@ -19,11 +20,12 @@ export default function home(posts) {
     <button class="button-search-home">Buscar</button>
     <div id="new-post" class="section-new-post">
       <div class="new-post">
-        <div id="name" class="name-user">nome</div>
+        <div id="name" class="name-user">Olá, ${auth.currentUser.displayName}</div>
         <form class="form-post">
           <input type="text" id="title-post" class="title-post" placeholder="Título do quadrinho"/>
-          <textarea name="textarea" id="message" class="new-post-message" placeholder="Conta um pouco sobre o quadrinho que você esta lendo"></textarea>
-        <div class="buttons-post-delete">
+          <textarea name="textarea" id="message" class="new-post-message" placeholder="Conte em mais de 20 caracteres sobre o quadrinho que você esta lendo"></textarea>
+          <span id="error-msg" class="error-msg"></span>
+          <div class="buttons-post-delete">
           <button id="post-button" class="post-button">postar</button>
           <button id="delete-button" class="delete-button">excluir</button>
         </div>  
@@ -38,19 +40,20 @@ export default function home(posts) {
 //Escrever um novo post
 const message = homePage.querySelector("#message");
 const titleHQ = homePage.querySelector("#title-post");
+const error = homePage.querySelector("#error-msg");
 
 //Validação dos campos menssagem e título antes de mandar para o firebase
 function checkNewPostFields() {
   let isValid = true
   if (titleHQ.value === "") {
-    alert("O campo título não pode estar vazio")
+    error.textContent = "O campo título não pode estar vazio"
     isValid = false
   }
   if (message.value === "") {
-    alert("O campo de mensagem não pode estar vazio");
+    error.textContent = "O campo título não pode estar vazio"
     isValid = false
   } else if (message.value.length <= 20) {
-    alert("Conte um pouco mais");
+    error.textContent = "Conte um pouco mais"
     isValid = false
   }
   return isValid

@@ -1,13 +1,15 @@
 import { deletePost } from "../lib/firestore-firebase.js";
 import edit from "./edit.js";
+import { auth } from "../lib/config-firebase.js";
 
 export function profilePosts(post) {
+  const currentUser = auth.currentUser;
   const templateProfile = document.createElement("div");
   templateProfile.classList.add("body-template-post");
 
   const time = post.date;
   const formatDate = new Date(time.seconds * 1000 + time.nanoseconds / 1000000);
-  const date = formatDate.toLocaleDateString ("pt-br");
+  const date = formatDate.toLocaleDateString("pt-br");
 
   templateProfile.innerHTML = `    
       <div class="section-post-published">
@@ -15,8 +17,11 @@ export function profilePosts(post) {
         <p class="date-post">${date}</p>
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
-        <div class="likes-post">
-          LIKE
+        <div class="container-like">
+          
+           <img class="img-like" src=${checkLikes()} alt="botão de like"/>
+         
+          <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
         <div class="buttons-edit-delete">
           <button class="edit-button">editar</button>
@@ -25,12 +30,25 @@ export function profilePosts(post) {
       </div>
     `;
 
-  
-  //Função que deleta o post
-  const deleteButton = templateProfile.querySelector(".post-delete-button");
+
+  //Função que exclui o post
+  /*const deleteButton = templateProfile.querySelector(".post-delete-button");
   deleteButton.addEventListener("click", () => {
     deletePost(post.id).then(() => {
         templateProfile.remove();
+    }).catch((error) => {
+      alert("não foi possivel deletar o post.")
+    })
+  })*/
+
+  const deleteButton = templateProfile.querySelector(".post-delete-button");
+  deleteButton.addEventListener("click", () => {
+    deletePost(post.id).then(() => {
+      if (confirm("Você tem certeza?")) {
+        templateProfile.remove();
+      } else {
+        window.location.hash = "posts";
+      }
     }).catch((error) => {
       alert("não foi possivel deletar o post.")
     })
@@ -46,6 +64,15 @@ export function profilePosts(post) {
     templateProfile.appendChild(edit(post, message, titleHQ))
   })
 
+  function checkLikes() {
+    if (post.like.includes(currentUser.uid)) {
+      return "./images/liked.png";
+    }
+    return "./images/like.png";
+  }
+
+
   return templateProfile
 }
+
 
