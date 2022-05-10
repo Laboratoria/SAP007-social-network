@@ -83,7 +83,11 @@ export default async function feed() {
 
     //template feeds postados
     ordanatedPosts.forEach((post) => {
+<<<<<<< HEAD
       //console.log(post);
+=======
+      console.log(post);
+>>>>>>> 7ec704a647f38aca91b646022ad0c267742335ce
       feed.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul>
@@ -107,6 +111,7 @@ export default async function feed() {
      `;
     });
 
+<<<<<<< HEAD
     //função like-deslike
     const buttonLike = feed.querySelector('#like-btn');
 
@@ -133,6 +138,34 @@ export default async function feed() {
           likesCounter.textContent = likeNumber;
         });
       }
+=======
+    const buttonsLike = feed.querySelectorAll('#like-btn');
+    buttonsLike.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(e.currentTarget.dataset.postId);
+        const selectPost = elementPost.find(
+          (item) => item.id == e.currentTarget.dataset.postId
+        );
+        const postLiked = selectPost.like;
+        const likesCounter = e.currentTarget.nextElementSibling;
+        console.log(getCurrentUser);
+        const user = getCurrentUser();
+        if (!postLiked.includes(user)) {
+          like(selectPost.id, user).then(() => {
+            postLiked.push(user);
+            const likeNumber = Number(likesCounter.textContent) + 1;
+            likesCounter.textContent = likeNumber;
+          });
+        } else {
+          dislike(selectPost.id, user).then(() => {
+            postLiked.splice(getCurrentUser);
+            const likeNumber = Number(likesCounter.textContent) - 1;
+            likesCounter.textContent = likeNumber;
+          });
+        }
+      });
+>>>>>>> 7ec704a647f38aca91b646022ad0c267742335ce
     });
   };
 

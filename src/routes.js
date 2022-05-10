@@ -18,28 +18,28 @@ const verificarHash = async () => {
       mainHome.appendChild(register());
       break;
     case '#feed':
-      verifyLogged(async (loggerUser) => {
+      await verifyLogged(async (loggerUser) => {
         console.log(loggerUser);
         if (loggerUser) {
-          mainHome.appendChild(await feed());
+          const templateFeed = await feed();
+          mainHome.appendChild(templateFeed);
         } else {
           window.location.hash = '#home';
         }
       });
       mainHome.innerHTML = '';
-      mainHome.appendChild(await feed());
+      //mainHome.appendChild(templateFeed);
       break;
 
     default:
       mainHome.innerHTML = '';
       mainHome.appendChild(login());
   }
-}
+};
 
 window.addEventListener('hashchange', async (e) => {
   e.preventDefault();
-  await verificarHash();
-
+  verificarHash();
 });
 
 window.addEventListener('load', async () => {
