@@ -1,4 +1,4 @@
-import { dislike, like } from "../lib/firestore-firebase.js";
+import { like } from "../lib/firestore-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
@@ -18,34 +18,37 @@ export function publishingPosts(post) {
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
         <div class="container-like">
-          <button class="button-like" id="like">
-           <img id="img-like" class="img-like" src=${checkLikes()} alt="botão de like"/>
+          <button class="button-like">
+           <img class="img-like" src=${checkLikes()} alt="botão de like"/>
           </button>
-          <p class="total-likes" id="like-${post.id}">${post.likes.length}</p>
+          <p class="total-likes" id="like-${post.id}">${post.like.length}</p>
         </div>
       </div>
     `;
 
+  const buttonLike = templatePost.querySelector(".button-like")
   buttonLike.addEventListener('click', async (e) => {
     e.preventDefault();
-    if (!post.likes.includes(currentUser.uid)) {
+    like(post.id, currentUser.uid)
+    /*if (!post.like.includes(currentUser.uid)) {
       like(post.id, currentUser.uid);
-      post.likes.push(currentUser.uid);
+      post.like.push(currentUser.uid);
       arrLike += 1;
       likeCount.textContent = arrLike;
       likeImage.setAttribute("src", "./images/liked.png");
     } else {
-      const likeUser = post.likes.indexOf(currentUser.uid);
+      const likeUser = post.like.indexOf(currentUser.uid);
       dislike(post.id, currentUser.uid);
-      post.likes.splice(likeUser, 1);
+      post.like.splice(likeUser, 1);
       arrLike -= 1;
       likeCount.textContent = arrLike;
       likeImage.setAttribute("src", "./images/like.png");
-    }
+    }*/
   });
 
   function checkLikes() {
-    if (post.likes.includes(currentUser.uid)) {
+    console.log(post)
+    if (post.like.includes(currentUser.uid)) {
       return "./images/liked.png";
     }
     return "./images/like.png";

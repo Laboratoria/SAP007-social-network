@@ -1,5 +1,5 @@
 import { profilePosts } from "../componentes/perfil.js";
-import { creatPost, postUser, getPosts } from "../lib/firestore-firebase.js";
+import { creatPost, getUserPosts, getPosts } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 
@@ -43,7 +43,6 @@ export default function posts(profilePost) {
   /*   profilePage.innerHTML = template; */
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
-  const sectionNewPost = profilePage.querySelector("#new-post-here")
 
 
   //Validação dos campos menssagem e título antes de mandar para o firebase
@@ -64,6 +63,7 @@ export default function posts(profilePost) {
   }
 
   //Função para mandar os dados da nova postagem para o Clound Firestore
+  const sectionNewPost = profilePage.querySelector("#new-post-here")
   const postButton = profilePage.querySelector("#post-button");
   postButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -96,33 +96,22 @@ export default function posts(profilePost) {
 
   //todos os posts na tela
   /*const showAllPosts = profilePage.querySelector(".ul-posts")
-  getPosts().then((allPosts) => {
-    allPosts.forEach((item) => {
-      const postElement = profilePosts(item);
-      showAllPosts.prepend(postElement);
-    });
-  });*/
+   getPosts().then((allPosts) => {
+     allPosts.forEach((item) => {
+       const postElement = profilePosts(item);
+       showAllPosts.prepend(postElement);
+     });
+   });*/
 
   //apenas os posts do usuario na tela
   const showPosts = profilePage.querySelector(".ul-posts")
-  const showMyPosts = async () => {
-    const uid = auth.currentUser.uid;
-    const feedProfile = await postUser(uid);
-    feedProfile.forEach((item) => {
-      const postCard = profilePosts(item);
-      showPosts.prepend(postCard);
-    });
-  };
-  showMyPosts();
-
-  /*const showUserPosts = profilePage.querySelector("#user-all-posts");
   const uid = auth.currentUser.uid;
-  postUser(uid).then((userPosts) => {
+  getUserPosts(uid).then((userPosts) => {
     userPosts.forEach((item) => {
-      const userPostElement = profilePosts(item);
-      showUserPosts.prepend(userPostElement);
+      const postElement = profilePosts(item);
+      showPosts.prepend(postElement);
     });
-  });*/
+  });
 
   //Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff")

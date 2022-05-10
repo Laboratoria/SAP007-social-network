@@ -7,8 +7,9 @@ import {
     orderBy,
     addDoc,
     updateDoc,
+    where,
+    getDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
-
 
 import { db, auth } from './config-firebase.js';
 
@@ -58,29 +59,36 @@ export function editPost(id, message, titleHQ) {
 }
 
 //Função para aparecer só os post do usuario na página perfil
-export const postUser = async (uid) => {
-    const collectionSortedByUid = query(collection(db, "posts"), orderBy("data", "asc"), where("uid", "==", uid));
-    const arrMyPost = [];
-    const querySnapshot = await getDocs(collectionSortedByUid);
+export async function getUserPosts(uid) {
+    const collectionUserPosts = query(collection(db, "posts"), where("uid", "==", uid));
+    const arrUserPost = [];
+    const querySnapshot = await getDocs(collectionUserPosts);
     querySnapshot.forEach((doc) => {
-      const myPost = doc.data();
-      myPost.id = doc.id;
-      arrMyPost.push(myPost);
+        const userPost = doc.data();
+        console.log(userPost)
+        userPost.id = doc.id;
+        arrUserPost.push(userPost);
     });
-    return arrMyPost;
-  };
+    return arrUserPost;
+}
 
 //Função para dar like
-export async function like(id, user) {
-    const post = doc(db, 'posts', id);
+/*export async function like(id, user) {
+    const post = doc(db, "posts", id);
     await updateDoc(post, {
       likes: arrayUnion(user),
     });
   }
   
   export async function dislike(id, user) {
-    const post = doc(db, 'posts', id);
+    const post = doc(db, "posts", id);
     await updateDoc(post, {
       likes: arrayRemove(user),
     });
-  }
+  }*/
+
+export async function like(id, user) {
+    const querySinglePost = doc(db, "posts", id);
+    const querySnapshot = await getDoc(querySinglePost);
+    console.log(querySnapshot.data())
+}
