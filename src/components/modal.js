@@ -2,7 +2,8 @@ import { editPost, deletePost } from '../lib/firestore.js';
 
 export function modalEditPost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
-  const template = `
+  modalContainer.classList.add("modal-container");
+  const modalEdit = `
   <div id="edit-modal" class="modal-content">
     <input class="title-edition" id="title-edit" type="text" placeholder="Título">${postObj.title}
     <textarea class="recipe-edition" id="recipe-edit" type="text" placeholder="Receita" wrap="hard">${postObj.recipe}</textarea>
@@ -11,59 +12,84 @@ export function modalEditPost(postObj, postContainer) {
     
     <button class="btn-update" id="update-btn" >Atualizar</button>
     
-    <p id="error" class="error"></p>
+    <span id="error" class="error-message"></span>
   </div>
     `;
-  modalContainer.innerHTML = template;
+  modalContainer.innerHTML = modalEdit;
 
   const editModal = modalContainer.querySelector("#edit-modal");
   const saveEdit = modalContainer.querySelector("#update-btn");
   const cancelEdit = modalContainer.querySelector('#cancel-update-btn');
-  const title = modalContainer.querySelector("#title-edit");
-  const recipe = modalContainer.querySelector("#recipe-edit");
   const errorMessage = modalContainer.querySelector("#error");
+  const newTitle = modalContainer.querySelector("#title-edit");
+  const newRecipe = modalContainer.querySelector("#recipe-edit")
 
-  saveEdit.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (title.value.length >= "3" && recipe.value.length >= "3") {
-        editPost(postObj.id, title.value, recipe.value)
-          .then(() => {
-            const newTitle = postContainer.querySelector("#title-edit");
-            const newRecipe = postContainer.querySelector("#recipe-edit");
-            newTitle.innerHTML = title.value;
-            newRecipe.innerHTML = recipe.value;
-            // modalContainer.remove();
-          })
-          .catch(() => {
-            console.log("error");
-          });
-      } else if (title.value === "" || recipe.value ==="") {
-    errorMessage.innerText = "Preencha todos os campos acima";
-    } else (recipe.value.length < "100"); {
-      errorMessage.innerText = "Preencha a mensagem acima com mais de 100 caracteres";
+  saveEdit.addEventListener('click', () => {
+    if (newTitle.value === '' || newRecipe.value === '') {
+      errorMessage.classList.add('error');
+      errorMessage.innerHTML = 'Opsss! ocorreu um erro Tente novamente.';
     } else {
-      return modalContainer;
+      editPost(postObj.id, newTitle.value, newRecipe.value).then(() => {
+        const saveTitle = modalContainer.querySelector('#title-edit');
+        const saveRecipe = modalContainer.querySelector('#recipe-edit');
+        saveTitle.innerHTML = newTitle.value;
+        saveRecipe.innerHTML = newRecipe.value;
+
+        modalContainer.remove();
+      });
     }
   });
-  cancelEdit.addEventListener("click", (e) => {
-    e.preventDefault();
-    editModal.innerHTML="";
-  }); 
+
+  cancelEdit.addEventListener('click', () => {
+    modalContainer.remove();
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === editModal) {
+      modalContainer.remove();
+    }
+  });
   return modalContainer;
 }
+
+// saveEdit.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   if (newTitle.value.length >= "3" && newRecipe.value.length >= "3") {
+//     editPost(postObj.id, newTitle.value, newRecipe.value)
+//       .then(() => {
+//         const titleContent = feedContainer.querySelector('#title-recipe');
+//         const recipeContent = feedContainer.querySelector('#recipe-content');
+//         newTitle.innerHTML = titleContent.value;
+//         newRecipe.innerHTML = recipeContent.value;
+//       })
+//       .catch(() => {
+//         console.log("error");
+//       });
+//   } else if (newTitle.value === "" || newRecipe.value === "") {
+//     errorMessage.innerText = "Preencha todos os campos acima";
+//   } else (newRecipe.value.length < "10"); {
+//     errorMessage.innerText = "Preencha a mensagem acima com mais de 10 caracteres";
+//   }
+// });
+// cancelEdit.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   editModal.innerHTML = "";
+// });
+// return modalContainer;
+// }
 
 export function modalDeletePost(postObj, postContainer) {
   const modalContainer = document.createElement("div");
   const template = `
-  <div id="delete-modal" class="modal">
-      <p>Tem certeza que quer excluir essa receita?</p>
+  <div id="delete-modal" class="modal-delete">
+      <p class="delete-message">Tem certeza que quer excluir essa receita?</p>
 
-      <button class="span-delete-btn" id="yes-btn" type="submit">Excluir</button>
-      <button class="span-delete-btn" id="no-btn" type="submit">Cancelar</button>
+      <button class="delete-btn" id="yes-btn" type="submit">Excluir</button>
+      <button class="cancel-delete-btn" id="no-btn" type="submit">Cancelar</button>
   </div>
   `;
   modalContainer.innerHTML = template;
- 
+
   const deleteModal = modalContainer.querySelector('#delete-modal');
   const confirmBtn = modalContainer.querySelector('#yes-btn');
   const declineBtn = modalContainer.querySelector('#no-btn');
@@ -77,8 +103,14 @@ export function modalDeletePost(postObj, postContainer) {
 
   declineBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    deleteModal.innerHTML="";
+    deleteModal.innerHTML = "";
   });
-  
+
+  window.addEventListener('click', (e) => {
+    if (e.target === deleteModal) {
+      modalContainer.remove();
+    }
+  });
+
   return modalContainer;
 }

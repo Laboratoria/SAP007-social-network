@@ -1,0 +1,57 @@
+.modal-container {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    border: 2px solid pink;
+    background-color: black;
+    margin: 30% auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.recipe-edition {
+    width: 100%;
+}
+
+.delete-message {
+    text-align: center;
+}
+
+.edit {
+    color: brown;
+    font-weight: bold;
+}
+
+.modal-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:white;
+    color: brown;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+    gap: 20px;
+}
+
+.save-container {
+    margin: 1em auto;
+}
+
+.cancel-delete-btn{
+    color: white;
+    background-color: brown;
+    padding: 4px 7px;
+}
