@@ -29,6 +29,6 @@ const init = () => {
   });
 }
 window.addEventListener("load", () => {
-  redirect();
+ redirect();
   init();
 });
