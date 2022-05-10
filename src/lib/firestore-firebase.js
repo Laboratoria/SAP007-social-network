@@ -1,7 +1,9 @@
 import {
   collection,
   getDocs,
-  addDoc
+  addDoc,
+  query
+
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
 import {
   db
@@ -9,6 +11,7 @@ import {
 import {
   auth
 } from "./authentication.js"
+
 
 export const createPost = async (textPost) => {
   try {
@@ -27,3 +30,23 @@ export const createPost = async (textPost) => {
     console.log('Post não publicado', e);
   }
 };
+
+export const getPosts = async() =>{
+  console.log("cheguei")
+  try {
+    const posts = []
+    const q = query(collection(db, "post"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      const post = doc.data()
+      post.id = doc.id
+     posts.push(post)
+      console.log(post);
+    });
+   return posts
+  } catch (error) {
+
+  }
+
+
+}
