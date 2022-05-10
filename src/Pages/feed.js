@@ -6,9 +6,10 @@ import {
   getCurrentUser,
   like,
   dislike,
+  editPost,
 } from '../firebase/firestore.js';
 
-export default function feed() {
+export default async function feed() {
   const feed = document.createElement('div');
   const boxFeed = `
   <nav class="top-nav">
@@ -70,6 +71,7 @@ export default function feed() {
     posts.innerHTML += control;
   });
 
+  //trazendo posts do banco de dados pro feed e ordenando
   const getPostsFromDatabase = async () => {
     const elementPost = await getPost();
     const ordanatedPosts = elementPost.sort((a, b) => {
@@ -79,9 +81,10 @@ export default function feed() {
       return -1;
     });
 
+    //template feeds postados
     ordanatedPosts.forEach((post) => {
-      console.log(post);
-      document.querySelector('#posts-container').innerHTML += `         
+      //console.log(post);
+      feed.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul>
           <li>
@@ -91,17 +94,21 @@ export default function feed() {
           </li>
         </ul>
         <div class= "line"></div>
-        <div class="icon">
-        <button type="button" id="like-btn" data-post-id="${post.id}">
-          <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
-        </button>
-        <p id="num-likes" class="num-likes">${post.like.length}</p>
-        </div>
-      </div>  
+          <div class="icon">
+            <button type="button" id="like-btn" data-post-id="${post.id}">
+              <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
+            </button>
+           <p id="num-likes" class="num-likes">${post.like.length}</p>
+            <button  type="button" id="button-edit" postid="${post.id}">
+              <img class= "edit-btn" id="edit-btn" src="./img/page-edit.svg">
+            </button>
+          </div>
+        </div>  
      `;
     });
 
-    const buttonLike = document.querySelector('#like-btn');
+    //função like-deslike
+    const buttonLike = feed.querySelector('#like-btn');
 
     buttonLike.addEventListener('click', (e) => {
       e.preventDefault();
@@ -129,16 +136,33 @@ export default function feed() {
     });
   };
 
-  getPostsFromDatabase();
+  await getPostsFromDatabase();
+
+
+  //função editar
+
+  const buttonEdit = feed.querySelector('#button-edit');
+  console.log(buttonEdit);
+  buttonEdit.addEventListener("click", (e) => {
+    e.preventDefault()
+    const updatedPost = await editPost(e.currentTarget.dataset.postid, "é nois")
+    //console.log(updatedPost);
+    //.then(() => {
+    // messageModificad.innerHTML = postText.value;
+    // editPost.remove()
+    //})
+    //return editPost
+    //})
 
 
 
-  const logoutUser = feed.querySelector('#logout');
-  logoutUser.addEventListener('click', (e) => {
-    e.preventDefault();
-    logout().then(() => {
-      window.location.hash = '#login';
+
+    const logoutUser = feed.querySelector('#logout');
+    logoutUser.addEventListener('click', (e) => {
+      e.preventDefault();
+      logout().then(() => {
+        window.location.hash = '#login';
+      });
     });
-  });
-  return feed;
-}
+    return feed;
+  }

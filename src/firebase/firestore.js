@@ -41,7 +41,7 @@ export const getPost = async () => {
     // console.log(`${doc.id} => ${doc.data()}`);
     arrPost.push({ ...timeline, id: doc.id });
   });
-  console.log(arrPost);
+  //console.log(arrPost);
   return arrPost;
 };
 
@@ -68,8 +68,9 @@ export const dislike = async (idPost, userEmail) => {
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
 
-//export const editPost = async(id, textPost)
-//const post = doc(db, "post", "DC");
-//await updateDoc(post, {
- // textPost,
-//});
+export const editPost = async (id, textPost) => {
+  const post = doc(db, "post", "DC");
+  return await updateDoc(post, {
+    textPost,
+  });
+}
