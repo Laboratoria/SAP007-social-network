@@ -53,11 +53,14 @@ export default () => {
         }
       });
   });
+
   const btnGoogle = container.querySelector('.logoGoogle');
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    signInWithGoogle(auth, provider);
-    window.location.hash = '#feed';
+    signInWithGoogle(auth, provider).then(() => {
+      console.log('oie, vc vai funcionar')
+      window.location.hash = '#feed';
+    });
   });
   return container;
 };
