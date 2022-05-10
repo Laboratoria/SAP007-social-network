@@ -1,9 +1,6 @@
 // eslint-disable-next-line
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js';
+import landingPage from './pages/landingPage/landing.js';
 import pageLogin from './pages/pageLogin/login.js';
 import pageRegister from './pages/pageRegister/register.js';
 import pageFeed from './pages/pageFeed/feed.js';
@@ -27,6 +24,9 @@ const init = () => {
   console.log(url);
   let page;
   switch (url) {
+    case '#login':
+      page = pageLogin();
+      break;
     case '#register':
       page = pageRegister();
       break;
@@ -34,7 +34,7 @@ const init = () => {
       page = pageFeed();
       break;
     default:
-      page = pageLogin();
+      page = landingPage();
   }
   main.appendChild(page);
 };
