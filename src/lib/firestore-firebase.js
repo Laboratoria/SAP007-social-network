@@ -77,14 +77,14 @@ export async function getUserPosts(uid) {
 export function like(id, user) {
     const post = doc(db, "posts", id);
     return updateDoc(post, {
-      likes: arrayUnion(user),
+      like: arrayUnion(user),
     });
   }
   
   export function dislike(id, user) {
     const post = doc(db, "posts", id);
     return updateDoc(post, {
-      likes: arrayRemove(user),
+      like: arrayRemove(user),
     });
   }
 

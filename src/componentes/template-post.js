@@ -3,7 +3,6 @@ import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
   const currentUser = auth.currentUser;
-  console.log(currentUser)
   const templatePost = document.createElement("div");
   templatePost.classList.add("body-template-post");
 
