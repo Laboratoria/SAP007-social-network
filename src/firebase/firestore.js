@@ -32,7 +32,7 @@ export const createPost = async (textPost) => {
 };
 export const getPost = async () => {
   const arrPost = [];
-  const orderFirestore = query(collection(db, 'post'), orderBy('date'));
+  const orderFirestore = query(collection(db, 'post'));
   const querySnapshot = await getDocs(orderFirestore);
   querySnapshot.forEach((doc) => {
     const timeline = doc.data();
@@ -47,8 +47,8 @@ export const getPost = async () => {
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
 
-export const editPost = async(id, textPost)
-const post = doc(db, "post", "DC");
-await updateDoc(post, {
-  textPost,
-});
+//export const editPost = async(id, textPost)
+//const post = doc(db, "post", "DC");
+//await updateDoc(post, {
+ // textPost,
+//});

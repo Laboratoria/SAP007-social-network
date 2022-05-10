@@ -75,7 +75,7 @@ export default function feed() {
     ordanatedPosts.forEach((post) => {
       document.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
-        <ul class="box-posts">
+        <ul>
           <li>
           <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
@@ -97,6 +97,8 @@ export default function feed() {
   };
 
   getPostsFromDatabase();
+
+
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
