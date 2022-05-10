@@ -116,7 +116,7 @@ textarea:focus {
   margin-top: 20px;
 }
 
-.icons {
+.icon {
   display: flex;
 }
 
@@ -124,7 +124,7 @@ textarea:focus {
   border: none;
 }
 
-.heart-btn .edit-btn {
+.btn-heart .edit-btn {
   font-size: 25px;
   margin-top: 10px;
   cursor: pointer;

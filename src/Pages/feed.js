@@ -1,7 +1,13 @@
 import '../firebase/config-firebase.js';
 import { logout } from '../firebase/authetication.js';
-import { createPost } from '../firebase/firestore.js';
-import { getPost, getCurrentUser } from '../firebase/firestore.js';
+import {
+  createPost,
+  getPost,
+  getCurrentUser,
+  like,
+  dislike,
+} from '../firebase/firestore.js';
+
 export default function feed() {
   const feed = document.createElement('div');
   const boxFeed = `
@@ -35,6 +41,7 @@ export default function feed() {
   const btnPosts = feed.querySelector('#publish-btn');
   const postText = feed.querySelector('#post-text');
   const msgAlert = feed.querySelector('#alert-notification');
+
   const convertDateObject = (dateObject) => {
     const date = dateObject.toDate();
     return date.toLocaleString('pt-br');
@@ -73,6 +80,7 @@ export default function feed() {
     });
 
     ordanatedPosts.forEach((post) => {
+      console.log(post);
       document.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul>
@@ -80,19 +88,44 @@ export default function feed() {
           <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
           <p>${post.textPost}</p>
-          <div class= "line"></div>
-          <div class="icons">
-            <button class="button-heart">
-              <img class="heart-btn" id="heart-btn" src="./img/heart.svg">
-            </button>
-          </div>
-          <button class="button-edit">
-              <img class= "edit-btn" id="edit-btn" src="./img/page-edit.svg">
-          </button>
           </li>
         </ul>
+        <div class= "line"></div>
+        <div class="icon">
+        <button type="button" id="like-btn" data-post-id="${post.id}">
+          <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
+        </button>
+        <p id="num-likes" class="num-likes">${post.like.length}</p>
+        </div>
       </div>  
-      `;
+     `;
+    });
+
+    const buttonLike = document.querySelector('#like-btn');
+
+    buttonLike.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e.currentTarget.dataset.postId);
+      const selectPost = elementPost.find(
+        (item) => item.id == e.currentTarget.dataset.postId
+      );
+      const postLiked = selectPost.like;
+      const likesCounter = e.currentTarget.nextElementSibling;
+      console.log(getCurrentUser);
+      const user = getCurrentUser();
+      if (!postLiked.includes(user)) {
+        like(selectPost.id, user).then(() => {
+          postLiked.push(user);
+          const likeNumber = Number(likesCounter.textContent) + 1;
+          likesCounter.textContent = likeNumber;
+        });
+      } else {
+        dislike(selectPost.id, user).then(() => {
+          postLiked.splice(getCurrentUser);
+          const likeNumber = Number(likesCounter.textContent) - 1;
+          likesCounter.textContent = likeNumber;
+        });
+      }
     });
   };
 
