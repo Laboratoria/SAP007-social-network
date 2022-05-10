@@ -33,11 +33,13 @@
   font-size: 16px;
   box-shadow: 7px 6px 5px grey;
   border: black;
+  cursor: pointer;
 }
 .user-register {
   margin: auto;
   margin-bottom: 25%;
   margin-top: -20%;
+  cursor: pointer;
 }
 .user-register a {
   color: black;
@@ -51,6 +53,7 @@
   }
   .button-enter {
     width: 50%;
+    cursor: pointer;
   }
 }
 
@@ -60,6 +63,7 @@
   }
   .button-enter {
     width: 30%;
+    cursor: pointer;
   }
 }
 
@@ -74,8 +78,10 @@
   }
   .button-enter {
     width: 30%;
+    cursor: pointer;
   }
   .user-register {
     margin-top: -10%;
+    cursor: pointer;
   }
 }

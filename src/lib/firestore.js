@@ -18,6 +18,7 @@ import { auth } from './authentication.js';
 
 export const db = getFirestore(app);
 
+// eslint-disable-next-line consistent-return
 export const publicatedPost = async (valueTitle, valueText) => {
   try {
     const docRef = await addDoc(collection(db, 'posts'), {

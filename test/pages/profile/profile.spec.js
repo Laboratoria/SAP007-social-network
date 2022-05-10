@@ -17,8 +17,10 @@ describe('deletePost', () => {
     };
 
     const page = card(item);
-    const deleteAction = page.querySelector('.delete');
+    const deleteButton = page.querySelector('.delete');
+    deleteButton.dispatchEvent(new Event('click'));
 
+    const deleteAction = page.querySelector('#yes');
     deleteAction.dispatchEvent(new Event('click'));
 
     expect(deletePost).toHaveBeenCalledTimes(1);
@@ -35,13 +37,20 @@ describe('editPost', () => {
       id: 'hydxbeychsd12',
     };
     const page = card(item);
-    const title = page.querySelector('.published-title');
-    const text = page.querySelector('.published-text');
     const editAction = page.querySelector('.edit');
 
     editAction.dispatchEvent(new Event('click'));
 
+    const editionTitle = page.querySelector('.edition .title');
+    const editionText = page.querySelector('.edition .text');
+
+    editionTitle.value = 'new Title';
+    editionText.value = 'new Text';
+
+    const btnEdition = page.querySelector('.btn-update');
+    btnEdition.dispatchEvent(new Event('click'));
+
     expect(editPost).toHaveBeenCalledTimes(1);
-    expect(editPost).toHaveBeenCalledWith(item.id, title.value, text.value);
+    expect(editPost).toHaveBeenCalledWith(item.id, editionTitle.value, editionText.value);
   });
 });

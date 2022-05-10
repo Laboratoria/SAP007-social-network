@@ -18,11 +18,7 @@ export function userCreate(email, password, name) {
       updateProfile(auth.currentUser, {
         displayName: name,
       }).then(() => {
-        // Profile updated!
-        // ...
-      }).catch((error) => {
-        // An error occurred
-        // ...
+      }).catch(() => {
       });
       const user = userCredential.user;
       return user;
