@@ -1,6 +1,6 @@
 import "../../lib/config-firebase.js";
 import { loginGoogle } from "../../lib/auth-firebase.js";
-import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
 export default () => {
   const containerLogin = document.createElement('div')
@@ -23,10 +23,8 @@ export default () => {
   const loginSenha = containerLogin.querySelector('#inputSenha');
   const btnEntrar = containerLogin.querySelector("#btn-Entrar");
   const msgAlert = containerLogin.querySelector('#message');
-  const btReset = containerLogin.querySelector('reset-password'); 
-  
+  //const btReset = containerLogin.querySelector('reset-password');   
   //const btnSair = containerLogin.querySelector('#btn-Sair')
-  const auth = getAuth();
 
   loginButtonGoogle.addEventListener("click", (e) => {
     e.preventDefault();
