@@ -1,4 +1,6 @@
-import {createPost} from  "../lib/firestore-firebase.js";
+import {
+  createPost
+} from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -20,34 +22,28 @@ export default () => {
 
 
 
-const postArea = container.querySelector("#posts")
-const btnPost = container.querySelector("#post-button")
-const textPost = container.querySelector("#post-text")
-const msgError = container.querySelector("#msg-error")
+  const postArea = container.querySelector("#posts")
+  const btnPost = container.querySelector("#post-button")
+  const textPost = container.querySelector("#post-text")
+  const msgError = container.querySelector("#msg-error")
 
 
-btnPost.addEventListener("click", async() => {
-  const timeLine= postArea.innerHTML;
-  postArea.innerHTML="";
-  if (textPost.value ==="") {
-  msgError.innerHTML = "Opa, digite sua mensagem!";
-} else; {
-  await createPost(textPost.value);
-  postArea.innerHTML += `
+  btnPost.addEventListener("click", async () => {
+    const timeLine = postArea.innerHTML;
+    postArea.innerHTML = "";
+    if (textPost.value === "") {
+      msgError.innerHTML = "Opa, digite sua mensagem!";
+    } else; {
+      await createPost(textPost.value);
+      postArea.innerHTML += `
   <div class= "postArea" id="postArea">
   <p>${textPost.value}</p>
   </div>
   `
-  postArea.innerHTML+= timeLine
-  }
-});
+      postArea.innerHTML += timeLine
+    }
+  });
 
   return container;
 
 };
-
-
-
-
-
-
