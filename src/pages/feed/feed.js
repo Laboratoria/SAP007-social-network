@@ -36,7 +36,20 @@ async function addDocument_AutoId() {
       sectionNewPost.innerHTML = `
         <div class="divPost">
         ${inputTitulo.value} <br>
-        ${inputPost.value}
+        ${inputPost.value} <br>
+        <div class="linePost"></div>
+        <a class="icons" id="iconLike">
+          <img src="../../../img/curtir.png" width="40" height="40" />
+        </a>
+        <a class="icons" id="iconComent">
+          <img src="../../../img/comentar.png" width="40" height="40" />
+        </a>      
+        <a class="icons" id="iconEdit">
+          <img src="../../../img/editar.png" width="40" height="40" />
+        </a>      
+        <a class="icons" id="iconDelete">
+          <img src="../../../img/excluir.png" width="40" height="40" />
+        </a>
         </div>
       `
     })
@@ -60,7 +73,20 @@ const getPosts = async () => {
       (post) =>`
       <div class="divPost">
       ${post.titulo} <br>
-      ${post.post}
+      ${post.post} <br>
+      <div class="linePost"></div>
+      <a class="icons" id="iconLike">
+        <img src="../../../img/curtir.png" width="40" height="40" />
+      </a>
+      <a class="icons" id="iconComent">
+        <img src="../../../img/comentar.png" width="40" height="40" />
+      </a>      
+      <a class="icons" id="iconEdit">
+        <img src="../../../img/editar.png" width="40" height="40" />
+      </a>      
+      <a class="icons" id="iconDelete">
+        <img src="../../../img/excluir.png" width="40" height="40" />
+      </a>
       </div>
     `
     )
