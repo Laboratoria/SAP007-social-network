@@ -1,53 +1,65 @@
-* {
-   padding: 0px;
-   margin: 0px;   
-}
-body {
-   background: #F3FFC6;
-   color: #306B35;   
-   margin-top: 0px;
-}
 
-
-@media (min-width: 576px){
-
-   .conteudoComeço{
-   background: #F3FFC6;
-   width: 70%;
-   height: 80vh;
-   margin-left: 15%;
-   text-align:center;
-   padding-top: 6%;  
-}
-
-  .boasVindas{
-   font-size: 1.9em;
-   margin-bottom: 50px;
-   color: #B51D4C;
-}
-
-  .mensagem   {
-   margin-top: 10%;
-   font-size: 1.5em;
-}
-
-   .criar-entrar {
-   font-size: 1.5em;
-   margin-top: 15%;
-}
-}
-
-
-@media (min-width: 768px) {
-   .mensagem{
-     font-size: 1.5em;
-     margin-left: 6% ;
-     margin-right: 6%;
+@media (min-width: 360px) {
+  .conteudoComeço {
+    background: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 75%;
+    height: auto;
+    margin-top: 20%;
+    margin-left: 12%;
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom:4%;
+    border-style: solid;
+    border-color: darkgreen;
   }
-   .criar-entrar{
-     font-size: 1.5em;
-     margin-top: 10%;
-  }
+
+ .boasVindas {
+  font-size: 1.5em;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: crimson;
+ }
+
+ .mensagem {
+  margin-top: 8%;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 1.2em;
+ }
+ .botaoCriar {
+  background-color: chartreuse;
+  color: crimson;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: chartreuse;
+  text-align: center;
+  font-size: 1em;
+ }
+
+ .criar-entrar {
+  font-size: 1.1em;
+  margin-top: 20%;
+ }
 }
 
+.conteudoComeço {
+  height: auto;
+  padding-bottom:4%;
+}
+
+.mensagem {
+  font-size: 2em;
+}
+
+.criar-entrar {
+  font-size: 1.5em;
+  margin-top: 10%;
+}
+
+.boasVindas {
+  font-size: 2em;
+}
 

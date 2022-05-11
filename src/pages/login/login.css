@@ -1,86 +1,18 @@
-@media (min-width: 576px){
 @media (min-width: 360px){
  * {
      margin: 0px;
      padding: 0px;
     }
-   .conteudoLogin{
-    background: white;
-    border-radius: 12px 12px 12px 12px;
-    width: 70%;
-    height: 80vh;
-    margin-left: 15%;
-    text-align:center;
-    }
-    .paragrafoLogin{
-    color:#B51D4C;
-    font-size: 2em;
-    }
-     .btn-Entrar {
-      margin-top: 60px;
-      margin-bottom: 2px;
-    }
-    .Senha {
-      margin-bottom: 10px;
-    }
-    .input{
-    width: 300px;
-    height: 58px;
-    border-style:groove;
-    border-color:darkgreen;
-    border-radius:30px 30px 30px 30px ;
-    margin-left: 5px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 1em;
-    }
-    /*.{
-   width: 300px;
-   height: 58px;
-   border-style:groove;
-   border-color:darkgreen;
-   border-radius:30px 30px 30px 30px ;
-   margin-left: 5px;
-   margin-top: 30px;
-   text-align: center;
-   font-size: 1em;
-   box-shadow: 2px 2px 2px grey;
- }*/
-
-  .btn-Entrar {
-   background-color: #C3DB7B;
-   color: #B51D4C;
-   width: 200px;
-   height: 40px;
-   border-radius:20px 20px 20px 20px;
-   border-style: solid;
-   border-color: #C3DB7B;
-   text-align: center;
-   font-size: 1em;
- }
-  .btn-google{
-   background-color: #C3DB7B;
-   color: #B51D4C;
-   width: 200px;
-   height: 40px;
-   border-radius:20px 20px 20px 20px;
-   border-style: solid;
-   border-color: #C3DB7B;
-   text-align: center;
-   font-size: 1em;
-}
-
-}
-
     .conteudoLogin{
       background: white;
       border-radius: 12px 12px 12px 12px;
       width: 70%;
-      height: 60vh;
+      height: auto;
       margin-top: 20%;
       margin-left: 15%;
       text-align:center;
       padding-top: 6%;
+      padding-bottom:4%;
       border-style:solid;
       border-color:darkgreen;
      }
@@ -88,9 +20,9 @@
       color:crimson;
       font-size: 2em;
      }
-     .btn-Entrar{
+     .btnEntrar{
         margin-top: 40px;
-        margin-bottom: 2px;
+        margin-bottom:2px;
      }
      .Senha{
         margin-bottom: 10px;
@@ -108,7 +40,7 @@
          box-shadow: 2px 2px 2px grey;
      }
      
-     #btn-Entrar {
+     .btnEntrar {
      background-color: chartreuse;
      color: crimson;
      width: 200px;
@@ -137,11 +69,12 @@
      background: white;
      border-radius: 12px 12px 12px 12px;
      width: 60%;
-     height: 60vh;
+     height: auto;
      margin-top: 20%;
      margin-left: 20%;
      text-align:center;
      padding-top: 6%;  
+     padding-bottom:4%;
      border-style:solid;
      border-color:darkgreen;
   }
@@ -168,7 +101,7 @@
       margin-bottom: 30px;
     }
 
-    .btn-Entrar {
+    .btnEntrar {
       background-color: chartreuse;
       color: crimson;
       width: 350px;
@@ -196,5 +129,6 @@
 }
 
 .conteudoLogin {
-  height: 80vh;
+  height: auto;
+  padding-bottom:4%;
 }
