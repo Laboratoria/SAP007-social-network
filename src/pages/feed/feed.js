@@ -49,10 +49,17 @@ const getPosts = async () => {
   allPosts.forEach((doc) => {
     const timeline = doc.data(); //ordenando por data
     arrayPosts.push({ ...timeline, id: doc.id });
-    sectionAllPost.prepend(arrayPosts);
+    sectionAllPost.innerHTML = arrayPosts.map(
+      (post) =>`
+      <div class="divPost">
+      ${post.titulo} <br>
+      ${post.post}
+      </div>
+    `
+    )
+    .join("");
   });
-  console.log(arrayPosts); //ver se array ta indo
-  //return arrayPosts;
+
 };
 
 getPosts();
