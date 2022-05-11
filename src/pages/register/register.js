@@ -11,7 +11,9 @@ export default () => {
       <input type="email" class="input email" id="inputEmail" placeholder="Insira seu email" requerid /><br>
       <input type="password" class="input confirmaSenha" id="inputSenha" placeholder="Confirme sua senha" requerid /><br>
       <p id="message" class="sucessMessage" menssage"></p>
-    <br><button class='btn submit' type="submit" id="btn-Cadastrar">Sign Up</button><br></form>
+    <br><button class='btn submit' type="submit" id="btn-Cadastrar">Sign Up</button><br>
+    <p> Já tem conta?
+      <a href="/#login">Entrar</a></p></form>
       
     `;
 
@@ -29,8 +31,8 @@ btnCadastrar.addEventListener('click', (e) => {
   if (name.value, email.value, password.value) {
     createUserWithEmailAndPassword(auth, name.value, email.value, password.value)
   .then(() => {
-     msgAlert.innerHTML = "Registro feito com sucesso!";
-      //window.location.hash = "#home";
+     window.location.hash = "#feed";
+      
   })
   .catch((error) => {
     const errorCode = error.code;

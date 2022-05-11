@@ -9,11 +9,13 @@ export default () => {
       <p class="paragrafoLogin">Login</p>
       <input type="email" id="inputEmail" placeholder="Insira seu Email" /><br>
       <input type="password" id="inputSenha" placeholder="Insera sua senha" /><br>
-      <a href="" > <p class='reset-password'>Esqueceu ppa sua senha?</p></a><br>
+      <a href="" > <p class='reset-password'>Esqueceu sua senha?</p></a><br>
       <p id="message" class="successMessage menssage"></p>
-      <br><button type="submit" id="btn-Entrar">Entrar</button><br>
+      <br><button class="btn-entrar" id="btn-Entrar">Entrar</button><br>
       <button class="btn-google" id="buttonGoogle">Entrar com o Google
-      </button><br>
+      </button>
+      <p> Não tem conta?
+      <a href="/#login">Criar</a></p><br>
        
     `;
   containerLogin.innerHTML = templateLogin;
@@ -23,14 +25,16 @@ export default () => {
   const loginSenha = containerLogin.querySelector('#inputSenha');
   const btnEntrar = containerLogin.querySelector("#btn-Entrar");
   const msgAlert = containerLogin.querySelector('#message');
+  const auth = getAuth();
+  
   //const btReset = containerLogin.querySelector('reset-password');   
   //const btnSair = containerLogin.querySelector('#btn-Sair')
 
   loginButtonGoogle.addEventListener("click", (e) => {
     e.preventDefault();
     loginGoogle().then((result) => {
-      msgAlert.innerHTML = "Login google feito com sucesso!";
-      //window.location.hash = "#feed"; //substituir mensagem quando criar pagina de timeline com posts 
+      window.location.hash = "#feed";
+       
     })
       .catch((error) => {
       msgAlert.innerHTML = "Login não deu certo, tente novamente!";
@@ -42,31 +46,33 @@ export default () => {
     if (loginEmail.value) {
       signInWithEmailAndPassword(auth, loginEmail.value, loginSenha.value)
       .then(() => {
-      msgAlert.innerHTML = "Login google feito com sucesso!";
-          //window.location.hash = "#feed"; //substituir mensagem quando criar pagina de timeline com posts 
+        window.location.hash = "#feed";
       })
       .catch((error) => {
-      switch (errorCode) {
-      case 'auth/wrong-password':
-        messageError = 'Senha errada.';
-        msgAlert.innerHTML = messageError;
-        break;
-      case 'auth/invalid-email':
-        messageError = 'Insira um email válido.';
-        msgAlert.innerHTML = messageError;
-        break;
-      case 'auth/user-not-found':
-        messageError = 'Usuário não encontrado.';
-        msgAlert.innerHTML = messageError;
-        break;
-      case 'auth/internal-error':
-        messageError = 'Insira a senha.';
-        msgAlert.innerHTML = messageError;
-        break;
-        default:
-        messageError = 'Erro desconhecido';
-        msgAlert.innerHTML = messageError;
-      }
+        const errorCode = error.code;
+        let messageError = error.message;
+
+        switch (errorCode) {
+          case 'auth/wrong-password':
+            messageError = 'Senha errada.';
+            msgAlert.innerHTML = messageError;
+            break;
+          case 'auth/invalid-email':
+            messageError = 'Insira um email válido.';
+            msgAlert.innerHTML = messageError;
+            break; 
+          case 'auth/user-not-found':
+              messageError = 'Usuário não encontrado.';
+              msgAlert.innerHTML = messageError;
+            break;
+          case 'auth/internal-error':
+              messageError = 'Insira a senha.';
+              msgAlert.innerHTML = messageError;
+            break;
+            default:
+              messageError = 'Erro desconhecido';
+              msgAlert.innerHTML = messageError;  
+        }          
       })
     }
   })
