@@ -7,8 +7,8 @@ export default () => {
 
     let templateFeed = `
     <p id="post">Post</p>
-    <input id="titulo" type="text" placeholder="Título" /><br>
-    <input id="postText" type="text" placeholder="Qual a sua teoria?" /><br>
+    <input id="titulo" type="text" placeholder="Título" maxlength="90"/><br>
+    <input id="postText" type="text" placeholder="Qual a sua teoria?" maxlength="280" /><br>
     <br><button id="btnPost" type="submit" >Postar</button><br>
     <div class="sectionFeedContainer">
     <section id="sectionNewPost" class="sectionPostClass"></section>
