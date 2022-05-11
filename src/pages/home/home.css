@@ -3,11 +3,12 @@
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 75%;
-    height: 60vh;
+    height: auto;
     margin-top: 20%;
     margin-left: 12%;
     text-align: center;
     padding-top: 6%;
+    padding-bottom:4%;
     border-style: solid;
     border-color: darkgreen;
   }
@@ -44,7 +45,8 @@
 }
 
 .conteudoComeço {
-  height: 80vh;
+  height: auto;
+  padding-bottom:4%;
 }
 
 .mensagem {

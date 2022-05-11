@@ -7,11 +7,12 @@
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 70%;
-    height: 60vh;
+    height: auto;
     margin-top: 20%;
     margin-left: 15%;
     text-align: center;
     padding-top: 6%;
+    padding-bottom:4%;
     border-style: solid;
     border-color: darkgreen;
   }
@@ -52,11 +53,12 @@
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 60%;
-    height: 50vh;
+    height: auto;
     margin-top: 20%;
     margin-left: 20%;
     text-align: center;
     padding-top: 6%;
+    padding-bottom:4%;
     border-style: solid;
     border-color: darkgreen;
   }
@@ -98,5 +100,6 @@
 }
 
 .conteudoRegister {
-  height: 80vh;
+  height: auto;
+  padding-bottom:4%;
 }

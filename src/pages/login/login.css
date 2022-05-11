@@ -7,11 +7,12 @@
       background: white;
       border-radius: 12px 12px 12px 12px;
       width: 70%;
-      height: 60vh;
+      height: auto;
       margin-top: 20%;
       margin-left: 15%;
       text-align:center;
       padding-top: 6%;
+      padding-bottom:4%;
       border-style:solid;
       border-color:darkgreen;
      }
@@ -21,7 +22,7 @@
      }
      .btnEntrar{
         margin-top: 40px;
-        margin-bottom: 2px;
+        margin-bottom:2px;
      }
      .Senha{
         margin-bottom: 10px;
@@ -68,11 +69,12 @@
      background: white;
      border-radius: 12px 12px 12px 12px;
      width: 60%;
-     height: 60vh;
+     height: auto;
      margin-top: 20%;
      margin-left: 20%;
      text-align:center;
      padding-top: 6%;  
+     padding-bottom:4%;
      border-style:solid;
      border-color:darkgreen;
   }
@@ -127,5 +129,6 @@
 }
 
 .conteudoLogin {
-  height: 80vh;
+  height: auto;
+  padding-bottom:4%;
 }
