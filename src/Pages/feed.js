@@ -25,7 +25,7 @@ export default async function feed() {
   <div class= "line-header"> </div>
   <div class = "container-publish">
   <section class="publish" id="publish">
-    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="25" rows="4" ></textarea>
+    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?"></textarea>
         <p id="alert-notification" class="error"></p>
         <div class= "btn-container">
           <button class="publish-btn" id="publish-btn">Publicar</button>
@@ -83,11 +83,6 @@ export default async function feed() {
 
     //template feeds postados
     ordanatedPosts.forEach((post) => {
-<<<<<<< HEAD
-      //console.log(post);
-=======
-      console.log(post);
->>>>>>> 7ec704a647f38aca91b646022ad0c267742335ce
       feed.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul>
@@ -97,6 +92,13 @@ export default async function feed() {
           <p>${post.textPost}</p>
           </li>
         </ul>
+        <section class='post-text'>
+            <p data-textId='${post.id}' data-text='${post.textPost}' contenteditable='false'>${post.Newpost}</p>
+            <div class='saveAndCancelButtons'>
+              <button data-save='true' class='save-button'>Salvar</button>
+              <button data-cancel='true' class='cancel-button'>Cancelar</button>
+            </div>
+          </section>
         <div class= "line"></div>
           <div class="icon">
             <button type="button" id="like-btn" data-post-id="${post.id}">
@@ -111,41 +113,13 @@ export default async function feed() {
      `;
     });
 
-<<<<<<< HEAD
-    //função like-deslike
-    const buttonLike = feed.querySelector('#like-btn');
-
-    buttonLike.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log(e.currentTarget.dataset.postId);
-      const selectPost = elementPost.find(
-        (item) => item.id == e.currentTarget.dataset.postId
-      );
-      const postLiked = selectPost.like;
-      const likesCounter = e.currentTarget.nextElementSibling;
-      console.log(getCurrentUser);
-      const user = getCurrentUser();
-      if (!postLiked.includes(user)) {
-        like(selectPost.id, user).then(() => {
-          postLiked.push(user);
-          const likeNumber = Number(likesCounter.textContent) + 1;
-          likesCounter.textContent = likeNumber;
-        });
-      } else {
-        dislike(selectPost.id, user).then(() => {
-          postLiked.splice(getCurrentUser);
-          const likeNumber = Number(likesCounter.textContent) - 1;
-          likesCounter.textContent = likeNumber;
-        });
-      }
-=======
     const buttonsLike = feed.querySelectorAll('#like-btn');
     buttonsLike.forEach((button) => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(e.currentTarget.dataset.postId);
         const selectPost = elementPost.find(
-          (item) => item.id == e.currentTarget.dataset.postId
+          (item) => item.id === e.currentTarget.dataset.postId
         );
         const postLiked = selectPost.like;
         const likesCounter = e.currentTarget.nextElementSibling;
@@ -165,7 +139,6 @@ export default async function feed() {
           });
         }
       });
->>>>>>> 7ec704a647f38aca91b646022ad0c267742335ce
     });
   };
 
@@ -174,28 +147,34 @@ export default async function feed() {
 
   //função editar
 
-  const buttonEdit = feed.querySelector('#button-edit');
-  console.log(buttonEdit);
-  buttonEdit.addEventListener("click", (e) => {
-    e.preventDefault()
-    const updatedPost = await editPost(e.currentTarget.dataset.postid, "é nois")
-    //console.log(updatedPost);
-    //.then(() => {
-    // messageModificad.innerHTML = postText.value;
-    // editPost.remove()
-    //})
-    //return editPost
-    //})
-
-
-
-
-    const logoutUser = feed.querySelector('#logout');
-    logoutUser.addEventListener('click', (e) => {
+  const buttonEdit = feed.querySelectorAll('#button-edit');
+  buttonEdit.forEach((edit) => {
+    edit.addEventListener('click', (e) => {
       e.preventDefault();
-      logout().then(() => {
-        window.location.hash = '#login';
-      });
+      const selectEdit = elementPost.find(
+        (item) => item.id === e.currentTarget.dataset.postId
+      );
     });
-    return feed;
-  }
+  });
+  console.log(buttonEdit);
+  //buttonEdit.addEventListener("click", (e) => {
+  // e.preventDefault()
+  //const teste = await editPost(e.currentTarget.dataset.postid)
+  //console.log(updatedPost);
+  //.then(() => {
+  // messageModificad.innerHTML = postText.value;
+  // editPost.remove()
+  //})
+  //return editPost
+  //})
+
+
+  const logoutUser = feed.querySelector('#logout');
+  logoutUser.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout().then(() => {
+      window.location.hash = '#login';
+    });
+  });
+  return feed;
+}
