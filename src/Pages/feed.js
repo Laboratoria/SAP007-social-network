@@ -6,7 +6,7 @@ import {
   getCurrentUser,
   like,
   dislike,
-  editPost,
+  deletePost,
 } from '../firebase/firestore.js';
 
 export default async function feed() {
@@ -69,6 +69,7 @@ export default async function feed() {
     </div>
     `;
     posts.innerHTML += control;
+    window.location.reload();
   });
 
   //trazendo posts do banco de dados pro feed e ordenando
@@ -81,8 +82,16 @@ export default async function feed() {
       return -1;
     });
 
-    //template feeds postados
-    ordanatedPosts.forEach((post) => {
+    const currentUser = await getCurrentUser();
+    ordanatedPosts.forEach(async (post) => {
+      let postBtn;
+      console.log(post);
+      if (post.userName === currentUser) {
+        postBtn = `<img src="./img/trash.png">`;
+      } else {
+        postBtn = '';
+      }
+
       feed.querySelector('#posts-container').innerHTML += `         
       <div class= "box-posts">
         <ul>
@@ -100,17 +109,50 @@ export default async function feed() {
             </div>
           </section>
         <div class= "line"></div>
-          <div class="icon">
-            <button type="button" id="like-btn" data-post-id="${post.id}">
-              <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
-            </button>
-           <p id="num-likes" class="num-likes">${post.like.length}</p>
-            <button  type="button" id="button-edit" postid="${post.id}">
+        <div class="icon">
+         <button type="button" id="like-btn" data-post-id="${post.id}">
+           <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
+         </button>
+         <p id="num-likes" class="num-likes">${post.like.length}</p>  
+         <button  type="button" id="button-edit" postid="${post.id}">
               <img class= "edit-btn" id="edit-btn" src="./img/page-edit.svg">
-            </button>
-          </div>
-        </div>  
+            </button>         
+         <button type="button" class="button-delete" data-post-id="${post.id}">
+          ${postBtn}
+         </button>          
+
+        </div>
+        <span class="confirm-delete"></span>        
+      </div>       
      `;
+    });
+
+    const buttonDelete = feed.querySelectorAll('.button-delete');
+    const deleteConfirm = feed.querySelector('.confirm-delete');
+
+    buttonDelete.forEach((button) => {
+      button.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const postId = e.currentTarget.dataset.postId;
+        const selectDeletePost = elementPost.find((item) => item.id == postId);
+        e.target.parentNode.innerHTML = `
+        <p>Confirma a exclusão de seu poste?</p>
+        <button class="btn-delete-confirm" id="yes">Sim</button>
+        <button class="btn-delete-confirm" id="no">Não</button>
+        `;
+        const btnYes = document.getElementById('yes');
+        const btnNo = document.getElementById('no');
+
+        btnYes.addEventListener('click', async (e) => {
+          e.preventDefault();
+          await deletePost(postId);
+          window.location.reload();
+          // document.remove();
+        });
+        btnNo.addEventListener('click', (e) => {
+          deleteConfirm.innerHTML = '';
+        });
+      });
     });
 
     const buttonsLike = feed.querySelectorAll('#like-btn');
@@ -123,7 +165,7 @@ export default async function feed() {
         );
         const postLiked = selectPost.like;
         const likesCounter = e.currentTarget.nextElementSibling;
-        console.log(getCurrentUser);
+
         const user = getCurrentUser();
         if (!postLiked.includes(user)) {
           like(selectPost.id, user).then(() => {
