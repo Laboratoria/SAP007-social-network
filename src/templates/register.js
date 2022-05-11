@@ -2,7 +2,7 @@ import { registerGoogle, registerUser, updateUsername } from "../lib/auth-fireba
 
 export default function formRegister() {
   const registerPage = document.createElement("div");
-  registerPage.classList.add("title-register")
+  registerPage.classList.add("title-register");
 
   registerPage.innerHTML = `
     <body class="body-register">
@@ -44,7 +44,7 @@ export default function formRegister() {
   const email = registerPage.querySelector("#email-register");
   const password = registerPage.querySelector("#password-register");
 
-  //Validação dos dados do formulário antes de mandar para o firebase
+  // Validação dos dados do formulário antes de mandar para o firebase
   const name = registerPage.querySelector("#name-register");
   const username = registerPage.querySelector("#user-register");
   const errorName = registerPage.querySelector("#error-name");
@@ -53,58 +53,57 @@ export default function formRegister() {
   const errorPassword = registerPage.querySelector("#error-password");
 
   function checkForm() {
-    let isValid = true
+    let isValid = true;
     if (name.value === "") {
-      errorName.innerHTML = "Este campo não pode estar vazio"
-      isValid = false
+      errorName.innerHTML = "Este campo não pode estar vazio";
+      isValid = false;
     }
     if (username.value === "") {
-      errorUser.innerHTML = "Este campo não pode estar vazio"
-      isValid = false
+      errorUser.innerHTML = "Este campo não pode estar vazio";
+      isValid = false;
     }
     if (email.value === "") {
-      errorEmail.innerHTML = "Este campo não pode estar vazio"
-      isValid = false
+      errorEmail.innerHTML = "Este campo não pode estar vazio";
+      isValid = false;
     } else if (email.value.indexOf("@") === -1 || email.value.indexOf(".") === -1 || (email.value.indexOf(".") - email.value.indexOf("@") === 1)) {
-      errorEmail.innerHTML = "Preencha com um email válido"
-      isValid = false
+      errorEmail.innerHTML = "Preencha com um email válido";
+      isValid = false;
     }
     if (password.value === "") {
-      errorPassword.innerHTML = "Este campo não pode estar vazio"
-      isValid = false
+      errorPassword.innerHTML = "Este campo não pode estar vazio";
+      isValid = false;
     } else if (password.value.length <= 5) {
-      errorPassword.innerHTML = "A senha precisa ter no mínimo 6 caracteres"
-      isValid = false
+      errorPassword.innerHTML = "A senha precisa ter no mínimo 6 caracteres";
+      isValid = false;
     }
-    return isValid
+    return isValid;
   }
 
-  //Função para fazer o cadastro
+  // Função para fazer o cadastro
   const msgError = registerPage.querySelector("#error-message");
   const submitButton = registerPage.querySelector("#button-register");
 
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const isValid = checkForm()
+    const isValid = checkForm();
     if (isValid) {
       registerUser(email.value, password.value)
-      .then(() => {
-        updateUsername(name.value)
-        window.location.hash = "home";
-      }).catch((error) => {
-        console.log(error);
-        if (error.code === "auth/email-already-in-use") {
-          msgError.textContent = "E-mail já cadastrado.";
-        } else if (error.code == "auth/invalid-email") {
-          msgError.textContent = "Digite um e-mail válido.";
-        } else if (error.code === "auth/weak-password") {
-          msgError.textContent = "A Senha precisa ter no mínimo 6 caracteres";
-        }
-      });
+        .then(() => {
+          updateUsername(name.value);
+          window.location.hash = "home";
+        }).catch((error) => {
+          if (error.code === "auth/email-already-in-use") {
+            msgError.textContent = "E-mail já cadastrado.";
+          } else if (error.code === "auth/invalid-email") {
+            msgError.textContent = "Digite um e-mail válido.";
+          } else if (error.code === "auth/weak-password") {
+            msgError.textContent = "A Senha precisa ter no mínimo 6 caracteres";
+          }
+        });
     }
   });
 
-  //Função para cadastrar com o google
+  // Função para cadastrar com o google
   const googleButton = registerPage.querySelector("#button-google-register");
   googleButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -114,19 +113,19 @@ export default function formRegister() {
       })
       .catch((error) => {
         if (error.code === "auth/account-exists-with-different-credential") {
-          alert("Já existi uma conta com esse endereço de e-mail.");
+          msgError.textContent = "Já existi uma conta com esse endereço de e-mail.";
         } else if (error.code === "auth/popup-blocked") {
-          alert("O pop-up foi bloqueado pelo navegador.");
+          msgError.textContent = "O pop-up foi bloqueado pelo navegador.";
         }
       });
-  })
+  });
 
-  //Função para voltar para a página de login
+  // Função para voltar para a página de login
   const goBackButton = registerPage.querySelector("#button-register-back");
   goBackButton.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.hash = "login";
-  })
+  });
 
   return registerPage;
 }
