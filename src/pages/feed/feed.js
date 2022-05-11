@@ -7,8 +7,8 @@ export default () => {
 
     let templateFeed = `
     <p id="post">Post</p>
-    <input id="titulo" type="text" placeholder="Título" /><br>
-    <input id="postText" type="text" placeholder="Qual a sua teoria?" /><br>
+    <input id="titulo" type="text" placeholder="Título" maxlength="90"/><br>
+    <input id="postText" type="text" placeholder="Qual a sua teoria?" maxlength="280" /><br>
     <br><button id="btnPost" type="submit" >Postar</button><br>
     <div class="sectionFeedContainer">
     <section id="sectionNewPost" class="sectionPostClass"></section>
@@ -22,6 +22,8 @@ let inputTitulo = containerFeed.querySelector("#titulo");
 let inputPost = containerFeed.querySelector("#postText");
 let postBtn = containerFeed.querySelector("#btnPost");
 
+const sectionNewPost = containerFeed.querySelector("#sectionNewPost");
+
 async function addDocument_AutoId() {
     let ref = collection(db, "posts");
     const docRef = await addDoc(
@@ -31,7 +33,25 @@ async function addDocument_AutoId() {
       }
     )
     .then(() => {
-        alert("Post Publicado");// enviar para sectionNewPost
+      sectionNewPost.innerHTML = `
+        <div class="divPost">
+        ${inputTitulo.value} <br>
+        ${inputPost.value} <br>
+        <div class="linePost"></div>
+        <a class="icons" id="iconLike">
+          <img src="../../img/curtir.png" width="36" height="36" />
+        </a>
+        <a class="icons" id="iconComent">
+          <img src="../../img/comentar.png" width="36" height="36" />
+        </a>      
+        <a class="icons" id="iconEdit">
+          <img src="../../img/editar.png" width="36" height="36" />
+        </a>      
+        <a class="icons" id="iconDelete">
+          <img src="../../img/excluir.png" width="36" height="36" />
+        </a>
+        </div>
+      `
     })
     .catch((error)=> {
         alert ("Post não publicado"+error);
@@ -49,10 +69,30 @@ const getPosts = async () => {
   allPosts.forEach((doc) => {
     const timeline = doc.data(); //ordenando por data
     arrayPosts.push({ ...timeline, id: doc.id });
-    sectionAllPost.prepend(arrayPosts);
+    sectionAllPost.innerHTML = arrayPosts.map(
+      (post) =>`
+      <div class="divPost">
+      ${post.titulo} <br>
+      ${post.post} <br>
+      <div class="linePost"></div>
+      <a class="icons" id="iconLike">
+       <img src="../../img/curtir.png" width="36" height="36" />
+      </a>
+      <a class="icons" id="iconComent">
+        <img src="../../img/comentar.png" width="36" height="36" />
+      </a>      
+      <a class="icons" id="iconEdit">
+       <img src="../../img/editar.png" width="36" height="36" />
+      </a>      
+      <a class="icons" id="iconDelete">
+        <img src="../../img/excluir.png" width="36" height="36" />
+      </a>
+      </div>
+    `
+    )
+    .join("");
   });
-  console.log(arrayPosts); //ver se array ta indo
-  //return arrayPosts;
+
 };
 
 getPosts();
