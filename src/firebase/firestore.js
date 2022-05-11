@@ -5,6 +5,7 @@ import {
   getDocs,
   query,
   doc,
+  deleteDoc,
   updateDoc,
   arrayUnion,
   arrayRemove,
@@ -14,7 +15,7 @@ import { auth } from './authetication.js';
 // import { db } from './config-firebase';
 const db = getFirestore();
 export const getCurrentUser = () => {
-  return auth.currentUser.displayName
+  return auth.currentUser.displayName;
 };
 
 export const createPost = async (textPost) => {
@@ -47,23 +48,29 @@ export const getPost = async () => {
 
 export const like = async (idPost, userEmail) => {
   try {
-  const docId = doc(db, "post", idPost);
+    const docId = doc(db, 'post', idPost);
     return await updateDoc(docId, {
-     like: arrayUnion(userEmail),
+      like: arrayUnion(userEmail),
     });
-  } catch (e) {
-  } return arrayUnion;
+  } catch (e) {}
+  return arrayUnion;
 };
 
 export const dislike = async (idPost, userEmail) => {
   try {
-    const docId = doc(db, "post", idPost);
+    const docId = doc(db, 'post', idPost);
     return await updateDoc(docId, {
       like: arrayRemove(userEmail),
     });
-  } catch (e) {
-  } return arrayRemove;
+  } catch (e) {}
+  return arrayRemove;
 };
+
+export const deletePost = async (id) => {
+  console.log(id);
+  await deleteDoc(doc(db, 'post', id));
+};
+
 //conectar com o firebase
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
