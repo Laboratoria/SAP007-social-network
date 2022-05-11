@@ -1,102 +1,38 @@
-@media (min-width: 360px) {
-  * {
+@media (min-width: 576px) {
+ * {
     margin: 0px;
     padding: 0px;
-  }
-  .conteudoRegister {
-    background: white;
-    border-radius: 12px 12px 12px 12px;
-    width: 70%;
-    height: 60vh;
-    margin-top: 20%;
-    margin-left: 15%;
-    text-align: center;
+ }
+  .conteudoRegister{
+    display: grid;
+    column-gap: 50px;
+    align-items: center;
+    text-align:center;
     padding-top: 6%;
-    border-style: solid;
-    border-color: darkgreen;
-  }
-
-  .btn {
-    background-color: chartreuse;
-    color: crimson;
+ }
+   .input {
+    width: 300px;
+    height: 58px;
+    border-color:#ac0feb;
+    border-radius:20px 20px 20px 20px;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1em;
+ }
+    .paragrafoLogin{
+    color:#B51D4C;
+    font-size: 2em;
+ }
+    #btn-Cadastrar {
+    background-color: rgb(255, 255, 255);
+    color: #B51D4C;
     width: 200px;
     height: 40px;
-    border-radius: 20px 20px 20px 20px;
+    border-radius:20px 20px 20px 20px;
     border-style: solid;
     border-color: chartreuse;
     text-align: center;
     font-size: 1em;
-  
-  }
-}
-.input {
-  width: 180px;
-  height: 58px;
-  border-style: groove;
-  border-color: darkgreen;
-  border-radius: 30px 30px 30px 30px;
-  margin-left: 5px;
-  margin-top: 20px;
-  text-align: center;
-  font-size: 0.9em;
-  box-shadow: 2px 2px 2px grey;
-}
-.paragrafoLogin {
-  color: crimson;
-  font-size: 2em;
-}
-
-
-@media (min-width: 810px) {
-  .conteudoRegister {
-    background: white;
-    border-radius: 12px 12px 12px 12px;
-    width: 60%;
-    height: 50vh;
-    margin-top: 20%;
-    margin-left: 20%;
-    text-align: center;
-    padding-top: 6%;
-    border-style: solid;
-    border-color: darkgreen;
-  }
-
-  .paragrafoLogin {
-    color: crimson;
-    font-size: 2.5em;
-  }
-
-  .input {
-    width: 350px;
-    height: 60px;
-    border-style: groove;
-    border-color: darkgreen;
-    border-radius: 30px 30px 30px 30px;
-    margin-left: 9px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0.9em;
-    box-shadow: 2px 2px 2px grey;
-  }
-
-  .Senha {
-    margin-bottom: 30px;
-  }
-
-  .btn {
-    background-color: chartreuse;
-    color: crimson;
-    width: 350px;
-    height: 60px;
-    border-radius: 20px 20px 20px 20px;
-    border-style: solid;
-    border-color: chartreuse;
-    text-align: center;
-    font-size: 1em;
-    margin-top: 10px;
-  }
-}
-
-.conteudoRegister {
-  height: 80vh;
+ }
 }
