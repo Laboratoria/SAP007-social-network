@@ -39,16 +39,16 @@ async function addDocument_AutoId() {
         ${inputPost.value} <br>
         <div class="linePost"></div>
         <a class="icons" id="iconLike">
-          <img src="../../../img/curtir.png" width="40" height="40" />
+          <img src="../../img/curtir.png" width="36" height="36" />
         </a>
         <a class="icons" id="iconComent">
-          <img src="../../../img/comentar.png" width="40" height="40" />
+          <img src="../../img/comentar.png" width="36" height="36" />
         </a>      
         <a class="icons" id="iconEdit">
-          <img src="../../../img/editar.png" width="40" height="40" />
+          <img src="../../img/editar.png" width="36" height="36" />
         </a>      
         <a class="icons" id="iconDelete">
-          <img src="../../../img/excluir.png" width="40" height="40" />
+          <img src="../../img/excluir.png" width="36" height="36" />
         </a>
         </div>
       `
@@ -76,16 +76,16 @@ const getPosts = async () => {
       ${post.post} <br>
       <div class="linePost"></div>
       <a class="icons" id="iconLike">
-        <img src="../../../img/curtir.png" width="40" height="40" />
+       <img src="../../img/curtir.png" width="36" height="36" />
       </a>
       <a class="icons" id="iconComent">
-        <img src="../../../img/comentar.png" width="40" height="40" />
+        <img src="../../img/comentar.png" width="36" height="36" />
       </a>      
       <a class="icons" id="iconEdit">
-        <img src="../../../img/editar.png" width="40" height="40" />
+       <img src="../../img/editar.png" width="36" height="36" />
       </a>      
       <a class="icons" id="iconDelete">
-        <img src="../../../img/excluir.png" width="40" height="40" />
+        <img src="../../img/excluir.png" width="36" height="36" />
       </a>
       </div>
     `
