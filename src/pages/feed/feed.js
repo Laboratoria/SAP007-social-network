@@ -22,6 +22,8 @@ let inputTitulo = containerFeed.querySelector("#titulo");
 let inputPost = containerFeed.querySelector("#postText");
 let postBtn = containerFeed.querySelector("#btnPost");
 
+const sectionNewPost = containerFeed.querySelector("#sectionNewPost");
+
 async function addDocument_AutoId() {
     let ref = collection(db, "posts");
     const docRef = await addDoc(
@@ -31,7 +33,12 @@ async function addDocument_AutoId() {
       }
     )
     .then(() => {
-        alert("Post Publicado");// enviar para sectionNewPost
+      sectionNewPost.innerHTML = `
+        <div class="divPost">
+        ${inputTitulo.value} <br>
+        ${inputPost.value}
+        </div>
+      `
     })
     .catch((error)=> {
         alert ("Post não publicado"+error);
