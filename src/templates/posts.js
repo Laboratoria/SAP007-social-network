@@ -3,7 +3,7 @@ import { creatPost, getUserPosts } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 
-export default function posts(profilePost) {
+export default function posts() {
   const profilePage = document.createElement("div");
   profilePage.classList.add("body-post");
 
@@ -41,63 +41,62 @@ export default function posts(profilePost) {
 
     </div>    
     `;
-  /*   profilePage.innerHTML = template; */
+
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const error = profilePage.querySelector("#error-msg");
 
-
-  //Validação dos campos menssagem e título antes de mandar para o firebase
+  // Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
-    let isValid = true
+    let isValid = true;
     if (titleHQ.value === "") {
-      error.textContent = "O campo título não pode estar vazio"
-      isValid = false
+      error.textContent = "O campo título não pode estar vazio";
+      isValid = false;
     }
     if (message.value === "") {
-      error.textContent = "O campo título não pode estar vazio"
-      isValid = false
+      error.textContent = "O campo título não pode estar vazio";
+      isValid = false;
     } else if (message.value.length <= 20) {
-      error.textContent = "Conte um pouco mais"
-      isValid = false
+      error.textContent = "Conte um pouco mais";
+      isValid = false;
     }
-    return isValid
+    return isValid;
   }
 
-  //Função para mandar os dados da nova postagem para o Clound Firestore
-  const sectionNewPost = profilePage.querySelector("#new-post-here")
+  // Função para mandar os dados da nova postagem para o Clound Firestore
+  const sectionNewPost = profilePage.querySelector("#new-post-here");
   const postButton = profilePage.querySelector("#post-button");
   postButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const isValid = checkNewPostFields()
+    const isValid = checkNewPostFields();
     if (isValid) {
       creatPost(message.value, titleHQ.value)
-        .then((post) => {
+        .then(() => {
           message.value = "";
           titleHQ.value = "";
-        }).catch((error) => {
+        }).catch(() => {
           if (message.value === "") {
-            alert("O campo de mensagem não pode estar vazio");
+            error.textContent = "O campo de mensagem não pode estar vazio";
           } else if (message.value.length <= 20) {
-            alert("Conte um pouco mais");
+            error.textContent = "Conte um pouco mais";
           }
           if (titleHQ.value === "") {
-            alert("O campo título não pode estar vazio")
+            error.textContent = "O campo título não pode estar vazio";
           }
         });
     }
   });
 
-  //Função para quando clicar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
-  const deleteButton = profilePage.querySelector("#delete-button")
+  // Quando clicar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
+  const deleteButton = profilePage.querySelector("#delete-button");
   deleteButton.addEventListener("click", (e) => {
     e.preventDefault();
     titleHQ.value = "";
-    message.value = ""
-  })
+    message.value = "";
+  });
 
-  //apenas os posts do usuario na tela
-  const showPosts = profilePage.querySelector(".ul-posts")
+  // apenas os posts do usuario na tela
+  const showPosts = profilePage.querySelector(".ul-posts");
   const uid = auth.currentUser.uid;
   getUserPosts(uid).then((userPosts) => {
     userPosts.forEach((item) => {
@@ -106,15 +105,14 @@ export default function posts(profilePost) {
     });
   });
 
-  //Função para sair da rede social
-  const logOut = profilePage.querySelector("#link-logoff")
-  logOut.addEventListener('click', (e) => {
+  // Função para sair da rede social
+  const logOut = profilePage.querySelector("#link-logoff");
+  logOut.addEventListener("click", (e) => {
     e.preventDefault();
     userLogout().then(() => {
-      window.location.hash = '';
+      window.location.hash = "";
     });
   });
 
-
   return profilePage;
-}; 
+}

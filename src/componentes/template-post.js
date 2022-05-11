@@ -30,7 +30,7 @@ export function publishingPosts(post) {
   let arrLike = post.like.length;
   const buttonLike = templatePost.querySelector(".button-like");
 
-  buttonLike.addEventListener('click', async (e) => {
+  buttonLike.addEventListener("click", async (e) => {
     e.preventDefault();
     if (!post.like.includes(currentUser.uid)) {
       like(post.id, currentUser.uid);
@@ -54,7 +54,6 @@ export function publishingPosts(post) {
     }
     return "./images/like.png";
   }
-  
-  return templatePost
-}
 
+  return templatePost;
+}
