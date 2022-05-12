@@ -14,28 +14,30 @@ export default async function feed() {
   // eslint-disable-next-line no-shadow
   const feed = document.createElement('div');
   const boxFeed = `
-  <nav class="top-nav">
-      <picture>
-          <img class="logo" src="./img/logo-sem fundo.png" alt="logo">
-      </picture>
-      <picture>
-        <a href="#home" id="logout">
-            <img  class="button-logout" src="./img/logout.png" alt="Botão Sair">
-        </a>
-      </picture>
-  </nav>
-  <div class= "line-header"> </div>
-  <div class = "container-publish">
-  <section class="publish" id="publish">
-    <textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?"></textarea>
-        <p id="alert-notification" class="error"></p>
-        <div class= "btn-container">
-          <button class="publish-btn" id="publish-btn">Publicar</button>
-        </div>
-  </section>
-  </div>
-  <div id='posts-container' class="posts-container">  
-  </div>
+<div class="main-div">
+<nav class="top-nav">
+  <picture>
+      <img class="logo" src="./img/logo-sem fundo.png" alt="logo">
+  </picture>
+  <picture>
+    <a href="#home" id="logout">
+      <img  class="button-logout" src="./img/logout.png" alt="Botão Sair">
+    </a> 
+  </picture>
+</nav>
+<div class= "line-header"> </div>
+<div class = "container-publish">
+<section class="publish" id="publish">
+<textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="25" rows="4" ></textarea>
+    <p id="alert-notification" class="error"></p>
+    <div class= "btn-container">
+      <button class="publish-btn" id="publish-btn">Publicar</button>
+    </div>
+</section>
+</div>
+<div id='posts-container' class="posts-container">  
+</div>
+  </div> 
   `;
 
   feed.innerHTML = boxFeed;
@@ -164,23 +166,25 @@ export default async function feed() {
         e.preventDefault();
         const postId = e.currentTarget.dataset.postId;
         elementPost.find((item) => item.id === postId);
+
         const btnforReference = e.target.parentNode;
         e.target.parentNode.innerHTML = `
         <div class='for-remove'>
         <p>Confirma a exclusão de seu poste?</p>
+        
         <button class="btn-delete-confirm-sim" id="yes">Sim</button>
         <button class="btn-delete-confirm" id="no">Não</button>
         </div>
         `;
-        btnforReference
-          .querySelector('.btn-delete-confirm')
-          .addEventListener('click', () => {
+        
+        btnforReference.querySelector('.btn-delete-confirm').addEventListener('click', () => {
             const reference2 = btnforReference.parentNode.querySelector(
               `.button-delete[data-post-id=${postId}]`,
             );
             reference2.innerHTML = '';
             reference2.innerHTML = '<img src="./img/trash.png">';
           });
+        
         const btnYes = document.getElementById('yes');
         const btnNo = document.getElementById('no');
         // eslint-disable-next-line no-shadow

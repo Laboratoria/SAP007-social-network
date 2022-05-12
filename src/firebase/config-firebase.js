@@ -2,6 +2,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase
 // eslint-disable-next-line import/no-unresolved
 import { getAuth, GoogleAuthProvider } from './exports.js';
 
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDRDtG0KOp9htjlzbsm3Zrc1S65IOmLdzM',
   authDomain: 'go-trip-1874c.firebaseapp.com',

@@ -48,9 +48,8 @@ body {
 }
 
 .container-publish {
-  width: 65%;
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 80%;
+  margin-left: 12%;
 }
 
 textarea {
@@ -140,6 +139,11 @@ textarea:focus {
     width: 40px;
     margin-top: 40px;
   }
+
+  /* .container-publish {
+    width: 80%;
+    margin-left: 11%;    
+  } */
 
   .publish {
     width: 580px;
