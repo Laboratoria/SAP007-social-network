@@ -21,14 +21,13 @@ const redirect = () => {
     default:
       main.appendChild(login());
   }
-
 };
 const init = () => {
   window.addEventListener("hashchange", () => {
     redirect();
   });
-}
+};
 window.addEventListener("load", () => {
- redirect();
+  redirect();
   init();
 });

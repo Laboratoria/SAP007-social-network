@@ -1,4 +1,4 @@
-import { createPost, getPosts } from "../lib/firestore-firebase.js";
+import { createPost, getPosts, postDelete } from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -23,41 +23,52 @@ export default () => {
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
 
-  const templateFeed = (text)=>{
-    return `
+  const templateFeed = (post) => {
+    const postContainer = document.createElement("div");
+    postContainer.innerHTML = `
     <div class= "box-feed">
     <ul class= "box-feed">
     <li>
-    <p>${text}</p>
-    <button class="button-like">
+    <p>${post.textPost}</p>
+    <button class="button-like">Like</button>
+    <button class="button-delete">Excluir</button>
     </li>
   </ul>
+  <span class ="delete-post"></span>
   </div>
-  `
-  }
+  `;
+    const deleteBtn = postContainer.querySelector(".button-delete");
+    deleteBtn.addEventListener("click", async () => {
+      await postDelete(post.id);
+      await readPosts();
+    });
+
+    return postContainer;
+  };
 
   btnPost.addEventListener("click", async () => {
-    const timeLine = postArea.innerHTML;
+    const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
     if (textPost.value === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
     } else;
     {
       await createPost(textPost.value);
-      postArea.innerHTML +=  templateFeed(textPost.value)
 
+      readPosts();
       postArea.innerHTML += timeLine;
     }
   });
 
-  const readPosts= async () =>{
+  const readPosts = async () => {
     const allPost = await getPosts();
-
+    const postSection = document.querySelector("#posts");
+    postSection.innerHTML = "";
     allPost.forEach((post) => {
-      document.querySelector("#posts").innerHTML += templateFeed(post.textPost);
-    })
+      postSection.appendChild(templateFeed(post));
+    });
   };
-  readPosts()
+  readPosts();
+
   return container;
 };
-
