@@ -16,15 +16,14 @@ export function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password).then(
     (userCredential) => {
       const user = userCredential.user;
-      console.log('entrou', userCredential);
-      return userCredential;
+      return user;
     }
   );
 }
 
 export function verifyLogged(callback) {
   onAuthStateChanged(auth, (user) => {
-    callback(user);
+    callback(user !== null);
   });
 }
 

@@ -18,9 +18,7 @@ const verificarHash = async () => {
       mainHome.appendChild(register());
       break;
     case '#feed':
-      console.log("oie")
       await verifyLogged(async (loggerUser) => {
-        console.log(loggerUser);
         if (loggerUser) {
           const templateFeed = await feed();
           mainHome.appendChild(templateFeed);
@@ -38,13 +36,13 @@ const verificarHash = async () => {
   }
 };
 
-window.addEventListener('hashchange', (e) => {
+window.addEventListener('hashchange', async (e) => {
   e.preventDefault();
   verificarHash();
 });
 
-window.addEventListener('load', () => {
-  verificarHash();
+window.addEventListener('load', async () => {
+  await verificarHash();
 });
 
 const links = document.querySelectorAll('a');
