@@ -14,6 +14,7 @@ import {
   from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 import { db, auth } from "./config-firebase.js";
+import { publishingPosts } from "../componentes/template-post.js";
 
 export async function getPosts() {
   const arrPosts = [];
@@ -46,8 +47,8 @@ export function creatPost(message, titleHQ) {
 }
 
 // Função para deletar o post
-export function deletePost(docId) {
-  return deleteDoc(doc(db, "posts", docId));
+export async function deletePost(docId) {
+  return await deleteDoc(doc(db, "posts", docId));
 }
 
 // Função para editar o post
@@ -84,5 +85,14 @@ export function dislike(id, user) {
   const post = doc(db, "posts", id);
   return updateDoc(post, {
     like: arrayRemove(user),
+  });
+}
+
+export function showPosts(showAllPosts) {
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      const postElement = publishingPosts(item);
+      showAllPosts.prepend(postElement);
+    });
   });
 }
