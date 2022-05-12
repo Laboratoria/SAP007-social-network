@@ -1,6 +1,5 @@
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
-import { profilePosts } from "../componentes/perfil.js";
 import { creatPost } from "../lib/firestore-firebase.js";
 import { printProfilePosts } from "../componentes/perfil.js";
 

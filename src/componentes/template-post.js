@@ -1,4 +1,4 @@
-import { dislike, like } from "../lib/firestore-firebase.js"; // eslint-disable-line import/no-cycle
+import { dislike, like, getPosts } from "../lib/firestore-firebase.js"; // eslint-disable-line import/no-cycle
 import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
@@ -56,4 +56,15 @@ export function publishingPosts(post) {
   }
 
   return templatePost;
+}
+
+export function showPosts(homePage) {
+  const showAllPosts = homePage.querySelector(".section-post");
+  showAllPosts.innerHTML = ''
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      const postElement = publishingPosts(item);
+      showAllPosts.prepend(postElement);
+    });
+  });
 }
