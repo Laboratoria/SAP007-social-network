@@ -19,7 +19,6 @@ const verificarHash = async () => {
       break;
     case '#feed':
       await verifyLogged(async (loggerUser) => {
-        console.log(loggerUser);
         if (loggerUser) {
           const templateFeed = await feed();
           mainHome.appendChild(templateFeed);

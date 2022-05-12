@@ -50,7 +50,7 @@ export const like = async (idPost, userEmail) => {
     return await updateDoc(docId, {
       like: arrayUnion(userEmail),
     });
-  } catch (e) { }
+  } catch (e) {}
   return arrayUnion;
 };
 
@@ -60,7 +60,7 @@ export const dislike = async (idPost, userEmail) => {
     return await updateDoc(docId, {
       like: arrayRemove(userEmail),
     });
-  } catch (e) { }
+  } catch (e) {}
   return arrayRemove;
 };
 
@@ -73,11 +73,9 @@ export const deletePost = async (id) => {
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
 
-
-//export const editPost = async (idPost, textPost) => {
-  //const post = doc(db, "post", "DC");
-  //return await updateDoc(post, {
-    //textPost,
-    //idPost,
-  //});
-//});
+export const editPost = async (idPost, textPost) => {
+const post = doc(db, "post", idPost);
+return await updateDoc(post, {
+textPost,
+});
+};

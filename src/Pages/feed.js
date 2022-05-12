@@ -7,6 +7,7 @@ import {
   like,
   dislike,
   deletePost,
+  editPost,
 } from '../firebase/firestore.js';
 
 export default async function feed() {
@@ -85,11 +86,13 @@ export default async function feed() {
     const currentUser = await getCurrentUser();
     ordanatedPosts.forEach(async (post) => {
       let postBtn;
-      console.log(post);
+      let postBtnEdit;
       if (post.userName === currentUser) {
         postBtn = `<img src="./img/trash.png">`;
+        postBtnEdit = `<img src="./img/page-edit.svg">`;
       } else {
         postBtn = '';
+        postBtnEdit = '';
       }
 
       feed.querySelector('#posts-container').innerHTML += `         
@@ -98,35 +101,53 @@ export default async function feed() {
           <li>
           <p>${post.userName}</p> 
           <p>${convertDateObject(post.date)}</p> 
-          <p>${post.textPost}</p>
+          <p contenteditable='false' class= "paragrafo" data-textId='${post.id}'>${post.textPost}</p>
           </li>
         </ul>
-        <section class='post-text'>
-            <p data-textId='${post.id}' data-text='${post.textPost}' contenteditable='false'>${post.Newpost}</p>
-            <div class='saveAndCancelButtons'>
-              <button data-save='true' class='save-button'>Salvar</button>
-              <button data-cancel='true' class='cancel-button'>Cancelar</button>
-            </div>
-          </section>
+        
         <div class= "line"></div>
         <div class="icon">
          <button type="button" id="like-btn" data-post-id="${post.id}">
            <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
          </button>
          <p id="num-likes" class="num-likes">${post.like.length}</p>  
-         <button  type="button" id="button-edit" postid="${post.id}">
-              <img class= "edit-btn" id="edit-btn" src="./img/page-edit.svg">
-            </button>         
-         <button type="button" class="button-delete" data-post-id="${post.id}">
-          ${postBtn}
-         </button>          
-
+         <button  type="button" class="button-edit" data-post-id="${post.id}">${postBtnEdit}</button>         
+         <button type="button" class="button-delete" data-post-id="${post.id}">${postBtn}</button>          
         </div>
         <span class="confirm-delete"></span>        
       </div>       
      `;
     });
 
+    const buttonEdit = feed.querySelectorAll('.button-edit');
+    buttonEdit.forEach((edit) => {
+      edit.addEventListener('click', (e) => {
+        e.preventDefault();
+        const postId = e.currentTarget.dataset.postId; //elemento do click + id do post/
+        const selectEdit = elementPost.find((item) => item.id == postId); //pega primeiro elemento que encontrar que tem o id do post
+        const paragrafo = feed.querySelector(`[data-textId="${postId}"]`)// 
+        paragrafo.setAttribute("contenteditable" , 'true'); //deixando editavel// 129- em que lugar do templante chamo o outro template
+        e.currentTarget.parentElement.insertAdjacentHTML('beforeend',  ` 
+        <section class='post-text'>
+          <div class='saveAndCancelButtons'>
+            <button data-save='true' class='save-button'>Salvar</button>
+            <button data-cancel='true' class='cancel-button'>Cancelar</button>
+          </div>
+        </section>`);
+          
+
+        e.currentTarget.parentElement.querySelector(".cancel-button").addEventListener('click', (event)=>{
+          paragrafo.textContent= selectEdit.textPost // voltando texto antigo
+          paragrafo.setAttribute("contenteditable" , 'false');// bloqueio para não editar mais
+          event.currentTarget.parentElement.parentElement.remove();// removendo os icones
+        });
+        e.currentTarget.parentElement.querySelector(".save-button").addEventListener('click', (event)=>{
+          paragrafo.setAttribute("contenteditable" , 'false')
+          editPost(postId, paragrafo.textContent);
+          event.currentTarget.parentElement.parentElement.remove();
+      });
+    });
+    });
     const buttonDelete = feed.querySelectorAll('.button-delete');
     const deleteConfirm = feed.querySelector('.confirm-delete');
 
@@ -185,31 +206,6 @@ export default async function feed() {
   };
 
   await getPostsFromDatabase();
-
-
-  //função editar
-
-  const buttonEdit = feed.querySelectorAll('#button-edit');
-  buttonEdit.forEach((edit) => {
-    edit.addEventListener('click', (e) => {
-      e.preventDefault();
-      const selectEdit = elementPost.find(
-        (item) => item.id === e.currentTarget.dataset.postId
-      );
-    });
-  });
-  console.log(buttonEdit);
-  //buttonEdit.addEventListener("click", (e) => {
-  // e.preventDefault()
-  //const teste = await editPost(e.currentTarget.dataset.postid)
-  //console.log(updatedPost);
-  //.then(() => {
-  // messageModificad.innerHTML = postText.value;
-  // editPost.remove()
-  //})
-  //return editPost
-  //})
-
 
   const logoutUser = feed.querySelector('#logout');
   logoutUser.addEventListener('click', (e) => {
