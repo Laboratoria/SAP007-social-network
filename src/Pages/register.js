@@ -30,8 +30,7 @@ export default () => {
   const password = register.querySelector('#password');
   const btnRegister = register.querySelector('#register');
   const message = register.querySelector('.error');
-  const user = register.querySelector("#name");
-
+  const user = register.querySelector('#name');
 
   btnRegister.addEventListener('click', (e) => {
     e.preventDefault();

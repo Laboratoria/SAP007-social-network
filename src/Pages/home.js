@@ -24,7 +24,7 @@ export default () => {
           <p class="text"> Ainda não tem cadastro?</p>
           <a href="#register" id='sign-up-google'class="link">Registre-se</a>  
         </div>  
-      </div>
+      </div> "
     </div>
   `;
   container.innerHTML = templateHome;
