@@ -37,8 +37,10 @@ export function creatPost(message, titleHQ) {
     user: auth.currentUser.displayName,
     uid: auth.currentUser.uid,
     like: [],
-  }).then((docRef) => { // eslint-disable-line arrow-body-style
-    return docRef.data();
+  }).then((docRef) => {
+    return {
+      id: docRef.id
+    }
   });
 }
 

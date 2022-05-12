@@ -1,7 +1,8 @@
-import { creatPost, getUserPosts } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 import { profilePosts } from "../componentes/perfil.js";
+import { creatPost } from "../lib/firestore-firebase.js";
+import { printProfilePosts } from "../componentes/perfil.js";
 
 export default function posts() {
   const profilePage = document.createElement("div");
@@ -42,7 +43,6 @@ export default function posts() {
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const error = profilePage.querySelector("#error-msg");
-  const showPosts = profilePage.querySelector(".ul-posts");
 
   // Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
@@ -68,11 +68,8 @@ export default function posts() {
     const isValid = checkNewPostFields();
     if (isValid) {
       creatPost(message.value, titleHQ.value)
-        .then((post) => {
-          const li = document.createElement("li");
-          const postCard = profilePosts(post);
-          li.appendChild(postCard);
-          showPosts.appendChild(li);
+        .then(() => {
+          printProfilePosts(profilePage)
           message.value = "";
           titleHQ.value = "";
         }).catch(() => {
@@ -97,13 +94,7 @@ export default function posts() {
   });
 
   // apenas os posts do usuario na tela
-  const uid = auth.currentUser.uid;
-  getUserPosts(uid).then((userPosts) => {
-    userPosts.forEach((item) => {
-      const postElement = profilePosts(item);
-      showPosts.prepend(postElement);
-    });
-  });
+  printProfilePosts(profilePage)
 
   // Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff");
