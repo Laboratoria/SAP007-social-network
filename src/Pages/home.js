@@ -1,6 +1,5 @@
-import '../firebase/config-firebase.js';
-import { signIn, signInWithGoogle } from '../firebase/authetication.js';
 import { auth, provider } from '../firebase/config-firebase.js';
+import { signIn, signInWithGoogle } from '../firebase/authentication.js';
 
 export default () => {
   const container = document.createElement('div');
@@ -36,13 +35,11 @@ export default () => {
 
   btnEnter.addEventListener('click', (e) => {
     // e - comportamento padrão daquele evento
-    e.preventDefault(); //prevenir comportamento padrão
+    e.preventDefault(); // prevenir comportamento padrão
     signIn(email.value, password.value)
 
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         window.location.hash = '#feed';
-        console.log('entrou', response.code);
       })
       .catch((response) => {
         if (response.code === 'auth/invalid-email') {
@@ -58,7 +55,6 @@ export default () => {
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     signInWithGoogle(auth, provider).then(() => {
-      console.log('oie, vc vai funcionar')
       window.location.hash = '#feed';
     });
   });

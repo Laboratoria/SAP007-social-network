@@ -6,7 +6,7 @@ body {
 }
 
 * {
-  font-family: 'Inder';
+  font-family: 'Inder', sans-serif;
   box-sizing: border-box;
 }
 
@@ -144,7 +144,6 @@ textarea:focus {
   .publish {
     width: 580px;
     margin-top: 50px;
-    margin-left: 400px;
   }
 
   textarea {
@@ -157,9 +156,6 @@ textarea:focus {
     height: 40px;
     font-size: 16px;
     margin-bottom: 20px;
-  }
-
-  .publish-btn {
     margin-right: 35px;
   }
 

@@ -1,5 +1,5 @@
 import '../firebase/config-firebase.js';
-import { logout } from '../firebase/authetication.js';
+import { logout } from '../firebase/authentication.js';
 import {
   createPost,
   getPost,
@@ -11,6 +11,7 @@ import {
 } from '../firebase/firestore.js';
 
 export default async function feed() {
+  // eslint-disable-next-line no-shadow
   const feed = document.createElement('div');
   const boxFeed = `
   <nav class="top-nav">
@@ -73,7 +74,7 @@ export default async function feed() {
     window.location.reload();
   });
 
-  //trazendo posts do banco de dados pro feed e ordenando
+  // trazendo posts do banco de dados pro feed e ordenando
   const getPostsFromDatabase = async () => {
     const elementPost = await getPost();
     const ordanatedPosts = elementPost.sort((a, b) => {
@@ -88,8 +89,8 @@ export default async function feed() {
       let postBtn;
       let postBtnEdit;
       if (post.userName === currentUser) {
-        postBtn = `<img src="./img/trash.png">`;
-        postBtnEdit = `<img src="./img/page-edit.svg">`;
+        postBtn = '<img src="./img/trash.png">';
+        postBtnEdit = '<img src="./img/page-edit.svg">';
       } else {
         postBtn = '';
         postBtnEdit = '';
@@ -123,54 +124,73 @@ export default async function feed() {
     buttonEdit.forEach((edit) => {
       edit.addEventListener('click', (e) => {
         e.preventDefault();
-        const postId = e.currentTarget.dataset.postId; //elemento do click + id do post/
-        const selectEdit = elementPost.find((item) => item.id == postId); //pega primeiro elemento que encontrar que tem o id do post
-        const paragrafo = feed.querySelector(`[data-textId="${postId}"]`)// 
-        paragrafo.setAttribute("contenteditable" , 'true'); //deixando editavel// 129- em que lugar do templante chamo o outro template
-        e.currentTarget.parentElement.insertAdjacentHTML('beforeend',  ` 
+        const postId = e.currentTarget.dataset.postId; // elemento do click + id do post/
+        // eslint-disable-next-line max-len
+        const selectEdit = elementPost.find((item) => item.id === postId); // pega primeiro elemento que encontrar que tem o id do post
+        const paragrafo = feed.querySelector(`[data-textId="${postId}"]`);
+        paragrafo.setAttribute('contenteditable', 'true'); // deixando editavel// 129- em que lugar do templante chamo o outro template
+        e.currentTarget.parentElement.insertAdjacentHTML(
+          'beforeend',
+          ` 
         <section class='post-text'>
           <div class='saveAndCancelButtons'>
             <button data-save='true' class='save-button'>Salvar</button>
             <button data-cancel='true' class='cancel-button'>Cancelar</button>
           </div>
-        </section>`);
-          
+        </section>`,
+        );
 
-        e.currentTarget.parentElement.querySelector(".cancel-button").addEventListener('click', (event)=>{
-          paragrafo.textContent= selectEdit.textPost // voltando texto antigo
-          paragrafo.setAttribute("contenteditable" , 'false');// bloqueio para não editar mais
-          event.currentTarget.parentElement.parentElement.remove();// removendo os icones
-        });
-        e.currentTarget.parentElement.querySelector(".save-button").addEventListener('click', (event)=>{
-          paragrafo.setAttribute("contenteditable" , 'false')
-          editPost(postId, paragrafo.textContent);
-          event.currentTarget.parentElement.parentElement.remove();
+        e.currentTarget.parentElement
+          .querySelector('.cancel-button')
+          .addEventListener('click', (event) => {
+            paragrafo.textContent = selectEdit.textPost; // voltando texto antigo
+            paragrafo.setAttribute('contenteditable', 'false'); // bloqueio para não editar mais
+            event.currentTarget.parentElement.parentElement.remove(); // removendo os icones
+          });
+        e.currentTarget.parentElement
+          .querySelector('.save-button')
+          .addEventListener('click', (event) => {
+            paragrafo.setAttribute('contenteditable', 'false');
+            editPost(postId, paragrafo.textContent);
+            event.currentTarget.parentElement.parentElement.remove();
+          });
       });
     });
-    });
-    const buttonDelete = feed.querySelectorAll('.button-delete');
-    const deleteConfirm = feed.querySelector('.confirm-delete');
 
+    const deleteConfirm = feed.querySelector('.confirm-delete');
+    const buttonDelete = feed.querySelectorAll('.button-delete');
     buttonDelete.forEach((button) => {
       button.addEventListener('click', async (e) => {
         e.preventDefault();
         const postId = e.currentTarget.dataset.postId;
-        const selectDeletePost = elementPost.find((item) => item.id == postId);
+        elementPost.find((item) => item.id === postId);
+        const btnforReference = e.target.parentNode;
         e.target.parentNode.innerHTML = `
+        <div class='for-remove'>
         <p>Confirma a exclusão de seu poste?</p>
-        <button class="btn-delete-confirm" id="yes">Sim</button>
+        <button class="btn-delete-confirm-sim" id="yes">Sim</button>
         <button class="btn-delete-confirm" id="no">Não</button>
+        </div>
         `;
+        btnforReference
+          .querySelector('.btn-delete-confirm')
+          .addEventListener('click', () => {
+            const reference2 = btnforReference.parentNode.querySelector(
+              `.button-delete[data-post-id=${postId}]`,
+            );
+            reference2.innerHTML = '';
+            reference2.innerHTML = '<img src="./img/trash.png">';
+          });
         const btnYes = document.getElementById('yes');
         const btnNo = document.getElementById('no');
-
+        // eslint-disable-next-line no-shadow
         btnYes.addEventListener('click', async (e) => {
           e.preventDefault();
           await deletePost(postId);
           window.location.reload();
           // document.remove();
         });
-        btnNo.addEventListener('click', (e) => {
+        btnNo.addEventListener('click', () => {
           deleteConfirm.innerHTML = '';
         });
       });
@@ -180,9 +200,8 @@ export default async function feed() {
     buttonsLike.forEach((button) => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(e.currentTarget.dataset.postId);
         const selectPost = elementPost.find(
-          (item) => item.id === e.currentTarget.dataset.postId
+          (item) => item.id === e.currentTarget.dataset.postId,
         );
         const postLiked = selectPost.like;
         const likesCounter = e.currentTarget.nextElementSibling;

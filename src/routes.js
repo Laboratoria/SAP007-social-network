@@ -1,7 +1,7 @@
 import login from './pages/home.js';
 import register from './pages/register.js';
 import feed from './pages/feed.js';
-import { verifyLogged } from './firebase/authetication.js';
+import { verifyLogged } from './firebase/authentication.js';
 
 const mainHome = document.querySelector('#root');
 const verificarHash = async () => {
@@ -27,7 +27,6 @@ const verificarHash = async () => {
         }
       });
       mainHome.innerHTML = '';
-      //mainHome.appendChild(templateFeed);
       break;
 
     default:
@@ -51,6 +50,7 @@ links.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
 
+    // eslint-disable-next-line no-restricted-globals
     history.pushState({}, e.target.getAttribute('href'));
   });
 });
