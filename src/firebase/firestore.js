@@ -39,10 +39,8 @@ export const getPost = async () => {
   const querySnapshot = await getDocs(orderFirestore);
   querySnapshot.forEach((doc) => {
     const timeline = doc.data();
-    // console.log(`${doc.id} => ${doc.data()}`);
     arrPost.push({ ...timeline, id: doc.id });
   });
-  console.log(arrPost);
   return arrPost;
 };
 
@@ -75,8 +73,9 @@ export const deletePost = async (id) => {
 //encontrar o post certo pelo id (id do post)
 //atualizar as informações do post (novo texto)
 
-/*export const editPost = async(id, textPost)
-const post = doc(db, "post", "DC");
-await updateDoc(post, {
-  textPost,
-});*/
+export const editPost = async (idPost, textPost) => {
+const post = doc(db, "post", idPost);
+return await updateDoc(post, {
+textPost,
+});
+};
