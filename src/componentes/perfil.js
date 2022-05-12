@@ -1,4 +1,4 @@
-import { deletePost } from "../lib/firestore-firebase.js";
+import { deletePost, getUserPosts } from "../lib/firestore-firebase.js";
 import edit from "./edit.js";
 import { auth } from "../lib/config-firebase.js";
 
@@ -18,7 +18,7 @@ export function profilePosts(post) {
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
         <div class="container-like">
-          <img class="img-like" src=${checkLikes()} alt="botão de like"/> // eslint-disable-line no-use-before-define
+          <img class="img-like" src=${checkLikes()} alt="botão de like"/> 
           <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
         <div class="buttons-edit-delete">
@@ -62,4 +62,17 @@ export function profilePosts(post) {
   }
 
   return templateProfile;
+}
+
+export function printProfilePosts(profilePage) {
+  // apenas os posts do usuario na tela
+  const uid = auth.currentUser.uid;
+  const showPosts = profilePage.querySelector(".ul-posts");
+  showPosts.innerHTML = ''
+  getUserPosts(uid).then((userPosts) => {
+    userPosts.forEach((item) => {
+      const postElement = profilePosts(item);
+      showPosts.prepend(postElement);
+    });
+  });
 }
