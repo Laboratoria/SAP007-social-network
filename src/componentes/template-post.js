@@ -1,4 +1,4 @@
-import { dislike, like } from "../lib/firestore-firebase.js";
+import { dislike, like } from "../lib/firestore-firebase.js"; // eslint-disable-line import/no-cycle
 import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {

@@ -1,11 +1,11 @@
-import { initializeApp }
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+// eslint-disable-next-line
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 
-import { getAuth }
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+// eslint-disable-next-line
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
-import { getFirestore }
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+// eslint-disable-next-line
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBEcRw-VST-DiVqt4Tjbjhdq5gjzcK1bqw",

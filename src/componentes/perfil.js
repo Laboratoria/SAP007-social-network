@@ -18,7 +18,7 @@ export function profilePosts(post) {
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
         <div class="container-like">
-          <img class="img-like" src=${checkLikes()} alt="botão de like"/>
+          <img class="img-like" src=${checkLikes()} alt="botão de like"/> // eslint-disable-line no-use-before-define
           <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
         <div class="buttons-edit-delete">
@@ -34,7 +34,7 @@ export function profilePosts(post) {
   const deleteButton = templateProfile.querySelector(".post-delete-button");
   deleteButton.addEventListener("click", () => {
     deletePost(post.id).then(() => {
-      if (confirm("Você tem certeza?")) {
+      if (confirm("Você tem certeza?")) { // eslint-disable-line no-restricted-globals
         templateProfile.remove();
       } else {
         window.location.hash = "posts";

@@ -69,7 +69,6 @@ export default function posts() {
     if (isValid) {
       creatPost(message.value, titleHQ.value)
         .then((post) => {
-          debugger
           const li = document.createElement("li");
           const postCard = profilePosts(post);
           li.appendChild(postCard);

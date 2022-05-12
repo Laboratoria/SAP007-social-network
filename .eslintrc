@@ -27,6 +27,7 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
-    "quotes": [2, "double"]
+    "quotes": [2, "double"],
+    "no-use-before-define": ["error", { "functions": false }]
   }
 }

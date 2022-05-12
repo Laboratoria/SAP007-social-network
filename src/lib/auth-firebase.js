@@ -7,7 +7,7 @@ import {
   onAuthStateChanged,
   updateProfile,
 }
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"; //eslint-disable-line
 
 import { auth } from "./config-firebase.js";
 

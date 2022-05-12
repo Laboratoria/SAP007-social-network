@@ -34,8 +34,8 @@ export default function edit(post, messageP, titleP) {
   saveButton.addEventListener("click", (e) => {
     e.preventDefault();
     editPost(post.id, message.value, titleHQ.value).then(() => {
-      titleP.innerHTML = titleHQ.value;
-      messageP.innerHTML = message.value;
+      titleP.innerHTML = titleHQ.value; // eslint-disable-line no-param-reassign
+      messageP.innerHTML = message.value; // eslint-disable-line no-param-reassign
       editPage.remove();
     });
   });
