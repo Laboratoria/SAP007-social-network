@@ -3,7 +3,6 @@ import { auth } from "../lib/config-firebase.js";
 
 export function publishingPosts(post) {
   const currentUser = auth.currentUser;
-  console.log(currentUser)
   const templatePost = document.createElement("div");
   templatePost.classList.add("body-template-post");
 
@@ -18,41 +17,43 @@ export function publishingPosts(post) {
         <p class="HQ-title-post">${post.titleHQ}</p>
         <p class="message-post">${post.message}</p>
         <div class="container-like">
-          <button class="button-like" id="like">
-           <img id="img-like" class="img-like" src=${checkLikes()} alt="botão de like"/>
+          <button class="button-like">
+           <img class="img-like" src=${checkLikes()} alt="botão de like"/>
           </button>
-          <p class="total-likes" id="like-${post.id}">${post.likes.length}</p>
+          <p class="like-counter" id="like-${post.id}">${post.like.length}</p>
         </div>
       </div>
     `;
 
-  buttonLike.addEventListener('click', async (e) => {
+  const likeImage = templatePost.querySelector(".img-like");
+  const likeCounter = templatePost.querySelector(`#like-${post.id}`);
+  let arrLike = post.like.length;
+  const buttonLike = templatePost.querySelector(".button-like");
+
+  buttonLike.addEventListener("click", async (e) => {
     e.preventDefault();
-    if (!post.likes.includes(currentUser.uid)) {
+    if (!post.like.includes(currentUser.uid)) {
       like(post.id, currentUser.uid);
-      post.likes.push(currentUser.uid);
+      post.like.push(currentUser.uid);
       arrLike += 1;
-      likeCount.textContent = arrLike;
+      likeCounter.textContent = arrLike;
       likeImage.setAttribute("src", "./images/liked.png");
     } else {
-      const likeUser = post.likes.indexOf(currentUser.uid);
+      const likeUser = post.like.indexOf(currentUser.uid);
       dislike(post.id, currentUser.uid);
-      post.likes.splice(likeUser, 1);
+      post.like.splice(likeUser, 1);
       arrLike -= 1;
-      likeCount.textContent = arrLike;
+      likeCounter.textContent = arrLike;
       likeImage.setAttribute("src", "./images/like.png");
     }
   });
 
   function checkLikes() {
-    if (post.likes.includes(currentUser.uid)) {
+    if (post.like.includes(currentUser.uid)) {
       return "./images/liked.png";
     }
     return "./images/like.png";
   }
 
-
-
-  return templatePost
+  return templatePost;
 }
-
