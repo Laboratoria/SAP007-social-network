@@ -38,11 +38,7 @@ export function creatPost(message, titleHQ) {
     uid: auth.currentUser.uid,
     like: [],
   }).then((docRef) => {
-    return {
-      id: docRef.id,
-      message,
-      titleHQ,
-    };
+    return docRef.data()
   });
 }
 

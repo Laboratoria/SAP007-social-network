@@ -35,7 +35,6 @@ export default function posts() {
     </div>
 
     <div class="posts-profilePage">
-      <section class="new-post-here"></section>
       <ul id="user-all-posts" class="ul-posts"></ul>
     </div>
     `;
@@ -43,7 +42,7 @@ export default function posts() {
   const message = profilePage.querySelector("#message");
   const titleHQ = profilePage.querySelector("#title-post");
   const error = profilePage.querySelector("#error-msg");
-  const showNewPost = profilePage.querySelector(".new-post-here");
+  const showPosts = profilePage.querySelector(".ul-posts");
 
   // Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
@@ -69,7 +68,12 @@ export default function posts() {
     const isValid = checkNewPostFields();
     if (isValid) {
       creatPost(message.value, titleHQ.value)
-        .then(() => {
+        .then((post) => {
+          debugger
+          const li = document.createElement("li");
+          const postCard = profilePosts(post);
+          li.appendChild(postCard);
+          showPosts.appendChild(li);
           message.value = "";
           titleHQ.value = "";
         }).catch(() => {
@@ -94,7 +98,6 @@ export default function posts() {
   });
 
   // apenas os posts do usuario na tela
-  const showPosts = profilePage.querySelector(".ul-posts");
   const uid = auth.currentUser.uid;
   getUserPosts(uid).then((userPosts) => {
     userPosts.forEach((item) => {
