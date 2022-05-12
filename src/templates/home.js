@@ -1,5 +1,4 @@
-import { getPosts, creatPost } from "../lib/firestore-firebase.js";
-import { publishingPosts } from "../componentes/template-post.js";
+import { creatPost, showPosts } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
 
@@ -38,10 +37,10 @@ export default function home() {
     </div>
     `;
 
-  // Escrever um novo post
   const message = homePage.querySelector("#message");
   const titleHQ = homePage.querySelector("#title-post");
   const error = homePage.querySelector("#error-msg");
+  const showAllPosts = homePage.querySelector("#all-posts");
 
   // Validação dos campos menssagem e título antes de mandar para o firebase
   function checkNewPostFields() {
@@ -70,6 +69,7 @@ export default function home() {
         .then(() => {
           message.value = "";
           titleHQ.value = "";
+          showPosts(showAllPosts);
         }).catch(() => {
           if (message.value === "") {
             error.textContent = "O campo mensagem não pode estar vazio";
@@ -92,13 +92,7 @@ export default function home() {
   });
 
   // Todos os posts na tela
-  const showAllPosts = homePage.querySelector("#all-posts");
-  getPosts().then((allPosts) => {
-    allPosts.forEach((item) => {
-      const postElement = publishingPosts(item);
-      showAllPosts.prepend(postElement);
-    });
-  });
+  showPosts(showAllPosts);
 
   // Função para sair da rede social
   const logOut = homePage.querySelector("#link-logoff");
