@@ -1,5 +1,5 @@
 import '../firebase/config-firebase.js';
-import { userCreate } from '../firebase/authetication.js';
+import { userCreate } from '../firebase/authentication.js';
 
 export default () => {
   const register = document.createElement('div');
