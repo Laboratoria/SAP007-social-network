@@ -1,9 +1,11 @@
 import { createPost, getPosts } from "../lib/firestore-firebase.js";
+import { logout } from "../lib/authentication.js";
 
 export default () => {
   const container = document.createElement("section");
   const template = `
     <section id="post" class="post">
+    <button id= "logout"> Sair </button>
     <div class="container-template">
     <p class="tip">Sua dica de leitura:
     <textarea id="post-text" class="post-text" rows="5" cols="55" maxlength="180" placeholder="Escreva aqui"></textarea>
@@ -22,8 +24,9 @@ export default () => {
   const btnPost = container.querySelector("#post-button");
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
+  const logoff = container.querySelector("#logout");
 
-  const templateFeed = (text)=>{
+  const templateFeed = (text) => {
     return `
     <div class= "box-feed">
     <ul class= "box-feed">
@@ -35,6 +38,10 @@ export default () => {
   </div>
   `
   }
+  logoff.addEventListener("click", async () => {
+    await logout()
+
+  })
 
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTML;
@@ -44,13 +51,13 @@ export default () => {
     } else;
     {
       await createPost(textPost.value);
-      postArea.innerHTML +=  templateFeed(textPost.value)
+      postArea.innerHTML += templateFeed(textPost.value)
 
       postArea.innerHTML += timeLine;
     }
   });
 
-  const readPosts= async () =>{
+  const readPosts = async () => {
     const allPost = await getPosts();
 
     allPost.forEach((post) => {
@@ -60,4 +67,5 @@ export default () => {
   readPosts()
   return container;
 };
+
 

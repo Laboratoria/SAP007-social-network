@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 export const auth = getAuth();
@@ -43,5 +44,9 @@ export function keepUserLoggedIn(callback){
   onAuthStateChanged(auth, (user) => {
     callback (user != null);
   });
+}
+
+export function logout () {
+  signOut(auth) 
 }
  
