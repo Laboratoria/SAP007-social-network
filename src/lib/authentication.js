@@ -4,7 +4,8 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 export const auth = getAuth();
@@ -37,3 +38,10 @@ export function userRegister(email, password) {
     })
 
 }
+
+export function keepUserLoggedIn(callback){
+  onAuthStateChanged(auth, (user) => {
+    callback (user != null);
+  });
+}
+ 
