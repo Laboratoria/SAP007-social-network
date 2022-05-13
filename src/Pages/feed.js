@@ -28,7 +28,7 @@ export default async function feed() {
 <div class= "line-header"> </div>
 <div class = "container-publish">
 <section class="publish" id="publish">
-<textarea id="post-text" class="post-area-text" placeholder="O que você quer compartilhar?" cols="25" rows="4" ></textarea>
+<textarea id="post-text" placeholder="O que você quer compartilhar?"></textarea>
     <p id="alert-notification" class="error"></p>
     <div class= "btn-container">
       <button class="publish-btn" id="publish-btn">Publicar</button>
@@ -91,7 +91,7 @@ export default async function feed() {
       let postBtn;
       let postBtnEdit;
       if (post.userName === currentUser) {
-        postBtn = '<img src="./img/trash.png">';
+        postBtn = '<img src="./img/trash-svg.svg">';
         postBtnEdit = '<img src="./img/page-edit.svg">';
       } else {
         postBtn = '';
@@ -102,15 +102,15 @@ export default async function feed() {
       <div class= "box-posts">
         <ul>
           <li>
-          <p>${post.userName}</p> 
-          <p>${convertDateObject(post.date)}</p> 
+          <p class="title-username">${post.userName}</p> 
+          <p class="data">${convertDateObject(post.date)}</p> 
           <p contenteditable='false' class= "paragrafo" data-textId='${post.id}'>${post.textPost}</p>
           </li>
         </ul>
         
         <div class= "line"></div>
         <div class="icon">
-         <button type="button" id="like-btn" data-post-id="${post.id}">
+         <button type="button" id="like-btn" class="btn-heart" data-post-id="${post.id}">
            <img src="./img/heart.svg" "id="btn-heart" class="btn-heart" width="20px"/>
          </button>
          <p id="num-likes" class="num-likes">${post.like.length}</p>  
@@ -182,7 +182,7 @@ export default async function feed() {
               `.button-delete[data-post-id=${postId}]`,
             );
             reference2.innerHTML = '';
-            reference2.innerHTML = '<img src="./img/trash.png">';
+            reference2.innerHTML = '<img src="./img/trash-svg.svg">';
           });
         
         const btnYes = document.getElementById('yes');

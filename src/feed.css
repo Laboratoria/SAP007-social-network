@@ -60,6 +60,15 @@ textarea {
   resize: none;
 }
 
+.title-username {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.data {
+  font-style: italic
+}
+
 textarea:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
@@ -117,16 +126,38 @@ textarea:focus {
 
 .icon {
   display: flex;
+  align-content: stretch;
+  align-items: flex-end;
 }
 
-.button-heart .button-edit {
+.button-delete {
   border: none;
 }
 
-.btn-heart .edit-btn {
+.button-delete img {
+  width: 22px;
+  height: auto;
+}
+
+.button-edit {
+  border: none;
+}
+
+.button-edit img {
+  width: 22px;
+  height: auto;
+}
+
+.btn-heart {
   font-size: 25px;
   margin-top: 10px;
   cursor: pointer;
+  border: none;
+}
+
+.btn-heart {
+  width: 22px;
+  height: auto;
 }
 
 @media (min-width: 900px) {
@@ -140,19 +171,27 @@ textarea:focus {
     margin-top: 40px;
   }
 
-  /* .container-publish {
+  .container-publish {
     width: 80%;
-    margin-left: 11%;    
-  } */
+    margin-left: 11%;
+  }
+
+  .text-holder {
+    font-size: 12px;
+  }
 
   .publish {
-    width: 580px;
-    margin-top: 50px;
+    width: 700px;
+    margin-top: 30px;
+    margin-left: 267px;
   }
 
   textarea {
-    width: 500px;
-    font-size: 18px;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
   }
 
   .publish-btn {
@@ -163,9 +202,24 @@ textarea:focus {
     margin-right: 35px;
   }
 
-  .box-post {
-    width: 580px;
-    margin-top: 30px;
+  .post-contaneir {
+    width: 50%;
+    display: flex;
+    border-radius: 8px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+
+  .box-posts {
+    width: 50%;
+    border-radius: 8px;
+    background-color: #f5efef;
+    margin-left: 20px;
     margin-bottom: 20px;
+    line-height: 1.8em;
   }
 }
