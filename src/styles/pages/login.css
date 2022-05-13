@@ -35,7 +35,7 @@
 }
 
 .right .card-login {
-    background-color: #241d3f; 
+    background-color: black; 
     width: 60%;
     display: flex;
     justify-content: center;    
@@ -47,7 +47,7 @@
 }
 
 .right .card-login h2 {
-    color: rgba(189, 124, 250, 0.829);
+    color: rgba(184, 114, 250, 0.897)f9c936
     font-weight: 800;
     margin: 0;
 }
@@ -72,7 +72,7 @@
     border: none;
     border-radius: 10px;
     padding: 15px;   
-    background-color: rgb(63, 51, 90); 
+    background-color: white;
     color: rgb(200, 202, 204);
     font-size: 12pt;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 10px 40px;
@@ -90,13 +90,13 @@
     font-weight: 800;
     letter-spacing: 1px;
     color: #171329;
-    background-color: rgba(184, 115, 248, 0.829);
+    background-color: #f9c936;
     cursor: pointer;
-    box-shadow: rgba(149, 42, 248, 0.829) 0px 10px 40px -12px;
+    box-shadow: #f9c936 0px 10px 40px -12px;
 }
 
 .botaologin:hover, #register {
-    background-color: rgba(149, 42, 248, 0.829);
+    background-color: #ffc20a;
 }
 
 @media only screen and (max-width:950px){

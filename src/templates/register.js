@@ -19,15 +19,15 @@ export default function formRegister() {
               <p id="error-name" class="alert-error"></p>
 
               <label for="user-register" class="label-user">Usuário</label>
-              <input type="text" id="user-register" class="form-fields" placeholder="Usuário"/>
+              <input type="text" id="user-register" class="form-fields" placeholder="Digite seu username"/>
               <p id="error-user" class="alert-error"></p>
 
               <label for="email-register" class="label-email">E-mail</label>
-              <input type="email" id="email-register" class="form-fields" placeholder="E-mail"/>
+              <input type="email" id="email-register" class="form-fields" placeholder="email@provedor.com"/>
               <p id="error-email" class="alert-error"></p>
           
               <label for="password-register" class="label-password">Senha</label>
-              <input type="password" id="password-register" class="form-fields" placeholder="Senha" autocomplete="on"/>
+              <input type="password" id="password-register" class="form-fields" placeholder="Sua senha deve ter no mínimo 6 caracteres" autocomplete="on"/>
               <p id="error-password" class="alert-error"></p>
 
             <button type="button" id="button-register" class="button-register">Enviar</button>

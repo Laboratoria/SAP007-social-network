@@ -30,7 +30,7 @@
 .form-fields {
     border: none;
     border-radius: 0.625rem;
-    background-color: rgb(63, 51, 90);
+    background-color: white;
     color: rgb(200, 202, 204);
     font-size: 9pt;
     box-shadow: rgba(0, 0, 0, 0.56) 0rem 0.625rem 2.5rem;
@@ -63,7 +63,7 @@
 .register-form {
     display: flex;
     justify-content: center;
-    background-color: #241d3f;
+    background-color: #ffc20a;;
     border-radius: 1.25rem;
     box-shadow: rgba(0, 0, 0, 0.56) 0rem 0.625rem 2.5rem;
     margin-top: 0.3rem;

@@ -7,19 +7,18 @@ export default function login() {
   container.innerHTML = `
     <div class="main">
         <div class="left">
-            <h1>nome da rede<br>A primeira rede social brasileira para colecionadores de HQ's!</h1>
-            <img src="images/bookreading.svg" alt="menina lendo um livro">
-        </div>
+        <img src="images/wowlogo_1.svg" alt="logo escrito WOW">
+                    </div>
         <div class="right">
             <div class="card-login">
                 <h2>LOGIN</h2>
                 <div class="textfield">
                     <label for="usuario">E-mail</label>
-                    <input type="text" name="e-mail" placeholder="e-mail" id="inputEmail">
+                    <input type="text" name="e-mail" placeholder="Digite seu e-mail" id="inputEmail">
                 </div>  
                 <div class="textfield">
                     <label for="senha">Senha</label>
-                    <input id="password" type="password" name="senha" placeholder="Senha">
+                    <input id="password" type="password" name="senha" placeholder="Digita sua senha">
                 </div>     
                 <button id="signin-button" class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             

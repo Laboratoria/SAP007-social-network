@@ -2,7 +2,6 @@
 /*
 * @jest-environment jsdom
 */
-import posts from '../../../src/pages/posts.js';
 import { publicatedPost } from '../../../src/lib/firestore.js';
 
 jest.mock('../../../src/lib/exports.js');
@@ -27,8 +26,8 @@ describe('publicatedPost', () => {
   });
 });
 
-describe('card', () => {
-  it('Deverá criar um card de post', () => {
+describe('post', () => {
+  it('Deverá criar um post', () => {
     const item = {
       title: 'Teste',
       text: 'Testando',
@@ -36,9 +35,9 @@ describe('card', () => {
       id: 'hydxbeychsd12',
         };
     const page = card(item);
-    const title = page.querySelector('.published-title');
-    const text = page.querySelector('.published-text');
-    const user = page.querySelector('.user-name');
+    const title = page.querySelector('.title');
+    const text = page.querySelector('.message');
+    const user = page.querySelector('.user');
 
     expect(title.textContent).toEqual(item.title);
     expect(text.textContent).toEqual(item.text);
