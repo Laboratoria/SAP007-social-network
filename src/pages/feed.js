@@ -1,8 +1,4 @@
-import {
-  createPost,
-  getPosts,
-  like
-} from "../lib/firestore-firebase.js";
+import { createPost, getPosts, postDelete } from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -27,49 +23,52 @@ export default () => {
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
 
-  const templateFeed = (text) => { //array de likes
-    return `
+  const templateFeed = (post) => {
+    const postContainer = document.createElement("div");
+    postContainer.innerHTML = `
     <div class= "box-feed">
-    <ul class= "box-inside">
+    <ul class= "box-feed">
     <li>
-    <p class="placeText">${text}</p>
+    <p>${post.textPost}</p>
+    <button class="button-like">Like</button>
+    <button class="button-delete">Excluir</button>
     </li>
-    <button type="button" id="button-like" class="button-like">
-    <img src="./images/like.png" class="btn-like" width="30px"/>
-    </button>
   </ul>
+  <span class ="delete-post"></span>
   </div>
-  `
-  }
-/*<p id="numLikes" class="numLikes">${post.like.length}</p>*/
+  `;
+    const deleteBtn = postContainer.querySelector(".button-delete");
+    deleteBtn.addEventListener("click", async () => {
+      await postDelete(post.id);
+      await readPosts();
+    });
+
+    return postContainer;
+  };
 
   btnPost.addEventListener("click", async () => {
-    const timeLine = postArea.innerHTML;
+    const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
     if (textPost.value === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else; {
+    } else;
+    {
       await createPost(textPost.value);
-      postArea.innerHTML += templateFeed(textPost.value)
 
+      readPosts();
       postArea.innerHTML += timeLine;
     }
   });
 
   const readPosts = async () => {
     const allPost = await getPosts();
-
+    const postSection = document.querySelector("#posts");
+    postSection.innerHTML = "";
     allPost.forEach((post) => {
-      document.querySelector("#posts").innerHTML += templateFeed(post.textPost);
-    })
+      postSection.appendChild(templateFeed(post));
+    });
   };
-  readPosts()
-  return container;
-}
+  readPosts();
 
-const btnLike = document.querySelector("#button-like");
-btnLike.forEach((like) => {
-  like.addEventListener("click", (e) => {
-    e.prevemtDefault();
-  });
-})
+  return container;
+};
