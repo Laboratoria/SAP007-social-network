@@ -1,7 +1,7 @@
-import { profilePosts } from "../componentes/perfil.js";
-import { creatPost, getUserPosts } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
 import { auth } from "../lib/config-firebase.js";
+import { creatPost } from "../lib/firestore-firebase.js";
+import { printProfilePosts } from "../componentes/perfil.js";
 
 export default function posts() {
   const profilePage = document.createElement("div");
@@ -35,11 +35,8 @@ export default function posts() {
     </div>
 
     <div class="posts-profilePage">
-      <section id="new-post-here"></section>
       <ul id="user-all-posts" class="ul-posts"></ul>
     </div>
-
-    </div>    
     `;
 
   const message = profilePage.querySelector("#message");
@@ -64,7 +61,6 @@ export default function posts() {
   }
 
   // Função para mandar os dados da nova postagem para o Clound Firestore
-  const sectionNewPost = profilePage.querySelector("#new-post-here");
   const postButton = profilePage.querySelector("#post-button");
   postButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -72,13 +68,14 @@ export default function posts() {
     if (isValid) {
       creatPost(message.value, titleHQ.value)
         .then(() => {
+          printProfilePosts(profilePage)
           message.value = "";
           titleHQ.value = "";
         }).catch(() => {
           if (message.value === "") {
             error.textContent = "O campo de mensagem não pode estar vazio";
           } else if (message.value.length <= 20) {
-            error.textContent = "Conte um pouco mais";
+            error.textContent = "Esse campo precisa ter mais que 20 caracteres";
           }
           if (titleHQ.value === "") {
             error.textContent = "O campo título não pode estar vazio";
@@ -96,14 +93,7 @@ export default function posts() {
   });
 
   // apenas os posts do usuario na tela
-  const showPosts = profilePage.querySelector(".ul-posts");
-  const uid = auth.currentUser.uid;
-  getUserPosts(uid).then((userPosts) => {
-    userPosts.forEach((item) => {
-      const postElement = profilePosts(item);
-      showPosts.prepend(postElement);
-    });
-  });
+  printProfilePosts(profilePage)
 
   // Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff");

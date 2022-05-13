@@ -11,15 +11,16 @@ import {
   arrayRemove,
   arrayUnion,
 }
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"; //eslint-disable-line
 
 import { db, auth } from "./config-firebase.js";
+import { publishingPosts } from "../componentes/template-post.js"; // eslint-disable-line import/no-cycle
 
 export async function getPosts() {
   const arrPosts = [];
   const orderingPosts = query(collection(db, "posts"), orderBy("date", "asc"));
   const querySnapshot = await getDocs(orderingPosts);
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc) => { // eslint-disable-line no-shadow
     const feed = doc.data();
     feed.id = doc.id;
     arrPosts.push(feed);
@@ -38,10 +39,8 @@ export function creatPost(message, titleHQ) {
     like: [],
   }).then((docRef) => {
     return {
-      id: docRef.id,
-      message,
-      titleHQ,
-    };
+      id: docRef.id
+    }
   });
 }
 
@@ -64,7 +63,7 @@ export async function getUserPosts(uid) {
   const collectionUserPosts = query(collection(db, "posts"), where("uid", "==", uid));
   const arrUserPost = [];
   const querySnapshot = await getDocs(collectionUserPosts);
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((doc) => { // eslint-disable-line no-shadow
     const userPost = doc.data();
     userPost.id = doc.id;
     arrUserPost.push(userPost);
@@ -84,5 +83,14 @@ export function dislike(id, user) {
   const post = doc(db, "posts", id);
   return updateDoc(post, {
     like: arrayRemove(user),
+  });
+}
+
+export function showPosts(showAllPosts) {
+  getPosts().then((allPosts) => {
+    allPosts.forEach((item) => {
+      const postElement = publishingPosts(item);
+      showAllPosts.prepend(postElement);
+    });
   });
 }

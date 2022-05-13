@@ -1,4 +1,4 @@
-import { signIn, validateEmail } from "../lib/auth-firebase.js";
+import { signIn, validateEmail } from "../lib/auth-firebase.js"; // eslint-disable-line no-unused-vars
 
 export default function login() {
   const container = document.createElement("div");

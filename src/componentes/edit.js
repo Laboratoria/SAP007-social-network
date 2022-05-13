@@ -7,7 +7,7 @@ export default function edit(post, messageP, titleP) {
   editPage.innerHTML = `          
       <div id="edit-post" class="container-edit-post">
         <div class="edit-post">
-          <form class="form-edit-post">
+          <form class="form-edit-post" method="post">
             <input type="text" id="title-post" class="edit-title" value="${post.titleHQ}">
             <textarea name="textarea" id="message" class="edit-message">${post.message}</textarea>
             <div class="buttons-save-cancel">
@@ -23,10 +23,10 @@ export default function edit(post, messageP, titleP) {
   const titleHQ = editPage.querySelector("#title-post");
 
   // Função caso a pessoa desista de editar, então clica no botão cancelar e volta para o perfil
-  const cancelButton = editPage.querySelector("#message");
+  const cancelButton = editPage.querySelector("#cancel-button");
   cancelButton.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "posts";
+    editPage.remove();
   });
 
   // Função que edita o post
@@ -34,8 +34,8 @@ export default function edit(post, messageP, titleP) {
   saveButton.addEventListener("click", (e) => {
     e.preventDefault();
     editPost(post.id, message.value, titleHQ.value).then(() => {
-      titleP.innerHTML = titleHQ.value;
-      messageP.innerHTML = message.value;
+      titleP.innerHTML = titleHQ.value; // eslint-disable-line no-param-reassign
+      messageP.innerHTML = message.value; // eslint-disable-line no-param-reassign
       editPage.remove();
     });
   });

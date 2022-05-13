@@ -1,6 +1,7 @@
-import { getPosts, creatPost } from "../../lib/firestore-firebase.js";
-import { publishingPosts } from "../../componentes/template-post.js";
-import { userLogout } from "../../lib/auth-firebase.js";
+import { creatPost } from "../lib/firestore-firebase.js";
+import { userLogout } from "../lib/auth-firebase.js";
+import { auth } from "../lib/config-firebase.js";
+import { showPosts } from "../componentes/template-post.js";
 
 export default function home(posts) {
   const homePage = document.createElement("div");
@@ -39,12 +40,25 @@ export default function home(posts) {
 const message = homePage.querySelector("#message");
 const titleHQ = homePage.querySelector("#title-post");
 
-//Validação dos campos menssagem e título antes de mandar para o firebase
-function checkNewPostFields() {
-  let isValid = true
-  if (titleHQ.value === "") {
-    alert("O campo título não pode estar vazio")
-    isValid = false
+  const message = homePage.querySelector("#message");
+  const titleHQ = homePage.querySelector("#title-post");
+  const error = homePage.querySelector("#error-msg");
+
+  // Validação dos campos menssagem e título antes de mandar para o firebase
+  function checkNewPostFields() {
+    let isValid = true;
+    if (titleHQ.value === "") {
+      error.textContent = "O campo título não pode estar vazio";
+      isValid = false;
+    }
+    if (message.value === "") {
+      error.textContent = "O campo mensagem não pode estar vazio";
+      isValid = false;
+    } else if (message.value.length <= 20) {
+      error.textContent = "Esse campo precisa ter pelo menos 20 caracteres";
+      isValid = false;
+    }
+    return isValid;
   }
   if (message.value === "") {
     alert("O campo de mensagem não pode estar vazio");
@@ -56,28 +70,29 @@ function checkNewPostFields() {
   return isValid
 }
 
-//Função para mandar os dados da nova postagem para o Clound Firestore
-const postButton = homePage.querySelector("#post-button");
-postButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  const isValid = checkNewPostFields()
-  if (isValid) {
-    creatPost(message.value, titleHQ.value)
-      .then((post) => {
-        message.value = "";
-        titleHQ.value = "";
-      }).catch((error) => {
-        if (message.value === "") {
-          alert("O campo de mensagem não pode estar vazio");
-        } else if (message.value.length <= 20) {
-          alert("Conte um pouco mais");
-        }
-        if (titleHQ.value === "") {
-          alert("O campo título não pode estar vazio")
-        }
-      });
-  }
-});
+  // Função para mandar os dados da nova postagem para o Clound Firestore
+  const postButton = homePage.querySelector("#post-button");
+  postButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const isValid = checkNewPostFields();
+    if (isValid) {
+      creatPost(message.value, titleHQ.value)
+        .then(() => {
+          showPosts(homePage);
+          message.value = "";
+          titleHQ.value = "";
+        }).catch(() => {
+          if (message.value === "") {
+            error.textContent = "O campo mensagem não pode estar vazio";
+          } else if (message.value.length <= 20) {
+            error.textContent = "Esse campo precisa ter pelo menos 20 caracteres";
+          }
+          if (titleHQ.value === "") {
+            error.textContent = "O campo título não pode estar vazio";
+          }
+        });
+    }
+  });
 
 //Função para quando clickar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
 const deleteButton = homePage.querySelector("#delete-button")
@@ -87,15 +102,8 @@ deleteButton.addEventListener("click", (e) => {
   message.value = ""
 })
 
-    //Todos os posts na tela
-  const showAllPosts = homePage.querySelector("#all-posts")
-  getPosts().then((allPosts) => {
-    allPosts.forEach((item) => {
-      console.log(allPosts)
-      const postElement = publishingPosts(item);
-      showAllPosts.prepend(postElement);
-    });
-  });
+  // Todos os posts na tela
+  showPosts(homePage)
 
   //Função para sair da rede social
   const logOut = homePage.querySelector("#link-logoff")
