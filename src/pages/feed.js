@@ -1,4 +1,8 @@
-import { createPost, getPosts } from "../lib/firestore-firebase.js";
+import {
+  createPost,
+  getPosts,
+  like
+} from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -23,34 +27,36 @@ export default () => {
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
 
-  const templateFeed = (text)=>{
+  const templateFeed = (text) => { //array de likes
     return `
     <div class= "box-feed">
-    <ul class= "box-feed">
+    <ul class= "box-inside">
     <li>
-    <p>${text}</p>
-    <button class="button-like">
+    <p class="placeText">${text}</p>
     </li>
+    <button type="button" id="button-like" class="button-like">
+    <img src="./images/like.png" class="btn-like" width="30px"/>
+    </button>
   </ul>
   </div>
   `
   }
+/*<p id="numLikes" class="numLikes">${post.like.length}</p>*/
 
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTML;
     postArea.innerHTML = "";
     if (textPost.value === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else;
-    {
+    } else; {
       await createPost(textPost.value);
-      postArea.innerHTML +=  templateFeed(textPost.value)
+      postArea.innerHTML += templateFeed(textPost.value)
 
       postArea.innerHTML += timeLine;
     }
   });
 
-  const readPosts= async () =>{
+  const readPosts = async () => {
     const allPost = await getPosts();
 
     allPost.forEach((post) => {
@@ -60,3 +66,10 @@ export default () => {
   readPosts()
   return container;
 }
+
+const btnLike = document.querySelector("#button-like");
+btnLike.forEach((like) => {
+  like.addEventListener("click", (e) => {
+    e.prevemtDefault();
+  });
+})

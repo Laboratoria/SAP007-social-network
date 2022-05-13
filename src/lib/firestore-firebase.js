@@ -2,8 +2,10 @@ import {
   collection,
   getDocs,
   addDoc,
-  query
-
+  query,
+  updateDoc,
+  arrayUnion,
+  arrayRemove
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
 import {
   db
@@ -31,7 +33,7 @@ export const createPost = async (textPost) => {
   }
 };
 
-export const getPosts = async() =>{
+export const getPosts = async () => {
   console.log("cheguei")
   try {
     const posts = []
@@ -40,13 +42,27 @@ export const getPosts = async() =>{
     querySnapshot.forEach((doc) => {
       const post = doc.data()
       post.id = doc.id
-     posts.push(post)
+      posts.push(post)
       console.log(post);
     });
-   return posts
+    return posts
   } catch (error) {
 
   }
 
+}
+//Função de like e dislike
 
+export function like(id, user) {
+  const post = doc(db, "post", id);
+  return updateDoc(post, {
+    likes: arrayUnion(user),
+  });
+}
+
+export function dislike(id, user) {
+  const post = doc(db, "post", id);
+  return updateDoc(post, {
+    likes: arrayRemove(user),
+  });
 }
