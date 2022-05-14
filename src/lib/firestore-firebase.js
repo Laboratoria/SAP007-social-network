@@ -37,11 +37,9 @@ export function creatPost(message, titleHQ) {
     user: auth.currentUser.displayName,
     uid: auth.currentUser.uid,
     like: [],
-  }).then((docRef) => {
-    return {
-      id: docRef.id
-    }
-  });
+  }).then((docRef) => ({
+    id: docRef.id,
+  }));
 }
 
 // Função para deletar o post

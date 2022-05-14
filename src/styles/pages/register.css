@@ -44,7 +44,7 @@
 .label-name, .label-user, .label-email, .label-password {
     font-weight: 300;
     font-size: 0.813rem;
-    color: rgb(200, 202, 204);
+    color: black;
     margin-bottom: 0.438rem;
 }
 
@@ -63,7 +63,7 @@
 .register-form {
     display: flex;
     justify-content: center;
-    background-color: #ffc20a;;
+    background-color: #ffd147;
     border-radius: 1.25rem;
     box-shadow: rgba(0, 0, 0, 0.56) 0rem 0.625rem 2.5rem;
     margin-top: 0.3rem;
@@ -81,7 +81,7 @@
 
 .alert-error {
     font-size: 0.438rem;
-    color: rgb(200, 202, 204);
+    color: black;
     font-weight: lighter;
 }
 
@@ -97,7 +97,7 @@
     color: #171329;
     background-color: rgba(184, 115, 248, 0.829);
     cursor: pointer;
-    box-shadow: rgba(149, 42, 248, 0.829) 0px 0.625rem 2.5rem -0.75rem;
+    box-shadow: black 0px 0.625rem 2.5rem -0.75rem;
     width: 13rem;
 }
 

@@ -68,7 +68,7 @@ export function printProfilePosts(profilePage) {
   // apenas os posts do usuario na tela
   const uid = auth.currentUser.uid;
   const showPosts = profilePage.querySelector(".ul-posts");
-  showPosts.innerHTML = ''
+  showPosts.innerHTML = "";
   getUserPosts(uid).then((userPosts) => {
     userPosts.forEach((item) => {
       const postElement = profilePosts(item);

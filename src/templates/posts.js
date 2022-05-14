@@ -68,7 +68,7 @@ export default function posts() {
     if (isValid) {
       creatPost(message.value, titleHQ.value)
         .then(() => {
-          printProfilePosts(profilePage)
+          printProfilePosts(profilePage);
           message.value = "";
           titleHQ.value = "";
         }).catch(() => {
@@ -93,7 +93,7 @@ export default function posts() {
   });
 
   // apenas os posts do usuario na tela
-  printProfilePosts(profilePage)
+  printProfilePosts(profilePage);
 
   // Função para sair da rede social
   const logOut = profilePage.querySelector("#link-logoff");

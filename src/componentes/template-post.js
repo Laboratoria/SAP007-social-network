@@ -60,7 +60,7 @@ export function publishingPosts(post) {
 
 export function showPosts(homePage) {
   const showAllPosts = homePage.querySelector(".section-post");
-  showAllPosts.innerHTML = ''
+  showAllPosts.innerHTML = "";
   getPosts().then((allPosts) => {
     allPosts.forEach((item) => {
       const postElement = publishingPosts(item);

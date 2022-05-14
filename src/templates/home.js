@@ -1,15 +1,15 @@
 import { creatPost } from "../lib/firestore-firebase.js";
 import { userLogout } from "../lib/auth-firebase.js";
-import { auth } from "../lib/config-firebase.js";
 import { showPosts } from "../componentes/template-post.js";
 
-export default function home(posts) {
+export default function home() {
   const homePage = document.createElement("div");
-  homePage.classList.add("body-home-page")
+  homePage.classList.add("body-home-page");
 
   homePage.innerHTML = `
     <input type="checkbox" id=check>
-    <label for="check" class="label-user-icon-home"><img class="home-user-icon-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></label>
+    <img src="images/wowlogo_1.svg" class="logo">
+        <label for="check" class="label-user-icon-home"><img class="home-user-icon-posts" src="./images/user-icon.png" alt="ícone contorno do usuário"></label>
     <nav class="menu-home">
       <ul class="menu-options-home">
         <li><a class="link-menu-home" href="#posts">Perfil</a></li>
@@ -36,10 +36,7 @@ export default function home(posts) {
       <ul id="all-posts" class="section-post"></ul>
     </div>
     `;
-//Escrever um novo post
-const message = homePage.querySelector("#message");
-const titleHQ = homePage.querySelector("#title-post");
-
+  // Escrever um novo post
   const message = homePage.querySelector("#message");
   const titleHQ = homePage.querySelector("#title-post");
   const error = homePage.querySelector("#error-msg");
@@ -60,15 +57,6 @@ const titleHQ = homePage.querySelector("#title-post");
     }
     return isValid;
   }
-  if (message.value === "") {
-    alert("O campo de mensagem não pode estar vazio");
-    isValid = false
-  } else if (message.value.length <= 20) {
-    alert("Conte um pouco mais");
-    isValid = false
-  }
-  return isValid
-}
 
   // Função para mandar os dados da nova postagem para o Clound Firestore
   const postButton = homePage.querySelector("#post-button");
@@ -94,37 +82,32 @@ const titleHQ = homePage.querySelector("#title-post");
     }
   });
 
-//Função para quando clickar no botão excluir da nova postagem, antes de enviar, o campo fique limpo
-const deleteButton = homePage.querySelector("#delete-button")
-deleteButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  titleHQ.value = "";
-  message.value = ""
-})
+  /* Função para quando clickar no botão excluir da nova postagem, antes de enviar, 
+  o campo fique limpo*/
+  const deleteButton = homePage.querySelector("#delete-button");
+  deleteButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    titleHQ.value = "";
+    message.value = "";
+  });
 
   // Todos os posts na tela
-  showPosts(homePage)
+  showPosts(homePage);
 
-  //Função para sair da rede social
-  const logOut = homePage.querySelector("#link-logoff")
-  logOut.addEventListener('click', (e) => {
+  // Função para sair da rede social
+  const logOut = homePage.querySelector("#link-logoff");
+  logOut.addEventListener("click", (e) => {
     e.preventDefault();
     userLogout().then(() => {
-      window.location.hash = '';
+      window.location.hash = "";
     });
   });
 
-
-  return homePage
-
+  return homePage;
 }
 
-
-
-
-
-/*const buttonPerfil = homePage.querySelector("#botao");
+/* const buttonPerfil = homePage.querySelector("#botao");
 buttonPerfil.addEventListener("click", (e) => {
   e.preventDefault();
   window.location.hash = "posts";
-})*/
+}) */
