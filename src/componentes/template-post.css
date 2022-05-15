@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
+    
 }
 
 .section-post {
     max-width: 900px;
     margin: 0px 30px;
+
 }
 
 .section-post-published {
@@ -20,12 +22,13 @@
     box-shadow: 1px 0 3px rgba(0, 0, 0, 0.2);
     padding: 12px 25px;
     margin: 30px 11px 0px;
+    background-color: #FFEBAD;
 }
 
 .username-post{
     margin-bottom: 0;
     margin-top: 0;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -38,14 +41,14 @@
 .HQ-title-post {
     margin-bottom: 0;
     margin-top: 8px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: bold;
 }
 
 .message-post {
-    margin-bottom: 0;
-    margin-top: 4px;
+    margin-bottom: auto;
     font-size: 13px;
+    padding: auto;
 }
 
 .buttons-edit-delete {
@@ -74,6 +77,8 @@
 .button-like {
     border: none;
     background: transparent;
+    cursor: pointer;
+
 }
 
 .img-like {

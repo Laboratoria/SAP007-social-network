@@ -18,7 +18,7 @@ export default function login() {
                 </div>  
                 <div class="textfield">
                     <label for="senha">Senha</label>
-                    <input id="password" type="password" name="senha" placeholder="Digita sua senha">
+                    <input id="password" type="password" name="senha" placeholder="Digite sua senha">
                 </div>     
                 <button id="signin-button" class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             

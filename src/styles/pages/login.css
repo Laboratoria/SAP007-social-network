@@ -78,6 +78,7 @@
     box-shadow: rgba(0, 0, 0, 0.56) 0px 10px 40px;
     outline: none;
     box-sizing: border-box;
+    background-image:url(images/password.svg);
 }
 
 .botaologin, #register {
@@ -138,3 +139,8 @@
     }
 }
 
+/* #password {
+    background: url(images/password.svg) no-repeat scroll 7px 7px;
+    padding-left:30px;
+    background-color: white;
+} */
