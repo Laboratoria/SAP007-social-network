@@ -19,7 +19,10 @@ export default function login() {
                 <div class="textfield">
                     <label for="senha">Senha</label>
                     <input id="password" type="password" name="senha" placeholder="Digite sua senha">
-                </div>     
+                </div>   
+                <div>  
+                <button id="button-google-register" class="button-google-register"><img src="./images/google.png" class="logo-google-register" alt="logo do google"></button>
+              </div>
                 <button id="signin-button" class="botaologin">ENTRAR</button>
                 <button id="register">Faça seu cadastro</button>             
             </div>
