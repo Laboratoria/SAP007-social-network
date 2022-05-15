@@ -9,7 +9,7 @@ export default () => {
       <div class="banner"></div>
       <div class= "main-container">
         <div class="container-fluid">
-          <p class="welcome"> Bem vindo(a) viajante! </p>
+          <p class="welcome"> Bem vindo(a) viajante!</p>
           <form action="#" id="sign-in-form" class="sign-in-form">
             <input class= "inputs" type="email" placeholder="E-mail" id="email" />
             <input class= "inputs" type="password" placeholder="Senha" id="password"/>
@@ -23,7 +23,7 @@ export default () => {
           <p class="text"> Ainda não tem cadastro?</p>
           <a href="#register" id='sign-up-google'class="link">Registre-se</a>  
         </div>  
-      </div> "
+      </div>
     </div>
   `;
   container.innerHTML = templateHome;
@@ -37,7 +37,6 @@ export default () => {
     // e - comportamento padrão daquele evento
     e.preventDefault(); // prevenir comportamento padrão
     signIn(email.value, password.value)
-
       .then(() => {
         window.location.hash = '#feed';
       })
@@ -54,9 +53,10 @@ export default () => {
   const btnGoogle = container.querySelector('.logoGoogle');
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
-    signInWithGoogle(auth, provider).then(() => {
-      window.location.hash = '#feed';
-    });
+    signInWithGoogle(auth, provider)
+      .then(() => {
+        window.location.hash = '#feed';
+      });
   });
   return container;
 };
