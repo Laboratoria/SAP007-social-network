@@ -176,15 +176,15 @@ export default async function feed() {
         <button class="btn-delete-confirm" id="no">Não</button>
         </div>
         `;
-        
+
         btnforReference.querySelector('.btn-delete-confirm').addEventListener('click', () => {
-            const reference2 = btnforReference.parentNode.querySelector(
-              `.button-delete[data-post-id=${postId}]`,
-            );
-            reference2.innerHTML = '';
-            reference2.innerHTML = '<img src="./img/trash.png">';
-          });
-        
+          const reference2 = btnforReference.parentNode.querySelector(
+            `.button-delete[data-post-id=${postId}]`,
+          );
+          reference2.innerHTML = '';
+          reference2.innerHTML = '<img src="./img/trash.png">';
+        });
+
         const btnYes = document.getElementById('yes');
         const btnNo = document.getElementById('no');
         // eslint-disable-next-line no-shadow

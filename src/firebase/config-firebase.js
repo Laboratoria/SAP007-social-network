@@ -1,7 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js ';
-// eslint-disable-next-line import/no-unresolved
-import { getAuth, GoogleAuthProvider } from './exports.js';
-
+import { getAuth, GoogleAuthProvider, initializeApp } from './exports.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDRDtG0KOp9htjlzbsm3Zrc1S65IOmLdzM',
