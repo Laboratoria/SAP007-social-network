@@ -170,10 +170,14 @@ export default async function feed() {
         const btnforReference = e.target.parentNode;
         e.target.parentNode.innerHTML = `
         <section class="for-remove">
-        <p>Confirma a exclusão de seu poste?</p>
+          <ul>
+            <li>
+            <p>Confirma a exclusão de seu poste?</p>
         
-        <button class="btn-delete-confirm" id="yes">Sim</button>
-        <button class="btn-delete-confirm" id="no">Não</button>
+            <button class="btn-delete-confirm" id="yes">Sim</button>
+            <button class="btn-delete-confirm" id="no">Não</button>
+            <li>
+          </ul>
         </section>
         `;
 
