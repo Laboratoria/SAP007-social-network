@@ -6,10 +6,17 @@ export default () => {
     let containerFeed = document.createElement('div');
 
     let templateFeed = `
-    <p id="post">Post</p>
+     
+    <div class="postt">
+    <p class="post">&#x1F441 Publique sua teoria &#x1F441</p>
+    </div>
+    
     <input id="titulo" type="text" placeholder="Título" maxlength="90"/><br>
-    <input id="postText" type="text" placeholder="Qual a sua teoria?" maxlength="280" /><br>
+
+    <input id="postText" type="text" placeholder="Sua teoria aqui" maxlength="280" /><br>
+
     <br><button id="btnPost" type="submit" >Postar</button><br>
+
     <div class="sectionFeedContainer">
     <section id="sectionNewPost" class="sectionPostClass"></section>
     <section id="sectionPost" class="sectionPostClass"></section>
@@ -72,8 +79,10 @@ const getPosts = async () => {
     sectionAllPost.innerHTML = arrayPosts.map(
       (post) =>`
       <div class="divPost">
-      ${post.titulo} <br>
-      ${post.post} <br>
+
+      <div class="tItulo">${post.titulo}</div><br>
+
+      <div class="pOst">${post.post}</div> <br>
       <div class="linePost"></div>
       <a class="icons" id="iconLike">
        <img src="../../img/curtir.png" width="36" height="36" />
