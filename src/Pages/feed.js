@@ -176,7 +176,7 @@ export default async function feed() {
         <button class="btn-delete-confirm" id="no">Não</button>
         </section>
         `;
-        
+
         btnforReference.querySelector('.btn-delete-confirm').addEventListener('click', () => {
             const reference2 = btnforReference.parentNode.querySelector(
               `.button-delete[data-post-id=${postId}]`,

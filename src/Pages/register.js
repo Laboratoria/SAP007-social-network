@@ -14,7 +14,7 @@ export default () => {
           <form action="#" id="sign-in-form" class="sign-in-form">
             <input class= "inputs" type="text" placeholder="Nome" id="name"/>
             <input class= "inputs" type="email" placeholder="E-mail" id="email"/>
-            <span class="error"></span>
+            <span class="error" id="error"></span>
             <input class= "inputs" type="password" placeholder="Senha (6 dígitos)" id="password"/>      
             <button class="btnEnter" type="submit"  id="register">Cadastrar</button>
           </form>
