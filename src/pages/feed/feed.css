@@ -1,24 +1,26 @@
 @media (min-width: 360px) {
   
+    body {
+      background-color: beige;
+    }
+     
     .postt {
-        background-color: beige;
+        background-color: white;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1.5em;
-        width: 70%;
+        width: 80%;
         margin-top: 15px;
         margin-left: 40px;
-        padding-left: 5px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        text-align: center;
         border-radius: 5px 5px 5px 5px;
         box-shadow: 2px 2px 2px 2px grey;
     }
 
-    #titulo{
-        width: 380px;
-        height: 58px;
+    #titulo {
+        width: 180px;
+        height: 30px;
         border-radius:5px 5px 5px 5px ;
-        margin-left: 5px;
+        margin-left: 30px;
         margin-top: 20px;
         text-align: center;
         font-size: 0.9em;
@@ -26,10 +28,10 @@
     }
     
     #postText {
-        width: 380px;
+        width: 300px;
         height: 58px;
         border-radius:5px 5px 5px 5px ;
-        margin-left: 5px;
+        margin-left: 30px;
         margin-top: 10px;
         text-align: center;
         font-size: 0.9em;
@@ -37,10 +39,10 @@
     }
 
     #btnPost {
-        width: 380px; 
+        width: 300px; 
         border-radius:6px 6px 6px 6px ;
         height: 30px;
-        margin-left: 10px;
+        margin-left: 35px;
     }
   
   
@@ -48,7 +50,7 @@
   
     .divPost {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color:beige;
+    background-color:white;
     border-radius: 2px 2px 2px 2px;
     margin-top: 20px;
     margin-left: 60px;
@@ -59,24 +61,38 @@
     width: 60%;
     border-radius:30px 30px 30px 30px ;
     box-shadow: 2px 2px 2px 2px grey;
-  }
+    }
 
-  .tItulo{
+    .tItulo{
       text-align: center;
       margin-top: 7px;
       margin-bottom: 3px;
       font-size: 1.2em;
-  }
+    }
 
-  .pOst {
+    .pOst {
       margin-left: 15px;
       margin-left: 15px;
-  }
+    }
+}
 
+@media (min-width: 810px) {
 
+    #titulo {
+        width: 200px;
+        margin-left: 50px;
+    }
+    
+    #postText {
+        width: 650px;
+        margin-left: 50px; 
+    }
 
+    #btnPost {
+        margin-left: 240px;
+    }
 
-
-
-
+    .divPost {
+        margin-left: 140px;  
+    }
 }
