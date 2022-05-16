@@ -2,20 +2,16 @@ import {
   collection,
   getDocs,
   addDoc,
-  query
-
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js'
-import {
-  db
-} from "./config-firebase.js"
-import {
-  auth
-} from "./authentication.js"
-
+  query,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { db } from "./config-firebase.js";
+import { auth } from "./authentication.js";
 
 export const createPost = async (textPost) => {
   try {
-    const docRef = await addDoc(collection(db, 'post'), {
+    const docRef = await addDoc(collection(db, "post"), {
       textPost,
       userEmail: auth.currentUser.email,
       message: textPost,
@@ -27,26 +23,26 @@ export const createPost = async (textPost) => {
 
     return docRef;
   } catch (e) {
-    console.log('Post não publicado', e);
+    console.log("Post não publicado", e);
   }
 };
 
-export const getPosts = async() =>{
-  console.log("cheguei")
+export const getPosts = async () => {
+  console.log("cheguei");
   try {
-    const posts = []
+    const posts = [];
     const q = query(collection(db, "post"));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      const post = doc.data()
-      post.id = doc.id
-     posts.push(post)
-      console.log(post);
+      const post = doc.data();
+      post.id = doc.id;
+      posts.push(post);
     });
-   return posts
-  } catch (error) {
+    return posts;
+  } catch (error) {}
+};
 
-  }
-
-
-}
+export const postDelete= async (id) => {
+  console.log(id);
+  await deleteDoc(doc(db,"post", id));
+};
