@@ -66,7 +66,7 @@ textarea {
 }
 
 .data {
-  font-style: italic
+  font-size: 10px;
 }
 
 textarea:focus {
@@ -137,6 +137,12 @@ textarea:focus {
 .button-delete img {
   width: 22px;
   height: auto;
+}
+
+.btn-delete-confirm {
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .button-edit {
@@ -221,5 +227,9 @@ textarea:focus {
     margin-left: 20px;
     margin-bottom: 20px;
     line-height: 1.8em;
+  }
+
+  .for-remove {
+    margin-left: 150px;
   }
 }

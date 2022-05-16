@@ -28,7 +28,7 @@ export default async function feed() {
 <div class= "line-header"> </div>
 <div class = "container-publish">
 <section class="publish" id="publish">
-<textarea id="post-text" placeholder="O que você quer compartilhar?"></textarea>
+<textarea id="post-text" class="text-holder" placeholder="O que você quer compartilhar?"></textarea>
     <p id="alert-notification" class="error"></p>
     <div class= "btn-container">
       <button class="publish-btn" id="publish-btn">Publicar</button>
@@ -169,12 +169,12 @@ export default async function feed() {
 
         const btnforReference = e.target.parentNode;
         e.target.parentNode.innerHTML = `
-        <div class='for-remove'>
+        <section class="for-remove">
         <p>Confirma a exclusão de seu poste?</p>
         
-        <button class="btn-delete-confirm-sim" id="yes">Sim</button>
+        <button class="btn-delete-confirm" id="yes">Sim</button>
         <button class="btn-delete-confirm" id="no">Não</button>
-        </div>
+        </section>
         `;
         
         btnforReference.querySelector('.btn-delete-confirm').addEventListener('click', () => {
