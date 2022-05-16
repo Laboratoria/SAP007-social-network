@@ -40,6 +40,7 @@ export default () => {
     const deleteBtn = postContainer.querySelector(".button-delete");
     deleteBtn.addEventListener("click", async () => {
       await postDelete(post.id);
+      console.log(post.id)
       await readPosts();
     });
 
@@ -49,7 +50,8 @@ export default () => {
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
-    if (textPost.value === "") {
+    const text= textPost.value
+    if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
     } else;
     {
