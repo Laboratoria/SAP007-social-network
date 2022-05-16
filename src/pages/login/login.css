@@ -20,14 +20,24 @@
       color:crimson;
       font-size: 2em;
      }
-     .btnEntrar{
+     .btn-entrar{
         margin-top: 40px;
         margin-bottom:2px;
      }
-     .Senha{
+     .inputSenha{
         margin-bottom: 10px;
+        width: 180px;
+         height: 58px;
+         border-style:groove;
+         border-color:darkgreen;
+         border-radius:30px 30px 30px 30px ;
+         margin-left: 5px;
+         margin-top: 20px;
+         text-align: center;
+         font-size: 0.9em;
+         box-shadow: 2px 2px 2px grey;
      }
-     .input {
+     .inputEmail{
          width: 180px;
          height: 58px;
          border-style:groove;
@@ -40,7 +50,7 @@
          box-shadow: 2px 2px 2px grey;
      }
      
-     .btnEntrar {
+     .btn-entrar{
      background-color: chartreuse;
      color: crimson;
      width: 200px;
@@ -84,7 +94,7 @@
     font-size: 2.5em;
     }
   
-    .input {
+    .inputEmail {
       width: 350px;
       height: 60px;
       border-style:groove;
@@ -97,8 +107,18 @@
       box-shadow: 2px 2px 2px grey;
      }
 
-     .Senha{
+     .inputSenha{
       margin-bottom: 30px;
+      width: 350px;
+      height: 60px;
+      border-style:groove;
+      border-color:darkgreen;
+      border-radius:30px 30px 30px 30px ;
+      margin-left: 9px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9em;
+      box-shadow: 2px 2px 2px grey;
     }
 
     .btnEntrar {
