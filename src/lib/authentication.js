@@ -37,3 +37,7 @@ export function userRegister(email, password) {
     })
 
 }
+
+export function getUser() {
+  return auth.currentUser
+}

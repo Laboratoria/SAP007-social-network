@@ -1,4 +1,10 @@
-import { createPost, getPosts, postDelete } from "../lib/firestore-firebase.js";
+import { getUser } from "../lib/authentication.js";
+import {
+  createPost,
+  getPosts,
+  postDelete,
+  postEdit,
+} from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -24,6 +30,8 @@ export default () => {
   const msgError = container.querySelector("#msg-error");
 
   const templateFeed = (post) => {
+    const user = getUser();
+    const isAuthor = user.uid === post.uid;
     const postContainer = document.createElement("div");
     postContainer.innerHTML = `
     <div class= "box-feed">
@@ -31,16 +39,18 @@ export default () => {
     <li>
     <p>${post.textPost}</p>
     <button class="button-like">Like</button>
-    <button class="button-delete">Excluir</button>
+    ${isAuthor && `<button class="button-delete">Excluir</button>`}
+    <button class="button-edit">Editar</button>
     </li>
   </ul>
   <span class ="delete-post"></span>
   </div>
   `;
+
     const deleteBtn = postContainer.querySelector(".button-delete");
     deleteBtn.addEventListener("click", async () => {
       await postDelete(post.id);
-      console.log(post.id)
+      console.log(post.id);
       await readPosts();
     });
 
@@ -50,7 +60,7 @@ export default () => {
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
-    const text= textPost.value
+    const text = textPost.value;
     if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
     } else;
