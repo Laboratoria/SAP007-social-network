@@ -1,9 +1,11 @@
+import { getUser } from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
   postDelete,
   like,
-  dislike
+  dislike,
+  postEdit
 } from "../lib/firestore-firebase.js";
 
 export default () => {
@@ -30,12 +32,16 @@ export default () => {
   const msgError = container.querySelector("#msg-error");
 
   const templateFeed = (post) => {
+    const user = getUser();
+    const isAuthor = user.uid === post.uid;
     const postContainer = document.createElement("div");
     postContainer.innerHTML = `
     <div class= "box-feed">
     <ul class= "box-feed">
     <li>
+    <p>${post.user}</p>
     <p>${post.textPost}</p>
+
     <button type="button" id="button-like" class="button-like">
     <img src="./images/like.png" class="btn-like" width="30px"/>
     </button>
@@ -64,17 +70,35 @@ export default () => {
       await readPosts();
     });
 
+    <button class="button-like">Like</button>
+    ${isAuthor && `<button class="button-delete">Excluir</button>`}
+    <button class="button-edit">Editar</button>
+    </li>
+    </ul>
+    <span class ="delete-post"></span>
+    </div>
+    `;
+
+    if (isAuthor) {
+      const deleteBtn = postContainer.querySelector(".button-delete");
+      deleteBtn.addEventListener("click", async () => {
+        await postDelete(post.id);
+        console.log(post.id);
+        await readPosts();
+      });
+    }
+
     return postContainer;
   };
 
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
-    if (textPost.value === "") {
+    const text = textPost.value;
+    if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
     } else; {
       await createPost(textPost.value);
-
       readPosts();
       postArea.innerHTML += timeLine;
     }

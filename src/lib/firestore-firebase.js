@@ -49,7 +49,9 @@ export const getPosts = async () => {
 export const postDelete= async (id) => {
   console.log(id);
   await deleteDoc(doc(db,"post", id));
+
 };
+
 
 export function like (id){
   const post = doc(db, "post", id);
@@ -64,3 +66,10 @@ export function dislike (id){
     likes: arrayRemove(auth.currentUser.uid),
   });
 }
+
+export const postEdit = async (idPost, textPost) => {
+  console.log(idPost)
+  const post = doc(db, 'post', idPost);
+
+  return await updateDoc(post, { textPost })}
+
