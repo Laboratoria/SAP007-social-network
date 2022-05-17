@@ -1,4 +1,5 @@
 import { getUser } from "../lib/authentication.js";
+import { logout } from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
@@ -12,6 +13,7 @@ export default () => {
   const container = document.createElement("section");
   const template = `
     <section id="post" class="post">
+    <button id= "logout"> Sair </button>
     <div class="container-template">
     <p class="tip">Sua dica de leitura:
     <textarea id="post-text" class="post-text" rows="5" cols="55" maxlength="180" placeholder="Escreva aqui"></textarea>
@@ -30,6 +32,8 @@ export default () => {
   const btnPost = container.querySelector("#post-button");
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
+  const logoff = container.querySelector("#logout");
+
 
   const templateFeed = (post) => {
     const user = getUser();
@@ -42,42 +46,35 @@ export default () => {
     <p>${post.user}</p>
     <p>${post.textPost}</p>
 
+    ${isAuthor && `<button class= "button-delete">Excluir</button>`}
     <button type="button" id="button-like" class="button-like">
     <img src="./images/like.png" class="btn-like" width="30px"/>
     </button>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
-    <button class="button-delete">Excluir</button>
+   
     </li>
   </ul>
   <span class ="delete-post"></span>
   </div>
   `;
 
-  const btnLike = postContainer.querySelector(".button-like");
-  btnLike.addEventListener("click", () => {
-  like(post.id).then (() => {
-  const newLikes = post.likes.length+1;
-  const numLikes = postContainer.querySelector(".numLikes-"+post.id);
-  numLikes.innerHTML = newLikes;
-  });
-  
-});
-  
+  logoff.addEventListener("click", async () => {
+    await logout()
 
-    const deleteBtn = postContainer.querySelector(".button-delete");
-    deleteBtn.addEventListener("click", async () => {
-      await postDelete(post.id);
-      await readPosts();
+  });
+
+
+    const btnLike = postContainer.querySelector(".button-like");
+    btnLike.addEventListener("click", () => {
+      like(post.id).then(() => {
+        const newLikes = post.likes.length + 1;
+        const numLikes = postContainer.querySelector(".numLikes-" + post.id);
+        numLikes.innerHTML = newLikes;
+      });
+
     });
 
-    <button class="button-like">Like</button>
-    ${isAuthor && `<button class="button-delete">Excluir</button>`}
-    <button class="button-edit">Editar</button>
-    </li>
-    </ul>
-    <span class ="delete-post"></span>
-    </div>
-    `;
+
 
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
