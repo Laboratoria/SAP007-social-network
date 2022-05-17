@@ -4,7 +4,11 @@ import {
   addDoc,
   query,
   deleteDoc,
-  doc
+  doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove
+  
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 import { db } from "./config-firebase.js";
 import { auth } from "./authentication.js";
@@ -46,3 +50,17 @@ export const postDelete= async (id) => {
   console.log(id);
   await deleteDoc(doc(db,"post", id));
 };
+
+export function like (id){
+  const post = doc(db, "post", id);
+  return updateDoc(post, {
+    likes: arrayUnion(auth.currentUser.uid),
+  });
+}
+
+export function dislike (id){
+  const post = doc(db, "post", id);
+  return updateDoc(post, {
+    likes: arrayRemove(auth.currentUser.uid),
+  });
+}

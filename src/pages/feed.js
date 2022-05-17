@@ -1,4 +1,10 @@
-import { createPost, getPosts, postDelete } from "../lib/firestore-firebase.js";
+import {
+  createPost,
+  getPosts,
+  postDelete,
+  like,
+  dislike
+} from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
@@ -30,13 +36,28 @@ export default () => {
     <ul class= "box-feed">
     <li>
     <p>${post.textPost}</p>
-    <button class="button-like">Like</button>
+    <button type="button" id="button-like" class="button-like">
+    <img src="./images/like.png" class="btn-like" width="30px"/>
+    </button>
+    <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
     <button class="button-delete">Excluir</button>
     </li>
   </ul>
   <span class ="delete-post"></span>
   </div>
   `;
+
+  const btnLike = postContainer.querySelector(".button-like");
+  btnLike.addEventListener("click", () => {
+  like(post.id).then (() => {
+  const newLikes = post.likes.length+1;
+  const numLikes = postContainer.querySelector(".numLikes-"+post.id);
+  numLikes.innerHTML = newLikes;
+  });
+  
+});
+  
+
     const deleteBtn = postContainer.querySelector(".button-delete");
     deleteBtn.addEventListener("click", async () => {
       await postDelete(post.id);
@@ -51,8 +72,7 @@ export default () => {
     postArea.innerHTML = "";
     if (textPost.value === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else;
-    {
+    } else; {
       await createPost(textPost.value);
 
       readPosts();
@@ -71,4 +91,6 @@ export default () => {
   readPosts();
 
   return container;
+
 };
+

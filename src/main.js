@@ -13,7 +13,7 @@ const redirect = () => {
       main.appendChild(login());
       break;
     case "#feed":
-      main.appendChild(feed());
+     main.appendChild(feed());
       break;
     case "#register":
       main.appendChild(register());
