@@ -5,7 +5,7 @@ import {
   postDelete,
   like,
   dislike,
-  postEdit
+  postEdit,
 } from "../lib/firestore-firebase.js";
 
 export default () => {
@@ -41,43 +41,25 @@ export default () => {
     <li>
     <p>${post.user}</p>
     <p>${post.textPost}</p>
-
     <button type="button" id="button-like" class="button-like">
     <img src="./images/like.png" class="btn-like" width="30px"/>
     </button>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
-    <button class="button-delete">Excluir</button>
-    </li>
-  </ul>
-  <span class ="delete-post"></span>
-  </div>
-  `;
-
-  const btnLike = postContainer.querySelector(".button-like");
-  btnLike.addEventListener("click", () => {
-  like(post.id).then (() => {
-  const newLikes = post.likes.length+1;
-  const numLikes = postContainer.querySelector(".numLikes-"+post.id);
-  numLikes.innerHTML = newLikes;
-  });
-  
-});
-  
-
-    const deleteBtn = postContainer.querySelector(".button-delete");
-    deleteBtn.addEventListener("click", async () => {
-      await postDelete(post.id);
-      await readPosts();
-    });
-
-    <button class="button-like">Like</button>
     ${isAuthor && `<button class="button-delete">Excluir</button>`}
-    <button class="button-edit">Editar</button>
     </li>
     </ul>
     <span class ="delete-post"></span>
     </div>
-    `;
+  `;
+
+    const btnLike = postContainer.querySelector(".button-like");
+    btnLike.addEventListener("click", () => {
+      like(post.id).then(() => {
+        const newLikes = post.likes.length + 1;
+        const numLikes = postContainer.querySelector(".numLikes-" + post.id);
+        numLikes.innerHTML = newLikes;
+      });
+    });
 
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
@@ -97,7 +79,8 @@ export default () => {
     const text = textPost.value;
     if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else; {
+    } else;
+    {
       await createPost(textPost.value);
       readPosts();
       postArea.innerHTML += timeLine;
@@ -115,6 +98,4 @@ export default () => {
   readPosts();
 
   return container;
-
 };
-
