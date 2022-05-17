@@ -1,11 +1,15 @@
-import { logout } from "../lib/authentication.js";
-import { createPost, getPosts, postDelete } from "../lib/firestore-firebase.js";
+import { getUser } from "../lib/authentication.js";
+import {
+  createPost,
+  getPosts,
+  postDelete,
+  postEdit,
+} from "../lib/firestore-firebase.js";
 
 export default () => {
   const container = document.createElement("section");
   const template = `
     <section id="post" class="post">
-    <button id= "logout"> Sair </button>
     <div class="container-template">
     <p class="tip">Sua dica de leitura:
     <textarea id="post-text" class="post-text" rows="5" cols="55" maxlength="180" placeholder="Escreva aqui"></textarea>
@@ -24,45 +28,47 @@ export default () => {
   const btnPost = container.querySelector("#post-button");
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
-  const logoff = container.querySelector("#logout");
 
   const templateFeed = (post) => {
+    const user = getUser();
+    const isAuthor = user.uid === post.uid;
     const postContainer = document.createElement("div");
     postContainer.innerHTML = `
     <div class= "box-feed">
     <ul class= "box-feed">
     <li>
+    <p>${post.user}</p>
     <p>${post.textPost}</p>
     <button class="button-like">Like</button>
-    <button class="button-delete">Excluir</button>
+    ${isAuthor && `<button class="button-delete">Excluir</button>`}
+    <button class="button-edit">Editar</button>
     </li>
-  </ul>
-  <span class ="delete-post"></span>
-  </div>
-  `
+    </ul>
+    <span class ="delete-post"></span>
+    </div>
+    `;
 
-    logoff.addEventListener("click", async () => {
-      await logout()
+    if (isAuthor) {
+      const deleteBtn = postContainer.querySelector(".button-delete");
+      deleteBtn.addEventListener("click", async () => {
+        await postDelete(post.id);
+        console.log(post.id);
+        await readPosts();
+      });
+    }
 
-    })
-
-    const deleteBtn = postContainer.querySelector(".button-delete");
-    deleteBtn.addEventListener("click", async () => {
-      await postDelete(post.id);
-      await readPosts();
-    });
-    return postContainer
-  }
+    return postContainer;
+  };
 
   btnPost.addEventListener("click", async () => {
     const timeLine = postArea.innerHTMl;
     postArea.innerHTML = "";
-    if (textPost.value === "") {
+    const text = textPost.value;
+    if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else {
+    } else;
+    {
       await createPost(textPost.value);
-      postArea.innerHTML += templateFeed(textPost.value)
-
       readPosts();
       postArea.innerHTML += timeLine;
     }
@@ -80,5 +86,3 @@ export default () => {
 
   return container;
 };
-
-

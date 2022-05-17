@@ -40,6 +40,9 @@ export function userRegister(email, password) {
 
 }
 
+export function getUser() {
+  return auth.currentUser
+}
 export function keepUserLoggedIn(callback){
   onAuthStateChanged(auth, (user) => {
     callback (user != null);
@@ -47,6 +50,6 @@ export function keepUserLoggedIn(callback){
 }
 
 export function logout () {
-  signOut(auth) 
+  signOut(auth)
 }
- 
+
