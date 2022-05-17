@@ -93,8 +93,8 @@ p {
   }*/
 
   .logo {
-    justify-content: center;
-    text-align: center;
+    /*justify-content: center;
+    text-align: center;*/
     height: auto;
     width: 17em;
     margin-left: 50 px;
