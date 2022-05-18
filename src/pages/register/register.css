@@ -27,7 +27,7 @@
     border-color: chartreuse;
     text-align: center;
     font-size: 1em;
-  
+    cursor: pointer;
   }
 }
 .input {
@@ -96,6 +96,7 @@
     text-align: center;
     font-size: 1em;
     margin-top: 10px;
+    cursor: pointer;
   }
 }
 

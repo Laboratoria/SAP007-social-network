@@ -43,9 +43,8 @@
         border-radius:6px 6px 6px 6px ;
         height: 30px;
         margin-left: 35px;
-    }
-  
-  
+        cursor: pointer;
+    }  
   
   
     .divPost {
@@ -73,6 +72,22 @@
     .pOst {
       margin-left: 15px;
       margin-left: 15px;
+    }
+
+    .btnLike {
+       background-color:transparent;
+       border-radius: 30px 30px 30px 30px;
+       border-style: solid;
+       border-color: black;
+       font-size: 1.5em;
+       cursor: pointer;
+       padding-right: 4px;
+       text-align: center;
+       padding-left: 3px;
+    }
+
+    .btnLike:active {
+      transform: scale(1.2);  
     }
 }
 
