@@ -1,3 +1,8 @@
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js';
+
 export default () => {
     const container = document.createElement('div');
 
@@ -13,11 +18,11 @@ export default () => {
           <form class="forms">
             <label class="input-label">
               <i class="fa-regular fa-envelope icon-modify"></i>
-            <input type="email"placeholder="E-mail">
+            <input id="input-email" type="email"placeholder="E-mail">
             </label>
             <label class="input-label">
               <i class="fa-solid fa-lock icon-modify"></i>
-            <input type="password" placeholder="Password">
+            <input id="input-password" type="password" placeholder="Password">
             </label>
             <button class="botao" id="botaoLogin">Log in</button>
             <button class="botao" id="botaoSignup"type="submit">Sign Up</button>
@@ -31,8 +36,36 @@ export default () => {
         </div>
       </div>
     </div>
-    `
-    container.innerHTML = infoLogin;
+    `;
+  container.innerHTML = infoLogin;
+  container.addEventListener('submit', (event) => {
+    console.log(event);
+    event.preventDefault();
+    if (event.submitter != null) {
+      if (event.submitter.id === 'btn-login') {
+        const auth = getAuth();
+        const email = document.querySelector('#input-email').value;
+        const password = document.querySelector('#input-password').value;
+        if (email === '' || password === '') {
+          alert('Please fill all login fields');
+          return;
+        }
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            window.location.hash = '#feed';
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+          });
+      } else {
+        window.location.hash = '#register';
+      }
+    }
+  });
 
-    return container;
-}
+  return container;
+};

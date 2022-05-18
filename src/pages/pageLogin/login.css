@@ -97,7 +97,8 @@ input{
   background-color: transparent;
   color: #fff;
 }
-#botaoSignup{
+.btn-second{
+  width: 150px;
   background-color: rgb(18, 139, 190);
 }
 #botao-google{
@@ -105,6 +106,7 @@ input{
   width: 80px;
   margin-left: 35%;
 }
+
 .alternative{
   font-family: Comfortaa;
   font-size: 1.1rem;
@@ -147,7 +149,21 @@ input{
 }
 .alternative::before, .alternative::after{
   display:none;
+  }
+
+.btn-google{
+  width: 60%;
 }
+.btn-primary{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.btn-second{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 

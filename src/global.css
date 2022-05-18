@@ -1,0 +1,40 @@
+@font-face {
+  font-family: Comfortaa;
+  src: url(../../fonts/Comfortaa-Light.ttf);
+}
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Comfortaa;
+  background-color: rgba(236, 240, 245, 0.596);
+}
+.btn {
+  color: #fff;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  width: 150px;
+  border: none;
+}
+.btn-primary {
+  background-color: #fff;
+  color: #3d9ae2;
+  border: 2px solid #3d9ae2;
+}
+.btn-primary:hover {
+  background-color: transparent;
+  color: #3d9ae2;
+}
+.btn-secondary {
+  background-color: #3d9ae2;
+}
