@@ -8,10 +8,14 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove
-  
+
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
-import { db } from "./config-firebase.js";
-import { auth } from "./authentication.js";
+import {
+  db
+} from "./config-firebase.js";
+import {
+  auth
+} from "./authentication.js";
 
 export const createPost = async (textPost) => {
   try {
@@ -46,21 +50,21 @@ export const getPosts = async () => {
   } catch (error) {}
 };
 
-export const postDelete= async (id) => {
+export const postDelete = async (id) => {
   console.log(id);
-  await deleteDoc(doc(db,"post", id));
+  await deleteDoc(doc(db, "post", id));
 
 };
 
 
-export function like (id){
+export function like(id) {
   const post = doc(db, "post", id);
   return updateDoc(post, {
     likes: arrayUnion(auth.currentUser.uid),
   });
 }
 
-export function dislike (id){
+export function dislike(id) {
   const post = doc(db, "post", id);
   return updateDoc(post, {
     likes: arrayRemove(auth.currentUser.uid),
@@ -71,5 +75,18 @@ export const postEdit = async (idPost, textPost) => {
   console.log(idPost)
   const post = doc(db, 'post', idPost);
 
-  return await updateDoc(post, { textPost })}
+  return await updateDoc(post, {
+    textPost
+  })
+}
 
+/*export const likePost = (idPost) => {
+//Consultar o post com este ID 
+//Pegar o id da pessoa logada 
+//Verificar se os likes do post contém o id da pessoa logada
+//precisaremos de uma variavel booleana para indicar se o like foi feito ou não
+//Uma outra variavel com o total 
+//pegar o array de likes, se a pessoa curtiu tirar o like, se não adicionar o like
+//ataulizar o post com o array de like, depois retornar um objeto com essa curtida e total
+
+} */
