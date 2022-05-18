@@ -3,7 +3,9 @@
 import login from "./pages/login.js";
 import feed from "./pages/feed.js";
 import register from "./pages/register.js";
-import { keepUserLoggedIn } from "./lib/authentication.js";
+import {
+  keepUserLoggedIn
+} from "./lib/authentication.js";
 
 const main = document.querySelector("#root");
 
@@ -15,9 +17,9 @@ const redirect = () => {
       break;
     case "#feed":
 
-     main.appendChild(feed());
+      main.appendChild(feed());
       keepUserLoggedIn((logged) => {
-        if (logged) { 
+        if (logged) {
           main.appendChild(feed());
         } else {
           window.location.hash = "login";

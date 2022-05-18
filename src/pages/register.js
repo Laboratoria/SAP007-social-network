@@ -32,7 +32,7 @@ export default () => {
     e.preventDefault();
     userRegister(registerEmail.value, registerPassword.value)
       .then(() => {
-        window.location.hash ="#feed";
+        window.location.hash = "#feed";
       })
       .catch((error) => {
         if (error.code == "auth/email-already-exists") {
