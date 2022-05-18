@@ -1,8 +1,3 @@
-
-@font-face {
-  font-family: Comfortaa;
-  src: url(Comfortaa-Light.ttf);
-}
 *{
   margin: 0;
   padding: 0;
@@ -19,7 +14,7 @@ body{
   align-items: center;
   height: 100vh;
 }
-.content{
+.conteudo{
   border-radius: 50px;
   background-color: rgba(106, 189, 209, 0.945);
   width: 80%;
@@ -28,17 +23,17 @@ body{
   align-items: center;
   position: relative;
 }
-.content::before{
+.conteudo::before{
   content: '';
   position: absolute;
   background-color: white;
   width: 40%;
   height: 100%;
 }
-.first-content{
+.primeiro-conteudo{
   display: flex;
 }
-.first-column{
+.primeira-coluna{
   text-align: center;
   flex: 1 0 auto;
   z-index: 10;
@@ -46,14 +41,13 @@ body{
 #image{
   height: 20%;
   width: 50%;
-
 } 
 h1{
   font-family: Comfortaa;
   color:rgb(63, 163, 245);
   margin-top: 2rem;
 }
-.second-column{
+.segunda-coluna{
   flex-direction: column;
   display: flex;
   flex: 2 0 auto;
@@ -65,8 +59,7 @@ h2{
   font-size: 2em;
   margin-bottom: 25px;
 }
-form{
-  width: 50%;
+.forms{
   margin-bottom: 20px;
 }
 input{
@@ -75,7 +68,7 @@ input{
    outline: none;
    padding: 0 5px;
 }
-.label-input{
+.input-label{
   height: 50px;
   border-radius: 10px;
   background-color: white;
@@ -84,7 +77,7 @@ input{
   margin: 8px;
   padding: 0 5px;
 }
-.btn{
+.botao{
   color: #fff;
   padding: 10px;
   border-radius: 15px;
@@ -92,30 +85,32 @@ input{
   font-weight: bold;
   cursor: pointer;
   width: 150px;
-  align-self: center;
   border:none;
   margin-top: 1rem;
 }
-.btn-primary{
+#botaoLogin{
   background-color: #fff;
   color:rgba(84, 160, 179, 0.945);
   border: 1px solid #fff;
 }
-.btn-primary:hover{
+#botaoLogin:hover{
   background-color: transparent;
   color: #fff;
 }
-.btn-second{
-  width: 150px;
+#botaoSignup{
   background-color: rgb(18, 139, 190);
-  border: 1px solid #fff;
+}
+#botao-google{
+  background-color: rgb(244, 250, 252);
+  width: 80px;
+  margin-left: 35%;
 }
 .alternative{
   font-family: Comfortaa;
   font-size: 1.1rem;
   color: #fff ;
   margin-top: 2rem;
-  margin-left: 30%;
+  margin-left: 25%;
   margin-bottom: 10%;
   position: relative;
 }
@@ -131,59 +126,27 @@ input{
 .alternative::after{
   left: 140px;
 }
-.btn-google{
-  border-radius: 60px;
-  width: 20%;
-  margin-top: 5px;
-  margin-left: 40%;
-}
 .icon-modify{
   color: rgb(86, 95, 121);
   padding: 0 5px;
 }
 @media screen and (max-width:1100px){
-
   .container{
-      width: 100%;    
-  }
-  .content{
+    width: 100%;    
+}
+  .conteudo{
       border: 1px solid rgb(105, 104, 104);
       width: 100%;
       height: 100%;
   }
-  .content::before{
-      display: none;
-      }
-  .form{
-      width: 60%;
-}
-.first-column{
+  .conteudo::before{
+    display: none;
+    }
+.primeira-coluna{
   display: none;
-}
-.alternative{
-  margin-left: 30%;
 }
 .alternative::before, .alternative::after{
   display:none;
-
-}
-.btn-google{
-  width: 60%;
-}
-.btn{
-
-}
-.btn-primary{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-.btn-second{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
 }
 }
 

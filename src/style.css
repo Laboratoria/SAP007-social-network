@@ -1,2 +1,7 @@
 @import url("./pages/pageLogin/login.css");
 @import url("./pages/pageRegister/register.css");
+
+@font-face {
+    font-family: Comfortaa;
+    src: url(Comfortaa-Light.ttf);
+}  

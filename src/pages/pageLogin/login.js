@@ -1,32 +1,32 @@
 export default () => {
     const container = document.createElement('div');
-     
+
     const infoLogin = `
     <div class="container">
-      <div class="content first-content">
-        <div class="first-column">
+      <div class="conteudo primeiro-conteudo">
+        <div class="primeira-coluna">
           <img src="./meditacao (1).png" id="image">
           <h1>ZAZEN</h1>
         </div>
-        <div class="second-column">
-          <h2>log In</h2>
-          <form class="form">
-            <label class="label-input">
+        <div class="segunda-coluna">
+          <h2>Log In</h2>
+          <form class="forms">
+            <label class="input-label">
               <i class="fa-regular fa-envelope icon-modify"></i>
             <input type="email"placeholder="E-mail">
             </label>
-            <label class="label-input">
+            <label class="input-label">
               <i class="fa-solid fa-lock icon-modify"></i>
             <input type="password" placeholder="Password">
             </label>
-            <button class="btn btn-primary">Log in</button>
-            <button class="btn btn-second" type="submit">Sign Up</button>
+            <button class="botao" id="botaoLogin">Log in</button>
+            <button class="botao" id="botaoSignup"type="submit">Sign Up</button>
             <div class="alternative">
               <span>Continue with</span>
             </div>
-            <button class="btn btn-google" type="submit">
-              <img src="./google (1).png" id="google">
-            </button>
+            <button class="botao" id="botao-google" type="submit">
+            <img src="./google (1).png" id="google">
+          </button>    
           </form>
         </div>
       </div>

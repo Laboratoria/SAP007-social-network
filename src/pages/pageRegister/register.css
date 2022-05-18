@@ -100,7 +100,7 @@ body{
 .form{
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 50%;
 }
 .form input{
     padding: 10px;
@@ -134,11 +134,8 @@ body{
     }
     .content::before{
         display: none;
-        }
-    .form{
-        width: 60%;
-}
- .first-column{
-    display: none;
-}
+    }
+     .first-column{
+       display: none;
+    }
 }
