@@ -23,6 +23,7 @@
      .btn-entrar{
         margin-top: 40px;
         margin-bottom:2px;
+        cursor: pointer;
      }
      .inputSenha{
         margin-bottom: 10px;
@@ -60,6 +61,7 @@
      border-color: chartreuse;
      text-align: center;
      font-size: 1em;
+     cursor: pointer;
      }
      .btn-google{
      background-color: chartreuse;
@@ -71,6 +73,7 @@
      border-color: chartreuse;
      text-align: center;
      font-size: 1em;
+     cursor: pointer;
      }
    }
 
@@ -132,6 +135,7 @@
       text-align: center;
       font-size: 1em;
       margin-bottom: 10px;
+      cursor: pointer;
       }
 
       .btn-google{
@@ -145,6 +149,7 @@
         text-align: center;
         font-size: 1em;
         margin-top: 5px;
+        cursor: pointer;
         }
 }
 

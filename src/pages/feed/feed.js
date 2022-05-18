@@ -42,12 +42,14 @@ async function addDocument_AutoId() {
     .then(() => {
       sectionNewPost.innerHTML = `
         <div class="divPost">
-        ${inputTitulo.value} <br>
-        ${inputPost.value} <br>
+        <div class="tItulo">${inputTitulo.value}</div><br>
+        <div class="pOst">${inputPost.value}</div><br>
         <div class="linePost"></div>
-        <a class="icons" id="iconLike">
-          <img src="../../img/curtir.png" width="36" height="36" />
-        </a>
+
+      <button onclick="Likee()" class="btnLike" id="btnLike">
+       <i class="fa-regular fa-heart"></i>
+      </button>
+
         <a class="icons" id="iconComent">
           <img src="../../img/comentar.png" width="36" height="36" />
         </a>      
@@ -64,6 +66,21 @@ async function addDocument_AutoId() {
         alert ("Post não publicado"+error);
     });
 }
+
+
+ /*botão de like
+let btnHeart =  document.getElementById("btnLike");
+
+function Likee(){
+  if (btnHeart.style.color == "grey" ) {
+    btnHeart.style.color = "red"
+  }
+  else {
+    btnHeart.style.color = "grey"
+  }
+}
+/*botão de like*/
+
 
 postBtn.addEventListener("click", addDocument_AutoId);
 
@@ -82,11 +99,13 @@ const getPosts = async () => {
 
       <div class="tItulo">${post.titulo}</div><br>
 
-      <div class="pOst">${post.post}</div> <br>
+      <div class="pOst">${post.post}</div><br>
       <div class="linePost"></div>
-      <a class="icons" id="iconLike">
-       <img src="../../img/curtir.png" width="36" height="36" />
-      </a>
+
+      <button onclick="Likee()" id="btnLike" class="btnLike">
+       <i class="fa-regular fa-heart"></i>
+      </button>
+
       <a class="icons" id="iconComent">
         <img src="../../img/comentar.png" width="36" height="36" />
       </a>      

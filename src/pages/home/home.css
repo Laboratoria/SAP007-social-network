@@ -37,6 +37,7 @@
   border-color: chartreuse;
   text-align: center;
   font-size: 1em;
+  cursor: pointer;
  }
 
  .criar-entrar {
