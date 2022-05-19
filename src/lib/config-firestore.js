@@ -13,25 +13,25 @@ import {
 
 const db = getFirestore();
 
-export async function addPosts(inputTitulo, inputPost, userEmail) {
+export async function addPosts(inputTitulo, inputPost) {
     try {
         const ref = await addDoc(collection(db, 'posts'), {
             inputTitulo,
             inputPost,
-            userEmail,
             date: new Date().toLocaleString('pt-br'),
             likes: [],
         });
         return ref.id;
     } catch (e) {
-        return null;
+        return e;
     }
 }
 
 export const getPost = async () => {
     const arrayPosts = [];
-    const queryFirestore = query(collection(db, 'post'), orderBy('date'));
+    const queryFirestore = query(collection(db, 'posts'), orderBy('date'));
     const allPosts = await getDocs(queryFirestore);
+    console.log(allPosts)
     allPosts.forEach((doc) => {
         const timeline = doc.data(); //ordenando por data
         arrayPosts.push({ ...timeline, id: doc.id });
