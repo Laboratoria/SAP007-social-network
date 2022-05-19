@@ -45,14 +45,14 @@ export default () => {
           date,
           likes: [],  
         };
-        sectionNewPost.prepend(criarCard(item));
+        sectionNewPost.appendChild(criarCard(item));
         inputTitulo.value = "";
         inputPost.value = "";
       });
     }
   });
 
-  const showPosts = async () => {
+  const getPosts = async () => {
     const arrayPosts = await getPost();
     arrayPosts.map(post => {
       const elemento = criarCard(post);
@@ -60,6 +60,6 @@ export default () => {
     })
   };
 
-  showPosts();
+  getPosts();
   return containerFeed;
 }
