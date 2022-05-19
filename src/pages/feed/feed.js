@@ -37,14 +37,15 @@ export default () => {
     if (inputTitulo.value === '' || inputPost.value === '') {
       msgAlert.innerHTML = 'Escreva sua teoria';
     } else {
-      addPosts(inputTitulo, inputPost).then((id) => {
+      addPosts(inputTitulo.value, inputPost.value).then((id) => {
         const date = new Date().toLocaleString('pt-br');
         const item = {
-          inputTitulo,
-          inputPost,
+          "inputTitulo":inputTitulo.value,
+          "inputPost":inputPost.value,
           date,
           likes: [],  
         };
+        console.log(item)
         sectionNewPost.appendChild(criarCard(item));
         inputTitulo.value = "";
         inputPost.value = "";
@@ -55,6 +56,7 @@ export default () => {
   const getPosts = async () => {
     const arrayPosts = await getPost();
     arrayPosts.map(post => {
+      console.log(post)
       const elemento = criarCard(post);
       sectionAllPost.appendChild(elemento);
     })
