@@ -74,7 +74,7 @@
       margin-left: 15px;
     }
 
-    .btnLike {
+    /*.like {
        background-color:transparent;
        border-radius: 30px 30px 30px 30px;
        border-style: solid;
@@ -86,9 +86,9 @@
        padding-left: 3px;
     }
 
-    .btnLike:active {
+    .like:active {
       transform: scale(1.2);  
-    }
+    }*/
 }
 
 @media (min-width: 810px) {

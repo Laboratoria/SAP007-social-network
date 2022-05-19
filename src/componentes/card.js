@@ -8,7 +8,7 @@ export const criarCard = (post) => {
     <div class="pOst">${post.post}</div><br>
     <div class="linePost"></div>
 
-    <button id="${post.id}" class="like" type="submit" >Like</button><br>
+    <button id="${post.id}" class="like" ></button><br>
      <i class="fa-regular fa-heart"></i>
     </button>
 
@@ -25,7 +25,11 @@ export const criarCard = (post) => {
   `
     const btnHeart = divCard.querySelector(".like")
     btnHeart.addEventListener("click", () => {
-        console.log(post.id)
+      if (btnHeart.style.color == "red") {
+        btnHeart.style.color = "grey"
+      } else {
+        btnHeart.style.color = "red"
+      }
     })
     return divCard
 }
