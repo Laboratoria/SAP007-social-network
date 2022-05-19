@@ -38,26 +38,26 @@ export default () => {
       msgAlert.innerHTML = 'Escreva sua teoria';
     } else {
       addPosts(inputTitulo.value, inputPost.value).then((id) => {
+        let titulo = inputTitulo.value;
+        let post = inputPost.value;
         const date = new Date().toLocaleString('pt-br');
         const item = {
-          "titulo":inputTitulo.value,
-          "post":inputPost.value,
+          "titulo":titulo,
+          "post":post,
           date,
           likes: [],  
         };
-        console.log(item)
         sectionNewPost.appendChild(criarCard(item));
-        inputTitulo.value = "";
-        inputPost.value = "";
+        titulo = "";
+        post = "";
       });
     }
   });
 
   const getPosts = async () => {
     const arrayPosts = await getPost();
-    arrayPosts.map(post => {
-      console.log(post)
-      const elemento = criarCard(post);
+    arrayPosts.map(posts => {
+      const elemento = criarCard(posts);
       sectionAllPost.appendChild(elemento);
     })
   };

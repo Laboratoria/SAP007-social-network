@@ -38,7 +38,3 @@ export const getPost = async () => {
     });
     return arrayPosts;
 };
-
-
-
-

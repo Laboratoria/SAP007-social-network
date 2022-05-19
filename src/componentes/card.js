@@ -5,12 +5,15 @@ export const criarCard = (post) => {
 
     <div class="tItulo">${post.titulo}</div><br>
 
-    <div class="pOst">${post.post}</div><br>
+    <div class="post">${post.post}</div><br>
     <div class="linePost"></div>
 
     <button id="${post.id}" class="like" type="submit" >Like</button><br>
      <i class="fa-regular fa-heart"></i>
     </button>
+
+    <div id="data${post.id}" class="date" >${post.date}
+    </div>
 
     <a class="icons" id="iconComent">
       <img src="../../img/comentar.png" width="36" height="36" />
