@@ -8,7 +8,7 @@ import {
   updateDoc,
   arrayUnion,
   arrayRemove
-  
+
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 import { db } from "./config-firebase.js";
 import { auth } from "./authentication.js";
@@ -68,7 +68,7 @@ export function dislike (id){
 }
 
 export const postEdit = async (idPost, textPost) => {
-  console.log(idPost)
+ // console.log(idPost)
   const post = doc(db, 'post', idPost);
 
   return await updateDoc(post, { textPost })}
