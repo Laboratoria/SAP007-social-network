@@ -40,8 +40,8 @@ export default () => {
       addPosts(inputTitulo.value, inputPost.value).then((id) => {
         const date = new Date().toLocaleString('pt-br');
         const item = {
-          "inputTitulo":inputTitulo.value,
-          "inputPost":inputPost.value,
+          "titulo":inputTitulo.value,
+          "post":inputPost.value,
           date,
           likes: [],  
         };
