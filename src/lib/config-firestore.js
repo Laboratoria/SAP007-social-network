@@ -1,21 +1,46 @@
-import "../config-firebase.js";
-import { getFirestore, collection, getDocs, doc, addDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js";
+import "../lib/config-firebase.js";
+import {
+    getAuth,
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy,
+    deleteDoc,
+    doc,
+    updateDoc
+} from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
+
+const db = getFirestore();
+export const auth = getAuth();
+
+export async function addPosts(inputTitulo, inputPost, userEmail) {
+    try {
+        const ref = await addDoc(collection(db, 'posts'), {
+            inputTitulo,
+            inputPost,
+            userEmail,
+            date: new Date().toLocaleString('pt-br'),
+            likes: [],
+        });
+        return ref.id;
+    } catch (e) {
+        return null;
+    }
+}
+
+export const getPost = async () => {
+    const arrayPosts = [];
+    const queryFirestore = query(collection(db, 'post'), orderBy('date'));
+    const allPosts = await getDocs(queryFirestore);
+    allPosts.forEach((doc) => {
+        const timeline = doc.data(); //ordenando por data
+        arrayPosts.push({ ...timeline, id: doc.id });
+    });
+    return arrayPosts;
+};
 
 
-//import { getFirestore, collection, addDoc, getDocs } 
-// o addDoc é pra adicionar e o get pra ler dados get só inicializa banco
 
-//inicializa servicos
-const db = getFirestore(app);
-
-//const que faz referencia ao banco criado lá no console do firestore
-const collectionRef = collection (db, 'posts');
-
-//apenas para confirmar que está lendo minha primeira postagem
-export function lerPost () {
-getDocs(collectionRef)
-    .then((snapshot) => {
-        console.log(snapshot.docs);
-    })
-}""
 

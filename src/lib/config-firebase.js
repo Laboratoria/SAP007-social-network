@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyB1PM6Kq8qggIFKLEd8zqXex_WTnde7sCw",
   projectId: "alem-91779",

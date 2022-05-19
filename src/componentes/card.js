@@ -25,7 +25,7 @@ export const criarCard = (post) => {
   `
     const btnHeart = divCard.querySelector(".like")
     btnHeart.addEventListener("click", () => {
-      console.log(post.id)
+        console.log(post.id)
     })
     return divCard
-  }
+}

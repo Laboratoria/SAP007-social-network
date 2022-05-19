@@ -1,6 +1,6 @@
 import "../../lib/config-firebase.js";
-import { loginGoogle } from "../../lib/auth-firebase.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { loginGoogle, userLogin } from "../../lib/auth-firebase.js";
+
 
 export default () => {
   const containerLogin = document.createElement('div')
@@ -27,7 +27,6 @@ export default () => {
   const loginSenha = containerLogin.querySelector('#inputSenha');
   const btnEntrar = containerLogin.querySelector("#btn-Entrar");
   const msgAlert = containerLogin.querySelector('#message');
-  const auth = getAuth();
   
   //const btReset = containerLogin.querySelector('reset-password');   
   //const btnSair = containerLogin.querySelector('#btn-Sair')
@@ -46,7 +45,7 @@ export default () => {
   btnEntrar.addEventListener('click', (e) => {
     e.preventDefault();
     if (loginEmail.value) {
-      signInWithEmailAndPassword(auth, loginEmail.value, loginSenha.value)
+      userLogin(loginEmail.value, loginSenha.value)
       .then(() => {
         window.location.hash = "#feed";
       })
@@ -78,13 +77,6 @@ export default () => {
       })
     }
   })
-      /*btnSair.addEventListener('click', (e) => {
-        e.preventDefault();
-        signOut(auth).then(() => {
-          // Sign-out successful.
-        }).catch((error) => {
-          // An error happened.
-        });*/
         
    /* btReset.addEventListener('click', (e) => {
       e.preventDefault();  

@@ -1,5 +1,5 @@
 import "../../lib/config-firebase.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { userCreate } from "../../lib/auth-firebase.js";
 
 export default () => {
     const containerRegister = document.createElement('div')
@@ -24,12 +24,11 @@ const name = containerRegister.querySelector("#inputEmail");
 const password = containerRegister.querySelector("#inputSenha");
 const btnCadastrar = containerRegister.querySelector("#btn-Cadastrar");
 const msgAlert = containerRegister.querySelector('#message');
-const auth = getAuth();
 
 btnCadastrar.addEventListener('click', (e) => {
   e.preventDefault();
   if (name.value, email.value, password.value) {
-    createUserWithEmailAndPassword(auth, name.value, email.value, password.value)
+    userCreate(name.value, email.value, password.value)
   .then(() => {
      window.location.hash = "#feed";
       
