@@ -1,0 +1,66 @@
+
+@media (min-width: 360px) {
+  .conteudoComeço {
+    background: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 75%;
+    height: auto;
+    margin-top: 20%;
+    margin-left: 12%;
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom:4%;
+    border-style: solid;
+    border-color: darkgreen;
+  }
+
+ .boasVindas {
+  font-size: 1.5em;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: crimson;
+ }
+
+ .mensagem {
+  margin-top: 8%;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 1.2em;
+ }
+ .botaoCriar {
+  background-color: chartreuse;
+  color: crimson;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px 20px 20px 20px;
+  border-style: solid;
+  border-color: chartreuse;
+  text-align: center;
+  font-size: 1em;
+  cursor: pointer;
+ }
+
+ .criar-entrar {
+  font-size: 1.1em;
+  margin-top: 20%;
+ }
+}
+
+.conteudoComeço {
+  height: auto;
+  padding-bottom:4%;
+}
+
+.mensagem {
+  font-size: 2em;
+}
+
+.criar-entrar {
+  font-size: 1.5em;
+  margin-top: 10%;
+}
+
+.boasVindas {
+  font-size: 2em;
+}
+
