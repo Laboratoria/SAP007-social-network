@@ -1,8 +1,4 @@
-import {
-  getUser,
-  auth,
-  logout
-} from "../lib/authentication.js";
+import { getUser, auth, logout } from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
@@ -37,7 +33,6 @@ export default () => {
   const msgError = container.querySelector("#msg-error");
   const logoff = container.querySelector("#logout");
 
-
   const templateFeed = (post) => {
     const user = getUser();
     const isAuthor = user.uid === post.uid;
@@ -54,19 +49,17 @@ export default () => {
     <img src="./images/like.png" class="btn-like" width="25px"/>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
     </button>
-
-    ${isAuthor && `<button class= "button-delete">Excluir</button>`}
+    ${isAuthor ? `<button class= "button-delete">Excluir</button>`: ""}
+    ${isAuthor ? `<button type="button" id="button-edit" class="button-edit">Editar</button>`:""}
     </li>
     </ul>
     <span class ="delete-post"></span>
     </div>
-  `;
+  ` ;
 
     logoff.addEventListener("click", async () => {
-      await logout()
-
+      await logout();
     });
-
 
     const btnLike = postContainer.querySelector(".button-like");
     btnLike.addEventListener("click", () => {
@@ -84,8 +77,6 @@ export default () => {
           console.log(newDislikes);
         });
       }
-
-
     });
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
