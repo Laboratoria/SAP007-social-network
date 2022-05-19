@@ -1,5 +1,8 @@
-import { getUser } from "../lib/authentication.js";
-import { logout } from "../lib/authentication.js";
+import {
+  getUser,
+  auth,
+  logout
+} from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
@@ -13,7 +16,7 @@ export default () => {
   const container = document.createElement("section");
   const template = `
     <section id="post" class="post">
-    <button id= "logout"> Sair </button>
+    <button id= "logout" class= "logout"> Sair </button>
     <div class="container-template">
     <p class="tip">Sua dica de leitura:
     <textarea id="post-text" class="post-text" rows="5" cols="55" maxlength="180" placeholder="Escreva aqui"></textarea>
@@ -43,39 +46,47 @@ export default () => {
     <div class= "box-feed">
     <ul class= "box-feed">
     <li>
-    <p>${post.user}</p>
-    <p>${post.textPost}</p>
+    <p class="userPost">${post.user}</p>
+    <section class="postSection">
+    <p class="userText">${post.textPost}</p>
+    </section>
+    <button type="button" id="button-like" class="button-like">
+    <img src="./images/like.png" class="btn-like" width="25px"/>
+    <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
+    </button>
 
     ${isAuthor && `<button class= "button-delete">Excluir</button>`}
-    <button type="button" id="button-like" class="button-like">
-    <img src="./images/like.png" class="btn-like" width="30px"/>
-    </button>
-    <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
-
     </li>
-  </ul>
-  <span class ="delete-post"></span>
-  </div>
+    </ul>
+    <span class ="delete-post"></span>
+    </div>
   `;
 
-  logoff.addEventListener("click", async () => {
-    await logout()
-
-  });
-
-
-    const btnLike = postContainer.querySelector(".button-like");
-    btnLike.addEventListener("click", () => {
-      like(post.id).then(() => {
-        const newLikes = post.likes.length + 1;
-        const numLikes = postContainer.querySelector(".numLikes-" + post.id);
-        numLikes.innerHTML = newLikes;
-      });
+    logoff.addEventListener("click", async () => {
+      await logout()
 
     });
 
 
+    const btnLike = postContainer.querySelector(".button-like");
+    btnLike.addEventListener("click", () => {
+      if (!post.likes.includes(auth.currentUser.uid)) {
+        like(post.id).then(() => {
+          const newLikes = post.likes.length + 1;
+          const numLikes = postContainer.querySelector(".numLikes-" + post.id);
+          numLikes.innerHTML = newLikes;
+        });
+      } else {
+        dislike(post.id).then(() => {
+          const newDislikes = post.likes.length - 1;
+          const numLikes = postContainer.querySelector(".numLikes-" + post.id);
+          numLikes.innerHTML = newDislikes;
+          console.log(newDislikes);
+        });
+      }
 
+
+    });
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
       deleteBtn.addEventListener("click", async () => {
