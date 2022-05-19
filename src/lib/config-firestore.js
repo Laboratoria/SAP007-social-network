@@ -1,6 +1,5 @@
 import "../lib/config-firebase.js";
 import {
-    getAuth,
     getFirestore,
     collection,
     addDoc,
@@ -13,7 +12,6 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
 
 const db = getFirestore();
-export const auth = getAuth();
 
 export async function addPosts(inputTitulo, inputPost, userEmail) {
     try {
