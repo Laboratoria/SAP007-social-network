@@ -1,4 +1,5 @@
 import { getUser } from "../lib/authentication.js";
+import { logout } from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
@@ -12,6 +13,7 @@ export default () => {
   const container = document.createElement("section");
   const template = `
     <section id="post" class="post">
+    <button id= "logout"> Sair </button>
     <div class="container-template">
     <p class="tip">Sua dica de leitura:
     <textarea id="post-text" class="post-text" rows="5" cols="55" maxlength="180" placeholder="Escreva aqui"></textarea>
@@ -30,6 +32,8 @@ export default () => {
   const btnPost = container.querySelector("#post-button");
   const textPost = container.querySelector("#post-text");
   const msgError = container.querySelector("#msg-error");
+  const logoff = container.querySelector("#logout");
+
 
   const templateFeed = (post) => {
     const user = getUser();
@@ -41,16 +45,24 @@ export default () => {
     <li>
     <p>${post.user}</p>
     <p>${post.textPost}</p>
+
+    ${isAuthor && `<button class= "button-delete">Excluir</button>`}
     <button type="button" id="button-like" class="button-like">
     <img src="./images/like.png" class="btn-like" width="30px"/>
     </button>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
-    ${isAuthor && `<button class="button-delete">Excluir</button>`}
+
     </li>
-    </ul>
-    <span class ="delete-post"></span>
-    </div>
+  </ul>
+  <span class ="delete-post"></span>
+  </div>
   `;
+
+  logoff.addEventListener("click", async () => {
+    await logout()
+
+  });
+
 
     const btnLike = postContainer.querySelector(".button-like");
     btnLike.addEventListener("click", () => {
@@ -59,7 +71,10 @@ export default () => {
         const numLikes = postContainer.querySelector(".numLikes-" + post.id);
         numLikes.innerHTML = newLikes;
       });
+
     });
+
+
 
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
