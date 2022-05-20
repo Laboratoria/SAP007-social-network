@@ -8,7 +8,7 @@ export default () => {
   let templateFeed = `
      
     <div class="postt">
-    <p class="post">&#x1F441 Publique sua teoria &#x1F441</p>
+    <p class="post">Publique sua teoria &#x1F441</p>
     </div>
     <input id="titulo" type="text" placeholder="Título" maxlength="90"/><br>
 
