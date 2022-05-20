@@ -6,6 +6,7 @@ import {
   like,
   dislike,
   postEdit,
+  likePost
 } from "../lib/firestore-firebase.js";
 
 export default () => {
@@ -62,16 +63,21 @@ export default () => {
     });
 
     const btnLike = postContainer.querySelector(".button-like");
-    btnLike.addEventListener("click", () => {
+    btnLike.addEventListener("click", async (e) => {
+      e.preventDefault();
+      likePost(post.id);
       if (!post.likes.includes(auth.currentUser.uid)) {
         like(post.id).then(() => {
-          const newLikes = post.likes.length + 1;
+          post.likes.push(auth.currentUser.uid)
+          const newLikes = post.likes.length;
           const numLikes = postContainer.querySelector(".numLikes-" + post.id);
           numLikes.innerHTML = newLikes;
         });
       } else {
         dislike(post.id).then(() => {
-          const newDislikes = post.likes.length - 1;
+          const index= post.likes.indexOf(auth.currentUser.uid)
+          post.likes.splice(index,1)
+          const newDislikes = post.likes.length;
           const numLikes = postContainer.querySelector(".numLikes-" + post.id);
           numLikes.innerHTML = newDislikes;
           console.log(newDislikes);
@@ -106,7 +112,7 @@ export default () => {
 
   const readPosts = async () => {
     const allPost = await getPosts();
-    const postSection = document.querySelector("#posts");
+    const postSection = container.querySelector("#posts");
     postSection.innerHTML = "";
     allPost.forEach((post) => {
       postSection.appendChild(templateFeed(post));
