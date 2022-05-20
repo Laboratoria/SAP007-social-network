@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
+
 @media (min-width: 360px) {
   * {
     margin: 0px;
     padding: 0px;
+    font-family: Macondo;
   }
   .conteudoRegister {
     background: white;

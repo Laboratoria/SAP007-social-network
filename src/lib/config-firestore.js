@@ -16,8 +16,8 @@ const db = getFirestore();
 export async function addPosts(inputTitulo, inputPost) {
     try {
         const ref = await addDoc(collection(db, 'posts'), {
-            inputTitulo,
-            inputPost,
+            "titulo":inputTitulo,
+            "post":inputPost,
             date: new Date().toLocaleString('pt-br'),
             likes: [],
         });
@@ -38,7 +38,3 @@ export const getPost = async () => {
     });
     return arrayPosts;
 };
-
-
-
-
