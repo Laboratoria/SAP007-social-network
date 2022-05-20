@@ -6,7 +6,6 @@ import {
   like,
   dislike,
   postEdit,
-  likePost
 } from "../lib/firestore-firebase.js";
 
 export default () => {
@@ -44,14 +43,14 @@ export default () => {
     <li>
     <p class="userPost">${post.user}</p>
     <section class="postSection">
-    <p class="userText">${post.textPost}</p>
+    <p class="userText" contenteditable="false">${post.textPost}</p>
     </section>
     <button type="button" id="button-like" class="button-like">
     <img src="./images/like.png" class="btn-like" width="25px"/>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
     </button>
+    ${isAuthor ? `<button class= "button-edit">Editar</button>`: ""}
     ${isAuthor ? `<button class= "button-delete">Excluir</button>`: ""}
-    ${isAuthor ? `<button type="button" id="button-edit" class="button-edit">Editar</button>`:""}
     </li>
     </ul>
     <span class ="delete-post"></span>
@@ -91,6 +90,26 @@ export default () => {
         console.log(post.id);
         await readPosts();
       });
+    }
+
+    if (isAuthor) {
+      const editBtn = postContainer.querySelector(".button-edit");
+      editBtn.addEventListener("click", () => {
+      const text = postContainer.querySelector(".userText")
+      text.setAttribute("contenteditable", true);
+    /*  const editConfirm = document.createElement("div");
+      editConfirm.innerHTML=   `
+      <section class="post-edit">
+        <div class= "edit-confirm">
+          <button class= "button-save">Salvar</button>
+          <button class="button-cancel">Cancelar</button>
+        </div>
+      </section>`*/
+       //um novo botão para confirmar/cancelar a edição
+      //atualizar o valor setatribute(true)
+      //pegar o valor novo do pragrafo chamar a funçao com id do post
+
+    });
     }
 
     return postContainer;
