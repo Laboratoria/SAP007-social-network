@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
 
 @media (min-width: 360px) {
+
+  *{
+    font-family: Satisfy;
+  }
+
   .conteudoComeço {
     background: white;
     border-radius: 12px 12px 12px 12px;
