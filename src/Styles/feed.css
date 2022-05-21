@@ -29,7 +29,7 @@ body{
   margin: 1rem;
   padding: 4.25rem;
   width: 21rem;
-  height: 8rem;
+  height: 9rem;
   border-radius: 1rem;
 
 }
@@ -58,12 +58,15 @@ li {
 }
 
 .logout,
-.button-delete {
+.button-edit,
+.button-delete
+ {
   border: none;
   border-radius: 1rem;
   background: #F26241;
 
 }
+
 .userPost{
   margin-top: -2rem;
 }
