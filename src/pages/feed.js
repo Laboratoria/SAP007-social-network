@@ -82,6 +82,7 @@ export default () => {
           console.log(newDislikes);
         });
       }
+
     });
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");

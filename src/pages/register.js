@@ -40,7 +40,7 @@ export default () => {
         } else if (error.code == "auth/invalid-email") {
           messageError.innerHTML = "E-mail inválido"
         } else if (error.code == "auth/invalid-password") {
-          messageError.innerHTML = "Sua senha deve ter no mínimo 6 carecteres"
+          messageError.innerHTML = "Sua senha deve ter no mínimo 6 caracteres"
         }
         return messageError
       });
