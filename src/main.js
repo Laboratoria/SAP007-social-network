@@ -17,7 +17,7 @@ const redirect = () => {
       break;
     case "#feed":
 
-      main.appendChild(feed());
+      
       keepUserLoggedIn((logged) => {
         if (logged) {
           main.appendChild(feed());
@@ -25,7 +25,6 @@ const redirect = () => {
           window.location.hash = "login";
         }
       });
-      main.appendChild(feed());
       break;
     case "#register":
       main.appendChild(register());
