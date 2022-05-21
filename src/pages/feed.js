@@ -1,15 +1,12 @@
-import {
-  getUser,
-  auth,
-  logout
-} from "../lib/authentication.js";
+import { getUser, auth, logout } from "../lib/authentication.js";
 import {
   createPost,
   getPosts,
   postDelete,
   like,
   dislike,
-  postEdit
+  postEdit,
+  likePost
 } from "../lib/firestore-firebase.js";
 
 export default () => {
@@ -37,7 +34,6 @@ export default () => {
   const msgError = container.querySelector("#msg-error");
   const logoff = container.querySelector("#logout");
 
-
   const templateFeed = (post) => {
     const user = getUser();
     const isAuthor = user.uid === post.uid;
@@ -54,37 +50,39 @@ export default () => {
     <img src="./images/like.png" class="btn-like" width="25px"/>
     <p id="numLikes" class="numLikes-${post.id}">${post.likes.length}</p>
     </button>
-    ${isAuthor && `<button class= "button-delete">Excluir</button>`}
+    ${isAuthor ? `<button class= "button-delete">Excluir</button>`: ""}
+    ${isAuthor ? `<button type="button" id="button-edit" class="button-edit">Editar</button>`:""}
     </li>
     </ul>
     <span class ="delete-post"></span>
     </div>
-  `;
+  ` ;
 
     logoff.addEventListener("click", async () => {
-      await logout()
-
+      await logout();
     });
 
-
     const btnLike = postContainer.querySelector(".button-like");
-    btnLike.addEventListener("click", () => {
+    btnLike.addEventListener("click", async (e) => {
+      e.preventDefault();
+      likePost(post.id);
       if (!post.likes.includes(auth.currentUser.uid)) {
         like(post.id).then(() => {
-          const newLikes = post.likes.length + 1;
+          post.likes.push(auth.currentUser.uid)
+          const newLikes = post.likes.length;
           const numLikes = postContainer.querySelector(".numLikes-" + post.id);
           numLikes.innerHTML = newLikes;
         });
       } else {
         dislike(post.id).then(() => {
-          const newDislikes = post.likes.length - 1;
+          const index= post.likes.indexOf(auth.currentUser.uid)
+          post.likes.splice(index,1)
+          const newDislikes = post.likes.length;
           const numLikes = postContainer.querySelector(".numLikes-" + post.id);
           numLikes.innerHTML = newDislikes;
           console.log(newDislikes);
         });
       }
-
-
     });
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
@@ -104,7 +102,8 @@ export default () => {
     const text = textPost.value;
     if (text === "") {
       msgError.innerHTML = "Opa, digite sua mensagem!";
-    } else; {
+    } else;
+    {
       await createPost(textPost.value);
       readPosts();
       postArea.innerHTML += timeLine;
@@ -113,7 +112,7 @@ export default () => {
 
   const readPosts = async () => {
     const allPost = await getPosts();
-    const postSection = document.querySelector("#posts");
+    const postSection = container.querySelector("#posts");
     postSection.innerHTML = "";
     allPost.forEach((post) => {
       postSection.appendChild(templateFeed(post));
@@ -122,5 +121,4 @@ export default () => {
   readPosts();
 
   return container;
-
 };

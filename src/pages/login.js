@@ -1,8 +1,5 @@
 import "../lib/config-firebase.js";
-import {
-  userLogin,
-  userGoogle
-} from "../lib/authentication.js";
+import { userLogin, userGoogle } from "../lib/authentication.js";
 
 export default () => {
   const container = document.createElement("form");
@@ -41,7 +38,6 @@ export default () => {
         return errorMessage;
       });
   });
-
 
   loginGoogle.addEventListener("click", (e) => {
     e.preventDefault();
