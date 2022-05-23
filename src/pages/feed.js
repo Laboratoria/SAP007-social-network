@@ -51,6 +51,7 @@ export default () => {
     </button>
     ${isAuthor ? `<button class= "button-edit">Editar</button>`: ""}
     ${isAuthor ? `<button class= "button-delete">Excluir</button>`: ""}
+    ${isAuthor ? `<button class= "button-enter-edit" style="display:none">Feito!</button>`: ""}
     </li>
     </ul>
     <span class ="delete-post"></span>
