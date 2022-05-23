@@ -1,10 +1,10 @@
 @import url('http://fonts.googleapis.com/css?family=Anton');
 *{
-    margin: 0.313rem;
-    background-color: #283040;
     font-family: Anton;
 }
-
+body{
+  background-color: #283040;
+}
 .logo {
     justify-content: center;
     text-align: center;
@@ -36,14 +36,16 @@
   text-align: center;
   height: 2em;
   width: 20em;
+  margin: 1em;
 }
 
 .google {
   background-color: #283040;
   border-color: #283040;
   color: #fff;
-  font-size: 1.6em;
+  font-size: 1.2em;
   text-align: center;
+
 }
 .googleLogin {
   display: flex;
@@ -72,13 +74,13 @@ a {
   color: #fff;
   justify-content: center;
   text-align: center;
-  font-size: 1.6em;
+  font-size: 1.2em;
   z-index: 1;
 }
 
 p {
   color: #fff;
-  font-size: 1.6em;
+  font-size: 1.2em;
 }
 
 @media (min-width: 360px) and (max-width: 915px) {
@@ -116,7 +118,7 @@ p {
     background-color: #283040;
     border-color: #283040;
     color: #fff;
-    font-size: 1.6em;
+    font-size: 1.1em;
     text-align: center;
 }
 .googleLogin{

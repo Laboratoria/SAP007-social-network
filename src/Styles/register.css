@@ -1,7 +1,7 @@
 .logo {
   justify-content: center;
   text-align: center;
-  margin-top: 3.754rem;
+  margin-top: 0.754rem;
   margin-left: auto;
   margin-right: auto;
   width: 13em;
@@ -10,6 +10,7 @@
 .name-register,
 .email-register,
 .password-register {
+  margin: 1.25rem;
   background-color: #F2E8D5;
   position: relative;
   border: 0.063rem solid;

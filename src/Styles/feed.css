@@ -1,3 +1,7 @@
+body{
+  background-color: #283040;
+  
+}
 .tip {
   color: black;
   background-color: #F28241;
@@ -7,20 +11,25 @@
 }
 
 .post-text {
+  margin:1.25rem;
+  padding:1.25rem;
   background-color: #F2E8D5;
   resize: none;
   border: none;
 }
 
 .post-button {
+  margin-top: -2.5rem;
   background-color: #F2E8D5;
   border-color: #F2E8D5;
   border-radius: 0.313rem;
 }
 
 .box-feed {
-  width: 24rem;
-  height: 15rem;
+  margin: 1rem;
+  padding: 4.25rem;
+  width: 21rem;
+  height: 9rem;
   border-radius: 1rem;
 
 }
@@ -49,13 +58,18 @@ li {
 }
 
 .logout,
-.button-delete {
+.button-edit,
+.button-delete
+ {
   border: none;
   border-radius: 1rem;
   background: #F26241;
 
 }
 
+.userPost{
+  margin-top: -2rem;
+}
 .userPost,
 .userText,
 .numLikes {
