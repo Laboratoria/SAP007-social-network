@@ -1,23 +1,27 @@
 import "../lib/config-firebase.js";
 import {
-    getFirestore,
     collection,
     addDoc,
+    getFirestore,
     getDocs,
-    query,
     orderBy,
-    deleteDoc,
+    query,
     doc,
-    updateDoc
+    deleteDoc,
+    updateDoc,
+    arrayUnion,
+    arrayRemove
 } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
+//import { async } from "regenerator-runtime";
 
 const db = getFirestore();
 
-export async function addPosts(inputTitulo, inputPost) {
+export async function addPosts(inputTitulo, inputPost, userEmail) {
     try {
         const ref = await addDoc(collection(db, 'posts'), {
             "titulo":inputTitulo,
             "post":inputPost,
+            userEmail,
             date: new Date().toLocaleString('pt-br'),
             likes: [],
         });
@@ -38,6 +42,34 @@ export const getPost = async () => {
     return arrayPosts;
 };
 
-export function deletePost(id) {
+  export async function like(id, userEmail) {
+    try {
+        const postId = doc(db, 'posts', id);
+        return await updateDoc(postId, {
+        likes: arrayUnion(userEmail),
+    });
+  } catch (e) {
+    return console.log("like nao deu certo", e);
+  }
+}
+  export async function dislike(id, userEmail) {
+    try {
+    const postId = doc(db, 'posts', id);
+    await updateDoc(postId, {
+      likes: arrayRemove(userEmail),
+    });
+  } catch (e) {
+      return console.log("Dislike não deu certo!")
+  }
+}
+  export const editPosts = async (id, post) => {
+    const editPost = doc(db, "posts", id);
+    await updateDoc(editPost, {
+    post,
+    });
+    return editPost;
+  }
+
+  export function deletePost(id) {
     return deleteDoc(doc(db, 'posts', id));
   };
