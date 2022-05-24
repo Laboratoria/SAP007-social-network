@@ -1,4 +1,3 @@
-import "../../lib/config-firebase.js";
 import { loginGoogle, userLogin } from "../../lib/auth-firebase.js";
 
 

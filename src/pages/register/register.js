@@ -1,4 +1,3 @@
-import "../../lib/config-firebase.js";
 import { userCreate } from "../../lib/auth-firebase.js";
 
 export default () => {

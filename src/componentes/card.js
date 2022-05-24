@@ -1,4 +1,4 @@
-import { getUser, auth } from "../../lib/auth-firebase.js";
+import { auth } from "../lib/auth-firebase.js";
 import { modalEditPost } from "../componentes/modal.js"
 import { deletePost, like, dislike } from "../lib/config-firestore.js";
 
