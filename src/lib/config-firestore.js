@@ -33,9 +33,8 @@ export async function addPosts(inputTitulo, inputPost, userEmail) {
 
 export const getPost = async () => {
     const arrayPosts = [];
-    const queryFirestore = query(collection(db, 'posts'), orderBy('date'));
+    const queryFirestore = query(collection(db, 'posts'), orderBy('date', 'desc'));
     const allPosts = await getDocs(queryFirestore);
-    console.log(allPosts)
     allPosts.forEach((doc) => {
         const timeline = doc.data(); //ordenando por data
         arrayPosts.push({ ...timeline, id: doc.id });
@@ -70,3 +69,7 @@ export const getPost = async () => {
     });
     return editPost;
   }
+
+  export function deletePost(id) {
+    return deleteDoc(doc(db, 'posts', id));
+  };

@@ -6,10 +6,7 @@ import { userLogout } from "../../lib/auth-firebase.js";
 
 const main = document.querySelector("#root");
 const logout = document.querySelector("#btnLogout");
-
-const init = () => {
-    window.addEventListener("hashchange", () => {
-    main.innerHTML = "";    
+function verificarHash () {
     switch(window.location.hash){
         case "#home":
             main.appendChild(home());
@@ -25,12 +22,18 @@ const init = () => {
             break;
         default:
         main.appendChild(home());                
-    }}
+    }
+}
+const init = () => {
+    window.addEventListener("hashchange", () => {
+    main.innerHTML = "";    
+    verificarHash()
+    }
     )
 }
 
 window.addEventListener("load", () => {
-    main.appendChild(home());
+    verificarHash();
     init();
 })
 

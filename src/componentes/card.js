@@ -1,8 +1,8 @@
 import { getUser, auth } from "../../lib/auth-firebase.js";
-//import { getPosts, like, dislike } from "../lib/config-firestore.js";
 import { modalEditPost } from "../componentes/modal.js"
-const getUserEmail = getUser();
+import { deletePost, like, dislike } from "../lib/config-firestore.js";
 
+const getUserEmail = getUser();
 export const criarCard = (post) => {
 
   const divCard = document.createElement("div")
@@ -13,7 +13,7 @@ export const criarCard = (post) => {
   
     <div id="data${post.id}" class="date">${post.date}
     </div> <hr><br>
-    <div class="post">${post.post}</div>
+    <div id="postText-${post.id}" class="post">${post.post}</div>
     <div class="linePost"></div><br>
     <hr>
     <div class="like-container" id="like">
@@ -23,17 +23,13 @@ export const criarCard = (post) => {
     </div>
     <div>
         <button class='modal-buttons' id='modal-btn-edit'><img class='icon-img' src="../../img/editar.png" width="36" height="36"></button>
-        <button class='modal-buttons'  id='modal-btn-delete'><img class='icon-img' src='../../img/excluir.png' width="36" height="36"></button>   
+        <button id="delete${post.id}" class="iconDelete">
+  <i class="fa-regular fa-trash-can"></i>
+  </button>
       </div>
         </div>
 `;
 
-    /*const deletePost = divCard.querySelector("#delete-post");
-  
-    deletePost.addEventListener("click", (e) => {
-      e.preventDefault();
-      divCard.appendChild(modalDeletePost(post, divCard));
-    });*/
     const btnEditPost = divCard.querySelector("#modal-btn-edit");
     btnEditPost.addEventListener("click", (e) => {
       e.preventDefault();
@@ -44,11 +40,19 @@ export const criarCard = (post) => {
 
   btnHeart.addEventListener("click", () => {
     if (btnHeart.style.color == "red") {
+      dislike(post.id, auth.currentUser.email)
       btnHeart.style.color = "black"
     } else {
+      like(post.id, auth.currentUser.email)
       btnHeart.style.color = "red"
     }
   })
+
+  const buttonDelete = divCard.querySelector(".iconDelete");
+  buttonDelete.addEventListener("click", () => {
+    deletePost(post.id);
+    divCard.remove();
+  });
 
   return divCard
 }

@@ -32,7 +32,7 @@ export function modalEditPost(post, containerFeed) {
         msgAlert.innerHTML = 'Opsss! ocorreu um erro Tente novamente.';
       } else {
         editPosts(post.id, posteditado.value).then(() => {
-          inputPost.innerHTML = "post" + posteditado.value;
+          inputPost.innerHTML = posteditado.value;
           modalContainer.remove();
         });
       }
