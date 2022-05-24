@@ -78,8 +78,8 @@ export const postEdit = async (idPost, textPost) => {
 
   return await updateDoc(post, {
     textPost
-  })
-}
+  });
+};
 
 /*export const likePost = async (idPost) => {
   const ref = await getDoc(doc(db, 'post', idPost));

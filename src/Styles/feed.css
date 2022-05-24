@@ -1,6 +1,6 @@
 body{
   background-color: #283040;
-  
+
 }
 .tip {
   color: black;
@@ -44,6 +44,13 @@ li {
   background-color: #F2E8D5;
 }
 
+.button-edit,
+.button-delete
+{
+  z-index: 1;
+
+}
+
 .button-like {
   border: none;
   background-color: #F2E8D5;
@@ -60,7 +67,7 @@ li {
 .logout
  {
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: #F26241;
 
 }
