@@ -2,7 +2,6 @@ import { getUser, auth } from "../../lib/auth-firebase.js";
 import { modalEditPost } from "../componentes/modal.js"
 import { deletePost, like, dislike } from "../lib/config-firestore.js";
 
-const getUserEmail = getUser();
 export const criarCard = (post) => {
 
   const divCard = document.createElement("div")

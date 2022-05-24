@@ -1,6 +1,7 @@
 import "../../lib/config-firebase.js";
 import { addPosts, getPost } from "../../lib/config-firestore.js";
 import { criarCard } from "../../componentes/card.js";
+import { auth } from "../../lib/auth-firebase.js";
 
 export default () => {
   let containerFeed = document.createElement('div');
