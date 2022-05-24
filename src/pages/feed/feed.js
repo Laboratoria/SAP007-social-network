@@ -1,5 +1,4 @@
 import "../../lib/config-firebase.js";
-//import { userLogout } from "../../lib/auth-firebase.js"
 import { addPosts, getPost } from "../../lib/config-firestore.js";
 import { criarCard } from "../../componentes/card.js";
 
@@ -23,7 +22,6 @@ export default () => {
 
   containerFeed.innerHTML = templateFeed;
 
-  //const logout = containerFeed.querySelector("btnLogout");
   const inputTitulo = containerFeed.querySelector("#titulo");
   const inputPost = containerFeed.querySelector("#postText");
   const postBtn = containerFeed.querySelector("#btnPost");
@@ -40,8 +38,9 @@ export default () => {
       addPosts(inputTitulo.value, inputPost.value).then((id) => {
         let titulo = inputTitulo.value;
         let post = inputPost.value;
-        const date = new Date().toLocaleString('pt-br');
+        const date = new Date().toLocaleString("pt-br");
         const item = {
+          userEmail: auth.currentUser.email,
           "titulo":titulo,
           "post":post,
           date,
@@ -61,6 +60,7 @@ export default () => {
       sectionAllPost.appendChild(elemento);
     })
   };
+
 
   getPosts();
   return containerFeed;

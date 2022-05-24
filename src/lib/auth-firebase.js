@@ -8,8 +8,7 @@ import { getAuth,
   onAuthStateChanged,
  } from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js'; 
  
-
-const auth = getAuth();
+export const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 //GOOGLE - Para fazer login com uma janela pop-up, chame signInWithPopup:
@@ -30,7 +29,7 @@ export function loginGoogle() {
     return credential
   }).catch((error) => {
     const credential = GoogleAuthProvider.credentialFromError(error);
-    return credential
+    return credential;
     })
 }
 
@@ -55,4 +54,11 @@ export function userLogout() {
   return signOut(auth)
     .then(() => 'Saiu')
     .catch((error) => error);
+}
+
+export function getUser() {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  return user || localStorage.getItem("userEmail");
 }
