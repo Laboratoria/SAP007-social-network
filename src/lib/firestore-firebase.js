@@ -73,7 +73,7 @@ export function dislike(id) {
 }
 
 export const postEdit = async (idPost, textPost) => {
- // console.log(idPost)
+ console.log(textPost)
   const post = doc(db, 'post', idPost);
 
   return await updateDoc(post, {

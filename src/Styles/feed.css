@@ -58,7 +58,7 @@ li {
 }
 
 .numLikes {
-  color: black;
+   color: black;
   border-radius: 0.625rem;
   /*text-align: right;*/
   font-size: 0.58rem;
@@ -76,7 +76,8 @@ li {
  {
   border: none;
   z-index: 1;
-  background-color: #F2E8D5
+  background-color: #F2E8D5;
+
  }
 .userPost{
   margin-top: -2rem;
