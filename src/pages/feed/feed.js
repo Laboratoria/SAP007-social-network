@@ -36,7 +36,7 @@ export default () => {
     if (inputTitulo.value === '' || inputPost.value === '') {
       msgAlert.innerHTML = 'Escreva sua teoria';
     } else {
-      addPosts(inputTitulo.value, inputPost.value).then((id) => {
+      addPosts(inputTitulo.value, inputPost.value, auth.currentUser.email).then((id) => {
         let titulo = inputTitulo.value;
         let post = inputPost.value;
         const date = new Date().toLocaleString("pt-br");
