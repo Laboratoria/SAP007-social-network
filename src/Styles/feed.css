@@ -19,7 +19,7 @@ body{
 }
 
 .post-button {
-  margin-top: -2.5rem;
+  margin-top: 0.5rem;
   background-color: #F2E8D5;
   border-color: #F2E8D5;
   border-radius: 0.313rem;
@@ -27,7 +27,7 @@ body{
 
 .box-feed {
   margin: 1rem;
-  padding: 4.25rem;
+  padding: 2.25rem;
   width: 21rem;
   height: 9rem;
   border-radius: 1rem;
@@ -47,26 +47,30 @@ li {
 .button-like {
   border: none;
   background-color: #F2E8D5;
-  justify-content: left;
+  /*justify-content: left;*/
 }
 
 .numLikes {
   color: black;
   border-radius: 0.625rem;
-  text-align: right;
+  /*text-align: right;*/
   font-size: 0.58rem;
 }
 
-.logout,
-.button-edit,
-.button-delete
+.logout
  {
   border: none;
   border-radius: 1rem;
   background: #F26241;
 
 }
-
+.button-edit,
+.button-delete
+ {
+  border: none;
+  z-index: 1;
+  background-color: #F2E8D5
+ }
 .userPost{
   margin-top: -2rem;
 }
