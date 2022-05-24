@@ -90,6 +90,16 @@
     transform: scale(1.2);
   }
 
+  .iconDelete {
+    font-size: 2em;
+    background-color: Transparent;
+    border: none;
+  }
+
+  .iconDelete:active{
+    transform: scale(1.5);
+  }
+
   .date {
     background-color:#C3DB7B;
     width: 43%;
