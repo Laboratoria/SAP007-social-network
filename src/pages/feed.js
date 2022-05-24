@@ -1,3 +1,5 @@
+
+
 import { getUser, auth, logout } from "../lib/authentication.js";
 import {
   createPost,
@@ -51,7 +53,7 @@ export default () => {
     </button>
     ${isAuthor ? `<button class= "button-edit">Editar</button>`: ""}
     ${isAuthor ? `<button class= "button-delete">Excluir</button>`: ""}
-    ${isAuthor ? `<button class= "button-enter-edit" style="display:none">Feito!</button>`: ""}
+    ${isAuthor ? `<button class= "button-save" style = "display:none">Salvar</button>`: ""}
     </li>
     </ul>
     <span class ="delete-post"></span>
@@ -65,7 +67,6 @@ export default () => {
     const btnLike = postContainer.querySelector(".button-like");
     btnLike.addEventListener("click", async (e) => {
       e.preventDefault();
-      likePost(post.id);
       if (!post.likes.includes(auth.currentUser.uid)) {
         like(post.id).then(() => {
           post.likes.push(auth.currentUser.uid)
@@ -83,7 +84,6 @@ export default () => {
           console.log(newDislikes);
         });
       }
-
     });
     if (isAuthor) {
       const deleteBtn = postContainer.querySelector(".button-delete");
@@ -96,17 +96,26 @@ export default () => {
 
     if (isAuthor) {
       const editBtn = postContainer.querySelector(".button-edit");
-      editBtn.addEventListener("click", () => {
+      editBtn.addEventListener("click", async () => {
       const text = postContainer.querySelector(".userText")
       text.setAttribute("contenteditable", true);
-    /*  const editConfirm = document.createElement("div");
-      editConfirm.innerHTML=   `
-      <section class="post-edit">
-        <div class= "edit-confirm">
-          <button class= "button-save">Salvar</button>
-          <button class="button-cancel">Cancelar</button>
-        </div>
-      </section>`*/
+      const edit = document.createElement("div")
+      edit.innerHTML = `
+      <button class= "save">Salvar</button>
+      `
+      text.insertAdjacentElement("beforebegin", edit)
+
+      edit.addEventListener("click", () =>{
+        text.setAttribute("contenteditable", false)
+        postEdit(post.id, textPost)
+
+
+      })
+
+
+
+      // const saveBtn = postContainer.querySelector(".button-save")
+     // editBtn.insertAdjacentHTML("afterend", saveBtn)
        //um novo botão para confirmar/cancelar a edição
       //atualizar o valor setatribute(true)
       //pegar o valor novo do pragrafo chamar a funçao com id do post

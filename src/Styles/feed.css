@@ -1,6 +1,6 @@
 body{
   background-color: #283040;
-  
+
 }
 .tip {
   color: black;
@@ -27,7 +27,7 @@ body{
 
 .box-feed {
   margin: 1rem;
-  padding: 4.25rem;
+  padding: 2rem;
   width: 21rem;
   height: 9rem;
   border-radius: 1rem;
@@ -44,10 +44,17 @@ li {
   background-color: #F2E8D5;
 }
 
+.button-edit,
+.button-delete
+{
+  z-index: 1;
+
+}
+
 .button-like {
   border: none;
   background-color: #F2E8D5;
-  justify-content: left;
+/*  justify-content: left;*/
 }
 
 .numLikes {
@@ -62,10 +69,24 @@ li {
 .button-delete
  {
   border: none;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: #F26241;
 
 }
+
+.button-edit{
+margin-bottom: 5px;
+
+}
+
+.button-delete{
+  margin-bottom: 2px;
+
+  }
+
+/*  .save{
+    margin-left: px;
+  }*/
 
 .userPost{
   margin-top: -2rem;
