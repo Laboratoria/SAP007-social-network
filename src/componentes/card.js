@@ -1,3 +1,5 @@
+import { deletePost } from "../lib/config-firestore.js";
+
 export const criarCard = (post) => {
   const divCard = document.createElement("div")
   divCard.innerHTML = `
@@ -21,9 +23,10 @@ export const criarCard = (post) => {
    <img src="../../img/editar.png" width="36" height="36" />
   </a>    
   
-  <a class="icons" id="iconDelete">
-    <img src="../../img/excluir.png" width="36" height="36" />
-  </a>
+  <button id="delete${post.id}" class="iconDelete">
+  <i class="fa-regular fa-trash-can"></i>
+  </button>
+
   </div>
 `
   const btnHeart = divCard.querySelector(".like")
@@ -34,5 +37,12 @@ export const criarCard = (post) => {
       btnHeart.style.color = "red"
     }
   })
+
+  const buttonDelete = divCard.querySelector(".iconDelete");
+  buttonDelete.addEventListener("click", () => {
+    deletePost(post.id);
+    divCard.remove();
+  });
+
   return divCard
 }
