@@ -78,8 +78,9 @@
   }
 
   .like {
-    border-radius: 30px 30px 30px 30px;
-    font-size: 1.5em;
+    background-color: Transparent;
+    border: none;
+    font-size: 2em;
     cursor: pointer;
     padding-right: 4px;
     text-align: center;
