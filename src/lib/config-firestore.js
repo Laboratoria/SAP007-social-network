@@ -17,6 +17,7 @@ import {
 const db = getFirestore();
 
 export async function addPosts(inputTitulo, inputPost, userEmail) {
+    console.log(userEmail)
     try {
         const ref = await addDoc(collection(db, 'posts'), {
             "titulo":inputTitulo,
