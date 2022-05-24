@@ -110,7 +110,7 @@ export default () => {
 
       edit.addEventListener("click", () =>{
         text.setAttribute("contenteditable", false)
-        postEdit(post.id, textPost)
+        postEdit(post.id, text.textContent)
 
 
       })
