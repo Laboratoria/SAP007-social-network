@@ -87,17 +87,13 @@
     padding-left: 3px;
   }
 
-  .like:active {
-    transform: scale(1.2);
-  }
-
-  .iconDelete {
+  .iconBtn {
     font-size: 2em;
     background-color: Transparent;
     border: none;
   }
 
-  .iconDelete:active{
+  .iconBtn:active{
     transform: scale(1.5);
   }
 
