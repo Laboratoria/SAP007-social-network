@@ -8,23 +8,23 @@ export const criarCard = (post) => {
   divCard.innerHTML = `
   <div class="divPost">
     <div class="tItulo">${post.titulo}</div><br>
-    <h4 class="post-itens">Autor(a): </h4>
+      <h4 class="post-itens">Autor(a):${post.userEmail} </h4>
   
     <div id="data${post.id}" class="date">${post.date}
     </div> <hr><br>
     <div id="postText-${post.id}" class="post">${post.post}</div>
-    <div class="linePost"></div><br>
+      <div class="linePost"></div><br>
     <hr>
-    <div class="like-container" id="like">
-    <button id="${post.id}" class="like">
-    <i class="fa-brands fa-gratipay"></i>
+    <div class="like-container containerBtn" id="like">
+      <button id="${post.id}" class="like iconBtn">
+    <i class="fa-brands fa-gratipay"></i>${post.likes.length}
     </button>  
-    </div>
-    <div>
-        <button class='modal-buttons' id='modal-btn-edit'><img class='icon-img' src="../../img/editar.png" width="36" height="36"></button>
-        <button id="delete${post.id}" class="iconDelete">
-  <i class="fa-regular fa-trash-can"></i>
-  </button>
+        <button class='modal-buttons iconBtn' id='modal-btn-edit'>
+          <i class="fa-solid fa-pencil"></i>
+        </button>
+        <button id="delete${post.id}" class="iconDelete iconBtn">        
+          <i class="fa-regular fa-trash-can"></i>
+        </button>
       </div>
         </div>
 `;

@@ -5,8 +5,14 @@
      margin: 0px;
      padding: 0px;
      font-family: Macondo;
+     box-sizing: border-box;
     }
     .conteudoLogin{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       background: white;
       border-radius: 12px 12px 12px 12px;
       width: 70%;

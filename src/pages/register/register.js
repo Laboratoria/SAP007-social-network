@@ -12,7 +12,7 @@ export default () => {
       <p id="message" class="sucessMessage" menssage"></p>
     <br><button class='btn submit' type="submit" id="btn-Cadastrar">Sign Up</button><br>
     <p> Já tem conta?
-      <a href="/#login">Entrar</a></p></form>
+      <a href="#login">Entrar</a></p></form>
       
     `;
 

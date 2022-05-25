@@ -15,7 +15,7 @@ export default () => {
       <button class="btn-google" id="buttonGoogle">Entrar com o Google
       </button>
       <p> Não tem conta?
-      <a href="/#login">Criar</a></p><br>
+      <a href="#register">Criar</a></p><br>
       </form>
        
     `;
