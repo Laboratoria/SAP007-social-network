@@ -29,6 +29,7 @@ body{
 .password,
 .enter,
 .google {
+  color:black;
   background-color: #f2e8d5;
   position: relative;
   border: 0.063rem solid;
@@ -82,11 +83,11 @@ p {
   color: #fff;
   font-size: 1.2em;
 }
-
-@media (min-width: 360px) and (max-width: 915px) {
+@media screen and (max-width: 1900px) and (min-width: 630px), (min-width: 768px) {
+  body{
+    background: linear-gradient(0deg, rgba(242,130,65,1) 50%, rgba(40,48,64,1) 10%);
+  }
   .logo {
-    justify-content: center;
-    text-align: center;
     height: auto;
     width: 17em;
     margin-left: 3.125rem;
@@ -96,7 +97,6 @@ p {
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 10.754rem;
     align-items: center;
 }
 .root{
@@ -110,13 +110,13 @@ p {
     border : 0.063rem solid;
     border-radius: 1.188rem;
     text-align: center;
-    width: 15em;
-    height: 1.25em;
+    width: 21em;
+    height: 2.25em;
 }
 
 .google, p{
-    background-color: #283040;
-    border-color: #283040;
+    background-color: #F28241;
+    border: none;
     color: #fff;
     font-size: 1.1em;
     text-align: center;
@@ -130,30 +130,17 @@ p {
 .googleBtn{
     margin: 0;
     height: auto;
-    width: 3.125rem;
+    width: 5.125rem;
     margin-top: 0.313rem;
 }
 .enter{
-    margin: -0.1rem;
+    margin: 1rem;
     padding: 0.188rem;
     width: 6em;
     height: 2em;
     cursor: pointer;
-    color: #757575;
+    color: #000000;
 
 }
 
-@media (min-width: 768px) {
-  .title {
-    color: #fff;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 1.25rem;
-    align-items: center;
-  }
-
-  .logo {
-    justify-content: center;
-    text-align: center;
-  }}}
+}
