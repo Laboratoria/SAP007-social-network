@@ -17,7 +17,16 @@ body{
   resize: none;
   border: none;
 }
-
+.btns{
+  display: table-row;
+  background-color: #F2E8D5;
+  border: none;
+  z-index: 1;
+}
+.save{
+  border-radius: 0.5rem;
+  background-color: rgb(115, 181, 115);
+}
 .post-button {
   margin-top: 0.5rem;
   background-color: #F2E8D5;
@@ -44,16 +53,17 @@ li {
   background-color: #F2E8D5;
 }
 
-.button-edit,
+/*.button-edit,
 .button-delete
 {
   z-index: 1;
 
-}
+}*/
 
 .button-like {
   border: none;
   background-color: #F2E8D5;
+  display: inline;
   /*justify-content: left;*/
 }
 
