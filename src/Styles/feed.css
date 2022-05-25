@@ -1,28 +1,35 @@
-body{
+body {
   background-color: #283040;
-
 }
+
+.post {
+  display: flex;
+}
+
 .tip {
   color: black;
-  background-color: #F28241;
+  background-color: #f28241;
   border-radius: 0.625rem;
   text-align: left;
   font-size: 1.125rem;
 }
 
 .post-text {
-  margin:1.25rem;
-  padding:1.25rem;
-  background-color: #F2E8D5;
+  margin: 1.25rem;
+  padding: 1.25rem;
+  background-color: #f2e8d5;
   resize: none;
   border: none;
 }
 
 .post-button {
   margin-top: 0.5rem;
-  background-color: #F2E8D5;
-  border-color: #F2E8D5;
+  background-color: #f2e8d5;
+  border-color: #f2e8d5;
   border-radius: 0.313rem;
+}
+.container-template {
+  display: flex;
 }
 
 .box-feed {
@@ -31,55 +38,48 @@ body{
   width: 21rem;
   height: 9rem;
   border-radius: 1rem;
-
 }
 
 ul,
 li {
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
 }
 
 .postSection {
   border-radius: 1rem;
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
 }
 
 .button-edit,
-.button-delete
-{
+.button-delete {
   z-index: 1;
-
 }
 
 .button-like {
   border: none;
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
   /*justify-content: left;*/
 }
 
 .numLikes {
-   color: black;
+  color: black;
   border-radius: 0.625rem;
   /*text-align: right;*/
   font-size: 0.58rem;
 }
 
-.logout
- {
+.logout {
   border: none;
   border-radius: 2rem;
-  background: #F26241;
-
+  background: #f26241;
 }
 .button-edit,
-.button-delete
- {
+.button-delete {
   border: none;
   z-index: 1;
-  background-color: #F2E8D5;
-
- }
-.userPost{
+  background-color: #f2e8d5;
+}
+.userPost {
   margin-top: -2rem;
 }
 .userPost,
@@ -88,26 +88,59 @@ li {
   color: black;
   border-radius: 0.625rem;
   text-align: left;
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
+}
+
+@media screen and (min-width: 360px) and (max-width: 915px) {
+  .logo {
+    margin-top: 30%;
+  }
+
+  .title {
+    margin-top: 20%;
+    width: 80%;
+    height: auto;
+  }
+
+  .container-template {
+    width: 60%;
+    height: auto;
+  }
+  .box-feed {
+    width: 60%;
+    height: auto;
+  }
+
+  .post .post-text {
+    width: 60%;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1900px) {
-
-  .tip,
-  .post-text,
-  .post-button {
+  .title {
     width: 100%;
-    font-size: 0.938rem;
-    border-radius: 0.625rem;
+    height: auto;
+  }
+
+  .box-feed {
+    width: 100%;
+    height: auto;
   }
 
   .post-text {
-    width: auto;
+    width: 100%;
+    height: auto;
   }
 
   .post-button {
     width: auto;
     height: auto;
     border-radius: 6.25rem;
+  }
+
+  .post {
+    width: 300%;
+    height: auto;
   }
 }

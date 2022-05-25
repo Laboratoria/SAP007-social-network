@@ -112,7 +112,6 @@ export default () => {
         text.setAttribute("contenteditable", false)
         postEdit(post.id, text.textContent)
 
-
       })
 
 
