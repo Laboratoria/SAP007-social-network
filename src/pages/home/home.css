@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');*/
 
 @media (min-width: 360px) {
 
-  *{
+  /**{
     font-family: Satisfy;
-  }
+  }*/
 
   .conteudoComeço {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
     background: white;
     border-radius: 12px 12px 12px 12px;
     width: 75%;
@@ -24,7 +28,7 @@
   font-size: 1.5em;
   margin-top: 30px;
   margin-bottom: 50px;
-  color: crimson;
+  color: #B51D4C;
  }
 
  .mensagem {
@@ -33,19 +37,6 @@
   padding-right: 7px;
   font-size: 1.2em;
  }
- .botaoCriar {
-  background-color: chartreuse;
-  color: crimson;
-  width: 200px;
-  height: 40px;
-  border-radius: 20px 20px 20px 20px;
-  border-style: solid;
-  border-color: chartreuse;
-  text-align: center;
-  font-size: 1em;
-  cursor: pointer;
- }
-
  .criar-entrar {
   font-size: 1.1em;
   margin-top: 20%;
@@ -54,7 +45,7 @@
 
 .conteudoComeço {
   height: auto;
-  padding-bottom:4%;
+  padding-bottom: 4%;
 }
 
 .mensagem {
