@@ -1,7 +1,3 @@
-body{
-  background-color: #283040;
-
-}
 .tip {
   color: black;
   background-color: #F28241;
@@ -11,8 +7,8 @@ body{
 }
 
 .post-text {
-  margin:1.25rem;
-  padding:1.25rem;
+  margin: 1.25rem;
+  padding: 1.25rem;
   background-color: #F2E8D5;
   resize: none;
   border: none;
@@ -54,44 +50,40 @@ li {
 }
 
 /*.button-edit,
-.button-delete
-{
+.button-delete {
   z-index: 1;
 
 }*/
-
-.button-like {
+.button-like,
+.numLikes {
   border: none;
   background-color: #F2E8D5;
-  display: inline;
-  /*justify-content: left;*/
 }
 
 .numLikes {
-   color: black;
-  border-radius: 0.625rem;
-  /*text-align: right;*/
+  color: black;
   font-size: 0.58rem;
 }
 
-.logout
- {
+.logout {
   border: none;
   border-radius: 2rem;
   background: #F26241;
 
 }
+
 .button-edit,
-.button-delete
- {
+.button-delete {
   border: none;
   z-index: 1;
   background-color: #F2E8D5;
 
- }
-.userPost{
+}
+
+.userPost {
   margin-top: -2rem;
 }
+
 .userPost,
 .userText,
 .numLikes {
@@ -102,6 +94,9 @@ li {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1900px) {
+  .title {
+    margin-top: 4.754rem;
+  }
 
   .tip,
   .post-text,
@@ -120,4 +115,5 @@ li {
     height: auto;
     border-radius: 6.25rem;
   }
+
 }

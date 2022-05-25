@@ -1,12 +1,6 @@
-.logo {
-  justify-content: center;
-  text-align: center;
-  margin-top: 0.754rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 13em;
+body{
+  background-color: #283040;
 }
-
 .name-register,
 .email-register,
 .password-register {
@@ -28,14 +22,10 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1900px) {
-  .logo {
-    margin-top: 3.754rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: 13em;
-  }
-
+@media screen and (max-width: 1900px) and (min-width: 630px), (min-width: 768px) {
+.title{
+ margin-top: 12.754rem;
+}
   .form-register {
     margin: 1.8em;
     padding: auto;
