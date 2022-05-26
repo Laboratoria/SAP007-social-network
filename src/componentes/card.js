@@ -17,7 +17,8 @@ export const criarCard = (post) => {
     <hr>
     <div class="like-container containerBtn" id="like">
       <button id="${post.id}" class="like iconBtn">
-    <i class="fa-brands fa-gratipay"></i>${post.likes.length}
+    <i class="fa-brands fa-gratipay"></i>
+    <p id="contlikes" class="contlikes">${post.likes.length}</p>
     </button>  
         <button class='modal-buttons iconBtn' id='modal-btn-edit'>
           <i class="fa-solid fa-pencil"></i>
@@ -29,21 +30,26 @@ export const criarCard = (post) => {
         </div>
 `;
 
-    const btnEditPost = divCard.querySelector("#modal-btn-edit");
-    btnEditPost.addEventListener("click", (e) => {
-      e.preventDefault();
-      divCard.appendChild(modalEditPost(post, divCard));
-    });
+  const btnEditPost = divCard.querySelector("#modal-btn-edit");
+  btnEditPost.addEventListener("click", (e) => {
+    e.preventDefault();
+    divCard.appendChild(modalEditPost(post, divCard));
+  });
 
   const btnHeart = divCard.querySelector(".like");
+  let contLike = divCard.querySelector("#contlikes");
 
   btnHeart.addEventListener("click", () => {
     if (btnHeart.style.color == "red") {
       dislike(post.id, auth.currentUser.email)
-      btnHeart.style.color = "black"
+      btnHeart.style.color = "black";
+      const addContLike = Number(contLike.innerHTML) - 1;
+      contLike.innerHTML = addContLike;
     } else {
       like(post.id, auth.currentUser.email)
       btnHeart.style.color = "red"
+      const addContLike = Number(contLike.innerHTML) + 1;
+      contLike.innerHTML = addContLike;
     }
   })
 
