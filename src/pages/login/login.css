@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
+
+@media (min-width: 360px){
+ * {
+     margin: 0px;
+     padding: 0px;
+     font-family: Macondo;
+     box-sizing: border-box;
+    }
+    .conteudoLogin{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      border-radius: 12px 12px 12px 12px;
+      width: 70%;
+      height: auto;
+      margin-top: 20%;
+      margin-left: 15%;
+      text-align:center;
+      padding-top: 6%;
+      padding-bottom:4%;
+      border-style:solid;
+      border-color:darkgreen;
+     }
+     .paragrafoLogin{
+      color:crimson;
+      font-size: 2em;
+     }
+     .btn-entrar{
+        margin-top: 40px;
+        margin-bottom:2px;
+        cursor: pointer;
+     }
+     .inputSenha{
+        margin-bottom: 10px;
+        width: 180px;
+         height: 58px;
+         border-style:groove;
+         border-color:darkgreen;
+         border-radius:30px 30px 30px 30px ;
+         margin-left: 5px;
+         margin-top: 20px;
+         text-align: center;
+         font-size: 0.9em;
+         box-shadow: 2px 2px 2px grey;
+     }
+     .inputEmail{
+         width: 180px;
+         height: 58px;
+         border-style:groove;
+         border-color:darkgreen;
+         border-radius:30px 30px 30px 30px ;
+         margin-left: 5px;
+         margin-top: 20px;
+         text-align: center;
+         font-size: 0.9em;
+         box-shadow: 2px 2px 2px grey;
+     }
+     
+     .btn-entrar{
+     background-color: chartreuse;
+     color: crimson;
+     width: 200px;
+     height: 40px;
+     border-radius:20px 20px 20px 20px;
+     border-style: solid;
+     border-color: chartreuse;
+     text-align: center;
+     font-size: 1em;
+     cursor: pointer;
+     }
+     .btn-google{
+     background-color: chartreuse;
+     color: crimson;
+     width: 200px;
+     height: 40px;
+     border-radius:20px 20px 20px 20px;
+     border-style: solid;
+     border-color: chartreuse;
+     text-align: center;
+     font-size: 1em;
+     cursor: pointer;
+     }
+   }
+
+@media (min-width:810px) {
+  .conteudoLogin{
+     background: white;
+     border-radius: 12px 12px 12px 12px;
+     width: 60%;
+     height: auto;
+     margin-top: 20%;
+     margin-left: 20%;
+     text-align:center;
+     padding-top: 6%;  
+     padding-bottom:4%;
+     border-style:solid;
+     border-color:darkgreen;
+  }
+  
+  .paragrafoLogin{
+    color:crimson;
+    font-size: 2.5em;
+    }
+  
+    .inputEmail {
+      width: 350px;
+      height: 60px;
+      border-style:groove;
+      border-color:darkgreen;
+      border-radius:30px 30px 30px 30px ;
+      margin-left: 9px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9em;
+      box-shadow: 2px 2px 2px grey;
+     }
+
+     .inputSenha{
+      margin-bottom: 30px;
+      width: 350px;
+      height: 60px;
+      border-style:groove;
+      border-color:darkgreen;
+      border-radius:30px 30px 30px 30px ;
+      margin-left: 9px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9em;
+      box-shadow: 2px 2px 2px grey;
+    }
+
+    .btnEntrar {
+      background-color: chartreuse;
+      color: crimson;
+      width: 350px;
+      height: 60px;
+      border-radius:20px 20px 20px 20px;
+      border-style: solid;
+      border-color: chartreuse;
+      text-align: center;
+      font-size: 1em;
+      margin-bottom: 10px;
+      cursor: pointer;
+      }
+
+      .btn-google{
+        background-color: chartreuse;
+        color: crimson;
+        width: 350px;
+        height: 60px;
+        border-radius:20px 20px 20px 20px;
+        border-style: solid;
+        border-color: chartreuse;
+        text-align: center;
+        font-size: 1em;
+        margin-top: 5px;
+        cursor: pointer;
+        }
+}
+
+.conteudoLogin {
+  height: auto;
+  padding-bottom:4%;
+}

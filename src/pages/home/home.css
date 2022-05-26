@@ -1,0 +1,63 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');*/
+
+@media (min-width: 360px) {
+
+  /**{
+    font-family: Satisfy;
+  }*/
+
+  .conteudoComeço {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 75%;
+    height: auto;
+    margin-top: 20%;
+    margin-left: 12%;
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom:4%;
+    border-style: solid;
+    border-color: darkgreen;
+  }
+
+ .boasVindas {
+  font-size: 1.5em;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  color: #B51D4C;
+ }
+
+ .mensagem {
+  margin-top: 8%;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 1.2em;
+ }
+ .criar-entrar {
+  font-size: 1.1em;
+  margin-top: 20%;
+ }
+}
+
+.conteudoComeço {
+  height: auto;
+  padding-bottom: 4%;
+}
+
+.mensagem {
+  font-size: 2em;
+}
+
+.criar-entrar {
+  font-size: 1.5em;
+  margin-top: 10%;
+}
+
+.boasVindas {
+  font-size: 2em;
+}
+

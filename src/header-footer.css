@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50%;
+    background-color: #C3DB7B;
+    font-size: 1.2em;
+    color: #306B35;
+    height: 12vh;
+    text-align: center; 
+    border-radius: 5px 5px 0px 0px;
+}
+
+@media (min-width: 360px) {
+
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,300&display=swap');
+    
+    body {
+        background-color: beige;
+    }
+    
+    .cabeçalho {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-size: 14vh;
+        background-color: #C3DB7B;
+        color: #B51D4C;
+        width: 100%;
+        font-size: 1.5em;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+    /*.footer {
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+
+}*/
+}
+
+@media (min-width: 768px) { 
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) { 
+
+}
+
+@media (min-width: 1400px) {
+
+}
+

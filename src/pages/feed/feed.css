@@ -1,0 +1,140 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
+*/ 
+.feedcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: beige;
+}
+
+/*@media (min-width: 360px) {
+
+  .postt {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #F3FFC6;
+    font-size: 2em;
+    margin-top: 2%;
+    color: #306B35;
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px 2px grey;
+  }
+
+  #titulo {
+    width: 180px;
+    height: 30px;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: 30px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 2px 2px 2px grey;
+  }
+
+  #postText {
+    width: 300px;
+    height: 58px;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: 30px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 2px 2px 2px grey;
+  }
+
+  #btnPost {
+    width: 300px;
+    border-radius: 6px 6px 6px 6px;
+    height: 30px;
+    margin-left: 35px;
+    cursor: pointer;
+  }
+
+  .sectionFeedContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    background-color: #C3DB7B;
+    width: 60%;
+    /*font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  
+    border-radius: 2px 2px 2px 2px;
+    margin-top: 20px;
+    margin-left: 60px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+ 
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: 2px 2px 2px 2px grey;
+  }
+
+  .tItulo {
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 1px;
+    font-size: 1.2em;
+  }
+
+  .pOst {
+    margin-left: 15px;
+    margin-left: 15px;
+  }
+
+  .like {
+    background-color: Transparent;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding-right: 4px;
+    text-align: center;
+    padding-left: 3px;
+  }
+
+  .iconBtn {
+    font-size: 2em;
+    background-color: Transparent;
+    border: none;
+  }
+
+  .iconBtn:active{
+    transform: scale(1.5);
+  }
+
+  .date {
+    background-color:#C3DB7B;
+    width: 43%;
+    margin-bottom: 30px;
+    border-radius: 30px 30px 30px 30px;
+    padding-left:5px ;
+    padding-right:5px ;
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 810px) {
+  #titulo {
+    width: 200px;
+    margin-left: 50px;
+  }
+
+  #postText {
+    width: 650px;
+    margin-left: 50px;
+  }
+
+  #btnPost {
+    margin-left: 240px;
+  }
+
+  .divPost {
+    margin-left: 140px;
+  }
+}*/
