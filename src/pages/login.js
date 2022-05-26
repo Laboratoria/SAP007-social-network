@@ -1,4 +1,3 @@
-import "../lib/config-firebase.js";
 import { userLogin, userGoogle } from "../lib/authentication.js";
 
 export default () => {

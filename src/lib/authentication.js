@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+} from "./export.js";
 
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
