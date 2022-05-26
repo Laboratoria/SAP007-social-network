@@ -15,7 +15,16 @@
   height: 70%;
   width: auto;
 }
-
+.btns{
+  display: table-row;
+  background-color: #F2E8D5;
+  border: none;
+  z-index: 1;
+}
+.save{
+  border-radius: 0.5rem;
+  background-color: rgb(115, 181, 115);
+}
 .post-button {
   margin-top: 0.5rem;
   background-color: #f2e8d5;
@@ -45,10 +54,11 @@ li {
   background-color: #f2e8d5;
 }
 
-.button-edit,
+/*.button-edit,
 .button-delete {
   z-index: 1;
-}
+
+}*/
 .button-like,
 .numLikes {
   border: none;
