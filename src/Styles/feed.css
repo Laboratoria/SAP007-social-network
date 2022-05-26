@@ -9,10 +9,11 @@
 .post-text {
   margin: 1.25rem;
   padding: 1.25rem;
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
   resize: none;
   border: none;
-
+  height: 70%;
+  width: auto;
 }
 
 .post-button {
@@ -22,7 +23,8 @@
   border-radius: 0.313rem;
 }
 .container-template {
-  display: flex;
+  width: 40%;
+  height: auto;
 }
 
 .box-feed {
@@ -50,7 +52,7 @@ li {
 .button-like,
 .numLikes {
   border: none;
-  background-color: #F2E8D5;
+  background-color: #f2e8d5;
 }
 
 .numLikes {
@@ -68,8 +70,7 @@ li {
 .button-delete {
   border: none;
   z-index: 1;
-  background-color: #F2E8D5;
-
+  background-color: #f2e8d5;
 }
 
 .userPost {
@@ -97,11 +98,11 @@ li {
   }
 
   .container-template {
-    width: 60%;
+    width: 83%;
     height: auto;
   }
   .box-feed {
-    width: 60%;
+    width: 83%;
     height: auto;
   }
 
@@ -115,11 +116,14 @@ li {
   .title {
     margin-top: 4.754rem;
   }
-
+  .container-template {
+    width: 80%;
+    height: auto;
+  }
   .tip,
   .post-text,
   .post-button {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
 
@@ -129,7 +133,7 @@ li {
   }
 
   .post-text {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
 
@@ -140,7 +144,7 @@ li {
   }
 
   .post {
-    width: 300%;
+    width: 200%;
     height: auto;
   }
 }
