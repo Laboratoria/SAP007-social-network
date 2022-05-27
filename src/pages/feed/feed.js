@@ -14,7 +14,7 @@ export default () => {
 
     <input id="postText" type="text" placeholder="Sua teoria aqui" maxlength="280" /><br>
     <span id="error-message" class="error-writepost"></span>
-    <br><button id="btnPost" type="submit" >Postar</button><br>
+    <br><button id="btnPost" type="submit">Postar</button><br>
     <div class="sectionFeedContainer">
     <section id="sectionNewPost" class="sectionPostClass"></section>
     <section id="sectionPost" class="sectionPostClass"></section>
