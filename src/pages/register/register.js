@@ -18,8 +18,8 @@ export default () => {
 
     containerRegister.innerHTML = templateRegister;
 
-const email = containerRegister.querySelector("#inputName");
 const name = containerRegister.querySelector("#inputEmail");
+const email = containerRegister.querySelector("#inputName");
 const password = containerRegister.querySelector("#inputSenha");
 const btnCadastrar = containerRegister.querySelector("#btn-Cadastrar");
 const msgAlert = containerRegister.querySelector('#message');

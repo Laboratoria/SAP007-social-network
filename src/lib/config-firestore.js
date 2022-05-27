@@ -11,7 +11,8 @@ import {
     updateDoc,
     arrayUnion,
     arrayRemove
-} from 'https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore.js';
+} from "../lib/exports.js";
+
 //import { async } from "regenerator-runtime";
 
 const db = getFirestore();

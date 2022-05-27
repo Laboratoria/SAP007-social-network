@@ -7,26 +7,25 @@ export const criarCard = (post) => {
   const divCard = document.createElement("div")
   divCard.innerHTML = `
   <div class="divPost">
-    <div class="tItulo">${post.titulo}</div><br>
+    <div class="tItulo">${post.titulo}</div><br>   
       <h4 class="post-itens">Autor(a):${post.userEmail} </h4>
   
     <div id="data${post.id}" class="date">${post.date}
-    </div> <hr><br>
+    </div> 
     <div id="postText-${post.id}" class="post">${post.post}</div>
       <div class="linePost"></div><br>
-    <hr>
-    <div class="like-container containerBtn" id="like">
+    <div class="likeContainer containerBtn" id="like">
       <button id="${post.id}" class="like iconBtn">
-    <i class="fa-brands fa-gratipay"></i>
-    <p id="contlikes" class="contlikes">${post.likes.length}</p>
+    <i class="fa-brands fa-gratipay"></i> <h5 id="contlikes" class="contlikes">${post.likes.length}</h5>
     </button>  
-        <button class='modal-buttons iconBtn' id='modal-btn-edit'>
+        <button class='iconLike iconBtn' id='modal-btn-edit'>
           <i class="fa-solid fa-pencil"></i>
         </button>
         <button id="delete${post.id}" class="iconDelete iconBtn">        
           <i class="fa-regular fa-trash-can"></i>
         </button>
       </div>
+      <hr><br>
         </div>
 `;
 
