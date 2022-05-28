@@ -7,15 +7,13 @@
 * [3. Interface do usuário](#3-interface-do-usuário)
 * [4. Tecnologias Utilizadas](#4-tecnologias-utilizadas)
 * [5. Como usar](#5-como-usar)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
+
 
 ***
 
 ## 1. Sobre o projeto
 
-Leiturama é a rede social (Single Page Aplication) criada para qualquer pessoa que tenha gosto pela leitura. A ideia é simples: usuários podem compartilhar dicas de leitura e interagir com posts de outros usuários. Além disso, qualquer usuário pode criar uma conta de acesso,logar-se com ela, editar, deletar e dar _likes_ em publicações.
+Leiturama é a rede social (Single Page Aplication) criada para qualquer pessoa que tenha gosto pela leitura. A ideia é simples: usuários podem compartilhar dicas de leitura e interagir com posts de outros usuários. Além disso, qualquer usuário pode criar uma conta de acesso,logar-se com ela, editar, deletar e dar _likes_ em publicações. [Acesse aqui!](https://larasantos97.github.io/SAP007-social-network/)
 
 ## 2. Desenvolvedoras
 
