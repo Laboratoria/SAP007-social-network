@@ -32,9 +32,9 @@ export default () => {
 
   loginButtonGoogle.addEventListener("click", (e) => {
     e.preventDefault();
-    loginGoogle().then((result) => {
-      window.location.hash = "#feed";
-       
+    loginGoogle()
+      .then(() => {
+      window.location.hash = "#feed";    
     })
       .catch((error) => {
       msgAlert.innerHTML = "Login não deu certo, tente novamente!";
