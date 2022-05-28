@@ -16,7 +16,8 @@ export const criarCard = (post) => {
       <div class="linePost"></div><br>
     <div class="likeContainer containerBtn" id="like">
       <button id="${post.id}" class="like iconBtn">
-    <i class="fa-brands fa-gratipay"></i> <h5 id="contlikes" class="contlikes">${post.likes.length}</h5>
+    <i class="fa-brands fa-gratipay"></i> 
+    <label id="contlikes" class="contlikes">${post.likes.length}</label>
     </button>  
         <button class='iconLike iconBtn' id='modal-btn-edit'>
           <i class="fa-solid fa-pencil"></i>

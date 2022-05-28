@@ -22,16 +22,12 @@ export function userCreate(name, email, password) {
   );
 }
 
-export function loginGoogle() {
-    return signInWithPopup(auth, provider)
-      .then((result) => {
+  export const loginGoogle = () => signInWithPopup(auth, provider).then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    return credential
-  }).catch((error) => {
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    return credential;
-    })
-}
+    const token = credential.accessToken;
+    const user = result.user;
+    return user;
+  });
 
 export function userLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password).then(
