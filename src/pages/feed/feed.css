@@ -10,10 +10,16 @@
   margin-right: 20%;
 }
 
+.headerFeed {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .likeContainer {
   display: flex;
   flex-direction: row;
 }
+
 .iconBtn {
   font-size: 1.5em;
   background-color: Transparent;
@@ -23,15 +29,18 @@
   text-align: center;
   padding-left: 3px;
 }
-#titulo {
-  font-size: 1.2em;
-  width: 50%;
-}
-.post {
-  font-size: 1.3em;
-  text-align: center;
+
+.tituloFeed {
   color: #B51D4C;
+  font-size: 1.5em;
 }
+
+.postText {
+  font-size: 1.2em;
+  text-align: center;
+  color: #000000;
+}
+
 .tItulo {
   color: #306B35; 
   text-align: center;
@@ -46,6 +55,7 @@
 .error-writepost {
   color: red;
 }
+
 #btnPost {
   font-size: 1.2em;
   width: 5em;
@@ -64,5 +74,14 @@
 .divPost {
   display: flex;
   flex-direction: column;
+}
+
+#btnLogout {
+  font-size: 1.2em;
+  width: 5em;
+  height: 1.3em;
+  cursor: pointer;
+  background-color: Transparent;
+  border: none;
 }
 
