@@ -55,19 +55,19 @@ export async function dislike(id, userEmail) {
   try {
     const postId = doc(db, 'posts', id);
     await updateDoc(postId, {
-    likes: arrayRemove(userEmail),
+      likes: arrayRemove(userEmail),
     });
-} catch (e) {
-  return console.log("Dislike não deu certo!")
-}
+  } catch (e) {
+    return console.log('Dislike não deu certo!');
+  }
 }
 export const editPosts = async (id, post) => {
-  const editPost = doc(db, "posts", id);
+  const editPost = doc(db, 'posts', id);
   await updateDoc(editPost, {
-  post,
+    post,
   });
   return editPost;
-}
+};
 
 export function deletePost(id) {
   return deleteDoc(doc(db, 'posts', id));

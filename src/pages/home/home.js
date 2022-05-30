@@ -1,7 +1,7 @@
 export default () => {
   const containerHome = document.createElement('div');
 
-    const templateHome = `
+      const templateHome = `
       <form class="conteudoComeço">
       <img src="pages/home/logo.png" alt="Logo">
       <p class="boasVindas">WELCOME TO 7 ALÉM</p>
