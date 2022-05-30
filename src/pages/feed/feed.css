@@ -1,0 +1,112 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');
+*/ 
+.feedcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  background-color: beige;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.headerFeed {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.likeContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.iconBtn {
+  font-size: 1.5em;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  padding-right: 4px;
+  text-align: center;
+  padding-left: 3px;
+}
+
+.tituloFeed {
+  color: #B51D4C;
+  font-size: 1.5em;
+}
+
+.postText {
+  font-size: 1.2em;
+  text-align: center;
+  color: #000000;
+}
+
+.tItulo {
+  color: #306B35; 
+  text-align: center;
+  font-weight: bold;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%; 
+  margin-top: 7px;
+  margin-bottom: 1px;
+}
+
+.error-writepost {
+  color: red;
+}
+
+#btnPost {
+  font-size: 1.2em;
+  width: 5em;
+  height: 1.3em;
+  cursor: pointer;
+}
+.date {
+  color: #515151;
+}
+
+#postText {
+  font-size: 1.2em;
+  height: 70px;
+}
+
+.divPost {
+  display: flex;
+  flex-direction: column;
+}
+
+#btnLogout {
+  font-size: 1.2em;
+  width: 5em;
+  height: 1.3em;
+  cursor: pointer;
+  background-color: Transparent;
+  border: none;
+}
+
+.modal, writing-modal {
+  text-align: center;
+  background-color: #C3DB7B;
+  border: none;
+}
+
+.inputArea{
+  border-style:groove;
+  border-color:#306B35;
+}
+#postText{
+  border-radius:6px 6px 6px 6px ;
+}
+.tituloArea{
+  border-radius:3px 3px 3px 3px ;
+}
+.btnStyle {
+  background-color: #306B35;
+  border: none;
+  color:beige;
+}
+
+.writing-modal{
+  width: 80%;
+}
