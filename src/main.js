@@ -7,31 +7,30 @@ import feed from './pages/feed/feed.js';
 const main = document.querySelector('#root');
 
 function verificarHash() {
-    switch (window.location.hash) {
-    case '#home':
-        main.appendChild(home());
-        break;
+            switch (window.location.hash) {
+            case '#home':
+            main.appendChild(home());
+            break;
     case '#login':
-        main.appendChild(login());
-        break;
+                main.appendChild(login());
+                break;
     case '#register':
-        main.appendChild(register());
-        break;       
+                    main.appendChild(register());
+                    break;
     case '#feed':
-    main.appendChild(feed());
-    break;
+                    main.appendChild(feed());
+                    break;
     default:
-    main.appendChild(home());           
-    }
+                main.appendChild(home());
+                }
 }
 const init = () => {
-    window.addEventListener('hashchange', () => {
+            window.addEventListener('hashchange', () => {
     main.innerHTML = '';
-    verificarHash();
-    }
+            verificarHash();
+        },
 )};
-
 window.addEventListener('load', () => {
-verificarHash();
-    init();
+    verificarHash();
+            init();
     });
