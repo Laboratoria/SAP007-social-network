@@ -3,7 +3,7 @@ import { editPosts } from '../lib/config-firestore.js';
 export function modalEditPost(post, containerFeed) {
   const modalContainer = document.createElement('div');
   const ModalEdit = `
-    <div id='modal-container' class='modal-container'>
+    <div id='modal-container' class='modal-container modal'>
       <p class='text-reset edit'>Edição de postagem</p>
         <div>
           <textarea name='textarea' maxlength='300' id='postEdit' class='message text-writing writing-modal'
@@ -11,8 +11,8 @@ export function modalEditPost(post, containerFeed) {
         </div>
         <span class='error-message'></span>
         <div class='save-container'>
-          <button id='save-post' class='button'>Salvar</button>
-          <button id='button-cancel' class='button-cancel button'>Cancelar</button>
+          <button id='save-post' class='btnStyle'>Salvar</button>
+          <button id='button-cancel' class='button-cancel btnStyle'>Cancelar</button>
         </div>
       </div>
       `;
