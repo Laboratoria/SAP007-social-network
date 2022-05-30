@@ -1,4 +1,5 @@
-import { getAuth,
+import {
+  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -6,13 +7,10 @@ import { getAuth,
   sendPasswordResetEmail,
   signOut,
   onAuthStateChanged,
- } from '../lib/exports.js'; 
- 
+} from './exports.js';
+
 export const auth = getAuth();
 const provider = new GoogleAuthProvider();
-
-//GOOGLE - Para fazer login com uma janela pop-up, chame signInWithPopup:
-
 export function userCreate(name, email, password) {
   return createUserWithEmailAndPassword(auth, name, email, password).then(
     (userCredential) => {
@@ -21,13 +19,12 @@ export function userCreate(name, email, password) {
     },
   );
 }
-
-  export const loginGoogle = () => signInWithPopup(auth, provider).then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    return user;
-  });
+export const loginGoogle = () => signInWithPopup(auth, provider).then((result) => {
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  const user = result.user;
+  return user;
+});
 
 export function userLogin(email, password) {
   return signInWithEmailAndPassword(auth, email, password).then(
@@ -56,5 +53,5 @@ export function getUser() {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  return user || localStorage.getItem("userEmail");
+  return user || localStorage.getItem('userEmail');
 }

@@ -1,5 +1,5 @@
-export default () => { 
-    const containerHome = document.createElement('div');
+export default () => {
+  const containerHome = document.createElement('div');
 
     const templateHome = `
       <form class="conteudoComeço">
@@ -18,10 +18,7 @@ export default () => {
       </form>
     `;
 
-    containerHome.innerHTML = templateHome;
+  containerHome.innerHTML = templateHome;
+  return containerHome;
 
-    return containerHome;
-
-}
-
-
+};

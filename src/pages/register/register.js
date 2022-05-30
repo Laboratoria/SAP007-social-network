@@ -1,7 +1,7 @@
-import { userCreate } from "../../lib/auth-firebase.js";
+import { userCreate } from '../../lib/auth-firebase.js';
 
 export default () => {
-    const containerRegister = document.createElement('div')
+    const containerRegister = document.createElement('div');
 
     const templateRegister = `
       <form class="conteudoRegister">  
@@ -10,7 +10,7 @@ export default () => {
       <input type="email" class="input email" id="inputEmail" placeholder="Insira seu email" requerid /><br>
       <input type="password" class="input confirmaSenha" id="inputSenha" placeholder="Confirme sua senha" requerid /><br>
       <p id="message" class="sucessMessage" menssage"></p>
-    <br><button class='btn submit' type="submit" id="btn-Cadastrar">Sign Up</button><br>
+    <br><button class='btn submit' type="submit" id="btn-Cadastrar">Cadastrar</button><br>
     <p> Já tem conta?
       <a href="#login">Entrar</a></p></form>
       
@@ -18,10 +18,10 @@ export default () => {
 
     containerRegister.innerHTML = templateRegister;
 
-const name = containerRegister.querySelector("#inputEmail");
-const email = containerRegister.querySelector("#inputName");
-const password = containerRegister.querySelector("#inputSenha");
-const btnCadastrar = containerRegister.querySelector("#btn-Cadastrar");
+const name = containerRegister.querySelector('#inputEmail');
+const email = containerRegister.querySelector('#inputName');
+const password = containerRegister.querySelector('#inputSenha');
+const btnCadastrar = containerRegister.querySelector('#btn-Cadastrar');
 const msgAlert = containerRegister.querySelector('#message');
 
 btnCadastrar.addEventListener('click', (e) => {
@@ -29,8 +29,8 @@ btnCadastrar.addEventListener('click', (e) => {
   if (name.value, email.value, password.value) {
     userCreate(name.value, email.value, password.value)
   .then(() => {
-     window.location.hash = "#feed";
-      
+     window.location.hash = '#feed';
+  
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -57,8 +57,8 @@ btnCadastrar.addEventListener('click', (e) => {
             errorMessage = 'Preencha todos os campos';
             msgAlert.innerHTML = errorMessage;
   }
-}) 
+});
 }
-})
+});
 return containerRegister;
-}
+};

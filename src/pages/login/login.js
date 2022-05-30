@@ -1,18 +1,17 @@
-import { loginGoogle, userLogin } from "../../lib/auth-firebase.js";
-
+import { loginGoogle, userLogin } from '../../lib/auth-firebase.js';
 
 export default () => {
-  const containerLogin = document.createElement('div')
+  const containerLogin = document.createElement('div');
 
   const templateLogin = `
       <form class="conteudoLogin">
-      <p class="paragrafoLogin">Login</p>
+      <p class="paragrafoLogin">Entrar</p>
       <input type="email" class="inputEmail" id="inputEmail" placeholder="Insira seu Email" /><br>
       <input type="password"class="inputSenha" id="inputSenha" placeholder="Insira sua senha" /><br>
       <a href="" > <p class='reset-password'>Esqueceu sua senha?</p></a><br>
       <p id="message" class="successMessage menssage"></p>
-      <br><button class="btn-entrar" id="btn-Entrar">Entrar</button><br>
-      <button class="btn-google" id="buttonGoogle">Entrar com o Google
+      <br><button class="btn entrar" id="btn-Entrar">Entrar</button><br>
+      <button class="btn google" id="buttonGoogle">Entrar com o Google
       </button>
       <p> Não tem conta?
       <a href="#register">Criar</a></p><br>
@@ -24,20 +23,18 @@ export default () => {
   const loginButtonGoogle = containerLogin.querySelector('#buttonGoogle');
   const loginEmail = containerLogin.querySelector('#inputEmail');
   const loginSenha = containerLogin.querySelector('#inputSenha');
-  const btnEntrar = containerLogin.querySelector("#btn-Entrar");
+  const btnEntrar = containerLogin.querySelector('#btn-Entrar');
   const msgAlert = containerLogin.querySelector('#message');
-  
-  //const btReset = containerLogin.querySelector('reset-password');   
-  //const btnSair = containerLogin.querySelector('#btn-Sair')
+  const btReset = containerLogin.querySelector('.reset-password');
 
-  loginButtonGoogle.addEventListener("click", (e) => {
+  loginButtonGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle()
       .then(() => {
-      window.location.hash = "#feed";    
+    window.location.hash = '#feed';    
     })
       .catch((error) => {
-      msgAlert.innerHTML = "Login não deu certo, tente novamente!";
+      msgAlert.innerHTML = 'Login não deu certo, tente novamente!';
       });
   });
 
@@ -46,7 +43,7 @@ export default () => {
     if (loginEmail.value) {
       userLogin(loginEmail.value, loginSenha.value)
       .then(() => {
-        window.location.hash = "#feed";
+        window.location.hash = '#feed';
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -60,7 +57,7 @@ export default () => {
           case 'auth/invalid-email':
             messageError = 'Insira um email válido.';
             msgAlert.innerHTML = messageError;
-            break; 
+            break;
           case 'auth/user-not-found':
               messageError = 'Usuário não encontrado.';
               msgAlert.innerHTML = messageError;
@@ -73,11 +70,11 @@ export default () => {
               messageError = 'Erro desconhecido';
               msgAlert.innerHTML = messageError;  
         }          
-      })
+      });
     }
-  })
+  });
         
-   /* btReset.addEventListener('click', (e) => {
+  btReset.addEventListener('click', (e) => {
       e.preventDefault();  
       sendPasswordResetEmail(auth, email)
       .then(() => {
@@ -92,8 +89,8 @@ export default () => {
           msgAlert.innerHTML = messageError;
           break;
         }
-        })    
-    })*/       
+        });
+    });
 
 return containerLogin;
 }

@@ -7,34 +7,30 @@
     font-family: Macondo;
     box-sizing: border-box;
   }
+
   .conteudoRegister {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: white;
-    border-radius: 12px 12px 12px 12px;
     width: 70%;
     height: auto;
-    margin-top: 20%;
     margin-left: 15%;
     text-align: center;
     padding-top: 6%;
     padding-bottom: 4%;
-    border-style: solid;
-    border-color: darkgreen;
   }
 
   .btn {
-    background-color: chartreuse;
-    color: crimson;
+    background-color: #C3DB7B;
+    color: #B51D4C;
     width: 200px;
     height: 40px;
     margin-top: 12px;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
-    border-color: chartreuse;
+    border-color: #C3DB7B;
     text-align: center;
     font-size: 1em;
     cursor: pointer;
@@ -44,7 +40,7 @@
   width: 180px;
   height: 58px;
   border-style: groove;
-  border-color: darkgreen;
+  border-color: #306B35;
   border-radius: 30px 30px 30px 30px;
   margin-left: 5px;
   margin-top: 20px;
@@ -53,27 +49,22 @@
   box-shadow: 2px 2px 2px grey;
 }
 .paragrafoLogin {
-  color: crimson;
+  color: #B51D4C;
   font-size: 2em;
 }
 
 @media (min-width: 810px) {
   .conteudoRegister {
-    background: white;
-    border-radius: 12px 12px 12px 12px;
     width: 60%;
     height: auto;
-    margin-top: 20%;
     margin-left: 20%;
     text-align: center;
     padding-top: 6%;
     padding-bottom: 4%;
-    border-style: solid;
-    border-color: darkgreen;
   }
 
   .paragrafoLogin {
-    color: crimson;
+    color: #B51D4C;
     font-size: 2.5em;
   }
 
@@ -81,7 +72,7 @@
     width: 350px;
     height: 60px;
     border-style: groove;
-    border-color: darkgreen;
+    border-color: #306B35;
     border-radius: 30px 30px 30px 30px;
     margin-left: 9px;
     margin-top: 30px;
@@ -95,13 +86,13 @@
   }
 
   .btn {
-    background-color: chartreuse;
-    color: crimson;
+    background-color: #C3DB7B;
+    color: #B51D4C;
     width: 350px;
     height: 60px;
     border-radius: 20px 20px 20px 20px;
     border-style: solid;
-    border-color: chartreuse;
+    border-color: #C3DB7B;
     text-align: center;
     font-size: 1em;
     margin-top: 10px;
