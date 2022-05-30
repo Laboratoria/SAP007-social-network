@@ -1,6 +1,7 @@
 import { auth } from '../lib/auth-firebase.js';
 import { modalEditPost } from './modal.js';
-import { deletePost, like, dislike } from '../lib/config-firestore.js';
+import { modalDeletePost } from './modaldelete.js';
+import { like, dislike } from '../lib/config-firestore.js';
 
 export const criarCard = (post) => {
   const divCard = document.createElement('div');
@@ -53,9 +54,9 @@ export const criarCard = (post) => {
   });
 
   const buttonDelete = divCard.querySelector('.iconDelete');
-  buttonDelete.addEventListener('click', () => {
-    deletePost(post.id);
-    divCard.remove();
+  buttonDelete.addEventListener('click', (e) => {
+    e.preventDefault();
+    divCard.appendChild(modalDeletePost(post, divCard));
   });
 
   return divCard;
