@@ -1,0 +1,43 @@
+
+#container-landing {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+#container-landing h1 {
+  color: #3d9ae2;
+  font-size: 41px;
+}
+#container-landing img {
+  height: 50%;
+  width: 50%;
+  margin-bottom: 36px;
+}
+#container-landing #logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+#button-group {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  height: calc(52px + 2%);
+  justify-content: center;
+}
+#button-group form {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+#button-group button {
+  width: 45%;
+  line-height: 52px;
+  height: 52px;
+}
+#container-landing #btn-login {
+  margin-right: 5px;
+}
