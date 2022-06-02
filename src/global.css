@@ -11,11 +11,10 @@ body,
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 body {
   font-family: Comfortaa;
-  background-color: rgba(236, 240, 245, 0.596);
+  background-color: white;
 }
 .btn {
   color: #fff;
@@ -26,15 +25,14 @@ body {
   width: 150px;
   border: none;
 }
-.btn-primary {
+.btn-primari {
   background-color: #fff;
   color: #3d9ae2;
   border: 2px solid #3d9ae2;
 }
-.btn-primary:hover {
+.btn-primari:hover{
   background-color: transparent;
-  color: #3d9ae2;
 }
-.btn-secondary {
+.btn-secondari {
   background-color: #3d9ae2;
 }

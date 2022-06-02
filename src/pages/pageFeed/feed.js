@@ -11,23 +11,24 @@ export default () => {
   if (user) {
     container.innerHTML = `<div>
         ${user.email}
+        <h1>Feed</h1>
       </div>
       <form>
         <button class = "btn btn-primary">logout</button>
       </form>
       `;
-    container.addEventListener('submit', (event) => {
-      event.preventDefault();
-      signOut(auth)
-        .then(() => {
-          window.location.hash = '#login';
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
-  } else {
-    window.location.hash = '#login';
-  }
-  return container;
-};
+      container.addEventListener('submit', (event) => {
+        event.preventDefault();
+        signOut(auth)
+          .then(() => {
+            window.location.hash = '#login';
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+    } else {
+      window.location.hash = '#login';
+    }
+    return container;
+  };

@@ -1,10 +1,8 @@
-
-@font-face {
-    font-family: Comfortaa;
-    src: url(Comfortaa-Light.ttf);
-}  
+  
 @import url('./global.css');
 @import url('./pages/pageLogin/login.css');
 @import url('./pages/pageRegister/register.css');
 @import url('./pages/pageFeed/feed.css');
 @import url('./pages/landingPage/landing.css');
+
+

@@ -8,8 +8,8 @@ export default () => {
     </div>
     <div id="button-group">
         <form>
-            <button id="btn-login" class="btn btn-primary">LOG IN</button>
-            <button class="btn btn-secondary">REGISTER</button>
+            <button id="btn-login" class="btn btn-primari">LOG IN</button>
+            <button class="btn btn-secondari">REGISTER</button>
         </form>
     </div>
     `;

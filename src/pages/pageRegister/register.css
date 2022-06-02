@@ -1,5 +1,5 @@
 .container{
-    background: linear-gradient(to bottom,rgba(167, 162, 189, 0.3),rgba(166, 169, 185, 0.418),rgba(138, 154, 173, 0.548));;
+    background: rgb(247, 247, 247);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 .content{
     border-radius: 50px;
-    background-color: white;
+    background-color:white;
     width: 80%;
     height: 80%;
     justify-content: space-between;
@@ -40,8 +40,17 @@
     color: #fff;
     line-height: 30px;
 }
+.btn-primary {
+    width: 150px;
+    margin: 2rem;
+    background-color: #fff;
+    color: #3d9ae2;
 
-
+}
+.btn-primary:hover{
+    background-color:rgba(84, 160, 179, 0.945);
+    color:#fff;
+}
 .btn-second{
     margin: 2rem;
     background-color: rgba(84, 160, 179, 0.945);
@@ -72,20 +81,23 @@
     width: 50%;
 }
 .form input{
-    padding: 10px;
-    height: 45px;
+    border-radius: 10px;
+    padding: 5px;
+    height: 40px;
     border:none;
     outline: none;
-    background-color: rgb(220, 241, 239);
+    background-color: white;
     width: 100%;
 }
 .label-input{
     border-radius: 10px;
-    background-color: rgb(220, 241, 239);
+    background-color: white;
+    border: 2px solid rgb(18, 139, 190);
     display: flex;
     align-items: center;
-    margin: 8px;
-    padding: 0 5px;
+    margin: 7px;
+    padding: 0 3px;
+
 }
 .icon-modify{
     color: rgb(86, 95, 121);
