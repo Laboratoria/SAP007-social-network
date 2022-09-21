@@ -1,7 +1,6 @@
-import '../../lib/config-firebase.js';
-import { addPosts, getPost } from '../../lib/config-firestore.js';
-import { criarCard } from '../../componentes/card.js';
+import { getPost, addPosts } from '../../lib/config-firestore.js';
 import { auth, userLogout } from '../../lib/auth-firebase.js';
+import { criarCard } from '../../componentes/card.js';
 
 export default () => {
   const containerFeed = document.createElement('div');
@@ -38,14 +37,14 @@ export default () => {
     if (inputTitulo.value === '' || inputPost.value === '') {
       msgAlert.innerHTML = 'Escreva sua teoria';
     } else {
-      addPosts(inputTitulo.value, inputPost.value, auth.currentUser.email).then((id) => {
+      addPosts(inputTitulo.value, inputPost.value, auth.currentUser.email).then(() => {
         let titulo = inputTitulo.value;
         let post = inputPost.value;
         const date = new Date().toLocaleString('pt-br');
         const item = {
           userEmail: auth.currentUser.email,
-          'titulo': titulo,
-          'post': post,
+          titulo,
+          post,
           date,
           likes: [],
         };
@@ -58,7 +57,7 @@ export default () => {
 
   const getPosts = async () => {
     const arrayPosts = await getPost();
-    arrayPosts.map(posts => {
+    arrayPosts.forEach((posts) => {
       const elemento = criarCard(posts);
       sectionAllPost.appendChild(elemento);
     });
@@ -73,4 +72,5 @@ export default () => {
 
   getPosts();
   return containerFeed;
-};
+// eslint-disable-next-line semi
+}

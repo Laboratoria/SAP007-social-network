@@ -2,16 +2,6 @@
     margin: 0;
     padding: 0;
 }
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background-color: #C3DB7B;
-    color: #B51D4C;
-    font-size: 1.2em;
-}
 
 .footer {
     display: flex;
@@ -28,3 +18,9 @@
     border-radius: 5px 5px 0px 0px;
 } 
 
+@media (max-width: 600px){
+.footer {
+    gap: 2px;
+    font-size: 1em;
+}
+}

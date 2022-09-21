@@ -1,11 +1,8 @@
 .feedcontainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: space-around;
-  background-color: beige;
-  margin-left: 20%;
-  margin-right: 20%;
+  align-items: center;
+  align-content: center;
 }
 
 .headerFeed {
@@ -38,7 +35,6 @@
   text-align: center;
   color: #000000;
 }
-
 .tItulo {
   color: #306B35; 
   text-align: center;

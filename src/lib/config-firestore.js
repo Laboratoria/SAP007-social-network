@@ -1,4 +1,3 @@
-import './config-firebase.js';
 import {
   collection,
   addDoc,
@@ -18,8 +17,8 @@ const db = getFirestore();
 export async function addPosts(inputTitulo, inputPost, userEmail) {
   try {
     const ref = await addDoc(collection(db, 'posts'), {
-      'titulo':inputTitulo,
-      'post':inputPost,
+      titulo: inputTitulo,
+      post: inputPost,
       userEmail,
       date: new Date().toLocaleString('pt-br'),
       likes: [],
@@ -34,9 +33,9 @@ export const getPost = async () => {
   const arrayPosts = [];
   const queryFirestore = query(collection(db, 'posts'), orderBy('date', 'desc'));
   const allPosts = await getDocs(queryFirestore);
-  allPosts.forEach((doc) => {
-    const timeline = doc.data();
-    arrayPosts.push({ ...timeline, id: doc.id });
+  allPosts.forEach((document) => {
+    const timeline = document.data();
+    arrayPosts.push({ ...timeline, id: document.id });
   });
   return arrayPosts;
 };
@@ -58,7 +57,7 @@ export async function dislike(id, userEmail) {
       likes: arrayRemove(userEmail),
     });
   } catch (e) {
-    return console.log('Dislike não deu certo!');
+    console.log('Dislike não deu certo!');
   }
 }
 export const editPosts = async (id, post) => {

@@ -1,106 +1,12 @@
-/*@import url("https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap");*/
-
-@media (min-width: 360px) {
-  * {
-    margin: 0px;
-    padding: 0px;
-    font-family: Macondo;
-    box-sizing: border-box;
-  }
-
   .conteudoRegister {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    width: 70%;
-    height: auto;
-    margin-left: 15%;
-    text-align: center;
-    padding-top: 6%;
-    padding-bottom: 4%;
+    align-content: center;
+    font-size: 1.5em;
   }
-
-  .btn {
-    background-color: #C3DB7B;
-    color: #B51D4C;
-    width: 200px;
-    height: 40px;
-    margin-top: 12px;
-    border-radius: 20px 20px 20px 20px;
-    border-style: solid;
-    border-color: #C3DB7B;
-    text-align: center;
-    font-size: 1em;
-    cursor: pointer;
-  }
-}
-.input {
-  width: 180px;
-  height: 58px;
-  border-style: groove;
-  border-color: #306B35;
-  border-radius: 30px 30px 30px 30px;
-  margin-left: 5px;
-  margin-top: 20px;
-  text-align: center;
-  font-size: 0.9em;
-  box-shadow: 2px 2px 2px grey;
-}
-.paragrafoLogin {
+.paragraphLogin {
   color: #B51D4C;
+  font-weight: 600;
   font-size: 2em;
-}
-
-@media (min-width: 810px) {
-  .conteudoRegister {
-    width: 60%;
-    height: auto;
-    margin-left: 20%;
-    text-align: center;
-    padding-top: 6%;
-    padding-bottom: 4%;
-  }
-
-  .paragrafoLogin {
-    color: #B51D4C;
-    font-size: 2.5em;
-  }
-
-  .input {
-    width: 350px;
-    height: 60px;
-    border-style: groove;
-    border-color: #306B35;
-    border-radius: 30px 30px 30px 30px;
-    margin-left: 9px;
-    margin-top: 30px;
-    text-align: center;
-    font-size: 0.9em;
-    box-shadow: 2px 2px 2px grey;
-  }
-
-  .Senha {
-    margin-bottom: 30px;
-  }
-
-  .btn {
-    background-color: #C3DB7B;
-    color: #B51D4C;
-    width: 350px;
-    height: 60px;
-    border-radius: 20px 20px 20px 20px;
-    border-style: solid;
-    border-color: #C3DB7B;
-    text-align: center;
-    font-size: 1em;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-}
-
-.conteudoRegister {
-  height: auto;
-  padding-bottom: 4%;
 }

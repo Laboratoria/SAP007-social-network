@@ -1,6 +1,5 @@
 import { auth } from '../lib/auth-firebase.js';
-import { modalEditPost } from './modal.js';
-import { modalDeletePost } from './modaldelete.js';
+import { modalEditPost, modalDeletePost } from './modal.js';
 import { like, dislike } from '../lib/config-firestore.js';
 
 export const criarCard = (post) => {

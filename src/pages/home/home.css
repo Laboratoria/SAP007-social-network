@@ -1,59 +1,21 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Satisfy&display=swap');*/
-
-@media (min-width: 360px) {
-
-  /**{
-    font-family: Satisfy;
-  }*/
-
-  .conteudoComeço {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    border-radius: 12px 12px 12px 12px;
-    width: 75%;
-    height: auto;
-    margin-left: 12%;
-    text-align: center;
-    padding-top: 6%;
-    padding-bottom:4%;
-  }
-
- .boasVindas {
-  font-size: 1.5em;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  color: #B51D4C;
- }
-
- .mensagem {
-  margin-top: 8%;
-  padding-left: 7px;
-  padding-right: 7px;
-  font-size: 1.2em;
- }
- .criar-entrar {
-  font-size: 1.1em;
-  margin-top: 20%;
- }
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4em;
+  text-align:center;
+  color: #1B5354;
 }
 
-.conteudoComeço {
-  height: auto;
-  padding-bottom: 4%;
+.imageLogo {
+  width: 60%;
 }
 
-.mensagem {
-  font-size: 2em;
+@media (max-width: 600px)
+{
+.imageLogo {
+  width: 80%;
+}
 }
 
-.criar-entrar {
-  font-size: 1.5em;
-  margin-top: 10%;
-}
-
-.boasVindas {
-  font-size: 2em;
-}
 

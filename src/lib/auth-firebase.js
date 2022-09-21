@@ -20,8 +20,6 @@ export function userCreate(name, email, password) {
   );
 }
 export const loginGoogle = () => signInWithPopup(auth, provider).then((result) => {
-  const credential = GoogleAuthProvider.credentialFromResult(result);
-  const token = credential.accessToken;
   const user = result.user;
   return user;
 });
@@ -50,7 +48,6 @@ export function userLogout() {
 }
 
 export function getUser() {
-  const auth = getAuth();
   const user = auth.currentUser;
 
   return user || localStorage.getItem('userEmail');
