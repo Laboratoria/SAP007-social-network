@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #C3DB7B;
+    color: #B51D4C;
+    font-size: 1.2em;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #C3DB7B;
+    font-size: 1.2em;
+    color: #306B35;
+    height: 12vh;
+    text-align: center; 
+    border-radius: 5px 5px 0px 0px;
+} 
+
